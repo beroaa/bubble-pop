@@ -1,0 +1,35 @@
+# Menu Sadah — Locked Build Standard
+
+This repo hosts Menu Sadah client menus under `menus/<slug>/`. Every menu build MUST follow this standard and ship the full "all included" pack. Slug = kebab-case brand name; live URL = `menu-sadah.com/<slug>`.
+
+## All-included delivery pack (every build, no exceptions)
+
+Each `menus/<slug>/` folder ships:
+
+1. `index.html` — the menu page, fully self-contained (inline CSS/JS; Google Fonts links allowed).
+2. `qr-<slug>.png` — 1200 px QR → `https://menu-sadah.com/<slug>`, ECC level H.
+3. `qr-<slug>.svg` — same QR as vector for print shops.
+4. `table-card.html` — print-ready A6 (105×148 mm, `@page` CSS, 100% scale) table card: brand mark + wordmark, framed QR on white, "Scan to view the menu" EN over AR, plain-text URL fallback, location + IG footer.
+5. `handover.md` — live link, file inventory, bilingual how-to-use for the owner (print specs: A6, 250–300 gsm matte; link-in-bio; "changes take one message, same-day update, QR never changes"), plus an **Internal — Menu Sadah** section: offer, outreach draft, brand tokens, price-anchor sources.
+
+## The 6-point locked standard
+
+1. **Spy the brand first** — Instagram, signage, cups. Pull exact fonts (EN + AR), colours, own artwork if published. If sources are unreachable, build a premium plausible identity and note the assumption in handover.md.
+2. **Signature hero animation** under the logo — elegant + abstract, tailored to the brand mark, never childish. Respect `prefers-reduced-motion`.
+3. **Big bold typography** — English slightly bigger than its Arabic (e.g. EN 1.06rem / AR 0.9rem for items). Tabular numerals for prices.
+4. **Outreach** — gift-first, never lead with price, never say "QR menu", voice-matched to the owner.
+5. **Offer** — SR 499 build + SR 199/mo; founding option SR 999 with SR 500 deposit.
+6. **Bulletproof** — 5x design pass; OCD on numbers + alignment; verify in a real browser at 375 px (Playwright: `createRequire('/opt/node22/lib/node_modules/playwright/')`, launch with `proxy: {server: process.env.HTTPS_PROXY}` + `ignoreHTTPSErrors: true` so Google Fonts load; assert `document.body.scrollWidth === 375`, verify fonts render via metric comparison, screenshot top/middle/footer + one desktop pass).
+
+## House design language (default when brand assets unreachable)
+
+- Dark premium: bg `#171009`, ink `#F3EADC`, copper `#C68A4B`/`#E2B47F`, hairlines `rgba(198,138,75,.18)`.
+- Fonts: EN **Sora**, AR **IBM Plex Sans Arabic** (swap for exact brand fonts when found).
+- Layout: max-width 520 px centered; sticky chip nav (opaque bg — headless Chromium doesn't render backdrop-blur); item rows = names (flex:0 1 auto) + dotted leader (flex:1 0 16px) + price; `.n-note` capped at 23ch.
+- Sections: Hot Coffee / Cold Coffee / Filter & Brew / Beyond Coffee / Bakery & Sweets (bilingual headers, EN nowrap-clamped).
+
+## Repo / git rules
+
+- Set `git config user.email noreply@anthropic.com && git config user.name Claude` **before committing** (stop-hook enforces committer email; no signing key exists here).
+- Push only to the session's designated `claude/...` branch. If the git proxy returns 403 on push: reads still work — retry in a background loop (60 s interval); it's a write-permission grant issue on the GitHub app, not a network error. GitHub MCP `push_files`/`create_branch` will also 403 in that state.
+- Deliver artifacts to the user directly (SendUserFile) when pushes are blocked, so delivery never waits on permissions.
