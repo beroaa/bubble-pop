@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Three Coffee · ثري كافيه — Menu</title>
+<meta name="description" content="Three Coffee — specialty coffee, As Sulaimaniyah & Olaya, Riyadh. القائمة الرسمية.">
+<meta name="theme-color" content="#171009">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23171009'/%3E%3Cg fill='none' stroke='%23C68A4B' stroke-linecap='round'%3E%3Ccircle cx='32' cy='32' r='9' stroke-width='3'/%3E%3Cpath d='M32 13a19 19 0 0 1 16.4 28.5' stroke-width='3' opacity='.75'/%3E%3Cpath d='M32 51a19 19 0 0 1-16.4-28.5' stroke-width='3' opacity='.45'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#171009;
+    --bg-soft:#1f1710;
+    --ink:#F3EADC;
+    --ink-dim:#B9A98F;
+    --ink-faint:#8B7C63;
+    --copper:#C68A4B;
+    --copper-soft:#E2B47F;
+    --line:rgba(198,138,75,.18);
+    --en:"Sora",system-ui,sans-serif;
+    --ar:"IBM Plex Sans Arabic","Sora",system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--en);
+    -webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(1200px 600px at 50% -200px, rgba(198,138,75,.10), transparent 70%);
+  }
+  .wrap{max-width:520px;margin:0 auto;padding:0 22px 64px}
+
+  /* ---------- header / brand ---------- */
+  header{padding:52px 0 8px;text-align:center}
+  .brand-en{
+    font-weight:800;font-size:clamp(2.1rem,9.6vw,2.6rem);
+    letter-spacing:.34em;text-indent:.34em;line-height:1;
+  }
+  .brand-sub{
+    margin-top:10px;font-size:.66rem;letter-spacing:.52em;text-indent:.52em;
+    color:var(--copper);text-transform:uppercase;font-weight:600;
+  }
+  .brand-ar{
+    font-family:var(--ar);font-weight:500;font-size:1.18rem;
+    color:var(--ink-dim);margin-top:14px;
+  }
+
+  /* ---------- hero animation : three bloom rings ---------- */
+  .hero{display:flex;justify-content:center;padding:26px 0 10px}
+  .mark{width:168px;height:168px;position:relative}
+  .mark svg{width:100%;height:100%;overflow:visible}
+  .orbit{transform-origin:100px 100px}
+  .o1{animation:spin 26s linear infinite}
+  .o2{animation:spin-rev 38s linear infinite}
+  .o3{animation:spin 52s linear infinite}
+  .ring{
+    fill:none;stroke-linecap:round;
+    stroke-dasharray:1000;stroke-dashoffset:1000;
+    animation:draw 2.6s cubic-bezier(.6,0,.2,1) forwards;
+  }
+  .r1{stroke:var(--copper-soft);stroke-width:2.5;animation-delay:.2s}
+  .r2{stroke:var(--copper);stroke-width:2;opacity:.8;animation-delay:.6s}
+  .r3{stroke:var(--copper);stroke-width:1.5;opacity:.45;animation-delay:1s}
+  .bean{fill:var(--copper-soft);animation:pulse 4.5s ease-in-out infinite}
+  .halo{fill:none;stroke:var(--copper);opacity:.14;animation:breathe 7s ease-in-out infinite}
+  @keyframes draw{to{stroke-dashoffset:340}}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes spin-rev{to{transform:rotate(-360deg)}}
+  @keyframes pulse{0%,100%{r:5}50%{r:6.5}}
+  @keyframes breathe{0%,100%{transform:scale(1);opacity:.14}50%{transform:scale(1.06);opacity:.24}}
+  @media (prefers-reduced-motion:reduce){
+    .o1,.o2,.o3,.bean,.halo{animation:none}
+    .ring{animation:none;stroke-dashoffset:340}
+  }
+
+  .tagline{
+    text-align:center;color:var(--ink-faint);font-size:.72rem;
+    letter-spacing:.30em;text-indent:.30em;text-transform:uppercase;
+    padding:6px 0 26px;
+  }
+  .tagline .ar{font-family:var(--ar);letter-spacing:0;text-indent:0;display:block;margin-top:7px;font-size:.8rem}
+
+  /* ---------- sticky nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:10;
+    background:#191209;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+    margin:0 -22px;padding:0 22px;
+  }
+  .chips{display:flex;gap:8px;overflow-x:auto;padding:12px 28px 12px 0;scrollbar-width:none;
+    mask-image:linear-gradient(90deg,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,#000 92%,transparent)}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{
+    flex:0 0 auto;font-family:var(--en);font-weight:600;font-size:.78rem;
+    color:var(--ink-dim);background:transparent;border:1px solid var(--line);
+    border-radius:999px;padding:8px 15px;text-decoration:none;white-space:nowrap;
+    transition:all .25s ease;
+  }
+  .chip.active,.chip:hover{color:var(--bg);background:var(--copper);border-color:var(--copper)}
+
+  /* ---------- sections ---------- */
+  section{padding-top:44px}
+  .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:6px}
+  .sec-en{font-weight:800;font-size:clamp(1.14rem,5.6vw,1.42rem);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+  .sec-ar{font-family:var(--ar);font-weight:600;font-size:1.02rem;color:var(--copper)}
+  .sec-rule{height:2px;background:linear-gradient(90deg,var(--copper) 0 42px,var(--line) 42px);border:0;margin-bottom:10px}
+
+  .item{
+    display:flex;align-items:baseline;gap:14px;
+    padding:17px 0;border-bottom:1px solid rgba(243,234,220,.06);
+  }
+  .item:last-child{border-bottom:0}
+  .names{flex:0 1 auto;min-width:0}
+  .n-en{font-weight:600;font-size:1.06rem;letter-spacing:.01em}
+  .n-en .sig{color:var(--copper-soft);font-size:.82em;margin-left:5px}
+  .n-ar{font-family:var(--ar);font-weight:400;font-size:.9rem;color:var(--ink-dim);margin-top:4px}
+  .n-note{font-size:.72rem;color:var(--ink-faint);margin-top:5px;letter-spacing:.02em;max-width:23ch}
+  .dots{flex:1 0 16px;border-bottom:1.5px dotted rgba(198,138,75,.30);transform:translateY(-4px)}
+  .price{
+    font-weight:700;font-size:1.06rem;color:var(--copper-soft);
+    font-variant-numeric:tabular-nums;white-space:nowrap;
+  }
+  .price small{font-size:.62em;font-weight:600;color:var(--ink-faint);margin-right:3px;letter-spacing:.05em}
+
+  /* ---------- footer ---------- */
+  footer{margin-top:64px;text-align:center;border-top:1px solid var(--line);padding-top:34px}
+  .f-mark{color:var(--copper);font-size:.7rem;letter-spacing:.4em;text-indent:.4em;font-weight:700}
+  .f-loc{margin-top:14px;font-size:.82rem;color:var(--ink-dim);line-height:1.9}
+  .f-loc .ar{font-family:var(--ar)}
+  .f-ig{display:inline-block;margin-top:12px;color:var(--copper-soft);text-decoration:none;font-weight:600;font-size:.85rem;letter-spacing:.06em}
+  .f-credit{margin-top:30px;font-size:.62rem;color:var(--ink-faint);letter-spacing:.18em;text-transform:uppercase}
+  .f-credit a{color:inherit;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand-en">THREE</div>
+    <div class="brand-sub">Coffee · Riyadh</div>
+    <div class="brand-ar">ثري كافيه</div>
+  </header>
+
+  <div class="hero" aria-hidden="true">
+    <div class="mark">
+      <svg viewBox="0 0 200 200">
+        <circle class="halo" cx="100" cy="100" r="92" stroke-width="1"/>
+        <g class="orbit o3">
+          <circle class="ring r3" cx="100" cy="100" r="76" pathLength="1000" stroke-dasharray="0 1000" style="stroke-dasharray:620 380"/>
+        </g>
+        <g class="orbit o2">
+          <circle class="ring r2" cx="100" cy="100" r="54" style="stroke-dasharray:560 440"/>
+        </g>
+        <g class="orbit o1">
+          <circle class="ring r1" cx="100" cy="100" r="32" style="stroke-dasharray:500 500"/>
+        </g>
+        <circle class="bean" cx="100" cy="100" r="5"/>
+      </svg>
+    </div>
+  </div>
+
+  <p class="tagline">Specialty Coffee, Poured Slowly
+    <span class="ar">قهوة مختصة … تُسكب على مهل</span>
+  </p>
+
+  <nav aria-label="Menu sections">
+    <div class="chips" id="chips">
+      <a class="chip active" href="#hot">Hot Coffee</a>
+      <a class="chip" href="#cold">Cold Coffee</a>
+      <a class="chip" href="#brew">Filter &amp; Brew</a>
+      <a class="chip" href="#beyond">Beyond Coffee</a>
+      <a class="chip" href="#bakery">Bakery &amp; Sweets</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <section id="hot">
+      <div class="sec-head"><h2 class="sec-en">Hot Coffee</h2><span class="sec-ar">قهوة ساخنة</span></div>
+      <hr class="sec-rule">
+      <div class="item"><div class="names"><div class="n-en">Espresso</div><div class="n-ar">إسبريسو</div></div><div class="dots"></div><div class="price"><small>SR</small>12</div></div>
+      <div class="item"><div class="names"><div class="n-en">Macchiato</div><div class="n-ar">ماكياتو</div></div><div class="dots"></div><div class="price"><small>SR</small>14</div></div>
+      <div class="item"><div class="names"><div class="n-en">Cortado</div><div class="n-ar">كورتادو</div></div><div class="dots"></div><div class="price"><small>SR</small>15</div></div>
+      <div class="item"><div class="names"><div class="n-en">Flat White</div><div class="n-ar">فلات وايت</div></div><div class="dots"></div><div class="price"><small>SR</small>16</div></div>
+      <div class="item"><div class="names"><div class="n-en">Cappuccino</div><div class="n-ar">كابتشينو</div></div><div class="dots"></div><div class="price"><small>SR</small>17</div></div>
+      <div class="item"><div class="names"><div class="n-en">Latte</div><div class="n-ar">لاتيه</div></div><div class="dots"></div><div class="price"><small>SR</small>17</div></div>
+      <div class="item"><div class="names"><div class="n-en">Spanish Latte <span class="sig">✦</span></div><div class="n-ar">سبانيش لاتيه</div><div class="n-note">House favourite</div></div><div class="dots"></div><div class="price"><small>SR</small>20</div></div>
+      <div class="item"><div class="names"><div class="n-en">Americano</div><div class="n-ar">أمريكانو</div></div><div class="dots"></div><div class="price"><small>SR</small>14</div></div>
+      <div class="item"><div class="names"><div class="n-en">Saudi Coffee</div><div class="n-ar">قهوة سعودية</div><div class="n-note">With dates · مع التمر</div></div><div class="dots"></div><div class="price"><small>SR</small>16</div></div>
+      <div class="item"><div class="names"><div class="n-en">Hot Chocolate</div><div class="n-ar">شوكولاتة ساخنة</div></div><div class="dots"></div><div class="price"><small>SR</small>22</div></div>
+    </section>
+
+    <section id="cold">
+      <div class="sec-head"><h2 class="sec-en">Cold Coffee</h2><span class="sec-ar">قهوة باردة</span></div>
+      <hr class="sec-rule">
+      <div class="item"><div class="names"><div class="n-en">Iced Americano</div><div class="n-ar">أمريكانو مثلج</div></div><div class="dots"></div><div class="price"><small>SR</small>16</div></div>
+      <div class="item"><div class="names"><div class="n-en">Iced Latte</div><div class="n-ar">لاتيه مثلج</div></div><div class="dots"></div><div class="price"><small>SR</small>18</div></div>
+      <div class="item"><div class="names"><div class="n-en">Iced Spanish Latte <span class="sig">✦</span></div><div class="n-ar">سبانيش لاتيه مثلج</div></div><div class="dots"></div><div class="price"><small>SR</small>21</div></div>
+      <div class="item"><div class="names"><div class="n-en">Iced Mocha</div><div class="n-ar">موكا مثلجة</div></div><div class="dots"></div><div class="price"><small>SR</small>21</div></div>
+      <div class="item"><div class="names"><div class="n-en">Cold Brew</div><div class="n-ar">كولد برو</div><div class="n-note">Steeped 18h · نقع ١٨ ساعة</div></div><div class="dots"></div><div class="price"><small>SR</small>20</div></div>
+    </section>
+
+    <section id="brew">
+      <div class="sec-head"><h2 class="sec-en">Filter &amp; Brew</h2><span class="sec-ar">قهوة مقطّرة</span></div>
+      <hr class="sec-rule">
+      <div class="item"><div class="names"><div class="n-en">V60 <span class="sig">✦</span></div><div class="n-ar">في ٦٠</div><div class="n-note">Rotating single origin</div></div><div class="dots"></div><div class="price"><small>SR</small>22</div></div>
+      <div class="item"><div class="names"><div class="n-en">Chemex</div><div class="n-ar">كيمكس</div></div><div class="dots"></div><div class="price"><small>SR</small>25</div></div>
+      <div class="item"><div class="names"><div class="n-en">Cold Brew Tonic</div><div class="n-ar">كولد برو تونيك</div></div><div class="dots"></div><div class="price"><small>SR</small>24</div></div>
+    </section>
+
+    <section id="beyond">
+      <div class="sec-head"><h2 class="sec-en">Beyond Coffee</h2><span class="sec-ar">مشروبات أخرى</span></div>
+      <hr class="sec-rule">
+      <div class="item"><div class="names"><div class="n-en">Matcha Latte</div><div class="n-ar">ماتشا لاتيه</div></div><div class="dots"></div><div class="price"><small>SR</small>22</div></div>
+      <div class="item"><div class="names"><div class="n-en">Iced Matcha</div><div class="n-ar">ماتشا مثلجة</div></div><div class="dots"></div><div class="price"><small>SR</small>24</div></div>
+      <div class="item"><div class="names"><div class="n-en">Hibiscus Iced Tea</div><div class="n-ar">كركديه مثلج</div></div><div class="dots"></div><div class="price"><small>SR</small>16</div></div>
+      <div class="item"><div class="names"><div class="n-en">Fresh Orange Juice</div><div class="n-ar">عصير برتقال طازج</div></div><div class="dots"></div><div class="price"><small>SR</small>18</div></div>
+    </section>
+
+    <section id="bakery">
+      <div class="sec-head"><h2 class="sec-en">Bakery &amp; Sweets</h2><span class="sec-ar">مخبوزات وحلى</span></div>
+      <hr class="sec-rule">
+      <div class="item"><div class="names"><div class="n-en">Butter Croissant</div><div class="n-ar">كرواسون زبدة</div></div><div class="dots"></div><div class="price"><small>SR</small>14</div></div>
+      <div class="item"><div class="names"><div class="n-en">Cheese Croissant</div><div class="n-ar">كرواسون جبن</div></div><div class="dots"></div><div class="price"><small>SR</small>21</div></div>
+      <div class="item"><div class="names"><div class="n-en">Almond Croissant <span class="sig">✦</span></div><div class="n-ar">كرواسون لوز</div></div><div class="dots"></div><div class="price"><small>SR</small>23</div></div>
+      <div class="item"><div class="names"><div class="n-en">Pistachio Danish</div><div class="n-ar">دانش فستق</div></div><div class="dots"></div><div class="price"><small>SR</small>20</div></div>
+      <div class="item"><div class="names"><div class="n-en">San Sebastián Cheesecake</div><div class="n-ar">تشيز كيك سان سيباستيان</div></div><div class="dots"></div><div class="price"><small>SR</small>26</div></div>
+      <div class="item"><div class="names"><div class="n-en">Chocolate Brownie</div><div class="n-ar">براوني الشوكولاتة</div></div><div class="dots"></div><div class="price"><small>SR</small>18</div></div>
+      <div class="item"><div class="names"><div class="n-en">Date Cake</div><div class="n-ar">كيكة التمر</div></div><div class="dots"></div><div class="price"><small>SR</small>22</div></div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="f-mark">THREE</div>
+    <div class="f-loc">
+      As Sulaimaniyah · Olaya — Riyadh<br>
+      <span class="ar">السليمانية · العليا — الرياض</span>
+    </div>
+    <a class="f-ig" href="https://www.instagram.com/threecafeksa" target="_blank" rel="noopener">@threecafeksa</a>
+    <div class="f-credit"><a href="https://menu-sadah.com" target="_blank" rel="noopener">Menu Sadah</a></div>
+  </footer>
+
+</div>
+
+<script>
+  const chips=[...document.querySelectorAll('.chip')];
+  const secs=chips.map(c=>document.querySelector(c.getAttribute('href')));
+  const io=new IntersectionObserver(es=>{
+    es.forEach(e=>{
+      if(e.isIntersecting){
+        const i=secs.indexOf(e.target);
+        chips.forEach(c=>c.classList.remove('active'));
+        chips[i].classList.add('active');
+        chips[i].scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+      }
+    });
+  },{rootMargin:'-25% 0px -65% 0px'});
+  secs.forEach(s=>io.observe(s));
+</script>
+</body>
+</html>
