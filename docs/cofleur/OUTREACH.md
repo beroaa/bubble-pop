@@ -1,74 +1,76 @@
 # Maison de Cofleur — Outreach Pack
 
 **Target:** Maison de Cofleur (ميزون دو كوفلير) · An Nada, Riyadh
-**Instagram:** [@mdcofleur](https://www.instagram.com/mdcofleur) (~12k) · **TikTok:** @cofleur.sa
-**WhatsApp (business):** +966 55 184 2557 · **Phone:** same
-**Likely contact:** the menu platform account was registered under *Abdulrazak Kasem* (visible in their public menu asset URLs) — useful if a name helps, but don't open with it.
+**Instagram:** [@mdcofleur](https://www.instagram.com/mdcofleur) (~12k) · DM link: https://ig.me/m/mdcofleur
+**TikTok:** @cofleur.sa
+**WhatsApp (their business line):** +966 55 184 2557 → https://wa.me/966551842557
+**The gift:** https://menu-sadah.com/cofleur
 
-**Voice notes (matched from their own captions):** elegant, warm, slightly French-flavored Arabic — they use words like الرُقي، تجربة استثنائية، تفاصيل. They lead with atmosphere and craft, never discounts. Mirror that: calm confidence, zero hype, no emojis beyond one soft accent (🌸/☕️).
-
-**The gift:** https://menu-sadah.com/cofleur — their full current menu (136 items, EN+AR, their prices, their photos) under their live logo mark that blooms open.
-
----
+Voice notes, matched from their own captions: elegant, warm, a little French. They talk about الرُقي والتفاصيل والتجربة. Mirror that. Calm confidence, no hype, one soft emoji at most (🌸 or ☕️).
 
 ## Rules (locked)
-1. **Gift first.** The link is the message. No pitch in message #1.
-2. **Never lead with price.** Numbers only after they react.
-3. **Never say "QR menu"** (or "كيو آر") — say *المنيو*, *صفحة المنيو*, *منيوكم الجديد*.
-4. One follow-up max if no reply (3–4 days later, softer).
+1. Gift first. The link is the message. No pitch in message one.
+2. Never lead with price. Numbers only after they react.
+3. Never say "QR menu" or "كيو آر". Say المنيو or منيوكم الجديد.
+4. One follow up max if no reply, after 3 or 4 days, softer.
+5. Send only after the link is live. Test it on your own phone first.
+6. Write like a person typing on a phone. Short lines. No dashes.
 
----
-
-## Message 1 — WhatsApp / IG DM (Arabic, primary)
+## Message 1, Arabic (primary)
 
 > مساء الخير 🌸
 >
-> أنا [اسمك] — أتابع ميزون دو كوفلير من فترة، وذوقكم في التفاصيل نادر فعلاً بالرياض.
+> انا [اسمك]، من فترة اتابع حسابكم وكل مرة يعجبني ذوقكم في التفاصيل. النباتات وركن الخبز وطريقة التقديم.
 >
-> جهزت لكم هدية صغيرة: نسخة جديدة من منيوكم، بهويتكم وألوانكم، وشعاركم يتفتّح في أول الصفحة كأنه وردة قهوة ☕️
+> سويت لكم شي صغير كهدية. نسخة جديدة من منيوكم بنفس هويتكم، الوانكم وخطوطكم، وشعاركم يتفتح في اول الصفحة مثل وردة القهوة ☕️
 >
 > menu-sadah.com/cofleur
 >
-> كل الأصناف والأسعار منقولة من منيوكم الحالي — افتحوه من الجوال وشوفوا.
+> كل الاصناف والاسعار منقولة من منيوكم الحالي بالضبط، ١٣٦ صنف، ما عليكم اي شغل.
 >
-> إذا عجبكم، رأيكم يهمني. وإذا حبيتوا تعتمدونه، أجهز لكم كل شيء — بطاقات الطاولات جاهزة للطباعة وكل التفاصيل.
->
-> [اسمك]
+> افتحوه من الجوال وشوفوه، ورأيكم يهمني. واذا عجبكم عندي بطاقات الطاولات جاهزة للطباعة بنفس الشكل.
 
-## Message 1 — English (if they reply in EN)
+## Message 1, English (if they reply in EN)
 
 > Good evening 🌸
 >
-> I'm [name] — I've been following Maison de Cofleur for a while, and your eye for detail is rare in Riyadh.
+> I'm [name]. I've been following your page for a while and honestly the way you do details is beautiful. The plants, the bread corner, all of it.
 >
-> I made you a small gift: a new version of your menu, in your identity and colours, with your logo blooming open at the top like a coffee flower ☕️
+> I made you a little gift. A new version of your menu in your own identity, your colors and fonts, and your logo opens up at the top like a coffee flower ☕️
 >
 > menu-sadah.com/cofleur
 >
-> Every item and price is taken from your current menu — open it on your phone and see.
+> Everything is copied from your current menu exactly, all 136 items and prices, so there is nothing you need to do.
 >
-> If you like it, I'd love your thoughts. And if you'd like to make it official, I'll prepare everything — print-ready table cards included.
+> Open it on your phone and tell me what you think. And if you love it I already have your table cards ready to print in the same style.
 
-## Follow-up (once, day 3–4, only if silent)
+## Follow up (once, day 3 or 4, only if silent, send on WhatsApp)
 
-> يعطيكم العافية 🌸 بس حبيت أتأكد إن الرابط وصلكم — menu-sadah.com/cofleur
-> إذا فيه أي لمسة تحبون أعدلها على ذوقكم، أعدلها بنفس اليوم.
-
----
-
-## When they ask "how much?" (and only then)
-
-Frame: the build is already done — they saw it. They're paying to own it + keep it alive.
-
-> **الباقة الأساسية:** ٤٩٩ ريال تجهيز (مرة واحدة) + ١٩٩ ريال شهرياً — تشمل كل التعديلات (أصناف، أسعار، صور) خلال ٢٤ ساعة، والاستضافة، والتحديثات.
+> مساء الخير 🌸 بس حبيت اتاكد ان الهدية وصلتكم
 >
-> **عرض الشركاء المؤسسين (عدد محدود):** ٩٩٩ ريال للسنة الأولى كاملة — عربون ٥٠٠ ريال للحجز والباقي عند الإطلاق الرسمي.
+> menu-sadah.com/cofleur
+>
+> واذا تبون اي تعديل بسيط، صنف او صورة او ترتيب، اعدله لكم بنفس اليوم.
 
-- Standard: **SR 499** build (one-time) + **SR 199/month** (all edits within 24h, hosting, updates).
-- Founding partner (limited): **SR 999** first year, **SR 500** deposit to reserve, balance at launch.
-- Payment: transfer / STC Pay. Never discount below founding — add value instead (extra card designs, seasonal menu swap).
+## When they reply nicely (still no price)
 
-## Objection notes
-- **"عندنا منيو"** → "شفته، وهو مرتب — بس هذي نسخة بهويتكم أنتم: شعاركم، ألوانكم، خطوطكم. قارنوا الاثنين على الجوال وشوفوا الفرق بأول ٣ ثواني."
-- **"نفكر"** → "خذوا راحتكم — الرابط يظل شغال لكم أسبوعين." (creates soft deadline without pressure)
-- **"ليش اشتراك؟"** → "لأن المنيو حي: أي صنف جديد أو سعر يتغير، ترسلونه واتساب ويتعدل بنفس اليوم — بدون ما تطبعون شي من جديد."
+> يسعدني انه عجبكم 🌸 اجهز لكم كل شي اليوم. الرابط جاهز للبايو وبطاقات الطاولات جاهزة للطباعة. تحبون اضيف رابط الحجز معها؟
+
+## Only when they ask about price
+
+> الباقة ٤٩٩ ريال تجهيز مرة وحدة، وبعدها ١٩٩ ريال بالشهر. تشمل الاستضافة وكل التعديلات خلال ٢٤ ساعة، اصناف واسعار وصور وحتى منيو موسمي.
+>
+> وفيه عرض الشركاء المؤسسين لعدد محدود. ٩٩٩ ريال للسنة الاولى كاملة، تحجزونه بعربون ٥٠٠ والباقي عند الاطلاق.
+
+In English if needed: SR 499 setup once, then SR 199 a month with hosting and all edits within 24 hours. Founding partner offer, limited spots: SR 999 for the whole first year, SR 500 deposit to reserve, balance at launch.
+
+## Objections
+- "عندنا منيو" → "شفته وهو مرتب. بس هذي نسخة بهويتكم انتم، شعاركم والوانكم وخطوطكم. قارنوا الاثنين على الجوال وبتشوفون الفرق من اول ثانية."
+- "نفكر" → "خذوا راحتكم، الرابط يظل شغال لكم اسبوعين." (soft deadline, no pressure)
+- "ليش اشتراك شهري؟" → "لان المنيو حي. اي صنف جديد او سعر يتغير ترسلونه واتساب ويتعدل بنفس اليوم، بدون اي طباعة جديدة."
+- Never discount below founding. Add value instead, extra card designs or a seasonal menu swap.
+
+## Tactics
+- Best send slot: reply to their active IG story, or DM between 8 and 10 pm KSA.
+- If no reply on IG after 3 or 4 days, send the follow up on WhatsApp.
+- The menu platform account was registered under the name Abdulrazak Kasem (visible in their public asset URLs). Useful to know, do not open with it.
