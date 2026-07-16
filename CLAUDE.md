@@ -37,6 +37,7 @@ Scaling to many client menus (target: Dubai cafés with weak menus, gift-first o
 - **Gift doc per client:** copy `menus/_kit/gift-template.html`, fill `{{CAFE}} {{CAFE_AR}} {{SLUG}} {{ACCENT}} {{ACCENT2}} {{INK}} {{BG}}` in that brand's colours. Animated strike-through of SR 499 + 199/mo → "SR 0 · on the house". This is the outreach bridge — the doc that secures the client.
 - **Catalog = memory ("the OS"):** every build is registered in `menus/index.json` (slug, name, city, status, accent). This is the machine-readable menu catalog; keep it in sync on every build. (Cannot touch the user's local Mac app from this container — this JSON is the portable equivalent.)
 - **Parallel build:** design agents fan out (one distinct café each), each writes `menus/<slug>/index.html`; then the harness stress-tests every slug before it counts as delivered.
+- **Post-build enhancement swarm:** after a build wave, run `menus/_kit/enhance-swarm.js` (`Workflow({scriptPath, args:[slugs]})`) — multi-dimensional audit (brand/visual/imagery · content/bilingual/type · robustness/a11y/weight) → adversarial verify → apply (deepen each brand's visual/imagery system so no section is bare text; inline SVG/CSS only — external images are CSP-blocked) → harness re-gate. Improvements only, never regress a passing menu.
 
 ## Autonomous build protocol — "MED" crew (hands-off; save to memory, default mode)
 
