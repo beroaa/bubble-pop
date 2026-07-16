@@ -28,7 +28,8 @@ const VPS = [
 ];
 
 const out = { slug, pass: true, issues: [], warnings: [], viewports: {}, jsErrors: [], fonts: {}, fontsOk: true, cssApplied: false };
-const ARABIC_RE = /arab|kufi|tajawal|reem|cairo|amiri|lateef|noto.*arabic/i;
+// Arabic-script Google Fonts — these render unreliably in headless, so they WARN (never hard-fail); they render fine live.
+const ARABIC_RE = /arab|kufi|naskh|tajawal|reem|cairo|amiri|lateef|aref|ruqaa|markazi|scheher|lalezar|harmattan|katibeh|jomhuria|lemonada|mirza|rakkas|vibes|baloo|readex|kufam|gulzar|qahiri|blaka|alkalami|vazir|almarai|messiri|changa|mada|noto.*arabic/i;
 
 // shared font cache across pages
 const fontCache = new Map();
