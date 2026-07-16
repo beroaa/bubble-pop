@@ -34,6 +34,17 @@
       "accent": "#4FD1E0",
       "concept": "Engineering schematic — navy & cyan, self-drawing brew-ratio diagram",
       "note": "Design wave. Passed harness clean (375/414/768/1280, 0 JS errors)."
+    },
+    {
+      "slug": "terra-cafe",
+      "name": "Terra",
+      "name_ar": "تيرا",
+      "city": "Dubai",
+      "status": "verified",
+      "live": false,
+      "accent": "#E4633F",
+      "concept": "Kinetic terrazzo — bright cream, coral/teal/mustard speckle",
+      "note": "Design wave. Passed harness clean (375/414/768/1280, 0 JS errors)."
     }
   ]
 }

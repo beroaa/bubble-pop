@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Terra · تيرا — Menu</title>
+<meta name="description" content="Terra — daylight specialty coffee, Alserkal Avenue, Al Quoz, Dubai. Kinetic terrazzo. القائمة الرسمية.">
+<meta name="theme-color" content="#F6EFE4">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23F6EFE4'/%3E%3Ccircle cx='23' cy='27' r='10' fill='%23E4633F'/%3E%3Crect x='33' y='16' width='15' height='15' rx='4.5' transform='rotate(20 40 23)' fill='%232FA6A0'/%3E%3Ccircle cx='42' cy='42' r='8' fill='%23E0A93B'/%3E%3Ccircle cx='26' cy='45' r='4.5' fill='%2323201B'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Baloo+Bhaijaan+2:wght@500;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F6EFE4;
+    --cream-1:#FBF6EC;
+    --cream-2:#EFE5D4;
+    --sand:#E7DBC6;
+    --ink:#23201B;
+    --ink-soft:#5B544A;
+    --ink-faint:#8C8375;
+    --coral:#E4633F;
+    --teal:#2FA6A0;
+    --mustard:#E0A93B;
+    --line:rgba(35,32,27,.13);
+    --line-soft:rgba(35,32,27,.075);
+    --row:rgba(35,32,27,.09);
+    --en:"Bricolage Grotesque",system-ui,-apple-system,sans-serif;
+    --ar:"Baloo Bhaijaan 2","Bricolage Grotesque",system-ui,sans-serif;
+    --ar2:"Tajawal","Baloo Bhaijaan 2",system-ui,sans-serif;
+    --acc:var(--coral);
+    --acc2:var(--teal);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    background-color:var(--cream);
+    color:var(--ink);
+    font-family:var(--en);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    -webkit-tap-highlight-color:transparent;
+    background-image:
+      radial-gradient(760px 420px at 50% -150px, rgba(224,169,59,.20), rgba(246,239,228,0) 70%),
+      radial-gradient(560px 360px at 88% 4%, rgba(47,166,160,.10), rgba(246,239,228,0) 68%),
+      radial-gradient(560px 380px at 8% 12%, rgba(228,99,63,.08), rgba(246,239,228,0) 66%);
+    background-repeat:no-repeat;
+  }
+  .wrap{max-width:520px;margin:0 auto;padding:0 20px 68px;position:relative}
+
+  a{color:inherit}
+  a:focus-visible,.chip:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:6px}
+  ::selection{background:rgba(228,99,63,.22)}
+
+  /* ---------- header / brand ---------- */
+  header{padding:40px 0 4px;text-align:center}
+  .eyebrow{
+    font-family:var(--en);font-weight:600;font-size:.62rem;letter-spacing:.28em;text-indent:.28em;
+    color:var(--ink-faint);text-transform:uppercase;
+    display:flex;align-items:center;justify-content:center;gap:9px;
+  }
+  .eyebrow::before,.eyebrow::after{content:"";height:2px;width:16px;border-radius:2px;background:var(--sand)}
+  .mk{display:block;width:60px;height:44px;margin:20px auto 12px}
+  .brand{
+    font-family:var(--en);font-weight:800;
+    font-size:clamp(3.2rem,17vw,4.9rem);letter-spacing:-.03em;
+    line-height:.9;color:var(--ink);
+  }
+  .brand .d{color:var(--coral)}
+  .brand-ar{
+    font-family:var(--ar);font-weight:700;font-size:1.7rem;
+    color:var(--ink);margin-top:8px;line-height:1;
+  }
+  .tagline{margin-top:16px;display:flex;flex-direction:column;align-items:center;gap:6px}
+  .tagline .en{
+    font-family:var(--en);font-weight:600;font-size:.74rem;letter-spacing:.2em;text-indent:.2em;
+    text-transform:uppercase;color:var(--ink-soft);
+  }
+  .tagline .ar{font-family:var(--ar2);font-weight:500;font-size:.9rem;color:var(--ink-faint)}
+
+  /* ---------- hero : terrazzo settling into a cup ---------- */
+  .hero{position:relative;max-width:452px;margin:14px auto 0}
+  .hero::before{
+    content:"";position:absolute;inset:-4% 6% 14% 6%;z-index:0;pointer-events:none;
+    background:radial-gradient(58% 56% at 50% 44%, rgba(224,169,59,.20), rgba(246,239,228,0) 72%);
+  }
+  .hero canvas{position:relative;z-index:1;display:block;width:100%;height:220px}
+  .hero-cap{
+    position:relative;z-index:1;text-align:center;margin-top:2px;
+    font-family:var(--en);font-weight:500;font-size:.6rem;letter-spacing:.26em;text-indent:.26em;
+    text-transform:uppercase;color:var(--ink-faint);
+    display:flex;align-items:center;justify-content:center;gap:10px;
+  }
+  .hero-cap i{width:6px;height:6px;border-radius:50%;flex:0 0 auto}
+  .hero-cap i:nth-child(1){background:var(--coral)}
+  .hero-cap i:nth-child(3){background:var(--mustard)}
+
+  /* ---------- sticky nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:30;
+    background:var(--cream-1);
+    border-bottom:1.5px solid var(--line);
+    margin:22px -20px 0;padding:0 20px;
+  }
+  .chips{
+    display:flex;gap:8px;overflow-x:auto;padding:11px 30px 11px 0;scrollbar-width:none;
+    -webkit-mask-image:linear-gradient(90deg,#000 89%,transparent);
+    mask-image:linear-gradient(90deg,#000 89%,transparent);
+  }
+  .chips::-webkit-scrollbar{display:none}
+  .chip{
+    flex:0 0 auto;display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--en);font-weight:700;font-size:.74rem;letter-spacing:.01em;
+    color:var(--ink);background:var(--cream);border:1.5px solid var(--line);
+    border-radius:999px;padding:7px 14px 7px 11px;text-decoration:none;white-space:nowrap;
+    transition:background .22s ease,color .22s ease,border-color .22s ease,transform .22s ease;
+  }
+  .chip .dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto;background:var(--c);transition:background .22s ease,transform .22s ease}
+  .chip:hover{border-color:var(--c);transform:translateY(-1px)}
+  .chip.active{background:var(--c);border-color:var(--c);color:var(--ink)}
+  .chip.active .dot{background:var(--ink)}
+
+  /* ---------- menu meta ---------- */
+  .legend{
+    text-align:center;margin:20px auto 0;max-width:420px;
+    display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:7px 12px;
+  }
+  .legend .lg{
+    display:inline-flex;align-items:center;gap:7px;
+    font-family:var(--en);font-weight:600;font-size:.68rem;letter-spacing:.02em;color:var(--ink-soft);
+  }
+  .legend .sig-d{width:8px;height:8px;border-radius:50%;background:var(--coral);flex:0 0 auto}
+  .legend .sep{color:var(--sand)}
+  .legend .ar{width:100%;font-family:var(--ar2);font-weight:500;font-size:.76rem;color:var(--ink-faint);margin-top:1px}
+
+  /* ---------- sections ---------- */
+  section{padding-top:40px;scroll-margin-top:66px}
+  .sec-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 12px}
+  .sec-title{display:flex;align-items:center;gap:12px;min-width:0}
+  .sec-ix{
+    font-family:var(--en);font-weight:800;font-size:.9rem;color:var(--ink);
+    background:var(--acc);width:32px;height:32px;border-radius:10px;
+    display:grid;place-items:center;flex:0 0 auto;
+    box-shadow:0 3px 0 rgba(35,32,27,.10);font-variant-numeric:tabular-nums;
+  }
+  .sec-en{
+    font-family:var(--en);font-weight:800;font-size:clamp(1.24rem,6vw,1.62rem);
+    letter-spacing:-.02em;line-height:1;color:var(--ink);white-space:nowrap;
+  }
+  .sec-ar{font-family:var(--ar);font-weight:600;font-size:1.12rem;color:var(--ink-soft);line-height:1}
+  .sec-meta{
+    font-family:var(--en);font-weight:600;font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--ink-faint);margin-top:11px;
+  }
+  .sec-rule{position:relative;height:3px;border:0;border-radius:3px;background:var(--line-soft);margin:9px 0 2px;overflow:visible}
+  .sec-rule::before{content:"";position:absolute;left:0;top:0;height:3px;width:54px;border-radius:3px;background:var(--acc)}
+  .sec-rule::after{content:"";position:absolute;left:63px;top:-1.5px;width:6px;height:6px;border-radius:50%;background:var(--acc2)}
+
+  .item{
+    display:flex;align-items:baseline;gap:12px;
+    padding:15px 2px;border-bottom:1.5px solid var(--row);
+  }
+  .item:last-child{border-bottom:0}
+  .names{flex:0 1 auto;min-width:0}
+  .n-en{font-family:var(--en);font-weight:700;font-size:1.06rem;letter-spacing:-.005em;color:var(--ink);line-height:1.18}
+  .sig{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--acc);margin-left:7px;vertical-align:1px}
+  .n-ar{font-family:var(--ar);font-weight:500;font-size:.9rem;color:var(--ink-soft);margin-top:3px;line-height:1.2}
+  .n-note{
+    font-family:var(--en);font-weight:500;font-size:.72rem;letter-spacing:.01em;color:var(--ink-faint);
+    margin-top:6px;max-width:23ch;line-height:1.3;
+  }
+  .dots{flex:1 0 14px;align-self:stretch;position:relative;min-width:14px}
+  .dots::after{content:"";position:absolute;left:0;right:0;top:12px;border-bottom:2px dotted var(--line)}
+  .price{
+    font-family:var(--en);font-weight:700;font-size:1.08rem;color:var(--ink);
+    font-variant-numeric:tabular-nums;white-space:nowrap;letter-spacing:-.01em;
+  }
+  .price small{font-family:var(--en);font-size:.56em;font-weight:600;color:var(--ink-faint);margin-right:3px;letter-spacing:.06em}
+
+  /* ---------- footer ---------- */
+  footer{margin-top:60px}
+  .card{
+    position:relative;background:var(--cream-1);border:1.5px solid var(--line);border-radius:20px;
+    overflow:hidden;box-shadow:0 8px 24px rgba(35,32,27,.06);
+  }
+  .card-top{display:flex;align-items:center;gap:14px;padding:18px 18px 16px;border-bottom:1.5px solid var(--line-soft)}
+  .card-top .mk{margin:0;width:52px;height:38px;flex:0 0 auto}
+  .card-name{font-family:var(--en);font-weight:800;font-size:1.36rem;letter-spacing:-.02em;color:var(--ink);line-height:.94}
+  .card-name-ar{font-family:var(--ar);font-weight:600;font-size:.94rem;color:var(--ink-soft);margin-top:3px}
+  .card-est{margin-left:auto;text-align:right;flex:0 0 auto}
+  .card-est b{display:block;font-family:var(--en);font-weight:700;font-size:.9rem;color:var(--ink);font-variant-numeric:tabular-nums}
+  .card-est span{font-family:var(--en);font-weight:600;font-size:.54rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint)}
+  .card-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;background:var(--line-soft)}
+  .cell{background:var(--cream-1);padding:13px 16px;min-width:0}
+  .cell.wide{grid-column:1 / -1}
+  .cell b{display:block;font-family:var(--en);font-weight:700;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:5px}
+  .cell span{display:block;font-family:var(--en);font-weight:600;font-size:.84rem;color:var(--ink-soft);font-variant-numeric:tabular-nums;overflow:hidden;text-overflow:ellipsis;line-height:1.3}
+  .cell span.ar{font-family:var(--ar2);font-weight:500;font-size:.76rem;color:var(--ink-faint);margin-top:2px}
+  .cell a{color:var(--coral);text-decoration:none;font-weight:700}
+  .cell a:hover{text-decoration:underline}
+  .f-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:20px;flex-wrap:wrap}
+  .ig{font-family:var(--en);color:var(--ink);text-decoration:none;font-size:.84rem;font-weight:700;display:inline-flex;align-items:center;gap:7px}
+  .ig i{width:8px;height:8px;border-radius:50%;background:var(--teal)}
+  .ig:hover{color:var(--coral)}
+  .credit{font-family:var(--en);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);font-weight:600}
+  .credit a{text-decoration:none}
+  .credit a:hover{color:var(--coral)}
+
+  @media (max-width:360px){
+    .brand{font-size:clamp(2.9rem,16vw,3.4rem)}
+    .cell{padding:12px 13px}
+    .sec-meta{font-size:.6rem}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Alserkal Avenue · Al Quoz</div>
+    <svg class="mk" viewBox="0 0 60 44" role="img" aria-label="Terra terrazzo mark">
+      <circle cx="14" cy="24" r="8.5" fill="#E4633F"/>
+      <rect x="24" y="6" width="15" height="15" rx="4.5" transform="rotate(19 31.5 13.5)" fill="#2FA6A0"/>
+      <circle cx="44" cy="27" r="7" fill="#E0A93B"/>
+      <circle cx="30" cy="33" r="3.6" fill="#23201B"/>
+      <rect x="41" y="8" width="7.5" height="7.5" rx="2.4" transform="rotate(-14 44.7 11.7)" fill="#23201B"/>
+    </svg>
+    <h1 class="brand">Terra<span class="d">.</span></h1>
+    <div class="brand-ar" lang="ar" dir="rtl">تيرا</div>
+    <div class="tagline">
+      <span class="en">Daylight Specialty Coffee</span>
+      <span class="ar" lang="ar" dir="rtl">قهوة مختصّة في ضوء النهار</span>
+    </div>
+  </header>
+
+  <div class="hero">
+    <canvas id="terraHero" role="img" aria-label="Animation: bright terrazzo speckles in coral, teal and mustard drift across a warm cream field and settle into the silhouette of a coffee cup and saucer, with wisps of steam rising."></canvas>
+    <div class="hero-cap"><i></i>Ground · Poured · Settled<i></i></div>
+  </div>
+
+  <nav aria-label="Menu sections">
+    <div class="chips" id="chips">
+      <a class="chip active" style="--c:#E4633F" href="#hot"><span class="dot"></span>Hot</a>
+      <a class="chip" style="--c:#2FA6A0" href="#cold"><span class="dot"></span>Cold</a>
+      <a class="chip" style="--c:#E0A93B" href="#filter"><span class="dot"></span>Filter &amp; Brew</a>
+      <a class="chip" style="--c:#2FA6A0" href="#beyond"><span class="dot"></span>Beyond Coffee</a>
+      <a class="chip" style="--c:#E4633F" href="#bakery"><span class="dot"></span>Bakery</a>
+    </div>
+  </nav>
+
+  <div class="legend">
+    <span class="lg"><i class="sig-d"></i>Terra signature</span>
+    <span class="sep" aria-hidden="true">·</span>
+    <span class="lg">Prices in AED, incl. VAT</span>
+    <span class="ar" lang="ar" dir="rtl">جميع الأسعار بالدرهم الإماراتي وشاملة ضريبة القيمة المضافة</span>
+  </div>
+
+  <main>
+
+    <section id="hot" style="--acc:#E4633F;--acc2:#2FA6A0">
+      <div class="sec-head">
+        <div class="sec-title"><span class="sec-ix">01</span><h2 class="sec-en">Hot Coffee</h2></div>
+        <span class="sec-ar" lang="ar" dir="rtl">قهوة ساخنة</span>
+      </div>
+      <div class="sec-meta">Espresso bar · pulled to order</div>
+      <hr class="sec-rule">
+      <div class="item"><div class="names"><div class="n-en">Espresso</div><div class="n-ar" lang="ar" dir="rtl">إسبريسو</div></div><div class="dots"></div><div class="price"><small>AED</small>16</div></div>
+      <div class="item"><div class="names"><div class="n-en">Cortado</div><div class="n-ar" lang="ar" dir="rtl">كورتادو</div></div><div class="dots"></div><div class="price"><small>AED</small>20</div></div>
+      <div class="item"><div class="names"><div class="n-en">Flat White</div><div class="n-ar" lang="ar" dir="rtl">فلات وايت</div><div class="n-note">double ristretto</div></div><div class="dots"></div><div class="price"><small>AED</small>23</div></div>
+      <div class="item"><div class="names"><div class="n-en">Cappuccino</div><div class="n-ar" lang="ar" dir="rtl">كابتشينو</div></div><div class="dots"></div><div class="price"><small>AED</small>22</div></div>
+      <div class="item"><div class="names"><div class="n-en">Spanish Latte <i class="sig" aria-hidden="true"></i></div><div class="n-ar" lang="ar" dir="rtl">سبانيش لاتيه</div><div class="n-note">condensed milk</div></div><div class="dots"></div><div class="price"><small>AED</small>27</div></div>
+      <div class="item"><div class="names"><div class="n-en">Pistachio Latte</div><div class="n-ar" lang="ar" dir="rtl">لاتيه الفستق</div><div class="n-note">house pistachio, salt</div></div><div class="dots"></div><div class="price"><small>AED</small>30</div></div>
+    </section>
+
+    <section id="cold" style="--acc:#2FA6A0;--acc2:#E0A93B">
+      <div class="sec-head">
+        <div class="sec-title"><span class="sec-ix">02</span><h2 class="sec-en">Cold Coffee</h2></div>
+        <span class="sec-ar" lang="ar" dir="rtl">قهوة باردة</span>
+      </div>
+      <div class="sec-meta">Over hand-cut clear ice</div>
+      <hr class="sec-rule">
+      <div class="item"><div class="names"><div class="n-en">Iced Latte</div><div class="n-ar" lang="ar" dir="rtl">لاتيه مثلج</div></div><div class="dots"></div><div class="price"><small>AED</small>24</div></div>
+      <div class="item"><div class="names"><div class="n-en">Iced Spanish Latte</div><div class="n-ar" lang="ar" dir="rtl">سبانيش لاتيه مثلج</div></div><div class="dots"></div><div class="price"><small>AED</small>27</div></div>
+      <div class="item"><div class="names"><div class="n-en">Cold Brew</div><div class="n-ar" lang="ar" dir="rtl">كولد برو</div><div class="n-note">18-hour slow steep</div></div><div class="dots"></div><div class="price"><small>AED</small>26</div></div>
+      <div class="item"><div class="names"><div class="n-en">Espresso Tonic <i class="sig" aria-hidden="true"></i></div><div class="n-ar" lang="ar" dir="rtl">إسبريسو تونيك</div><div class="n-note">citrus · tonic water</div></div><div class="dots"></div><div class="price"><small>AED</small>28</div></div>
+      <div class="item"><div class="names"><div class="n-en">Shakerato</div><div class="n-ar" lang="ar" dir="rtl">شيكيراتو</div><div class="n-note">hand-shaken, no ice</div></div><div class="dots"></div><div class="price"><small>AED</small>27</div></div>
+      <div class="item"><div class="names"><div class="n-en">Iced Pistachio Latte</div><div class="n-ar" lang="ar" dir="rtl">لاتيه الفستق المثلج</div></div><div class="dots"></div><div class="price"><small>AED</small>31</div></div>
+    </section>
+
+    <section id="filter" style="--acc:#E0A93B;--acc2:#E4633F">
+      <div class="sec-head">
+        <div class="sec-title"><span class="sec-ix">03</span><h2 class="sec-en">Filter &amp; Brew</h2></div>
+        <span class="sec-ar" lang="ar" dir="rtl">تقطير وتحضير</span>
+      </div>
+      <div class="sec-meta">Single origin · weighed to the gram</div>
+      <hr class="sec-rule">
+      <div class="item"><div class="names"><div class="n-en">V60 Single Origin <i class="sig" aria-hidden="true"></i></div><div class="n-ar" lang="ar" dir="rtl">في٦٠ محصول مفرد</div><div class="n-note">rotating origin, 1:16</div></div><div class="dots"></div><div class="price"><small>AED</small>30</div></div>
+      <div class="item"><div class="names"><div class="n-en">Chemex</div><div class="n-ar" lang="ar" dir="rtl">كيمكس</div><div class="n-note">bright &amp; floral</div></div><div class="dots"></div><div class="price"><small>AED</small>34</div></div>
+      <div class="item"><div class="names"><div class="n-en">AeroPress</div><div class="n-ar" lang="ar" dir="rtl">إيروبريس</div></div><div class="dots"></div><div class="price"><small>AED</small>28</div></div>
+      <div class="item"><div class="names"><div class="n-en">Batch Brew</div><div class="n-ar" lang="ar" dir="rtl">باتش برو</div><div class="n-note">filter of the day</div></div><div class="dots"></div><div class="price"><small>AED</small>20</div></div>
+      <div class="item"><div class="names"><div class="n-en">Cold Drip</div><div class="n-ar" lang="ar" dir="rtl">كولد دريب</div><div class="n-note">8-hour slow drip</div></div><div class="dots"></div><div class="price"><small>AED</small>32</div></div>
+    </section>
+
+    <section id="beyond" style="--acc:#2FA6A0;--acc2:#E4633F">
+      <div class="sec-head">
+        <div class="sec-title"><span class="sec-ix">04</span><h2 class="sec-en">Beyond Coffee</h2></div>
+        <span class="sec-ar" lang="ar" dir="rtl">ما بعد القهوة</span>
+      </div>
+      <div class="sec-meta">Matcha · tea · botanicals</div>
+      <hr class="sec-rule">
+      <div class="item"><div class="names"><div class="n-en">Matcha Latte</div><div class="n-ar" lang="ar" dir="rtl">ماتشا لاتيه</div><div class="n-note">ceremonial Uji</div></div><div class="dots"></div><div class="price"><small>AED</small>28</div></div>
+      <div class="item"><div class="names"><div class="n-en">Iced Matcha</div><div class="n-ar" lang="ar" dir="rtl">ماتشا مثلجة</div></div><div class="dots"></div><div class="price"><small>AED</small>30</div></div>
+      <div class="item"><div class="names"><div class="n-en">Spanish Matcha</div><div class="n-ar" lang="ar" dir="rtl">سبانيش ماتشا</div><div class="n-note">condensed milk</div></div><div class="dots"></div><div class="price"><small>AED</small>31</div></div>
+      <div class="item"><div class="names"><div class="n-en">Rose &amp; Saffron Latte <i class="sig" aria-hidden="true"></i></div><div class="n-ar" lang="ar" dir="rtl">لاتيه الورد والزعفران</div><div class="n-note">cardamom · rose</div></div><div class="dots"></div><div class="price"><small>AED</small>30</div></div>
+      <div class="item"><div class="names"><div class="n-en">Chai Latte</div><div class="n-ar" lang="ar" dir="rtl">شاي لاتيه</div><div class="n-note">house masala</div></div><div class="dots"></div><div class="price"><small>AED</small>24</div></div>
+      <div class="item"><div class="names"><div class="n-en">Hibiscus Cooler</div><div class="n-ar" lang="ar" dir="rtl">كركديه بارد</div></div><div class="dots"></div><div class="price"><small>AED</small>22</div></div>
+    </section>
+
+    <section id="bakery" style="--acc:#E4633F;--acc2:#E0A93B">
+      <div class="sec-head">
+        <div class="sec-title"><span class="sec-ix">05</span><h2 class="sec-en">Bakery &amp; Sweets</h2></div>
+        <span class="sec-ar" lang="ar" dir="rtl">مخبوزات وحلويات</span>
+      </div>
+      <div class="sec-meta">Baked each morning in Al Quoz</div>
+      <hr class="sec-rule">
+      <div class="item"><div class="names"><div class="n-en">Butter Croissant</div><div class="n-ar" lang="ar" dir="rtl">كرواسون بالزبدة</div><div class="n-note">72-hour laminated</div></div><div class="dots"></div><div class="price"><small>AED</small>18</div></div>
+      <div class="item"><div class="names"><div class="n-en">Pistachio Roll</div><div class="n-ar" lang="ar" dir="rtl">رول الفستق</div><div class="n-note">orange blossom</div></div><div class="dots"></div><div class="price"><small>AED</small>26</div></div>
+      <div class="item"><div class="names"><div class="n-en">Date &amp; Tahini Cookie</div><div class="n-ar" lang="ar" dir="rtl">كوكيز التمر والطحينة</div><div class="n-note">Medjool · sea salt</div></div><div class="dots"></div><div class="price"><small>AED</small>16</div></div>
+      <div class="item"><div class="names"><div class="n-en">Kunafa Croissant <i class="sig" aria-hidden="true"></i></div><div class="n-ar" lang="ar" dir="rtl">كرواسون الكنافة</div><div class="n-note">pistachio · ashta</div></div><div class="dots"></div><div class="price"><small>AED</small>28</div></div>
+      <div class="item"><div class="names"><div class="n-en">Basque Cheesecake</div><div class="n-ar" lang="ar" dir="rtl">تشيزكيك الباسك</div><div class="n-note">burnt top, vanilla</div></div><div class="dots"></div><div class="price"><small>AED</small>32</div></div>
+      <div class="item"><div class="names"><div class="n-en">Banana Bread</div><div class="n-ar" lang="ar" dir="rtl">خبز الموز</div></div><div class="dots"></div><div class="price"><small>AED</small>20</div></div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="card">
+      <div class="card-top">
+        <svg class="mk" viewBox="0 0 60 44" aria-hidden="true">
+          <circle cx="14" cy="24" r="8.5" fill="#E4633F"/>
+          <rect x="24" y="6" width="15" height="15" rx="4.5" transform="rotate(19 31.5 13.5)" fill="#2FA6A0"/>
+          <circle cx="44" cy="27" r="7" fill="#E0A93B"/>
+          <circle cx="30" cy="33" r="3.6" fill="#23201B"/>
+        </svg>
+        <div>
+          <div class="card-name">Terra<span style="color:#E4633F">.</span></div>
+          <div class="card-name-ar" lang="ar" dir="rtl">تيرا</div>
+        </div>
+        <div class="card-est">
+          <b>2021</b>
+          <span>Est. Dubai</span>
+        </div>
+      </div>
+      <div class="card-grid">
+        <div class="cell"><b>Hours</b><span>Daily · 7:00 — 23:00</span></div>
+        <div class="cell"><b>Currency</b><span>AED · incl. VAT</span></div>
+        <div class="cell wide"><b>Find us</b><span>Alserkal Avenue · Al Quoz — Dubai</span><span class="ar" lang="ar" dir="rtl">السركال أفينيو · القوز — دبي</span></div>
+        <div class="cell wide"><b>Say hello</b><span><a href="https://www.instagram.com/terra.cafe" target="_blank" rel="noopener">@terra.cafe</a> &nbsp;·&nbsp; terra-cafe on menu-sadah.com</span></div>
+      </div>
+    </div>
+    <div class="f-foot">
+      <a class="ig" href="https://www.instagram.com/terra.cafe" target="_blank" rel="noopener"><i></i>@terra.cafe</a>
+      <div class="credit"><a href="https://menu-sadah.com" target="_blank" rel="noopener">Menu Sadah</a></div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  /* ---------- hero: terrazzo speckles settling into a coffee cup ---------- */
+  (function(){
+    var cv = document.getElementById('terraHero');
+    if(!cv || !cv.getContext) return;
+    var ctx = cv.getContext('2d');
+    if(!ctx) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var W = 0, H = 0, dpr = 1, particles = [], raf = 0, base = 0;
+
+    function rand(a,b){ return a + Math.random()*(b-a); }
+    function lerp(a,b,t){ return a + (b-a)*t; }
+    function smooth(x){ x = x<0?0:(x>1?1:x); return x*x*(3-2*x); }
+
+    var COLORS = [
+      {fill:'#E4633F'},{fill:'#E4633F'},{fill:'#E4633F'},
+      {fill:'#2FA6A0'},{fill:'#2FA6A0'},{fill:'#2FA6A0'},
+      {fill:'#E0A93B'},{fill:'#E0A93B'},
+      {fill:'#23201B'},{fill:'#23201B'},
+      {fill:'#F7F0E4', stroke:'rgba(35,32,27,0.24)'}
+    ];
+
+    function geometry(w,h){
+      var cx = w*0.5;
+      var topY = h*0.42, botY = h*0.75;
+      return {
+        cx:cx, topY:topY, botY:botY,
+        topHW:w*0.185, botHW:w*0.13,
+        sy:h*0.795, srx:w*0.255, sry:h*0.05,
+        hx:cx+w*0.205, hy:(topY+botY)/2, hR:w*0.09, hr:w*0.05
+      };
+    }
+    function inCup(x,y,g){
+      if(y<g.topY || y>g.botY) return false;
+      var t=(y-g.topY)/(g.botY-g.topY);
+      return Math.abs(x-g.cx) <= lerp(g.topHW,g.botHW,t);
+    }
+    function inSaucer(x,y,g){ var dx=(x-g.cx)/g.srx, dy=(y-g.sy)/g.sry; return dx*dx+dy*dy<=1; }
+    function inHandle(x,y,g){
+      var dx=x-g.hx, dy=y-g.hy, d=Math.sqrt(dx*dx+dy*dy);
+      if(d<g.hr || d>g.hR) return false;
+      return (dx/d) >= -0.5;
+    }
+
+    function rr(x,y,w,h,r){
+      ctx.beginPath();
+      ctx.moveTo(x+r,y);
+      ctx.arcTo(x+w,y,x+w,y+h,r);
+      ctx.arcTo(x+w,y+h,x,y+h,r);
+      ctx.arcTo(x,y+h,x,y,r);
+      ctx.arcTo(x,y,x+w,y,r);
+      ctx.closePath();
+    }
+
+    function build(){
+      var g = geometry(W,H);
+      var homes = [];
+      var BODY = Math.round((W*H)/640);
+      BODY = Math.max(98, Math.min(168, BODY));
+      var tries = 0, cap = BODY*90;
+      while(homes.length<BODY && tries<cap){
+        tries++;
+        var x = rand(W*0.14, W*0.86), y = rand(H*0.30, H*0.92);
+        if(inCup(x,y,g) || inSaucer(x,y,g) || inHandle(x,y,g)) homes.push({x:x,y:y,kind:'cup'});
+      }
+      var STEAM = 10, half = STEAM/2;
+      for(var i=0;i<STEAM;i++){
+        var col = g.cx + (i%2===0?-1:1)*W*0.055;
+        var f = Math.floor(i/2)/half;
+        homes.push({x:col, y:g.topY-6 - f*(H*0.26), kind:'steam'});
+      }
+      var sizeBase = Math.max(3.0, Math.min(6.0, W/64));
+      particles = homes.map(function(hme){
+        var steam = hme.kind==='steam';
+        return {
+          hx:hme.x, hy:hme.y, kind:hme.kind,
+          ax:rand(W*0.07,W*0.93), ay:rand(H*0.07,H*0.93),
+          wpx:rand(0,6.283), wpy:rand(0,6.283),
+          wsx:rand(0.24,0.58), wsy:rand(0.24,0.58),
+          wax:rand(7,18), way:rand(6,15),
+          color: steam ? {fill:'#AC9F89'} : COLORS[(Math.random()*COLORS.length)|0],
+          r: steam ? rand(1.9,3.0) : sizeBase*rand(0.62,1.5),
+          shape: steam ? 'circle' : ['circle','circle','rect','rect','pill'][(Math.random()*5)|0],
+          rot: rand(0,6.283), br: rand(0,6.283)
+        };
+      });
+    }
+
+    function assembly(t){
+      var P = 12, u = (t % P)/P;
+      if(u<0.12) return 0;
+      if(u<0.34) return smooth((u-0.12)/0.22);
+      if(u<0.72) return 1;
+      if(u<0.92) return 1 - smooth((u-0.72)/0.20);
+      return 0;
+    }
+
+    function chip(x,y,p,a,t){
+      ctx.save();
+      ctx.globalAlpha = a;
+      ctx.translate(x,y);
+      ctx.rotate(p.rot + Math.sin(t*0.4+p.br)*0.16);
+      var r = p.r;
+      if(p.shape==='circle'){ ctx.beginPath(); ctx.arc(0,0,r,0,6.2832); }
+      else if(p.shape==='rect'){ rr(-r,-r*0.72,r*2,r*1.44,r*0.42); }
+      else { rr(-r*1.25,-r*0.5,r*2.5,r,r*0.5); }
+      ctx.fillStyle = p.color.fill;
+      ctx.fill();
+      if(p.color.stroke){ ctx.lineWidth = 1; ctx.strokeStyle = p.color.stroke; ctx.stroke(); }
+      ctx.restore();
+    }
+
+    function render(t, A){
+      ctx.clearRect(0,0,W,H);
+      for(var i=0;i<particles.length;i++){
+        var p = particles[i];
+        var fx = p.ax + Math.sin(t*p.wsx+p.wpx)*p.wax;
+        var fy = p.ay + Math.cos(t*p.wsy+p.wpy)*p.way;
+        var hx, hy, a = 1;
+        if(p.kind==='steam'){
+          hx = p.hx + Math.sin(t*1.5+p.br+p.hy*0.05)*(W*0.02);
+          hy = p.hy + Math.sin(t*0.8+p.br)*(H*0.008);
+          a = (0.16 + 0.62*A) * (0.55 + 0.45*Math.sin(t*2.2+p.br));
+          if(a<0) a = 0;
+        } else {
+          hx = p.hx + Math.sin(t*1.1+p.br)*0.8;
+          hy = p.hy + Math.cos(t*1.0+p.br)*0.8;
+        }
+        chip(lerp(fx,hx,A), lerp(fy,hy,A), p, a, t);
+      }
+    }
+
+    function frame(now){
+      if(!base) base = now;
+      var t = (now-base)/1000;
+      render(t, assembly(t));
+      raf = requestAnimationFrame(frame);
+    }
+
+    function setup(){
+      W = cv.clientWidth || (cv.parentNode && cv.parentNode.clientWidth) || 320;
+      H = cv.clientHeight || 220;
+      dpr = Math.min(window.devicePixelRatio||1, 2);
+      cv.width = Math.round(W*dpr);
+      cv.height = Math.round(H*dpr);
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+      build();
+      if(reduce){
+        if(raf){ cancelAnimationFrame(raf); raf = 0; }
+        render(6, 1);
+      }
+    }
+
+    var rz;
+    window.addEventListener('resize', function(){
+      clearTimeout(rz);
+      rz = setTimeout(setup, 220);
+    });
+
+    try{
+      setup();
+      if(!reduce) raf = requestAnimationFrame(frame);
+    }catch(e){ /* never break the page for a decorative hero */ }
+  })();
+
+  /* ---------- sticky nav: highlight active section ---------- */
+  (function(){
+    var chips = [].slice.call(document.querySelectorAll('.chip'));
+    if(!chips.length || !('IntersectionObserver' in window)) return;
+    var secs = chips.map(function(c){ return document.querySelector(c.getAttribute('href')); });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting) return;
+        var i = secs.indexOf(e.target);
+        if(i<0) return;
+        chips.forEach(function(c){ c.classList.remove('active'); });
+        chips[i].classList.add('active');
+        chips[i].scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
+      });
+    }, {rootMargin:'-22% 0px -68% 0px'});
+    secs.forEach(function(s){ if(s) io.observe(s); });
+  })();
+</script>
+</body>
+</html>
