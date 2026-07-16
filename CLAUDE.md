@@ -38,6 +38,16 @@ Scaling to many client menus (target: Dubai cafés with weak menus, gift-first o
 - **Catalog = memory ("the OS"):** every build is registered in `menus/index.json` (slug, name, city, status, accent). This is the machine-readable menu catalog; keep it in sync on every build. (Cannot touch the user's local Mac app from this container — this JSON is the portable equivalent.)
 - **Parallel build:** design agents fan out (one distinct café each), each writes `menus/<slug>/index.html`; then the harness stress-tests every slug before it counts as delivered.
 
+## Autonomous build protocol — "MED" crew (hands-off; save to memory, default mode)
+
+The user does not babysit. Errors self-heal. Only meaningful results surface. Every menu build runs this loop automatically:
+
+- **Monitor** — after each design wave/agent completes, run `node menus/_kit/verify.mjs <slug>` on every new or changed menu.
+- **Error-heal** — any menu that fails the gate (horizontal overflow · JS error · CSS not applied) is auto-fixed and re-verified, up to 3 attempts. If still failing, set it aside with a one-line reason and move on — NEVER block the rest of the batch, never page the user with raw errors.
+- **Deliver** — passing menus are added to `menus/index.json`, committed, and (while push is blocked) delivered via SendUserFile. Redeploy the live tracker artifact to its SAME URL after each wave.
+- **Push resilience** — keep a background auto-push retry (~15 min). A 403 is a permission-grant issue, never fatal; a granted access lands unattended.
+- **Quiet by default** — surface a message only when menus are ready/delivered or a real decision is needed. Not for progress, retries, or self-healed errors.
+
 ## Repo / git rules
 
 - Set `git config user.email noreply@anthropic.com && git config user.name Claude` **before committing** (stop-hook enforces committer email; no signing key exists here).
