@@ -56,7 +56,7 @@ The user does not babysit. Errors self-heal. Only meaningful results surface. Ev
 
 - **Monitor** — after each design wave/agent completes, run `node menus/_kit/verify.mjs <slug>` on every new or changed menu.
 - **Error-heal** — any menu that fails the gate (horizontal overflow · JS error · CSS not applied) is auto-fixed and re-verified, up to 3 attempts. If still failing, set it aside with a one-line reason and move on — NEVER block the rest of the batch, never page the user with raw errors.
-- **Deliver** — passing menus are added to `menus/index.json`, committed, and (while push is blocked) delivered via SendUserFile. Redeploy the live tracker artifact to its SAME URL after each wave.
+- **Deliver** — passing menus are added to `menus/index.json`, committed, and (while push is blocked) delivered via SendUserFile. Redeploy the live tracker artifact to its SAME URL after each wave. **ClientOS first:** the user's Mac app (ClientOS) is their PRIMARY workstation — every delivery cycle regenerates `node menus/_kit/export-clientos.mjs` → `menus/clientos-import.json` and sends it to the user so their Mac session ingests it (this container cannot write to the Mac directly; the export file is the bridge). New menus reach ClientOS before anything else.
 - **Push resilience** — keep a background auto-push retry (~15 min). A 403 is a permission-grant issue, never fatal; a granted access lands unattended.
 - **Quiet by default** — surface a message only when menus are ready/delivered or a real decision is needed. Not for progress, retries, or self-healed errors.
 

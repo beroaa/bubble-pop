@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>some coffee. · سم كوفي — menu</title>
+<meta name="description" content="not just any coffee. some coffee. roastery &amp; coffee bar in al muruj, riyadh — open first light to midnight. القائمة · سم كوفي، حي المروج، الرياض.">
+<meta property="og:title" content="some coffee. — menu · سم كوفي">
+<meta property="og:description" content="not just any coffee. some coffee. roastery &amp; coffee bar, al muruj, riyadh — first light to midnight.">
+<meta property="og:site_name" content="some coffee.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://menu-sadah.com/some-coffee">
+<meta name="theme-color" content="#F5F1E8">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23F5F1E8'/%3E%3Cg fill='none' stroke='%232E5D43' stroke-width='3.4' stroke-linecap='round'%3E%3Cpath d='M20 30c0 10 4.5 15 12 15s12-5 12-15z'/%3E%3Cpath d='M44 33c5-1 7 2 6 5s-4 4-7 3'/%3E%3Cpath d='M16 52h32'/%3E%3Cpath d='M28 22c-2-3 2-4 0-8M37 23c-2-3 2-4 0-8'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=Readex+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F5F1E8;        /* page ground — their warm cream */
+    --cream-1:#FBF8F0;      /* raised surfaces / nav */
+    --cream-2:#EFE8D8;
+    --green:#2E5D43;        /* their botanical line-art green */
+    --green-deep:#1F4230;
+    --dusk:#152A1E;         /* footer night */
+    --night:#0F2117;
+    --ink:#161C17;          /* near-black, green undertone */
+    --ink-soft:#48524A;
+    --ink-faint:#7E897B;
+    --gold:#D9A441;         /* the sun */
+    --moon:#F2EAD8;
+    --line:rgba(31,66,48,.16);
+    --line-soft:rgba(31,66,48,.09);
+    --row:rgba(31,66,48,.28);
+    --en:"Space Grotesk",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+    --disp:"Instrument Serif",Georgia,"Times New Roman",serif;
+    --ar:"Readex Pro","IBM Plex Sans Arabic","Segoe UI",Tahoma,system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+  body{
+    background-color:var(--cream);
+    color:var(--ink);
+    font-family:var(--en);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    -webkit-tap-highlight-color:transparent;
+    background-image:
+      radial-gradient(760px 420px at 50% -160px, rgba(217,164,65,.14), rgba(245,241,232,0) 70%),
+      radial-gradient(640px 480px at 108% 12%, rgba(46,93,67,.07), rgba(245,241,232,0) 62%),
+      radial-gradient(560px 420px at -8% 22%, rgba(46,93,67,.06), rgba(245,241,232,0) 60%);
+    background-repeat:no-repeat;
+  }
+  .wrap{max-width:520px;margin:0 auto;padding:0 20px 56px;position:relative}
+  a{color:inherit;text-decoration:none}
+  a:focus-visible,.chip:focus-visible{outline:3px solid var(--green);outline-offset:3px;border-radius:99px}
+  ::selection{background:rgba(46,93,67,.18)}
+
+  /* ============ header / brand ============ */
+  header.brand-h{padding:46px 0 6px;text-align:center}
+  .eyebrow{
+    font-size:.6rem;font-weight:600;letter-spacing:.3em;text-indent:.3em;text-transform:lowercase;
+    color:var(--ink-faint);display:flex;align-items:center;justify-content:center;gap:10px;
+  }
+  .eyebrow::before,.eyebrow::after{content:"";width:18px;height:1.5px;background:var(--line);border-radius:2px}
+  .badge{width:118px;height:118px;margin:24px auto 18px;display:block}
+  .wordmark{
+    font-family:var(--disp);font-weight:400;
+    font-size:clamp(2.7rem,12.6vw,3.55rem);
+    letter-spacing:-.01em;line-height:.95;color:var(--ink);
+  }
+  .wordmark .dot{color:var(--green)}
+  .brand-ar{
+    font-family:var(--ar);font-weight:600;font-size:1.32rem;letter-spacing:.02em;
+    color:var(--green-deep);margin-top:12px;line-height:1;
+  }
+  .tagline{
+    margin-top:16px;font-family:var(--disp);font-style:italic;font-size:1.06rem;
+    color:var(--ink-soft);letter-spacing:.01em;
+  }
+  .tagline b{font-weight:400;color:var(--ink)}
+  .tagline .dot{color:var(--green);font-style:normal}
+
+  /* ============ hero — first light to midnight ============ */
+  .hero{margin:26px auto 0;max-width:456px}
+  .day-arc{
+    position:relative;height:236px;border-radius:22px;overflow:hidden;
+    border:1.5px solid var(--line);
+    background:#F1EADA;
+    box-shadow:0 16px 36px rgba(31,66,48,.09), inset 0 1px 0 rgba(255,255,255,.6);
+  }
+  .sky{position:absolute;left:0;right:0;top:0;height:180px;overflow:hidden}
+  .sky-day{
+    position:absolute;inset:0;
+    background:
+      radial-gradient(300px 170px at 50% 8%, rgba(255,252,244,.9), rgba(255,252,244,0) 70%),
+      linear-gradient(180deg,#FDFAF2 0%,#F8F1E0 58%,#F2E8CE 100%);
+  }
+  .sky-dusk{
+    position:absolute;inset:0;opacity:0;
+    background:radial-gradient(130% 80% at 50% 102%, rgba(217,164,65,.55), rgba(217,164,65,0) 66%);
+    animation:duskFade 44s linear infinite;
+  }
+  .sky-night{
+    position:absolute;inset:0;opacity:0;
+    background-image:
+      radial-gradient(1.6px 1.6px at 12% 26%, rgba(242,234,216,.9) 50%, transparent 51%),
+      radial-gradient(1.4px 1.4px at 26% 12%, rgba(242,234,216,.7) 50%, transparent 51%),
+      radial-gradient(1.8px 1.8px at 38% 32%, rgba(242,234,216,.85) 50%, transparent 51%),
+      radial-gradient(1.3px 1.3px at 55% 10%, rgba(242,234,216,.7) 50%, transparent 51%),
+      radial-gradient(1.7px 1.7px at 68% 24%, rgba(242,234,216,.9) 50%, transparent 51%),
+      radial-gradient(1.3px 1.3px at 80% 14%, rgba(242,234,216,.65) 50%, transparent 51%),
+      radial-gradient(1.6px 1.6px at 90% 34%, rgba(242,234,216,.8) 50%, transparent 51%),
+      radial-gradient(1.2px 1.2px at 46% 44%, rgba(242,234,216,.6) 50%, transparent 51%),
+      radial-gradient(1.5px 1.5px at 6% 48%, rgba(242,234,216,.7) 50%, transparent 51%),
+      radial-gradient(1.4px 1.4px at 74% 48%, rgba(242,234,216,.6) 50%, transparent 51%),
+      linear-gradient(180deg,#0E1F15 0%,#153122 62%,#1D3E2A 100%);
+    animation:nightFade 44s linear infinite;
+  }
+  /* one arm, sun on top end, moon on the bottom end — as the sun sets, the moon rises */
+  .arm{
+    position:absolute;left:50%;bottom:0;width:0;height:118px;
+    transform-origin:50% 100%;transform:rotate(0deg);
+    animation:orbit 44s linear infinite;
+  }
+  .sun{
+    position:absolute;top:0;left:0;width:32px;height:32px;border-radius:50%;
+    transform:translate(-50%,-50%);
+    background:radial-gradient(circle at 38% 34%,#F3CE79,#D9A441 72%);
+    box-shadow:0 0 30px 6px rgba(217,164,65,.42);
+  }
+  .moon{position:absolute;top:236px;left:0;width:26px;height:26px;transform:translate(-50%,-50%)}
+  .moon-i{width:100%;height:100%;transform:rotate(0deg);animation:counterOrbit 44s linear infinite;filter:drop-shadow(0 0 10px rgba(242,234,216,.45))}
+  .ground{
+    position:absolute;left:0;right:0;bottom:0;height:56px;
+    background-color:#EFE7D4;animation:groundFade 44s linear infinite;
+  }
+  .ground::before{content:"";position:absolute;left:0;right:0;top:0;height:1.5px;background:rgba(31,66,48,.28)}
+  .t-marks{
+    position:absolute;left:0;right:0;bottom:0;height:56px;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 16px;color:#76816E;animation:labelFade 44s linear infinite;
+  }
+  .t-marks span{
+    font-size:.58rem;font-weight:600;letter-spacing:.18em;text-transform:lowercase;
+    font-variant-numeric:tabular-nums;white-space:nowrap;
+  }
+  /* their cup — line-art, plants either side, colour hands off day↔night */
+  .scene{
+    position:absolute;left:50%;bottom:44px;transform:translateX(-50%);
+    color:var(--green);animation:sceneFade 44s linear infinite;line-height:0;
+  }
+  .steam path{stroke-dasharray:3 5;animation:steam 4.5s ease-in-out infinite alternate}
+  .steam path:nth-child(2){animation-delay:-2.2s}
+  @keyframes steam{from{opacity:.42;transform:translateY(0)}to{opacity:.95;transform:translateY(-2.5px)}}
+  @keyframes orbit{0%{transform:rotate(-90deg)}55%{transform:rotate(90deg)}100%{transform:rotate(270deg)}}
+  @keyframes counterOrbit{0%{transform:rotate(90deg)}55%{transform:rotate(-90deg)}100%{transform:rotate(-270deg)}}
+  @keyframes nightFade{0%,51%{opacity:0}58%,93%{opacity:1}100%{opacity:0}}
+  @keyframes duskFade{0%,49%{opacity:0}54%{opacity:.6}60%,92%{opacity:0}96%{opacity:.4}100%{opacity:0}}
+  @keyframes sceneFade{0%,52%{color:#2E5D43}59%,93%{color:#EDE3CC}100%{color:#2E5D43}}
+  @keyframes groundFade{0%,52%{background-color:#EFE7D4}59%,93%{background-color:#132519}100%{background-color:#EFE7D4}}
+  @keyframes labelFade{0%,52%{color:#76816E}59%,93%{color:#B7C2A6}100%{color:#76816E}}
+  .hero-cap{margin-top:14px;text-align:center}
+  .hero-cap .en{
+    font-size:.62rem;font-weight:600;letter-spacing:.26em;text-indent:.26em;text-transform:lowercase;
+    color:var(--ink-soft);display:flex;align-items:center;justify-content:center;gap:9px;
+  }
+  .hero-cap .en i{width:5px;height:5px;border-radius:50%;flex:0 0 auto}
+  .hero-cap .en i.su{background:var(--gold)}
+  .hero-cap .en i.mo{background:var(--green)}
+  .hero-cap .ar{
+    display:block;margin-top:7px;font-family:var(--ar);font-weight:500;font-size:.86rem;color:var(--ink-faint);
+  }
+
+  /* ============ «سمّ» — the hospitality moment ============ */
+  .samm{
+    margin:30px 0 4px;padding:22px 18px 24px;text-align:center;
+    border-top:1.5px solid var(--line);border-bottom:1.5px solid var(--line);
+    position:relative;
+  }
+  .samm .plants{display:flex;align-items:flex-end;justify-content:center;gap:14px;color:var(--green)}
+  .samm .s-word{
+    font-family:var(--ar);font-weight:700;font-size:1.62rem;color:var(--green-deep);line-height:1;
+  }
+  .samm .s-ar{
+    margin-top:12px;font-family:var(--ar);font-weight:500;font-size:1.04rem;line-height:1.9;color:var(--ink);
+  }
+  .samm .s-en{
+    margin-top:8px;font-family:var(--disp);font-style:italic;font-size:.94rem;color:var(--ink-faint);
+  }
+
+  /* ============ sticky chip nav (opaque) ============ */
+  nav.chips{
+    position:sticky;top:0;z-index:40;
+    background:var(--cream-1);
+    border-bottom:1.5px solid var(--line);
+    margin:26px -20px 0;padding:11px 0;
+  }
+  .chip-row{display:flex;gap:8px;overflow-x:auto;padding:0 20px;scrollbar-width:none;-ms-overflow-style:none}
+  .chip-row::-webkit-scrollbar{display:none}
+  .chip{
+    flex:0 0 auto;display:inline-flex;align-items:center;gap:7px;
+    font-family:var(--en);font-weight:500;font-size:.8rem;letter-spacing:.01em;text-transform:lowercase;
+    color:var(--ink-soft);background:transparent;border:1.5px solid var(--line);
+    border-radius:99px;padding:7px 13px;white-space:nowrap;cursor:pointer;
+    transition:background .25s,color .25s,border-color .25s;
+  }
+  .chip .cn{font-size:.62rem;font-weight:700;color:var(--ink-faint);font-variant-numeric:tabular-nums;transition:color .25s}
+  .chip.on{background:var(--green);border-color:var(--green);color:var(--cream-1)}
+  .chip.on .cn{color:rgba(245,241,232,.72)}
+
+  /* ============ sections ============ */
+  section.menu-s{padding-top:34px;scroll-margin-top:66px}
+  .sec-time{
+    display:flex;align-items:center;gap:8px;color:var(--ink-faint);
+    font-size:.62rem;font-weight:600;letter-spacing:.14em;text-transform:lowercase;
+  }
+  .sec-time svg{flex:0 0 auto;color:var(--green)}
+  .sec-time .tt{font-variant-numeric:tabular-nums;letter-spacing:.16em;color:var(--green-deep);font-weight:700}
+  .sec-time .fa{font-family:var(--ar);font-weight:500;font-size:.7rem;letter-spacing:0}
+  .sec-time .sp{color:var(--line);font-weight:400}
+  .sec-row{
+    display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+    margin-top:8px;padding-bottom:12px;border-bottom:1.5px solid var(--line);flex-wrap:wrap;
+  }
+  .sec-row h2{
+    font-family:var(--disp);font-weight:400;font-size:clamp(1.62rem,7vw,1.95rem);
+    letter-spacing:0;line-height:1.02;white-space:nowrap;
+  }
+  .sec-row h2 .dot{color:var(--green)}
+  .sec-ar{font-family:var(--ar);font-weight:600;font-size:.98rem;color:var(--green-deep)}
+  .sec-kick{
+    margin-top:10px;font-size:.78rem;color:var(--ink-faint);
+    display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;
+  }
+  .sec-kick .k-en{font-family:var(--disp);font-style:italic;font-size:.9rem;color:var(--ink-soft)}
+  .sec-kick .k-ar{font-family:var(--ar);font-weight:400;font-size:.74rem}
+
+  ul.items{list-style:none;margin-top:6px}
+  .item{display:flex;align-items:baseline;gap:10px;padding:13px 0;border-bottom:1px solid var(--line-soft)}
+  .item:last-child{border-bottom:none}
+  .names{flex:0 1 auto;min-width:0;display:flex;flex-direction:column;gap:3px}
+  .en-n{font-size:1.06rem;font-weight:600;letter-spacing:.002em;text-transform:lowercase;color:var(--ink)}
+  .ar-n{font-family:var(--ar);font-weight:500;font-size:.9rem;color:var(--ink-soft);direction:rtl;text-align:left}
+  .note{font-size:.74rem;font-weight:400;color:var(--ink-faint);max-width:23ch;letter-spacing:.01em}
+  .lead{flex:1 0 16px;border-bottom:1.5px dotted var(--row)}
+  .price{
+    flex:0 0 auto;white-space:nowrap;font-weight:700;font-size:1.04rem;
+    font-variant-numeric:tabular-nums;color:var(--green-deep);
+  }
+  .price .cur{font-size:.6rem;font-weight:600;color:var(--ink-faint);margin-right:4px;letter-spacing:.08em}
+
+  /* ============ foot notes + dusk ============ */
+  .vat{
+    margin:36px 0 0;text-align:center;font-size:.66rem;letter-spacing:.1em;color:var(--ink-faint);
+    display:flex;flex-direction:column;gap:5px;text-transform:lowercase;
+  }
+  .vat .ar-l{font-family:var(--ar);letter-spacing:0;font-size:.72rem}
+  .dusk-fade{height:64px;margin:8px -20px 0;background:linear-gradient(180deg,rgba(245,241,232,0),rgba(217,164,65,.14))}
+  footer.night{
+    margin:0 -2px;border-radius:24px;overflow:hidden;position:relative;
+    background:linear-gradient(180deg,#1C3627 0%,#122419 55%,#0F2117 100%);
+    color:var(--moon);text-align:center;padding:40px 24px 34px;
+    border:1.5px solid rgba(217,164,65,.25);
+  }
+  footer.night::before{
+    content:"";position:absolute;left:0;right:0;top:0;height:2px;
+    background:linear-gradient(90deg,rgba(217,164,65,0),rgba(217,164,65,.75),rgba(217,164,65,0));
+  }
+  footer.night::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:
+      radial-gradient(1.5px 1.5px at 16% 22%, rgba(242,234,216,.8) 50%, transparent 51%),
+      radial-gradient(1.3px 1.3px at 82% 16%, rgba(242,234,216,.65) 50%, transparent 51%),
+      radial-gradient(1.6px 1.6px at 68% 30%, rgba(242,234,216,.7) 50%, transparent 51%),
+      radial-gradient(1.2px 1.2px at 30% 12%, rgba(242,234,216,.6) 50%, transparent 51%),
+      radial-gradient(1.4px 1.4px at 90% 42%, rgba(242,234,216,.5) 50%, transparent 51%);
+  }
+  footer.night>*{position:relative;z-index:1}
+  .f-moon{display:block;margin:0 auto 14px;color:var(--moon)}
+  .f-open{font-size:.6rem;font-weight:600;letter-spacing:.3em;text-indent:.3em;text-transform:lowercase;color:rgba(242,234,216,.6)}
+  .f-hours-en{font-family:var(--disp);font-size:1.5rem;margin-top:12px;letter-spacing:.005em}
+  .f-hours-en .dot{color:var(--gold)}
+  .f-hours-ar{font-family:var(--ar);font-weight:500;font-size:1rem;margin-top:9px;color:rgba(242,234,216,.88)}
+  .f-times{
+    margin-top:12px;font-size:.78rem;font-weight:600;letter-spacing:.14em;
+    font-variant-numeric:tabular-nums;color:rgba(242,234,216,.62);
+  }
+  .f-hr{width:52px;height:1.5px;background:rgba(217,164,65,.4);margin:22px auto;border:0}
+  .f-place-en{font-size:.8rem;font-weight:500;letter-spacing:.06em;text-transform:lowercase;color:rgba(242,234,216,.85)}
+  .f-place-ar{font-family:var(--ar);font-weight:400;font-size:.8rem;margin-top:6px;color:rgba(242,234,216,.62)}
+  .f-site{margin-top:14px;font-size:.68rem;font-weight:600;letter-spacing:.22em;text-transform:lowercase;color:var(--gold)}
+  .f-sign{margin-top:24px;font-family:var(--disp);font-style:italic;font-size:1.02rem;color:rgba(242,234,216,.9)}
+  .f-sign .dot{color:var(--gold);font-style:normal}
+  .f-sign-ar{font-family:var(--ar);font-weight:500;font-size:.78rem;margin-top:8px;color:rgba(242,234,216,.5)}
+
+  @media (prefers-reduced-motion: reduce){
+    .arm,.moon-i,.sky-night,.sky-dusk,.scene,.ground,.t-marks,.steam path{animation:none !important}
+    .chip{transition:none}
+  }
+  @media (min-width:768px){
+    header.brand-h{padding-top:64px}
+    .day-arc{height:250px}
+    .sky{height:194px}
+    .arm{height:126px}
+    .moon{top:252px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ================= brand ================= -->
+  <header class="brand-h">
+    <p class="eyebrow">roastery &amp; coffee bar</p>
+
+    <!-- their circular badge: some. + line-art cup + two potted plants -->
+    <svg class="badge" viewBox="0 0 120 120" role="img" aria-label="some coffee — سم كوفي">
+      <circle cx="60" cy="60" r="57" fill="#FBF8F0" stroke="#2E5D43" stroke-width="1.6"/>
+      <circle cx="60" cy="60" r="51.5" fill="none" stroke="rgba(46,93,67,.28)" stroke-width="1" stroke-dasharray="1.5 4" stroke-linecap="round"/>
+      <text x="60" y="42" text-anchor="middle" font-family="Instrument Serif, Georgia, serif" font-size="21" fill="#161C17">some<tspan fill="#2E5D43">.</tspan></text>
+      <g fill="none" stroke="#2E5D43" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+        <!-- steam -->
+        <path d="M55 58c-1.6-2.6 1.6-3.4 0-6.6M64 58c-1.6-2.6 1.6-3.4 0-6.6"/>
+        <!-- cup + handle + saucer -->
+        <path d="M48 64c0 9.5 4.6 14.5 11.5 14.5S71 73.5 71 64z"/>
+        <path d="M71 66.5c4.6-1 6.8 1.2 6.2 4s-3.9 3.9-6.9 3"/>
+        <path d="M44.5 84.5h30"/>
+        <!-- left plant -->
+        <path d="M26 78.5h13l-2 8h-9z"/>
+        <path d="M32.5 78.5v-8"/>
+        <path d="M32.5 73c-4.4-.8-6.8-3.8-7-7.6 4.4.4 6.8 3.4 7 7.6zM32.5 73c4.4-.8 6.8-3.8 7-7.6-4.4.4-6.8 3.4-7 7.6z"/>
+        <!-- right plant -->
+        <path d="M81 78.5h13l-2 8h-9z"/>
+        <path d="M87.5 78.5v-8"/>
+        <path d="M87.5 73c-4.4-.8-6.8-3.8-7-7.6 4.4.4 6.8 3.4 7 7.6zM87.5 73c4.4-.8 6.8-3.8 7-7.6-4.4.4-6.8 3.4-7 7.6z"/>
+      </g>
+    </svg>
+
+    <h1 class="wordmark">some coffee<span class="dot">.</span></h1>
+    <p class="brand-ar" lang="ar" dir="rtl">سم كوفي</p>
+    <p class="tagline">not just any coffee<span class="dot">.</span> <b>some coffee<span class="dot">.</span></b></p>
+  </header>
+
+  <!-- ============ hero: first light → midnight ============ -->
+  <div class="hero">
+    <div class="day-arc" aria-hidden="true">
+      <div class="sky">
+        <div class="sky-day"></div>
+        <div class="sky-night"></div>
+        <div class="sky-dusk"></div>
+        <div class="arm">
+          <div class="sun"></div>
+          <div class="moon"><div class="moon-i">
+            <svg viewBox="0 0 24 24" width="26" height="26"><path fill="#F2EAD8" d="M16.4 3.1a10 10 0 1 0 4.5 13.1A8.1 8.1 0 0 1 16.4 3.1Z"/></svg>
+          </div></div>
+        </div>
+      </div>
+      <div class="ground"></div>
+      <div class="t-marks">
+        <span>06:00 · first light</span>
+        <span>midnight · 00:00</span>
+      </div>
+      <div class="scene">
+        <svg width="216" height="96" viewBox="0 0 216 96" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+          <g class="steam">
+            <path d="M99 34c-3-4.6 3-6 0-11.6"/>
+            <path d="M117 34c-3-4.6 3-6 0-11.6"/>
+          </g>
+          <path d="M85 44c0 17.5 8.6 27 23 27s23-9.5 23-27z"/>
+          <path d="M131 48.5c8.4-1.8 12.4 2.2 11.3 7.3s-7.1 7.1-12.6 5.4"/>
+          <path d="M78 82.5h60"/>
+          <path d="M22 68h22l-3.4 14.5H25.4z"/>
+          <path d="M33 68V54"/>
+          <path d="M33 58c-7.4-1.4-11.4-6.4-11.7-12.7 7.4.7 11.4 5.7 11.7 12.7zM33 58c7.4-1.4 11.4-6.4 11.7-12.7-7.4.7-11.4 5.7-11.7 12.7z"/>
+          <path d="M172 68h22l-3.4 14.5h-15.2z"/>
+          <path d="M183 68V54"/>
+          <path d="M183 58c-7.4-1.4-11.4-6.4-11.7-12.7 7.4.7 11.4 5.7 11.7 12.7zM183 58c7.4-1.4 11.4-6.4 11.7-12.7-7.4.7-11.4 5.7-11.7 12.7z"/>
+        </svg>
+      </div>
+    </div>
+    <p class="hero-cap">
+      <span class="en"><i class="su"></i>open first light to midnight<i class="mo"></i></span>
+      <span class="ar" lang="ar" dir="rtl">من أول النور إلى منتصف الليل</span>
+    </p>
+  </div>
+
+  <!-- ============ «سمّ» ============ -->
+  <section class="samm" aria-label="samm — سمّ">
+    <div class="plants" aria-hidden="true">
+      <svg width="20" height="22" viewBox="0 0 24 26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16h12l-1.8 8H7.8z"/><path d="M12 16V7"/><path d="M12 10C7.8 9.2 5.6 6.4 5.4 2.8 9.6 3.2 11.8 6 12 10zM12 10c4.2-.8 6.4-3.6 6.6-7.2C14.4 3.2 12.2 6 12 10z"/></svg>
+      <p class="s-word" lang="ar" dir="rtl">«سمّ»</p>
+      <svg width="20" height="22" viewBox="0 0 24 26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16h12l-1.8 8H7.8z"/><path d="M12 16V7"/><path d="M12 10C7.8 9.2 5.6 6.4 5.4 2.8 9.6 3.2 11.8 6 12 10zM12 10c4.2-.8 6.4-3.6 6.6-7.2C14.4 3.2 12.2 6 12 10z"/></svg>
+    </div>
+    <p class="s-ar" lang="ar" dir="rtl">أول ما تقول «سمّ»، فنجانك يبدأ يتجهّز</p>
+    <p class="s-en">the moment you say «samm», your cup starts getting ready.</p>
+  </section>
+
+  <!-- ============ nav ============ -->
+  <nav class="chips" aria-label="menu sections">
+    <div class="chip-row">
+      <a class="chip on" href="#espresso" data-s="espresso"><span class="cn">06</span>espresso</a>
+      <a class="chip" href="#filter" data-s="filter"><span class="cn">09</span>filter</a>
+      <a class="chip" href="#cold" data-s="cold"><span class="cn">13</span>cold bar</a>
+      <a class="chip" href="#notcoffee" data-s="notcoffee"><span class="cn">17</span>not coffee</a>
+      <a class="chip" href="#bakery" data-s="bakery"><span class="cn">21</span>bakery</a>
+      <a class="chip" href="#beans" data-s="beans"><span class="cn">00</span>beans</a>
+    </div>
+  </nav>
+
+  <!-- ============ 06:00 espresso bar ============ -->
+  <section class="menu-s" id="espresso" aria-labelledby="h-espresso">
+    <p class="sec-time">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 18h14M8 18a4 4 0 1 1 8 0M12 8V5M6.3 10.3 4.5 8.5M17.7 10.3l1.8-1.8"/></svg>
+      <span class="tt">06:00</span><span class="sp">—</span><span>first light</span><span class="sp">·</span><span class="fa" lang="ar" dir="rtl">أول النور</span>
+    </p>
+    <div class="sec-row">
+      <h2 id="h-espresso">espresso bar<span class="dot">.</span></h2>
+      <span class="sec-ar" lang="ar" dir="rtl">بار الإسبريسو</span>
+    </div>
+    <ul class="items">
+      <li class="item"><span class="names"><span class="en-n">espresso</span><span class="ar-n" lang="ar" dir="rtl">إسبريسو</span><span class="note">single origin, rotates</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>12</span></li>
+      <li class="item"><span class="names"><span class="en-n">macchiato</span><span class="ar-n" lang="ar" dir="rtl">ماكياتو</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>14</span></li>
+      <li class="item"><span class="names"><span class="en-n">cortado</span><span class="ar-n" lang="ar" dir="rtl">كورتادو</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>15</span></li>
+      <li class="item"><span class="names"><span class="en-n">flat white</span><span class="ar-n" lang="ar" dir="rtl">فلات وايت</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>17</span></li>
+      <li class="item"><span class="names"><span class="en-n">cappuccino</span><span class="ar-n" lang="ar" dir="rtl">كابتشينو</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>17</span></li>
+      <li class="item"><span class="names"><span class="en-n">latte</span><span class="ar-n" lang="ar" dir="rtl">لاتيه</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>18</span></li>
+      <li class="item"><span class="names"><span class="en-n">spanish latte</span><span class="ar-n" lang="ar" dir="rtl">سبانيش لاتيه</span><span class="note">al muruj's favourite</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>21</span></li>
+      <li class="item"><span class="names"><span class="en-n">americano</span><span class="ar-n" lang="ar" dir="rtl">أمريكانو</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>14</span></li>
+    </ul>
+  </section>
+
+  <!-- ============ 09:00 filter & slow brew ============ -->
+  <section class="menu-s" id="filter" aria-labelledby="h-filter">
+    <p class="sec-time">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="13" r="4"/><path d="M12 5.5V3M4.5 13H2M22 13h-2.5M6.7 7.7 5 6M17.3 7.7 19 6"/></svg>
+      <span class="tt">09:00</span><span class="sp">—</span><span>slow morning</span><span class="sp">·</span><span class="fa" lang="ar" dir="rtl">صباح على مهل</span>
+    </p>
+    <div class="sec-row">
+      <h2 id="h-filter">filter &amp; slow brew<span class="dot">.</span></h2>
+      <span class="sec-ar" lang="ar" dir="rtl">قهوة مقطّرة</span>
+    </div>
+    <ul class="items">
+      <li class="item"><span class="names"><span class="en-n">v60 · hot</span><span class="ar-n" lang="ar" dir="rtl">V60 ساخن</span><span class="note">ask what's on the bar</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>25</span></li>
+      <li class="item"><span class="names"><span class="en-n">v60 · iced</span><span class="ar-n" lang="ar" dir="rtl">V60 بارد</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>26</span></li>
+      <li class="item"><span class="names"><span class="en-n">aeropress</span><span class="ar-n" lang="ar" dir="rtl">إيروبريس</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>22</span></li>
+      <li class="item"><span class="names"><span class="en-n">batch of the day</span><span class="ar-n" lang="ar" dir="rtl">قهوة اليوم</span><span class="note">brewed on the hour</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>18</span></li>
+      <li class="item"><span class="names"><span class="en-n">roaster's flight</span><span class="ar-n" lang="ar" dir="rtl">رحلة التذوّق</span><span class="note">three small pours</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>30</span></li>
+    </ul>
+  </section>
+
+  <!-- ============ 13:00 cold bar ============ -->
+  <section class="menu-s" id="cold" aria-labelledby="h-cold">
+    <p class="sec-time">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 4.5V2M12 22v-2.5M4.5 12H2M22 12h-2.5M6.5 6.5 4.8 4.8M19.2 19.2l-1.7-1.7M6.5 17.5l-1.7 1.7M19.2 4.8l-1.7 1.7"/></svg>
+      <span class="tt">13:00</span><span class="sp">—</span><span>high sun</span><span class="sp">·</span><span class="fa" lang="ar" dir="rtl">عزّ الظهر</span>
+    </p>
+    <div class="sec-row">
+      <h2 id="h-cold">cold bar<span class="dot">.</span></h2>
+      <span class="sec-ar" lang="ar" dir="rtl">البار البارد</span>
+    </div>
+    <ul class="items">
+      <li class="item"><span class="names"><span class="en-n">iced latte</span><span class="ar-n" lang="ar" dir="rtl">لاتيه بارد</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>19</span></li>
+      <li class="item"><span class="names"><span class="en-n">iced spanish latte</span><span class="ar-n" lang="ar" dir="rtl">سبانيش بارد</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>22</span></li>
+      <li class="item"><span class="names"><span class="en-n">cold brew</span><span class="ar-n" lang="ar" dir="rtl">كولد برو</span><span class="note">steeped 18 hours</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>22</span></li>
+      <li class="item"><span class="names"><span class="en-n">cold brew tonic</span><span class="ar-n" lang="ar" dir="rtl">كولد برو تونيك</span><span class="note">citrus &amp; fizz</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>26</span></li>
+      <li class="item"><span class="names"><span class="en-n">espresso tonic</span><span class="ar-n" lang="ar" dir="rtl">إسبريسو تونيك</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>24</span></li>
+    </ul>
+  </section>
+
+  <!-- ============ 17:00 not coffee ============ -->
+  <section class="menu-s" id="notcoffee" aria-labelledby="h-notcoffee">
+    <p class="sec-time">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 16h14M8 16a4 4 0 1 1 8 0M12 6V3.5M18.5 9.5l1.7-1.7M3.8 7.8l1.7 1.7M2 20h20"/></svg>
+      <span class="tt">17:00</span><span class="sp">—</span><span>golden hour</span><span class="sp">·</span><span class="fa" lang="ar" dir="rtl">الساعة الذهبية</span>
+    </p>
+    <div class="sec-row">
+      <h2 id="h-notcoffee">not coffee<span class="dot">.</span></h2>
+      <span class="sec-ar" lang="ar" dir="rtl">مو قهوة</span>
+    </div>
+    <ul class="items">
+      <li class="item"><span class="names"><span class="en-n">matcha latte</span><span class="ar-n" lang="ar" dir="rtl">ماتشا لاتيه</span><span class="note">ceremonial grade</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>24</span></li>
+      <li class="item"><span class="names"><span class="en-n">iced matcha</span><span class="ar-n" lang="ar" dir="rtl">ماتشا باردة</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>26</span></li>
+      <li class="item"><span class="names"><span class="en-n">hot chocolate</span><span class="ar-n" lang="ar" dir="rtl">شوكولاتة ساخنة</span><span class="note">70% dark</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>20</span></li>
+      <li class="item"><span class="names"><span class="en-n">seasonal tea</span><span class="ar-n" lang="ar" dir="rtl">شاي الموسم</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>16</span></li>
+      <li class="item"><span class="names"><span class="en-n">sparkling citrus</span><span class="ar-n" lang="ar" dir="rtl">حمضيات فوّارة</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>19</span></li>
+    </ul>
+  </section>
+
+  <!-- ============ 21:00 bakery ============ -->
+  <section class="menu-s" id="bakery" aria-labelledby="h-bakery">
+    <p class="sec-time">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.2 4.6a8.6 8.6 0 1 0 3.1 9.3 7 7 0 0 1-3.1-9.3Z"/></svg>
+      <span class="tt">21:00</span><span class="sp">—</span><span>after dark</span><span class="sp">·</span><span class="fa" lang="ar" dir="rtl">جلسة المسا</span>
+    </p>
+    <div class="sec-row">
+      <h2 id="h-bakery">bakery<span class="dot">.</span></h2>
+      <span class="sec-ar" lang="ar" dir="rtl">مخبوزات</span>
+    </div>
+    <ul class="items">
+      <li class="item"><span class="names"><span class="en-n">butter croissant</span><span class="ar-n" lang="ar" dir="rtl">كرواسون زبدة</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>14</span></li>
+      <li class="item"><span class="names"><span class="en-n">almond croissant</span><span class="ar-n" lang="ar" dir="rtl">كرواسون لوز</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>18</span></li>
+      <li class="item"><span class="names"><span class="en-n">cinnamon roll</span><span class="ar-n" lang="ar" dir="rtl">رول قرفة</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>18</span></li>
+      <li class="item"><span class="names"><span class="en-n">date &amp; tahini cookie</span><span class="ar-n" lang="ar" dir="rtl">كوكيز تمر وطحينة</span><span class="note">baked at first light</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>15</span></li>
+      <li class="item"><span class="names"><span class="en-n">san sebastián</span><span class="ar-n" lang="ar" dir="rtl">سان سيباستيان</span><span class="note">the midnight slice</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>26</span></li>
+    </ul>
+  </section>
+
+  <!-- ============ 00:00 beans — روستري ============ -->
+  <section class="menu-s" id="beans" aria-labelledby="h-beans">
+    <p class="sec-time">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 4.2a7.8 7.8 0 1 0 4 10.4A6.6 6.6 0 0 1 15.5 4.2Z"/><path d="M20 3.5l.5 1.5 1.5.5-1.5.5-.5 1.5-.5-1.5L18 5.5l1.5-.5z"/></svg>
+      <span class="tt">00:00</span><span class="sp">—</span><span>midnight</span><span class="sp">·</span><span class="fa" lang="ar" dir="rtl">منتصف الليل</span>
+    </p>
+    <div class="sec-row">
+      <h2 id="h-beans">beans<span class="dot">.</span></h2>
+      <span class="sec-ar" lang="ar" dir="rtl">روستري</span>
+    </div>
+    <p class="sec-kick">
+      <span class="k-en">the day ends. take some home.</span>
+      <span class="k-ar" lang="ar" dir="rtl">آخر اليوم — وقهوتنا تروح معك · أكياس ٢٥٠ جم، نطحنها لك</span>
+    </p>
+    <ul class="items">
+      <li class="item"><span class="names"><span class="en-n">house blend</span><span class="ar-n" lang="ar" dir="rtl">خلطة البيت</span><span class="note">cocoa · caramel · date</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>55</span></li>
+      <li class="item"><span class="names"><span class="en-n">ethiopia · washed</span><span class="ar-n" lang="ar" dir="rtl">إثيوبيا مغسولة</span><span class="note">jasmine · peach · honey</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>75</span></li>
+      <li class="item"><span class="names"><span class="en-n">colombia · natural</span><span class="ar-n" lang="ar" dir="rtl">كولومبيا طبيعية</span><span class="note">berries · cacao</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>68</span></li>
+      <li class="item"><span class="names"><span class="en-n">yemen · haraz</span><span class="ar-n" lang="ar" dir="rtl">يمني حراز</span><span class="note">rare small lot</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>95</span></li>
+      <li class="item"><span class="names"><span class="en-n">decaf</span><span class="ar-n" lang="ar" dir="rtl">ديكاف</span><span class="note">colombia · sugarcane</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>58</span></li>
+      <li class="item"><span class="names"><span class="en-n">drip bags</span><span class="ar-n" lang="ar" dir="rtl">أظرف ترشيح</span><span class="note">box of 10</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>60</span></li>
+    </ul>
+  </section>
+
+  <p class="vat">
+    <span>prices in saudi riyal · vat included</span>
+    <span class="ar-l" lang="ar" dir="rtl">الأسعار بالريال السعودي وشاملة الضريبة</span>
+  </p>
+
+  <div class="dusk-fade" aria-hidden="true"></div>
+
+  <!-- ============ footer — the midnight end of the day ============ -->
+  <footer class="night">
+    <svg class="f-moon" width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path fill="#F2EAD8" d="M16.4 3.1a10 10 0 1 0 4.5 13.1A8.1 8.1 0 0 1 16.4 3.1Z"/></svg>
+    <p class="f-open">open every day</p>
+    <p class="f-hours-en">first light to midnight<span class="dot">.</span></p>
+    <p class="f-hours-ar" lang="ar" dir="rtl">من أول النور إلى منتصف الليل</p>
+    <p class="f-times">6:00 am — 12:00 am</p>
+    <hr class="f-hr">
+    <p class="f-place-en">al muruj district · riyadh</p>
+    <p class="f-place-ar" lang="ar" dir="rtl">حي المروج، الرياض</p>
+    <p class="f-site">somecoffee.sa</p>
+    <p class="f-sign">not just any coffee<span class="dot">.</span> some coffee<span class="dot">.</span></p>
+    <p class="f-sign-ar" lang="ar" dir="rtl">سم كوفي</p>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  try{
+    var smooth = 'smooth';
+    try{ if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) smooth = 'auto'; }catch(_){}
+    var chips = [].slice.call(document.querySelectorAll('.chip'));
+    var secs = [];
+    chips.forEach(function(c){
+      var s = document.getElementById(c.getAttribute('data-s'));
+      if (s) secs.push(s);
+      c.addEventListener('click', function(ev){
+        ev.preventDefault();
+        var t = document.getElementById(c.getAttribute('data-s'));
+        if (t && t.scrollIntoView) t.scrollIntoView({behavior:smooth, block:'start'});
+      });
+    });
+    var setOn = function(id){
+      chips.forEach(function(c){
+        var on = c.getAttribute('data-s') === id;
+        c.classList.toggle('on', on);
+        if (on && c.scrollIntoView) { try{ c.scrollIntoView({block:'nearest', inline:'center', behavior:smooth}); }catch(_){} }
+      });
+    };
+    if ('IntersectionObserver' in window && secs.length){
+      var io = new IntersectionObserver(function(es){
+        es.forEach(function(e){ if (e.isIntersecting) setOn(e.target.id); });
+      }, {rootMargin:'-40% 0px -55% 0px', threshold:0});
+      secs.forEach(function(s){ io.observe(s); });
+    }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>

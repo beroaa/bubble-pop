@@ -1,0 +1,338 @@
+{
+  "_type": "clientos-import",
+  "_version": 1,
+  "_generated_by": "Menu Sadah cloud build session",
+  "_import_instructions": [
+    "For the ClientOS Mac app / its Claude session:",
+    "1. For each cafe in `cafes`: upsert a card by `slug` (create if missing, update if exists).",
+    "2. Map `stage` to the pipeline column (To do / DM sent / Replied / Meeting / Signed / Shelved) — NEVER move a card backwards (if the app already has it further along, keep the app stage).",
+    "3. Show MENU LIVE badge only when `menu_live` is true; show gift badge when `gift_ready`.",
+    "4. Wire the Deal Maker / \"Send their menu\" button to `links.gift` (gift first), with `links.menu` as the secondary link.",
+    "5. Keep the app authoritative for scores/XP — this import never overwrites app-side scoring.",
+    "6. `next_action` is a suggestion for the card checklist."
+  ],
+  "updated": "2026-07-16",
+  "count": 16,
+  "cafes": [
+    {
+      "slug": "three-coffee",
+      "name": "Three Coffee",
+      "name_ar": "ثري كافيه",
+      "city": "Riyadh",
+      "stage": "To do",
+      "menu_built": true,
+      "menu_live": false,
+      "gift_ready": true,
+      "pack_complete": true,
+      "links": {
+        "menu": "https://menu-sadah.com/three-coffee",
+        "gift": "https://menu-sadah.com/three-coffee/gift.html"
+      },
+      "concept": "",
+      "accent": "#C68A4B",
+      "status_note": "Pilot. Full pack. Awaiting push to go live.",
+      "next_action": "Deploy pack to menu-sadah.com, then send gift DM",
+      "source_files": "menus/three-coffee/ (index.html, gift.html, qr, table-card, handover)"
+    },
+    {
+      "slug": "maqha-noon",
+      "name": "Noon",
+      "name_ar": "نون",
+      "city": "Dubai",
+      "stage": "To do",
+      "menu_built": true,
+      "menu_live": false,
+      "gift_ready": true,
+      "pack_complete": true,
+      "links": {
+        "menu": "https://menu-sadah.com/maqha-noon",
+        "gift": "https://menu-sadah.com/maqha-noon/gift.html"
+      },
+      "concept": "Neo-Khaleeji modernism — emerald & brass, mashrabiya lattice hero",
+      "accent": "#0E3B2E",
+      "status_note": "delivered",
+      "next_action": "Deploy pack to menu-sadah.com, then send gift DM",
+      "source_files": "menus/maqha-noon/ (index.html, gift.html, qr, table-card, handover)"
+    },
+    {
+      "slug": "blueprint-roasters",
+      "name": "Blueprint",
+      "name_ar": "بلوبرنت",
+      "city": "Dubai",
+      "stage": "To do",
+      "menu_built": true,
+      "menu_live": false,
+      "gift_ready": true,
+      "pack_complete": true,
+      "links": {
+        "menu": "https://menu-sadah.com/blueprint-roasters",
+        "gift": "https://menu-sadah.com/blueprint-roasters/gift.html"
+      },
+      "concept": "Engineering schematic — navy & cyan, self-drawing brew-ratio diagram",
+      "accent": "#4FD1E0",
+      "status_note": "delivered",
+      "next_action": "Deploy pack to menu-sadah.com, then send gift DM",
+      "source_files": "menus/blueprint-roasters/ (index.html, gift.html, qr, table-card, handover)"
+    },
+    {
+      "slug": "terra-cafe",
+      "name": "Terra",
+      "name_ar": "تيرا",
+      "city": "Dubai",
+      "stage": "To do",
+      "menu_built": true,
+      "menu_live": false,
+      "gift_ready": true,
+      "pack_complete": true,
+      "links": {
+        "menu": "https://menu-sadah.com/terra-cafe",
+        "gift": "https://menu-sadah.com/terra-cafe/gift.html"
+      },
+      "concept": "Kinetic terrazzo — bright cream, coral/teal/mustard speckle",
+      "accent": "#E4633F",
+      "status_note": "delivered",
+      "next_action": "Deploy pack to menu-sadah.com, then send gift DM",
+      "source_files": "menus/terra-cafe/ (index.html, gift.html, qr, table-card, handover)"
+    },
+    {
+      "slug": "kuthban",
+      "name": "Kuthban",
+      "name_ar": "كثبان",
+      "city": "Dubai",
+      "stage": "To do",
+      "menu_built": true,
+      "menu_live": false,
+      "gift_ready": true,
+      "pack_complete": true,
+      "links": {
+        "menu": "https://menu-sadah.com/kuthban",
+        "gift": "https://menu-sadah.com/kuthban/gift.html"
+      },
+      "concept": "Desert modernism — sand gradient, dune-ridge hero, humanist serif",
+      "accent": "#B4744B",
+      "status_note": "delivered",
+      "next_action": "Deploy pack to menu-sadah.com, then send gift DM",
+      "source_files": "menus/kuthban/ (index.html, gift.html, qr, table-card, handover)"
+    },
+    {
+      "slug": "marsa",
+      "name": "Marsa",
+      "name_ar": "مرسى",
+      "city": "Dubai",
+      "stage": "To do",
+      "menu_built": true,
+      "menu_live": false,
+      "gift_ready": true,
+      "pack_complete": true,
+      "links": {
+        "menu": "https://menu-sadah.com/marsa",
+        "gift": "https://menu-sadah.com/marsa/gift.html"
+      },
+      "concept": "Coastal marina modernism — teal & brass, harbour-ripple hero",
+      "accent": "#0E4B54",
+      "status_note": "delivered",
+      "next_action": "Deploy pack to menu-sadah.com, then send gift DM",
+      "source_files": "menus/marsa/ (index.html, gift.html, qr, table-card, handover)"
+    },
+    {
+      "slug": "layl",
+      "name": "Layl",
+      "name_ar": "ليل",
+      "city": "Dubai",
+      "stage": "To do",
+      "menu_built": true,
+      "menu_live": false,
+      "gift_ready": true,
+      "pack_complete": true,
+      "links": {
+        "menu": "https://menu-sadah.com/layl",
+        "gift": "https://menu-sadah.com/layl/gift.html"
+      },
+      "concept": "Nocturne — midnight blue & silver, moon-phase/constellation hero",
+      "accent": "#6E4A6B",
+      "status_note": "delivered",
+      "next_action": "Deploy pack to menu-sadah.com, then send gift DM",
+      "source_files": "menus/layl/ (index.html, gift.html, qr, table-card, handover)"
+    },
+    {
+      "slug": "hessa",
+      "name": "Hessa",
+      "name_ar": "حصة",
+      "city": "Dubai",
+      "stage": "To do",
+      "menu_built": true,
+      "menu_live": false,
+      "gift_ready": true,
+      "pack_complete": true,
+      "links": {
+        "menu": "https://menu-sadah.com/hessa",
+        "gift": "https://menu-sadah.com/hessa/gift.html"
+      },
+      "concept": "Art-deco Gulf glam — black, gold & emerald, deco sunburst hero",
+      "accent": "#CBA24A",
+      "status_note": "delivered",
+      "next_action": "Deploy pack to menu-sadah.com, then send gift DM",
+      "source_files": "menus/hessa/ (index.html, gift.html, qr, table-card, handover)"
+    },
+    {
+      "slug": "sabah-cafe",
+      "name": "Sabah",
+      "name_ar": "صباح",
+      "city": "Dubai",
+      "stage": "To do",
+      "menu_built": true,
+      "menu_live": false,
+      "gift_ready": true,
+      "pack_complete": true,
+      "links": {
+        "menu": "https://menu-sadah.com/sabah-cafe",
+        "gift": "https://menu-sadah.com/sabah-cafe/gift.html"
+      },
+      "concept": "Morning cafe — peach, cream & sky, sunrise-arc hero",
+      "accent": "#E8A07A",
+      "status_note": "delivered",
+      "next_action": "Deploy pack to menu-sadah.com, then send gift DM",
+      "source_files": "menus/sabah-cafe/ (index.html, gift.html, qr, table-card, handover)"
+    },
+    {
+      "slug": "mono-coffee",
+      "name": "Mono",
+      "name_ar": "مونو",
+      "city": "Dubai",
+      "stage": "To do",
+      "menu_built": true,
+      "menu_live": false,
+      "gift_ready": true,
+      "pack_complete": true,
+      "links": {
+        "menu": "https://menu-sadah.com/mono-coffee",
+        "gift": "https://menu-sadah.com/mono-coffee/gift.html"
+      },
+      "concept": "Monochrome brutalist-minimal — one signal red, kinetic-stroke hero",
+      "accent": "#E23A2E",
+      "status_note": "delivered",
+      "next_action": "Deploy pack to menu-sadah.com, then send gift DM",
+      "source_files": "menus/mono-coffee/ (index.html, gift.html, qr, table-card, handover)"
+    },
+    {
+      "slug": "attar",
+      "name": "Attar",
+      "name_ar": "عطر",
+      "city": "Dubai",
+      "stage": "To do",
+      "menu_built": true,
+      "menu_live": false,
+      "gift_ready": true,
+      "pack_complete": true,
+      "links": {
+        "menu": "https://menu-sadah.com/attar",
+        "gift": "https://menu-sadah.com/attar/gift.html"
+      },
+      "concept": "Floral rosewater apothecary — blush, maroon & gold, blooming-rose hero",
+      "accent": "#B0566E",
+      "status_note": "delivered",
+      "next_action": "Deploy pack to menu-sadah.com, then send gift DM",
+      "source_files": "menus/attar/ (index.html, gift.html, qr, table-card, handover)"
+    },
+    {
+      "slug": "barq",
+      "name": "Barq",
+      "name_ar": "برق",
+      "city": "Dubai",
+      "stage": "To do",
+      "menu_built": true,
+      "menu_live": false,
+      "gift_ready": true,
+      "pack_complete": true,
+      "links": {
+        "menu": "https://menu-sadah.com/barq",
+        "gift": "https://menu-sadah.com/barq/gift.html"
+      },
+      "concept": "High-energy espresso bar — charcoal & electric lime, lightning-pulse hero",
+      "accent": "#C6F53B",
+      "status_note": "delivered",
+      "next_action": "Deploy pack to menu-sadah.com, then send gift DM",
+      "source_files": "menus/barq/ (index.html, gift.html, qr, table-card, handover)"
+    },
+    {
+      "slug": "obsidian-coffee",
+      "name": "Obsidian",
+      "name_ar": "أوبسيديان",
+      "city": "Dubai",
+      "stage": "To do",
+      "menu_built": true,
+      "menu_live": false,
+      "gift_ready": true,
+      "pack_complete": true,
+      "links": {
+        "menu": "https://menu-sadah.com/obsidian-coffee",
+        "gift": "https://menu-sadah.com/obsidian-coffee/gift.html"
+      },
+      "concept": "Volcanic mineral minimal-luxe — black & iridescent, faceted-stone hero",
+      "accent": "#4A6A7A",
+      "status_note": "delivered",
+      "next_action": "Deploy pack to menu-sadah.com, then send gift DM",
+      "source_files": "menus/obsidian-coffee/ (index.html, gift.html, qr, table-card, handover)"
+    },
+    {
+      "slug": "hamdha",
+      "name": "Hamdha",
+      "name_ar": "حمضة",
+      "city": "Dubai",
+      "stage": "To do",
+      "menu_built": true,
+      "menu_live": false,
+      "gift_ready": true,
+      "pack_complete": true,
+      "links": {
+        "menu": "https://menu-sadah.com/hamdha",
+        "gift": "https://menu-sadah.com/hamdha/gift.html"
+      },
+      "concept": "Fresh citrus juice cafe — white, orange & leaf, citrus-slice hero",
+      "accent": "#F28C28",
+      "status_note": "delivered",
+      "next_action": "Deploy pack to menu-sadah.com, then send gift DM",
+      "source_files": "menus/hamdha/ (index.html, gift.html, qr, table-card, handover)"
+    },
+    {
+      "slug": "falak",
+      "name": "Falak",
+      "name_ar": "فلك",
+      "city": "Dubai",
+      "stage": "To do",
+      "menu_built": true,
+      "menu_live": false,
+      "gift_ready": true,
+      "pack_complete": true,
+      "links": {
+        "menu": "https://menu-sadah.com/falak",
+        "gift": "https://menu-sadah.com/falak/gift.html"
+      },
+      "concept": "Cosmos/astronomy cafe — indigo & gold, orbital hero",
+      "accent": "#E2C067",
+      "status_note": "delivered",
+      "next_action": "Deploy pack to menu-sadah.com, then send gift DM",
+      "source_files": "menus/falak/ (index.html, gift.html, qr, table-card, handover)"
+    },
+    {
+      "slug": "some-coffee",
+      "name": "some coffee",
+      "name_ar": "سم كوفي",
+      "city": "Riyadh",
+      "stage": "Replied",
+      "menu_built": false,
+      "menu_live": true,
+      "gift_ready": true,
+      "pack_complete": false,
+      "links": {
+        "menu": "https://menu-sadah.com/some-coffee",
+        "gift": "https://menu-sadah.com/some-coffee/gift.html"
+      },
+      "concept": "Botanical roastery — cream & green, first-light-to-midnight; REAL CLIENT (replied on IG)",
+      "accent": "#2E5D43",
+      "status_note": "v1 live but empty; 3-concept rebuild in flight.",
+      "next_action": "REPLIED on IG — deploy rebuilt menu, then send reply.md text with menu + gift links",
+      "source_files": "menus/some-coffee/ (index.html, gift.html, qr, table-card, handover)"
+    }
+  ]
+}
