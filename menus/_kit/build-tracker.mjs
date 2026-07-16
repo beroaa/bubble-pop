@@ -32,7 +32,7 @@ const verified = Object.values(status).filter(x => x === 'verified' || x === 'de
 const building = Object.values(status).filter(x => x === 'building').length;
 const live = menus.filter(m => m.live).length;
 
-const DATA = { verified, building, live, target: TARGET, status, names };
+const DATA = { verified, building, live, target: TARGET, updated: new Date().toISOString(), status, names };
 
 const A = '// <<<DATA-START>>>', B = '// <<<DATA-END>>>';
 const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
