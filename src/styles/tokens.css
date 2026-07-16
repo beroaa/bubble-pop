@@ -1,0 +1,70 @@
+/* ClientOS design tokens. Two themes, identical token lists — component CSS
+   contains zero hardcoded colors. Theme switch = data-theme on <html>. */
+
+:root {
+  /* spacing (4px base) */
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 20px;
+  --sp-6: 24px; --sp-7: 32px; --sp-8: 40px; --sp-9: 48px; --sp-10: 64px;
+
+  /* CSS motion (JS animation uses motion/tokens.js) */
+  --dur-fast: 120ms; --dur-base: 200ms; --dur-slow: 320ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root[data-theme='hq'], :root {
+  --bg-0: #161210; --bg-1: #1F1915; --bg-2: #2A221B; --bg-3: #372C22;
+  --backdrop: rgba(12, 9, 7, 0.72); --backdrop-blur: 8px;
+  --border-1: #35291F; --border-2: #55422F;
+  --text-1: #F5EFE6; --text-2: #C6B9A6; --text-3: #8B7D6A; --text-inverse: #1D1610;
+  --accent: #E3B23C; --accent-hover: #F0C45C; --accent-press: #C7992A;
+  --accent-soft: rgba(227, 178, 60, 0.14); --on-accent: #1D1610;
+  --positive: #57B380; --positive-soft: rgba(87, 179, 128, 0.16);
+  --negative: #E25C5C; --negative-soft: rgba(226, 92, 92, 0.16);
+  --warning: #E8883C; --warning-soft: rgba(232, 136, 60, 0.16);
+  --info: #5CA8E8; --info-soft: rgba(92, 168, 232, 0.16);
+  --focus-ring: 0 0 0 2px #161210, 0 0 0 4px rgba(227, 178, 60, 0.65);
+  --xp-track: #2A221B; --xp-fill-a: #E3B23C; --xp-fill-b: #F6D77E;
+  --xp-glow: 0 0 12px rgba(227, 178, 60, 0.35);
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-2: 0 4px 12px rgba(0, 0, 0, 0.45), 0 12px 32px rgba(0, 0, 0, 0.35);
+  --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px; --radius-xl: 24px; --radius-full: 999px;
+  --font-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Mono', Menlo, Consolas, monospace;
+  --transform-label: none; --tracking-label: 0.08em; --tracking-display: -0.02em;
+  --scanline-opacity: 0; --vignette-opacity: 0; --hud-corner: none;
+  --nav-bg: rgba(31, 25, 21, 0.92); --nav-inactive: #8B7D6A;
+  --bar-height: 10px; --xp-tick-display: none;
+  --bubble-radius: 50%;
+  --bubble-fill: radial-gradient(circle at 30% 30%, rgba(246, 215, 126, 0.45), rgba(227, 178, 60, 0.55) 45%, rgba(199, 153, 42, 0.85) 100%);
+  --bubble-shadow: 0 8px 32px rgba(227, 178, 60, 0.25), inset 0 0 20px rgba(255, 255, 255, 0.12);
+  --bubble-border: 1px solid transparent;
+}
+
+:root[data-theme='tactical'] {
+  --bg-0: #0B0E12; --bg-1: #12171D; --bg-2: #1A222B; --bg-3: #243040;
+  --backdrop: rgba(4, 6, 9, 0.8); --backdrop-blur: 0px;
+  --border-1: #26303B; --border-2: #3D4C5C;
+  --text-1: #E9EEF3; --text-2: #9AA8B6; --text-3: #5E6C7A; --text-inverse: #10130A;
+  --accent: #FFC24B; --accent-hover: #FFD070; --accent-press: #E0A736;
+  --accent-soft: rgba(255, 194, 75, 0.12); --on-accent: #14100A;
+  --positive: #55D66B; --positive-soft: rgba(85, 214, 107, 0.14);
+  --negative: #FF5A5A; --negative-soft: rgba(255, 90, 90, 0.14);
+  --warning: #FF9F2E; --warning-soft: rgba(255, 159, 46, 0.14);
+  --info: #4FA8FF; --info-soft: rgba(79, 168, 255, 0.14);
+  --focus-ring: 0 0 0 2px #0B0E12, 0 0 0 4px rgba(255, 194, 75, 0.8);
+  --xp-track: #1A222B; --xp-fill-a: #FFC24B; --xp-fill-b: #FFE49A;
+  --xp-glow: 0 0 16px rgba(255, 194, 75, 0.45);
+  --shadow-1: 0 1px 0 rgba(0, 0, 0, 0.6);
+  --shadow-2: 0 0 0 1px #3D4C5C, 0 8px 24px rgba(0, 0, 0, 0.5);
+  --radius-sm: 2px; --radius-md: 3px; --radius-lg: 4px; --radius-xl: 6px; --radius-full: 4px;
+  --font-display: 'Avenir Next Condensed', 'Arial Narrow', 'Helvetica Neue', 'Segoe UI', Roboto, sans-serif;
+  --transform-label: uppercase; --tracking-label: 0.12em; --tracking-display: 0.04em;
+  --scanline-opacity: 0.04; --vignette-opacity: 0.35; --hud-corner: block;
+  --nav-bg: rgba(11, 14, 18, 0.94); --nav-inactive: #5E6C7A;
+  --bar-height: 8px; --xp-tick-display: block;
+  --bubble-radius: 24%;
+  --bubble-fill: radial-gradient(circle at 30% 30%, rgba(255, 224, 150, 0.35), rgba(255, 194, 75, 0.45) 45%, rgba(224, 167, 54, 0.8) 100%);
+  --bubble-shadow: 0 8px 32px rgba(255, 194, 75, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.08);
+  --bubble-border: 1px solid rgba(255, 194, 75, 0.6);
+}

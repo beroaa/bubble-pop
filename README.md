@@ -1,16 +1,57 @@
-# React + Vite
+# ClientOS — MENU SADAH HQ 🎖
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The ops HQ for the MENU SADAH e-menu studio: track restaurant clients, hand out
+menu quotas to your agents, and climb an 18-rank competitive ladder from
+**Silver I** to **The Global Elite** (1 client ≈ Silver II · 100 ≈ Supreme
+Master First Class · 200 ≈ Global Elite).
 
-Currently, two official plugins are available:
+Built with React 19 + Vite + framer-motion. No backend — everything lives in
+this device's localStorage (see the threat model below).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Quick start
 
-## React Compiler
+```bash
+npm install
+npm run dev        # local dev (localhost is a secure context — required for login crypto)
+npm run test       # engine + lib unit tests (vitest)
+npm run lint
+npm run build      # → dist/, deploy to any static host over HTTPS
+npm run preview    # serve the production build locally
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+macOS app-mode window (the "desktop app"): `scripts/clientos-app.sh https://your-host` —
+opens Chrome in a 430×940 portrait window with its own isolated profile.
 
-## Expanding the ESLint configuration
+## The team model
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Operator** (you): created on first boot. Full admin — recruit/bench agents,
+  set menu quotas, reassign clients, set plan values, mark commissions paid,
+  control the theme.
+- **Agents** (your closers): operator creates their accounts and hands them a
+  generated starter password out-of-band; they're forced to change it on first
+  login. Agents see their own clients, quota, commissions (50% of plan value,
+  snapshotted at secure time) and the leaderboard.
+
+## The ranking system
+
+- **Rank = secured clients** (status secured/live). Churn deranks you; quota is
+  never refunded. Rank-ups get a full ceremony with original synthesized sound.
+- **XP = prestige layer**: secure +500 · menu live +250 · lead +50 (first 5/day)
+  · task popped +10 (first 10/day). 1000 XP per level, capped at level 40.
+- Two themes: **HQ** (client-safe premium) and **Competitive** (full tactical
+  HUD transformation). Operator-only toggle in Settings.
+- The original Bubble Pop task popper lives on in the Tasks tab and feeds XP.
+
+## Data & security (the honest version)
+
+Read `docs/SECURITY.md`. Summary: passwords are properly hashed (PBKDF2-SHA256,
+600k iterations) and roles gate the UI, but with no server, client-side auth is
+a **lock on a glass door** — anyone with DevTools on the device owns the data.
+There is **no shared database**: each browser profile is its own world, so v1
+is truthfully a single-device HQ. Settings → Export/Import moves a full backup
+between machines. The Supabase upgrade path in SECURITY.md turns this into real
+multi-device auth + sync in about a day, without touching the UI.
+
+Forgot the operator password? There's no reset email: DevTools → Application →
+Local Storage → delete `clientos.v1.doc` (this wipes the HQ — export backups
+regularly).

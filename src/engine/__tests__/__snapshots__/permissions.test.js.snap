@@ -1,0 +1,70 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`permission matrix > matches the agreed matrix snapshot 1`] = `
+{
+  "clients.addOwn": [
+    "operator",
+    "agent",
+  ],
+  "clients.editAll": [
+    "operator",
+  ],
+  "clients.viewAll": [
+    "operator",
+  ],
+  "clients.viewOwn": [
+    "operator",
+    "agent",
+  ],
+  "commissions.adjust": [
+    "operator",
+  ],
+  "commissions.viewAll": [
+    "operator",
+  ],
+  "commissions.viewOwn": [
+    "operator",
+    "agent",
+  ],
+  "eventlog.viewAll": [
+    "operator",
+  ],
+  "eventlog.viewOwn": [
+    "operator",
+    "agent",
+  ],
+  "leaderboard.view": [
+    "operator",
+    "agent",
+  ],
+  "quota.set": [
+    "operator",
+  ],
+  "ranks.viewOwn": [
+    "operator",
+    "agent",
+  ],
+  "settings.view": [
+    "operator",
+  ],
+  "tasks.use": [
+    "operator",
+    "agent",
+  ],
+  "team.createAgent": [
+    "operator",
+  ],
+  "team.disableAgent": [
+    "operator",
+  ],
+  "team.resetAgentPassword": [
+    "operator",
+  ],
+  "team.viewAgentList": [
+    "operator",
+  ],
+  "theme.set": [
+    "operator",
+  ],
+}
+`;

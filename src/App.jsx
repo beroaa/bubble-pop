@@ -1,75 +1,58 @@
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import './App.css'
+import { useEffect } from 'react'
+import { useAppState } from './hooks/useAppState.jsx'
+import { useAuth } from './hooks/useAuth.js'
+import { selectHasOperator, selectCurrentAccount } from './engine/selectors.js'
+import { getSession, onSessionChange } from './lib/session.js'
+import { downloadText } from './lib/fileio.js'
+import { DOC_KEY, loadRaw } from './lib/storage.js'
+import FirstRunView from './components/views/FirstRunView.jsx'
+import LoginView from './components/views/LoginView.jsx'
+import ChangePasswordView from './components/views/ChangePasswordView.jsx'
+import AppShell from './components/AppShell.jsx'
 
-function App() {
-const [tasks, setTasks] = useState(() => {
-  const saved = localStorage.getItem('bubble-tasks')
-  return saved ? JSON.parse(saved) : []
-})
+export default function App() {
+  const state = useAppState()
+  const auth = useAuth()
+  const hasOperator = selectHasOperator(state)
+  const me = selectCurrentAccount(state)
+  const authed = Boolean(state.session && me && !me.disabled)
 
-useEffect(() => {
-  localStorage.setItem('bubble-tasks', JSON.stringify(tasks))
-}, [tasks])
-  const [newTask, setNewTask] = useState('')
+  // Login/FirstRun always render the clean HQ theme; the stored theme returns after auth.
+  const theme = authed ? state.settings.theme : 'hq'
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme
+  }, [theme])
 
-  function addTask() {
-    if (newTask.trim() === '') return
-    setTasks([...tasks, newTask])
-    setNewTask('')
+  // Hard expiry + cross-tab logout: re-check whenever the tab comes back.
+  useEffect(() => {
+    if (!state.session) return
+    const check = () => {
+      const live = getSession((id) => state.accounts[id] ?? null)
+      if (!live || live.token !== state.session.token) auth.sessionExpired()
+    }
+    const onVisible = () => { if (!document.hidden) check() }
+    document.addEventListener('visibilitychange', onVisible)
+    const offStorage = onSessionChange(check)
+    return () => {
+      document.removeEventListener('visibilitychange', onVisible)
+      offStorage()
+    }
+  }, [state.session, state.accounts, auth])
+
+  if (state.ui.storageError === 'future') {
+    return (
+      <div className="boundary">
+        <h1 className="display">Backup from a newer ClientOS</h1>
+        <p className="dim">This device holds data written by a newer version of the app. Refusing to touch it — update the app, or export the raw data below.</p>
+        <button type="button" className="btn btn-secondary" onClick={() => downloadText(`clientos-raw-${Date.now()}.json`, loadRaw(DOC_KEY) ?? '{}')}>
+          Download raw data
+        </button>
+      </div>
+    )
   }
 
-  function popTask(indexToRemove) {
-const audio = new Audio('/pop.wav')
-  audio.play()
-  setTasks(tasks.filter((_, index) => index !== indexToRemove)) 
- }
-
-  return (
-    <div className="app">
-      <h1>Bubble Pop</h1>
-
-      <div className="input-row">
-        <input
-          type="text"
-          value={newTask}
-          onChange={(e) => setNewTask(e.target.value)}
-          placeholder="What needs doing?"
-        />
-        <button onClick={addTask}>Add</button>
-      </div>
-
-      <div className="bubble-container">
-  <AnimatePresence>
-    {tasks.map((task, index) => (
-      <motion.div
-  key={task + index}
-  className="bubble"
-  onClick={() => popTask(index)}
-  initial={{ scale: 0, opacity: 0 }}
-  animate={{
-    scale: 1,
-    opacity: 1,
-    y: [0, -10, 0],
-  }}
-  exit={{ scale: 1.5, opacity: 0 }}
-  transition={{
-    scale: { duration: 0.3, ease: "easeOut" },
-    opacity: { duration: 0.3 },
-    y: {
-      duration: 3 + (index % 3),
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
-  }}
->
-  {task}
-</motion.div>
-    ))}
-  </AnimatePresence>
-</div>
-    </div>
-  )
+  if (!hasOperator) return <FirstRunView />
+  if (!authed) return <LoginView />
+  if (me.mustChangePassword) return <ChangePasswordView />
+  return <AppShell />
 }
-
-export default App
