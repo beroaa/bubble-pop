@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Hessa · حصة — Art-Deco Specialty Café, Dubai</title>
+<meta name="description" content="Hessa (حصة) — an art-deco specialty coffee house in Alserkal Avenue, Al Quoz, Dubai. Gold linework, emerald velvet, Gulf glamour. القائمة الرسمية.">
+<meta name="theme-color" content="#14110E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%23123A2E'/%3E%3Cg%20stroke='%23CBA24A'%20stroke-width='2'%20stroke-linecap='round'%3E%3Cline%20x1='32'%20y1='46'%20x2='32'%20y2='18'/%3E%3Cline%20x1='32'%20y1='46'%20x2='19'%20y2='23'/%3E%3Cline%20x1='32'%20y1='46'%20x2='45'%20y2='23'/%3E%3Cline%20x1='32'%20y1='46'%20x2='13'%20y2='32'/%3E%3Cline%20x1='32'%20y1='46'%20x2='51'%20y2='32'/%3E%3C/g%3E%3Cpath%20d='M20%2050h24'%20stroke='%23CBA24A'%20stroke-width='2.4'%20stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Jost:ital,wght@0,300;0,400;0,500;1,400&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* ---- Hessa · art-deco Gulf glam palette ---- */
+    --black:#14110E;
+    --black-2:#1B1712;
+    --panel:#1F1A13;
+    --panel-2:#241E16;
+    --emerald:#123A2E;
+    --emerald-deep:#0C271F;
+    --emerald-lift:#1B5040;
+    --gold:#CBA24A;
+    --gold-lt:#E6C784;
+    --gold-hi:#F2DDA6;
+    --gold-deep:#A67C2E;
+    --ink:#F3ECDC;
+    --ink-soft:#CBBFA6;
+    --ink-faint:#93866B;
+    --line:rgba(203,162,74,.26);
+    --line-soft:rgba(203,162,74,.14);
+    --line-em:rgba(27,80,64,.55);
+    --row:rgba(203,162,74,.10);
+    --shadow:0 44px 120px -50px rgba(0,0,0,.9);
+    /* ---- type ---- */
+    --disp:"Cinzel",Georgia,"Times New Roman",serif;
+    --text:"Jost","Century Gothic",system-ui,sans-serif;
+    --ar:"Tajawal","Segoe UI",sans-serif;
+    --ar-disp:"Reem Kufi","Tajawal",sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:72px;-webkit-text-size-adjust:100%}
+  body{
+    min-height:100%;
+    background:
+      radial-gradient(120% 60% at 50% -8%, rgba(18,58,46,.55) 0%, rgba(18,58,46,0) 58%),
+      radial-gradient(90% 40% at 50% 108%, rgba(166,124,46,.14) 0%, rgba(166,124,46,0) 60%),
+      var(--black);
+    background-attachment:fixed;
+    color:var(--ink);
+    font-family:var(--text);
+    font-size:16px;line-height:1.5;font-weight:300;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+
+  .wrap{
+    position:relative;
+    width:100%;max-width:520px;margin:0 auto;
+    background:
+      linear-gradient(180deg,var(--black-2) 0%, var(--black) 26%, var(--black) 100%);
+    box-shadow:inset 0 0 0 1px var(--line-soft);
+  }
+  @media(min-width:560px){
+    .wrap{margin:34px auto;box-shadow:var(--shadow),inset 0 0 0 1px var(--line-soft)}
+  }
+  /* deco double-frame — pure overlay, never affects layout */
+  .frame{position:absolute;inset:9px;pointer-events:none;z-index:6;
+    border:1px solid var(--line-soft);}
+  .frame::before{content:"";position:absolute;inset:4px;border:1px solid rgba(203,162,74,.10);}
+  .corner{position:absolute;width:26px;height:26px;z-index:7;pointer-events:none}
+  .corner svg{width:100%;height:100%;display:block}
+  .corner.tl{top:5px;left:5px}
+  .corner.tr{top:5px;right:5px;transform:scaleX(-1)}
+  .corner.bl{bottom:5px;left:5px;transform:scaleY(-1)}
+  .corner.br{bottom:5px;right:5px;transform:scale(-1,-1)}
+
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+
+  /* =================== BRAND HEADER =================== */
+  header{position:relative;z-index:2;padding:46px 26px 6px;text-align:center}
+  .mark{width:58px;height:58px;margin:0 auto 18px;display:block}
+  .kicker{
+    font-family:var(--text);font-weight:400;font-size:.62rem;
+    letter-spacing:.42em;text-indent:.42em;text-transform:uppercase;
+    color:var(--gold);
+  }
+  .brand{
+    font-family:var(--disp);font-weight:600;
+    font-size:clamp(3.1rem,15.5vw,4.7rem);line-height:.94;
+    letter-spacing:.16em;text-indent:.16em;
+    color:var(--gold-lt);margin:.16em 0 .02em;
+    text-shadow:0 1px 0 rgba(0,0,0,.6);
+  }
+  .brand-ar{
+    font-family:var(--ar-disp);font-weight:600;
+    font-size:clamp(1.7rem,8.5vw,2.5rem);line-height:1;
+    color:var(--gold);letter-spacing:.02em;
+  }
+  .u-rule{
+    display:flex;align-items:center;justify-content:center;gap:11px;
+    margin:16px auto 2px;max-width:270px;color:var(--gold);
+  }
+  .u-rule .ln{height:1px;flex:1 1 auto;background:linear-gradient(90deg,transparent,var(--gold) 70%)}
+  .u-rule .ln.r{background:linear-gradient(270deg,transparent,var(--gold) 70%)}
+  .u-rule .dia{width:7px;height:7px;flex:0 0 auto;background:var(--gold);transform:rotate(45deg)}
+  .tag{margin-top:12px;display:flex;flex-direction:column;align-items:center;gap:4px}
+  .tag-en{font-family:var(--text);font-weight:300;font-style:italic;font-size:1rem;color:var(--ink-soft);letter-spacing:.01em}
+  .tag-ar{font-family:var(--ar);font-weight:400;font-size:1rem;color:var(--gold-lt)}
+
+  /* =================== HERO — deco sunburst fan =================== */
+  .hero{
+    position:relative;margin:26px 26px 4px;
+    height:clamp(196px,55vw,236px);
+    overflow:hidden;
+    border:1px solid var(--line);
+    background:radial-gradient(120% 130% at 50% 118%, var(--emerald-lift) 0%, var(--emerald) 34%, var(--emerald-deep) 100%);
+    box-shadow:inset 0 1px 0 rgba(242,221,166,.14), inset 0 0 60px -12px rgba(0,0,0,.7);
+  }
+  .hero svg{display:block;width:100%;height:100%}
+
+  .ray{transform-box:fill-box;transform-origin:50% 100%;transform:rotate(var(--a)) scaleY(1)}
+  @media (prefers-reduced-motion:no-preference){
+    .ray{transform:rotate(0deg) scaleY(.05);opacity:0;
+      animation:fanUnfold 1.05s cubic-bezier(.18,.72,.2,1) both;animation-delay:var(--d)}
+    .fan{animation:fanBreathe 9s ease-in-out 1.6s infinite both;transform-origin:50% 100%}
+    .sweep{animation:fanSweep 7.5s cubic-bezier(.5,0,.5,1) 1.4s infinite both;transform-box:fill-box;transform-origin:50% 100%}
+    .medglow{animation:medPulse 5.5s ease-in-out 1.5s infinite both}
+    .arc{stroke-dasharray:var(--arcL);stroke-dashoffset:var(--arcL);
+      animation:arcDraw 1.5s ease .5s forwards}
+  }
+  @keyframes fanUnfold{from{transform:rotate(0deg) scaleY(.05);opacity:0}
+    60%{opacity:1}
+    to{transform:rotate(var(--a)) scaleY(1);opacity:1}}
+  @keyframes fanBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.018)}}
+  @keyframes fanSweep{0%{transform:rotate(-86deg);opacity:0}
+    12%{opacity:.5}50%{opacity:.32}88%{opacity:.5}100%{transform:rotate(86deg);opacity:0}}
+  @keyframes medPulse{0%,100%{opacity:.55}50%{opacity:1}}
+  @keyframes arcDraw{to{stroke-dashoffset:0}}
+  .hero-cap{
+    position:absolute;left:0;right:0;bottom:10px;text-align:center;z-index:3;
+    font-family:var(--text);font-weight:400;font-size:.6rem;letter-spacing:.34em;
+    text-indent:.34em;text-transform:uppercase;color:var(--gold-hi);
+    text-shadow:0 1px 4px rgba(0,0,0,.6);
+  }
+
+  /* =================== META STRIP =================== */
+  .meta{
+    display:flex;flex-wrap:wrap;justify-content:center;align-items:center;
+    gap:7px 13px;padding:18px 26px 4px;
+    font-family:var(--text);font-weight:300;font-size:.76rem;color:var(--ink-soft);
+    letter-spacing:.02em;
+  }
+  .meta b{font-weight:500;color:var(--ink)}
+  .meta .dot{width:4px;height:4px;flex:0 0 auto;background:var(--gold);transform:rotate(45deg)}
+
+  /* deco chevron band divider */
+  .chevron{height:9px;margin:16px 0 0;overflow:hidden;
+    background-image:
+      linear-gradient(135deg,var(--line) 1px,transparent 1px),
+      linear-gradient(225deg,var(--line) 1px,transparent 1px);
+    background-size:14px 9px;background-position:center;background-repeat:repeat-x;opacity:.85}
+
+  /* =================== CHIP NAV =================== */
+  .chips{
+    position:sticky;top:0;z-index:20;
+    background:var(--black-2);
+    border-top:1px solid var(--line-soft);
+    border-bottom:1px solid var(--line);
+    box-shadow:0 10px 26px -18px rgba(0,0,0,.9);
+  }
+  .chips-scroll{
+    display:flex;gap:8px;overflow-x:auto;padding:10px 26px;
+    scrollbar-width:none;-webkit-overflow-scrolling:touch;
+  }
+  .chips-scroll::-webkit-scrollbar{display:none}
+  .chip{
+    flex:0 0 auto;display:flex;flex-direction:column;align-items:center;line-height:1;
+    padding:7px 15px;border-radius:2px;
+    border:1px solid var(--line);background:transparent;color:var(--ink);
+    cursor:pointer;transition:background .25s,color .25s,border-color .25s;
+    position:relative;
+  }
+  .chip .c-en{font-family:var(--disp);font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}
+  .chip .c-ar{font-family:var(--ar);font-weight:400;font-size:.72rem;color:var(--gold-lt);margin-top:3px}
+  .chip:hover{border-color:var(--gold)}
+  .chip.is-active{background:var(--gold);border-color:var(--gold);color:var(--black)}
+  .chip.is-active .c-ar{color:rgba(20,17,14,.78)}
+
+  /* =================== SECTIONS =================== */
+  section{padding:36px 26px 8px;scroll-margin-top:74px}
+  .sec-head{display:flex;align-items:center;gap:14px;padding-bottom:14px;margin-bottom:8px}
+  .sec-num{
+    font-family:var(--disp);font-weight:600;font-size:1.68rem;line-height:1;
+    color:transparent;-webkit-text-stroke:1px var(--gold);
+    letter-spacing:.04em;flex:0 0 auto;min-width:1.8em;text-align:center;
+  }
+  .sec-emblem{flex:0 0 auto;width:30px;height:30px}
+  .sec-emblem svg{width:100%;height:100%;display:block}
+  .sec-t{display:flex;flex-direction:column;gap:2px;flex:1 1 auto;min-width:0}
+  .sec-en{
+    font-family:var(--disp);font-weight:600;
+    font-size:clamp(1.24rem,5.1vw,1.55rem);line-height:1;color:var(--gold-lt);
+    letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;
+    overflow:hidden;text-overflow:ellipsis;
+  }
+  .sec-ar{font-family:var(--ar-disp);font-weight:500;font-size:1rem;color:var(--gold);line-height:1.2}
+  .sec-rule{display:flex;align-items:center;gap:10px;margin:0 0 6px;color:var(--gold)}
+  .sec-rule .ln{height:1px;flex:1 1 auto;background:linear-gradient(90deg,var(--gold),rgba(203,162,74,.05))}
+  .sec-rule .cap{flex:0 0 auto;display:flex;gap:5px;align-items:center}
+  .sec-rule .cap i{width:5px;height:5px;background:var(--gold);transform:rotate(45deg);display:block;opacity:.85}
+  .sec-rule .cap i.mid{width:7px;height:7px;opacity:1}
+
+  /* =================== ITEM ROWS =================== */
+  .item{padding:13px 0 14px;border-bottom:1px solid var(--row)}
+  .item:last-child{border-bottom:0}
+  .row{display:flex;align-items:baseline;gap:9px}
+  .en{
+    font-family:var(--text);font-weight:400;font-size:1.06rem;line-height:1.22;
+    color:var(--ink);flex:0 1 auto;min-width:0;letter-spacing:.005em;
+  }
+  .star{color:var(--gold);font-size:.72em;vertical-align:.28em;margin-left:.16em}
+  .leader{flex:1 1 12px;min-width:12px;align-self:auto;
+    border-bottom:1.6px dotted var(--line);transform:translateY(-.3em)}
+  .price{
+    flex:0 0 auto;display:inline-flex;align-items:baseline;gap:.32em;
+    justify-content:flex-end;min-width:3.4em;white-space:nowrap;
+    font-family:var(--disp);font-weight:600;font-size:1.12rem;color:var(--gold-lt);
+    font-variant-numeric:tabular-nums;
+  }
+  .price .num{font-variant-numeric:tabular-nums;letter-spacing:.02em}
+  .price .cur{
+    font-family:var(--text);font-weight:400;font-size:.54rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-faint);transform:translateY(-.1em);
+  }
+  .sub{display:flex;flex-direction:column;gap:2px;margin-top:3px}
+  .ar{font-family:var(--ar);font-weight:400;font-size:.9rem;line-height:1.3;color:var(--ink-soft);align-self:flex-start}
+  .note{font-family:var(--text);font-weight:300;font-style:italic;font-size:.8rem;line-height:1.3;color:var(--ink-faint);max-width:26ch}
+
+  /* =================== FOOTER =================== */
+  footer{
+    position:relative;z-index:2;margin-top:30px;padding:8px 26px 44px;text-align:center;
+    background:
+      radial-gradient(90% 70% at 50% 0%, rgba(18,58,46,.5), rgba(18,58,46,0) 62%),
+      var(--black-2);
+    border-top:1px solid var(--line);
+  }
+  .f-fan{width:44px;height:26px;margin:26px auto 14px;display:block}
+  .f-brand{font-family:var(--disp);font-weight:600;font-size:1.7rem;letter-spacing:.18em;text-indent:.18em;color:var(--gold-lt);line-height:1}
+  .f-brand-ar{font-family:var(--ar-disp);font-weight:600;font-size:1.2rem;color:var(--gold);margin-top:4px}
+  .f-line{margin-top:15px;font-family:var(--text);font-weight:300;font-size:.82rem;line-height:1.75;color:var(--ink-soft);letter-spacing:.02em}
+  .f-line a{color:var(--gold-lt);border-bottom:1px solid var(--line)}
+  .f-line b{font-weight:500;color:var(--ink)}
+  .f-quote{margin-top:18px;font-family:var(--text);font-weight:300;font-style:italic;font-size:.92rem;color:var(--ink-soft)}
+  .f-quote-ar{margin-top:3px;font-family:var(--ar);font-weight:400;font-style:normal;font-size:.98rem;color:var(--gold-lt)}
+  .f-fine{margin-top:20px;font-family:var(--text);font-weight:400;font-size:.6rem;letter-spacing:.24em;text-indent:.24em;text-transform:uppercase;color:var(--ink-faint)}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="frame" aria-hidden="true"></div>
+  <div class="corner tl" aria-hidden="true"><svg viewBox="0 0 26 26" fill="none" stroke="#CBA24A" stroke-width="1.1"><path d="M1 25V6a5 5 0 0 1 5-5h19"/><path d="M6 25V10a4 4 0 0 1 4-4h15" opacity=".5"/><path d="M1 1l6 6" opacity=".8"/></svg></div>
+  <div class="corner tr" aria-hidden="true"><svg viewBox="0 0 26 26" fill="none" stroke="#CBA24A" stroke-width="1.1"><path d="M1 25V6a5 5 0 0 1 5-5h19"/><path d="M6 25V10a4 4 0 0 1 4-4h15" opacity=".5"/><path d="M1 1l6 6" opacity=".8"/></svg></div>
+  <div class="corner bl" aria-hidden="true"><svg viewBox="0 0 26 26" fill="none" stroke="#CBA24A" stroke-width="1.1"><path d="M1 25V6a5 5 0 0 1 5-5h19"/><path d="M6 25V10a4 4 0 0 1 4-4h15" opacity=".5"/><path d="M1 1l6 6" opacity=".8"/></svg></div>
+  <div class="corner br" aria-hidden="true"><svg viewBox="0 0 26 26" fill="none" stroke="#CBA24A" stroke-width="1.1"><path d="M1 25V6a5 5 0 0 1 5-5h19"/><path d="M6 25V10a4 4 0 0 1 4-4h15" opacity=".5"/><path d="M1 1l6 6" opacity=".8"/></svg></div>
+
+  <!-- =================== HEADER =================== -->
+  <header>
+    <svg class="mark" viewBox="0 0 64 64" role="img" aria-label="Hessa monogram — a deco sunburst fan rising over a stepped gold base.">
+      <rect x="1.5" y="1.5" width="61" height="61" rx="13" fill="#123A2E" stroke="#CBA24A" stroke-width="1.3"/>
+      <g stroke="#CBA24A" stroke-width="2" stroke-linecap="round">
+        <line x1="32" y1="45" x2="32" y2="15"/>
+        <line x1="32" y1="45" x2="22" y2="19"/>
+        <line x1="32" y1="45" x2="42" y2="19"/>
+        <line x1="32" y1="45" x2="14" y2="26"/>
+        <line x1="32" y1="45" x2="50" y2="26"/>
+      </g>
+      <path d="M17 45a15 15 0 0 1 30 0" fill="none" stroke="#E6C784" stroke-width="1.4" opacity=".8"/>
+      <circle cx="32" cy="45" r="2.6" fill="#F2DDA6"/>
+      <path d="M20 50h24M23 54h18" stroke="#CBA24A" stroke-width="2.2" stroke-linecap="round"/>
+    </svg>
+    <div class="kicker">Specialty Coffee — Dubai</div>
+    <h1 class="brand">HESSA</h1>
+    <div class="brand-ar" lang="ar" dir="rtl">حِصّة</div>
+    <div class="u-rule" aria-hidden="true"><span class="ln"></span><span class="dia"></span><span class="ln r"></span></div>
+    <div class="tag">
+      <span class="tag-en">A little glamour, poured daily.</span>
+      <span class="tag-ar" lang="ar" dir="rtl">شيءٌ من البريق، يُسكب كل يوم</span>
+    </div>
+
+    <!-- ---- SIGNATURE HERO: deco sunburst fan unfolding symmetrically ---- -->
+    <div class="hero">
+      <svg viewBox="0 0 520 236" preserveAspectRatio="xMidYMax slice" role="img" aria-label="A gilded art-deco sunburst fan unfolding symmetrically from a stepped base over deep emerald.">
+        <defs>
+          <linearGradient id="rayG" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0" stop-color="#A67C2E"/>
+            <stop offset=".55" stop-color="#CBA24A"/>
+            <stop offset="1" stop-color="#F2DDA6"/>
+          </linearGradient>
+          <linearGradient id="rayGm" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0" stop-color="#8A6626"/>
+            <stop offset=".6" stop-color="#B48F3E"/>
+            <stop offset="1" stop-color="#E6C784"/>
+          </linearGradient>
+          <radialGradient id="medG" cx="50%" cy="100%" r="90%">
+            <stop offset="0" stop-color="#F2DDA6"/>
+            <stop offset=".5" stop-color="#CBA24A"/>
+            <stop offset="1" stop-color="#A67C2E"/>
+          </radialGradient>
+          <radialGradient id="glowG" cx="50%" cy="100%" r="75%">
+            <stop offset="0" stop-color="#F2DDA6" stop-opacity=".5"/>
+            <stop offset=".55" stop-color="#CBA24A" stop-opacity=".12"/>
+            <stop offset="1" stop-color="#CBA24A" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="sweepG" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0" stop-color="#FFF6DE" stop-opacity="0"/>
+            <stop offset=".5" stop-color="#FFF6DE" stop-opacity=".55"/>
+            <stop offset="1" stop-color="#FFF6DE" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+
+        <!-- soft glow pool at the pivot -->
+        <ellipse class="medglow" cx="260" cy="232" rx="230" ry="150" fill="url(#glowG)"/>
+
+        <!-- concentric deco arcs -->
+        <path class="arc" style="--arcL:520" d="M60 232a200 200 0 0 1 400 0" fill="none" stroke="#CBA24A" stroke-width="1" opacity=".45"/>
+        <path class="arc" style="--arcL:430" d="M92 232a168 168 0 0 1 336 0" fill="none" stroke="#E6C784" stroke-width="1" opacity=".3"/>
+
+        <!-- the fan -->
+        <g class="fan">
+          <g transform="translate(260,232)">
+            <!-- center + symmetric pairs; --d shared per pair keeps unfold symmetric -->
+            <rect class="ray maj" style="--a:0deg;--d:0s"    x="-2" y="-176" width="4"   height="176" fill="url(#rayG)"/>
+            <rect class="ray min" style="--a:-13deg;--d:.07s" x="-1.6" y="-138" width="3.2" height="138" fill="url(#rayGm)"/>
+            <rect class="ray min" style="--a:13deg;--d:.07s"  x="-1.6" y="-138" width="3.2" height="138" fill="url(#rayGm)"/>
+            <rect class="ray maj" style="--a:-26deg;--d:.14s" x="-2" y="-176" width="4"   height="176" fill="url(#rayG)"/>
+            <rect class="ray maj" style="--a:26deg;--d:.14s"  x="-2" y="-176" width="4"   height="176" fill="url(#rayG)"/>
+            <rect class="ray min" style="--a:-39deg;--d:.21s" x="-1.6" y="-138" width="3.2" height="138" fill="url(#rayGm)"/>
+            <rect class="ray min" style="--a:39deg;--d:.21s"  x="-1.6" y="-138" width="3.2" height="138" fill="url(#rayGm)"/>
+            <rect class="ray maj" style="--a:-52deg;--d:.28s" x="-2" y="-176" width="4"   height="176" fill="url(#rayG)"/>
+            <rect class="ray maj" style="--a:52deg;--d:.28s"  x="-2" y="-176" width="4"   height="176" fill="url(#rayG)"/>
+            <rect class="ray min" style="--a:-65deg;--d:.35s" x="-1.6" y="-138" width="3.2" height="138" fill="url(#rayGm)"/>
+            <rect class="ray min" style="--a:65deg;--d:.35s"  x="-1.6" y="-138" width="3.2" height="138" fill="url(#rayGm)"/>
+            <rect class="ray maj" style="--a:-78deg;--d:.42s" x="-2" y="-158" width="4"   height="158" fill="url(#rayG)"/>
+            <rect class="ray maj" style="--a:78deg;--d:.42s"  x="-2" y="-158" width="4"   height="158" fill="url(#rayG)"/>
+            <!-- searchlight sweep over the fan -->
+            <polygon class="sweep" points="0,0 -26,-180 26,-180" fill="url(#sweepG)"/>
+          </g>
+        </g>
+
+        <!-- deco medallion base: stepped half-sun -->
+        <g transform="translate(260,232)">
+          <path d="M-64 0a64 64 0 0 1 128 0Z" fill="url(#medG)"/>
+          <path d="M-64 0a64 64 0 0 1 128 0" fill="none" stroke="#0C271F" stroke-width="1.4" opacity=".5"/>
+          <path d="M-46 0a46 46 0 0 1 92 0" fill="none" stroke="#14110E" stroke-width="1.2" opacity=".4"/>
+          <path d="M-28 0a28 28 0 0 1 56 0" fill="none" stroke="#14110E" stroke-width="1.2" opacity=".35"/>
+          <circle cx="0" cy="0" r="5" fill="#14110E"/>
+        </g>
+        <!-- stepped plinth -->
+        <g fill="none" stroke="#CBA24A" stroke-linecap="round">
+          <path d="M196 232h128" stroke-width="3"/>
+          <path d="M210 240h100" stroke-width="2.4" opacity=".7"/>
+          <path d="M224 248h72" stroke-width="2" opacity=".45"/>
+        </g>
+      </svg>
+      <div class="hero-cap">The House of Hessa</div>
+    </div>
+
+    <div class="meta">
+      <span>Alserkal Avenue · <b>Al Quoz</b></span>
+      <span class="dot" aria-hidden="true"></span>
+      <span>Open <b>7:30 – 23:00</b></span>
+      <span class="dot" aria-hidden="true"></span>
+      <span>Single-origin · <b>house roast</b></span>
+    </div>
+    <div class="chevron" aria-hidden="true"></div>
+  </header>
+
+  <!-- =================== CHIP NAV =================== -->
+  <nav class="chips" aria-label="Menu sections">
+    <div class="chips-scroll">
+      <a class="chip" href="#sec-hot"    data-t="sec-hot"><span class="c-en">Hot</span><span class="c-ar" lang="ar" dir="rtl">ساخنة</span></a>
+      <a class="chip" href="#sec-cold"   data-t="sec-cold"><span class="c-en">Cold</span><span class="c-ar" lang="ar" dir="rtl">باردة</span></a>
+      <a class="chip" href="#sec-filter" data-t="sec-filter"><span class="c-en">Filter</span><span class="c-ar" lang="ar" dir="rtl">تقطير</span></a>
+      <a class="chip" href="#sec-beyond" data-t="sec-beyond"><span class="c-en">Beyond</span><span class="c-ar" lang="ar" dir="rtl">أخرى</span></a>
+      <a class="chip" href="#sec-sweets" data-t="sec-sweets"><span class="c-en">Sweets</span><span class="c-ar" lang="ar" dir="rtl">حلويات</span></a>
+    </div>
+  </nav>
+
+  <!-- =================== 1 · HOT =================== -->
+  <section id="sec-hot">
+    <div class="sec-head">
+      <span class="sec-num">I</span>
+      <span class="sec-emblem" aria-hidden="true">
+        <svg viewBox="0 0 30 30" fill="none" stroke="#CBA24A" stroke-width="1.3" stroke-linecap="round">
+          <path d="M7 13h13v4a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6z"/>
+          <path d="M20 14h2.5a2.5 2.5 0 0 1 0 5H20"/>
+          <path d="M11 8c-1 1.2-1 2.3 0 3.5M15 7c-1 1.2-1 2.3 0 3.5M19 8c-1 1.2-1 2.3 0 3.5" opacity=".85"/>
+          <path d="M6 26h16" stroke-width="1.6"/>
+        </svg>
+      </span>
+      <span class="sec-t">
+        <span class="sec-en">Hot Coffee</span>
+        <span class="sec-ar" lang="ar" dir="rtl">القهوة الساخنة</span>
+      </span>
+    </div>
+    <div class="sec-rule" aria-hidden="true"><span class="cap"><i></i><i class="mid"></i><i></i></span><span class="ln"></span></div>
+
+    <div class="item">
+      <div class="row"><span class="en">Espresso</span><span class="leader"></span><span class="price"><span class="num">16</span><span class="cur">AED</span></span></div>
+      <div class="sub"><span class="ar" lang="ar" dir="rtl">إسبريسو</span><span class="note">Double shot, house blend</span></div>
+    </div>
+    <div class="item">
+      <div class="row"><span class="en">Cortado</span><span class="leader"></span><span class="price"><span class="num">19</span><span class="cur">AED</span></span></div>
+      <div class="sub"><span class="ar" lang="ar" dir="rtl">كورتادو</span></div>
+    </div>
+    <div class="item">
+      <div class="row"><span class="en">Flat White</span><span class="leader"></span><span class="price"><span class="num">22</span><span class="cur">AED</span></span></div>
+      <div class="sub"><span class="ar" lang="ar" dir="rtl">فلات وايت</span></div>
+    </div>
+    <div class="item">
+      <div class="row"><span class="en">Cappuccino</span><span class="leader"></span><span class="price"><span class="num">21</span><span class="cur">AED</span></span></div>
+      <div class="sub"><span class="ar" lang="ar" dir="rtl">كابتشينو</span></div>
+    </div>
+    <div class="item">
+      <div class="row"><span class="en">Saffron &amp; Cardamom Latte<span class="star" aria-hidden="true">&#10022;</span></span><span class="leader"></span><span class="price"><span class="num">30</span><span class="cur">AED</span></span></div>
+      <div class="sub"><span class="ar" lang="ar" dir="rtl">لاتيه الزعفران والهيل</span><span class="note">Signature · Emirati spice</span></div>
+    </div>
+  </section>
+
+  <!-- =================== 2 · COLD =================== -->
+  <section id="sec-cold">
+    <div class="sec-head">
+      <span class="sec-num">II</span>
+      <span class="sec-emblem" aria-hidden="true">
+        <svg viewBox="0 0 30 30" fill="none" stroke="#CBA24A" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 8h14l-2.5 14a2 2 0 0 1-2 1.7h-5a2 2 0 0 1-2-1.7z"/>
+          <path d="M10 13h10" opacity=".8"/>
+          <path d="M15 9v14" opacity=".55"/>
+          <path d="M12 16l3 3 3-3M12.5 19l2.5 2.5 2.5-2.5" opacity=".7"/>
+        </svg>
+      </span>
+      <span class="sec-t">
+        <span class="sec-en">Cold Coffee</span>
+        <span class="sec-ar" lang="ar" dir="rtl">القهوة الباردة</span>
+      </span>
+    </div>
+    <div class="sec-rule" aria-hidden="true"><span class="cap"><i></i><i class="mid"></i><i></i></span><span class="ln"></span></div>
+
+    <div class="item">
+      <div class="row"><span class="en">Iced Spanish Latte</span><span class="leader"></span><span class="price"><span class="num">27</span><span class="cur">AED</span></span></div>
+      <div class="sub"><span class="ar" lang="ar" dir="rtl">لاتيه إسباني مثلج</span><span class="note">Condensed milk, over ice</span></div>
+    </div>
+    <div class="item">
+      <div class="row"><span class="en">Iced Latte</span><span class="leader"></span><span class="price"><span class="num">24</span><span class="cur">AED</span></span></div>
+      <div class="sub"><span class="ar" lang="ar" dir="rtl">لاتيه مثلج</span></div>
+    </div>
+    <div class="item">
+      <div class="row"><span class="en">Cold Brew</span><span class="leader"></span><span class="price"><span class="num">26</span><span class="cur">AED</span></span></div>
+      <div class="sub"><span class="ar" lang="ar" dir="rtl">كولد برو</span><span class="note">18-hour steep</span></div>
+    </div>
+    <div class="item">
+      <div class="row"><span class="en">Rose &amp; Cardamom Cold Brew<span class="star" aria-hidden="true">&#10022;</span></span><span class="leader"></span><span class="price"><span class="num">29</span><span class="cur">AED</span></span></div>
+      <div class="sub"><span class="ar" lang="ar" dir="rtl">كولد برو الورد والهيل</span><span class="note">Signature · floral</span></div>
+    </div>
+    <div class="item">
+      <div class="row"><span class="en">Espresso Tonic</span><span class="leader"></span><span class="price"><span class="num">28</span><span class="cur">AED</span></span></div>
+      <div class="sub"><span class="ar" lang="ar" dir="rtl">إسبريسو تونيك</span></div>
+    </div>
+  </section>
+
+  <!-- =================== 3 · FILTER =================== -->
+  <section id="sec-filter">
+    <div class="sec-head">
+      <span class="sec-num">III</span>
+      <span class="sec-emblem" aria-hidden="true">
+        <svg viewBox="0 0 30 30" fill="none" stroke="#CBA24A" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 6h14l-5 9h-4z"/>
+          <path d="M15 15v3" opacity=".8"/>
+          <path d="M15 20.5c-1.4 1.4-1.4 3 0 3.6 1.4-.6 1.4-2.2 0-3.6z" fill="#CBA24A" stroke="none"/>
+          <path d="M10 9h10" opacity=".5"/>
+        </svg>
+      </span>
+      <span class="sec-t">
+        <span class="sec-en">Filter &amp; Brew</span>
+        <span class="sec-ar" lang="ar" dir="rtl">التقطير والتخمير</span>
+      </span>
+    </div>
+    <div class="sec-rule" aria-hidden="true"><span class="cap"><i></i><i class="mid"></i><i></i></span><span class="ln"></span></div>
+
+    <div class="item">
+      <div class="row"><span class="en">V60 — Single Origin</span><span class="leader"></span><span class="price"><span class="num">30</span><span class="cur">AED</span></span></div>
+      <div class="sub"><span class="ar" lang="ar" dir="rtl">في٦٠ · أصل واحد</span><span class="note">Ask for today's origin</span></div>
+    </div>
+    <div class="item">
+      <div class="row"><span class="en">Chemex — For Two</span><span class="leader"></span><span class="price"><span class="num">34</span><span class="cur">AED</span></span></div>
+      <div class="sub"><span class="ar" lang="ar" dir="rtl">كيمكس · لشخصين</span></div>
+    </div>
+    <div class="item">
+      <div class="row"><span class="en">Aeropress</span><span class="leader"></span><span class="price"><span class="num">28</span><span class="cur">AED</span></span></div>
+      <div class="sub"><span class="ar" lang="ar" dir="rtl">أيروبريس</span></div>
+    </div>
+    <div class="item">
+      <div class="row"><span class="en">Batch Brew</span><span class="leader"></span><span class="price"><span class="num">22</span><span class="cur">AED</span></span></div>
+      <div class="sub"><span class="ar" lang="ar" dir="rtl">باتش برو</span><span class="note">Free refill before noon</span></div>
+    </div>
+    <div class="item">
+      <div class="row"><span class="en">Geisha Reserve<span class="star" aria-hidden="true">&#10022;</span></span><span class="leader"></span><span class="price"><span class="num">34</span><span class="cur">AED</span></span></div>
+      <div class="sub"><span class="ar" lang="ar" dir="rtl">جيشا · محدود</span><span class="note">Micro-lot · limited</span></div>
+    </div>
+  </section>
+
+  <!-- =================== 4 · BEYOND =================== -->
+  <section id="sec-beyond">
+    <div class="sec-head">
+      <span class="sec-num">IV</span>
+      <span class="sec-emblem" aria-hidden="true">
+        <svg viewBox="0 0 30 30" fill="none" stroke="#CBA24A" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 24c0-6 3-9 8-10-1 6-3 9-8 10z"/>
+          <path d="M15 24c0-6-3-9-8-10 1 6 3 9 8 10z"/>
+          <path d="M15 24V9" opacity=".85"/>
+          <path d="M15 9a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+        </svg>
+      </span>
+      <span class="sec-t">
+        <span class="sec-en">Beyond Coffee</span>
+        <span class="sec-ar" lang="ar" dir="rtl">ما وراء القهوة</span>
+      </span>
+    </div>
+    <div class="sec-rule" aria-hidden="true"><span class="cap"><i></i><i class="mid"></i><i></i></span><span class="ln"></span></div>
+
+    <div class="item">
+      <div class="row"><span class="en">Ceremonial Matcha Latte</span><span class="leader"></span><span class="price"><span class="num">30</span><span class="cur">AED</span></span></div>
+      <div class="sub"><span class="ar" lang="ar" dir="rtl">ماتشا لاتيه</span><span class="note">Uji, first harvest</span></div>
+    </div>
+    <div class="item">
+      <div class="row"><span class="en">Iced Matcha</span><span class="leader"></span><span class="price"><span class="num">28</span><span class="cur">AED</span></span></div>
+      <div class="sub"><span class="ar" lang="ar" dir="rtl">ماتشا مثلجة</span></div>
+    </div>
+    <div class="item">
+      <div class="row"><span class="en">Saffron &amp; Rose Tea</span><span class="leader"></span><span class="price"><span class="num">24</span><span class="cur">AED</span></span></div>
+      <div class="sub"><span class="ar" lang="ar" dir="rtl">شاي الزعفران والورد</span></div>
+    </div>
+    <div class="item">
+      <div class="row"><span class="en">Spanish Hot Chocolate</span><span class="leader"></span><span class="price"><span class="num">26</span><span class="cur">AED</span></span></div>
+      <div class="sub"><span class="ar" lang="ar" dir="rtl">شوكولاتة إسبانية</span><span class="note">Thick, 70% dark</span></div>
+    </div>
+    <div class="item">
+      <div class="row"><span class="en">Karak Reserve<span class="star" aria-hidden="true">&#10022;</span></span><span class="leader"></span><span class="price"><span class="num">18</span><span class="cur">AED</span></span></div>
+      <div class="sub"><span class="ar" lang="ar" dir="rtl">كرك ريزيرف</span><span class="note">Signature · spiced chai</span></div>
+    </div>
+  </section>
+
+  <!-- =================== 5 · SWEETS =================== -->
+  <section id="sec-sweets">
+    <div class="sec-head">
+      <span class="sec-num">V</span>
+      <span class="sec-emblem" aria-hidden="true">
+        <svg viewBox="0 0 30 30" fill="none" stroke="#CBA24A" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 22h18l-2-8a7 7 0 0 0-14 0z"/>
+          <path d="M6 22v2.5h18V22" />
+          <path d="M11 14c1.6-1 2.4-1 4 0 1.6 1 2.4 1 4 0" opacity=".7"/>
+          <path d="M15 6.5V4M15 6.5a1.4 1.4 0 1 0 0-.1z" />
+        </svg>
+      </span>
+      <span class="sec-t">
+        <span class="sec-en">Bakery &amp; Sweets</span>
+        <span class="sec-ar" lang="ar" dir="rtl">المخبوزات والحلويات</span>
+      </span>
+    </div>
+    <div class="sec-rule" aria-hidden="true"><span class="cap"><i></i><i class="mid"></i><i></i></span><span class="ln"></span></div>
+
+    <div class="item">
+      <div class="row"><span class="en">Butter Croissant</span><span class="leader"></span><span class="price"><span class="num">18</span><span class="cur">AED</span></span></div>
+      <div class="sub"><span class="ar" lang="ar" dir="rtl">كرواسون بالزبدة</span><span class="note">Baked each morning</span></div>
+    </div>
+    <div class="item">
+      <div class="row"><span class="en">Pistachio &amp; Rose Croissant</span><span class="leader"></span><span class="price"><span class="num">26</span><span class="cur">AED</span></span></div>
+      <div class="sub"><span class="ar" lang="ar" dir="rtl">كرواسون الفستق والورد</span></div>
+    </div>
+    <div class="item">
+      <div class="row"><span class="en">Saffron Basque Cheesecake<span class="star" aria-hidden="true">&#10022;</span></span><span class="leader"></span><span class="price"><span class="num">34</span><span class="cur">AED</span></span></div>
+      <div class="sub"><span class="ar" lang="ar" dir="rtl">تشيز كيك الزعفران</span><span class="note">Signature · burnt top</span></div>
+    </div>
+    <div class="item">
+      <div class="row"><span class="en">Date &amp; Tahini Cake</span><span class="leader"></span><span class="price"><span class="num">30</span><span class="cur">AED</span></span></div>
+      <div class="sub"><span class="ar" lang="ar" dir="rtl">كيك التمر والطحينة</span></div>
+    </div>
+    <div class="item">
+      <div class="row"><span class="en">Pistachio Cake</span><span class="leader"></span><span class="price"><span class="num">38</span><span class="cur">AED</span></span></div>
+      <div class="sub"><span class="ar" lang="ar" dir="rtl">كيك الفستق</span></div>
+    </div>
+  </section>
+
+  <!-- =================== FOOTER =================== -->
+  <footer>
+    <svg class="f-fan" viewBox="0 0 44 26" role="img" aria-label="Hessa deco fan mark.">
+      <g stroke="#CBA24A" stroke-width="1.2" stroke-linecap="round">
+        <line x1="22" y1="24" x2="22" y2="4"/>
+        <line x1="22" y1="24" x2="14" y2="7"/>
+        <line x1="22" y1="24" x2="30" y2="7"/>
+        <line x1="22" y1="24" x2="8" y2="12"/>
+        <line x1="22" y1="24" x2="36" y2="12"/>
+      </g>
+      <path d="M9 24a13 13 0 0 1 26 0" fill="none" stroke="#E6C784" stroke-width="1" opacity=".7"/>
+      <circle cx="22" cy="24" r="2" fill="#F2DDA6"/>
+    </svg>
+    <div class="f-brand">HESSA</div>
+    <div class="f-brand-ar" lang="ar" dir="rtl">حِصّة</div>
+    <div class="f-line">
+      Alserkal Avenue, Unit 12 · Al Quoz 1, <b>Dubai</b><br>
+      Daily <b>7:30 – 23:00</b> · <a href="https://instagram.com/hessa.dxb">@hessa.dxb</a>
+    </div>
+    <div class="f-quote">
+      "Take your share of the good things."
+      <div class="f-quote-ar" lang="ar" dir="rtl">خُذ حِصّتك من الأشياء الجميلة</div>
+    </div>
+    <div class="f-fine">Prices in AED · inclusive of VAT</div>
+  </footer>
+</main>
+
+<script>
+  (function(){
+    "use strict";
+    var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+    var byId = {};
+    chips.forEach(function(c){ byId[c.getAttribute('data-t')] = c; });
+    var secs = chips.map(function(c){ return document.getElementById(c.getAttribute('data-t')); }).filter(Boolean);
+
+    function setActive(id){
+      chips.forEach(function(c){ c.classList.toggle('is-active', c.getAttribute('data-t') === id); });
+    }
+
+    if ('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (e.isIntersecting && byId[e.target.id]) setActive(e.target.id);
+        });
+      }, { rootMargin: '-46% 0px -50% 0px', threshold: 0 });
+      secs.forEach(function(s){ io.observe(s); });
+    }
+
+    chips.forEach(function(c){
+      c.addEventListener('click', function(){ setActive(c.getAttribute('data-t')); });
+    });
+    if (secs.length) setActive(secs[0].id);
+  })();
+</script>
+</body>
+</html>

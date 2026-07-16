@@ -2,60 +2,20 @@
   "catalog": "Menu Sadah — client menu catalog",
   "updated": "2026-07-16",
   "menus": [
-    {
-      "slug": "three-coffee",
-      "name": "Three Coffee",
-      "name_ar": "ثري كافيه",
-      "city": "Riyadh",
-      "status": "delivered",
-      "live": false,
-      "accent": "#C68A4B",
-      "pack": ["index.html", "qr-three-coffee.png", "qr-three-coffee.svg", "table-card.html", "table-card.pdf", "handover.md"],
-      "note": "Pilot. Built + verified 375px. Awaiting push to go live."
-    },
-    {
-      "slug": "maqha-noon",
-      "name": "Noon",
-      "name_ar": "نون",
-      "city": "Dubai",
-      "status": "verified",
-      "live": false,
-      "accent": "#0E3B2E",
-      "concept": "Neo-Khaleeji modernism — emerald & brass, mashrabiya lattice hero",
-      "note": "Design wave. Passed harness clean (375/414/768/1280, 0 JS errors)."
-    },
-    {
-      "slug": "blueprint-roasters",
-      "name": "Blueprint",
-      "name_ar": "بلوبرنت",
-      "city": "Dubai",
-      "status": "verified",
-      "live": false,
-      "accent": "#4FD1E0",
-      "concept": "Engineering schematic — navy & cyan, self-drawing brew-ratio diagram",
-      "note": "Design wave. Passed harness clean (375/414/768/1280, 0 JS errors)."
-    },
-    {
-      "slug": "terra-cafe",
-      "name": "Terra",
-      "name_ar": "تيرا",
-      "city": "Dubai",
-      "status": "verified",
-      "live": false,
-      "accent": "#E4633F",
-      "concept": "Kinetic terrazzo — bright cream, coral/teal/mustard speckle",
-      "note": "Design wave. Passed harness clean (375/414/768/1280, 0 JS errors)."
-    },
-    {
-      "slug": "kuthban",
-      "name": "Kuthban",
-      "name_ar": "كثبان",
-      "city": "Dubai",
-      "status": "verified",
-      "live": false,
-      "accent": "#B4744B",
-      "concept": "Desert modernism — sand gradient, dune-ridge hero, humanist serif",
-      "note": "Design wave. Exposed + fixed a harness blind spot (gradient bg); passes clean."
-    }
+    { "slug": "three-coffee", "name": "Three Coffee", "name_ar": "ثري كافيه", "city": "Riyadh", "status": "delivered", "live": false, "accent": "#C68A4B", "pack": ["index.html", "qr-three-coffee.png", "qr-three-coffee.svg", "table-card.html", "table-card.pdf", "handover.md"], "note": "Pilot. Full pack. Awaiting push to go live." },
+    { "slug": "maqha-noon", "name": "Noon", "name_ar": "نون", "city": "Dubai", "status": "verified", "live": false, "accent": "#0E3B2E", "concept": "Neo-Khaleeji modernism — emerald & brass, mashrabiya lattice hero" },
+    { "slug": "blueprint-roasters", "name": "Blueprint", "name_ar": "بلوبرنت", "city": "Dubai", "status": "verified", "live": false, "accent": "#4FD1E0", "concept": "Engineering schematic — navy & cyan, self-drawing brew-ratio diagram" },
+    { "slug": "terra-cafe", "name": "Terra", "name_ar": "تيرا", "city": "Dubai", "status": "verified", "live": false, "accent": "#E4633F", "concept": "Kinetic terrazzo — bright cream, coral/teal/mustard speckle" },
+    { "slug": "kuthban", "name": "Kuthban", "name_ar": "كثبان", "city": "Dubai", "status": "verified", "live": false, "accent": "#B4744B", "concept": "Desert modernism — sand gradient, dune-ridge hero, humanist serif" },
+    { "slug": "marsa", "name": "Marsa", "name_ar": "مرسى", "city": "Dubai", "status": "verified", "live": false, "accent": "#0E4B54", "concept": "Coastal marina modernism — teal & brass, harbour-ripple hero" },
+    { "slug": "layl", "name": "Layl", "name_ar": "ليل", "city": "Dubai", "status": "verified", "live": false, "accent": "#6E4A6B", "concept": "Nocturne — midnight blue & silver, moon-phase/constellation hero" },
+    { "slug": "hessa", "name": "Hessa", "name_ar": "حصة", "city": "Dubai", "status": "verified", "live": false, "accent": "#CBA24A", "concept": "Art-deco Gulf glam — black, gold & emerald, deco sunburst hero" },
+    { "slug": "sabah-cafe", "name": "Sabah", "name_ar": "صباح", "city": "Dubai", "status": "verified", "live": false, "accent": "#E8A07A", "concept": "Morning cafe — peach, cream & sky, sunrise-arc hero" },
+    { "slug": "mono-coffee", "name": "Mono", "name_ar": "مونو", "city": "Dubai", "status": "verified", "live": false, "accent": "#E23A2E", "concept": "Monochrome brutalist-minimal — one signal red, kinetic-stroke hero" },
+    { "slug": "attar", "name": "Attar", "name_ar": "عطر", "city": "Dubai", "status": "verified", "live": false, "accent": "#B0566E", "concept": "Floral rosewater apothecary — blush, maroon & gold, blooming-rose hero" },
+    { "slug": "barq", "name": "Barq", "name_ar": "برق", "city": "Dubai", "status": "verified", "live": false, "accent": "#C6F53B", "concept": "High-energy espresso bar — charcoal & electric lime, lightning-pulse hero" },
+    { "slug": "obsidian-coffee", "name": "Obsidian", "name_ar": "أوبسيديان", "city": "Dubai", "status": "verified", "live": false, "accent": "#4A6A7A", "concept": "Volcanic mineral minimal-luxe — black & iridescent, faceted-stone hero" },
+    { "slug": "hamdha", "name": "Hamdha", "name_ar": "حمضة", "city": "Dubai", "status": "verified", "live": false, "accent": "#F28C28", "concept": "Fresh citrus juice cafe — white, orange & leaf, citrus-slice hero" },
+    { "slug": "falak", "name": "Falak", "name_ar": "فلك", "city": "Dubai", "status": "verified", "live": false, "accent": "#E2C067", "concept": "Cosmos/astronomy cafe — indigo & gold, orbital hero" }
   ]
 }

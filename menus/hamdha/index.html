@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Hamdha · حمضة — Menu</title>
+<meta name="description" content="Hamdha — cold-pressed citrus, fresh juice &amp; specialty coffee. City Walk, Dubai. القائمة الرسمية.">
+<meta name="theme-color" content="#FCFBF7">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='22' fill='%23F28C28'/%3E%3Ccircle cx='24' cy='24' r='17.5' fill='%23FDE7C2'/%3E%3Ccircle cx='24' cy='24' r='15.5' fill='%23F6A23C'/%3E%3Cg stroke='%23FCFBF7' stroke-width='2'%3E%3Cline x1='8.5' y1='24' x2='39.5' y2='24'/%3E%3Cline x1='24' y1='8.5' x2='24' y2='39.5'/%3E%3Cline x1='13' y1='13' x2='35' y2='35'/%3E%3Cline x1='35' y1='13' x2='13' y2='35'/%3E%3C/g%3E%3Ccircle cx='24' cy='24' r='2.6' fill='%23FCFBF7'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Hanken+Grotesk:wght@400;500;600;700;800&family=Lemonada:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FCFBF7;
+    --paper-1:#FFFFFF;
+    --paper-2:#F5F1E6;
+    --paper-3:#FBEFDD;
+    --peel:#F28C28;
+    --peel-deep:#DC7414;
+    --leaf:#3E8E5A;
+    --leaf-deep:#2F7449;
+    --lemon:#EBB432;
+    --ink:#26301E;
+    --ink-soft:#5A6350;
+    --ink-faint:#8E947F;
+    --line:rgba(38,48,30,.13);
+    --line-soft:rgba(38,48,30,.07);
+    --row:rgba(38,48,30,.085);
+    --en:"Hanken Grotesk",system-ui,-apple-system,sans-serif;
+    --disp:"Fraunces","Hanken Grotesk",Georgia,serif;
+    --ar:"Lemonada","Hanken Grotesk",system-ui,sans-serif;
+    --ar2:"Tajawal","Lemonada",system-ui,sans-serif;
+    --acc:var(--peel);
+    --acc2:var(--leaf);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    background-color:var(--paper);
+    color:var(--ink);
+    font-family:var(--en);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    -webkit-tap-highlight-color:transparent;
+    background-image:
+      radial-gradient(720px 420px at 50% -150px, rgba(242,140,40,.16), rgba(252,251,247,0) 70%),
+      radial-gradient(540px 360px at 90% 3%, rgba(235,180,50,.13), rgba(252,251,247,0) 66%),
+      radial-gradient(560px 380px at 6% 14%, rgba(62,142,90,.10), rgba(252,251,247,0) 64%);
+    background-repeat:no-repeat;
+  }
+  .wrap{max-width:520px;margin:0 auto;padding:0 20px 68px;position:relative}
+
+  a{color:inherit}
+  a:focus-visible,.chip:focus-visible{outline:3px solid var(--leaf);outline-offset:3px;border-radius:8px}
+  ::selection{background:rgba(242,140,40,.24)}
+
+  /* ---------- header / brand ---------- */
+  header{padding:38px 0 4px;text-align:center}
+  .eyebrow{
+    font-family:var(--en);font-weight:700;font-size:.62rem;letter-spacing:.26em;text-indent:.26em;
+    color:var(--ink-faint);text-transform:uppercase;
+    display:flex;align-items:center;justify-content:center;gap:9px;
+  }
+  .eyebrow::before,.eyebrow::after{content:"";height:2px;width:15px;border-radius:2px;background:var(--peel);opacity:.55}
+  .mk{display:block;width:56px;height:56px;margin:20px auto 12px}
+  .brand{
+    font-family:var(--disp);font-weight:900;font-optical-sizing:auto;
+    font-size:clamp(3.5rem,19vw,5.2rem);letter-spacing:-.028em;
+    line-height:.88;color:var(--ink);
+  }
+  .brand .d{color:var(--peel)}
+  .brand-ar{
+    font-family:var(--ar);font-weight:700;font-size:1.85rem;
+    color:var(--ink);margin-top:6px;line-height:1;
+  }
+  .tagline{margin-top:16px;display:flex;flex-direction:column;align-items:center;gap:6px}
+  .tagline .en{
+    font-family:var(--en);font-weight:700;font-size:.73rem;letter-spacing:.19em;text-indent:.19em;
+    text-transform:uppercase;color:var(--ink-soft);
+  }
+  .tagline .ar{font-family:var(--ar2);font-weight:500;font-size:.92rem;color:var(--ink-faint)}
+
+  /* ---------- hero : citrus cross-section that pulses + refreshes ---------- */
+  .hero{position:relative;max-width:440px;margin:16px auto 0}
+  .hero::before{
+    content:"";position:absolute;inset:-6% 8% 10% 8%;z-index:0;pointer-events:none;
+    background:radial-gradient(56% 54% at 50% 46%, rgba(242,140,40,.20), rgba(252,251,247,0) 72%);
+  }
+  .hero canvas{position:relative;z-index:1;display:block;width:100%;height:214px}
+  .hero-cap{
+    position:relative;z-index:1;text-align:center;margin-top:2px;
+    font-family:var(--en);font-weight:600;font-size:.6rem;letter-spacing:.25em;text-indent:.25em;
+    text-transform:uppercase;color:var(--ink-faint);
+    display:flex;align-items:center;justify-content:center;gap:10px;
+  }
+  .hero-cap i{width:6px;height:6px;border-radius:50%;flex:0 0 auto}
+  .hero-cap i:nth-child(1){background:var(--peel)}
+  .hero-cap i:nth-child(3){background:var(--leaf)}
+
+  /* ---------- sticky nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:30;
+    background:var(--paper-1);
+    border-bottom:1.5px solid var(--line);
+    margin:22px -20px 0;padding:0 20px;
+  }
+  .chips{
+    display:flex;gap:8px;overflow-x:auto;padding:11px 30px 11px 0;scrollbar-width:none;
+    -webkit-mask-image:linear-gradient(90deg,#000 89%,transparent);
+    mask-image:linear-gradient(90deg,#000 89%,transparent);
+  }
+  .chips::-webkit-scrollbar{display:none}
+  .chip{
+    flex:0 0 auto;display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--en);font-weight:700;font-size:.74rem;letter-spacing:.01em;
+    color:var(--ink);background:var(--paper);border:1.5px solid var(--line);
+    border-radius:999px;padding:7px 14px 7px 11px;text-decoration:none;white-space:nowrap;
+    transition:background .22s ease,color .22s ease,border-color .22s ease,transform .22s ease;
+  }
+  .chip .dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto;background:var(--c);transition:transform .22s ease}
+  .chip:hover{border-color:var(--c);transform:translateY(-1px)}
+  .chip.active{background:var(--c);border-color:var(--c);color:#fff}
+  .chip.active .dot{background:#fff}
+
+  /* ---------- menu meta ---------- */
+  .legend{
+    text-align:center;margin:20px auto 0;max-width:420px;
+    display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:7px 12px;
+  }
+  .legend .lg{
+    display:inline-flex;align-items:center;gap:7px;
+    font-family:var(--en);font-weight:600;font-size:.68rem;letter-spacing:.02em;color:var(--ink-soft);
+  }
+  .legend .sig-d{width:8px;height:8px;border-radius:50%;background:var(--peel);flex:0 0 auto}
+  .legend .sep{color:var(--line);font-weight:700}
+  .legend .ar{width:100%;font-family:var(--ar2);font-weight:500;font-size:.76rem;color:var(--ink-faint);margin-top:1px}
+
+  /* ---------- sections ---------- */
+  section{padding-top:40px;scroll-margin-top:64px;position:relative;overflow:hidden}
+  .sec-wm{
+    position:absolute;top:20px;right:-14px;width:98px;height:98px;z-index:0;
+    color:var(--acc);opacity:.09;pointer-events:none;
+  }
+  .sec-head{position:relative;z-index:1;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 12px}
+  .sec-title{display:flex;align-items:center;gap:12px;min-width:0}
+  .sec-ix{
+    width:34px;height:34px;border-radius:11px;background:var(--acc);
+    display:grid;place-items:center;flex:0 0 auto;
+    box-shadow:0 3px 0 rgba(38,48,30,.10);
+  }
+  .sec-ix svg{width:20px;height:20px;display:block}
+  .sec-en{
+    font-family:var(--disp);font-weight:800;font-size:clamp(1.32rem,6.2vw,1.66rem);
+    letter-spacing:-.014em;line-height:1;color:var(--ink);white-space:nowrap;
+  }
+  .sec-ar{font-family:var(--ar);font-weight:600;font-size:1.08rem;color:var(--ink-soft);line-height:1}
+  .sec-meta{
+    position:relative;z-index:1;
+    font-family:var(--en);font-weight:600;font-size:.64rem;letter-spacing:.15em;text-transform:uppercase;
+    color:var(--ink-faint);margin-top:11px;
+  }
+  .sec-rule{position:relative;height:3px;border:0;border-radius:3px;background:var(--line-soft);margin:9px 0 2px;overflow:visible;z-index:1}
+  .sec-rule::before{content:"";position:absolute;left:0;top:0;height:3px;width:52px;border-radius:3px;background:var(--acc)}
+  .sec-rule::after{content:"";position:absolute;left:61px;top:-1.5px;width:6px;height:6px;border-radius:50%;background:var(--acc2)}
+
+  .item{
+    position:relative;z-index:1;
+    display:flex;align-items:baseline;gap:12px;
+    padding:15px 2px;border-bottom:1.5px solid var(--row);
+  }
+  .item:last-child{border-bottom:0}
+  .names{flex:0 1 auto;min-width:0}
+  .n-en{font-family:var(--en);font-weight:700;font-size:1.06rem;letter-spacing:-.004em;color:var(--ink);line-height:1.16}
+  .sig{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--acc);margin-left:7px;vertical-align:1px}
+  .n-ar{font-family:var(--ar2);font-weight:500;font-size:.9rem;color:var(--ink-soft);margin-top:3px;line-height:1.2}
+  .n-note{
+    font-family:var(--en);font-weight:500;font-size:.72rem;letter-spacing:.01em;color:var(--ink-faint);
+    margin-top:6px;max-width:23ch;line-height:1.3;
+  }
+  .dots{flex:1 0 14px;align-self:stretch;position:relative;min-width:14px}
+  .dots::after{content:"";position:absolute;left:0;right:0;top:12px;border-bottom:2px dotted var(--line)}
+  .price{
+    font-family:var(--en);font-weight:700;font-size:1.08rem;color:var(--ink);
+    font-variant-numeric:tabular-nums;white-space:nowrap;letter-spacing:-.01em;
+  }
+  .price small{font-family:var(--en);font-size:.55em;font-weight:700;color:var(--ink-faint);margin-right:3px;letter-spacing:.06em}
+
+  /* ---------- footer ---------- */
+  footer{margin-top:58px}
+  .card{
+    position:relative;background:var(--paper-1);border:1.5px solid var(--line);border-radius:20px;
+    overflow:hidden;box-shadow:0 8px 24px rgba(38,48,30,.06);
+  }
+  .card-top{display:flex;align-items:center;gap:14px;padding:18px 18px 16px;border-bottom:1.5px solid var(--line-soft)}
+  .card-top .mk{margin:0;width:48px;height:48px;flex:0 0 auto}
+  .card-name{font-family:var(--disp);font-weight:900;font-size:1.5rem;letter-spacing:-.02em;color:var(--ink);line-height:.92}
+  .card-name-ar{font-family:var(--ar);font-weight:600;font-size:.98rem;color:var(--ink-soft);margin-top:3px}
+  .card-est{margin-left:auto;text-align:right;flex:0 0 auto}
+  .card-est b{display:block;font-family:var(--en);font-weight:700;font-size:.9rem;color:var(--ink);font-variant-numeric:tabular-nums}
+  .card-est span{font-family:var(--en);font-weight:600;font-size:.54rem;letter-spacing:.17em;text-transform:uppercase;color:var(--ink-faint)}
+  .card-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;background:var(--line-soft)}
+  .cell{background:var(--paper-1);padding:13px 16px;min-width:0}
+  .cell.wide{grid-column:1 / -1}
+  .cell b{display:block;font-family:var(--en);font-weight:700;font-size:.56rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:5px}
+  .cell span{display:block;font-family:var(--en);font-weight:600;font-size:.84rem;color:var(--ink-soft);font-variant-numeric:tabular-nums;overflow:hidden;text-overflow:ellipsis;line-height:1.3}
+  .cell span.ar{font-family:var(--ar2);font-weight:500;font-size:.76rem;color:var(--ink-faint);margin-top:2px}
+  .cell a{color:var(--peel-deep);text-decoration:none;font-weight:700}
+  .cell a:hover{text-decoration:underline}
+  .f-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:20px;flex-wrap:wrap}
+  .ig{font-family:var(--en);color:var(--ink);text-decoration:none;font-size:.84rem;font-weight:700;display:inline-flex;align-items:center;gap:7px}
+  .ig i{width:8px;height:8px;border-radius:50%;background:var(--leaf)}
+  .ig:hover{color:var(--peel-deep)}
+  .credit{font-family:var(--en);font-size:.6rem;letter-spacing:.19em;text-transform:uppercase;color:var(--ink-faint);font-weight:600}
+  .credit a{text-decoration:none}
+  .credit a:hover{color:var(--peel-deep)}
+
+  @media (max-width:360px){
+    .brand{font-size:clamp(3rem,17vw,3.6rem)}
+    .cell{padding:12px 13px}
+    .sec-meta{font-size:.6rem}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">City Walk · Dubai</div>
+    <svg class="mk" viewBox="0 0 48 48" role="img" aria-label="Hamdha citrus slice mark">
+      <circle cx="24" cy="24" r="22" fill="#F28C28"/>
+      <circle cx="24" cy="24" r="17.5" fill="#FDE7C2"/>
+      <circle cx="24" cy="24" r="15.5" fill="#F6A23C"/>
+      <g stroke="#FCFBF7" stroke-width="2" stroke-linecap="round">
+        <line x1="8.5" y1="24" x2="39.5" y2="24"/>
+        <line x1="24" y1="8.5" x2="24" y2="39.5"/>
+        <line x1="13" y1="13" x2="35" y2="35"/>
+        <line x1="35" y1="13" x2="13" y2="35"/>
+      </g>
+      <circle cx="24" cy="24" r="2.6" fill="#FCFBF7"/>
+      <path d="M35 5 q6.5 .6 8 7.4 q-6.5 -.6 -8 -7.4 Z" fill="#3E8E5A"/>
+    </svg>
+    <h1 class="brand">Hamdha<span class="d">.</span></h1>
+    <div class="brand-ar" lang="ar" dir="rtl">حمضة</div>
+    <div class="tagline">
+      <span class="en">Cold-Pressed Citrus &amp; Coffee</span>
+      <span class="ar" lang="ar" dir="rtl">حمضيّات معصورة على البارد وقهوة</span>
+    </div>
+  </header>
+
+  <div class="hero">
+    <canvas id="hamHero" role="img" aria-label="Animation: a bright citrus cross-section on a warm white field — juicy segments gently pulse and refresh, droplets rise, and the fruit cycles from orange to lemon to lime."></canvas>
+    <div class="hero-cap"><i></i>Pressed · Poured · Refreshed<i></i></div>
+  </div>
+
+  <nav aria-label="Menu sections">
+    <div class="chips" id="chips">
+      <a class="chip active" style="--c:#F28C28" href="#press"><span class="dot"></span>Fresh Press</a>
+      <a class="chip" style="--c:#EBB432" href="#sparkling"><span class="dot"></span>Sparkling</a>
+      <a class="chip" style="--c:#3E8E5A" href="#coffee"><span class="dot"></span>Coffee</a>
+      <a class="chip" style="--c:#F28C28" href="#matcha"><span class="dot"></span>Matcha &amp; Tea</a>
+      <a class="chip" style="--c:#3E8E5A" href="#kitchen"><span class="dot"></span>Kitchen</a>
+    </div>
+  </nav>
+
+  <div class="legend">
+    <span class="lg"><i class="sig-d"></i>Hamdha signature</span>
+    <span class="sep" aria-hidden="true">·</span>
+    <span class="lg">Prices in AED, incl. VAT</span>
+    <span class="ar" lang="ar" dir="rtl">جميع الأسعار بالدرهم الإماراتي وشاملة ضريبة القيمة المضافة</span>
+  </div>
+
+  <main>
+
+    <section id="press" style="--acc:#F28C28;--acc2:#3E8E5A">
+      <svg class="sec-wm" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="3.5"/><circle cx="50" cy="50" r="33" fill="none" stroke="currentColor" stroke-width="2.5"/><g stroke="currentColor" stroke-width="2.5"><line x1="50" y1="17" x2="50" y2="83"/><line x1="17" y1="50" x2="83" y2="50"/><line x1="26" y1="26" x2="74" y2="74"/><line x1="74" y1="26" x2="26" y2="74"/></g></svg>
+      <div class="sec-head">
+        <div class="sec-title">
+          <span class="sec-ix"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none"><path d="M12 3.4C8 6 6 8.7 6 12a6 6 0 0 0 12 0c0-3.3-2-6-6-8.6Z" fill="#fff"/><path d="M12 8v8M9 12h6" stroke="#F28C28" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+          <h2 class="sec-en">Fresh Press</h2>
+        </div>
+        <span class="sec-ar" lang="ar" dir="rtl">عصير طازج</span>
+      </div>
+      <div class="sec-meta">Cold-pressed to order · never from concentrate</div>
+      <hr class="sec-rule">
+      <div class="item"><div class="names"><div class="n-en">Pure Orange <i class="sig" aria-hidden="true"></i></div><div class="n-ar" lang="ar" dir="rtl">برتقال صافٍ</div><div class="n-note">four oranges, nothing else</div></div><div class="dots"></div><div class="price"><small>AED</small>24</div></div>
+      <div class="item"><div class="names"><div class="n-en">Blood Orange</div><div class="n-ar" lang="ar" dir="rtl">برتقال أحمر</div><div class="n-note">deep &amp; sweet, in season</div></div><div class="dots"></div><div class="price"><small>AED</small>28</div></div>
+      <div class="item"><div class="names"><div class="n-en">Grapefruit &amp; Mint</div><div class="n-ar" lang="ar" dir="rtl">جريب فروت ونعناع</div></div><div class="dots"></div><div class="price"><small>AED</small>27</div></div>
+      <div class="item"><div class="names"><div class="n-en">Green Press <i class="sig" aria-hidden="true"></i></div><div class="n-ar" lang="ar" dir="rtl">عصير أخضر</div><div class="n-note">celery · cucumber · apple · lime</div></div><div class="dots"></div><div class="price"><small>AED</small>30</div></div>
+      <div class="item"><div class="names"><div class="n-en">Carrot · Ginger · Turmeric</div><div class="n-ar" lang="ar" dir="rtl">جزر وزنجبيل وكركم</div></div><div class="dots"></div><div class="price"><small>AED</small>29</div></div>
+    </section>
+
+    <section id="sparkling" style="--acc:#EBB432;--acc2:#F28C28">
+      <svg class="sec-wm" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="3.5"/><circle cx="50" cy="50" r="33" fill="none" stroke="currentColor" stroke-width="2.5"/><g stroke="currentColor" stroke-width="2.5"><line x1="50" y1="17" x2="50" y2="83"/><line x1="17" y1="50" x2="83" y2="50"/><line x1="26" y1="26" x2="74" y2="74"/><line x1="74" y1="26" x2="26" y2="74"/></g></svg>
+      <div class="sec-head">
+        <div class="sec-title">
+          <span class="sec-ix"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none"><path d="M8 7h8l-.7 12.2a1.4 1.4 0 0 1-1.4 1.3h-3.8a1.4 1.4 0 0 1-1.4-1.3L8 7Z" fill="#fff"/><path d="M7.4 7h9.2" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/><circle cx="11" cy="12" r="1" fill="#EBB432"/><circle cx="13.6" cy="15" r="1" fill="#EBB432"/><circle cx="10.6" cy="16.4" r=".8" fill="#EBB432"/></svg></span>
+          <h2 class="sec-en">Sparkling</h2>
+        </div>
+        <span class="sec-ar" lang="ar" dir="rtl">فوّارات</span>
+      </div>
+      <div class="sec-meta">House sodas, tonics &amp; lemonades over clear ice</div>
+      <hr class="sec-rule">
+      <div class="item"><div class="names"><div class="n-en">Citrus Soda <i class="sig" aria-hidden="true"></i></div><div class="n-ar" lang="ar" dir="rtl">صودا الحمضيات</div><div class="n-note">orange · lemon · lime peel</div></div><div class="dots"></div><div class="price"><small>AED</small>24</div></div>
+      <div class="item"><div class="names"><div class="n-en">Lemon &amp; Mint Lemonade</div><div class="n-ar" lang="ar" dir="rtl">ليموناضة بالنعناع</div></div><div class="dots"></div><div class="price"><small>AED</small>22</div></div>
+      <div class="item"><div class="names"><div class="n-en">Yuzu Tonic</div><div class="n-ar" lang="ar" dir="rtl">يوزو تونيك</div><div class="n-note">Japanese citrus, dry tonic</div></div><div class="dots"></div><div class="price"><small>AED</small>27</div></div>
+      <div class="item"><div class="names"><div class="n-en">Hibiscus Cooler</div><div class="n-ar" lang="ar" dir="rtl">كركديه بارد</div></div><div class="dots"></div><div class="price"><small>AED</small>23</div></div>
+      <div class="item"><div class="names"><div class="n-en">Peach Iced Tea</div><div class="n-ar" lang="ar" dir="rtl">شاي مثلج بالخوخ</div><div class="n-note">brewed daily, lightly sweet</div></div><div class="dots"></div><div class="price"><small>AED</small>21</div></div>
+    </section>
+
+    <section id="coffee" style="--acc:#3E8E5A;--acc2:#F28C28">
+      <svg class="sec-wm" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="3.5"/><circle cx="50" cy="50" r="33" fill="none" stroke="currentColor" stroke-width="2.5"/><g stroke="currentColor" stroke-width="2.5"><line x1="50" y1="17" x2="50" y2="83"/><line x1="17" y1="50" x2="83" y2="50"/><line x1="26" y1="26" x2="74" y2="74"/><line x1="74" y1="26" x2="26" y2="74"/></g></svg>
+      <div class="sec-head">
+        <div class="sec-title">
+          <span class="sec-ix"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none"><path d="M6 9h10v4.5a4.5 4.5 0 0 1-4.5 4.5h-1A4.5 4.5 0 0 1 6 13.5V9Z" fill="#fff"/><path d="M16 10.4h1.6a2.1 2.1 0 0 1 0 4.2H16" stroke="#fff" stroke-width="1.6"/><path d="M9 5.4c-.7.9-.7 1.7 0 2.6M12 5.4c-.7.9-.7 1.7 0 2.6" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <h2 class="sec-en">Coffee</h2>
+        </div>
+        <span class="sec-ar" lang="ar" dir="rtl">قهوة</span>
+      </div>
+      <div class="sec-meta">Specialty espresso bar · single origin</div>
+      <hr class="sec-rule">
+      <div class="item"><div class="names"><div class="n-en">Espresso</div><div class="n-ar" lang="ar" dir="rtl">إسبريسو</div></div><div class="dots"></div><div class="price"><small>AED</small>16</div></div>
+      <div class="item"><div class="names"><div class="n-en">Cortado</div><div class="n-ar" lang="ar" dir="rtl">كورتادو</div></div><div class="dots"></div><div class="price"><small>AED</small>20</div></div>
+      <div class="item"><div class="names"><div class="n-en">Flat White</div><div class="n-ar" lang="ar" dir="rtl">فلات وايت</div></div><div class="dots"></div><div class="price"><small>AED</small>22</div></div>
+      <div class="item"><div class="names"><div class="n-en">Orange Blossom Latte <i class="sig" aria-hidden="true"></i></div><div class="n-ar" lang="ar" dir="rtl">لاتيه بزهر البرتقال</div><div class="n-note">iced · house citrus syrup</div></div><div class="dots"></div><div class="price"><small>AED</small>28</div></div>
+      <div class="item"><div class="names"><div class="n-en">V60 Single Origin</div><div class="n-ar" lang="ar" dir="rtl">في٦٠ محصول مفرد</div><div class="n-note">bright &amp; citric, weighed 1:16</div></div><div class="dots"></div><div class="price"><small>AED</small>30</div></div>
+    </section>
+
+    <section id="matcha" style="--acc:#F28C28;--acc2:#3E8E5A">
+      <svg class="sec-wm" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="3.5"/><circle cx="50" cy="50" r="33" fill="none" stroke="currentColor" stroke-width="2.5"/><g stroke="currentColor" stroke-width="2.5"><line x1="50" y1="17" x2="50" y2="83"/><line x1="17" y1="50" x2="83" y2="50"/><line x1="26" y1="26" x2="74" y2="74"/><line x1="74" y1="26" x2="26" y2="74"/></g></svg>
+      <div class="sec-head">
+        <div class="sec-title">
+          <span class="sec-ix"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none"><path d="M12 20c5 0 7.5-3.4 7.5-8.5C15 11.5 12 14 12 20Z" fill="#fff"/><path d="M12 20c-5 0-7.5-3.4-7.5-8.5C9 11.5 12 14 12 20Z" fill="#fff"/><path d="M12 20V9" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+          <h2 class="sec-en">Matcha &amp; Tea</h2>
+        </div>
+        <span class="sec-ar" lang="ar" dir="rtl">ماتشا وشاي</span>
+      </div>
+      <div class="sec-meta">Whisked ceremonial-grade · steeped botanicals</div>
+      <hr class="sec-rule">
+      <div class="item"><div class="names"><div class="n-en">Matcha Latte</div><div class="n-ar" lang="ar" dir="rtl">ماتشا لاتيه</div><div class="n-note">ceremonial Uji</div></div><div class="dots"></div><div class="price"><small>AED</small>28</div></div>
+      <div class="item"><div class="names"><div class="n-en">Iced Yuzu Matcha <i class="sig" aria-hidden="true"></i></div><div class="n-ar" lang="ar" dir="rtl">ماتشا يوزو مثلجة</div><div class="n-note">citrus lift, lightly sweet</div></div><div class="dots"></div><div class="price"><small>AED</small>32</div></div>
+      <div class="item"><div class="names"><div class="n-en">Blue Pea Lemonade</div><div class="n-ar" lang="ar" dir="rtl">ليموناضة زهرة البازلاء</div><div class="n-note">shifts violet with lemon</div></div><div class="dots"></div><div class="price"><small>AED</small>26</div></div>
+      <div class="item"><div class="names"><div class="n-en">Turmeric Latte</div><div class="n-ar" lang="ar" dir="rtl">لاتيه الكركم</div></div><div class="dots"></div><div class="price"><small>AED</small>24</div></div>
+      <div class="item"><div class="names"><div class="n-en">Fresh Mint Green Tea</div><div class="n-ar" lang="ar" dir="rtl">شاي أخضر بالنعناع</div></div><div class="dots"></div><div class="price"><small>AED</small>22</div></div>
+    </section>
+
+    <section id="kitchen" style="--acc:#3E8E5A;--acc2:#EBB432">
+      <svg class="sec-wm" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="3.5"/><circle cx="50" cy="50" r="33" fill="none" stroke="currentColor" stroke-width="2.5"/><g stroke="currentColor" stroke-width="2.5"><line x1="50" y1="17" x2="50" y2="83"/><line x1="17" y1="50" x2="83" y2="50"/><line x1="26" y1="26" x2="74" y2="74"/><line x1="74" y1="26" x2="26" y2="74"/></g></svg>
+      <div class="sec-head">
+        <div class="sec-title">
+          <span class="sec-ix"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none"><path d="M4.5 15c0-3 3.4-5.4 7.5-5.4S19.5 12 19.5 15v.6h-15V15Z" fill="#fff"/><path d="M4.5 16.6h15" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/><circle cx="9" cy="13.2" r=".9" fill="#3E8E5A"/><circle cx="12.4" cy="12.6" r=".9" fill="#3E8E5A"/></svg></span>
+          <h2 class="sec-en">Kitchen</h2>
+        </div>
+        <span class="sec-ar" lang="ar" dir="rtl">المطبخ</span>
+      </div>
+      <div class="sec-meta">Bakery &amp; all-day plates · made each morning</div>
+      <hr class="sec-rule">
+      <div class="item"><div class="names"><div class="n-en">Orange Blossom Croissant <i class="sig" aria-hidden="true"></i></div><div class="n-ar" lang="ar" dir="rtl">كرواسون بزهر البرتقال</div><div class="n-note">candied peel, 72-hour laminated</div></div><div class="dots"></div><div class="price"><small>AED</small>22</div></div>
+      <div class="item"><div class="names"><div class="n-en">Avocado Citrus Toast</div><div class="n-ar" lang="ar" dir="rtl">توست الأفوكادو والحمضيات</div><div class="n-note">sourdough · chilli · lemon</div></div><div class="dots"></div><div class="price"><small>AED</small>36</div></div>
+      <div class="item"><div class="names"><div class="n-en">Labneh &amp; Za'atar Bowl</div><div class="n-ar" lang="ar" dir="rtl">وعاء لبنة وزعتر</div></div><div class="dots"></div><div class="price"><small>AED</small>32</div></div>
+      <div class="item"><div class="names"><div class="n-en">Orange &amp; Almond Cake</div><div class="n-ar" lang="ar" dir="rtl">كيك البرتقال واللوز</div><div class="n-note">flourless · gluten-free</div></div><div class="dots"></div><div class="price"><small>AED</small>34</div></div>
+      <div class="item"><div class="names"><div class="n-en">Lemon &amp; Poppy Loaf</div><div class="n-ar" lang="ar" dir="rtl">كيك الليمون والخشخاش</div></div><div class="dots"></div><div class="price"><small>AED</small>20</div></div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="card">
+      <div class="card-top">
+        <svg class="mk" viewBox="0 0 48 48" aria-hidden="true">
+          <circle cx="24" cy="24" r="22" fill="#F28C28"/>
+          <circle cx="24" cy="24" r="17.5" fill="#FDE7C2"/>
+          <circle cx="24" cy="24" r="15.5" fill="#F6A23C"/>
+          <g stroke="#FCFBF7" stroke-width="2" stroke-linecap="round">
+            <line x1="8.5" y1="24" x2="39.5" y2="24"/>
+            <line x1="24" y1="8.5" x2="24" y2="39.5"/>
+            <line x1="13" y1="13" x2="35" y2="35"/>
+            <line x1="35" y1="13" x2="13" y2="35"/>
+          </g>
+          <circle cx="24" cy="24" r="2.6" fill="#FCFBF7"/>
+        </svg>
+        <div>
+          <div class="card-name">Hamdha<span style="color:#F28C28">.</span></div>
+          <div class="card-name-ar" lang="ar" dir="rtl">حمضة</div>
+        </div>
+        <div class="card-est">
+          <b>2022</b>
+          <span>Est. Dubai</span>
+        </div>
+      </div>
+      <div class="card-grid">
+        <div class="cell"><b>Hours</b><span>Daily · 7:30 — 23:00</span></div>
+        <div class="cell"><b>Currency</b><span>AED · incl. VAT</span></div>
+        <div class="cell wide"><b>Find us</b><span>City Walk · Al Wasl — Dubai</span><span class="ar" lang="ar" dir="rtl">سيتي ووك · الوصل — دبي</span></div>
+        <div class="cell wide"><b>Say hello</b><span><a href="https://www.instagram.com/hamdha.cafe" target="_blank" rel="noopener">@hamdha.cafe</a> &nbsp;·&nbsp; hamdha on menu-sadah.com</span></div>
+      </div>
+    </div>
+    <div class="f-foot">
+      <a class="ig" href="https://www.instagram.com/hamdha.cafe" target="_blank" rel="noopener"><i></i>@hamdha.cafe</a>
+      <div class="credit"><a href="https://menu-sadah.com" target="_blank" rel="noopener">Menu Sadah</a></div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  /* ---------- hero: citrus cross-section — segments pulse + fruit refreshes ---------- */
+  (function(){
+    var cv = document.getElementById('hamHero');
+    if(!cv || !cv.getContext) return;
+    var ctx = cv.getContext('2d');
+    if(!ctx) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var W=0, H=0, dpr=1, raf=0, base=0, drops=[], sparks=[];
+
+    function clamp(x,a,b){ return x<a?a:(x>b?b:x); }
+    function lerp(a,b,t){ return a+(b-a)*t; }
+    function smooth(x){ x=clamp(x,0,1); return x*x*(3-2*x); }
+    function h2rgb(h){ h=h.replace('#',''); return [parseInt(h.substr(0,2),16),parseInt(h.substr(2,2),16),parseInt(h.substr(4,2),16)]; }
+    function mix(c1,c2,t){ var a=h2rgb(c1),b=h2rgb(c2); return 'rgb('+Math.round(lerp(a[0],b[0],t))+','+Math.round(lerp(a[1],b[1],t))+','+Math.round(lerp(a[2],b[2],t))+')'; }
+
+    /* three citrus identities the fruit refreshes between */
+    var FRUITS = [
+      { rind:'#F28C28', flesh:'#F6A23C', core:'#FFCE86', glow:'#FFE0AE' }, /* orange */
+      { rind:'#E7B02F', flesh:'#F3CE49', core:'#FBE58A', glow:'#FBEEB4' }, /* lemon  */
+      { rind:'#4E9A4A', flesh:'#8FC93D', core:'#C4E38A', glow:'#E1F2B8' }  /* lime   */
+    ];
+    var PITH = '#FEF3DE', PITH_LINE = '#FCFBF7';
+    var SEG = 11, REFRESH = 5.4, FADE = 1.0;
+
+    function fruitAt(t){
+      var idx = Math.floor(t / REFRESH), pos = (t % REFRESH) / REFRESH;
+      var cur = FRUITS[((idx % 3)+3)%3], nxt = FRUITS[(((idx+1)%3)+3)%3];
+      var k = smooth(clamp((pos - (1 - FADE/REFRESH)) / (FADE/REFRESH), 0, 1));
+      return {
+        rind: mix(cur.rind,nxt.rind,k), flesh: mix(cur.flesh,nxt.flesh,k),
+        core: mix(cur.core,nxt.core,k), glow: mix(cur.glow,nxt.glow,k),
+        refresh: k, justFlipped: (pos < 0.03)
+      };
+    }
+
+    function spawnDrops(cx,cy,R,col){
+      for(var i=0;i<7;i++){
+        var a = -Math.PI/2 + (Math.random()-0.5)*Math.PI*1.35;
+        drops.push({ x:cx+Math.cos(a)*R*0.9, y:cy+Math.sin(a)*R*0.9,
+          vx:Math.cos(a)*R*0.010, vy:Math.sin(a)*R*0.010 - R*0.012,
+          r:R*(0.03+Math.random()*0.035), life:1, col:col });
+      }
+    }
+
+    function seedSparks(){
+      sparks = [];
+      for(var i=0;i<16;i++) sparks.push({ x:Math.random(), y:Math.random(), r:Math.random()*1.6+0.5, sp:0.02+Math.random()*0.05, ph:Math.random()*6.28 });
+    }
+
+    function wedge(cx,cy,r0,r1,a0,a1){
+      ctx.beginPath();
+      ctx.arc(cx,cy,r1,a0,a1);
+      ctx.arc(cx,cy,r0,a1,a0,true);
+      ctx.closePath();
+    }
+
+    function draw(t){
+      ctx.clearRect(0,0,W,H);
+      var cx=W/2, cy=H*0.5, R=Math.min(W,H)*0.335;
+      var f = fruitAt(t), spin = t*0.06;
+
+      /* ambient rising sparkles */
+      for(var s=0;s<sparks.length;s++){
+        var sp=sparks[s]; sp.y -= sp.sp*0.006; if(sp.y<-0.05){ sp.y=1.05; sp.x=Math.random(); }
+        ctx.globalAlpha = 0.10 + 0.10*(0.5+0.5*Math.sin(t*1.5+sp.ph));
+        ctx.fillStyle = f.glow;
+        ctx.beginPath(); ctx.arc(sp.x*W, sp.y*H, sp.r, 0, 6.2832); ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+
+      /* soft halo */
+      var halo = ctx.createRadialGradient(cx,cy,R*0.2,cx,cy,R*1.5);
+      halo.addColorStop(0, 'rgba(255,255,255,0)');
+      halo.addColorStop(1, 'rgba(255,255,255,0)');
+      ctx.fillStyle = halo;
+
+      /* peel ring */
+      ctx.beginPath(); ctx.arc(cx,cy,R*1.15,0,6.2832); ctx.fillStyle=f.rind; ctx.fill();
+      /* pith ring */
+      ctx.beginPath(); ctx.arc(cx,cy,R*1.02,0,6.2832); ctx.fillStyle=PITH; ctx.fill();
+
+      /* segments (each breathes on its own phase) */
+      var r0 = R*0.14, gap = 0.055;
+      for(var i=0;i<SEG;i++){
+        var mid = spin + i*(6.2832/SEG) - Math.PI/2;
+        var a0 = mid + gap/2, a1 = mid + 6.2832/SEG - gap/2;
+        var pulse = 1 + 0.045*Math.sin(t*1.7 + i*0.62) + 0.02*f.refresh;
+        var r1 = R*pulse;
+        var g = ctx.createRadialGradient(cx,cy,r0, cx,cy,r1);
+        g.addColorStop(0, f.core);
+        g.addColorStop(0.62, f.flesh);
+        g.addColorStop(1, f.flesh);
+        wedge(cx,cy,r0,r1,a0,a1);
+        ctx.fillStyle = g; ctx.fill();
+        /* juicy edge glint */
+        var gm = (a0+a1)/2;
+        ctx.globalAlpha = 0.5 + 0.4*Math.sin(t*1.7 + i*0.62);
+        ctx.beginPath();
+        ctx.arc(cx+Math.cos(gm)*r1*0.82, cy+Math.sin(gm)*r1*0.82, R*0.045, 0, 6.2832);
+        ctx.fillStyle = f.glow; ctx.fill();
+        ctx.globalAlpha = 1;
+      }
+
+      /* pith spokes */
+      ctx.strokeStyle = PITH_LINE; ctx.lineWidth = Math.max(2, R*0.05); ctx.lineCap='round';
+      for(var j=0;j<SEG;j++){
+        var ang = spin + j*(6.2832/SEG) - Math.PI/2;
+        ctx.beginPath();
+        ctx.moveTo(cx+Math.cos(ang)*r0*0.7, cy+Math.sin(ang)*r0*0.7);
+        ctx.lineTo(cx+Math.cos(ang)*R*0.99, cy+Math.sin(ang)*R*0.99);
+        ctx.stroke();
+      }
+
+      /* core */
+      ctx.beginPath(); ctx.arc(cx,cy,r0,0,6.2832); ctx.fillStyle=PITH; ctx.fill();
+      ctx.beginPath(); ctx.arc(cx,cy,r0*0.5,0,6.2832); ctx.fillStyle=f.core; ctx.fill();
+
+      /* refresh ripple */
+      if(f.refresh>0.001 && f.refresh<0.999){
+        var rr = R*(1.02 + 0.7*f.refresh);
+        ctx.globalAlpha = 0.5*(1-f.refresh);
+        ctx.lineWidth = Math.max(1.5, R*0.03);
+        ctx.strokeStyle = f.glow;
+        ctx.beginPath(); ctx.arc(cx,cy,rr,0,6.2832); ctx.stroke();
+        ctx.globalAlpha = 1;
+      }
+      if(f.justFlipped && drops.length<6) spawnDrops(cx,cy,R,f.glow);
+
+      /* droplets */
+      for(var d=drops.length-1; d>=0; d--){
+        var p=drops[d];
+        p.x+=p.vx; p.y+=p.vy; p.vy+=R*0.0016; p.life-=0.018;
+        if(p.life<=0){ drops.splice(d,1); continue; }
+        ctx.globalAlpha = clamp(p.life,0,1)*0.85;
+        ctx.beginPath(); ctx.arc(p.x,p.y,p.r*p.life,0,6.2832); ctx.fillStyle=p.col; ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+    }
+
+    function frame(now){ if(!base) base=now; draw((now-base)/1000); raf=requestAnimationFrame(frame); }
+
+    function setup(){
+      W = cv.clientWidth || (cv.parentNode && cv.parentNode.clientWidth) || 320;
+      H = cv.clientHeight || 214;
+      dpr = Math.min(window.devicePixelRatio||1, 2);
+      cv.width = Math.round(W*dpr); cv.height = Math.round(H*dpr);
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+      seedSparks(); drops=[];
+      if(reduce){ if(raf){ cancelAnimationFrame(raf); raf=0; } draw(0.9); }
+    }
+
+    var rz;
+    window.addEventListener('resize', function(){ clearTimeout(rz); rz=setTimeout(setup,220); });
+
+    try{ setup(); if(!reduce) raf=requestAnimationFrame(frame); }
+    catch(e){ /* never break the page for a decorative hero */ }
+  })();
+
+  /* ---------- sticky nav: highlight active section ---------- */
+  (function(){
+    var chips = [].slice.call(document.querySelectorAll('.chip'));
+    if(!chips.length || !('IntersectionObserver' in window)) return;
+    var secs = chips.map(function(c){ return document.querySelector(c.getAttribute('href')); });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting) return;
+        var i = secs.indexOf(e.target);
+        if(i<0) return;
+        chips.forEach(function(c){ c.classList.remove('active'); });
+        chips[i].classList.add('active');
+        chips[i].scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
+      });
+    }, {rootMargin:'-22% 0px -68% 0px'});
+    secs.forEach(function(s){ if(s) io.observe(s); });
+  })();
+</script>
+</body>
+</html>

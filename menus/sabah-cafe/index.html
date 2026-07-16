@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Sabah · صباح — Menu</title>
+<meta name="description" content="Sabah — slow mornings and specialty coffee in Jumeirah 1, Dubai. A morning kind of place. القائمة الرسمية.">
+<meta name="theme-color" content="#FBF3E8">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23FBF3E8'/%3E%3Cg stroke='%23E8A26A' stroke-width='3' stroke-linecap='round'%3E%3Cline x1='32' y1='10' x2='32' y2='17'/%3E%3Cline x1='15' y1='16' x2='19' y2='21'/%3E%3Cline x1='49' y1='16' x2='45' y2='21'/%3E%3C/g%3E%3Cpath d='M18 42 a14 14 0 0 1 28 0 Z' fill='%23EF9E52'/%3E%3Cline x1='13' y1='42' x2='51' y2='42' stroke='%234E93AB' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Figtree:wght@400;500;600;700;800&family=El+Messiri:wght@500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF3E8;
+    --cream-1:#FFFCF6;
+    --cream-2:#F3E7D5;
+    --sand:#EAD9BF;
+    --peach:#F6C9A8;
+    --apricot:#E8A26A;
+    --apricot-deep:#D9884A;
+    --sky:#7FB6C9;
+    --sky-deep:#4E93AB;
+    --ink:#3A2E28;
+    --ink-soft:#6E5D50;
+    --ink-faint:#9C8A79;
+    --line:rgba(58,46,40,.12);
+    --line-soft:rgba(58,46,40,.07);
+    --row:rgba(58,46,40,.09);
+    --en:"Figtree",system-ui,-apple-system,sans-serif;
+    --disp:"Fraunces","Figtree",Georgia,serif;
+    --ar:"El Messiri","IBM Plex Sans Arabic",system-ui,sans-serif;
+    --ar2:"IBM Plex Sans Arabic","El Messiri",system-ui,sans-serif;
+    --acc:var(--apricot);
+    --acc2:var(--sky-deep);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    background-color:var(--cream);
+    color:var(--ink);
+    font-family:var(--en);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    -webkit-tap-highlight-color:transparent;
+    background-image:
+      radial-gradient(820px 460px at 50% -170px, rgba(246,201,168,.55), rgba(251,243,232,0) 68%),
+      radial-gradient(560px 380px at 88% 3%, rgba(127,182,201,.20), rgba(251,243,232,0) 66%),
+      radial-gradient(600px 400px at 8% 9%, rgba(246,201,168,.22), rgba(251,243,232,0) 64%);
+    background-repeat:no-repeat;
+  }
+  .wrap{max-width:520px;margin:0 auto;padding:0 20px 68px;position:relative}
+
+  a{color:inherit}
+  a:focus-visible,.chip:focus-visible{outline:3px solid var(--sky-deep);outline-offset:3px;border-radius:8px}
+  ::selection{background:rgba(246,201,168,.5)}
+
+  /* ---------- header / brand ---------- */
+  header{position:relative;padding:44px 0 4px;text-align:center;overflow:hidden}
+  .sunrays{
+    position:absolute;left:50%;top:-40px;width:440px;height:440px;transform:translateX(-50%);
+    z-index:0;pointer-events:none;opacity:.6;
+    background:repeating-conic-gradient(from 0deg at 50% 50%,
+      rgba(232,162,106,.11) 0deg 4deg, rgba(251,243,232,0) 4deg 15deg);
+    -webkit-mask-image:radial-gradient(circle at 50% 50%, #000 0%, rgba(0,0,0,.4) 42%, transparent 66%);
+    mask-image:radial-gradient(circle at 50% 50%, #000 0%, rgba(0,0,0,.4) 42%, transparent 66%);
+  }
+  header>*{position:relative;z-index:1}
+  .eyebrow{
+    font-family:var(--en);font-weight:600;font-size:.62rem;letter-spacing:.28em;text-indent:.28em;
+    color:var(--ink-faint);text-transform:uppercase;
+    display:flex;align-items:center;justify-content:center;gap:9px;
+  }
+  .eyebrow::before,.eyebrow::after{content:"";height:2px;width:16px;border-radius:2px;background:var(--peach)}
+  .mk{display:block;width:64px;height:47px;margin:22px auto 12px}
+  .brand{
+    font-family:var(--disp);font-weight:600;
+    font-size:clamp(3.4rem,18vw,5.1rem);letter-spacing:-.015em;
+    line-height:.92;color:var(--ink);
+  }
+  .brand .glow{color:var(--apricot-deep)}
+  .brand-ar{
+    font-family:var(--ar);font-weight:600;font-size:1.8rem;
+    color:var(--ink);margin-top:10px;line-height:1;
+  }
+  .tagline{margin-top:16px;display:flex;flex-direction:column;align-items:center;gap:6px}
+  .tagline .en{
+    font-family:var(--en);font-weight:600;font-size:.74rem;letter-spacing:.2em;text-indent:.2em;
+    text-transform:uppercase;color:var(--ink-soft);
+  }
+  .tagline .ar{font-family:var(--ar2);font-weight:500;font-size:.92rem;color:var(--ink-faint)}
+
+  /* ---------- hero : sunrise arc rising with soft rays ---------- */
+  .hero{position:relative;max-width:452px;margin:16px auto 0}
+  .hero canvas{
+    position:relative;z-index:1;display:block;width:100%;height:210px;
+    border-radius:18px;
+  }
+  .hero-frame{
+    position:absolute;inset:0;z-index:2;pointer-events:none;
+    border:1.5px solid var(--line);border-radius:18px;
+    box-shadow:0 12px 30px rgba(58,46,40,.07), inset 0 1px 0 rgba(255,255,255,.5);
+  }
+  .hero-cap{
+    position:relative;z-index:2;text-align:center;margin-top:12px;
+    font-family:var(--en);font-weight:600;font-size:.6rem;letter-spacing:.26em;text-indent:.26em;
+    text-transform:uppercase;color:var(--ink-faint);
+    display:flex;align-items:center;justify-content:center;gap:10px;
+  }
+  .hero-cap i{width:6px;height:6px;border-radius:50%;flex:0 0 auto}
+  .hero-cap i:nth-child(1){background:var(--apricot)}
+  .hero-cap i:nth-child(3){background:var(--sky-deep)}
+
+  /* ---------- sticky nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:30;
+    background:var(--cream-1);
+    border-bottom:1.5px solid var(--line);
+    margin:22px -20px 0;padding:0 20px;
+  }
+  .chips{
+    display:flex;gap:8px;overflow-x:auto;padding:11px 30px 11px 0;scrollbar-width:none;
+    -webkit-mask-image:linear-gradient(90deg,#000 89%,transparent);
+    mask-image:linear-gradient(90deg,#000 89%,transparent);
+  }
+  .chips::-webkit-scrollbar{display:none}
+  .chip{
+    flex:0 0 auto;display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--en);font-weight:700;font-size:.74rem;letter-spacing:.01em;
+    color:var(--ink);background:var(--cream);border:1.5px solid var(--line);
+    border-radius:999px;padding:7px 14px 7px 11px;text-decoration:none;white-space:nowrap;
+    transition:background .22s ease,color .22s ease,border-color .22s ease,transform .22s ease;
+  }
+  .chip .dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto;background:var(--c);transition:background .22s ease,transform .22s ease}
+  .chip:hover{border-color:var(--c);transform:translateY(-1px)}
+  .chip.active{background:var(--c);border-color:var(--c);color:#fff}
+  .chip.active .dot{background:#fff}
+
+  /* ---------- menu meta ---------- */
+  .legend{
+    text-align:center;margin:20px auto 0;max-width:420px;
+    display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:7px 12px;
+  }
+  .legend .lg{
+    display:inline-flex;align-items:center;gap:7px;
+    font-family:var(--en);font-weight:600;font-size:.68rem;letter-spacing:.02em;color:var(--ink-soft);
+  }
+  .legend .sig-d{width:8px;height:8px;border-radius:50%;background:var(--apricot);flex:0 0 auto}
+  .legend .sep{color:var(--sand)}
+  .legend .ar{width:100%;font-family:var(--ar2);font-weight:500;font-size:.78rem;color:var(--ink-faint);margin-top:1px}
+
+  /* ---------- sections ---------- */
+  section{padding-top:38px;scroll-margin-top:66px;position:relative}
+  .sec-glow{
+    position:absolute;left:-6px;right:-6px;top:24px;height:120px;z-index:-1;pointer-events:none;
+    background:radial-gradient(60% 100% at 22% 0%, var(--gl), rgba(251,243,232,0) 72%);
+    opacity:.5;
+  }
+  .sec-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 12px}
+  .sec-title{display:flex;align-items:center;gap:12px;min-width:0}
+  .sec-ix{
+    width:38px;height:38px;border-radius:12px;flex:0 0 auto;
+    background:var(--acc);display:grid;place-items:center;
+    box-shadow:0 4px 10px rgba(58,46,40,.12);
+  }
+  .sec-ix svg{width:21px;height:21px;display:block}
+  .sec-en{
+    font-family:var(--disp);font-weight:600;font-size:clamp(1.32rem,6.4vw,1.72rem);
+    letter-spacing:-.01em;line-height:1;color:var(--ink);white-space:nowrap;
+  }
+  .sec-ar{font-family:var(--ar);font-weight:600;font-size:1.16rem;color:var(--ink-soft);line-height:1}
+  .sec-meta{
+    font-family:var(--en);font-weight:600;font-size:.64rem;letter-spacing:.15em;text-transform:uppercase;
+    color:var(--ink-faint);margin-top:11px;
+  }
+  .sec-meta b{color:var(--acc2);font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:.1em}
+  .sec-rule{position:relative;height:3px;border:0;border-radius:3px;background:var(--line-soft);margin:9px 0 2px;overflow:visible}
+  .sec-rule::before{content:"";position:absolute;left:0;top:0;height:3px;width:56px;border-radius:3px;background:var(--acc)}
+  .sec-rule::after{content:"";position:absolute;left:66px;top:-2px;width:7px;height:7px;border-radius:50%;background:var(--acc2);box-shadow:0 0 0 3px rgba(78,147,171,.14)}
+
+  .item{
+    display:flex;align-items:baseline;gap:12px;
+    padding:15px 2px;border-bottom:1.5px solid var(--row);
+  }
+  .item:last-child{border-bottom:0}
+  .names{flex:0 1 auto;min-width:0}
+  .n-en{font-family:var(--en);font-weight:700;font-size:1.06rem;letter-spacing:-.005em;color:var(--ink);line-height:1.18}
+  .sig{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--apricot);margin-left:7px;vertical-align:1px}
+  .n-ar{font-family:var(--ar2);font-weight:500;font-size:.9rem;color:var(--ink-soft);margin-top:3px;line-height:1.2}
+  .n-note{
+    font-family:var(--en);font-weight:500;font-size:.72rem;letter-spacing:.01em;color:var(--ink-faint);
+    margin-top:6px;max-width:23ch;line-height:1.3;
+  }
+  .dots{flex:1 0 14px;align-self:stretch;position:relative;min-width:14px}
+  .dots::after{content:"";position:absolute;left:0;right:0;top:12px;border-bottom:2px dotted var(--line)}
+  .price{
+    font-family:var(--en);font-weight:700;font-size:1.08rem;color:var(--ink);
+    font-variant-numeric:tabular-nums;white-space:nowrap;letter-spacing:-.01em;
+  }
+  .price small{font-family:var(--en);font-size:.56em;font-weight:600;color:var(--ink-faint);margin-right:3px;letter-spacing:.06em}
+
+  /* ---------- footer ---------- */
+  footer{margin-top:56px}
+  .card{
+    position:relative;background:var(--cream-1);border:1.5px solid var(--line);border-radius:22px;
+    overflow:hidden;box-shadow:0 10px 28px rgba(58,46,40,.07);
+  }
+  .card-top{display:flex;align-items:center;gap:14px;padding:18px 18px 16px;border-bottom:1.5px solid var(--line-soft);position:relative}
+  .card-top .mk{margin:0;width:54px;height:40px;flex:0 0 auto}
+  .card-name{font-family:var(--disp);font-weight:600;font-size:1.44rem;letter-spacing:-.01em;color:var(--ink);line-height:.94}
+  .card-name-ar{font-family:var(--ar);font-weight:600;font-size:.96rem;color:var(--ink-soft);margin-top:3px}
+  .card-est{margin-left:auto;text-align:right;flex:0 0 auto}
+  .card-est b{display:block;font-family:var(--en);font-weight:700;font-size:.9rem;color:var(--ink);font-variant-numeric:tabular-nums}
+  .card-est span{font-family:var(--en);font-weight:600;font-size:.54rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint)}
+  .card-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;background:var(--line-soft)}
+  .cell{background:var(--cream-1);padding:13px 16px;min-width:0}
+  .cell.wide{grid-column:1 / -1}
+  .cell b{display:block;font-family:var(--en);font-weight:700;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:5px}
+  .cell span{display:block;font-family:var(--en);font-weight:600;font-size:.84rem;color:var(--ink-soft);font-variant-numeric:tabular-nums;overflow:hidden;text-overflow:ellipsis;line-height:1.3}
+  .cell span.ar{font-family:var(--ar2);font-weight:500;font-size:.78rem;color:var(--ink-faint);margin-top:2px}
+  .cell a{color:var(--apricot-deep);text-decoration:none;font-weight:700}
+  .cell a:hover{text-decoration:underline}
+  .f-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:20px;flex-wrap:wrap}
+  .ig{font-family:var(--en);color:var(--ink);text-decoration:none;font-size:.84rem;font-weight:700;display:inline-flex;align-items:center;gap:7px}
+  .ig i{width:8px;height:8px;border-radius:50%;background:var(--sky-deep)}
+  .ig:hover{color:var(--apricot-deep)}
+  .credit{font-family:var(--en);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);font-weight:600}
+  .credit a{text-decoration:none}
+  .credit a:hover{color:var(--apricot-deep)}
+
+  @media (max-width:360px){
+    .brand{font-size:clamp(3rem,16vw,3.5rem)}
+    .cell{padding:12px 13px}
+    .sec-meta{font-size:.6rem}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="sunrays" aria-hidden="true"></div>
+    <div class="eyebrow">Jumeirah 1 · Dubai</div>
+    <svg class="mk" viewBox="0 0 64 47" role="img" aria-label="Sabah rising-sun mark">
+      <defs>
+        <linearGradient id="sunG" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#FBD9A2"/><stop offset="1" stop-color="#EF9E52"/>
+        </linearGradient>
+      </defs>
+      <g stroke="#E8A26A" stroke-width="2.4" stroke-linecap="round">
+        <line x1="32" y1="4" x2="32" y2="12"/>
+        <line x1="14" y1="10" x2="18.5" y2="16"/>
+        <line x1="50" y1="10" x2="45.5" y2="16"/>
+        <line x1="5" y1="24" x2="13" y2="26"/>
+        <line x1="59" y1="24" x2="51" y2="26"/>
+      </g>
+      <path d="M18 35 a14 14 0 0 1 28 0 Z" fill="url(#sunG)"/>
+      <line x1="5" y1="35" x2="59" y2="35" stroke="#4E93AB" stroke-width="2.4" stroke-linecap="round"/>
+    </svg>
+    <h1 class="brand">Sab<span class="glow">a</span>h</h1>
+    <div class="brand-ar" lang="ar" dir="rtl">صباح</div>
+    <div class="tagline">
+      <span class="en">A Morning Kind of Place</span>
+      <span class="ar" lang="ar" dir="rtl">مكانٌ على مزاج الصباح</span>
+    </div>
+  </header>
+
+  <div class="hero">
+    <canvas id="sabahHero" role="img" aria-label="Animation: a soft apricot sun rises from behind a horizon line into a pale peach-and-sky morning, warm rays turning slowly around it while faint clouds drift past."></canvas>
+    <div class="hero-frame" aria-hidden="true"></div>
+  </div>
+  <div class="hero-cap"><i></i>Rise · Brew · Linger<i></i></div>
+
+  <nav aria-label="Menu sections">
+    <div class="chips" id="chips">
+      <a class="chip active" style="--c:#D9884A" href="#hot"><span class="dot"></span>Hot</a>
+      <a class="chip" style="--c:#4E93AB" href="#cold"><span class="dot"></span>Cold</a>
+      <a class="chip" style="--c:#D9884A" href="#filter"><span class="dot"></span>Filter &amp; Brew</a>
+      <a class="chip" style="--c:#4E93AB" href="#beyond"><span class="dot"></span>Beyond Coffee</a>
+      <a class="chip" style="--c:#D9884A" href="#breakfast"><span class="dot"></span>Breakfast</a>
+    </div>
+  </nav>
+
+  <div class="legend">
+    <span class="lg"><i class="sig-d"></i>Sabah signature</span>
+    <span class="sep" aria-hidden="true">·</span>
+    <span class="lg">Prices in AED, incl. VAT</span>
+    <span class="ar" lang="ar" dir="rtl">جميع الأسعار بالدرهم الإماراتي وشاملة ضريبة القيمة المضافة</span>
+  </div>
+
+  <main>
+
+    <section id="hot" style="--acc:#E8A26A;--acc2:#4E93AB;--gl:rgba(246,201,168,.55)">
+      <span class="sec-glow" aria-hidden="true"></span>
+      <div class="sec-head">
+        <div class="sec-title">
+          <span class="sec-ix">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#3A2E28" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 12h11a3 3 0 0 1 0 6h-1"/><path d="M4 12v3a3 3 0 0 0 3 3h5a3 3 0 0 0 3-3v-3"/>
+              <path d="M7 8c0-1 1-1.4 1-2.5S7 4 7 3"/><path d="M11 8c0-1 1-1.4 1-2.5S11 4 11 3"/>
+            </svg>
+          </span>
+          <h2 class="sec-en">Hot Coffee</h2>
+        </div>
+        <span class="sec-ar" lang="ar" dir="rtl">قهوة ساخنة</span>
+      </div>
+      <div class="sec-meta"><b>01</b> · Espresso bar, pulled to order</div>
+      <hr class="sec-rule">
+      <div class="item"><div class="names"><div class="n-en">Espresso</div><div class="n-ar" lang="ar" dir="rtl">إسبريسو</div></div><div class="dots"></div><div class="price"><small>AED</small>16</div></div>
+      <div class="item"><div class="names"><div class="n-en">Cortado</div><div class="n-ar" lang="ar" dir="rtl">كورتادو</div></div><div class="dots"></div><div class="price"><small>AED</small>20</div></div>
+      <div class="item"><div class="names"><div class="n-en">Flat White</div><div class="n-ar" lang="ar" dir="rtl">فلات وايت</div><div class="n-note">double ristretto</div></div><div class="dots"></div><div class="price"><small>AED</small>22</div></div>
+      <div class="item"><div class="names"><div class="n-en">Cappuccino</div><div class="n-ar" lang="ar" dir="rtl">كابتشينو</div></div><div class="dots"></div><div class="price"><small>AED</small>21</div></div>
+      <div class="item"><div class="names"><div class="n-en">Spanish Latte <i class="sig" aria-hidden="true"></i></div><div class="n-ar" lang="ar" dir="rtl">سبانيش لاتيه</div><div class="n-note">condensed milk</div></div><div class="dots"></div><div class="price"><small>AED</small>27</div></div>
+      <div class="item"><div class="names"><div class="n-en">Honey Cardamom Latte <i class="sig" aria-hidden="true"></i></div><div class="n-ar" lang="ar" dir="rtl">لاتيه العسل والهيل</div><div class="n-note">raw honey, cracked cardamom</div></div><div class="dots"></div><div class="price"><small>AED</small>29</div></div>
+    </section>
+
+    <section id="cold" style="--acc:#4E93AB;--acc2:#E8A26A;--gl:rgba(127,182,201,.4)">
+      <span class="sec-glow" aria-hidden="true"></span>
+      <div class="sec-head">
+        <div class="sec-title">
+          <span class="sec-ix" style="background:#7FB6C9">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#3A2E28" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 7h12l-1.4 12.2a2 2 0 0 1-2 1.8H9.4a2 2 0 0 1-2-1.8Z"/><path d="M5 7h14"/>
+              <path d="M10 11l4 4M14 11l-4 4"/>
+            </svg>
+          </span>
+          <h2 class="sec-en">Cold Coffee</h2>
+        </div>
+        <span class="sec-ar" lang="ar" dir="rtl">قهوة باردة</span>
+      </div>
+      <div class="sec-meta"><b>02</b> · Over hand-cut clear ice</div>
+      <hr class="sec-rule">
+      <div class="item"><div class="names"><div class="n-en">Iced Latte</div><div class="n-ar" lang="ar" dir="rtl">لاتيه مثلج</div></div><div class="dots"></div><div class="price"><small>AED</small>24</div></div>
+      <div class="item"><div class="names"><div class="n-en">Iced Spanish Latte</div><div class="n-ar" lang="ar" dir="rtl">سبانيش لاتيه مثلج</div></div><div class="dots"></div><div class="price"><small>AED</small>27</div></div>
+      <div class="item"><div class="names"><div class="n-en">Cold Brew</div><div class="n-ar" lang="ar" dir="rtl">كولد برو</div><div class="n-note">18-hour slow steep</div></div><div class="dots"></div><div class="price"><small>AED</small>26</div></div>
+      <div class="item"><div class="names"><div class="n-en">Iced Sunrise Latte <i class="sig" aria-hidden="true"></i></div><div class="n-ar" lang="ar" dir="rtl">لاتيه الشروق المثلج</div><div class="n-note">orange blossom, vanilla</div></div><div class="dots"></div><div class="price"><small>AED</small>30</div></div>
+      <div class="item"><div class="names"><div class="n-en">Espresso Tonic</div><div class="n-ar" lang="ar" dir="rtl">إسبريسو تونيك</div><div class="n-note">citrus · tonic water</div></div><div class="dots"></div><div class="price"><small>AED</small>28</div></div>
+    </section>
+
+    <section id="filter" style="--acc:#E8A26A;--acc2:#4E93AB;--gl:rgba(246,201,168,.5)">
+      <span class="sec-glow" aria-hidden="true"></span>
+      <div class="sec-head">
+        <div class="sec-title">
+          <span class="sec-ix">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#3A2E28" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 6h14l-6 8h-2Z"/><path d="M12 14v4"/><path d="M9.5 21h5"/><path d="M12 18.5v2.5"/>
+            </svg>
+          </span>
+          <h2 class="sec-en">Filter &amp; Brew</h2>
+        </div>
+        <span class="sec-ar" lang="ar" dir="rtl">تقطير وتحضير</span>
+      </div>
+      <div class="sec-meta"><b>03</b> · Single origin, weighed to the gram</div>
+      <hr class="sec-rule">
+      <div class="item"><div class="names"><div class="n-en">V60 Single Origin <i class="sig" aria-hidden="true"></i></div><div class="n-ar" lang="ar" dir="rtl">في٦٠ محصول مفرد</div><div class="n-note">rotating origin, brewed 1:16</div></div><div class="dots"></div><div class="price"><small>AED</small>30</div></div>
+      <div class="item"><div class="names"><div class="n-en">Aeropress</div><div class="n-ar" lang="ar" dir="rtl">إيروبريس</div><div class="n-note">bright, clean cup</div></div><div class="dots"></div><div class="price"><small>AED</small>28</div></div>
+      <div class="item"><div class="names"><div class="n-en">Batch Brew</div><div class="n-ar" lang="ar" dir="rtl">قهوة اليوم</div><div class="n-note">the morning cup, bottomless</div></div><div class="dots"></div><div class="price"><small>AED</small>26</div></div>
+      <div class="item"><div class="names"><div class="n-en">Cold Drip Reserve</div><div class="n-ar" lang="ar" dir="rtl">قهوة التنقيط الباردة</div><div class="n-note">12-hour tower</div></div><div class="dots"></div><div class="price"><small>AED</small>34</div></div>
+      <div class="item"><div class="names"><div class="n-en">Chemex · for two</div><div class="n-ar" lang="ar" dir="rtl">كيمكس لشخصين</div></div><div class="dots"></div><div class="price"><small>AED</small>46</div></div>
+    </section>
+
+    <section id="beyond" style="--acc:#4E93AB;--acc2:#E8A26A;--gl:rgba(127,182,201,.4)">
+      <span class="sec-glow" aria-hidden="true"></span>
+      <div class="sec-head">
+        <div class="sec-title">
+          <span class="sec-ix" style="background:#7FB6C9">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#3A2E28" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 21c0-5 0-8 5-12"/><path d="M12 13c-4-1-7-4-7-9 5 0 8 3 8 8"/>
+            </svg>
+          </span>
+          <h2 class="sec-en">Beyond Coffee</h2>
+        </div>
+        <span class="sec-ar" lang="ar" dir="rtl">ما وراء القهوة</span>
+      </div>
+      <div class="sec-meta"><b>04</b> · Matcha, tea &amp; morning sips</div>
+      <hr class="sec-rule">
+      <div class="item"><div class="names"><div class="n-en">Ceremonial Matcha Latte <i class="sig" aria-hidden="true"></i></div><div class="n-ar" lang="ar" dir="rtl">لاتيه الماتشا</div><div class="n-note">stone-ground, Uji</div></div><div class="dots"></div><div class="price"><small>AED</small>28</div></div>
+      <div class="item"><div class="names"><div class="n-en">Iced Matcha</div><div class="n-ar" lang="ar" dir="rtl">ماتشا مثلجة</div></div><div class="dots"></div><div class="price"><small>AED</small>30</div></div>
+      <div class="item"><div class="names"><div class="n-en">Spiced Chai Latte</div><div class="n-ar" lang="ar" dir="rtl">لاتيه الشاي بالبهارات</div><div class="n-note">house masala, steamed</div></div><div class="dots"></div><div class="price"><small>AED</small>26</div></div>
+      <div class="item"><div class="names"><div class="n-en">Rose &amp; Saffron Milk <i class="sig" aria-hidden="true"></i></div><div class="n-ar" lang="ar" dir="rtl">حليب الورد والزعفران</div><div class="n-note">served warm or iced</div></div><div class="dots"></div><div class="price"><small>AED</small>27</div></div>
+      <div class="item"><div class="names"><div class="n-en">Fresh Orange Juice</div><div class="n-ar" lang="ar" dir="rtl">عصير برتقال طازج</div><div class="n-note">cold-pressed daily</div></div><div class="dots"></div><div class="price"><small>AED</small>24</div></div>
+    </section>
+
+    <section id="breakfast" style="--acc:#E8A26A;--acc2:#4E93AB;--gl:rgba(246,201,168,.55)">
+      <span class="sec-glow" aria-hidden="true"></span>
+      <div class="sec-head">
+        <div class="sec-title">
+          <span class="sec-ix">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#3A2E28" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 16c2-1 3-3 4-6s2-4 4-4 3 1 4 4 2 5 4 6"/><path d="M4 16l2 2M20 16l-2 2M12 12v6"/>
+            </svg>
+          </span>
+          <h2 class="sec-en">Breakfast &amp; Bakery</h2>
+        </div>
+        <span class="sec-ar" lang="ar" dir="rtl">فطور ومخبوزات</span>
+      </div>
+      <div class="sec-meta"><b>05</b> · Baked in-house every morning</div>
+      <hr class="sec-rule">
+      <div class="item"><div class="names"><div class="n-en">Butter Croissant</div><div class="n-ar" lang="ar" dir="rtl">كرواسون بالزبدة</div><div class="n-note">72-hour lamination</div></div><div class="dots"></div><div class="price"><small>AED</small>18</div></div>
+      <div class="item"><div class="names"><div class="n-en">Almond Croissant <i class="sig" aria-hidden="true"></i></div><div class="n-ar" lang="ar" dir="rtl">كرواسون اللوز</div></div><div class="dots"></div><div class="price"><small>AED</small>24</div></div>
+      <div class="item"><div class="names"><div class="n-en">Labneh &amp; Za'atar Toast <i class="sig" aria-hidden="true"></i></div><div class="n-ar" lang="ar" dir="rtl">توست اللبنة والزعتر</div><div class="n-note">on sourdough, olive oil</div></div><div class="dots"></div><div class="price"><small>AED</small>32</div></div>
+      <div class="item"><div class="names"><div class="n-en">Shakshuka</div><div class="n-ar" lang="ar" dir="rtl">شكشوكة</div><div class="n-note">two eggs, tomato, bread</div></div><div class="dots"></div><div class="price"><small>AED</small>38</div></div>
+      <div class="item"><div class="names"><div class="n-en">Saffron &amp; Pistachio Cake</div><div class="n-ar" lang="ar" dir="rtl">كيكة الزعفران والفستق</div></div><div class="dots"></div><div class="price"><small>AED</small>34</div></div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="card">
+      <div class="card-top">
+        <svg class="mk" viewBox="0 0 64 47" role="img" aria-label="Sabah rising-sun mark">
+          <g stroke="#E8A26A" stroke-width="2.4" stroke-linecap="round">
+            <line x1="32" y1="4" x2="32" y2="12"/>
+            <line x1="14" y1="10" x2="18.5" y2="16"/>
+            <line x1="50" y1="10" x2="45.5" y2="16"/>
+            <line x1="5" y1="24" x2="13" y2="26"/>
+            <line x1="59" y1="24" x2="51" y2="26"/>
+          </g>
+          <path d="M18 35 a14 14 0 0 1 28 0 Z" fill="#EF9E52"/>
+          <line x1="5" y1="35" x2="59" y2="35" stroke="#4E93AB" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <div class="card-name">Sabah</div>
+          <div class="card-name-ar" lang="ar" dir="rtl">صباح</div>
+        </div>
+        <div class="card-est">
+          <b>7 – 8</b>
+          <span>Daily, AM to PM</span>
+        </div>
+      </div>
+      <div class="card-grid">
+        <div class="cell">
+          <b>Location</b>
+          <span>Jumeirah 1, Dubai</span>
+          <span class="ar" lang="ar" dir="rtl">جميرا ١، دبي</span>
+        </div>
+        <div class="cell">
+          <b>Hours</b>
+          <span>Daily · 7:00 – 20:00</span>
+          <span class="ar" lang="ar" dir="rtl">يوميًا · ٧:٠٠ – ٢٠:٠٠</span>
+        </div>
+        <div class="cell">
+          <b>Good For</b>
+          <span>Breakfast · Slow mornings</span>
+          <span class="ar" lang="ar" dir="rtl">فطور وصباحات هادئة</span>
+        </div>
+        <div class="cell">
+          <b>Menu</b>
+          <span><a href="https://menu-sadah.com/sabah-cafe">menu-sadah.com/sabah-cafe</a></span>
+        </div>
+      </div>
+    </div>
+    <div class="f-foot">
+      <a class="ig" href="https://instagram.com/sabah.cafe"><i></i>@sabah.cafe</a>
+      <span class="credit">Menu by <a href="https://menu-sadah.com">Menu Sadah</a></span>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  /* ---------- signature hero: sunrise arc rising with soft rays ---------- */
+  (function(){
+    var cv = document.getElementById('sabahHero');
+    if(!cv) return;
+    var ctx = cv.getContext('2d');
+    if(!ctx) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var W=0,H=0,dpr=1,base=0,raf=0;
+    var RAYS = 22;
+
+    function drawCloud(x, y, s){
+      ctx.save();
+      ctx.globalAlpha = 0.55;
+      ctx.fillStyle = 'rgba(255,255,255,0.72)';
+      ctx.beginPath();
+      ctx.ellipse(x, y, 26*s, 8.5*s, 0, 0, 6.2832);
+      ctx.ellipse(x+17*s, y+3*s, 17*s, 6.5*s, 0, 0, 6.2832);
+      ctx.ellipse(x-17*s, y+3*s, 15*s, 6*s, 0, 0, 6.2832);
+      ctx.fill();
+      ctx.restore();
+    }
+
+    function render(t){
+      ctx.clearRect(0,0,W,H);
+      var horizon = H*0.72;
+
+      // morning sky
+      var sky = ctx.createLinearGradient(0,0,0,horizon);
+      sky.addColorStop(0,'#E9F1F3');
+      sky.addColorStop(0.5,'#FBE7D2');
+      sky.addColorStop(1,'#F6C9A8');
+      ctx.fillStyle = sky;
+      ctx.fillRect(0,0,W,H);
+
+      // sun position — gentle continuous rise + settle (breathing)
+      var cx = W*0.5;
+      var rise = 0.5 + 0.5*Math.sin(t*0.45 - 1.2);
+      var cy = horizon - (6 + rise*34);
+      var R = Math.min(W*0.135, 46);
+
+      // warm halo
+      var halo = ctx.createRadialGradient(cx,cy,R*0.35, cx,cy,R*3.6);
+      halo.addColorStop(0,'rgba(246,201,168,0.6)');
+      halo.addColorStop(0.5,'rgba(246,201,168,0.2)');
+      halo.addColorStop(1,'rgba(246,201,168,0)');
+      ctx.fillStyle = halo;
+      ctx.fillRect(0,0,W,H);
+
+      // rotating soft rays
+      ctx.save();
+      ctx.translate(cx,cy);
+      ctx.rotate(t*0.05);
+      for(var i=0;i<RAYS;i++){
+        var ang = (i/RAYS)*6.2832;
+        var long = (i%2===0);
+        var puls = 0.5 + 0.5*Math.sin(t*1.15 + i*0.55);
+        var inner = R*1.28;
+        var len = (long ? R*1.5 : R*0.82) * (0.72 + 0.55*puls);
+        ctx.beginPath();
+        ctx.moveTo(Math.cos(ang)*inner, Math.sin(ang)*inner);
+        ctx.lineTo(Math.cos(ang)*(inner+len), Math.sin(ang)*(inner+len));
+        ctx.strokeStyle = 'rgba(232,162,106,'+(0.09 + 0.15*puls).toFixed(3)+')';
+        ctx.lineWidth = long ? 2.3 : 1.4;
+        ctx.lineCap = 'round';
+        ctx.stroke();
+      }
+      ctx.restore();
+
+      // sun disc
+      var sun = ctx.createLinearGradient(cx,cy-R,cx,cy+R);
+      sun.addColorStop(0,'#FBD9A2');
+      sun.addColorStop(1,'#F0A257');
+      ctx.beginPath();
+      ctx.arc(cx,cy,R,0,6.2832);
+      ctx.fillStyle = sun;
+      ctx.fill();
+
+      // ground occludes the lower sun -> rising from behind the horizon
+      var grd = ctx.createLinearGradient(0,horizon,0,H);
+      grd.addColorStop(0,'#F2E6D3');
+      grd.addColorStop(1,'#FBF3E8');
+      ctx.fillStyle = grd;
+      ctx.fillRect(0,horizon,W,H-horizon);
+
+      // horizon line
+      ctx.beginPath();
+      ctx.moveTo(0,horizon+0.5);
+      ctx.lineTo(W,horizon+0.5);
+      ctx.strokeStyle = 'rgba(78,147,171,0.34)';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+
+      // drifting clouds
+      var driftA = ((t*7 + W*0.2) % (W+150)) - 75;
+      var driftB = ((t*5 + W*0.7) % (W+150)) - 75;
+      drawCloud(driftA, horizon-R*2.0, 0.62);
+      drawCloud(driftB, horizon-R*1.4, 0.46);
+    }
+
+    function setup(){
+      W = cv.clientWidth || (cv.parentNode && cv.parentNode.clientWidth) || 320;
+      H = cv.clientHeight || 210;
+      dpr = Math.min(window.devicePixelRatio||1, 2);
+      cv.width = Math.round(W*dpr);
+      cv.height = Math.round(H*dpr);
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+      if(reduce){
+        if(raf){ cancelAnimationFrame(raf); raf = 0; }
+        render(2.6);
+      }
+    }
+
+    function frame(now){
+      if(!base) base = now;
+      var t = (now-base)/1000;
+      render(t);
+      raf = requestAnimationFrame(frame);
+    }
+
+    var rz;
+    window.addEventListener('resize', function(){
+      clearTimeout(rz);
+      rz = setTimeout(setup, 220);
+    });
+
+    try{
+      setup();
+      if(!reduce) raf = requestAnimationFrame(frame);
+    }catch(e){ /* never break the page for a decorative hero */ }
+  })();
+
+  /* ---------- sticky nav: highlight active section ---------- */
+  (function(){
+    var chips = [].slice.call(document.querySelectorAll('.chip'));
+    if(!chips.length || !('IntersectionObserver' in window)) return;
+    var secs = chips.map(function(c){ return document.querySelector(c.getAttribute('href')); });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting) return;
+        var i = secs.indexOf(e.target);
+        if(i<0) return;
+        chips.forEach(function(c){ c.classList.remove('active'); });
+        chips[i].classList.add('active');
+        chips[i].scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
+      });
+    }, {rootMargin:'-22% 0px -68% 0px'});
+    secs.forEach(function(s){ if(s) io.observe(s); });
+  })();
+</script>
+</body>
+</html>
