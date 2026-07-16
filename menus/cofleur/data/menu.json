@@ -1,0 +1,1755 @@
+{
+ "menus": [
+  {
+   "id": 1,
+   "opens": null,
+   "closes": null,
+   "name_en": "All Day Menu",
+   "name_ar": "منيو كل اليوم",
+   "name_it": "",
+   "name_es": "",
+   "name_gr": "",
+   "name_zh": null,
+   "always_available": true,
+   "sort_order": 2,
+   "is_active": true,
+   "attachment_link": null,
+   "attachment_file": null,
+   "use_pdf": false,
+   "is_deleted": false,
+   "language": null
+  }
+ ],
+ "categories": [
+  {
+   "id": 31,
+   "menu": 1,
+   "name_en": "Soups",
+   "name_ar": "الشوربة",
+   "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/categories/soups_17664050615156848.webp",
+   "items": [
+    {
+     "name_en": "Broccoli soup",
+     "name_ar": "شوربة البروكلي",
+     "desc_en": "Creamy broccoli soup with chicken",
+     "desc_ar": "شوربة البروكلي الكريمية مع الدجاج",
+     "price": 34.0,
+     "calories": 360.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/broccoli_soup_17696993262236696.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/broccoli_soup_17696993262236696.webp.150x150_q100_crop.webp",
+     "local": "items/31_0.webp"
+    },
+    {
+     "name_en": "Aubergine soup",
+     "name_ar": "‏شوربة الباذنجان",
+     "desc_en": "Creamy, eggplant, soup for winter bit spicy",
+     "desc_ar": "شوربة الباذنجان الكريمي الشتوية\nحرارة بسيطة ‏",
+     "price": 34.0,
+     "calories": 320.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/aubergine_soup_17696993979534866.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/aubergine_soup_17696993979534866.webp.150x150_q100_crop.webp",
+     "local": "items/31_1.webp"
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "menu": 1,
+   "name_en": "Salads",
+   "name_ar": "السلطات",
+   "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/categories/salads_17696994552489486.webp",
+   "items": [
+    {
+     "name_en": "Burrata Salad",
+     "name_ar": "بوراتا",
+     "desc_en": "Pistachio  pesto",
+     "desc_ar": "بيستو بالفستق",
+     "price": 69.0,
+     "calories": 320.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/burrata_salad_17696993273189164.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/burrata_salad_17696993273189164.webp.150x150_q100_crop.webp",
+     "local": "items/5_0.webp"
+    },
+    {
+     "name_en": "Caesar salad",
+     "name_ar": "سيزر",
+     "desc_en": "Mix lettuce chicken grisini bread sticks Parmesan",
+     "desc_ar": "خس مشكل دجاج اصابع جريسيني بيرميزان",
+     "price": 52.0,
+     "calories": 399.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/caesar_salad_17696994024338636.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/caesar_salad_17696994024338636.webp.150x150_q100_crop.webp",
+     "local": "items/5_1.webp"
+    },
+    {
+     "name_en": "Sweet Potato Salad",
+     "name_ar": "بطاطا حلوة",
+     "desc_en": "Quinoa, mix leaves and raspberry",
+     "desc_ar": "كينوا، مزيج من الورقيات الخضراء والتوت",
+     "price": 51.0,
+     "calories": 360.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/sweet_potato_salad_17696994148143918.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/sweet_potato_salad_17696994148143918.webp.150x150_q100_crop.webp",
+     "local": "items/5_2.webp"
+    },
+    {
+     "name_en": "Kale Salad",
+     "name_ar": "كايل",
+     "desc_en": "Goat cheese, orange, strawberry and pecan",
+     "desc_ar": "جبن الماعز، البرتقال، الفراولة، والجوز",
+     "price": 50.0,
+     "calories": 290.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/kale_salad_17696994246111830.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/kale_salad_17696994246111830.webp.150x150_q100_crop.webp",
+     "local": "items/5_3.webp"
+    },
+    {
+     "name_en": "Date Fig Salad",
+     "name_ar": "سلطة التين والتمر",
+     "desc_en": "Kale، pecan and green apple",
+     "desc_ar": "كايل تفاح اخضر وبيكان",
+     "price": 53.0,
+     "calories": 266.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/date_fig_salad_17696994337183574.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/date_fig_salad_17696994337183574.webp.150x150_q100_crop.webp",
+     "local": "items/5_4.webp"
+    }
+   ]
+  },
+  {
+   "id": 6,
+   "menu": 1,
+   "name_en": "Side dishes",
+   "name_ar": "الأطباق الجانبية",
+   "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/categories/side_dishes_17660900599763090.webp",
+   "items": [
+    {
+     "name_en": "Caprese Stack",
+     "name_ar": "كابريز ستاك",
+     "desc_en": "Sweet potato, eggplant, and grilled tomato, mozzarella, and stracciatella, pesto with balsamic.",
+     "desc_ar": "بطاطا حلوة، باذنجان، طماطم مشوية، موزريلا، ستراتشاتيلا، بيستو، بالسميك.",
+     "price": 43.0,
+     "calories": null,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/caprese_stack_17696994086575024.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/caprese_stack_17696994086575024.webp.150x150_q100_crop.webp",
+     "local": "items/6_0.webp"
+    },
+    {
+     "name_en": "Signature brioche trio",
+     "name_ar": "سغنتشر بريوش تريو",
+     "desc_en": "3 mini sandwiches (shrimp, chicken, and salmon \nShrimp Tartare\nZa'atar Chicken\nSalmon with Cream Cheese and Dill",
+     "desc_ar": "٣ ميني ساندويتش من الشرمب والدجاج والسالمون بخبز البريوش \nشرمب طرطر \nدجاج زعتر \nسالمون جبنة كريمية وشبت",
+     "price": 46.0,
+     "calories": 310.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/signature_brioche_trio_17696994119787480.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/signature_brioche_trio_17696994119787480.webp.150x150_q100_crop.webp",
+     "local": "items/6_1.webp"
+    },
+    {
+     "name_en": "Eggplant parmigiana",
+     "name_ar": "باذنجان بيرمجانا",
+     "desc_en": "Eggplant Parmesan marinara sauce mozzarella pesto",
+     "desc_ar": "باذنجان موزريلا مارينارا صوص بيرميزان وبيستو",
+     "price": 48.0,
+     "calories": 413.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/eggplant_parmigiana_17696994206341072.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/eggplant_parmigiana_17696994206341072.webp.150x150_q100_crop.webp",
+     "local": "items/6_2.webp"
+    },
+    {
+     "name_en": "Magdous dip With Grissini",
+     "name_ar": "مكدوس ديب مع جريسيني",
+     "desc_en": "Grissini bread with magdous with labneh and herbs",
+     "desc_ar": "مكدوس لبنة واعشاب مع خبز جريسيني الايطالي",
+     "price": 38.0,
+     "calories": 360.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/magdous_dip_with_grissini_17696994326024502.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/magdous_dip_with_grissini_17696994326024502.webp.150x150_q100_crop.webp",
+     "local": "items/6_3.webp"
+    },
+    {
+     "name_en": "Wedges",
+     "name_ar": "ويدجز",
+     "desc_en": "Special seasoning, parmesan",
+     "desc_ar": "بهارات خاصة بارميزان",
+     "price": 30.0,
+     "calories": 510.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/wedges_17696994397922220.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/wedges_17696994397922220.webp.150x150_q100_crop.webp",
+     "local": "items/6_4.webp"
+    },
+    {
+     "name_en": "French fries",
+     "name_ar": "بطاطا مقلية",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 23.0,
+     "calories": null,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/french_fries_17813712704618208.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/french_fries_17813712704618208.webp.150x150_q100_crop.webp",
+     "local": "items/6_5.webp"
+    },
+    {
+     "name_en": "sautéed vegetables",
+     "name_ar": "خضار سوتيه",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 9.0,
+     "calories": null,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/saut%C3%A9ed_vegetables_17813713442756246.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/saut%C3%A9ed_vegetables_17813713442756246.webp.150x150_q100_crop.webp",
+     "local": "items/6_6.webp"
+    }
+   ]
+  },
+  {
+   "id": 7,
+   "menu": 1,
+   "name_en": "Sourdough",
+   "name_ar": "سوردو",
+   "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/categories/sourdough_17696994561010346.webp",
+   "items": [
+    {
+     "name_en": "Ricotta with Fig",
+     "name_ar": "ريكوتا وتين",
+     "desc_en": "Pistachio and honey ricotta , labneh",
+     "desc_ar": "فستق وعسل لبنة ريكوتا",
+     "price": 44.0,
+     "calories": 367.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/ricotta_with_fig_17740735878423540.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/ricotta_with_fig_17740735878423540.webp.150x150_q100_crop.webp",
+     "local": "items/7_0.webp"
+    },
+    {
+     "name_en": "Smoked salmon",
+     "name_ar": "سالمون مدخن",
+     "desc_en": "Smoked salmon,avocado,cream cheese, runny poached egg، sourdough",
+     "desc_ar": "سالمون مدخن، افوكادو ،كريم تشييز ،بيض استواء خفيف، سوردو",
+     "price": 67.0,
+     "calories": 450.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/smoked_salmon_17740736361568666.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/smoked_salmon_17740736361568666.webp.150x150_q100_crop.webp",
+     "local": "items/7_1.webp"
+    },
+    {
+     "name_en": "caprese and stracciatella",
+     "name_ar": "كابريس و ستراتشاتيلا",
+     "desc_en": "stracciatella Balsamic , mozzarella tomato basil pesto sourdough",
+     "desc_ar": "موزريلا طماطم بيستو كريم تشيز ستراتشاتيلا بلسميك سوردو",
+     "price": 50.0,
+     "calories": 563.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/caprese_and_stracciatella_17740736937245532.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/caprese_and_stracciatella_17740736937245532.webp.150x150_q100_crop.webp",
+     "local": "items/7_2.webp"
+    },
+    {
+     "name_en": "Eggplant",
+     "name_ar": "باذنجان",
+     "desc_en": "Fried eggplant, tahini, pomegranate molasses and balsamic vinegar",
+     "desc_ar": "باذنجان مقلي، طحينة، دبس رمان، خل بلسميك",
+     "price": 42.0,
+     "calories": 310.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/eggplant_17740737374069732.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/eggplant_17740737374069732.webp.150x150_q100_crop.webp",
+     "local": "items/7_3.webp"
+    },
+    {
+     "name_en": "Halloumi",
+     "name_ar": "حلومي",
+     "desc_en": "Pesto, olives and sun dried tomatoes",
+     "desc_ar": "بيستو، زيتون، طماطم مجففة",
+     "price": 49.0,
+     "calories": 400.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/halloumi_17740737633083938.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/halloumi_17740737633083938.webp.150x150_q100_crop.webp",
+     "local": "items/7_4.webp"
+    }
+   ]
+  },
+  {
+   "id": 8,
+   "menu": 1,
+   "name_en": "Pies",
+   "name_ar": "الفطائر",
+   "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/categories/pies_17696994568837640.webp",
+   "items": [
+    {
+     "name_en": "Sujuk mozzarella",
+     "name_ar": "سجق موزريلا",
+     "desc_en": "Sujuk with mozzarella cheese",
+     "desc_ar": "سجق تركي مع جبنة الموزريلا",
+     "price": 45.0,
+     "calories": 670.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/sujuk_mozzarella_17805230145365174.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/sujuk_mozzarella_17805230145365174.webp.150x150_q100_crop.webp",
+     "local": "items/8_0.webp"
+    },
+    {
+     "name_en": "Eggplant Pie",
+     "name_ar": "فطيرة الباذنجان",
+     "desc_en": "Eggplants, spinach, fresh mozzarella and parmesan cheese",
+     "desc_ar": "باذنجان، سبانخ، موتزاريلا طازجة وجبنة بارميزان",
+     "price": 42.0,
+     "calories": 340.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/eggplant_pie_17740742862498588.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/eggplant_pie_17740742862498588.webp.150x150_q100_crop.webp",
+     "local": "items/8_1.webp"
+    },
+    {
+     "name_en": "Zaatar Burrata",
+     "name_ar": "زعتر مع جبنة البوراتا",
+     "desc_en": "Zaatar topped with 60 gm of fresh burrata cheese and red pesto",
+     "desc_ar": "فطيرة من الزعتر عليها 60 جرام من جبنة البوراتا الطازجة وتخبز طازجة",
+     "price": 47.0,
+     "calories": 345.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/zaatar_burrata_17740743435747368.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/zaatar_burrata_17740743435747368.webp.150x150_q100_crop.webp",
+     "local": "items/8_2.webp"
+    },
+    {
+     "name_en": "Halloumi",
+     "name_ar": "منقوشة حلومي",
+     "desc_en": "Topped with vegetables",
+     "desc_ar": "فطيرة من جبنة الحلومي يعلوها خضار وتخبز طازجة",
+     "price": 40.0,
+     "calories": 310.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/halloumi_17740753488480394.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/halloumi_17740753488480394.webp.150x150_q100_crop.webp",
+     "local": "items/8_3.webp"
+    }
+   ]
+  },
+  {
+   "id": 9,
+   "menu": 1,
+   "name_en": "Sandwiches",
+   "name_ar": "الساندوتش",
+   "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/categories/sandwiches_17696994571940484.webp",
+   "items": [
+    {
+     "name_en": "Steak sandwich",
+     "name_ar": "ستيك ساندويش",
+     "desc_en": "Tartar sauce provolone cheese sun dried tomato arugula wedges.",
+     "desc_ar": "طرطر صوص جبنة بروڤلون اروغولا طماطم مجففة ودجز",
+     "price": 67.0,
+     "calories": 436.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/steak_sandwich_17696993959261008.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/steak_sandwich_17696993959261008.webp.150x150_q100_crop.webp",
+     "local": "items/9_0.webp"
+    },
+    {
+     "name_en": "Croque monsieur",
+     "name_ar": "كروك مسيو",
+     "desc_en": "Bechamel turkey ham mozzarella parmesan cheese \nSourdough whole grain mustard",
+     "desc_ar": "تيركي ،سوردو ،جبن موزريلا بيرمزان  خردل باشاميل",
+     "price": 52.0,
+     "calories": 650.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/croque_monsieur_17696994080826240.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/croque_monsieur_17696994080826240.webp.150x150_q100_crop.webp",
+     "local": "items/9_1.webp"
+    },
+    {
+     "name_en": "Grilled Herbs Chicken",
+     "name_ar": "دجاج أعشاب",
+     "desc_en": "Ciabatta bread served with wedges comes with mayo pesto and Cheddar cheese",
+     "desc_ar": "دجاج مشوي, خبز شباتا إيطالي مع ودجز مع بيستو مايونيز و جبنة تشيدر",
+     "price": 54.0,
+     "calories": 640.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/grilled_herbs_chicken_17740782930643260.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/grilled_herbs_chicken_17740782930643260.webp.150x150_q100_crop.webp",
+     "local": "items/9_2.webp"
+    },
+    {
+     "name_en": "Wagyu Sliders",
+     "name_ar": "واجيو سلايدر",
+     "desc_en": "burger buns, wagyu beef, pickles, cheddar cheese, lettuce, house Sauce",
+     "desc_ar": "2 ميني برغر",
+     "price": 46.0,
+     "calories": 450.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/wagyu_sliders_17740761642493434.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/wagyu_sliders_17740761642493434.webp.150x150_q100_crop.webp",
+     "local": "items/9_3.webp"
+    },
+    {
+     "name_en": "Grilled Chilli Chicken",
+     "name_ar": "دجاج تشيلي",
+     "desc_en": "in Tortilla bread served with wedges",
+     "desc_ar": "دجاج مشوي، خبز التورتيا مع ويدجز",
+     "price": 52.0,
+     "calories": 610.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/grilled_chilli_chicken_17740768010713434.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/grilled_chilli_chicken_17740768010713434.webp.150x150_q100_crop.webp",
+     "local": "items/9_4.webp"
+    },
+    {
+     "name_en": "Turkey Sandwich",
+     "name_ar": "ساندوتش تركي",
+     "desc_en": "Sourdough bread, cheddar cheese and honey mustard",
+     "desc_ar": "سوردو، جبن شيدر وهوني ماسترد",
+     "price": 48.0,
+     "calories": 398.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/turkey_sandwich_17696994368933124.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/turkey_sandwich_17696994368933124.webp.150x150_q100_crop.webp",
+     "local": "items/9_5.webp"
+    }
+   ]
+  },
+  {
+   "id": 10,
+   "menu": 1,
+   "name_en": "Main Dishes",
+   "name_ar": "الأطباق الرئيسية",
+   "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/categories/main_dishes_17696994574408486.webp",
+   "items": [
+    {
+     "name_en": "Flank steak",
+     "name_ar": "فلانك ستيك",
+     "desc_en": "150 gram with mash potato with red wine sauce",
+     "desc_ar": "١٥٠جرام  مع البطاطس المهروسة وصوص عصير العنب الاحمر",
+     "price": 93.0,
+     "calories": 654.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/flank_steak_17696993954333480.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/flank_steak_17696993954333480.webp.150x150_q100_crop.webp",
+     "local": "items/10_0.webp"
+    },
+    {
+     "name_en": "Chicken vol au vent",
+     "name_ar": "دجاج ڤولوڤون",
+     "desc_en": "Grilled chicken cooked with porcini mushrooms sauce in puff pastry",
+     "desc_ar": "دجاج مشوي مع صوص بورتشيني مشروم على البف باستري",
+     "price": 89.0,
+     "calories": 1019.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/chicken_vol_au_vent_17696994029669896.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/chicken_vol_au_vent_17696994029669896.webp.150x150_q100_crop.webp",
+     "local": "items/10_1.webp"
+    },
+    {
+     "name_en": "Grilled Salmon",
+     "name_ar": "سلمون مشوي",
+     "desc_en": "with Our special tahini sauce grilled salmon",
+     "desc_ar": "صوص طحينة خاص  سالمون مشوي",
+     "price": 84.0,
+     "calories": 576.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/grilled_salmon_17696994169611736.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/grilled_salmon_17696994169611736.webp.150x150_q100_crop.webp",
+     "local": "items/10_2.webp"
+    },
+    {
+     "name_en": "Seafood risotto",
+     "name_ar": "ريزوتو شرمب",
+     "desc_en": "Salmon shrimp risotto red sauce",
+     "desc_ar": "سالمون شريمب ريزوتو صوص احمر",
+     "price": 69.0,
+     "calories": 500.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/seafood_risotto_17696994271497662.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/seafood_risotto_17696994271497662.webp.150x150_q100_crop.webp",
+     "local": "items/10_3.webp"
+    },
+    {
+     "name_en": "Risotto",
+     "name_ar": "روزيتو",
+     "desc_en": "with Mushroom and chicken",
+     "desc_ar": "فطر ودجاج",
+     "price": 67.0,
+     "calories": 640.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/risotto_17696994330880594.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/risotto_17696994330880594.webp.150x150_q100_crop.webp",
+     "local": "items/10_4.webp"
+    },
+    {
+     "name_en": "Tortellini mushroom",
+     "name_ar": "تورتيليني فطر",
+     "desc_en": "Porcini mushroom Tortellini",
+     "desc_ar": "تورتيليني محشية بفطر البورشيني",
+     "price": 55.0,
+     "calories": 680.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/tortellini_mushroom_17696994358060730.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/tortellini_mushroom_17696994358060730.webp.150x150_q100_crop.webp",
+     "local": "items/10_5.webp"
+    },
+    {
+     "name_en": "Ravioli",
+     "name_ar": "رافيولي",
+     "desc_en": "Fresh pasta staffed spinach and ricotta",
+     "desc_ar": "عجينة باستا طازجة محشية ريكوتا وسبانخ",
+     "price": 52.0,
+     "calories": 556.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/ravioli_17696994439245232.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/ravioli_17696994439245232.webp.150x150_q100_crop.webp",
+     "local": "items/10_6.webp"
+    },
+    {
+     "name_en": "Penne Rigate",
+     "name_ar": "بيني ريجاتي",
+     "desc_en": "Chicken and white sauce",
+     "desc_ar": "تشيكن، صوص أبيض",
+     "price": 52.0,
+     "calories": 576.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/penne_rigate_17696994479130700.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/penne_rigate_17696994479130700.webp.150x150_q100_crop.webp",
+     "local": "items/10_7.webp"
+    },
+    {
+     "name_en": "Penne Arrabiata",
+     "name_ar": "بيني ارابياتا",
+     "desc_en": "Red sauce",
+     "desc_ar": "ريد صوص",
+     "price": 50.0,
+     "calories": 465.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/penne_arrabiata_17696994489663000.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/penne_arrabiata_17696994489663000.webp.150x150_q100_crop.webp",
+     "local": "items/10_8.webp"
+    },
+    {
+     "name_en": "Gnocchi pesto",
+     "name_ar": "بيستو نيوكي",
+     "desc_en": "Pesto cream sauce Permesan",
+     "desc_ar": "صوص بيستو كريم بيرميزان",
+     "price": 48.0,
+     "calories": 380.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/gnocchi_pesto_17696994508853734.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/gnocchi_pesto_17696994508853734.webp.150x150_q100_crop.webp",
+     "local": "items/10_9.webp"
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "menu": 1,
+   "name_en": "French toast",
+   "name_ar": "فرنش توست",
+   "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/categories/french_toast_17696994576642368.webp",
+   "items": [
+    {
+     "name_en": "French toast tahini",
+     "name_ar": "فرنش توست طحينة",
+     "desc_en": "Toasted brioche topped with tahini syrup \nCome with ice cream",
+     "desc_ar": "بريوش محمص ومغطى بسيروب خاص من الحلاوة الطحينية \nمع ايسكريم",
+     "price": 49.0,
+     "calories": 490.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/french_toast_tahini_17696993213633770.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/french_toast_tahini_17696993213633770.webp.150x150_q100_crop.webp",
+     "local": "items/4_0.webp"
+    },
+    {
+     "name_en": "Apple french toast",
+     "name_ar": "فرنش توست تفاح",
+     "desc_en": "Caramelized Apple & Mascarpone Walnut and cinnamon on toasted brioche",
+     "desc_ar": "تفاح مكرمل وماسكربوني وعين الجمل وقرفة على خبز البريوش المحمص",
+     "price": 50.0,
+     "calories": null,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/apple_french_toast_17696994070785802.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/apple_french_toast_17696994070785802.webp.150x150_q100_crop.webp",
+     "local": "items/4_1.webp"
+    },
+    {
+     "name_en": "FRENCH TOAST",
+     "name_ar": "فرنش توست",
+     "desc_en": "toasted brioche topped with mix berries and our special honey cinnamon syrup",
+     "desc_ar": "بريوش محمص مغطى بالتوت المشكل وسيروب القرفة بالعسل الخاص",
+     "price": 49.0,
+     "calories": 570.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/french_toast_17696994129402774.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/french_toast_17696994129402774.webp.150x150_q100_crop.webp",
+     "local": "items/4_2.webp"
+    },
+    {
+     "name_en": "French toast Granola",
+     "name_ar": "فرنش توست جرانولا",
+     "desc_en": "Toasted brioche covered with ricotta cheese   House made granola mix berries and honey cinnamon syrup",
+     "desc_ar": "بريوش محمص سيروب العسل والقرفة جرانولا محمصة ريكوتا وتوت مشكل",
+     "price": 50.0,
+     "calories": 500.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/french_toast_granola_17696994211385610.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/french_toast_granola_17696994211385610.webp.150x150_q100_crop.webp",
+     "local": "items/4_3.webp"
+    },
+    {
+     "name_en": "FRENCH TOAST FIG AND WALNUT",
+     "name_ar": "فرنش توست بالتين والجوز",
+     "desc_en": "toasted brioche ricotta and syrup cinnamon honey",
+     "desc_ar": "بريوش محمص يقدم مع جبنة الريكوتا ، والسيروب العسل والقرفة",
+     "price": 50.0,
+     "calories": 580.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/french_toast_fig_and_walnut_17696994292032418.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/french_toast_fig_and_walnut_17696994292032418.webp.150x150_q100_crop.webp",
+     "local": "items/4_4.webp"
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "menu": 1,
+   "name_en": "waffle and pancakes",
+   "name_ar": "بانكيك ووافل",
+   "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/categories/waffle_and_pancakes_17696994581748026.webp",
+   "items": [
+    {
+     "name_en": "GRANOLA",
+     "name_ar": "جرانولا",
+     "desc_en": "mix creamy yogurt, roasted granola topped with mix berrie, and special",
+     "desc_ar": "مزيج من الزبادي الكريمي مغطى بجرانولا الشوفان المحمصة بطريقتنا الخاصة وعليها توت مشكل وسيروب خاص",
+     "price": 46.0,
+     "calories": 240.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/granola_17696994004026332.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/granola_17696994004026332.webp.150x150_q100_crop.webp",
+     "local": "items/3_0.webp"
+    },
+    {
+     "name_en": "Blueberry pancakes",
+     "name_ar": "بلوبيري بانكيك",
+     "desc_en": "Stuffed pancakes with blueberries and topped with ricotta and maple syrup",
+     "desc_ar": "بانكيك  محشي بلوبيري ومغطى بالريكوتا ميبل سيروب",
+     "price": 55.0,
+     "calories": 410.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/blueberry_pancakes_17696994164746888.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/blueberry_pancakes_17696994164746888.webp.150x150_q100_crop.webp",
+     "local": "items/3_1.webp"
+    },
+    {
+     "name_en": "WAFFLE",
+     "name_ar": "وافل",
+     "desc_en": "Three pieces of fresh blueberry waffles covered with mix berries, special syrup and ricotta",
+     "desc_ar": "ثلاث قطع من الوافل يعلوها توت مشكل مربى بلوبيري وجبنة ريكوتا \nوسيروب خاص",
+     "price": 48.0,
+     "calories": 470.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/waffle_17696994222415996.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/waffle_17696994222415996.webp.150x150_q100_crop.webp",
+     "local": "items/3_2.webp"
+    },
+    {
+     "name_en": "Pancake maple syrup",
+     "name_ar": "بان كيك ميبل سيروب",
+     "desc_en": "3 pieces freshly backed pancake with topping of ricotta and berries comes with maple syrup",
+     "desc_ar": "٣  حبات من البانكيك الطازج مغطى بجبنة الريكوتا والتوت المشكل مع سيروب المايبل",
+     "price": 55.0,
+     "calories": 430.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/pancake_maple_syrup_17696994286540468.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/pancake_maple_syrup_17696994286540468.webp.150x150_q100_crop.webp",
+     "local": "items/3_3.webp"
+    },
+    {
+     "name_en": "Chocolate pancake",
+     "name_ar": "تشوكلت بانكيك",
+     "desc_en": "3 slices with Strawberry and belgium chocolate",
+     "desc_ar": "٣ شرايح مع فراولة شوكولاتة بلجيكية",
+     "price": 55.0,
+     "calories": 560.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/chocolate_pancake_17696994373568962.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/chocolate_pancake_17696994373568962.webp.150x150_q100_crop.webp",
+     "local": "items/3_4.webp"
+    },
+    {
+     "name_en": "PANCAKE",
+     "name_ar": "بان كيك",
+     "desc_en": "4 slices of pancakes mix berries, and ricotta covered with  honey cinnamon syrup",
+     "desc_ar": "٤ شرائح من البانكيك مع توت مشكل، جبنة الريكوتا، وسيروب القرفة بالعسل",
+     "price": 50.0,
+     "calories": 506.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/pancake_17696994416725234.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/pancake_17696994416725234.webp.150x150_q100_crop.webp",
+     "local": "items/3_5.webp"
+    }
+   ]
+  },
+  {
+   "id": 11,
+   "menu": 1,
+   "name_en": "Desserts",
+   "name_ar": "حلويات",
+   "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/categories/desserts_17696994584468494.webp",
+   "items": [
+    {
+     "name_en": "Blueberry cake",
+     "name_ar": "بلو بيري كيك",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 40.0,
+     "calories": null,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/blueberry_cake_17696993964302606.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/blueberry_cake_17696993964302606.webp.150x150_q100_crop.webp",
+     "local": "items/11_0.webp"
+    },
+    {
+     "name_en": "Fig cake",
+     "name_ar": "كيكة التين",
+     "desc_en": "Vanilla cake topped with fresh fig sauce",
+     "desc_ar": "كيك الفانيلا مغطى بصوص التين",
+     "price": 40.0,
+     "calories": 410.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/fig_cake_17696994020118454.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/fig_cake_17696994020118454.webp.150x150_q100_crop.webp",
+     "local": "items/11_1.webp"
+    },
+    {
+     "name_en": "Mango passion fruit cake",
+     "name_ar": "مانجو باشن فروت كيك",
+     "desc_en": "Vanilla cake filled with vanilla cream cheese frosting",
+     "desc_ar": "كيك الفانيلا محشي بكريمة الفانيلا",
+     "price": 40.0,
+     "calories": 430.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/mango_passion_fruit_cake_17696994188773550.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/mango_passion_fruit_cake_17696994188773550.webp.150x150_q100_crop.webp",
+     "local": "items/11_2.webp"
+    },
+    {
+     "name_en": "Crunchy chocolate",
+     "name_ar": "كرانشي شوكو",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 43.0,
+     "calories": 550.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/crunchy_chocolate_17624372985220352.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/crunchy_chocolate_17624372985220352.webp.150x150_q100_crop.webp",
+     "local": "items/11_3.webp"
+    },
+    {
+     "name_en": "Chocolate fondant",
+     "name_ar": "شوكليت فوندون",
+     "desc_en": "Vanilla ice cream and chocolate",
+     "desc_ar": "ايسكريم فانيلا وتشوكلت",
+     "price": 45.0,
+     "calories": null,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/chocolate_fondant_17841522181379908.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/chocolate_fondant_17841522181379908.webp.150x150_q100_crop.webp",
+     "local": "items/11_4.webp"
+    },
+    {
+     "name_en": "Date cake",
+     "name_ar": "كعكة التمر",
+     "desc_en": "Fresh baked with vanilla ice cream and date caramel",
+     "desc_ar": "مخبوزة يومياً وتقدم ساخنة مع الآيس كريم",
+     "price": 40.0,
+     "calories": 480.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/date_cake_17696994484151144.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/date_cake_17696994484151144.webp.150x150_q100_crop.webp",
+     "local": "items/11_5.webp"
+    },
+    {
+     "name_en": "Chocolate cake",
+     "name_ar": "كيكة الشوكولاتة",
+     "desc_en": "Freshly baked",
+     "desc_ar": "مخبوزة يومياً",
+     "price": 46.0,
+     "calories": 744.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/chocolate_cake_17696994497178538.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/chocolate_cake_17696994497178538.webp.150x150_q100_crop.webp",
+     "local": "items/11_6.webp"
+    },
+    {
+     "name_en": "Cookies and brownies",
+     "name_ar": "كوكيز وبراونيز",
+     "desc_en": "Fresh baked with ice cream and belgian chocolate",
+     "desc_ar": "مخبوزة طازجة تقدم مع الآيس كريم والشوكولاتة البلجيكية",
+     "price": 46.0,
+     "calories": 768.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/cookies_and_brownies_17696994503655136.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/cookies_and_brownies_17696994503655136.webp.150x150_q100_crop.webp",
+     "local": "items/11_7.webp"
+    },
+    {
+     "name_en": "san sebastian cheesecake",
+     "name_ar": "سان سباستيان تشيزكيك",
+     "desc_en": "Baked cheesecake with belgian chocolate",
+     "desc_ar": "تشيز كيك بالشوكولاتة البلجيكية",
+     "price": 42.0,
+     "calories": 780.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/san_sebastian_cheesecake_17696994514437414.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/san_sebastian_cheesecake_17696994514437414.webp.150x150_q100_crop.webp",
+     "local": "items/11_8.webp"
+    }
+   ]
+  },
+  {
+   "id": 12,
+   "menu": 1,
+   "name_en": "Mojito",
+   "name_ar": "موهيتو",
+   "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/categories/mojito_17696994587089296.webp",
+   "items": [
+    {
+     "name_en": "Mix Berries",
+     "name_ar": "توت مشكل",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 30.0,
+     "calories": 370.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/mix_berries_17696993230633412.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/mix_berries_17696993230633412.webp.150x150_q100_crop.webp",
+     "local": "items/12_0.webp"
+    },
+    {
+     "name_en": "Blueberries",
+     "name_ar": "بلوبيري",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 30.0,
+     "calories": 345.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/blueberries_17696994036374952.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/blueberries_17696994036374952.webp.150x150_q100_crop.webp",
+     "local": "items/12_1.webp"
+    },
+    {
+     "name_en": "Passion Fruit",
+     "name_ar": "باشن فروت",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 32.0,
+     "calories": 376.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/passion_fruit_17696994153576274.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/passion_fruit_17696994153576274.webp.150x150_q100_crop.webp",
+     "local": "items/12_2.webp"
+    },
+    {
+     "name_en": "Dragon Fruit",
+     "name_ar": "دراجون فروت",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 32.0,
+     "calories": 354.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/dragon_fruit_17696994275761306.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/dragon_fruit_17696994275761306.webp.150x150_q100_crop.webp",
+     "local": "items/12_3.webp"
+    }
+   ]
+  },
+  {
+   "id": 20,
+   "menu": 1,
+   "name_en": "Mocktails and juices",
+   "name_ar": "موكتيلات وعصير",
+   "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/categories/mocktails_and_juices_17696994589781668.webp",
+   "items": [
+    {
+     "name_en": "Raspberry Lemonade",
+     "name_ar": "رازبيري ليموناضة",
+     "desc_en": "Orange, lime , mint , raspberry",
+     "desc_ar": "برتقال ,ليمون ,نعنع, رازبيري",
+     "price": 26.0,
+     "calories": 260.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/raspberry_lemonade_17696993944204836.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/raspberry_lemonade_17696993944204836.webp.150x150_q100_crop.webp",
+     "local": "items/20_0.webp"
+    },
+    {
+     "name_en": "Ginger breeze",
+     "name_ar": "جينجير برييز",
+     "desc_en": "Ginger , lime ,mint ,sparkling water",
+     "desc_ar": "زنجبيل, ليمون اخضر ,نعنع ,مياه غازية",
+     "price": 26.0,
+     "calories": 170.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/ginger_breeze_17696994052685966.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/ginger_breeze_17696994052685966.webp.150x150_q100_crop.webp",
+     "local": "items/20_1.webp"
+    },
+    {
+     "name_en": "Orange juice",
+     "name_ar": "عصير برتقال",
+     "desc_en": "Fresh",
+     "desc_ar": "فريش",
+     "price": 20.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    }
+   ]
+  },
+  {
+   "id": 22,
+   "menu": 1,
+   "name_en": "Matcha",
+   "name_ar": "ماتشا",
+   "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/categories/matcha_17696994593139990.webp",
+   "items": [
+    {
+     "name_en": "coconut ice matcha latte",
+     "name_ar": "كوكونت ماتشا لاتيه بارد",
+     "desc_en": "Honey , coconut milk, matcha",
+     "desc_ar": "عسل، حليب جوز الهند ، ماتشا",
+     "price": 28.0,
+     "calories": null,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/coconut_ice_matcha_latte_17696993197121690.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/coconut_ice_matcha_latte_17696993197121690.webp.150x150_q100_crop.webp",
+     "local": "items/22_0.webp"
+    },
+    {
+     "name_en": "Coconut matcha latte",
+     "name_ar": "كوكونت ماتشا لاتيه",
+     "desc_en": "Honey , coconut milk, matcha",
+     "desc_ar": "عسل ،حليب جوز الهند ،ماتشا",
+     "price": 28.0,
+     "calories": null,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/coconut_matcha_latte_17696994009308626.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/coconut_matcha_latte_17696994009308626.webp.150x150_q100_crop.webp",
+     "local": "items/22_1.webp"
+    }
+   ]
+  },
+  {
+   "id": 13,
+   "menu": 1,
+   "name_en": "Smoothies",
+   "name_ar": "سموزي",
+   "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/categories/smoothies_17696994596512270.webp",
+   "items": [
+    {
+     "name_en": "Mixed Berries",
+     "name_ar": "توت مشكل",
+     "desc_en": "Lime and mixed berries",
+     "desc_ar": "ليمون وتوت مشكل",
+     "price": 36.0,
+     "calories": 250.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/mixed_berries_17696993266446932.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/mixed_berries_17696993266446932.webp.150x150_q100_crop.webp",
+     "local": "items/13_0.webp"
+    },
+    {
+     "name_en": "Passion Fruit",
+     "name_ar": "باشن فروت",
+     "desc_en": "Mango, elderflower and orange",
+     "desc_ar": "مانجا وزهرة البيلسان وبرتقال",
+     "price": 36.0,
+     "calories": 220.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/passion_fruit_17696994042660690.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/passion_fruit_17696994042660690.webp.150x150_q100_crop.webp",
+     "local": "items/13_1.webp"
+    },
+    {
+     "name_en": "Acai",
+     "name_ar": "اساي",
+     "desc_en": "Mango and berries",
+     "desc_ar": "مانجا وتوت",
+     "price": 44.0,
+     "calories": 178.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/acai_17696994143125810.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/acai_17696994143125810.webp.150x150_q100_crop.webp",
+     "local": "items/13_2.webp"
+    }
+   ]
+  },
+  {
+   "id": 14,
+   "menu": 1,
+   "name_en": "Coffee",
+   "name_ar": "القهوة",
+   "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/categories/coffee_17696994598825834.webp",
+   "items": [
+    {
+     "name_en": "Turkish Coffee",
+     "name_ar": "قهوة تركي",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 17.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    },
+    {
+     "name_en": "Coffee of the Day",
+     "name_ar": "قهوة اليوم",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 16.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    },
+    {
+     "name_en": "Hot Chocolate",
+     "name_ar": "شوكولاتة ساخنة",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 26.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    },
+    {
+     "name_en": "Cinnamon Latte",
+     "name_ar": "لاتيه بالقرفة",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 26.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    },
+    {
+     "name_en": "Americano",
+     "name_ar": "أمريكانو",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 18.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    },
+    {
+     "name_en": "Double Espresso",
+     "name_ar": "دبل إسبريسو",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 16.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    },
+    {
+     "name_en": "Espresso",
+     "name_ar": "إسبريسو",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 14.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    },
+    {
+     "name_en": "Latte",
+     "name_ar": "لاتيه",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 24.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    },
+    {
+     "name_en": "Spanish Latte",
+     "name_ar": "سبانش لاتيه",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 26.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    },
+    {
+     "name_en": "Cappuccino",
+     "name_ar": "كابتشينو",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 24.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    },
+    {
+     "name_en": "Caramel Latte",
+     "name_ar": "كراميل لاتيه",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 26.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    },
+    {
+     "name_en": "Flat white",
+     "name_ar": "فلات وايت",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 23.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    },
+    {
+     "name_en": "V60",
+     "name_ar": "V60",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 20.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    }
+   ]
+  },
+  {
+   "id": 15,
+   "menu": 1,
+   "name_en": "Iced Coffee",
+   "name_ar": "قهوة مثلجة",
+   "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/categories/iced_coffee_17696994601353592.webp",
+   "items": [
+    {
+     "name_en": "Ice Spanish Latte",
+     "name_ar": "سبانش لاتيه بارد",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 26.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    },
+    {
+     "name_en": "Ice Latte",
+     "name_ar": "لاتيه بارد",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 24.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    },
+    {
+     "name_en": "Ice Drip",
+     "name_ar": "آيس درب",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 22.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    }
+   ]
+  },
+  {
+   "id": 17,
+   "menu": 1,
+   "name_en": "Iced Tea",
+   "name_ar": "شاي مثلج",
+   "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/categories/iced_tea_17696994603439308.webp",
+   "items": [
+    {
+     "name_en": "Raspberry Elderflower",
+     "name_ar": "زهرة البيلسان والتوت الأحمر",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 24.0,
+     "calories": null,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/raspberry_elderflower_17696993185384276.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/raspberry_elderflower_17696993185384276.webp.150x150_q100_crop.webp",
+     "local": "items/17_0.webp"
+    },
+    {
+     "name_en": "Strawberry Elderflower",
+     "name_ar": "زهرة البيلسان والفراولة",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 24.0,
+     "calories": null,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/strawberry_elderflower_17696994075496042.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/strawberry_elderflower_17696994075496042.webp.150x150_q100_crop.webp",
+     "local": "items/17_1.webp"
+    },
+    {
+     "name_en": "Peach Passionfruit",
+     "name_ar": "خوخ باشن فروت",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 24.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    }
+   ]
+  },
+  {
+   "id": 16,
+   "menu": 1,
+   "name_en": "Tea",
+   "name_ar": "شاي",
+   "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/categories/tea_17696994605435960.webp",
+   "items": [
+    {
+     "name_en": "Tea Pot",
+     "name_ar": "إبريق شاي",
+     "desc_en": "Pick your flavor of the available tea",
+     "desc_ar": "من اختيارك من انواع الشاي الموجودة",
+     "price": 27.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    },
+    {
+     "name_en": "Sharing tea pot",
+     "name_ar": "ابريق المشاركة",
+     "desc_en": "",
+     "desc_ar": "ابريق حجم كبير",
+     "price": 35.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    },
+    {
+     "name_en": "Tea Cup",
+     "name_ar": "كوب شاي",
+     "desc_en": "English breakfast",
+     "desc_ar": "شاي الافطار",
+     "price": 17.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    },
+    {
+     "name_en": "Morroccan tea pot",
+     "name_ar": "ابريق شاي مغربي",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 27.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    },
+    {
+     "name_en": "Tea pot 1001 nights",
+     "name_ar": "ابريق شاي ١٠٠١ ليلة",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 27.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    },
+    {
+     "name_en": "Earl gray tea",
+     "name_ar": "ايرل جراي شاي",
+     "desc_en": "Cup",
+     "desc_ar": "كوب",
+     "price": 17.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    },
+    {
+     "name_en": "Green tea",
+     "name_ar": "شاي اخضر",
+     "desc_en": "Cup",
+     "desc_ar": "كوب",
+     "price": 17.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    }
+   ]
+  },
+  {
+   "id": 18,
+   "menu": 1,
+   "name_en": "Soft Drinks",
+   "name_ar": "مشروبات غازية",
+   "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/categories/soft_drinks_17696994607082304.webp",
+   "items": [
+    {
+     "name_en": "7UP",
+     "name_ar": "سفن اب",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 13.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    },
+    {
+     "name_en": "Coca Cola",
+     "name_ar": "كوكا كولا",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 13.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    },
+    {
+     "name_en": "7UP Diet",
+     "name_ar": "سفن اب دايت",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 13.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    },
+    {
+     "name_en": "Coca Cola Light",
+     "name_ar": "كوكا كولا دايت",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 13.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    }
+   ]
+  },
+  {
+   "id": 19,
+   "menu": 1,
+   "name_en": "Water",
+   "name_ar": "مياه",
+   "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/categories/water_17696994609041924.webp",
+   "items": [
+    {
+     "name_en": "Still Water small",
+     "name_ar": "مياه صغير",
+     "desc_en": "Acuapana  400 ml",
+     "desc_ar": "250 اكوابانا  مل",
+     "price": 11.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    },
+    {
+     "name_en": "Sparkling Water",
+     "name_ar": "مياه فوارة صغير",
+     "desc_en": "Sanpellegrino 250 ml",
+     "desc_ar": "سانبليغرينو ٢٥٠",
+     "price": 15.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    },
+    {
+     "name_en": "Still Water large",
+     "name_ar": "مياه كبيرة",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 17.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    },
+    {
+     "name_en": "Sparkling Water large",
+     "name_ar": "مياه فوارة كبيرة",
+     "desc_en": "Sanpellegrino 500 ml",
+     "desc_ar": "سانبلغرينو ٥٠٠ مل",
+     "price": 23.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    }
+   ]
+  },
+  {
+   "id": 25,
+   "menu": 2,
+   "name_en": "Benedict Eggs",
+   "name_ar": "بيض بينديكت",
+   "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/categories/benedict_eggs_17696994549252760.webp",
+   "items": [
+    {
+     "name_en": "SIGNATURE BENEDICT",
+     "name_ar": "سيغنيتشر بنديكت",
+     "desc_en": "Toasted Brioche, bacon, caramlized pineapple, Hollandaise Sauce",
+     "desc_ar": "بريوش  ،لحم مقدد ،واناناس مكرمل",
+     "price": 54.0,
+     "calories": 720.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/signature_benedict_17739663397682340.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/signature_benedict_17739663397682340.webp.150x150_q100_crop.webp",
+     "local": "items/25_0.webp"
+    },
+    {
+     "name_en": "CLASSIC BENEDICT",
+     "name_ar": "كلاسيك بينيديكت",
+     "desc_en": "English muffin, poached eggs, Hollandaise sauce",
+     "desc_ar": "مافن إنجليز بيض هولندايز",
+     "price": 45.0,
+     "calories": 685.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/classic_benedict_17739671931369858.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/classic_benedict_17739671931369858.webp.150x150_q100_crop.webp",
+     "local": "items/25_1.webp"
+    },
+    {
+     "name_en": "POTATO BENEDICT",
+     "name_ar": "بيض مع بطاطس",
+     "desc_en": "Toasted Brioche, potato cream, bacon, truffle",
+     "desc_ar": "بريوش ، كريمة البطاطس ، بيكين ،وترفل",
+     "price": 49.0,
+     "calories": 640.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/potato_benedict_17739676464449694.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/potato_benedict_17739676464449694.webp.150x150_q100_crop.webp",
+     "local": "items/25_2.webp"
+    },
+    {
+     "name_en": "BENEDICT FORISTIERE",
+     "name_ar": "بينيديكت فوريستير",
+     "desc_en": "Toasted Brioche, Mushrooms, spinach,  truffle oil ,hollandaise Sauce",
+     "desc_ar": "فطر ،سبانخ، زيت ترافل ،هولندايز ,بريوش",
+     "price": 51.0,
+     "calories": 633.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/benedict_foristiere_17739674638187576.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/benedict_foristiere_17739674638187576.webp.150x150_q100_crop.webp",
+     "local": "items/25_3.webp"
+    }
+   ]
+  },
+  {
+   "id": 24,
+   "menu": 2,
+   "name_en": "Croissants",
+   "name_ar": "كروسان",
+   "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/categories/croissants_17696994555494232.webp",
+   "items": [
+    {
+     "name_en": "Scrambled Eggs Croissant",
+     "name_ar": "سكرامبلد",
+     "desc_en": "Croissant, mash Avocado, scrambled eggs, cream cheese",
+     "desc_ar": "كروسان افوكادو بيض مخفوق كريم تشيز",
+     "price": 48.0,
+     "calories": 585.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/scrambled_eggs_croissant_17739682716299350.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/scrambled_eggs_croissant_17739682716299350.webp.150x150_q100_crop.webp",
+     "local": "items/24_0.webp"
+    },
+    {
+     "name_en": "Flat croissant",
+     "name_ar": "فلات كروسان",
+     "desc_en": "Flat Croissant, avocado mash, poached eggs, arugula, parmesan",
+     "desc_ar": "كروسان بيض افوكادو اروغولا بيرميسان",
+     "price": 52.0,
+     "calories": 605.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/flat_croissant_17739680933718308.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/flat_croissant_17739680933718308.webp.150x150_q100_crop.webp",
+     "local": "items/24_1.webp"
+    },
+    {
+     "name_en": "Quiche Croissant Lorraine",
+     "name_ar": "كيش كرواسون لورين",
+     "desc_en": "A flaky croissant crust filled with a savory blend of smoked beef bacon, melted mozzarella, and egg, served warm with a fresh side salad.",
+     "desc_ar": "قاعدة من عجينة الكرواسون الهشة، محشوة بمزيج من البيكون البقري المدخن، البيض، وجبنة الموزاريلا، وتُقدم دافئة مع سلطة طازجة.",
+     "price": 46.0,
+     "calories": 600.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/quiche_croissant_lorraine_17799073310836006.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/quiche_croissant_lorraine_17799073310836006.webp.150x150_q100_crop.webp",
+     "local": "items/24_2.webp"
+    },
+    {
+     "name_en": "Quiche Croissant Florentine",
+     "name_ar": "كيش الكرواسون بالسبانخ والجبن",
+     "desc_en": "A croissant pastry shell filled with a savory mixture of spinach, eggs, and goat cheese. Served warm with a side salad.",
+     "desc_ar": "قاعدة من عجينة الكرواسون\n، محشوة بمزيج السبانخ والبيض وجبنة الماعز  وتُقدم دافئة مع سلطة",
+     "price": 46.0,
+     "calories": 560.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/quiche_croissant_florentine_17799070112187716.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/quiche_croissant_florentine_17799070112187716.webp.150x150_q100_crop.webp",
+     "local": "items/24_3.webp"
+    },
+    {
+     "name_en": "stuffed croissant",
+     "name_ar": "كروسان محشية",
+     "desc_en": "2 \n Croissants dough stuffed with mushroom turkey ham and mornay sauce",
+     "desc_ar": "٢ من عجينة الكروسان محشية فطر و تركي  وبيض مغطاه مورني صوص",
+     "price": 56.0,
+     "calories": 623.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/stuffed_mini_croissant_17708374525669574.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/stuffed_mini_croissant_17708374525669574.webp.150x150_q100_crop.webp",
+     "local": "items/24_4.webp"
+    },
+    {
+     "name_en": "Croissant",
+     "name_ar": "كروسان",
+     "desc_en": "Butter and organic jam",
+     "desc_ar": "زبدة ومربى عضوي",
+     "price": 37.0,
+     "calories": 598.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/croissant_17739644011273432.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/croissant_17739644011273432.webp.150x150_q100_crop.webp",
+     "local": "items/24_5.webp"
+    },
+    {
+     "name_en": "Scones",
+     "name_ar": "سكونز",
+     "desc_en": "Two pieces of scones with jam and butter",
+     "desc_ar": "قطعتين من السكونز مع الزبدة والمربى",
+     "price": 42.0,
+     "calories": 728.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/scones_17739644248349936.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/scones_17739644248349936.webp.150x150_q100_crop.webp",
+     "local": "items/24_6.webp"
+    }
+   ]
+  },
+  {
+   "id": 26,
+   "menu": 2,
+   "name_en": "Sourdough",
+   "name_ar": "سوردو",
+   "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/categories/sourdough_17696994557985218.webp",
+   "items": [
+    {
+     "name_en": "Scrambled Eggs & Mushrooms",
+     "name_ar": "سوردو سكرمبلد",
+     "desc_en": "Scrambled eggs & Mushroom on toasted Sourdough",
+     "desc_ar": "بيض مخفوق مشروم كريم على سوردو محمص",
+     "price": 51.0,
+     "calories": 470.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/scrambled_eggs__mushrooms_17739686610449446.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/scrambled_eggs__mushrooms_17739686610449446.webp.150x150_q100_crop.webp",
+     "local": "items/26_0.webp"
+    },
+    {
+     "name_en": "Egg sujuk labneh",
+     "name_ar": "بيض سجق لبنة",
+     "desc_en": "Two sourdough slices toasted topped with sunny side up eggs and sujuk labneh and sundried tomatoes",
+     "desc_ar": "قطعتين من السوردو المحمص سجق تركي بيض عيون لبنة طماطم مجففة",
+     "price": 52.0,
+     "calories": 380.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/egg_sujuk_labneh_17739690778869762.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/egg_sujuk_labneh_17739690778869762.webp.150x150_q100_crop.webp",
+     "local": "items/26_1.webp"
+    },
+    {
+     "name_en": "Scrambled egg avocado",
+     "name_ar": "سكرمبلد افوكادو",
+     "desc_en": "Scrambled egg on sourdough and avocado toast",
+     "desc_ar": "بيض مخفوق على سوردو وافوكادو توست",
+     "price": 53.0,
+     "calories": 410.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/scrambled_egg_avocado_17739690567934300.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/scrambled_egg_avocado_17739690567934300.webp.150x150_q100_crop.webp",
+     "local": "items/26_2.webp"
+    },
+    {
+     "name_en": "Capress and stracciatella",
+     "name_ar": "كبريس و ستراتشاتيلا",
+     "desc_en": "2pcs Toasted Sourdough, tomato, Mozzarella and stracciatella ، pesto balsamic dressing",
+     "desc_ar": "٢ خبز سوردو محمص مع الموزريلا الستراتشاتيلا والطماطم\nبيستو وبلسمك",
+     "price": 50.0,
+     "calories": 563.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/capress_and_stracciatella_17739693168237772.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/capress_and_stracciatella_17739693168237772.webp.150x150_q100_crop.webp",
+     "local": "items/26_3.webp"
+    },
+    {
+     "name_en": "Smoked Salmon",
+     "name_ar": "سالمون مدخن",
+     "desc_en": "Toasted Sourdough, Poached egg, Avocado, Smoked salmon, cream Cheese",
+     "desc_ar": "سوردو بيض افوكادو سالمون مدخن",
+     "price": 67.0,
+     "calories": 450.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/smoked_salmon_17739694838741312.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/smoked_salmon_17739694838741312.webp.150x150_q100_crop.webp",
+     "local": "items/26_4.webp"
+    },
+    {
+     "name_en": "Eggplant",
+     "name_ar": "باذنجان",
+     "desc_en": "Toasted Sourdough, Tomato, Arugula, Molasse, tahini",
+     "desc_ar": "باذنجان طماطم اروغولا دبس رمان طحينة وبالسميك",
+     "price": 42.0,
+     "calories": 310.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/eggplant_17739695765854148.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/eggplant_17739695765854148.webp.150x150_q100_crop.webp",
+     "local": "items/26_5.webp"
+    },
+    {
+     "name_en": "Halloumi",
+     "name_ar": "حلومي",
+     "desc_en": "Toasted Sourdough, Pesto, Olives, sun-dried Tomato",
+     "desc_ar": "سوردو طماطم بيستو زيتون وطماطم مجففة",
+     "price": 49.0,
+     "calories": 400.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/halloumi_17739704950877432.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/halloumi_17739704950877432.webp.150x150_q100_crop.webp",
+     "local": "items/26_6.webp"
+    },
+    {
+     "name_en": "Ricotta with figs",
+     "name_ar": "ريكوتا مع التين",
+     "desc_en": "Toasted Sourdough, figs, ricotta",
+     "desc_ar": "",
+     "price": 44.0,
+     "calories": 367.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/ricotta_with_figs_17739704110856776.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/ricotta_with_figs_17739704110856776.webp.150x150_q100_crop.webp",
+     "local": "items/26_7.webp"
+    }
+   ]
+  },
+  {
+   "id": 27,
+   "menu": 2,
+   "name_en": "Omelette",
+   "name_ar": "اومليت",
+   "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/categories/omelette_17696994563585770.webp",
+   "items": [
+    {
+     "name_en": "Mozzarella omelette",
+     "name_ar": "اومليت موزريلا",
+     "desc_en": "Omelette, Mix salad, Toasted Bread",
+     "desc_ar": "خبز ,سلطة",
+     "price": 46.0,
+     "calories": 400.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/mozzarella_omelette_17739708168851892.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/mozzarella_omelette_17739708168851892.webp.150x150_q100_crop.webp",
+     "local": "items/27_0.webp"
+    },
+    {
+     "name_en": "SPINACH OMELETTE",
+     "name_ar": "اومليت السبانخ",
+     "desc_en": "goat cheese/Spinash Omelette, Mix salad , Toasted Sourdough",
+     "desc_ar": "جبن ماعز، خبز، سلطة.",
+     "price": 48.0,
+     "calories": 420.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/spinach_omelette_17739708540173662.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/spinach_omelette_17739708540173662.webp.150x150_q100_crop.webp",
+     "local": "items/27_1.webp"
+    }
+   ]
+  },
+  {
+   "id": 23,
+   "menu": 2,
+   "name_en": "Eggs",
+   "name_ar": "البيض",
+   "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/categories/eggs_17696994566174664.webp",
+   "items": [
+    {
+     "name_en": "Spicy Labneh",
+     "name_ar": "سبايسي لبنة",
+     "desc_en": "Spicy Labneh, Poached Eggs, Toasted Sourdough",
+     "desc_ar": "",
+     "price": 45.0,
+     "calories": 380.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/spicy_labneh_17739713351842440.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/spicy_labneh_17739713351842440.webp.150x150_q100_crop.webp",
+     "local": "items/23_0.webp"
+    },
+    {
+     "name_en": "SHAKSHUKA",
+     "name_ar": "شكشوكة",
+     "desc_en": "goat cheese, bread",
+     "desc_ar": "جبن ماعز، خبز.",
+     "price": 44.0,
+     "calories": 400.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/shakshuka_17739712935371070.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/shakshuka_17739712935371070.webp.150x150_q100_crop.webp",
+     "local": "items/23_1.webp"
+    }
+   ]
+  },
+  {
+   "id": 30,
+   "menu": 2,
+   "name_en": "Sharing dishes",
+   "name_ar": "اطباق المشاركة",
+   "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/categories/sharing_dishes_17517098477882852.webp",
+   "items": [
+    {
+     "name_en": "Magdous dip",
+     "name_ar": "مكدوس ديب",
+     "desc_en": "Eggplant with chilli paste and walnuts with grisini bread",
+     "desc_ar": "مكدوس لبنة واعشاب مع خبز الجريسيني الايطالي",
+     "price": 38.0,
+     "calories": 360.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/magdous_dip_17696993204964234.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/magdous_dip_17696993204964234.webp.150x150_q100_crop.webp",
+     "local": "items/30_0.webp"
+    },
+    {
+     "name_en": "Signature brioche trio",
+     "name_ar": "سغنتشر بريوش تريو",
+     "desc_en": "Three mini sandwiches (shrimp, chicken, and salmon \nShrimp Tartare\nZa'atar Chicken\nSalmon with Cream Cheese and Dill",
+     "desc_ar": "ثلاث ميني ساندويتش من الشرمب والدجاج والسالمون بخبز البريوش \nشرمب طرطر \nدجاج زعتر \nسالمون جبنة كريمية وشبت",
+     "price": 46.0,
+     "calories": 480.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/signature_brioche_trio_17696994065526300.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/signature_brioche_trio_17696994065526300.webp.150x150_q100_crop.webp",
+     "local": "items/30_1.webp"
+    },
+    {
+     "name_en": "Caprese Stack",
+     "name_ar": "كابريز ستاك",
+     "desc_en": "Sweet potato, eggplant, and grilled tomato, mozzarella, and stracciatella, pesto with balsamic.",
+     "desc_ar": "بطاطا حلوة، باذنجان، طماطم مشوية، موزريلا، ستراتشاتيلا، بيستو، بالسميك",
+     "price": 43.0,
+     "calories": null,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/caprese_stack_17696994135752518.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/caprese_stack_17696994135752518.webp.150x150_q100_crop.webp",
+     "local": "items/30_2.webp"
+    },
+    {
+     "name_en": "Eggplant parmigiana",
+     "name_ar": "باذنجان بيرمجانا",
+     "desc_en": "Grilled eggplant marinara sauce pesto parmesan and mozzarella",
+     "desc_ar": "باذنجان مشوي مارينارا صوص بيستوي بيرميزان وفريش موزريلا",
+     "price": 48.0,
+     "calories": 413.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/eggplant_parmigiana_17739714482996450.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/eggplant_parmigiana_17739714482996450.webp.150x150_q100_crop.webp",
+     "local": "items/30_3.webp"
+    },
+    {
+     "name_en": "Wedges",
+     "name_ar": "ودجز",
+     "desc_en": "Spiced potatp wedges with parmesan",
+     "desc_ar": "بطاطس ودجز بيرمزان وبهارات",
+     "price": 30.0,
+     "calories": 510.0,
+     "image_full": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/wedges_17696994392064028.webp",
+     "image": "https://d8aaen7rph5y9.cloudfront.net/app/mediafiles/t_1689097317_xs6z2i/items/wedges_17696994392064028.webp.150x150_q100_crop.webp",
+     "local": "items/30_4.webp"
+    },
+    {
+     "name_en": "Bread and olives",
+     "name_ar": "خبز وزيتون",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 13.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    },
+    {
+     "name_en": "Bread and butter",
+     "name_ar": "خبز وزبدة",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 13.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    },
+    {
+     "name_en": "French fries",
+     "name_ar": "بطاطا مقلية",
+     "desc_en": "",
+     "desc_ar": "",
+     "price": 23.0,
+     "calories": null,
+     "image_full": null,
+     "image": null,
+     "local": null
+    }
+   ]
+  }
+ ]
+}
