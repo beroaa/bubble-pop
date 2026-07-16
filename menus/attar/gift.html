@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A gift for Attar — Menu Sadah</title>
+<!-- Per-client gift doc. Replace Attar عطر attar #B0566E #C9A24B #6E2233 #F6EEE6. -->
+<style>
+  :root{
+    --bg:#F6EEE6; --ink:#6E2233; --accent:#B0566E; --accent2:#C9A24B;
+    --dim:color-mix(in srgb,var(--ink) 62%,transparent);
+    --en:system-ui,-apple-system,"Segoe UI",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:var(--en);min-height:100vh;
+    display:grid;place-items:center;padding:32px 20px;overflow-x:hidden;
+    background-image:radial-gradient(720px 380px at 50% -140px,color-mix(in srgb,var(--accent) 16%,transparent),transparent 70%)}
+  .card{max-width:440px;width:100%;text-align:center}
+  .eyebrow{font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--accent);font-weight:700;
+    opacity:0;animation:rise .7s .1s forwards}
+  h1{font-size:clamp(1.9rem,8vw,2.7rem);font-weight:800;line-height:1.08;margin:14px 0 6px;text-wrap:balance;
+    opacity:0;animation:rise .7s .25s forwards}
+  .ar{font-size:1.15rem;color:var(--dim);opacity:0;animation:rise .7s .4s forwards}
+
+  .price{margin:34px 0 8px;position:relative;display:inline-block;opacity:0;animation:rise .7s .6s forwards}
+  .was{font-size:1.5rem;font-weight:700;color:var(--dim);position:relative;display:inline-block}
+  .was .strike{position:absolute;left:-6%;top:52%;width:0;height:3px;background:var(--accent);border-radius:3px;
+    animation:strike .5s 1.5s forwards;transform:rotate(-8deg)}
+  .was small{font-size:.9rem;font-weight:600}
+  .free{margin-top:14px;font-size:clamp(3rem,16vw,4.6rem);font-weight:800;letter-spacing:-.02em;line-height:1;
+    color:var(--accent);opacity:0;transform:scale(.7);animation:pop .6s 1.9s cubic-bezier(.2,1.4,.4,1) forwards}
+  .free .cur{font-size:.34em;font-weight:700;vertical-align:super;color:var(--accent2)}
+  .stamp{display:inline-block;margin-top:16px;padding:8px 18px;border:2px solid var(--accent);border-radius:999px;
+    font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--accent);
+    opacity:0;transform:rotate(-3deg) scale(.8);animation:stampin .5s 2.3s cubic-bezier(.2,1.4,.4,1) forwards}
+  .stamp .ar{display:inline;color:var(--accent);font-size:1em;opacity:1;animation:none}
+
+  .lead{margin-top:30px;color:var(--dim);font-size:.98rem;line-height:1.7;opacity:0;animation:rise .7s 2.6s forwards}
+  .lead b{color:var(--ink)}
+  .cta{display:inline-block;margin-top:26px;padding:15px 30px;background:var(--accent);color:var(--bg);
+    text-decoration:none;border-radius:14px;font-weight:700;font-size:1.02rem;letter-spacing:.01em;
+    opacity:0;animation:rise .7s 2.85s forwards;box-shadow:0 10px 30px color-mix(in srgb,var(--accent) 30%,transparent)}
+  .url{margin-top:16px;font-size:.82rem;color:var(--dim);letter-spacing:.06em;opacity:0;animation:rise .7s 3s forwards}
+  .foot{margin-top:34px;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);opacity:0;animation:rise .7s 3.15s forwards}
+
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  @keyframes strike{to{width:112%}}
+  @keyframes pop{to{opacity:1;transform:scale(1)}}
+  @keyframes stampin{to{opacity:1;transform:rotate(-3deg) scale(1)}}
+  @media(prefers-reduced-motion:reduce){
+    *{animation-duration:.001s!important;animation-delay:0s!important}
+    .was .strike{width:112%}
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="eyebrow">A gift · from Menu Sadah</div>
+    <h1>Your new menu,<br>Attar.</h1>
+    <div class="ar">هدية خاصة لـ عطر</div>
+
+    <div class="price">
+      <div class="was">SR 499 <small>build</small> + SR 199<small>/mo</small><span class="strike"></span></div>
+      <div class="free"><span class="cur">SR</span>0</div>
+      <div class="stamp">On the house · <span class="ar">هدية</span></div>
+    </div>
+
+    <p class="lead">We built you a <b>premium bilingual menu</b> — your identity, your colours, a signature animation made for your mark. It's already live and yours to keep. <b>No cost, no catch.</b></p>
+
+    <a class="cta" href="https://menu-sadah.com/attar" target="_blank" rel="noopener">See your menu →</a>
+    <div class="url">menu-sadah.com/attar</div>
+
+    <div class="foot">Menu Sadah</div>
+  </div>
+</body>
+</html>
