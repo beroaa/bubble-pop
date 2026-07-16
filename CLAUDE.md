@@ -39,6 +39,14 @@ Scaling to many client menus (target: Dubai cafés with weak menus, gift-first o
 - **Parallel build:** design agents fan out (one distinct café each), each writes `menus/<slug>/index.html`; then the harness stress-tests every slug before it counts as delivered.
 - **Post-build enhancement swarm:** after a build wave, run `menus/_kit/enhance-swarm.js` (`Workflow({scriptPath, args:[slugs]})`) — multi-dimensional audit (brand/visual/imagery · content/bilingual/type · robustness/a11y/weight) → adversarial verify → apply (deepen each brand's visual/imagery system so no section is bare text; inline SVG/CSS only — external images are CSP-blocked) → harness re-gate. Improvements only, never regress a passing menu.
 
+## Self-tightening loop (the system that compounds — bounded, NOT infinite)
+
+The pipeline gets better over time by feeding its own results back in. This is the real "self-improving" mechanism — not recursive intelligence growth (that isn't a thing), but institutional memory + auto-generation + convergent improvement:
+
+- **Learn from mistakes → `menus/_kit/lessons.md`.** Every harness failure, regression, or review finding gets appended as a durable rule. Build/enhance agents and the harness consult it so the same defect never ships twice. Append, never forget.
+- **Self-generating tracker → `node menus/_kit/build-tracker.mjs`.** The tracker is DATA-driven; the generator recomputes counts/cells from `menus/index.json` + disk and splices them in. Never hand-edit tracker numbers — regenerate, then publish the same artifact file path (keeps the same URL). Run it every MED cycle.
+- **Convergence, not infinity.** Improvement loops are BOUNDED: iterate until no verified findings remain, or a diminishing-returns threshold. Trigger on events (new menu, failure), never "as often as possible." Unbounded loops drift, regress, and waste tokens — the stop condition is what makes the loop trustworthy.
+
 ## Autonomous build protocol — "MED" crew (hands-off; save to memory, default mode)
 
 The user does not babysit. Errors self-heal. Only meaningful results surface. Every menu build runs this loop automatically:
