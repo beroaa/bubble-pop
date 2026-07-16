@@ -316,6 +316,17 @@
         "handover.md"
       ],
       "pack_complete": true
+    },
+    {
+      "slug": "some-coffee",
+      "name": "some coffee",
+      "name_ar": "سم كوفي",
+      "city": "Riyadh",
+      "status": "rebuilding",
+      "live": true,
+      "accent": "#2E5D43",
+      "concept": "Botanical roastery — cream & green, first-light-to-midnight; REAL CLIENT (replied on IG)",
+      "note": "v1 live but empty; 3-concept rebuild in flight."
     }
   ]
 }

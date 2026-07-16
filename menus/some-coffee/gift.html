@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>a gift for some coffee. — Menu Sadah</title>
+<meta name="description" content="Your new bilingual menu — on the house. هديتنا لسم كوفي.">
+<meta property="og:title" content="a gift for some coffee.">
+<meta property="og:description" content="not just any menu. some menu. — on the house 🌿">
+<meta property="og:site_name" content="Menu Sadah">
+<meta name="theme-color" content="#F5F1E8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F5F1E8; --ink:#1E2B24; --green:#2E5D43; --leaf:#7FA98C; --dim:#6F7A70;
+    --en:"Jost",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --ar:"IBM Plex Sans Arabic",system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:var(--en);min-height:100vh;display:grid;place-items:center;padding:34px 20px;overflow-x:hidden;
+    background-image:radial-gradient(640px 340px at 50% -120px,rgba(46,93,67,.10),transparent 70%)}
+  .card{max-width:430px;width:100%;text-align:center}
+
+  .badge{width:58px;height:58px;margin:0 auto 16px;border:2px solid var(--green);border-radius:50%;display:grid;place-items:center;
+    opacity:0;animation:rise .6s .05s forwards}
+  .badge svg{width:30px;height:30px}
+  .eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--green);font-weight:600;opacity:0;animation:rise .6s .15s forwards}
+  h1{font-size:clamp(1.9rem,8vw,2.6rem);font-weight:600;line-height:1.12;margin:12px 0 6px;text-wrap:balance;letter-spacing:-.01em;
+    opacity:0;animation:rise .6s .3s forwards}
+  h1 .period{color:var(--green)}
+  .ar{font-family:var(--ar);font-size:1.1rem;color:var(--dim);opacity:0;animation:rise .6s .45s forwards}
+
+  /* ---- odometer price ---- */
+  .price{margin:34px 0 6px;opacity:0;animation:rise .6s .7s forwards}
+  .was{display:inline-flex;align-items:baseline;gap:.14em;font-weight:600;font-size:1.7rem;color:var(--dim);position:relative;
+    font-variant-numeric:tabular-nums}
+  .was .cur{font-size:.58em;font-weight:600}
+  .reel{display:inline-block;height:1.05em;overflow:hidden;line-height:1.05}
+  .strip{display:flex;flex-direction:column;transform:translateY(0);animation:roll 1.5s cubic-bezier(.25,.9,.3,1) forwards}
+  .strip span{height:1.05em;display:block}
+  .r1 .strip{animation-delay:.9s;--to:-4.2em}   /* 4 */
+  .r2 .strip{animation-delay:1.02s;--to:-9.45em} /* 9 */
+  .r3 .strip{animation-delay:1.14s;--to:-9.45em} /* 9 */
+  .was .plus{font-size:.72em;color:var(--dim);font-weight:500}
+  .was .mo{font-size:.6em;font-weight:500}
+  .strike{position:absolute;left:-5%;top:53%;height:3px;width:0;background:var(--green);border-radius:3px;transform:rotate(-6deg);
+    animation:strike .45s 2.75s cubic-bezier(.7,0,.3,1) forwards}
+  .free{font-size:clamp(3.4rem,17vw,4.8rem);font-weight:700;line-height:1;color:var(--green);letter-spacing:-.02em;
+    opacity:0;transform:scale(.7);animation:pop .55s 3.25s cubic-bezier(.2,1.5,.4,1) forwards;font-variant-numeric:tabular-nums}
+  .free .cur{font-size:.32em;font-weight:600;vertical-align:super;color:var(--leaf)}
+  .stamp{display:inline-block;margin-top:14px;padding:9px 20px;border:2px solid var(--green);border-radius:999px;color:var(--green);
+    font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.78rem;
+    opacity:0;transform:rotate(-2.5deg) scale(.85);animation:stamp .45s 3.7s cubic-bezier(.2,1.5,.4,1) forwards}
+  .stamp .ar{font-family:var(--ar);font-size:1.02em;color:var(--green);opacity:1;animation:none;display:inline}
+
+  .lead{margin-top:30px;color:var(--dim);font-size:1rem;line-height:1.75;opacity:0;animation:rise .6s 4.05s forwards}
+  .lead b{color:var(--ink);font-weight:600}
+  .lead .ar{display:block;font-family:var(--ar);margin-top:10px;font-size:.95rem}
+  .cta{display:inline-block;margin-top:26px;padding:16px 34px;background:var(--green);color:#F7F4EC;text-decoration:none;border-radius:999px;
+    font-weight:600;font-size:1.05rem;letter-spacing:.02em;box-shadow:0 12px 30px rgba(46,93,67,.25);
+    opacity:0;animation:rise .6s 4.3s forwards}
+  .cta:focus-visible{outline:3px solid var(--leaf);outline-offset:3px}
+  .url{margin-top:14px;font-size:.82rem;color:var(--dim);letter-spacing:.05em;opacity:0;animation:rise .6s 4.45s forwards}
+  .foot{margin-top:36px;font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--leaf);opacity:0;animation:rise .6s 4.6s forwards}
+
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  @keyframes roll{to{transform:translateY(var(--to))}}
+  @keyframes strike{to{width:110%}}
+  @keyframes pop{to{opacity:1;transform:scale(1)}}
+  @keyframes stamp{to{opacity:1;transform:rotate(-2.5deg) scale(1)}}
+  @media (prefers-reduced-motion:reduce){
+    *{animation-duration:.001s !important;animation-delay:0s !important}
+    .strip{transform:translateY(var(--to))}
+    .strike{width:110%}
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="badge" aria-hidden="true">
+      <svg viewBox="0 0 32 32" fill="none" stroke="#2E5D43" stroke-width="1.8" stroke-linecap="round">
+        <path d="M8 13h13a0 0 0 0 1 0 0v6a6.5 6.5 0 0 1-6.5 6.5h0A6.5 6.5 0 0 1 8 19v-6z"/>
+        <path d="M21 15h2.2a2.8 2.8 0 0 1 0 5.6H21"/>
+        <path d="M12 9.5c0-1.4 1.2-1.6 1.2-2.8M16.6 9.5c0-1.4 1.2-1.6 1.2-2.8"/>
+      </svg>
+    </div>
+    <div class="eyebrow">a gift · from menu sadah</div>
+    <h1>not just any menu.<br>some menu<span class="period">.</span></h1>
+    <div class="ar" lang="ar" dir="rtl">هديتنا لـ سم كوفي 🌿</div>
+
+    <div class="price" aria-label="SR 499 build plus SR 199 per month — free">
+      <div class="was">
+        <span class="cur">SR</span>
+        <span class="reel r1"><span class="strip" style="--to:-4.2em"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span>
+        <span class="reel r2"><span class="strip" style="--to:-9.45em"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span>
+        <span class="reel r3"><span class="strip" style="--to:-9.45em"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span>
+        <span class="plus">&nbsp;build&nbsp;+&nbsp;SR&nbsp;199</span><span class="mo">/mo</span>
+        <span class="strike"></span>
+      </div>
+      <div class="free"><span class="cur">SR</span>0</div>
+      <div class="stamp">on the house · <span class="ar" lang="ar" dir="rtl">سمّوا، هذي علينا</span></div>
+    </div>
+
+    <p class="lead">We rebuilt your menu the way your coffee deserves — <b>bilingual, your identity, from first light to midnight</b>. It's yours to keep. <b>No cost, no catch.</b>
+      <span class="ar" lang="ar" dir="rtl">جهّزنا منيوكم من جديد — عربي وإنجليزي، بهويتكم، ومن أول النور إلى منتصف الليل. هدية خالصة، بدون أي التزام.</span>
+    </p>
+
+    <a class="cta" href="https://menu-sadah.com/some-coffee" target="_blank" rel="noopener">see your menu →</a>
+    <div class="url">menu-sadah.com/some-coffee</div>
+    <div class="foot">menu sadah</div>
+  </div>
+</body>
+</html>
