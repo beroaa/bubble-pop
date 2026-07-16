@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Menu Sadah harness artifacts
+menus/*/_shot-*.png

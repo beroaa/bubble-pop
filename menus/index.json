@@ -12,6 +12,28 @@
       "accent": "#C68A4B",
       "pack": ["index.html", "qr-three-coffee.png", "qr-three-coffee.svg", "table-card.html", "table-card.pdf", "handover.md"],
       "note": "Pilot. Built + verified 375px. Awaiting push to go live."
+    },
+    {
+      "slug": "maqha-noon",
+      "name": "Noon",
+      "name_ar": "نون",
+      "city": "Dubai",
+      "status": "verified",
+      "live": false,
+      "accent": "#0E3B2E",
+      "concept": "Neo-Khaleeji modernism — emerald & brass, mashrabiya lattice hero",
+      "note": "Design wave. Passed harness clean (375/414/768/1280, 0 JS errors)."
+    },
+    {
+      "slug": "blueprint-roasters",
+      "name": "Blueprint",
+      "name_ar": "بلوبرنت",
+      "city": "Dubai",
+      "status": "verified",
+      "live": false,
+      "accent": "#4FD1E0",
+      "concept": "Engineering schematic — navy & cyan, self-drawing brew-ratio diagram",
+      "note": "Design wave. Passed harness clean (375/414/768/1280, 0 JS errors)."
     }
   ]
 }
