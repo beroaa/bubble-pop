@@ -28,6 +28,16 @@ Each `menus/<slug>/` folder ships:
 - Layout: max-width 520 px centered; sticky chip nav (opaque bg — headless Chromium doesn't render backdrop-blur); item rows = names (flex:0 1 auto) + dotted leader (flex:1 0 16px) + price; `.n-note` capped at 23ch.
 - Sections: Hot Coffee / Cold Coffee / Filter & Brew / Beyond Coffee / Bakery & Sweets (bilingual headers, EN nowrap-clamped).
 
+## Dubai expansion — kit, catalog & stress-test standard
+
+Scaling to many client menus (target: Dubai cafés with weak menus, gift-first outreach). Rules that keep quality at scale:
+
+- **Innovation mandate — never templated.** Every client menu gets its OWN visual identity (palette, type pairing, signature hero animation) tailored to that brand. NEVER reuse another client's look. The dark-copper "house design language" above is a *fallback for when brand assets are unreachable*, not a template to stamp out — vary it or replace it per client. Two menus should never look like recolours of each other.
+- **Reusable stress-test harness:** `node menus/_kit/verify.mjs <slug>`. Gate = no horizontal overflow at 375/414/768/1280 px + zero JS errors + reduced-motion smoke + CSS-applied check. Writes `_shot-375.png` / `_shot-desktop.png` for visual sign-off. A menu is not "done" until it passes and the screenshots are eyeballed.
+- **Gift doc per client:** copy `menus/_kit/gift-template.html`, fill `{{CAFE}} {{CAFE_AR}} {{SLUG}} {{ACCENT}} {{ACCENT2}} {{INK}} {{BG}}` in that brand's colours. Animated strike-through of SR 499 + 199/mo → "SR 0 · on the house". This is the outreach bridge — the doc that secures the client.
+- **Catalog = memory ("the OS"):** every build is registered in `menus/index.json` (slug, name, city, status, accent). This is the machine-readable menu catalog; keep it in sync on every build. (Cannot touch the user's local Mac app from this container — this JSON is the portable equivalent.)
+- **Parallel build:** design agents fan out (one distinct café each), each writes `menus/<slug>/index.html`; then the harness stress-tests every slug before it counts as delivered.
+
 ## Repo / git rules
 
 - Set `git config user.email noreply@anthropic.com && git config user.name Claude` **before committing** (stop-hook enforces committer email; no signing key exists here).

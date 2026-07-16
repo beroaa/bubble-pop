@@ -1,0 +1,17 @@
+{
+  "catalog": "Menu Sadah — client menu catalog",
+  "updated": "2026-07-16",
+  "menus": [
+    {
+      "slug": "three-coffee",
+      "name": "Three Coffee",
+      "name_ar": "ثري كافيه",
+      "city": "Riyadh",
+      "status": "delivered",
+      "live": false,
+      "accent": "#C68A4B",
+      "pack": ["index.html", "qr-three-coffee.png", "qr-three-coffee.svg", "table-card.html", "table-card.pdf", "handover.md"],
+      "note": "Pilot. Built + verified 375px. Awaiting push to go live."
+    }
+  ]
+}
