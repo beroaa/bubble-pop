@@ -189,7 +189,22 @@
   .samm .plants{display:flex;align-items:flex-end;justify-content:center;gap:14px;color:var(--green)}
   .samm .s-word{
     font-family:var(--ar);font-weight:700;font-size:1.62rem;color:var(--green-deep);line-height:1;
+    position:relative;transform-origin:50% 70%;
+    animation:sammIn .55s cubic-bezier(.2,.8,.25,1) .45s backwards;
   }
+  /* graft (c3): «سمّ» lands like a stamp, with a quiet ring — the brand's period, spoken */
+  .samm .s-word::after{
+    content:"";position:absolute;left:50%;top:50%;width:2.2em;height:2.2em;margin:-1.1em 0 0 -1.1em;
+    border:1.5px solid var(--green);border-radius:50%;opacity:0;pointer-events:none;
+    animation:sammRing .6s ease-out .82s;
+  }
+  @keyframes sammIn{
+    0%{opacity:0;transform:scale(2.2) rotate(6deg)}
+    55%{opacity:1;transform:scale(.92) rotate(-1deg)}
+    78%{transform:scale(1.05)}
+    100%{opacity:1;transform:scale(1)}
+  }
+  @keyframes sammRing{0%{opacity:.4;transform:scale(.35)}100%{opacity:0;transform:scale(1.25)}}
   .samm .s-ar{
     margin-top:12px;font-family:var(--ar);font-weight:500;font-size:1.04rem;line-height:1.9;color:var(--ink);
   }
@@ -243,6 +258,12 @@
   }
   .sec-kick .k-en{font-family:var(--disp);font-style:italic;font-size:.9rem;color:var(--ink-soft)}
   .sec-kick .k-ar{font-family:var(--ar);font-weight:400;font-size:.74rem}
+  /* graft (c3): one-line quips — the brand's dry wit, set in the house italic */
+  .quip{margin-top:9px;font-family:var(--disp);font-style:italic;font-size:.92rem;color:var(--ink-soft);letter-spacing:.01em}
+  /* graft (c2): grind note — «سمّ» comes full circle at the point of purchase */
+  .grind{margin-top:20px;text-align:center;font-size:.82rem;color:var(--ink-soft);border:1.5px dashed var(--line);border-radius:14px;padding:13px 16px}
+  .grind b{color:var(--green-deep);font-weight:600}
+  .grind .g-ar{display:block;font-family:var(--ar);font-weight:400;font-size:.82rem;margin-top:4px;color:var(--ink-faint)}
 
   ul.items{list-style:none;margin-top:6px}
   .item{display:flex;align-items:baseline;gap:10px;padding:13px 0;border-bottom:1px solid var(--line-soft)}
@@ -264,6 +285,7 @@
     display:flex;flex-direction:column;gap:5px;text-transform:lowercase;
   }
   .vat .ar-l{font-family:var(--ar);letter-spacing:0;font-size:.72rem}
+  .vat .wink{font-family:var(--disp);font-style:italic;font-size:.8rem;letter-spacing:.03em}
   .dusk-fade{height:64px;margin:8px -20px 0;background:linear-gradient(180deg,rgba(245,241,232,0),rgba(217,164,65,.14))}
   footer.night{
     margin:0 -2px;border-radius:24px;overflow:hidden;position:relative;
@@ -303,7 +325,7 @@
   .f-sign-ar{font-family:var(--ar);font-weight:500;font-size:.78rem;margin-top:8px;color:rgba(242,234,216,.5)}
 
   @media (prefers-reduced-motion: reduce){
-    .arm,.moon-i,.sky-night,.sky-dusk,.scene,.ground,.t-marks,.steam path,.route{animation:none !important}
+    .arm,.moon-i,.sky-night,.sky-dusk,.scene,.ground,.t-marks,.steam path,.route,.samm .s-word,.samm .s-word::after{animation:none !important}
     .chip{transition:none}
   }
   @media (min-width:768px){
@@ -428,6 +450,7 @@
       <h2 id="h-espresso">espresso bar<span class="dot">.</span></h2>
       <span class="sec-ar" lang="ar" dir="rtl">بار الإسبريسو</span>
     </div>
+    <p class="quip">short answers to long mornings.</p>
     <ul class="items">
       <li class="item"><span class="names"><span class="en-n">espresso</span><span class="ar-n" lang="ar" dir="rtl">إسبريسو</span><span class="note">single origin, rotates</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>12</span></li>
       <li class="item"><span class="names"><span class="en-n">macchiato</span><span class="ar-n" lang="ar" dir="rtl">ماكياتو</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>14</span></li>
@@ -450,6 +473,7 @@
       <h2 id="h-filter">filter &amp; slow brew<span class="dot">.</span></h2>
       <span class="sec-ar" lang="ar" dir="rtl">قهوة مقطّرة</span>
     </div>
+    <p class="quip">good things take some time.</p>
     <ul class="items">
       <li class="item"><span class="names"><span class="en-n">v60 · hot</span><span class="ar-n" lang="ar" dir="rtl">V60 ساخن</span><span class="note">ask what's on the bar</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>25</span></li>
       <li class="item"><span class="names"><span class="en-n">v60 · iced</span><span class="ar-n" lang="ar" dir="rtl">V60 بارد</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>26</span></li>
@@ -469,6 +493,7 @@
       <h2 id="h-cold">cold bar<span class="dot">.</span></h2>
       <span class="sec-ar" lang="ar" dir="rtl">البار البارد</span>
     </div>
+    <p class="quip">same coffee. some ice.</p>
     <ul class="items">
       <li class="item"><span class="names"><span class="en-n">iced latte</span><span class="ar-n" lang="ar" dir="rtl">لاتيه بارد</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>19</span></li>
       <li class="item"><span class="names"><span class="en-n">iced spanish latte</span><span class="ar-n" lang="ar" dir="rtl">سبانيش بارد</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>22</span></li>
@@ -488,6 +513,7 @@
       <h2 id="h-notcoffee">not coffee<span class="dot">.</span></h2>
       <span class="sec-ar" lang="ar" dir="rtl">مو قهوة</span>
     </div>
+    <p class="quip">not coffee. still some.</p>
     <ul class="items">
       <li class="item"><span class="names"><span class="en-n">matcha latte</span><span class="ar-n" lang="ar" dir="rtl">ماتشا لاتيه</span><span class="note">ceremonial grade</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>24</span></li>
       <li class="item"><span class="names"><span class="en-n">iced matcha</span><span class="ar-n" lang="ar" dir="rtl">ماتشا باردة</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>26</span></li>
@@ -507,6 +533,7 @@
       <h2 id="h-bakery">bakery<span class="dot">.</span></h2>
       <span class="sec-ar" lang="ar" dir="rtl">مخبوزات</span>
     </div>
+    <p class="quip">some company for your cup.</p>
     <ul class="items">
       <li class="item"><span class="names"><span class="en-n">butter croissant</span><span class="ar-n" lang="ar" dir="rtl">كرواسون زبدة</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>14</span></li>
       <li class="item"><span class="names"><span class="en-n">almond croissant</span><span class="ar-n" lang="ar" dir="rtl">كرواسون لوز</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>18</span></li>
@@ -538,11 +565,13 @@
       <li class="item"><span class="names"><span class="en-n">decaf</span><span class="ar-n" lang="ar" dir="rtl">ديكاف</span><span class="note">colombia · sugarcane</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>58</span></li>
       <li class="item"><span class="names"><span class="en-n">drip bags</span><span class="ar-n" lang="ar" dir="rtl">أظرف ترشيح</span><span class="note">box of 10</span></span><span class="lead"></span><span class="price"><span class="cur">sr</span>60</span></li>
     </ul>
+    <p class="grind">whole bean, or ground to your method — <b>just say «سمّ»</b><span class="g-ar" lang="ar" dir="rtl">حبوب كاملة، أو نطحنها على طريقتك — بس قل «سمّ»</span></p>
   </section>
 
   <p class="vat">
     <span>prices in saudi riyal · vat included</span>
     <span class="ar-l" lang="ar" dir="rtl">الأسعار بالريال السعودي وشاملة الضريبة</span>
+    <span class="wink">(prices? some prices.)</span>
   </p>
 
   <div class="dusk-fade" aria-hidden="true"></div>
@@ -557,7 +586,7 @@
     <hr class="f-hr">
     <p class="f-place-en">al muruj district · riyadh</p>
     <p class="f-place-ar" lang="ar" dir="rtl">حي المروج، الرياض</p>
-    <p class="f-site">somecoffee.sa</p>
+    <p class="f-site"><a href="https://www.instagram.com/somecoffee.sa" rel="noopener">@somecoffee.sa</a> · somecoffee.sa</p>
     <p class="f-sign">not just any coffee<span class="dot">.</span> some coffee<span class="dot">.</span></p>
     <p class="f-sign-ar" lang="ar" dir="rtl">سم كوفي</p>
   </footer>

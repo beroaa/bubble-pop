@@ -322,11 +322,22 @@
       "name": "some coffee",
       "name_ar": "سم كوفي",
       "city": "Riyadh",
-      "status": "rebuilding",
+      "status": "delivered",
       "live": true,
       "accent": "#2E5D43",
       "concept": "Botanical roastery — cream & green, first-light-to-midnight; REAL CLIENT (replied on IG)",
-      "note": "v1 live but empty; 3-concept rebuild in flight."
+      "note": "REAL client (replied on IG). Rebuilt via 3-concept swarm: day-arc winner. Harness-clean. reply.md ready.",
+      "gift": true,
+      "verified": true,
+      "pack": [
+        "index.html",
+        "gift.html",
+        "qr-some-coffee.png",
+        "qr-some-coffee.svg",
+        "table-card.html",
+        "handover.md"
+      ],
+      "pack_complete": true
     }
   ]
 }

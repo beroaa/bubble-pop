@@ -320,17 +320,17 @@
       "name_ar": "سم كوفي",
       "city": "Riyadh",
       "stage": "Replied",
-      "menu_built": false,
+      "menu_built": true,
       "menu_live": true,
       "gift_ready": true,
-      "pack_complete": false,
+      "pack_complete": true,
       "links": {
         "menu": "https://menu-sadah.com/some-coffee",
         "gift": "https://menu-sadah.com/some-coffee/gift.html"
       },
       "concept": "Botanical roastery — cream & green, first-light-to-midnight; REAL CLIENT (replied on IG)",
       "accent": "#2E5D43",
-      "status_note": "v1 live but empty; 3-concept rebuild in flight.",
+      "status_note": "REAL client (replied on IG). Rebuilt via 3-concept swarm: day-arc winner. Harness-clean. reply.md ready.",
       "next_action": "REPLIED on IG — deploy rebuilt menu, then send reply.md text with menu + gift links",
       "source_files": "menus/some-coffee/ (index.html, gift.html, qr, table-card, handover)"
     }
