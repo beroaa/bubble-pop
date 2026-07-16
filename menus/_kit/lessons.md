@@ -6,8 +6,9 @@ never shipped twice. This is how the pipeline "learns" — append, never forget.
 
 ## Rendering / headless browser
 - **backdrop-filter blur does NOT render in headless Chromium.** Sticky nav must use a SOLID/opaque background colour, never translucent-glass-only.
-- **Google Fonts only load under Playwright** when launched with `proxy:{server: process.env.HTTPS_PROXY}` and context `ignoreHTTPSErrors:true`. Otherwise you silently get fallback fonts.
-- **`document.fonts.size` can read 0 even when webfonts visibly render** — treat the harness `fontsOk` flag as a soft signal; confirm fonts via screenshot or metric comparison, not that flag alone.
+- **CORRECTION (was wrong before) — Google Fonts do NOT load when Chromium launches with `proxy:{server}`.** The font connection resets (`net::ERR_CONNECTION_RESET`), silently yielding fallback fonts. An earlier note here claimed the proxy launch loads fonts — that was FALSE, proven by network capture. This silently shipped fallback-font screenshots as "verified".
+- **The reliable fix:** launch WITHOUT a proxy arg; intercept `fonts.(googleapis|gstatic)\.com` via `page.route` and fulfill from Node `fetch()` using an undici `Agent` trusting `/root/.ccr/ca-bundle.crt` + a desktop Chrome UA (cache the bytes). Latin subsets load reliably; the Arabic subset is still unconfirmed in-harness (renders fine live via `<link>`) → gate Latin as FAIL, Arabic as WARN.
+- **`document.fonts.check/ready/size` all LIE for `<link>`-loaded fonts** — returned "loaded"/size 0 both when fonts rendered and when they didn't. The ONLY trustworthy check is metric comparison: measure text in `"Family",monospace` vs `monospace`; equal width ⇒ the font fell back. (This is now the harness's font gate.)
 
 ## Layout / 375px overflow (most common failure)
 - Item rows: name block = `flex:0 1 auto`, dotted leader = `flex:1 0 16px`, price = `white-space:nowrap`. Any other combo overflows at 375.
