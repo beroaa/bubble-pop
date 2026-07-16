@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kuthban — Table Card (Print A6)</title>
+<style>
+  :root{--accent:#A85E33;--ink:#241A10;--dim:#6E5C44;--card:#FBF7F0}
+  *{margin:0;padding:0;box-sizing:border-box}
+  @page{size:105mm 148mm;margin:0}
+  body{background:#3a2e20;display:flex;justify-content:center;padding:24px;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+  .card{width:105mm;height:148mm;background:var(--card);color:var(--ink);display:flex;flex-direction:column;align-items:center;text-align:center;padding:11mm 10mm 9mm;box-shadow:0 12px 40px rgba(0,0,0,.45)}
+  @media print{body{background:none;padding:0;display:block}.card{box-shadow:none;page-break-after:always}}
+  .mark{width:12mm;height:12mm;margin-bottom:4mm;border:1.4mm solid var(--accent);border-radius:50%;position:relative}
+  .mark::after{content:"";position:absolute;inset:2.4mm;border-radius:50%;background:var(--accent);opacity:.9}
+  .brand{font-weight:800;font-size:20pt;letter-spacing:.14em;line-height:1}
+  .brand-ar{font-size:12pt;color:var(--dim);margin-top:2.5mm}
+  .rule{width:14mm;height:.6mm;background:var(--accent);margin:5mm 0 6mm}
+  .qrbox{width:52mm;height:52mm;padding:4mm;background:#fff;border:.5mm solid var(--accent);border-radius:3mm}
+  .qrbox svg{width:100%;height:100%;display:block}
+  .scan-en{margin-top:5.5mm;font-weight:700;font-size:11pt;letter-spacing:.04em}
+  .scan-ar{font-size:10pt;color:var(--dim);margin-top:1.6mm}
+  .url{margin-top:4mm;font-weight:600;font-size:8.5pt;letter-spacing:.10em;color:var(--accent)}
+  .foot{margin-top:auto;font-size:7pt;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+</style></head><body>
+  <div class="card">
+    <div class="mark"></div>
+    <div class="brand">KUTHBAN</div>
+    <div class="brand-ar">كثبان</div>
+    <div class="rule"></div>
+    <div class="qrbox"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33" shape-rendering="crispEdges"><path stroke="#1A1512" d="M0 0.5h7m2 0h1m1 0h3m1 0h1m2 0h5m1 0h1m1 0h7M0 1.5h1m5 0h1m2 0h1m3 0h2m4 0h2m3 0h1m1 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m1 0h2m5 0h2m2 0h3m1 0h2m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h1m1 0h1m6 0h1m3 0h1m1 0h1m2 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m3 0h3m1 0h1m2 0h2m4 0h2m1 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m6 0h1m3 0h2m2 0h3m2 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M9 7.5h1m3 0h2m2 0h1m1 0h2m1 0h1m1 0h1M3 8.5h2m1 0h2m1 0h3m1 0h2m1 0h1m1 0h1m5 0h1m4 0h2M0 9.5h3m1 0h2m2 0h1m2 0h1m2 0h4m2 0h2m1 0h1m1 0h1m1 0h2M0 10.5h1m1 0h1m1 0h4m3 0h3m2 0h1m1 0h1m1 0h1m1 0h2m1 0h3m1 0h4M5 11.5h1m2 0h3m1 0h1m3 0h4m1 0h2m2 0h1m1 0h5M3 12.5h1m1 0h4m3 0h3m1 0h1m1 0h2m1 0h1m2 0h4m1 0h1M0 13.5h1m1 0h1m1 0h2m2 0h4m4 0h3m2 0h1m1 0h1m1 0h1m1 0h1m3 0h1M0 14.5h1m1 0h5m1 0h4m1 0h4m2 0h2m5 0h1m1 0h1m1 0h1M0 15.5h3m1 0h1m2 0h1m1 0h1m6 0h1m2 0h1m3 0h3m2 0h3M1 16.5h1m4 0h3m1 0h5m1 0h3m4 0h1m1 0h5m1 0h1M0 17.5h4m3 0h2m3 0h2m2 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h4m2 0h1M4 18.5h1m1 0h1m2 0h2m1 0h2m2 0h1m1 0h4m1 0h1m5 0h2m1 0h1M0 19.5h1m1 0h1m6 0h1m1 0h3m3 0h1m2 0h1m2 0h3m3 0h4M3 20.5h1m2 0h1m1 0h1m1 0h2m1 0h2m4 0h2m3 0h2m3 0h1M0 21.5h2m9 0h1m4 0h1m1 0h1m3 0h1m3 0h5M0 22.5h1m3 0h1m1 0h2m4 0h2m4 0h2m1 0h2m1 0h1m1 0h3m1 0h3M0 23.5h1m1 0h1m1 0h2m1 0h3m1 0h1m2 0h1m2 0h1m1 0h2m6 0h1m2 0h2M0 24.5h2m2 0h1m1 0h1m2 0h1m2 0h1m2 0h2m7 0h6m1 0h2M8 25.5h3m1 0h5m1 0h1m3 0h1m1 0h1m3 0h2m1 0h1M0 26.5h7m1 0h2m1 0h1m1 0h2m3 0h7m1 0h1m1 0h1M0 27.5h1m5 0h1m2 0h1m1 0h1m1 0h5m6 0h1m3 0h4M0 28.5h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h1m1 0h2m4 0h1m1 0h7m1 0h1M0 29.5h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h2m5 0h1m1 0h1m2 0h2m1 0h1m1 0h3M0 30.5h1m1 0h3m1 0h1m5 0h1m3 0h1m2 0h1m1 0h2m5 0h2m1 0h2M0 31.5h1m5 0h1m2 0h6m2 0h1m1 0h2m2 0h1m5 0h4M0 32.5h7m3 0h1m1 0h1m2 0h1m1 0h1m1 0h1m1 0h4m3 0h1"/></svg>
+</div>
+    <div class="scan-en">Scan to view the menu</div>
+    <div class="scan-ar">امسح الرمز لتصفّح القائمة</div>
+    <div class="url">menu-sadah.com/kuthban</div>
+    <div class="foot">Dubai · menu-sadah.com</div>
+  </div>
+</body></html>

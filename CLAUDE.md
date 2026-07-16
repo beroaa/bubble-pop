@@ -7,10 +7,13 @@ This repo hosts Menu Sadah client menus under `menus/<slug>/`. Every menu build 
 Each `menus/<slug>/` folder ships:
 
 1. `index.html` — the menu page, fully self-contained (inline CSS/JS; Google Fonts links allowed).
-2. `qr-<slug>.png` — 1200 px QR → `https://menu-sadah.com/<slug>`, ECC level H.
-3. `qr-<slug>.svg` — same QR as vector for print shops.
-4. `table-card.html` — print-ready A6 (105×148 mm, `@page` CSS, 100% scale) table card: brand mark + wordmark, framed QR on white, "Scan to view the menu" EN over AR, plain-text URL fallback, location + IG footer.
-5. `handover.md` — live link, file inventory, bilingual how-to-use for the owner (print specs: A6, 250–300 gsm matte; link-in-bio; "changes take one message, same-day update, QR never changes"), plus an **Internal — Menu Sadah** section: offer, outreach draft, brand tokens, price-anchor sources.
+2. `gift.html` — **MANDATORY, every menu, no exceptions** — the brand-coloured animated gift doc (anchor price struck through → "SR 0 · on the house · هدية"). This is the deal-breaker outreach bridge. Every client ALWAYS gets **two links together: the menu link (`/​<slug>`) + the gift link (`/​<slug>/gift.html`)** — outreach leads with the gift link. Generate via `node menus/_kit/gen-gifts.mjs` (palettes in `menus/_kit/tokens.json`).
+3. `qr-<slug>.png` — 1200 px QR → `https://menu-sadah.com/<slug>`, ECC level H.
+4. `qr-<slug>.svg` — same QR as vector for print shops.
+5. `table-card.html` — print-ready A6 (105×148 mm, `@page` CSS, 100% scale) table card: brand mark + wordmark, framed QR on white, "Scan to view the menu" EN over AR, plain-text URL fallback, location + IG footer.
+6. `handover.md` — live link, file inventory, bilingual how-to-use for the owner (print specs: A6, 250–300 gsm matte; link-in-bio; "changes take one message, same-day update, QR never changes"), plus an **Internal — Menu Sadah** section: offer, outreach draft, brand tokens, price-anchor sources.
+
+Batch generator for items 3–6: `node menus/_kit/pack.mjs [slug ...]` (defaults to every menu missing a full pack). A menu is NOT deliverable until all 6 files exist — the catalog tracks this as `pack_complete`.
 
 ## The 6-point locked standard
 

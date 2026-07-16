@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mono — Table Card (Print A6)</title>
+<style>
+  :root{--accent:#E23A2E;--ink:#241A10;--dim:#6E5C44;--card:#FBF7F0}
+  *{margin:0;padding:0;box-sizing:border-box}
+  @page{size:105mm 148mm;margin:0}
+  body{background:#3a2e20;display:flex;justify-content:center;padding:24px;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+  .card{width:105mm;height:148mm;background:var(--card);color:var(--ink);display:flex;flex-direction:column;align-items:center;text-align:center;padding:11mm 10mm 9mm;box-shadow:0 12px 40px rgba(0,0,0,.45)}
+  @media print{body{background:none;padding:0;display:block}.card{box-shadow:none;page-break-after:always}}
+  .mark{width:12mm;height:12mm;margin-bottom:4mm;border:1.4mm solid var(--accent);border-radius:50%;position:relative}
+  .mark::after{content:"";position:absolute;inset:2.4mm;border-radius:50%;background:var(--accent);opacity:.9}
+  .brand{font-weight:800;font-size:20pt;letter-spacing:.14em;line-height:1}
+  .brand-ar{font-size:12pt;color:var(--dim);margin-top:2.5mm}
+  .rule{width:14mm;height:.6mm;background:var(--accent);margin:5mm 0 6mm}
+  .qrbox{width:52mm;height:52mm;padding:4mm;background:#fff;border:.5mm solid var(--accent);border-radius:3mm}
+  .qrbox svg{width:100%;height:100%;display:block}
+  .scan-en{margin-top:5.5mm;font-weight:700;font-size:11pt;letter-spacing:.04em}
+  .scan-ar{font-size:10pt;color:var(--dim);margin-top:1.6mm}
+  .url{margin-top:4mm;font-weight:600;font-size:8.5pt;letter-spacing:.10em;color:var(--accent)}
+  .foot{margin-top:auto;font-size:7pt;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+</style></head><body>
+  <div class="card">
+    <div class="mark"></div>
+    <div class="brand">MONO</div>
+    <div class="brand-ar">مونو</div>
+    <div class="rule"></div>
+    <div class="qrbox"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33" shape-rendering="crispEdges"><path stroke="#1A1512" d="M0 0.5h7m1 0h3m3 0h2m1 0h5m1 0h2m1 0h7M0 1.5h1m5 0h1m1 0h1m2 0h1m4 0h1m4 0h1m2 0h1m1 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m1 0h6m2 0h1m4 0h4m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m2 0h1m2 0h1m1 0h1m2 0h1m2 0h1m1 0h3m1 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m2 0h2m2 0h1m2 0h5m2 0h1m2 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m1 0h2m1 0h1m2 0h1m1 0h3m1 0h3m1 0h1m1 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h2m3 0h1m4 0h2m1 0h3M2 8.5h3m1 0h1m1 0h1m2 0h1m4 0h1m5 0h1m1 0h4m2 0h3M0 9.5h4m3 0h5m2 0h2m4 0h2m1 0h1m1 0h2m5 0h1M0 10.5h1m2 0h2m1 0h2m2 0h1m2 0h1m2 0h1m3 0h3m2 0h1m1 0h1m2 0h2M2 11.5h1m1 0h1m2 0h2m2 0h4m1 0h1m2 0h1m1 0h3m1 0h1m4 0h2M1 12.5h4m1 0h1m1 0h1m3 0h2m4 0h1m1 0h1m1 0h3m2 0h2m2 0h2M1 13.5h1m2 0h2m1 0h1m3 0h1m2 0h3m2 0h2m2 0h1m2 0h1m2 0h1m2 0h1M0 14.5h1m2 0h1m1 0h2m1 0h1m1 0h2m3 0h1m4 0h1m1 0h1m2 0h2m1 0h2m1 0h1M1 15.5h1m1 0h1m1 0h1m2 0h1m1 0h1m2 0h1m1 0h1m2 0h10m2 0h1m1 0h1M0 16.5h1m1 0h6m1 0h2m1 0h2m2 0h3m6 0h1m1 0h2M1 17.5h5m3 0h1m1 0h1m1 0h1m3 0h3m1 0h1m1 0h2m1 0h1m5 0h1M6 18.5h2m1 0h1m1 0h1m2 0h1m1 0h7m2 0h2m1 0h1m1 0h2M0 19.5h1m1 0h4m1 0h1m4 0h1m1 0h2m1 0h1m3 0h1m1 0h5m1 0h2m1 0h1M1 20.5h3m1 0h2m1 0h1m3 0h1m1 0h1m1 0h1m2 0h2m1 0h1m1 0h2m2 0h2m1 0h2M0 21.5h5m3 0h1m1 0h2m1 0h2m2 0h4m2 0h1m2 0h1m2 0h2m1 0h1M0 22.5h1m1 0h1m3 0h7m2 0h2m2 0h1m2 0h1m1 0h1m2 0h5M0 23.5h1m1 0h2m1 0h1m1 0h3m1 0h1m2 0h1m2 0h1m3 0h3m4 0h4M0 24.5h1m1 0h1m3 0h4m1 0h1m2 0h1m2 0h2m3 0h1m1 0h5M8 25.5h1m2 0h1m1 0h3m3 0h3m2 0h1m3 0h2m2 0h1M0 26.5h7m4 0h2m1 0h1m1 0h1m1 0h2m1 0h4m1 0h1m1 0h1m2 0h1M0 27.5h1m5 0h1m2 0h4m1 0h2m1 0h2m1 0h3m1 0h1m3 0h5M0 28.5h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h5m2 0h2m2 0h5m2 0h2M0 29.5h1m1 0h3m1 0h1m1 0h1m1 0h3m1 0h3m2 0h1m1 0h1m1 0h3m2 0h2m2 0h1M0 30.5h1m1 0h3m1 0h1m1 0h1m1 0h3m4 0h1m2 0h1m1 0h2m1 0h2m2 0h2M0 31.5h1m5 0h1m4 0h5m2 0h1m2 0h1m1 0h1m1 0h3m1 0h2M0 32.5h7m6 0h3m2 0h1m3 0h4m5 0h1"/></svg>
+</div>
+    <div class="scan-en">Scan to view the menu</div>
+    <div class="scan-ar">امسح الرمز لتصفّح القائمة</div>
+    <div class="url">menu-sadah.com/mono-coffee</div>
+    <div class="foot">Dubai · menu-sadah.com</div>
+  </div>
+</body></html>
