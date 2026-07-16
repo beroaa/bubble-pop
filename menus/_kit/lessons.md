@@ -26,6 +26,9 @@ never shipped twice. This is how the pipeline "learns" — append, never forget.
 - Push proxy can return **403 = write-permission grant issue** (not network); reads still work. Retry in background; deliver via SendUserFile meanwhile. Never treat as fatal.
 - Commits show "Unverified" because **no GPG signing key exists in this env** — committer email is still correct. Expected; do not churn commits over it.
 
+## Harness self-corrections (the QA learning from itself)
+- **`cssApplied` must accept `background-image`/gradients, not just `background-color`.** A body styled with `background:linear-gradient(...)` has a *transparent* computed `background-color`, which false-flagged kuthban as "CSS not applied". Fix: treat a page as styled if body/html/`.wrap`/`.card` has a non-default background COLOR **or** a `background-image !== none`. (Caught by kuthban — desert gradient.)
+
 ## Process
 - Verify BEFORE counting a menu done: `node menus/_kit/verify.mjs <slug>` must exit 0.
 - Improve loops are **bounded & convergent** — stop when no verified findings remain; never run an unbounded "as often as possible" loop (drift + regression + wasted tokens).

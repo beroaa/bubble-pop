@@ -32,18 +32,31 @@ try {
     await page.waitForTimeout(1200);
     try { await page.evaluate(() => document.fonts && document.fonts.ready); } catch {}
 
-    const m = await page.evaluate(() => ({
-      sw: document.body.scrollWidth,
-      iw: window.innerWidth,
-      bg: getComputedStyle(document.body).backgroundColor,
-      fontsReady: !!(document.fonts && document.fonts.status === 'loaded'),
-      fontCount: document.fonts ? document.fonts.size : 0,
-    }));
+    const m = await page.evaluate(() => {
+      const styled = (el) => {
+        if (!el) return false;
+        const s = getComputedStyle(el);
+        const c = s.backgroundColor, i = s.backgroundImage;
+        const colored = c && c !== 'rgba(0, 0, 0, 0)' && c !== 'rgb(255, 255, 255)' && c !== 'transparent';
+        const imaged = i && i !== 'none';               // gradients & data-URI images count
+        return !!(colored || imaged);
+      };
+      // "CSS applied" if the page paints a background anywhere it plausibly would
+      const cssApplied = styled(document.body) || styled(document.documentElement) ||
+        styled(document.querySelector('.wrap, main, header, [class*="wrap"], .card'));
+      return {
+        sw: document.body.scrollWidth,
+        iw: window.innerWidth,
+        cssApplied,
+        fontsReady: !!(document.fonts && document.fonts.status === 'loaded'),
+        fontCount: document.fonts ? document.fonts.size : 0,
+      };
+    });
     const overflow = m.sw > m.iw + 1;
     out.viewports[vp.tag] = { w: vp.w, scrollWidth: m.sw, overflow };
     if (overflow) { out.pass = false; out.issues.push(`h-overflow @${vp.w}px (body ${m.sw} > ${m.iw})`); }
     if (errs.length) { out.pass = false; out.jsErrors.push(...errs.map(e => `${vp.tag}: ${e}`)); }
-    if (m.bg && m.bg !== 'rgba(0, 0, 0, 0)' && m.bg !== 'rgb(255, 255, 255)') out.cssApplied = true;
+    if (m.cssApplied) out.cssApplied = true;
     if (m.fontCount > 0) out.fontsOk = true;
 
     if (vp.tag === 'mobile-sm') {
