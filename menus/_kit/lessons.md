@@ -33,3 +33,4 @@ never shipped twice. This is how the pipeline "learns" — append, never forget.
 ## Process
 - Verify BEFORE counting a menu done: `node menus/_kit/verify.mjs <slug>` must exit 0.
 - Improve loops are **bounded & convergent** — stop when no verified findings remain; never run an unbounded "as often as possible" loop (drift + regression + wasted tokens).
+- **Harness font probe must measure at a weight the page actually loads.** Opulent loads Fraunces only at 400/500; the probe measured at 700 → font fell back in the probe only → FALSE "not rendered" fail. The live page was fine. Fix direction: probe at 400 (or parse loaded weights from the css2 URL) before declaring fallback.

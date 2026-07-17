@@ -1,0 +1,850 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#EAE3CE">
+<title>Opulent Bakery &amp; Coffee</title>
+<meta name="description" content="Opulent Bakery &amp; Coffee, Qurtubah, Riyadh. Based on a true story.">
+<meta property="og:title" content="Opulent Bakery &amp; Coffee">
+<meta property="og:description" content="Based on a true story. Qurtubah, Riyadh.">
+<meta property="og:image" content="https://menu-sadah.com/assets/opulent-cafe/banners/banner-bakery.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Pinyon+Script&family=El+Messiri:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --olive:#6F6C43; --olive-2:#565334; --camel:#D3B48C; --camel-d:#B7946A;
+  --cream:#EAE3CE; --paper:#F4EFE1; --paper-2:#EFE8D6; --espresso:#2A211A; --ink:#3A3226;
+  --gold:#C6A15B; --gold-2:#87682E; --line:rgba(42,33,26,.14); --line-2:rgba(42,33,26,.08);
+  --disp:'Jost',system-ui,sans-serif; --serif:'Fraunces',Georgia,serif; --script:'Pinyon Script',cursive;
+  --ar:'IBM Plex Sans Arabic',sans-serif; --arh:'El Messiri','IBM Plex Sans Arabic',serif;
+  --op-olive:#6F6C43; --op-cream:#EAE3CE; --op-camel:#D3B48C; --op-espresso:#2A211A; --op-gold:#C6A15B;
+  --maxw:940px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--disp);color:var(--espresso);line-height:1.5;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;-webkit-tap-highlight-color:transparent;
+  background:var(--paper);
+  background-image:
+    radial-gradient(120% 80% at 50% -10%, #F7F2E6 0%, var(--paper) 46%, var(--paper-2) 100%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-attachment:fixed;}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+::selection{background:rgba(111,108,67,.22)}
+.ltn{font-variant-numeric:tabular-nums}
+.ar{font-family:var(--ar);direction:rtl}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* ghosted C-swirl wall texture behind everything */
+.swirl-bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.06;overflow:hidden}
+.swirl-bg svg{position:absolute;width:min(120vw,900px);height:auto;right:-14vw;top:8vh;
+  animation:swirlDrift 90s linear infinite}
+.swirl-bg .s2{left:-18vw;right:auto;top:auto;bottom:2vh;width:min(90vw,680px);opacity:.7;
+  animation-direction:reverse;animation-duration:150s}
+@keyframes swirlDrift{to{transform:rotate(360deg)}}
+
+/* ============ MASTHEAD / HERO ============ */
+.masthead{position:relative;min-height:100svh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;padding:56px 22px 40px;overflow:hidden;z-index:1}
+.mast-top{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;
+  padding:14px 22px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--olive-2);z-index:6}
+.mast-top .rule{position:absolute;left:22px;right:22px;top:44px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.5}
+.mast-top b{font-weight:600}
+.op-hero{position:absolute;inset:0;overflow:hidden;--ink:var(--op-olive);z-index:0}
+.op-hero *{box-sizing:border-box}
+.op-layer{position:absolute;inset:0;pointer-events:none}
+.op-center{display:grid;place-items:center}
+.op-stack{position:relative;z-index:4;display:flex;flex-direction:column;align-items:center;gap:2px}
+.op-swirl{position:absolute;left:50%;top:44%;width:min(96vw,620px);height:min(96vw,620px);transform:translate(-50%,-50%);
+  opacity:.08;filter:blur(.4px);animation:opSpin 72s linear infinite}
+.op-swirl svg{width:100%;height:100%}
+@keyframes opSpin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.op-palm{position:absolute;opacity:.16;transform-origin:12% 88%;animation:opSway 9s ease-in-out infinite alternate}
+.op-palm svg{display:block;width:100%;height:100%;overflow:visible}
+.op-palm.p1{left:-40px;bottom:-30px;width:190px;height:190px}
+.op-palm.p2{right:-46px;top:2px;width:172px;height:172px;transform-origin:88% 12%;animation-name:opSway2;animation-duration:11s}
+@keyframes opSway{from{transform:rotate(-2.2deg)}to{transform:rotate(2.2deg)}}
+@keyframes opSway2{from{transform:scaleX(-1) rotate(-2.6deg)}to{transform:scaleX(-1) rotate(1.8deg)}}
+.op-mono{width:150px;height:162px;margin-bottom:2px}
+.op-mono svg{width:100%;height:100%;overflow:visible}
+.op-o{fill:none;stroke:var(--ink);stroke-width:7.5;stroke-linecap:round;stroke-linejoin:round}
+.op-o-main{stroke-dasharray:1000;stroke-dashoffset:1000;animation:opDraw 1.2s cubic-bezier(.65,0,.35,1) .15s forwards}
+@keyframes opDraw{to{stroke-dashoffset:0}}
+.op-o-glint{fill:none;stroke:var(--op-gold);stroke-width:2.6;stroke-linecap:round;
+  stroke-dasharray:34 966;stroke-dashoffset:1000;opacity:0;
+  animation:opGlintIn .01s linear 1.4s forwards, opGlint 3.6s linear 1.4s infinite}
+@keyframes opGlintIn{to{opacity:.9}}
+@keyframes opGlint{from{stroke-dashoffset:1000}to{stroke-dashoffset:0}}
+.op-word{font-family:var(--disp);font-weight:600;letter-spacing:.30em;font-size:clamp(30px,9vw,62px);
+  color:var(--espresso);padding-left:.30em;opacity:0;animation:fadeUp .5s ease 1.3s forwards}
+.op-strap{display:flex;align-items:center;gap:14px;margin:6px 0 2px;opacity:0;animation:fadeUp .5s ease 1.45s forwards}
+.op-strap span{font-family:var(--disp);font-weight:400;letter-spacing:.42em;font-size:clamp(10px,2.6vw,13px);color:var(--olive-2);text-transform:uppercase;padding-left:.42em}
+.op-strap i{width:34px;height:1px;background:var(--gold);opacity:.7}
+.op-tagwrap{position:relative;display:inline-block;margin-top:16px}
+.op-tag{font-family:var(--script);font-size:clamp(31px,8.6vw,52px);color:var(--olive);line-height:1.28;padding:0 .12em 4px;
+  filter:drop-shadow(0 3px 15px rgba(198,161,91,.45));
+  clip-path:inset(0 100% 0 0);animation:tagWrite .9s cubic-bezier(.55,0,.25,1) 1.5s forwards}
+@keyframes tagWrite{to{clip-path:inset(0 0% 0 0)}}
+.op-tag::after{content:"Based on a true story";position:absolute;inset:0;padding:0 .12em 4px;pointer-events:none;
+  background:linear-gradient(100deg,transparent 34%,rgba(255,246,214,1) 50%,transparent 66%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+  background-size:280% 100%;background-position:135% 0;opacity:0;animation:tagShine 1.1s ease 2.8s}
+@keyframes tagShine{0%{opacity:0;background-position:135% 0}22%{opacity:1}100%{opacity:0;background-position:-55% 0}}
+.op-pen{position:absolute;top:6%;left:0;width:16px;height:16px;border-radius:50%;opacity:0;pointer-events:none;z-index:2;
+  background:radial-gradient(circle,#FFF6DA 0%,#E4C87E 42%,rgba(198,161,91,0) 72%);
+  box-shadow:0 0 16px 6px rgba(228,200,126,.8);animation:penGlide .9s cubic-bezier(.55,0,.25,1) 1.5s forwards}
+@keyframes penGlide{0%{opacity:0;left:-2%}10%{opacity:1}88%{opacity:1}100%{opacity:0;left:100%}}
+.op-tag-ar{font-family:var(--arh);font-weight:600;font-size:clamp(21px,5.9vw,30px);color:var(--olive);margin-top:13px;direction:rtl;letter-spacing:.01em;position:relative;display:inline-block;clip-path:inset(0 0 0 100%);animation:tagWriteAr .8s cubic-bezier(.55,0,.25,1) 2s forwards}
+@keyframes tagWriteAr{to{clip-path:inset(0 0 0 0)}}
+.op-ul{position:absolute;left:0;right:0;bottom:-8px;height:2px;transform:scaleX(0);transform-origin:right;background:linear-gradient(90deg,transparent,var(--gold),transparent);animation:ulDraw .6s ease 2.5s forwards}
+@keyframes ulDraw{to{transform:scaleX(1)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.op-plate{width:min(74vw,340px);margin:14px auto 0;opacity:0;animation:plateIn .7s cubic-bezier(.2,.7,.3,1) 1.8s forwards;
+  filter:drop-shadow(0 26px 30px rgba(42,33,26,.26))}
+@keyframes plateIn{from{opacity:0;transform:translateY(40px) scale(.94)}to{opacity:1;transform:none}}
+.op-bird{position:absolute;width:22px;height:12px;opacity:0}
+.op-bird svg{width:100%;height:100%;overflow:visible}
+.op-bird path{fill:none;stroke:var(--op-espresso);stroke-width:1.4;stroke-linecap:round;opacity:.5}
+.op-bird.b1{top:18%;left:-8%;animation:opFly 12s linear 2s infinite}
+.op-bird.b2{top:26%;left:-8%;animation:opFly 15s linear 3.5s infinite}
+.op-bird.b3{top:12%;left:-8%;animation:opFly 18s linear 6s infinite}
+@keyframes opFly{0%{opacity:0;transform:translate(0,0) scale(.7)}8%{opacity:.6}50%{transform:translate(60vw,-24px) scale(.72)}92%{opacity:.6}100%{opacity:0;transform:translate(126vw,8px) scale(.74)}}
+.op-motes{overflow:hidden}
+.op-mote{position:absolute;bottom:-12px;border-radius:50%;background:radial-gradient(circle,var(--op-gold) 0%,rgba(198,161,91,0) 70%);opacity:0;animation:opRise linear forwards}
+@keyframes opRise{0%{opacity:0;transform:translateY(0) translateX(0)}14%{opacity:.9}85%{opacity:.7}100%{opacity:0;transform:translateY(var(--ry)) translateX(var(--rx))}}
+.op-hero.is-paused *{animation-play-state:paused!important}
+.cue{position:relative;z-index:4;margin-top:22px;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--olive-2);opacity:0;animation:fadeUp .6s ease 2.1s forwards}
+.cue span{display:block;font-size:16px;margin-top:5px;animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(5px)}}
+
+/* ============ BARISTA BAR ============ */
+.barista{position:sticky;top:0;z-index:30;background:rgba(244,239,225,.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);}
+.bar-row{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:10px;padding:9px 18px}
+.status{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:500;color:var(--olive-2);white-space:nowrap}
+.dot{width:8px;height:8px;border-radius:50%;background:#B98A3A;box-shadow:0 0 0 3px rgba(185,138,58,.18)}
+.dot.open{background:#5B8A4C;box-shadow:0 0 0 3px rgba(91,138,76,.18)}
+.bar-actions{display:flex;gap:7px;margin-left:auto}
+.act{display:inline-flex;align-items:center;gap:6px;font-family:var(--disp);font-size:12px;font-weight:500;
+  color:var(--olive-2);border:1px solid var(--line);background:transparent;border-radius:22px;padding:7px 13px;cursor:pointer;text-decoration:none;transition:.18s;white-space:nowrap}
+.act:hover{background:var(--cream);color:var(--espresso)}
+.act svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.7}
+.act.wa{background:var(--olive);color:#F6F1E1;border-color:var(--olive)}
+.act.wa:hover{background:var(--olive-2);color:#fff}
+.lang{font-family:var(--disp);font-weight:600;font-size:12px;letter-spacing:.06em;border:1px solid var(--line);background:transparent;color:var(--olive-2);border-radius:22px;padding:7px 12px;cursor:pointer}
+.filters{display:flex;gap:8px;overflow-x:auto;padding:8px 18px 10px;max-width:var(--maxw);margin:0 auto;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;font-family:var(--disp);font-size:13px;font-weight:500;color:var(--olive-2);
+  border:1px solid var(--line);background:transparent;border-radius:20px;padding:7px 14px;cursor:pointer;white-space:nowrap;transition:.16s}
+.chip .a{font-family:var(--arh);font-weight:600;margin-left:7px;opacity:.85;font-size:14px}
+.chip.on,.chip:hover{background:linear-gradient(180deg,var(--olive),var(--olive-2));color:#F4EFE1;border-color:var(--olive)}
+.chip.on .a{opacity:.85}
+body.rtl .chip .a{margin-left:0;margin-right:7px}
+body.rtl .status{flex-direction:row-reverse}
+body.rtl .stamp .story,body.rtl .card .de{direction:rtl}
+.count{font-size:11px;color:var(--olive-2);opacity:.7;padding:0 18px 8px;max-width:var(--maxw);margin:0 auto;letter-spacing:.04em}
+
+/* ============ SIGNATURE SHELF ============ */
+.shelf{position:relative;z-index:1;padding:40px 0 6px}
+.shelf-head{text-align:center;margin-bottom:16px}
+.shelf-head .k{font-family:var(--script);font-size:30px;color:var(--olive);line-height:1}
+.shelf-head .s{font-family:var(--disp);letter-spacing:.26em;font-size:11px;text-transform:uppercase;color:var(--olive-2);margin-top:2px}
+.shelf-row{display:flex;gap:16px;overflow-x:auto;padding:6px 24px 20px;scroll-snap-type:x mandatory;scrollbar-width:none}
+.shelf-row::-webkit-scrollbar{display:none}
+.stamp{flex:0 0 auto;width:210px;scroll-snap-align:center;background:var(--paper);border-radius:4px;padding:11px 11px 14px;
+  box-shadow:0 14px 30px -18px rgba(42,33,26,.5);position:relative;transform:rotate(-1.4deg);
+  --sc:var(--gold);border:0}
+.stamp:nth-child(even){transform:rotate(1.6deg)}
+.stamp .frame{border:1px dashed rgba(111,108,67,.42);border-radius:3px;padding:9px 9px 11px;margin:3px;
+  position:relative}
+.stamp .frame::after{content:"";position:absolute;inset:-6px;border-radius:5px;pointer-events:none;
+  background:radial-gradient(circle 3px at 50% -6px,rgba(111,108,67,.32) 1.4px,#0000 1.8px) repeat-x 0 0/13px 6px,
+    radial-gradient(circle 3px at 50% 6px,rgba(111,108,67,.32) 1.4px,#0000 1.8px) repeat-x 0 100%/13px 6px}
+.stamp figure{border-radius:3px;overflow:hidden;aspect-ratio:1/1;background:var(--cream);margin-bottom:9px}
+.stamp figure img{width:100%;height:100%;object-fit:cover;object-position:center}
+.stamp .nm{font-family:var(--serif);font-style:italic;font-size:16px;line-height:1.15;color:var(--espresso)}
+.stamp .nm-ar{font-family:var(--arh);font-weight:600;font-size:15.5px;color:var(--olive);direction:rtl;margin-top:3px}
+.stamp .story{font-family:var(--disp);font-size:11px;color:var(--olive-2);margin-top:3px;line-height:1.35;min-height:28px}
+.stamp .foot{display:flex;justify-content:space-between;align-items:center;margin-top:7px;padding-top:7px;border-top:1px dashed rgba(111,108,67,.3)}
+.stamp .pm{font-family:var(--disp);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-2)}
+.stamp .pr{font-family:var(--disp);font-weight:600;font-size:15px;color:var(--olive)}
+.stamp .pr .c{font-size:9px;color:var(--gold-2);margin-left:1px}
+
+/* ============ CHAPTERS ============ */
+main{position:relative;z-index:1;max-width:var(--maxw);margin:0 auto;padding:0 24px 20px}
+.chapter{scroll-margin-top:120px}
+.cover{position:relative;height:min(56vw,360px);border-radius:16px;overflow:hidden;margin:34px 0 6px;
+  box-shadow:0 24px 50px -28px rgba(42,33,26,.6)}
+.cover img{width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.04)}
+.cover .cap{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:20px 22px;
+  background:linear-gradient(0deg,rgba(42,33,26,.34),transparent 52%)}
+.cover .kick{font-family:var(--script);font-size:26px;color:#F4EFE1;line-height:1;text-shadow:0 2px 10px rgba(0,0,0,.3)}
+.divider{text-align:center;padding:30px 0 4px}
+.divider svg{width:190px;height:auto;overflow:visible}
+.op-div-stamp{fill:none;stroke:var(--olive);stroke-width:1.4;opacity:.6}
+.op-div-rule{fill:none;stroke:var(--olive);stroke-width:1;opacity:.5;stroke-dasharray:2 3}
+.op-div-palm{fill:none;stroke:var(--olive);stroke-width:1.6;stroke-linecap:round}
+.op-div-title{font-family:var(--disp);font-weight:600;letter-spacing:.2em;font-size:16px;fill:var(--espresso)}
+.op-div-strap{font-family:var(--ar);font-size:11px;fill:var(--olive-2)}
+.sec-lead{text-align:center;margin:12px 0 6px}
+.sec-lead h2{font-family:var(--disp);font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:clamp(20px,5vw,28px);color:var(--espresso)}
+.sec-lead .a{font-family:var(--arh);font-weight:700;font-size:clamp(21px,6vw,29px);color:var(--olive);direction:rtl;margin-top:5px;
+  display:inline-block;border-bottom:1.5px solid rgba(111,108,67,.5);padding:0 8px 4px}
+.sec-lead .n{font-family:var(--disp);font-size:10px;letter-spacing:.24em;color:var(--olive-2);opacity:.7;text-transform:uppercase;margin-top:8px}
+
+/* ============ CARDS ============ */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px 18px;padding:22px 0 8px}
+.card{position:relative;background:linear-gradient(180deg,#FBF7EC,#F3ECDB);border:1px solid var(--line-2);border-radius:16px;
+  padding:16px 16px 0;box-shadow:0 16px 34px -26px rgba(42,33,26,.4);
+  opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease;overflow:hidden}
+.card.in{opacity:1;transform:none}
+.card.hide{display:none}
+.card .top{display:flex;gap:14px;align-items:flex-start}
+.card figure{flex:0 0 92px;width:92px;height:92px;border-radius:12px;overflow:hidden;background:var(--cream);
+  box-shadow:0 8px 18px -12px rgba(42,33,26,.5)}
+.card figure img{width:100%;height:100%;object-fit:cover;object-position:center 40%;transform:scale(1.07)}
+.card.nophoto figure{display:none}
+.card.nophoto .top{gap:0}
+.card .body{flex:1;min-width:0}
+.card .nm{font-family:var(--disp);font-weight:600;font-size:17.5px;letter-spacing:.01em;color:var(--espresso);line-height:1.18}
+.card.sig .nm{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:0;font-size:19px;padding-right:102px}
+body.rtl .card.sig .nm{padding-right:0;padding-left:102px}
+body.rtl .card .sigbadge{right:auto;left:10px}
+.stamp figure img{transform:scale(1.05)}
+.card .nm-ar{font-family:var(--arh);font-weight:600;font-size:18px;color:var(--olive);direction:rtl;margin-top:3px;
+  display:inline-block;border-bottom:1px solid rgba(111,108,67,.4);padding-bottom:3px}
+.card .de{font-family:var(--disp);font-weight:300;font-size:12.5px;color:var(--ink);opacity:.8;margin-top:6px;line-height:1.4}
+.card .da{font-family:var(--ar);font-size:14.5px;font-weight:500;color:var(--olive-2);opacity:1;direction:rtl;margin-top:4px;line-height:1.7}
+.card .foot{display:flex;align-items:center;gap:10px;margin:12px -16px 0;padding:10px 16px;
+  background:linear-gradient(180deg,rgba(211,180,140,.22),rgba(211,180,140,.34));border-top:1px solid var(--line-2)}
+.card .pr{font-family:var(--disp);font-weight:600;font-size:18px;color:var(--olive);letter-spacing:.01em}
+.card .pr .c{font-family:var(--ar);font-size:11px;color:var(--gold-2);margin-left:2px}
+.card .add{margin-left:auto;display:inline-flex;align-items:center;gap:6px;font-family:var(--disp);font-weight:500;font-size:12px;
+  color:var(--olive-2);border:1px solid rgba(111,108,67,.35);background:rgba(244,239,225,.7);border-radius:20px;padding:7px 12px;cursor:pointer;transition:.16s}
+.card .add:hover{background:var(--olive);color:#F4EFE1;border-color:var(--olive)}
+.card .add svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
+.card .sigbadge{position:absolute;top:10px;right:10px;font-family:var(--disp);font-size:9px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--gold-2);background:rgba(244,239,225,.85);border:1px solid rgba(198,161,91,.5);
+  border-radius:20px;padding:4px 9px;display:flex;align-items:center;gap:4px}
+.card .sigbadge b{color:var(--olive)}
+
+/* ============ TRAY ============ */
+.tray{position:fixed;left:0;right:0;bottom:0;z-index:40;transform:translateY(110%);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.tray.up{transform:none}
+.tray-in{max-width:var(--maxw);margin:0 auto;background:linear-gradient(180deg,#20190F,#171009);color:var(--cream);
+  border-radius:16px 16px 0 0;box-shadow:0 -18px 44px -18px rgba(0,0,0,.6);padding:12px 16px;display:flex;align-items:center;gap:14px}
+.tray .meta{min-width:0}
+.tray .meta b{font-family:var(--disp);font-weight:600;font-size:15px;color:#fff}
+.tray .meta small{display:block;font-size:11px;color:var(--camel);opacity:.85}
+.tray .items{flex:1;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.tray .items::-webkit-scrollbar{display:none}
+.tray .ti{flex:0 0 auto;width:40px;height:40px;border-radius:8px;overflow:hidden;position:relative;border:1px solid rgba(211,180,140,.4)}
+.tray .ti img{width:100%;height:100%;object-fit:cover}
+.tray .ti span{position:absolute;top:-4px;right:-4px;width:15px;height:15px;border-radius:50%;background:var(--gold);color:#20190F;font-size:9px;font-weight:700;display:grid;place-items:center}
+.tray .send{flex:0 0 auto;font-family:var(--disp);font-weight:600;font-size:14px;letter-spacing:.06em;color:#20190F;
+  background:linear-gradient(180deg,#E4C87E,var(--gold));border:0;border-radius:24px;padding:12px 20px;cursor:pointer;
+  display:inline-flex;align-items:center;gap:8px;box-shadow:0 6px 18px -8px rgba(198,161,91,.7)}
+.tray .send svg{width:16px;height:16px;stroke:#20190F;fill:none;stroke-width:2}
+.tray .clr{background:none;border:0;color:var(--camel);font-size:11px;cursor:pointer;opacity:.7}
+
+/* wax-seal SEND overlay */
+.seal{position:fixed;inset:0;z-index:60;display:none;place-items:center;background:rgba(23,16,9,.55);backdrop-filter:blur(3px)}
+.seal.show{display:grid}
+.seal-wax{width:190px;height:190px;position:relative;transform:scale(.2) rotate(-24deg);opacity:0}
+.seal.go .seal-wax{animation:sealDrop .55s cubic-bezier(.3,1.5,.5,1) forwards}
+@keyframes sealDrop{0%{transform:scale(1.7) rotate(-24deg);opacity:0}55%{opacity:1}70%{transform:scale(.92) rotate(-6deg)}100%{transform:scale(1) rotate(-6deg);opacity:1}}
+.seal-wax svg{width:100%;height:100%;filter:drop-shadow(0 10px 20px rgba(0,0,0,.4))}
+.seal-txt{position:absolute;left:0;right:0;bottom:-46px;text-align:center;font-family:var(--script);font-size:22px;color:var(--gold);opacity:0}
+.seal.go .seal-txt{animation:fadeUp .5s ease .4s forwards}
+
+/* ============ FOOTER COLOPHON ============ */
+footer{position:relative;z-index:1;text-align:center;padding:60px 22px 90px;margin-top:36px;border-top:1px solid var(--line)}
+.foot-store{width:120px;margin:0 auto 14px;opacity:.8}
+.foot-store svg{width:100%;height:auto}
+.foot-store path,.foot-store rect,.foot-store line{fill:none;stroke:var(--olive);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.foot-word{font-family:var(--disp);font-weight:600;letter-spacing:.28em;font-size:26px;color:var(--espresso);padding-left:.28em}
+.foot-tag{font-family:var(--script);font-size:26px;color:var(--olive);margin-top:4px}
+.foot-tag-ar{font-family:var(--arh);font-weight:600;font-size:19px;color:var(--olive);margin-top:5px;direction:rtl}
+.foot-meta{font-family:var(--disp);font-size:12.5px;color:var(--ink);opacity:.82;margin-top:18px;line-height:1.9}
+.foot-meta a{color:var(--olive);text-decoration:none;border-bottom:1px solid rgba(111,108,67,.4)}
+.foot-social{display:flex;gap:10px;justify-content:center;margin:18px 0 0;flex-wrap:wrap}
+.foot-social a{font-family:var(--ar);font-size:12px;color:var(--olive-2);border:1px solid var(--line);border-radius:22px;padding:9px 16px;text-decoration:none;transition:.16s}
+.foot-social a:hover{background:var(--olive);color:#F4EFE1;border-color:var(--olive)}
+.credit{margin-top:26px;font-family:var(--ar);font-size:12px;color:var(--olive-2);opacity:.75}
+.credit b{color:var(--gold-2)}
+
+/* ============ toast ============ */
+.toast{position:fixed;bottom:96px;left:50%;transform:translateX(-50%) translateY(16px);opacity:0;z-index:70;
+  background:linear-gradient(180deg,var(--olive),var(--olive-2));color:#F4EFE1;font-family:var(--disp);font-size:13px;font-weight:500;
+  padding:11px 18px;border-radius:24px;transition:.25s;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%)}
+
+/* ============ A Letter, postmarked to you ============ */
+.letter{max-width:var(--maxw);margin:28px auto 0;padding:0 24px}
+.env{width:100%;display:flex;align-items:center;gap:14px;background:linear-gradient(180deg,#FBF7EC,#F1E9D6);
+  border:1px solid var(--line);border-radius:14px;padding:14px 16px;cursor:pointer;text-align:left;
+  box-shadow:0 14px 30px -24px rgba(42,33,26,.4);transition:.2s}
+.env:hover{border-color:rgba(111,108,67,.42)}
+.env-seal{width:40px;height:40px;flex:0 0 40px}.env-seal svg{width:100%;height:100%}
+.env-label{flex:1;display:flex;flex-direction:column;gap:1px;min-width:0}
+.env-label .e{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--espresso)}
+.env-label .a{font-family:var(--arh);font-weight:600;font-size:14.5px;color:var(--olive);direction:rtl}
+.env-chev{font-family:var(--disp);font-size:24px;color:var(--olive);transition:transform .3s;font-weight:300}
+.letter.open .env-chev{transform:rotate(45deg)}
+.letter-body{max-height:0;overflow:hidden;transition:max-height .6s ease}
+.letter.open .letter-body{max-height:760px}
+.lp{padding:22px 22px 6px;text-align:center}
+.lp p{margin:0 0 13px}
+.lp .e{font-family:var(--serif);font-style:italic;font-size:15.5px;line-height:1.72;color:var(--ink)}
+.lp .a{font-family:var(--ar);font-size:16px;font-weight:500;line-height:2.05;color:var(--olive-2);direction:rtl}
+.sign{text-align:center;padding:2px 0 24px}
+.sign .sig{font-family:var(--script);font-size:40px;color:var(--olive);display:inline-block}
+.letter.open .sign .sig{animation:sigDraw 1.5s cubic-bezier(.6,0,.2,1) .35s both}
+@keyframes sigDraw{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+.sign .sig-place{display:block;font-family:var(--disp);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-2);margin-top:2px}
+
+/* ============ Masthead box (footer credits) ============ */
+.masthead-box{margin:0 auto 24px;max-width:330px;text-align:center}
+.masthead-box .mb-issue{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--espresso);
+  padding-bottom:11px;margin-bottom:12px;border-bottom:1px solid var(--line);letter-spacing:.02em}
+.mb-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:5px 0}
+.mb-role{font-family:var(--disp);letter-spacing:.08em;color:var(--olive-2);text-transform:uppercase;font-size:9.5px;text-align:left}
+.mb-role .a{font-family:var(--ar);margin-left:7px;text-transform:none;font-size:11px;opacity:.85;letter-spacing:0}
+.mb-name{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--espresso);white-space:nowrap}
+.mb-place{margin-top:12px;padding-top:11px;border-top:1px solid var(--line);font-family:var(--disp);font-size:10.5px;letter-spacing:.16em;color:var(--olive-2);text-transform:uppercase}
+.mb-place .a{font-family:var(--ar);text-transform:none;letter-spacing:0;display:block;margin-top:4px;direction:rtl;font-size:12px;opacity:.9}
+
+/* ============ Morning Light (time-of-day) ============ */
+.lightwash{position:absolute;inset:0;z-index:0;pointer-events:none;transition:background 1.4s ease;
+  background:radial-gradient(125% 82% at 50% 2%, rgba(255,244,220,.5), transparent 60%)}
+:root[data-period="dawn"] .lightwash{background:radial-gradient(135% 92% at 50% 4%, rgba(244,206,156,.55), transparent 62%)}
+:root[data-period="midday"] .lightwash{background:radial-gradient(120% 78% at 50% 0%, rgba(255,250,236,.5), transparent 58%)}
+:root[data-period="dusk"] .lightwash{background:radial-gradient(140% 95% at 50% 8%, rgba(216,170,98,.42), transparent 60%)}
+:root[data-period="night"] .lightwash{background:radial-gradient(140% 98% at 50% 5%, rgba(150,138,96,.26), transparent 66%)}
+.op-greet{font-family:var(--disp);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--olive-2);
+  opacity:0;animation:fadeUp 1s ease .25s forwards;margin-bottom:12px;display:flex;align-items:center;gap:9px;justify-content:center}
+.op-greet .a{font-family:var(--arh);font-weight:600;letter-spacing:.02em;font-size:16px;text-transform:none;direction:rtl;color:var(--olive)}
+.op-greet i{width:16px;height:1px;background:var(--gold);opacity:.6}
+
+/* ============ Living Storefront ============ */
+.foot-store{position:relative}
+.foot-store .win{fill:#C6884A;stroke:none;opacity:0;transition:opacity 1.3s ease}
+.foot-store.is-open .win{opacity:.5}
+.foot-store .osign path,.foot-store .osign line{stroke:var(--gold-2)}
+.foot-store .osign{opacity:.85;transform-origin:107px 40px;animation:signSwing 3.8s ease-in-out infinite}
+.foot-store .steam{opacity:0}
+.foot-store.is-open .steam{opacity:.45;animation:steamRise 3.2s ease-in-out infinite}
+.foot-store .steam.b{animation-delay:1.1s}
+.foot-store .doortag{font-family:var(--disp);font-size:6.5px;letter-spacing:.05em;fill:var(--olive-2);stroke:none;opacity:0;transition:opacity .8s}
+.foot-store:not(.is-open) .doortag{opacity:.9}
+@keyframes signSwing{0%,100%{transform:rotate(-3.5deg)}50%{transform:rotate(3.5deg)}}
+@keyframes steamRise{0%{opacity:0;transform:translateY(3px)}45%{opacity:.5}100%{opacity:0;transform:translateY(-9px)}}
+
+/* ============ Living Hearth (warm breathing light) ============ */
+.hearth{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.hearth-glow{position:absolute;inset:-12%;will-change:transform,opacity;
+  background:
+    radial-gradient(42% 34% at 20% 16%, rgba(228,192,120,.22), transparent 62%),
+    radial-gradient(46% 40% at 84% 26%, rgba(211,180,140,.18), transparent 64%),
+    radial-gradient(64% 52% at 50% 98%, rgba(111,108,67,.15), transparent 72%);
+  animation:hearthDrift 96s ease-in-out infinite alternate}
+@keyframes hearthDrift{0%{transform:translate3d(-1.5%,-1%,0) scale(1.02)}100%{transform:translate3d(2%,1.6%,0) scale(1.06)}}
+.hearth-rays{position:absolute;inset:-30%;will-change:transform;opacity:.55;
+  background:linear-gradient(104deg,transparent 33%,rgba(255,241,206,.10) 44%,rgba(255,241,206,.15) 50%,rgba(255,241,206,.10) 56%,transparent 67%);
+  animation:raySway 84s ease-in-out infinite alternate}
+@keyframes raySway{0%{transform:translateX(-6%) rotate(-1.4deg)}100%{transform:translateX(6%) rotate(1.4deg)}}
+.hearth-amb{position:absolute;inset:0;opacity:.055;transition:background 1.6s ease;
+  background:radial-gradient(72% 55% at 50% 32%, var(--amb,#C6A15B), transparent 74%)}
+:root[data-period="dusk"] .hearth-glow,:root[data-period="night"] .hearth-glow{filter:saturate(1.15) brightness(1.04)}
+:root[data-period="night"] .hearth-rays{opacity:.32}
+:root[data-period="midday"] .hearth-rays{opacity:.72}
+
+/* ============ Goldfall (ambient bokeh + sparkle-dust) ============ */
+.bokeh{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.bokeh .orb{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(228,196,128,.40),rgba(198,161,91,0) 70%);
+  will-change:transform,opacity;animation:orbDrift linear infinite}
+.bokeh .spark{position:absolute;width:3px;height:3px;border-radius:50%;background:radial-gradient(circle,#FFF3D0,rgba(255,243,208,0) 70%);
+  will-change:transform,opacity;animation:sparkTwinkle ease-in-out infinite;box-shadow:0 0 6px 1px rgba(255,243,208,.5)}
+@keyframes orbDrift{0%{transform:translate3d(0,30px,0) scale(.85);opacity:0}12%{opacity:.7}86%{opacity:.55}100%{transform:translate3d(var(--dx,20px),-112vh,0) scale(1.12);opacity:0}}
+@keyframes sparkTwinkle{0%,100%{opacity:0;transform:scale(.5)}50%{opacity:.9;transform:scale(1.4)}}
+@media(max-width:430px){.bokeh .orb:nth-child(n+7),.bokeh .spark:nth-child(n+13){display:none}}
+
+/* ============ Storybook: card stagger + photo colour-pop ============ */
+.card.in{transition-delay:calc(var(--i,0)*55ms)}
+.card .foot{background:linear-gradient(180deg,color-mix(in srgb,var(--pop,#D3B48C) 22%,transparent),color-mix(in srgb,var(--pop,#D3B48C) 40%,transparent))}
+.card.in{box-shadow:0 18px 36px -26px color-mix(in srgb,var(--pop,#2A211A) 45%,rgba(42,33,26,.42))}
+.card figure{box-shadow:0 8px 20px -12px color-mix(in srgb,var(--pop,#2A211A) 60%,rgba(42,33,26,.5))}
+
+/* ============ Storybook: cover ken-burns + light-sweep ============ */
+.cover img{animation:kenburns 26s ease-in-out infinite alternate}
+@keyframes kenburns{0%{transform:scale(1.04) translate(0,0)}100%{transform:scale(1.12) translate(-1.6%,-1.4%)}}
+.cover::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
+  background:linear-gradient(105deg,transparent 38%,rgba(255,246,214,.6) 50%,transparent 62%);
+  background-size:250% 100%;background-position:155% 0;opacity:0}
+.cover.lit::after{animation:coverSweep 1.6s ease .1s}
+@keyframes coverSweep{0%{opacity:0;background-position:155% 0}26%{opacity:1}100%{opacity:0;background-position:-60% 0}}
+
+/* ============ Bubbly: tap ripple + flying morsel ============ */
+.add,.send,.chip,.act,.lang{position:relative;overflow:hidden}
+.rippl{position:absolute;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%) scale(0);
+  background:radial-gradient(circle,rgba(228,196,128,.55),rgba(198,161,91,0) 70%);animation:rippleGo .6s ease-out forwards}
+@keyframes rippleGo{to{transform:translate(-50%,-50%) scale(1);opacity:0}}
+.fly{position:fixed;z-index:55;border-radius:12px;object-fit:cover;pointer-events:none;
+  box-shadow:0 14px 30px -10px rgba(42,33,26,.55);will-change:transform,width,height}
+.tray.pulse .tray-in{animation:trayPulse .5s ease}
+@keyframes trayPulse{35%{transform:translateY(-5px)}70%{transform:translateY(0)}}
+.tray .meta b.bump{animation:countBump .45s cubic-bezier(.34,1.56,.64,1)}
+@keyframes countBump{40%{transform:scale(1.32)}}
+
+/* ============ Personal: returning-guest welcome ============ */
+.op-welcome{position:relative;z-index:4;display:flex;flex-direction:column;align-items:center;gap:9px;margin-top:2px;
+  opacity:0;animation:fadeUp .6s ease 2.05s forwards}
+.op-wb{font-family:var(--arh);font-weight:600;font-size:15px;color:var(--gold-2);letter-spacing:.02em;display:flex;gap:8px;align-items:center}
+.op-wb .a{font-family:var(--arh);color:var(--olive-2)}
+.op-back{font-family:var(--disp);font-weight:500;font-size:12px;color:var(--olive-2);border:1px solid var(--line);
+  border-radius:22px;padding:9px 16px;cursor:pointer;background:rgba(244,239,225,.65);min-height:40px;transition:.16s}
+.op-back:hover{background:var(--olive);color:#F4EFE1;border-color:var(--olive)}
+
+/* ============ a11y + tap targets ============ */
+.act,.lang{min-height:44px}
+.chip{min-height:42px}
+.add{min-height:42px;padding:10px 14px}
+.tray .clr{min-height:40px;padding:9px 12px}
+.foot-social a{min-height:44px;display:inline-flex;align-items:center}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold-2);outline-offset:2px;border-radius:14px}
+.mast-top span{white-space:nowrap}
+.card .pr .c,.stamp .pr .c{font-weight:600}
+@media(max-width:430px){ .mast-top{font-size:9.5px;letter-spacing:.12em;gap:8px} }
+
+/* ============ RTL ============ */
+body.rtl{direction:rtl}
+body.rtl .mast-top,body.rtl .bar-row{flex-direction:row-reverse}
+body.rtl .bar-actions{margin-left:0;margin-right:auto}
+body.rtl .card .top{flex-direction:row-reverse}
+body.rtl .card .add{margin-left:0;margin-right:auto}
+body.rtl .card .foot{flex-direction:row-reverse}
+body.rtl .tray .send{margin-left:0}
+body.rtl .swirl-bg svg{transform:scaleX(-1)}
+
+/* ============ responsive ============ */
+@media(max-width:620px){
+  .wrap,.bar-row,.filters,.count{padding-left:16px;padding-right:16px}
+  .grid{grid-template-columns:1fr;gap:14px;padding:18px 0 6px}
+  .cover{height:64vw;max-height:none;margin:26px 0 4px;border-radius:14px}
+  .status .txt-long{display:none}
+  .act .lbl{display:none}
+  .act{padding:9px 11px}
+  .bar-row{gap:7px}
+  .card figure{flex-basis:78px;width:78px;height:78px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;scroll-behavior:auto!important}
+  .op-o-main{stroke-dashoffset:0!important}
+  .op-word,.op-strap,.op-tag,.op-tag-ar,.op-plate,.cue,.op-greet{opacity:1!important;transform:none!important}
+  .op-tag,.op-tag-ar,.sign .sig{clip-path:none!important}
+  .op-pen,.op-ul,.op-tag::after{display:none!important}
+  .op-o-glint,.op-bird,.op-motes,.bokeh{display:none!important}
+  .op-welcome{opacity:1!important;transform:none!important}
+  .card{opacity:1!important;transform:none!important}
+}
+</style>
+</head>
+<body>
+<h1 class="sr">Opulent Bakery and Coffee menu, Qurtubah Riyadh</h1>
+<div class="hearth" aria-hidden="true"><div class="hearth-glow"></div><div class="hearth-amb"></div><div class="hearth-rays"></div></div>
+<div class="bokeh" aria-hidden="true"><span class='orb' style='left:6%;top:64%;width:130px;height:130px;--dx:34px;animation-duration:36s;animation-delay:-6s'></span><span class='orb' style='left:22%;top:80%;width:80px;height:80px;--dx:-24px;animation-duration:44s;animation-delay:-18s'></span><span class='orb' style='left:40%;top:72%;width:160px;height:160px;--dx:20px;animation-duration:52s;animation-delay:-30s'></span><span class='orb' style='left:58%;top:86%;width:100px;height:100px;--dx:-30px;animation-duration:40s;animation-delay:-10s'></span><span class='orb' style='left:74%;top:70%;width:120px;height:120px;--dx:26px;animation-duration:48s;animation-delay:-22s'></span><span class='orb' style='left:88%;top:82%;width:70px;height:70px;--dx:-18px;animation-duration:38s;animation-delay:-4s'></span><span class='orb' style='left:14%;top:90%;width:56px;height:56px;--dx:22px;animation-duration:34s;animation-delay:-14s'></span><span class='orb' style='left:50%;top:94%;width:90px;height:90px;--dx:-14px;animation-duration:56s;animation-delay:-26s'></span><span class='orb' style='left:32%;top:60%;width:60px;height:60px;--dx:16px;animation-duration:42s;animation-delay:-8s'></span><span class='orb' style='left:66%;top:96%;width:110px;height:110px;--dx:-28px;animation-duration:50s;animation-delay:-16s'></span><span class='spark' style='left:18%;top:36%;animation-duration:4.2s;animation-delay:-1s'></span><span class='spark' style='left:34%;top:28%;animation-duration:5s;animation-delay:-2.5s'></span><span class='spark' style='left:52%;top:40%;animation-duration:3.8s;animation-delay:-0.6s'></span><span class='spark' style='left:70%;top:32%;animation-duration:4.6s;animation-delay:-3s'></span><span class='spark' style='left:82%;top:46%;animation-duration:5.4s;animation-delay:-1.8s'></span><span class='spark' style='left:44%;top:22%;animation-duration:4s;animation-delay:-2s'></span><span class='spark' style='left:26%;top:52%;animation-duration:4.8s;animation-delay:-3.4s'></span><span class='spark' style='left:62%;top:24%;animation-duration:4.4s;animation-delay:-1.2s'></span></div>
+<div class="swirl-bg" aria-hidden="true"><svg class="opulent-c-swirl" viewBox="0 0 600 600" width="600" height="600" role="presentation" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="var(--opulent-olive, #6F6C43)" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Outer C: a soft crema curl opening to the right -->
+  <path d="M436 128 C300 44 132 118 118 296 C106 452 258 556 448 486" stroke-width="26" opacity="0.9"/>
+  <!-- Inner spiral: the curling leaf / latte-art heart of the swirl -->
+  <path d="M372 214 C258 198 196 300 254 372 C300 429 402 411 400 336 C399 288 348 274 322 306" stroke-width="18" opacity="0.75"/>
+  <!-- Fine trailing whisp for a hand-drawn, nostalgic feel -->
+  <path d="M322 306 C312 320 314 340 330 348" stroke-width="12" opacity="0.6"/>
+</svg><svg class="opulent-c-swirl s2" viewBox="0 0 600 600" width="600" height="600" role="presentation" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="var(--opulent-olive, #6F6C43)" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Outer C: a soft crema curl opening to the right -->
+  <path d="M436 128 C300 44 132 118 118 296 C106 452 258 556 448 486" stroke-width="26" opacity="0.9"/>
+  <!-- Inner spiral: the curling leaf / latte-art heart of the swirl -->
+  <path d="M372 214 C258 198 196 300 254 372 C300 429 402 411 400 336 C399 288 348 274 322 306" stroke-width="18" opacity="0.75"/>
+  <!-- Fine trailing whisp for a hand-drawn, nostalgic feel -->
+  <path d="M322 306 C312 320 314 340 330 348" stroke-width="12" opacity="0.6"/>
+</svg></div>
+
+<header class="masthead" id="top">
+  <div class="lightwash" aria-hidden="true"></div>
+  <div class="mast-top">
+    <span><b>Opulent</b> &middot; Issue No. 01</span>
+    <span class="ltn">Qurtubah, Riyadh</span>
+    <div class="rule"></div>
+  </div>
+  <div class="op-hero" id="opHero" role="img" aria-label="Opulent monogram drawing itself">
+    <div class="op-swirl"><svg class="opulent-c-swirl" viewBox="0 0 600 600" width="600" height="600" role="presentation" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="var(--opulent-olive, #6F6C43)" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Outer C: a soft crema curl opening to the right -->
+  <path d="M436 128 C300 44 132 118 118 296 C106 452 258 556 448 486" stroke-width="26" opacity="0.9"/>
+  <!-- Inner spiral: the curling leaf / latte-art heart of the swirl -->
+  <path d="M372 214 C258 198 196 300 254 372 C300 429 402 411 400 336 C399 288 348 274 322 306" stroke-width="18" opacity="0.75"/>
+  <!-- Fine trailing whisp for a hand-drawn, nostalgic feel -->
+  <path d="M322 306 C312 320 314 340 330 348" stroke-width="12" opacity="0.6"/>
+</svg></div>
+    <div class="op-palm p1"><svg viewBox='0 0 160 160' aria-hidden='true'><g fill='none' stroke='var(--op-olive)' stroke-width='2' stroke-linecap='round'><path d='M6 150 C 40 120 84 74 150 18'/><path d='M34 122 q -16 0 -25 10 M34 122 q 5 -16 18 -21'/><path d='M62 94 q -16 0 -25 10 M62 94 q 5 -16 18 -21'/><path d='M90 66 q -16 0 -25 10 M90 66 q 5 -16 18 -21'/><path d='M118 40 q -16 0 -25 10 M118 40 q 5 -16 18 -21'/></g></svg></div>
+    <div class="op-palm p2"><svg viewBox='0 0 160 160' aria-hidden='true'><g fill='none' stroke='var(--op-olive)' stroke-width='2' stroke-linecap='round'><path d='M6 150 C 40 120 84 74 150 18'/><path d='M34 122 q -16 0 -25 10 M34 122 q 5 -16 18 -21'/><path d='M62 94 q -16 0 -25 10 M62 94 q 5 -16 18 -21'/><path d='M90 66 q -16 0 -25 10 M90 66 q 5 -16 18 -21'/><path d='M118 40 q -16 0 -25 10 M118 40 q 5 -16 18 -21'/></g></svg></div>
+    <div class="op-layer">
+      <div class="op-bird b1"><svg viewBox='0 0 24 12' aria-hidden='true'><path d='M1 8 C5 2 8 2 12 7 C16 2 19 2 23 8'/></svg></div><div class="op-bird b2"><svg viewBox='0 0 24 12' aria-hidden='true'><path d='M1 8 C5 2 8 2 12 7 C16 2 19 2 23 8'/></svg></div><div class="op-bird b3"><svg viewBox='0 0 24 12' aria-hidden='true'><path d='M1 8 C5 2 8 2 12 7 C16 2 19 2 23 8'/></svg></div>
+    </div>
+    <div class="op-layer op-motes" id="opMotes"></div>
+  </div>
+  <div class="op-stack">
+    <div class="op-greet" id="opGreet"></div>
+    <div class="op-welcome" id="opWelcome"></div>
+    <div class="op-mono"><svg viewBox="0 0 280 300" aria-hidden="true">
+      <path class="op-o op-o-main" pathLength="1000" d="M148 82 C116 64 86 86 79 126 C72 164 78 208 102 234 C126 258 162 250 178 216 C193 184 186 128 156 100 C146 90 140 84 149 80 C159 76 167 68 160 61 C154 55 146 60 151 72 C158 90 184 100 214 93 C233 88 243 80 249 69"/>
+      <path class="op-o-glint" pathLength="1000" d="M148 82 C116 64 86 86 79 126 C72 164 78 208 102 234 C126 258 162 250 178 216 C193 184 186 128 156 100 C146 90 140 84 149 80 C159 76 167 68 160 61 C154 55 146 60 151 72 C158 90 184 100 214 93 C233 88 243 80 249 69"/>
+    </svg></div>
+    <div class="op-word">OPULENT</div>
+    <div class="op-strap"><i></i><span>Bakery &amp; Coffee</span><i></i></div>
+    <div class="op-tagwrap"><div class="op-tag">Based on a true story</div><span class="op-pen" aria-hidden="true"></span></div>
+    <div class="op-tag-ar" lang="ar" dir="rtl">مبني على قصة حقيقية<span class="op-ul" aria-hidden="true"></span></div>
+    <img class="op-plate" src="assets/opulent-cafe/hero.png" alt="Opulent French toast" loading="eager">
+  </div>
+  <div class="cue">Turn the page<span>&darr;</span></div>
+</header>
+
+<nav class="barista" id="barista">
+  <div class="bar-row">
+    <div class="status"><span class="dot" id="statDot"></span><span id="statTxt" aria-live="polite">Checking hours</span></div>
+    <div class="bar-actions">
+      <button class="lang" id="langBtn" aria-label="Switch to Arabic">AR</button>
+      <a class="act" href="tel:+966530587096" aria-label="Call Opulent"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span class="lbl">Call</span></a>
+      <a class="act" href="https://www.google.com/maps/search/?api=1&query=Opulent%20Bakery%20Qurtubah%20Riyadh" target="_blank" rel="noopener" aria-label="Directions to Opulent"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="lbl">Directions</span></a>
+      <a class="act wa" id="waTop" href="https://wa.me/966530587096" target="_blank" rel="noopener" aria-label="Order on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.5L3 21l2.1-5.6A8.4 8.4 0 1 1 21 11.5z"/></svg><span class="lbl">Order</span></a>
+    </div>
+  </div>
+  <div class="filters" id="filters" role="tablist" aria-label="Filter menu"></div>
+  <div class="count" id="count" aria-live="polite"></div>
+</nav>
+
+<section class="shelf" aria-label="Signature">
+  <div class="shelf-head"><div class="k">Based on a true story</div><div class="s">The Signatures &middot; قصتنا</div></div>
+  <div class="shelf-row" id="shelf"></div>
+</section>
+
+<section class="letter" id="letter" aria-label="A letter from Opulent">
+  <button class="env" id="envBtn" aria-expanded="false" aria-controls="letterBody">
+    <span class="env-seal"><svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20" fill="#8A6D2E"/><circle cx="22" cy="22" r="20" fill="none" stroke="#6E521F" stroke-width="1.4"/><circle cx="22" cy="22" r="15.5" fill="none" stroke="#E4C87E" stroke-width="1" stroke-dasharray="1.5 3"/><path d="M148 82 C116 64 86 86 79 126 C72 164 78 208 102 234 C126 258 162 250 178 216 C193 184 186 128 156 100 C146 90 140 84 149 80 C159 76 167 68 160 61 C154 55 146 60 151 72 C158 90 184 100 214 93 C233 88 243 80 249 69" transform="translate(7 4) scale(0.105)" fill="none" stroke="#F2E4BE" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    <span class="env-label"><span class="e">A letter, postmarked to you</span><span class="a" lang="ar" dir="rtl">رسالة إليك، مختومة بالبريد</span></span>
+    <span class="env-chev" aria-hidden="true">+</span>
+  </button>
+  <div class="letter-body" id="letterBody">
+    <div class="lp">
+      <p class="e">Opulent began the way good stories do, quietly and for real. A small room in Qurtubah, an oven warming before sunrise, and a belief that a morning is worth doing beautifully.</p>
+      <p class="e">Everything here is baked, poured, and plated by hand, the way we would serve someone we love. Thank you for reading our first page. The rest, we will write together.</p>
+      <p class="a" lang="ar" dir="rtl">بدأت أوبلنت كما تبدأ القصص الجميلة، بهدوءٍ وبصدق. غرفةٌ صغيرة في قرطبة، وفرنٌ يدفأ قبل الشروق، وإيمانٌ بأنّ الصباح يستحق أن يُصنع بإتقان.</p>
+      <p class="a" lang="ar" dir="rtl">كل ما هنا يُخبز ويُسكب ويُقدّم يدوياً، كما نقدّمه لمن نحب. شكراً لقراءتك صفحتنا الأولى، وما بقي سنكتبه معاً.</p>
+    </div>
+    <div class="sign"><span class="sig">Opulent</span><span class="sig-place">Qurtubah, Riyadh</span></div>
+  </div>
+</section>
+
+<main id="menu"></main>
+
+<footer>
+  <div class="foot-store" id="footStore"><svg viewBox='0 0 160 100' aria-hidden='true'><rect class='win' x='30' y='58' width='22' height='18'/><rect class='win' x='108' y='58' width='22' height='18'/><rect class='win' x='65' y='60' width='30' height='30' rx='2'/><path class='steam' d='M74 14 q-4 -6 0 -12'/><path class='steam b' d='M84 14 q4 -6 0 -12'/><path d='M18 40 V90 H142 V40'/><path d='M10 40 L26 18 H134 L150 40 Z'/><path d='M10 40 H150'/><rect x='64' y='58' width='32' height='32'/><path d='M64 58 A16 16 0 0 1 96 58'/><line x1='80' y1='42' x2='80' y2='58'/><rect x='30' y='58' width='22' height='18'/><rect x='108' y='58' width='22' height='18'/><path d='M26 18 v-6 M134 18 v-6'/><g class='osign'><line x1='120' y1='40' x2='120' y2='47'/><rect x='112' y='47' width='16' height='9' rx='1'/></g></svg></div>
+  <div class="foot-word">OPULENT</div>
+  <div class="foot-tag">Based on a true story</div>
+  <div class="foot-tag-ar" lang="ar" dir="rtl">مبني على قصة حقيقية</div>
+  <div class="masthead-box" id="mastBox"></div>
+  <div class="foot-meta">
+    Said Ibn Zayd Rd, Qurtubah &middot; Riyadh<br>
+    Sat to Thu 7:00am to 12:00am &middot; Fri 1:00pm to 12:00am<br>
+    <a href="tel:+966530587096" class="ltn">+966 53 058 7096</a>
+  </div>
+  <div class="foot-social">
+    <a href="https://instagram.com/opulent.cafe" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://wa.me/966530587096" target="_blank" rel="noopener">WhatsApp</a>
+    <a href="https://www.google.com/maps/search/?api=1&query=Opulent%20Bakery%20Qurtubah%20Riyadh" target="_blank" rel="noopener">Google Maps</a>
+  </div>
+  <div class="credit">صُنعت بحب &middot; crafted by <b>Menu Sadah</b> &middot; منيو سادة</div>
+</footer>
+
+<div class="tray" id="tray"><div class="tray-in">
+  <div class="meta"><b id="trayCount">0 items</b><small id="trayTotals">SAR 0</small></div>
+  <div class="items" id="trayItems"></div>
+  <button class="clr" id="trayClear">clear</button>
+  <button class="send" id="traySend"><svg viewBox="0 0 24 24"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>Send order</button>
+</div></div>
+
+<div class="seal" id="seal"><div class="seal-wax">
+  <svg viewBox="0 0 200 200" aria-hidden="true">
+    <circle cx="100" cy="100" r="86" fill="#8A6D2E"/>
+    <circle cx="100" cy="100" r="86" fill="none" stroke="#6E521F" stroke-width="3"/>
+    <g fill="none" stroke="#E4C87E" stroke-width="2" opacity=".85"><circle cx="100" cy="100" r="70" stroke-dasharray="2 5"/></g>
+    <path d="M148 82 C116 64 86 86 79 126 C72 164 78 208 102 234 C126 258 162 250 178 216 C193 184 186 128 156 100 C146 90 140 84 149 80 C159 76 167 68 160 61 C154 55 146 60 151 72 C158 90 184 100 214 93 C233 88 243 80 249 69" transform="translate(30 12) scale(0.5)" fill="none" stroke="#F2E4BE" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="100" y="176" text-anchor="middle" font-family="Jost,sans-serif" font-size="12" letter-spacing="3" fill="#F2E4BE">QURTUBAH</text>
+  </svg>
+  <div class="seal-txt">Based on a true order</div>
+</div></div>
+
+<div class="toast" id="toast"></div>
+<script>
+const MENU = [{"id": "croissants", "en": "Croissants", "ar": "كروسان", "cover": "assets/opulent-cafe/banners/banner-bakery.jpg", "kicker": "The Bakery", "items": [{"en": "Plain Croissant", "ar": "كروسان سادة", "p": "10", "de": "Buttery, hand-laid layers baked golden and flaky.", "da": "طبقات زبدية مصنوعة يدوياً، ذهبية ومقرمشة.", "tags": ["savory", "veg"], "img": "assets/opulent-cafe/items/plain.jpg", "sig": false, "story": "", "pop": "#C4AB85"}, {"en": "Cheese Croissant", "ar": "كروسان جبن", "p": "13", "de": "Flaky croissant folded around gentle melting cheese.", "da": "كروسان مقرمش محشو بجبن ذائب لطيف.", "tags": ["savory", "veg"], "img": "assets/opulent-cafe/items/cheese.jpg", "sig": false, "story": "", "pop": "#C4A26F"}, {"en": "Zaatar & Feta Croissant", "ar": "كروسان زعتر وفيتا", "p": "13", "de": "Buttery layers with fragrant zaatar and feta.", "da": "طبقات زبدية مع زعتر عطري وجبن فيتا.", "tags": ["savory", "veg"], "img": "assets/opulent-cafe/items/zaatar.jpg", "sig": false, "story": "", "pop": "#C4AA7C"}, {"en": "Almond Croissant", "ar": "كروسان لوز", "p": "15", "de": "Flaky croissant filled and topped with almond.", "da": "كروسان مقرمش محشو ومزيّن باللوز.", "tags": ["sweet", "veg"], "img": "assets/opulent-cafe/items/almond.jpg", "sig": false, "story": "", "pop": "#C19F77"}, {"en": "Coffee Croissant", "ar": "كروسان قهوة", "p": "18", "de": "Buttery layers touched with a coffee sweetness.", "da": "طبقات زبدية بلمسة من حلاوة القهوة.", "tags": ["sweet"], "img": "assets/opulent-cafe/items/coffeecr.jpg", "sig": false, "story": "", "pop": "#C4A884"}, {"en": "Turkish with Halloumi", "ar": "تركي بالحلومي", "p": "21", "de": "Our signature croissant with warm grilled halloumi.", "da": "كروسان مميّز مع حلومي مشوي دافئ.", "tags": ["savory"], "img": "assets/opulent-cafe/items/turkish.jpg", "sig": true, "story": "Breakfast, folded in butter.", "pop": "#C4A177"}]}, {"id": "danish-buns", "en": "Danish & Buns", "ar": "دانش ومخبوزات", "cover": "", "kicker": "", "items": [{"en": "Labneh & Honey Danish", "ar": "دانش لبنة وعسل", "p": "13", "de": "Soft pastry with creamy labneh and honey.", "da": "معجّنة طرية مع لبنة كريمية وعسل.", "tags": ["sweet", "veg"], "img": "assets/opulent-cafe/items/labnehhoney.jpg", "sig": false, "story": "", "pop": "#C4A581"}, {"en": "Salt Danish", "ar": "دانش مالح", "p": "13", "de": "Buttery pastry finished with a savory salt note.", "da": "معجّنة زبدية بلمسة مالحة لذيذة.", "tags": ["savory", "veg"], "img": "assets/opulent-cafe/items/saltdanish.jpg", "sig": false, "story": "", "pop": "#C4A980"}, {"en": "Mini Chocolate Bun", "ar": "ميني بان شوكولاتة", "p": "14", "de": "Little soft bun with a chocolate heart.", "da": "خبزة صغيرة طرية بقلب من الشوكولاتة.", "tags": ["sweet", "veg"], "img": "assets/opulent-cafe/items/minichocbun.jpg", "sig": false, "story": "", "pop": "#C4B894"}, {"en": "Cinnabon", "ar": "سينابون", "p": "16", "de": "Warm cinnamon roll, soft and comfortingly sweet.", "da": "لفافة قرفة دافئة، طرية وحلوة ومريحة.", "tags": ["sweet", "veg"], "img": "assets/opulent-cafe/items/cinnabon.jpg", "sig": false, "story": "", "pop": "#C4B490"}, {"en": "Mini Danish", "ar": "ميني دانش", "p": "17", "de": "A small, flaky Danish for a quiet moment.", "da": "دانش صغير مقرمش للحظة هادئة.", "tags": ["sweet", "veg"], "img": "assets/opulent-cafe/items/minidanish.jpg", "sig": false, "story": "", "pop": "#B09374"}, {"en": "Swiss Bun", "ar": "سويس بان", "p": "18", "de": "Tender bun with a soft, delicate crumb.", "da": "خبزة طرية بقوام ناعم ورقيق.", "tags": ["sweet", "veg"], "img": "assets/opulent-cafe/items/swissbun.jpg", "sig": false, "story": "", "pop": "#B9A07C"}, {"en": "Caramel Krafen", "ar": "كرافن كراميل", "p": "18", "de": "Pillowy filled doughnut with flowing caramel.", "da": "دونات محشوة طرية بكراميل سائل.", "tags": ["sweet", "veg"], "img": "assets/opulent-cafe/items/caramelkrafen.jpg", "sig": false, "story": "", "pop": "#B89167"}, {"en": "Pecan Krafen", "ar": "كرافن بيكان", "p": "18", "de": "Soft filled doughnut crowned with pecan.", "da": "دونات محشوة طرية متوّجة بالبيكان.", "tags": ["sweet", "veg"], "img": "assets/opulent-cafe/items/pecankrafen.jpg", "sig": false, "story": "", "pop": "#BB9A71"}, {"en": "Mini Mille-Feuille", "ar": "ميني ميل فيه", "p": "18", "de": "Delicate crisp layers with smooth cream between.", "da": "طبقات هشة رقيقة بكريمة ناعمة بينها.", "tags": ["sweet", "veg"], "img": "assets/opulent-cafe/items/millefeuille.jpg", "sig": false, "story": "", "pop": "#C4B591"}, {"en": "Raspberry Danish", "ar": "دانش توت", "p": "19", "de": "Flaky pastry with bright, jewel-red raspberry.", "da": "معجّنة مقرمشة بتوت أحمر زاهٍ كالياقوت.", "tags": ["sweet", "veg"], "img": "assets/opulent-cafe/items/raspberrydan.jpg", "sig": false, "story": "", "pop": "#BF906A"}, {"en": "Caramel Danish", "ar": "دانش كراميل", "p": "19", "de": "Buttery Danish ribboned with golden caramel.", "da": "دانش زبدي بخطوط من الكراميل الذهبي.", "tags": ["sweet", "veg"], "img": "assets/opulent-cafe/items/carameldan.jpg", "sig": false, "story": "", "pop": "#C09A6F"}]}, {"id": "sweets", "en": "Sweets", "ar": "الحلويات", "cover": "assets/opulent-cafe/banners/banner-sweets.jpg", "kicker": "The Sweets", "items": [{"en": "Marble Cake", "ar": "كيك رخامي", "p": "11", "de": "Tender cake swirled light and dark.", "da": "كيك طري بتموّجات فاتحة وداكنة.", "tags": ["sweet", "veg"], "img": "assets/opulent-cafe/items/marblecake.jpg", "sig": false, "story": "", "pop": "#C2A27B"}, {"en": "Mini Shox", "ar": "ميني شوكس", "p": "14", "de": "A little bite of rich chocolate comfort.", "da": "قضمة صغيرة من راحة الشوكولاتة الغنية.", "tags": ["sweet", "veg"], "img": "assets/opulent-cafe/items/minishox.jpg", "sig": false, "story": "", "pop": "#C4B896"}, {"en": "Tiramisu", "ar": "تيراميسو", "p": "20", "de": "Coffee-soaked layers under soft mascarpone cream.", "da": "طبقات مشبعة بالقهوة تحت كريمة ماسكاربوني ناعمة.", "tags": ["sweet", "veg"], "img": "assets/opulent-cafe/items/tiramisu.jpg", "sig": false, "story": "", "pop": "#B89B78"}, {"en": "Chocolate Cake", "ar": "كيك شوكولاتة", "p": "22", "de": "Deep, moist chocolate for the quiet indulgent.", "da": "شوكولاتة غنية ورطبة لعشّاق الدلال الهادئ.", "tags": ["sweet", "veg"], "img": "assets/opulent-cafe/items/choccake.jpg", "sig": false, "story": "", "pop": "#B89B7B"}, {"en": "Nescafe Pudding", "ar": "بودينغ نسكافيه", "p": "22", "de": "Silky coffee pudding, cool and gently sweet.", "da": "بودينغ قهوة حريري، بارد وحلو بلطف.", "tags": ["sweet", "veg"], "img": "assets/opulent-cafe/items/nescafepud.jpg", "sig": false, "story": "", "pop": "#C09B72"}, {"en": "Pecan Pudding", "ar": "بودينغ بيكان", "p": "24", "de": "Creamy pudding layered with toasted pecan.", "da": "بودينغ كريمي بطبقات من البيكان المحمّص.", "tags": ["sweet", "veg"], "img": "assets/opulent-cafe/items/pecanpud.jpg", "sig": false, "story": "", "pop": "#C4A983"}, {"en": "French Toast with Cream", "ar": "فرنش توست بالكريمة", "p": "24", "de": "Our signature golden toast under soft cream.", "da": "فرنش توست ذهبي مميّز تحت كريمة ناعمة.", "tags": ["sweet", "veg"], "img": "assets/opulent-cafe/items/frenchtoastcream.jpg", "sig": true, "story": "The one they come back for.", "pop": "#BD8860"}, {"en": "Madrid Cheesecake", "ar": "تشيز كيك مدريد", "p": "26", "de": "Burnt-top cheesecake, molten centered and elegant.", "da": "تشيز كيك بسطح محروق وقلب ذائب أنيق.", "tags": ["sweet", "veg"], "img": "assets/opulent-cafe/items/madridchz.jpg", "sig": true, "story": "Burnt on top, molten within.", "pop": "#C4C097"}, {"en": "Mini French Toast", "ar": "ميني فرنش توست", "p": "26", "de": "A smaller serving of our beloved golden toast.", "da": "حصة أصغر من فرنش توستنا الذهبي المحبوب.", "tags": ["sweet", "veg"], "img": "assets/opulent-cafe/items/minifrenchtoast.jpg", "sig": false, "story": "", "pop": "#C49B70"}, {"en": "Madrid Cheesecake Pecan", "ar": "تشيز كيك مدريد بيكان", "p": "32", "de": "Molten Madrid cheesecake crowned with toasted pecan.", "da": "تشيز كيك مدريد الذائب متوّج بالبيكان المحمّص.", "tags": ["sweet", "veg"], "img": "assets/opulent-cafe/items/madridpecan.jpg", "sig": false, "story": "", "pop": "#C4B393"}]}, {"id": "breakfast", "en": "Breakfast", "ar": "الإفطار", "cover": "assets/opulent-cafe/banners/banner-breakfast.jpg", "kicker": "The Morning", "items": [{"en": "Shakshuka Croissant", "ar": "كروسان شكشوكة", "p": "11", "de": "Flaky croissant cradling warm, savory shakshuka.", "da": "كروسان مقرمش يحتضن شكشوكة دافئة لذيذة.", "tags": ["savory", "hot"], "img": "assets/opulent-cafe/items/shakshuka.jpg", "sig": false, "story": "", "pop": "#BB9870"}, {"en": "Egg Roll", "ar": "رول البيض", "p": "12", "de": "Soft rolled bread with warm, gentle egg.", "da": "خبز ملفوف طري مع بيض دافئ لطيف.", "tags": ["savory", "hot"], "img": "assets/opulent-cafe/items/eggroll.jpg", "sig": false, "story": "", "pop": "#C4AD86"}, {"en": "Scrambled Egg", "ar": "بيض مخفوق", "p": "14", "de": "Softly folded eggs, simple and comforting.", "da": "بيض مخفوق بنعومة، بسيط ومريح.", "tags": ["savory", "hot", "veg"], "img": "assets/opulent-cafe/items/scrambled.jpg", "sig": false, "story": "", "pop": "#C4B38B"}, {"en": "Halloumi Sandwich", "ar": "ساندويتش حلومي", "p": "16", "de": "Warm grilled halloumi tucked in soft bread.", "da": "حلومي مشوي دافئ في خبز طري.", "tags": ["savory", "hot", "veg"], "img": "assets/opulent-cafe/items/halloumisand.jpg", "sig": false, "story": "", "pop": "#C4BA99"}, {"en": "Brioche Egg Sandwich", "ar": "ساندويتش بريوش بالبيض", "p": "20", "de": "Buttery brioche embracing a warm egg filling.", "da": "بريوش زبدي يحتضن حشوة بيض دافئة.", "tags": ["savory", "hot"], "img": "", "sig": false, "story": "", "pop": "#C6A15B"}, {"en": "Tuna Sourdough", "ar": "تونة على خبز الساوردو", "p": "26", "de": "Tangy sourdough layered with savory tuna.", "da": "خبز ساوردو حامضي بطبقات من التونة اللذيذة.", "tags": ["savory"], "img": "assets/opulent-cafe/items/tunasour.jpg", "sig": false, "story": "", "pop": "#C4AB83"}]}, {"id": "hot-coffee", "en": "Hot Coffee", "ar": "القهوة الساخنة", "cover": "assets/opulent-cafe/banners/banner-hot.jpg", "kicker": "The Hot Bar", "items": [{"en": "Espresso", "ar": "إسبريسو", "p": "13", "de": "A single, concentrated shot with lingering warmth.", "da": "جرعة إسبريسو مركزة بدفء يبقى طويلاً.", "tags": ["hot"], "img": "assets/opulent-cafe/items/espresso.jpg", "sig": false, "story": "", "pop": "#C4BFA3"}, {"en": "Americano", "ar": "أمريكانو", "p": "13", "de": "Espresso lengthened with hot water, clean and smooth.", "da": "إسبريسو ممزوج بالماء الساخن، صافٍ وناعم.", "tags": ["hot"], "img": "assets/opulent-cafe/items/americano.jpg", "sig": false, "story": "", "pop": "#C4BFA3"}, {"en": "Coffee of the Day", "ar": "قهوة اليوم", "p": "13", "de": "Today's chosen brew, always freshly considered.", "da": "قهوة اليوم المختارة، طازجة على الدوام.", "tags": ["hot"], "img": "assets/opulent-cafe/items/coffeedayhot.jpg", "sig": false, "story": "", "pop": "#C4C4AB"}, {"en": "Cortado", "ar": "كورتادو", "p": "14", "de": "Espresso softened with an equal touch of milk.", "da": "إسبريسو ملطّف بلمسة متساوية من الحليب.", "tags": ["hot"], "img": "assets/opulent-cafe/items/cortado.jpg", "sig": false, "story": "", "pop": "#C4BD9D"}, {"en": "Piccolo", "ar": "بيكولو", "p": "17", "de": "A small, velvety cup of espresso and milk.", "da": "فنجان صغير مخملي من الإسبريسو والحليب.", "tags": ["hot"], "img": "assets/opulent-cafe/items/piccolo.jpg", "sig": false, "story": "", "pop": "#C4C0A3"}, {"en": "Latte", "ar": "لاتيه", "p": "17", "de": "Espresso wrapped in gently steamed milk.", "da": "إسبريسو محاط بحليب مبخّر بلطف.", "tags": ["hot"], "img": "assets/opulent-cafe/items/latte.jpg", "sig": false, "story": "", "pop": "#C4BB9B"}, {"en": "Cappuccino", "ar": "كابتشينو", "p": "17", "de": "Espresso crowned with airy, comforting foam.", "da": "إسبريسو متوّج برغوة خفيفة مريحة.", "tags": ["hot"], "img": "assets/opulent-cafe/items/cappuccino.jpg", "sig": false, "story": "", "pop": "#C4BFA3"}, {"en": "Flat White", "ar": "فلات وايت", "p": "18", "de": "Silky microfoam over a bold espresso base.", "da": "رغوة حريرية فوق قاعدة إسبريسو قوية.", "tags": ["hot"], "img": "assets/opulent-cafe/items/flatwhite.jpg", "sig": false, "story": "", "pop": "#C4BF9F"}, {"en": "Hot Spanish Latte", "ar": "سبانيش لاتيه ساخن", "p": "19", "de": "Espresso and milk with a sweet condensed warmth.", "da": "إسبريسو وحليب بحلاوة الحليب المكثّف الدافئة.", "tags": ["hot"], "img": "assets/opulent-cafe/items/hotspanish.jpg", "sig": false, "story": "", "pop": "#C4BFA3"}, {"en": "English Tea", "ar": "شاي إنجليزي", "p": "7", "de": "Classic black tea, steeped simple and true.", "da": "شاي أسود كلاسيكي، منقوع ببساطة وأصالة.", "tags": ["hot"], "img": "assets/opulent-cafe/items/englishtea.jpg", "sig": false, "story": "", "pop": "#C4BFA3"}]}, {"id": "cold-drinks", "en": "Cold Drinks", "ar": "المشروبات الباردة", "cover": "assets/opulent-cafe/banners/banner-iced.jpg", "kicker": "The Cold Bar", "items": [{"en": "Coffee of the Day Cold", "ar": "قهوة اليوم باردة", "p": "13", "de": "The day's brew, poured cold over ice.", "da": "قهوة اليوم مسكوبة باردة على الثلج.", "tags": ["cold"], "img": "assets/opulent-cafe/items/coffeedaycold.jpg", "sig": false, "story": "", "pop": "#C4B191"}, {"en": "Iced Americano", "ar": "أمريكانو مثلج", "p": "16", "de": "Espresso over ice, clean and refreshing.", "da": "إسبريسو على الثلج، صافٍ ومنعش.", "tags": ["cold"], "img": "assets/opulent-cafe/items/icedamericano.jpg", "sig": false, "story": "", "pop": "#C4B090"}, {"en": "Iced Latte", "ar": "لاتيه مثلج", "p": "18", "de": "Chilled espresso and milk, smooth and easy.", "da": "إسبريسو وحليب باردان، ناعمان وسلسان.", "tags": ["cold"], "img": "assets/opulent-cafe/items/icedlatte.jpg", "sig": false, "story": "", "pop": "#C4B68F"}, {"en": "Alfredo", "ar": "ألفريدو", "p": "18", "de": "Our signature iced indulgence, rich and velvety.", "da": "دلالنا المثلج المميّز، غني ومخملي.", "tags": ["cold"], "img": "assets/opulent-cafe/items/alfredo.jpg", "sig": true, "story": "The house pour we are known by.", "pop": "#C4BB98"}, {"en": "Iced Spanish Latte", "ar": "سبانيش لاتيه مثلج", "p": "20", "de": "Iced espresso and milk kissed with sweetness.", "da": "إسبريسو وحليب مثلجان بلمسة من الحلاوة.", "tags": ["cold"], "img": "assets/opulent-cafe/items/icedspanish.jpg", "sig": false, "story": "", "pop": "#C4BB98"}, {"en": "Iced Shaken White Mocha", "ar": "وايت موكا مخفوق مثلج", "p": "21", "de": "Shaken espresso with white chocolate over ice.", "da": "إسبريسو مخفوق مع الشوكولاتة البيضاء على الثلج.", "tags": ["cold", "sweet"], "img": "assets/opulent-cafe/items/shakenmocha.jpg", "sig": true, "story": "Shaken, never stirred.", "pop": "#C4B793"}, {"en": "Iced Hibiscus", "ar": "كركديه مثلج", "p": "21", "de": "Ruby hibiscus over ice, tart and reviving.", "da": "كركديه ياقوتي على الثلج، منعش وحامضي.", "tags": ["cold", "veg"], "img": "assets/opulent-cafe/items/icedhibiscus.jpg", "sig": false, "story": "", "pop": "#C4B195"}, {"en": "Iced Matcha", "ar": "ماتشا مثلج", "p": "22", "de": "Stone-ground matcha over ice, earthy and calm.", "da": "ماتشا مطحونة على الثلج، ترابية وهادئة.", "tags": ["cold", "veg"], "img": "assets/opulent-cafe/items/icedmatcha.jpg", "sig": false, "story": "", "pop": "#C4BA96"}, {"en": "Iced Caramel Macchiato", "ar": "كراميل ماكياتو مثلج", "p": "26", "de": "Layered espresso, milk and caramel over ice.", "da": "طبقات من الإسبريسو والحليب والكراميل على الثلج.", "tags": ["cold", "sweet"], "img": "assets/opulent-cafe/items/caramelmac.jpg", "sig": false, "story": "", "pop": "#C4B895"}, {"en": "Matcha Server", "ar": "ماتشا سيرفر", "p": "28", "de": "A generous matcha to share slowly, served whole.", "da": "ماتشا وفيرة تُشارك على مهل، تُقدّم كاملة.", "tags": ["cold", "veg"], "img": "assets/opulent-cafe/items/matchaserver.jpg", "sig": true, "story": "Made to share, slowly.", "pop": "#C4BC95"}, {"en": "Iced Tea", "ar": "شاي مثلج", "p": "20", "de": "Freshly brewed tea, poured cold and clear.", "da": "شاي طازج مسكوب بارداً وصافياً.", "tags": ["cold"], "img": "", "sig": false, "story": "", "pop": "#C6A15B"}]}, {"id": "drip-coffee", "en": "Drip Coffee", "ar": "مشروبات مقطرة", "cover": "assets/opulent-cafe/banners/banner-drip.jpg", "kicker": "The Slow Bar", "items": [{"en": "V60", "ar": "V60", "p": "20", "de": "Bright pour-over, clean and quietly aromatic.", "da": "قهوة مقطرة صافية بنكهة عطرة هادئة.", "tags": ["hot", "drip"], "img": "assets/opulent-cafe/items/v60.jpg", "sig": false, "story": "", "pop": "#C4C3A7"}, {"en": "Ice V60", "ar": "V60 مثلج", "p": "22", "de": "Chilled pour-over, crisp and delicately floral.", "da": "في 60 بارد منعش بلمسة زهرية رقيقة.", "tags": ["cold", "drip"], "img": "assets/opulent-cafe/items/icev60.jpg", "sig": false, "story": "", "pop": "#C4C4B3"}, {"en": "Kalita", "ar": "كاليتا", "p": "20", "de": "Balanced pour-over with a smooth, rounded body.", "da": "قهوة مقطرة متوازنة بقوام ناعم ممتلئ.", "tags": ["hot", "drip"], "img": "assets/opulent-cafe/items/kalita.jpg", "sig": false, "story": "", "pop": "#C4C1A2"}, {"en": "Ice Kalita", "ar": "كاليتا مثلج", "p": "22", "de": "Iced Kalita, refreshing with a gentle sweetness.", "da": "كاليتا مثلجة منعشة بحلاوة لطيفة.", "tags": ["cold", "drip"], "img": "assets/opulent-cafe/items/icekalita.jpg", "sig": false, "story": "", "pop": "#C4C4AF"}]}];
+const WA = "966530587096";
+</script>
+<script>
+(function(){
+  var doc=document, body=doc.body;
+  var AR_NUM={'0':'٠','1':'١','2':'٢','3':'٣','4':'٤','5':'٥','6':'٦','7':'٧','8':'٨','9':'٩'};
+  var lang='en', filter='all', tray=[];
+  function esc(t){return (t==null?'':String(t)).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  function num(s){ if(lang!=='ar')return s; return String(s).replace(/[0-9]/g,function(d){return AR_NUM[d];}); }
+  function cur(){return lang==='ar'?'ر.س':'SAR';}
+  function price(p){return '<span class="pr" data-raw="'+p+'">'+num(p)+'<span class="c">'+cur()+'</span></span>';}
+  var allItems=[]; MENU.forEach(function(s){s.items.forEach(function(it){it._sec=s.id; allItems.push(it);});});
+
+  /* ---- signature shelf ---- */
+  var shelf=doc.getElementById('shelf');
+  shelf.innerHTML=allItems.filter(function(it){return it.sig;}).map(function(it){
+    return '<article class="stamp"><div class="frame">'+
+      (it.img?'<figure><img src="'+it.img+'" alt="'+esc(it.en)+'" loading="lazy"></figure>':'')+
+      '<div class="nm">'+esc(it.en)+'</div>'+
+      '<div class="nm-ar" lang="ar" dir="rtl">'+esc(it.ar)+'</div>'+
+      '<div class="story">'+esc(it.story||'')+'</div>'+
+      '<div class="foot"><span class="pm">First Edition</span>'+price(it.p)+'</div>'+
+    '</div></article>';
+  }).join('');
+
+  /* ---- filters ---- */
+  var FILTERS=[['all','All','الكل'],['signature','Signature','مميز'],
+    ['hot','Hot','ساخن'],['cold','Iced','مثلج'],['drip','Drip','مقطر'],
+    ['sweet','Sweet','حلو'],['savory','Savory','مالح'],['veg','Veg','نباتي']];
+  var fbar=doc.getElementById('filters');
+  fbar.innerHTML=FILTERS.map(function(f){return '<button class="chip'+(f[0]==='all'?' on':'')+'" data-f="'+f[0]+'">'+f[1]+'<span class="a">'+f[2]+'</span></button>';}).join('');
+
+  /* ---- render chapters ---- */
+  function cardHTML(it){
+    var sig=it.sig?' sig':''; var np=it.img?'':' nophoto';
+    return '<article class="card'+sig+np+'" style="--pop:'+(it.pop||'#C6A15B')+'" data-tags="'+(it.tags||[]).join(' ')+' '+(it.sig?'signature':'')+'" data-name="'+esc((it.en+' '+it.ar).toLowerCase())+'">'+
+      (it.sig?'<div class="sigbadge"><b>✦</b> Signature</div>':'')+
+      '<div class="top">'+
+        (it.img?'<figure><img src="'+it.img+'" alt="'+esc(it.en)+'" loading="lazy"></figure>':'')+
+        '<div class="body">'+
+          '<div class="nm">'+esc(it.en)+'</div>'+
+          '<div class="nm-ar" lang="ar" dir="rtl">'+esc(it.ar)+'</div>'+
+          '<div class="de">'+esc(it.de)+'</div>'+
+          '<div class="da" lang="ar" dir="rtl">'+esc(it.da)+'</div>'+
+        '</div>'+
+      '</div>'+
+      '<div class="foot">'+price(it.p)+
+        '<button class="add" data-add="'+esc(it.en)+'" aria-label="Add '+esc(it.en)+'"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Add</button>'+
+      '</div>'+
+    '</article>';
+  }
+  var DIV_SVG='<svg viewBox="0 0 340 90" aria-hidden="true"><path class="op-div-rule" d="M20 45 H120 M220 45 H320"/>'+
+    '<g class="op-div-palm" transform="translate(170 45)"><path d="M0 22 C-1 12 -1 4 0 -4"/>'+
+    '<path d="M0 -4 C 9 -9 20 -9 29 -3"/><path d="M0 -4 C 11 -4 23 -1 31 6"/><path d="M0 -4 C -9 -9 -20 -9 -29 -3"/><path d="M0 -4 C -11 -4 -23 -1 -31 6"/>'+
+    '<path d="M0 -4 C -2 -15 -1 -22 0 -26"/></g>'+
+    '<circle cx="120" cy="45" r="2" fill="#6F6C43"/><circle cx="220" cy="45" r="2" fill="#6F6C43"/></svg>';
+  var menu=doc.getElementById('menu');
+  menu.innerHTML=MENU.map(function(s){
+    var head = s.cover
+      ? '<div class="cover"><img src="'+s.cover+'" alt="'+esc(s.en)+'" loading="lazy"><div class="cap"><span class="kick">'+esc(s.kicker||'')+'</span></div></div>'
+      : '<div class="divider">'+DIV_SVG+'</div>';
+    return '<section class="chapter" id="'+s.id+'">'+head+
+      '<div class="sec-lead"><h2>'+esc(s.en)+'</h2><div class="a">'+esc(s.ar)+'</div><div class="n" data-n="'+s.id+'"></div></div>'+
+      '<div class="grid">'+s.items.map(cardHTML).join('')+'</div>'+
+    '</section>';
+  }).join('');
+
+  /* ---- reveal on scroll ---- */
+  function observeCards(){
+    var cards=[].slice.call(doc.querySelectorAll('.card'));
+    [].slice.call(doc.querySelectorAll('.grid')).forEach(function(g){   // stagger index resets per section
+      [].slice.call(g.children).forEach(function(c,i){c.style.setProperty('--i', Math.min(i,8));});
+    });
+    var covers=[].slice.call(doc.querySelectorAll('.cover'));
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.08,rootMargin:'0px 0px -6% 0px'});
+      cards.forEach(function(c){io.observe(c);});
+      var co=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('lit');co.unobserve(e.target);}});},{threshold:.35});
+      covers.forEach(function(c){co.observe(c);});
+    } else cards.forEach(function(c){c.classList.add('in');});
+  }
+  observeCards();
+
+  /* ---- filtering + counts ---- */
+  var countEl=doc.getElementById('count');
+  function applyFilter(){
+    var shown=0;
+    MENU.forEach(function(s){
+      var secShown=0;
+      [].slice.call(doc.querySelectorAll('#'+s.id+' .card')).forEach(function(c){
+        var ok = filter==='all' || (' '+c.getAttribute('data-tags')+' ').indexOf(' '+filter+' ')>-1;
+        c.classList.toggle('hide', !ok);
+        if(ok){secShown++; shown++;}
+      });
+      var sec=doc.getElementById(s.id);
+      sec.style.display = secShown? '' : 'none';
+    });
+    countEl.textContent = (lang==='ar'? ('عرض '+num(shown)+' من '+num(allItems.length)) : ('Showing '+shown+' of '+allItems.length+' items'));
+  }
+  fbar.addEventListener('click',function(e){
+    var b=e.target.closest('.chip'); if(!b)return;
+    filter=b.getAttribute('data-f');
+    [].slice.call(fbar.children).forEach(function(c){c.classList.toggle('on',c===b);});
+    applyFilter();
+  });
+  applyFilter();
+
+  /* ---- language toggle (dir + numerals) ---- */
+  var langBtn=doc.getElementById('langBtn');
+  function setLang(l){
+    lang=l; body.classList.toggle('rtl',l==='ar');
+    doc.documentElement.setAttribute('dir', l==='ar'?'rtl':'ltr');
+    doc.documentElement.setAttribute('lang', l==='ar'?'ar':'en');
+    langBtn.textContent = l==='ar'?'EN':'AR';
+    langBtn.setAttribute('aria-label', l==='ar'?'التبديل إلى الإنجليزية':'Switch to Arabic');
+    [].slice.call(doc.querySelectorAll('.pr')).forEach(function(pr){
+      var raw=pr.getAttribute('data-raw'); if(raw==null){raw=pr.childNodes[0].nodeValue;pr.setAttribute('data-raw',raw);}
+      pr.childNodes[0].nodeValue=num(raw);
+      var c=pr.querySelector('.c'); if(c)c.textContent=cur();
+    });
+    updateStatus(); renderTray(); applyFilter();
+  }
+  langBtn.addEventListener('click',function(){setLang(lang==='ar'?'en':'ar');});
+
+  /* ---- open now (KSA time UTC+3), bilingual, correct Friday hours ---- */
+  function updateStatus(){
+    var now=new Date(); var ksa=new Date(now.getTime()+(now.getTimezoneOffset()*60000)+(3*3600000));
+    var d=ksa.getDay(), h=ksa.getHours()+ksa.getMinutes()/60; // Sun=0..Sat=6
+    var open=(d===5)?(h>=13):(h>=7); var friClosed=(d===5 && h<13); // closes midnight
+    var dot=doc.getElementById('statDot'), txt=doc.getElementById('statTxt');
+    dot.classList.toggle('open',open);
+    var fs=doc.getElementById('footStore'); if(fs)fs.classList.toggle('is-open',open);  // living storefront lights up when open
+    if(open){ txt.textContent = lang==='ar'?'مفتوح الآن':'Open now'; }
+    else { txt.textContent = lang==='ar' ? ('يفتح '+(friClosed?'١:٠٠م':'٧:٠٠ص')) : ('Opens '+(friClosed?'1:00pm':'7:00am')); }
+  }
+  updateStatus();
+
+  /* ---- tray / build-a-tray ---- */
+  var trayEl=doc.getElementById('tray'), trayItems=doc.getElementById('trayItems'),
+      trayCount=doc.getElementById('trayCount'), trayTotals=doc.getElementById('trayTotals');
+  function findItem(en){for(var i=0;i<allItems.length;i++)if(allItems[i].en===en)return allItems[i];return null;}
+  function renderTray(){
+    trayEl.classList.toggle('up', tray.length>0);
+    var total=0, counts={};
+    tray.forEach(function(en){counts[en]=(counts[en]||0)+1; var it=findItem(en); total+=parseFloat(it.p)||0;});
+    var unit = lang==='ar' ? (tray.length===1?'صنف':'أصناف') : (tray.length===1?'item':'items');
+    trayCount.textContent = num(tray.length)+' '+unit;
+    trayTotals.textContent = lang==='ar' ? (num(total)+' ر.س') : ('SAR '+num(total));
+    var keys=Object.keys(counts);
+    trayItems.innerHTML=keys.map(function(en){var it=findItem(en);return '<div class="ti">'+(it.img?'<img src="'+it.img+'" alt="'+esc(en)+'">':'')+'<span>'+num(counts[en])+'</span></div>';}).join('');
+  }
+  var reduceM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function ripple(btn,e){ if(reduceM)return; var r=btn.getBoundingClientRect(); var s=Math.max(r.width,r.height)*1.5;
+    var el=doc.createElement('span'); el.className='rippl'; el.style.width=el.style.height=s+'px';
+    el.style.left=(((e&&e.clientX)||r.left+r.width/2)-r.left)+'px'; el.style.top=(((e&&e.clientY)||r.top+r.height/2)-r.top)+'px';
+    btn.appendChild(el); el.addEventListener('animationend',function(){el.remove();}); setTimeout(function(){if(el.parentNode)el.remove();},700); }
+  doc.addEventListener('pointerdown',function(e){ var b=e.target.closest('.add,.send,.chip,.act,.lang'); if(b)ripple(b,e); },{passive:true});
+  function trayThunk(){ trayEl.classList.remove('pulse'); void trayEl.offsetWidth; trayEl.classList.add('pulse');
+    if(trayCount){trayCount.classList.remove('bump'); void trayCount.offsetWidth; trayCount.classList.add('bump');} }
+  function fly(card){ var fig=card&&card.querySelector('figure img'); if(!fig){renderTray();return;} var s=fig.getBoundingClientRect();
+    var tis=doc.querySelectorAll('#trayItems .ti'); var tgt=tis.length?tis[tis.length-1].getBoundingClientRect():doc.getElementById('traySend').getBoundingClientRect();
+    var clone=doc.createElement('img'); clone.src=fig.src; clone.className='fly';
+    clone.style.left=s.left+'px'; clone.style.top=s.top+'px'; clone.style.width=s.width+'px'; clone.style.height=s.height+'px';
+    doc.body.appendChild(clone);
+    var mx=(s.left+tgt.left)/2, my=Math.min(s.top,tgt.top)-80;
+    var an=clone.animate([
+      {transform:'translate(0,0) rotate(0deg)',width:s.width+'px',height:s.height+'px',opacity:1},
+      {transform:'translate('+(mx-s.left)+'px,'+(my-s.top)+'px) rotate(-9deg)',width:(s.width*.68)+'px',height:(s.height*.68)+'px',opacity:1,offset:.55},
+      {transform:'translate('+(tgt.left-s.left)+'px,'+(tgt.top-s.top)+'px) rotate(6deg)',width:'40px',height:'40px',opacity:.85}
+    ],{duration:660,easing:'cubic-bezier(.5,0,.2,1)'});
+    var done=false; function fin(){ if(done)return; done=true; if(clone.parentNode)clone.remove(); renderTray(); trayThunk(); }
+    an.onfinish=fin; setTimeout(fin,780);
+  }
+  doc.addEventListener('click',function(e){
+    var b=e.target.closest('[data-add]'); if(!b)return;
+    var card=b.closest('.card'); tray.push(b.getAttribute('data-add'));
+    toast(lang==='ar'?'أُضيف للطلب':'Added to your tray');
+    if(reduceM){ renderTray(); return; }
+    b.animate([{transform:'scale(.93)'},{transform:'scale(1.06)'},{transform:'scale(1)'}],{duration:360,easing:'cubic-bezier(.34,1.56,.64,1)'});
+    fly(card);   // arc the photo into the tray, then renderTray + thunk on landing
+  });
+  doc.getElementById('trayClear').addEventListener('click',function(){tray=[];renderTray();});
+
+  /* ---- wax-seal SEND -> WhatsApp ---- */
+  function buildMessage(){
+    var counts={}; tray.forEach(function(en){counts[en]=(counts[en]||0)+1;});
+    var total=0, lines=Object.keys(counts).map(function(en){var it=findItem(en);var sub=(parseFloat(it.p)||0)*counts[en];total+=sub;return counts[en]+' x '+en+'  ('+it.p+' SAR)';});
+    return 'Hi Opulent, I would love to order:%0a'+lines.map(encodeURIComponent).join('%0a')+'%0a%0aTotal about '+total+' SAR%0a( via menu-sadah.com )';
+  }
+  var seal=doc.getElementById('seal');
+  doc.getElementById('traySend').addEventListener('click',function(){
+    if(!tray.length){toast(lang==='ar'?'أضف صنفاً أولاً':'Add something first');return;}
+    var url='https://wa.me/'+WA+'?text='+buildMessage();
+    var win=window.open(url,'_blank');  // open synchronously inside the gesture so mobile Safari does not block it
+    var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+    if(reduce){ if(!win)location.href=url; return; }
+    seal.classList.remove('go');var _w=seal.querySelector('.seal-wax');if(_w){_w.style.animation='none';void _w.offsetWidth;_w.style.animation='';}
+    seal.classList.add('show');requestAnimationFrame(function(){seal.classList.add('go');});
+    setTimeout(function(){seal.classList.remove('show','go');if(!win)location.href=url;},1150);
+  });
+  seal.addEventListener('click',function(){seal.classList.remove('show','go');});
+
+  /* ---- sticky nav spy: postmark active section (kicker in count) ---- */
+  var secs=[].slice.call(doc.querySelectorAll('.chapter'));
+  if('IntersectionObserver' in window){
+    var spy=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){try{localStorage.setItem('op_lastSection',e.target.id);}catch(_){}}});},{rootMargin:'-45% 0px -50% 0px'});
+    secs.forEach(function(s){spy.observe(s);});
+  }
+  doc.addEventListener('click',function(e){var bk=e.target.closest('[data-back]');if(bk){var t=doc.getElementById(bk.getAttribute('data-back'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'});}});
+
+  /* ---- toast ---- */
+  var toastEl=doc.getElementById('toast'),tt;
+  function toast(m){toastEl.textContent=m;toastEl.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){toastEl.classList.remove('show');},1500);}
+
+  /* ---- hero: pause the self-drawing set when offscreen (gold dust is now page-wide Goldfall CSS) ---- */
+  (function(){
+    var hero=doc.getElementById('opHero'); if(!hero||!('IntersectionObserver' in window))return;
+    new IntersectionObserver(function(es){es.forEach(function(e){hero.classList.toggle('is-paused',!e.isIntersecting);});},{threshold:0}).observe(hero);
+  })();
+
+  /* ---- Morning Light: time-of-day wash + greeting (KSA) ---- */
+  (function(){
+    var now=new Date(); var ksa=new Date(now.getTime()+(now.getTimezoneOffset()*60000)+(3*3600000)); var h=ksa.getHours();
+    var key = h<10?'dawn':(h<16?'midday':(h<19?'dusk':'night'));
+    doc.documentElement.setAttribute('data-period',key);
+    var G={dawn:['Good morning','صباح الخير'],midday:['Good afternoon','مساء الخير'],dusk:['Good evening','مساء الخير'],night:['A quiet hour','ساعة هادئة']};
+    var g=doc.getElementById('opGreet'); if(g){var p=G[key]; g.innerHTML='<span class="a" lang="ar" dir="rtl">'+p[1]+'</span><i></i><span class="e">'+p[0]+'</span>';}
+    try{
+      var v=(parseInt(localStorage.getItem('op_visits'),10)||0)+1; localStorage.setItem('op_visits',String(v));
+      var wel=doc.getElementById('opWelcome');
+      if(wel && v>1){
+        var hh='<div class="op-wb"><span class="a" lang="ar" dir="rtl">أهلاً بعودتك</span><span>&middot;</span><span>Welcome back</span></div>';
+        var last=localStorage.getItem('op_lastSection');
+        if(last){var el=doc.getElementById(last); if(el){var h2=el.querySelector('.sec-lead h2'); var nm=h2?h2.textContent.trim():''; if(nm)hh+='<button class="op-back" data-back="'+last+'">'+(lang==='ar'?('عودة إلى '+nm):('Back to '+nm))+' &rarr;</button>';}}
+        wel.innerHTML=hh;
+      }
+    }catch(_e){}
+  })();
+
+  /* ---- A Letter: intent-only collapsible ---- */
+  (function(){
+    var lt=doc.getElementById('letter'), btn=doc.getElementById('envBtn'); if(!btn)return;
+    btn.addEventListener('click',function(){var op=lt.classList.toggle('open');btn.setAttribute('aria-expanded',op?'true':'false');});
+  })();
+
+  /* ---- Masthead credits (edit OWNER to add real names; empty rows never render, so no placeholder ships) ---- */
+  (function(){
+    var box=doc.getElementById('mastBox'); if(!box)return;
+    var OWNER={founder:'',baker:'',barista:''};
+    var rows=[['Founder & Storyteller','مؤسِّس وراوٍ',OWNER.founder],['Head Baker','رئيس المخبز',OWNER.baker],['Head Barista','رئيس الباريستا',OWNER.barista]].filter(function(r){return r[2];});
+    var hh='<div class="mb-issue">Issue No. 01</div>';
+    rows.forEach(function(r){hh+='<div class="mb-row"><span class="mb-role">'+r[0]+'<span class="a" lang="ar">'+r[1]+'</span></span><span class="mb-name">'+esc(r[2])+'</span></div>';});
+    hh+='<div class="mb-place">Founded in Qurtubah, Riyadh<span class="a" lang="ar" dir="rtl">تأسّست في قرطبة، الرياض</span></div>';
+    box.innerHTML=hh;
+  })();
+})();
+</script>
+</body></html>

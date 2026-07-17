@@ -12,7 +12,7 @@
     "6. `next_action` is a suggestion for the card checklist."
   ],
   "updated": "2026-07-16",
-  "count": 16,
+  "count": 18,
   "cafes": [
     {
       "slug": "three-coffee",
@@ -333,6 +333,46 @@
       "status_note": "REAL client (replied on IG). Rebuilt via 3-concept swarm: day-arc winner. Harness-clean. reply.md ready.",
       "next_action": "REPLIED on IG — deploy rebuilt menu, then send reply.md text with menu + gift links",
       "source_files": "menus/some-coffee/ (index.html, gift.html, qr, table-card, handover)"
+    },
+    {
+      "slug": "beyt-coffee",
+      "name": "Beyt Cafe",
+      "name_ar": "بيت كافيه",
+      "city": "Beirut",
+      "stage": "To do",
+      "menu_built": true,
+      "menu_live": true,
+      "gift_ready": false,
+      "pack_complete": false,
+      "links": {
+        "menu": "https://menu-sadah.com/beyt-coffee",
+        "gift": "https://menu-sadah.com/beyt-coffee/gift.html"
+      },
+      "concept": "Lebanese house — rooms + morning/noon/night phases; DEMO showcase on landing",
+      "accent": "#D9A93F",
+      "status_note": "Imported from live. Added ?phase=night|noon|morning (+theme alias) and ?embed=1 (0.8 zoom) for the landing slider. Harness-clean.",
+      "next_action": "Send gift DM",
+      "source_files": "menus/beyt-coffee/ (index.html, gift.html, qr, table-card, handover)"
+    },
+    {
+      "slug": "opulent-cafe",
+      "name": "Opulent",
+      "name_ar": "أوبولنت",
+      "city": "Riyadh",
+      "stage": "To do",
+      "menu_built": true,
+      "menu_live": true,
+      "gift_ready": false,
+      "pack_complete": false,
+      "links": {
+        "menu": "https://menu-sadah.com/opulent-cafe",
+        "gift": "https://menu-sadah.com/opulent-cafe/gift.html"
+      },
+      "concept": "Magazine issue — bakery & coffee; landing HERO demo",
+      "accent": "#B58A2F",
+      "status_note": "Imported from live. Intro retimed ~2x (settles ~2.6s vs 5.7s), glint 3.6s loop, livelier ambient. Harness-clean (Fraunces fail = harness probe bug, logged).",
+      "next_action": "Send gift DM",
+      "source_files": "menus/opulent-cafe/ (index.html, gift.html, qr, table-card, handover)"
     }
   ]
 }
