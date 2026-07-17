@@ -1,0 +1,92 @@
+[
+  {
+    "slug": "good-mate",
+    "name": "Good Mate",
+    "nameAr": "قود ميت",
+    "area": "Riyadh",
+    "type": "specialty_coffee",
+    "stage": "READY",
+    "source": "batch1"
+  },
+  {
+    "slug": "78-specialty",
+    "name": "78 Specialty Coffee",
+    "nameAr": "٧٨ للقهوة المختصة",
+    "area": "Ar Rayyan",
+    "type": "specialty_coffee",
+    "stage": "READY",
+    "source": "batch1"
+  },
+  {
+    "slug": "bearu",
+    "name": "Béaru Cafés",
+    "nameAr": "بيرو كافيه",
+    "area": "Al Malqa",
+    "type": "family_cafe",
+    "stage": "READY",
+    "source": "batch1"
+  },
+  {
+    "slug": "little-henri",
+    "name": "Little Henri",
+    "nameAr": "ليتل هنري",
+    "area": "Al Muruj",
+    "type": "matcha_bar",
+    "stage": "READY",
+    "source": "batch1"
+  },
+  {
+    "slug": "hlo",
+    "name": "HLO",
+    "nameAr": "إتش إل أو",
+    "area": "Olaya",
+    "type": "dessert_cafe",
+    "stage": "READY",
+    "source": "batch1"
+  },
+  {
+    "slug": "place-and-people",
+    "name": "Place and People",
+    "nameAr": "بليس آند بيبول",
+    "area": "Riyadh",
+    "type": "dessert_cafe",
+    "stage": "READY",
+    "source": "batch1"
+  },
+  {
+    "slug": "salam-cafe",
+    "name": "Salam Café",
+    "nameAr": "سلام كافيه",
+    "area": "Al Malqa",
+    "type": "specialty_coffee",
+    "stage": "READY",
+    "source": "batch1"
+  },
+  {
+    "slug": "aim-coffee-bar",
+    "name": "Aim Coffee Bar",
+    "nameAr": "أيم كوفي بار",
+    "area": "Al Malqa",
+    "type": "specialty_coffee",
+    "stage": "READY",
+    "source": "batch1"
+  },
+  {
+    "slug": "woods",
+    "name": "Woods",
+    "nameAr": "وودز",
+    "area": "Al Yasmin",
+    "type": "specialty_coffee",
+    "stage": "READY",
+    "source": "batch1"
+  },
+  {
+    "slug": "breehant",
+    "name": "Breehant",
+    "nameAr": "بريهانت",
+    "area": "Al Yasmin",
+    "type": "roastery",
+    "stage": "READY",
+    "source": "batch1"
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "formulaVersion": "2.1",
+  "lessons": [
+    {
+      "id": 1,
+      "desc": "QA guard: price out of range",
+      "source": "test-bad",
+      "addedAt": 1784326089419
+    }
+  ],
+  "qa": {
+    "priceMin": 5,
+    "priceMax": 300,
+    "minHtmlBytes": 4000,
+    "requireArabic": true,
+    "requireDisclaimer": true
+  },
+  "runs": [
+    {
+      "at": 1784326089415,
+      "ms": 4,
+      "built": 1,
+      "failed": 1,
+      "total": 2
+    }
+  ]
+}

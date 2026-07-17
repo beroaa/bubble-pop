@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#161210">
+<title>BUILD TRACKER — MENU SADAH</title>
+<style>
+  :root{
+    --bg-0:#161210;--bg-1:#1f1915;--bg-2:#2a221b;--border-1:#35291f;--border-2:#55422f;
+    --text-1:#f5efe6;--text-2:#c6b9a6;--text-3:#8b7d6a;
+    --accent:#e3b23c;--positive:#57b380;--info:#5ca8e8;--negative:#e25c5c;
+    --mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg-0);color:var(--text-1);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Roboto,Arial,sans-serif;min-height:100vh;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:860px;margin:0 auto;padding:28px 20px 80px;text-align:center}
+  .head{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+  .led{width:10px;height:10px;border-radius:50%;background:var(--positive);box-shadow:0 0 10px var(--positive);animation:pulse 1.2s infinite}
+  .led.done{background:var(--accent);box-shadow:0 0 10px var(--accent);animation:none}
+  @keyframes pulse{50%{opacity:.4}}
+  h1{font-size:18px;letter-spacing:.14em;font-weight:800}
+  h1 b{color:var(--accent)}
+  .chip{background:var(--bg-1);border:1px solid var(--border-1);border-radius:999px;padding:4px 14px;font-size:12px;color:var(--text-2)}
+
+  .big{margin-top:34px}
+  .big .label{font-size:12px;letter-spacing:.16em;color:var(--text-3)}
+  #eta{font-family:var(--mono);font-size:clamp(64px,16vw,130px);font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;line-height:1.05}
+  #eta.done{color:var(--positive)}
+  #etaSub{color:var(--text-3);font-size:14px;margin-top:4px}
+  .pctBig{font-family:var(--mono);font-size:clamp(28px,6vw,44px);color:var(--text-1);margin-top:16px;font-weight:700}
+  .bar{margin:14px auto 0;max-width:560px;height:14px;background:var(--bg-2);border-radius:999px;overflow:hidden}
+  .bar .fill{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),#f6d77e);border-radius:999px;box-shadow:0 0 16px #e3b23c66;transition:width .4s ease}
+
+  .tasks{margin-top:38px;text-align:left;display:grid;gap:10px}
+  .task{background:var(--bg-1);border:1px solid var(--border-1);border-radius:14px;padding:14px 18px}
+  .trow{display:flex;align-items:center;gap:12px}
+  .ticon{font-size:18px;width:26px;text-align:center}
+  .tname{flex:1;font-weight:600}
+  .teta{font-family:var(--mono);font-size:14px;color:var(--text-2);font-variant-numeric:tabular-nums}
+  .teta.done{color:var(--positive)}
+  .teta.run{color:var(--accent)}
+  .tbar{margin-top:10px;height:6px;background:var(--bg-2);border-radius:999px;overflow:hidden}
+  .tbar .tfill{height:100%;background:var(--accent);border-radius:999px;transition:width .4s ease}
+  .tbar .tfill.done{background:var(--positive)}
+  .tnote{margin-top:6px;font-size:12.5px;color:var(--text-3)}
+  footer{margin-top:36px;color:var(--text-3);font-size:12px}
+  footer b{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <span class="led" id="led"></span>
+    <h1>BUILD <b>TRACKER</b></h1>
+    <span class="chip">MENU SADAH · منيو سادة</span>
+    <span class="chip" id="src">offline · reads tracker-state.js</span>
+  </div>
+
+  <div class="big">
+    <div class="label">ALL BUILDS COMPLETE IN</div>
+    <div id="eta">--:--.-</div>
+    <div id="etaSub">loading state…</div>
+    <div class="pctBig"><span id="pct">0</span>%</div>
+    <div class="bar"><div class="fill" id="fill"></div></div>
+  </div>
+
+  <div class="tasks" id="tasks"></div>
+
+  <footer>updates every 0.1s · works from a double-click (offline) or hosted on menu-sadah.com (online) · <b>SINGULARITY</b> family</footer>
+</div>
+
+<script src="./tracker-state.js"></script>
+<script>
+(function () {
+  'use strict';
+  const $ = (id) => document.getElementById(id);
+  let state = window.TRACKER_STATE || null;
+  let pollN = 0, lastStamp = 0;
+
+  // poll tracker-state.js every 2s (works on file:// and http(s)://)
+  setInterval(() => {
+    const s = document.createElement('script');
+    s.src = './tracker-state.js?b=' + (++pollN);
+    s.onload = () => { state = window.TRACKER_STATE || state; s.remove(); };
+    s.onerror = () => s.remove();
+    document.body.appendChild(s);
+  }, 2000);
+
+  function fmt(ms) {
+    if (ms == null || !isFinite(ms)) return '--:--.-';
+    ms = Math.max(0, ms);
+    const h = Math.floor(ms / 3600000);
+    const m = Math.floor(ms / 60000) % 60;
+    const s = Math.floor(ms / 1000) % 60;
+    const d = Math.floor(ms / 100) % 10;
+    return (h ? String(h).padStart(2, '0') + ':' : '') + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0') + '.' + d;
+  }
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+  function taskRemaining(t, now) {
+    if (t.status === 'done') return 0;
+    if (t.etaAt == null) return null;
+    return t.etaAt - now;
+  }
+
+  function tick() {
+    if (!state) return;
+    const now = Date.now();
+    const tasks = state.tasks || [];
+    const remainings = tasks.map((t) => taskRemaining(t, now)).filter((r) => r != null);
+    const allDone = tasks.length > 0 && tasks.every((t) => t.status === 'done');
+    const overall = allDone ? 0 : (remainings.length ? Math.max(...remainings) : null);
+
+    const etaEl = $('eta');
+    etaEl.textContent = fmt(overall);
+    etaEl.classList.toggle('done', allDone);
+    $('led').classList.toggle('done', allDone);
+    $('etaSub').textContent = allDone
+      ? 'everything shipped ✓ — ' + (state.doneNote || 'check the summary in chat')
+      : overall != null
+        ? 'estimated — finishes ≈ ' + new Date(now + Math.max(0, overall)).toLocaleTimeString()
+        : (state.note || 'estimating…');
+
+    // overall % = mean of task percents
+    const pct = tasks.length ? Math.round(tasks.reduce((a, t) => a + (t.status === 'done' ? 100 : (t.pct || 0)), 0) / tasks.length) : 0;
+    $('pct').textContent = pct;
+    $('fill').style.width = pct + '%';
+
+    if (state.generatedAt !== lastStamp) { lastStamp = state.generatedAt; renderTasks(tasks, now); }
+    else { // live-update the per-task countdowns without full re-render
+      tasks.forEach((t, i) => {
+        const el = document.getElementById('teta-' + i);
+        if (el && t.status !== 'done' && t.etaAt != null) el.textContent = fmt(t.etaAt - now);
+      });
+    }
+  }
+
+  function renderTasks(tasks, now) {
+    $('tasks').innerHTML = tasks.map((t, i) => {
+      const done = t.status === 'done';
+      const run = t.status === 'running';
+      const icon = done ? '✅' : run ? '⚙️' : '⏳';
+      const eta = done ? 'DONE ✓' : (t.etaAt != null ? fmt(t.etaAt - now) : 'queued');
+      const p = done ? 100 : (t.pct || 0);
+      return '<div class="task"><div class="trow">' +
+        '<span class="ticon">' + icon + '</span>' +
+        '<span class="tname">' + esc(t.name) + '</span>' +
+        '<span class="teta ' + (done ? 'done' : run ? 'run' : '') + '" id="teta-' + i + '">' + eta + '</span></div>' +
+        '<div class="tbar"><div class="tfill' + (done ? ' done' : '') + '" style="width:' + p + '%"></div></div>' +
+        (t.note ? '<div class="tnote">' + esc(t.note) + '</div>' : '') +
+        '</div>';
+    }).join('');
+  }
+
+  setInterval(tick, 100);
+  tick();
+})();
+</script>
+</body>
+</html>

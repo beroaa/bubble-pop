@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#161210">
+<title>SINGULARITY ALGO — MENU SADAH Mission Control</title>
+<style>
+  :root{
+    --bg-0:#161210;--bg-1:#1f1915;--bg-2:#2a221b;--border-1:#35291f;--border-2:#55422f;
+    --text-1:#f5efe6;--text-2:#c6b9a6;--text-3:#8b7d6a;
+    --accent:#e3b23c;--accent-soft:#e3b23c24;
+    --positive:#57b380;--negative:#e25c5c;--warning:#e8883c;--info:#5ca8e8;
+    --radius:14px;--shadow:0 4px 12px #00000073,0 12px 32px #00000059;
+    --mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg-0);color:var(--text-1);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh}
+  .wrap{max-width:1080px;margin:0 auto;padding:24px 20px 80px}
+
+  header{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:22px}
+  .wordmark{font-weight:800;font-size:20px;letter-spacing:.14em}
+  .wordmark b{color:var(--accent)}
+  .led{width:10px;height:10px;border-radius:50%;background:var(--text-3);flex:0 0 auto}
+  .led.on{background:var(--positive);box-shadow:0 0 10px var(--positive);animation:pulse 1.2s infinite}
+  @keyframes pulse{50%{opacity:.45}}
+  .chip{background:var(--bg-1);border:1px solid var(--border-1);border-radius:999px;padding:4px 14px;font-size:12.5px;color:var(--text-2)}
+  .chip b{color:var(--accent)}
+  #mode{margin-left:auto}
+  .btn{background:var(--accent-soft);color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:6px 18px;font-size:13px;cursor:pointer}
+
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+  .tile{background:var(--bg-1);border:1px solid var(--border-1);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow)}
+  .tile .k{font-size:11.5px;letter-spacing:.1em;color:var(--text-3);text-transform:uppercase}
+  .tile .v{font-size:44px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.15}
+  .tile .v.gold{color:var(--accent)}
+  .tile .sub{font-size:12px;color:var(--text-3)}
+
+  .eta-panel{margin-top:14px;background:var(--bg-1);border:1px solid var(--border-1);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow)}
+  .eta-row{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap}
+  .eta-label{font-size:11.5px;letter-spacing:.12em;color:var(--text-3)}
+  #eta{font-family:var(--mono);font-size:64px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:.01em}
+  #eta.done{color:var(--positive)}
+  .eta-sub{color:var(--text-3);font-size:13px}
+  .bar{margin-top:14px;height:12px;background:var(--bg-2);border-radius:999px;overflow:hidden;position:relative}
+  .bar .fill{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),#f6d77e);border-radius:999px;box-shadow:0 0 14px #e3b23c66;transition:width .3s ease}
+  .bar .pct{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--text-1);font-family:var(--mono)}
+
+  .cols{display:grid;grid-template-columns:1.4fr 1fr;gap:14px;margin-top:14px}
+  @media(max-width:760px){.cols{grid-template-columns:1fr}}
+  .panel{background:var(--bg-1);border:1px solid var(--border-1);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow)}
+  .panel h2{font-size:12px;letter-spacing:.12em;color:var(--text-3);text-transform:uppercase;margin-bottom:12px}
+
+  .stage-summary{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+  .sschip{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:3px 12px;font-size:12.5px;background:var(--bg-2);border:1px solid var(--border-1);color:var(--text-2)}
+  .board{max-height:420px;overflow-y:auto;scrollbar-width:thin}
+  .rowi{display:flex;align-items:center;gap:10px;padding:7px 4px;border-bottom:1px solid var(--border-1);font-size:13.5px}
+  .rowi:last-child{border-bottom:none}
+  .rowi .nm{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .rowi .ar{color:var(--text-3);font-size:12px}
+  .st{display:inline-flex;align-items:center;gap:5px;border-radius:6px;padding:1px 8px;font-size:11px;font-family:var(--mono);letter-spacing:.04em;border:1px solid var(--border-2);color:var(--text-2)}
+  .st.QUEUED{color:var(--text-3)}
+  .st.DATA,.st.BUILD,.st.QA{color:var(--info);border-color:var(--info)}
+  .st.READY{color:var(--positive);border-color:var(--positive)}
+  .st.SENT,.st.REPLIED{color:var(--accent);border-color:var(--accent)}
+  .st.SIGNED{color:var(--bg-0);background:var(--positive);border-color:var(--positive);font-weight:700}
+  .st.FAILED{color:var(--negative);border-color:var(--negative)}
+
+  .feed{font-family:var(--mono);font-size:12px;line-height:1.9;color:var(--text-2);max-height:420px;overflow-y:auto;scrollbar-width:thin}
+  .feed .t{color:var(--text-3)}
+  .feed .ok{color:var(--positive)}
+  .feed .bad{color:var(--negative)}
+  .feed .zap{color:var(--accent)}
+
+  .nosignal{text-align:center;padding:40px 20px;color:var(--text-3)}
+  .nosignal code{color:var(--accent);font-family:var(--mono)}
+  footer{margin-top:26px;text-align:center;color:var(--text-3);font-size:12px}
+  footer b{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="led" id="led"></span>
+    <span class="wordmark">SINGULARITY <b>ALGO</b></span>
+    <span class="chip">MENU SADAH · منيو سادة</span>
+    <span class="chip">Formula <b id="fver">—</b></span>
+    <span class="chip">🧠 <b id="lessons">0</b> lessons learned</span>
+    <span class="chip" id="mode">OFFLINE FILE · 0 network calls</span>
+    <button class="btn" id="demoBtn" hidden>▶ Run built-in demo</button>
+  </header>
+
+  <div class="tiles">
+    <div class="tile"><div class="k">Menus Ready</div><div class="v gold" id="tReady">0</div><div class="sub" id="tTarget">of 0 target</div></div>
+    <div class="tile"><div class="k">Sent to Cafes</div><div class="v" id="tSent">0</div><div class="sub">DMs out the door</div></div>
+    <div class="tile"><div class="k">In Pipeline</div><div class="v" id="tPipe">0</div><div class="sub" id="tQueued">0 queued</div></div>
+    <div class="tile"><div class="k">Menus / Hour</div><div class="v" id="tRate">—</div><div class="sub">rolling rate</div></div>
+  </div>
+
+  <div class="eta-panel">
+    <div class="eta-row">
+      <div>
+        <div class="eta-label">CAMPAIGN ETA — LIVE TO 0.1s</div>
+        <div id="eta">--:--:--.-</div>
+      </div>
+      <div class="eta-sub" id="etaSub">waiting for engine…</div>
+    </div>
+    <div class="bar"><div class="fill" id="fill"></div><div class="pct" id="pct"></div></div>
+  </div>
+
+  <div class="cols">
+    <div class="panel">
+      <h2>Stage Board</h2>
+      <div class="stage-summary" id="ssum"></div>
+      <div class="board" id="board"><div class="nosignal">No state yet.<br>Run <code>node singularity/engine.mjs build</code> or <code>simulate 100</code> — or press the demo button above.</div></div>
+    </div>
+    <div class="panel">
+      <h2>Event Feed</h2>
+      <div class="feed" id="feed"><span class="t">standing by…</span></div>
+    </div>
+  </div>
+
+  <footer>SINGULARITY ALGO v1 · works fully offline · reads <b>state.js</b> written by engine.mjs · <b>MENU SADAH</b></footer>
+</div>
+
+<script src="./state.js" onerror="window.__noState=true"></script>
+<script>
+(function () {
+  'use strict';
+  const $ = (id) => document.getElementById(id);
+  const STAGE_ICON = { QUEUED:'◌', DATA:'✎', BUILD:'⚒', QA:'🔎', READY:'✓', SENT:'✈', REPLIED:'💬', SIGNED:'★', FAILED:'✗' };
+  let state = window.SINGULARITY_STATE || null;
+  let demo = null;
+  let pollN = 0;
+  let lastRenderStamp = 0;
+
+  // ---- offline polling: re-inject state.js with a cache-buster every 500ms ----
+  function poll() {
+    if (demo) return;
+    const s = document.createElement('script');
+    s.src = './state.js?b=' + (++pollN);
+    s.onload = () => { state = window.SINGULARITY_STATE || state; s.remove(); };
+    s.onerror = () => s.remove();
+    document.body.appendChild(s);
+  }
+  setInterval(poll, 500);
+
+  // ---- 100ms display tick: interpolate ETA between state writes ----
+  function fmtEta(ms) {
+    if (ms == null || !isFinite(ms)) return '--:--:--.-';
+    ms = Math.max(0, ms);
+    const h = Math.floor(ms / 3600000), m = Math.floor(ms / 60000) % 60,
+          s = Math.floor(ms / 1000) % 60, d = Math.floor(ms / 100) % 10;
+    return String(h).padStart(2,'0') + ':' + String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0') + '.' + d;
+  }
+
+  function tick() {
+    const st = state;
+    if (!st) { $('demoBtn').hidden = false; return; }
+    const now = Date.now();
+    const etaEl = $('eta');
+    if (st.running && st.etaMs != null) {
+      const remaining = st.etaMs - (now - st.generatedAt);
+      etaEl.textContent = fmtEta(remaining);
+      etaEl.classList.remove('done');
+      const doneAt = new Date(now + Math.max(0, remaining));
+      $('etaSub').textContent = 'campaign completes ≈ ' + doneAt.toLocaleTimeString();
+    } else if (st.campaign && st.campaign.target > 0 && (st.campaign.ready + (st.campaign.failed || 0)) >= st.campaign.target) {
+      etaEl.textContent = '00:00:00.0';
+      etaEl.classList.add('done');
+      $('etaSub').textContent = 'campaign complete ✓';
+    } else {
+      etaEl.textContent = fmtEta(null);
+      $('etaSub').textContent = st.running ? 'measuring rate…' : 'engine idle — press demo or run engine.mjs';
+    }
+    if (st.generatedAt !== lastRenderStamp) { lastRenderStamp = st.generatedAt; render(st); }
+  }
+  setInterval(tick, 100);
+
+  // ---- full render (only when state actually changes) ----
+  function render(st) {
+    $('led').classList.toggle('on', !!st.running);
+    $('fver').textContent = 'v' + (st.formulaVersion || '?');
+    $('lessons').textContent = st.lessons || 0;
+    const c = st.campaign || {};
+    $('tReady').textContent = c.ready || 0;
+    $('tTarget').textContent = 'of ' + (c.target || 0) + ' target';
+    $('tSent').textContent = c.sent || 0;
+    $('tPipe').textContent = c.inPipeline || 0;
+    $('tQueued').textContent = (c.queued || 0) + ' queued · ' + (c.failed || 0) + ' failed';
+
+    // rolling rate from throughput samples
+    const tp = st.throughput || [];
+    if (tp.length >= 2) {
+      const a = tp[0], b = tp[tp.length - 1];
+      const rate = (b.done - a.done) / Math.max(1, b.t - a.t) * 3600000;
+      $('tRate').textContent = rate >= 100 ? Math.round(rate) : rate.toFixed(1);
+    } else $('tRate').textContent = '—';
+
+    const pctv = c.target ? Math.round((c.ready / c.target) * 100) : 0;
+    $('fill').style.width = pctv + '%';
+    $('pct').textContent = pctv + '%';
+
+    // stage summary chips (icon + label — never color alone)
+    const counts = {};
+    (st.menus || []).forEach((m) => { counts[m.stage] = (counts[m.stage] || 0) + 1; });
+    $('ssum').innerHTML = Object.keys(STAGE_ICON)
+      .filter((s) => counts[s])
+      .map((s) => '<span class="sschip"><span class="st ' + s + '">' + STAGE_ICON[s] + ' ' + s + '</span> ' + counts[s] + '</span>')
+      .join('');
+
+    // board — active first, then ready, then queued
+    const order = { DATA:0, BUILD:0, QA:0, FAILED:1, READY:2, SENT:3, REPLIED:3, SIGNED:3, QUEUED:4 };
+    const menus = (st.menus || []).slice().sort((a, b2) => (order[a.stage] ?? 9) - (order[b2.stage] ?? 9));
+    $('board').innerHTML = menus.map((m) =>
+      '<div class="rowi"><span class="st ' + m.stage + '">' + (STAGE_ICON[m.stage] || '?') + ' ' + m.stage + '</span>' +
+      '<span class="nm">' + esc(m.name) + '</span><span class="ar">' + esc(m.area || '') + '</span></div>'
+    ).join('') || '<div class="nosignal">queue is empty</div>';
+
+    $('feed').innerHTML = (st.log || []).slice().reverse().map((l) => {
+      const cls = l.msg.startsWith('✓') ? 'ok' : l.msg.startsWith('✗') ? 'bad' : l.msg.startsWith('⚡') ? 'zap' : '';
+      return '<div><span class="t">' + new Date(l.t).toLocaleTimeString() + '</span> <span class="' + cls + '">' + esc(l.msg) + '</span></div>';
+    }).join('') || '<span class="t">no events yet</span>';
+  }
+
+  function esc(s) { return String(s).replace(/[&<>"]/g, (ch) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch])); }
+
+  // ---- built-in demo (no engine needed — pure in-page rehearsal) ----
+  $('demoBtn').addEventListener('click', () => {
+    if (demo) return;
+    $('demoBtn').textContent = '… demo running';
+    const NAMES = ['Qamar','Dallah','Wared','Sidr','Ghaim','Nawa','Thurayya','Lahza','Daw','Samra','Mazaj','Hams','Toot','Areej','Sakan','Jood','Rawnaq','Talah','Fajr','Badr'];
+    const AREAS = ['Al Malqa','Al Yasmin','Hittin','Al Narjis','Al Muruj','Olaya','Ar Rayyan','Diriyah'];
+    const menus = Array.from({ length: 100 }, (_, i) => ({
+      slug: 'demo-' + i, name: NAMES[i % NAMES.length] + ' Cafe ' + (Math.floor(i / NAMES.length) + 1),
+      area: AREAS[i % AREAS.length], stage: 'QUEUED',
+    }));
+    const log = [{ t: Date.now(), msg: 'DEMO — rehearsing a 100-menu night at high speed' }];
+    const tp = [];
+    const started = Date.now();
+    let cursor = 0;
+    const lanes = Array.from({ length: 6 }, () => null);
+    demo = setInterval(() => {
+      lanes.forEach((cur, li) => {
+        if (cur == null || ['READY','FAILED'].includes(menus[cur].stage)) {
+          if (cursor < menus.length) lanes[li] = cursor++; else { lanes[li] = null; return; }
+        }
+        const m = menus[lanes[li]];
+        const nxt = { QUEUED:'DATA', DATA:'BUILD', BUILD:'QA' }[m.stage];
+        if (nxt) { if (Math.random() < 0.55) m.stage = nxt; }
+        else if (m.stage === 'QA') { /* handled below */ }
+        if (m.stage === 'QA' && Math.random() < 0.5) {
+          if (Math.random() < 0.03) { m.stage = 'FAILED'; log.push({ t: Date.now(), msg: '✗ ' + m.name + ': QA caught a bad price (demo)' }); }
+          else { m.stage = 'READY'; if (Math.random() < 0.3) log.push({ t: Date.now(), msg: '✓ ' + m.name + ' ready → /' + m.slug + '-welcome' }); }
+        }
+      });
+      const done = menus.filter((m) => m.stage === 'READY').length;
+      const failed = menus.filter((m) => m.stage === 'FAILED').length;
+      tp.push({ t: Date.now(), done });
+      if (tp.length > 60) tp.shift();
+      const win = tp.slice(-12);
+      const rate = win.length > 1 ? (win[win.length-1].done - win[0].done) / Math.max(1, win[win.length-1].t - win[0].t) : 0;
+      const remaining = menus.length - done - failed;
+      state = {
+        generatedAt: Date.now(), running: remaining > 0, startedAt: started,
+        etaMs: rate > 0 ? remaining / rate : null,
+        formulaVersion: '2.0-demo', lessons: 3,
+        campaign: { target: menus.length, ready: done, sent: 0, inPipeline: menus.filter((m) => ['DATA','BUILD','QA'].includes(m.stage)).length, queued: menus.filter((m) => m.stage === 'QUEUED').length, failed },
+        throughput: tp, menus, log: log.slice(-30),
+      };
+      if (remaining <= 0) {
+        log.push({ t: Date.now(), msg: 'DEMO COMPLETE — ' + done + ' menus ready in ' + ((Date.now() - started) / 1000).toFixed(1) + 's' });
+        clearInterval(demo); demo = null;
+        $('demoBtn').textContent = '▶ Run built-in demo';
+        state = { ...state, running: false, etaMs: 0 };
+      }
+    }, 120);
+  });
+
+  // first paint + show demo button if no engine state ever arrives
+  setTimeout(() => { if (!state) { $('demoBtn').hidden = false; } }, 700);
+  if (state) { lastRenderStamp = 0; }
+})();
+</script>
+</body>
+</html>

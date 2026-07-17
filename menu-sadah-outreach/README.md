@@ -55,3 +55,22 @@ pair works on any static host as long as both folders sit side by side.
   after they sign.
 - Per-cafe accent colors are chosen to hint at each brand (family-green for
   Béaru, leafy green for Woods, dessert-pink for HLO, etc.). Swap in `cafes.mjs`.
+
+## SINGULARITY ALGO (v2 formula)
+
+The `singularity/` folder is the batch system that scales the formula to 100 menus in one go:
+
+- `engine.mjs` — the batch engine. `node engine.mjs build` turns every queued cafe in
+  `queue.json` into a ready menu + pitch page (DATA → BUILD → QA → READY), enforcing
+  QA rules from `learnings.json`. Every QA failure becomes a recorded **lesson** and
+  bumps the formula version — the honest "self-learning" loop.
+  `node engine.mjs simulate 100` rehearses a full 100-menu night you can watch live.
+- `control.html` — **Mission Control**: open by double-click (fully offline). Big numbers,
+  live campaign ETA accurate to 0.1s, stage board, event feed. Reads `state.js`.
+- `tracker.html` — **Build Tracker**: giant countdown for whatever is being built right now.
+  Reads `tracker-state.js`; update it with `node track.mjs set|done|add`.
+- `archetypes.mjs` — realistic bilingual demo menus per cafe type (specialty coffee,
+  dessert, bakery, matcha, roastery, family, tea house). A prospect needs only
+  name + area + type to get a full personalized demo — zero AI tokens per menu.
+- `queue.json` — the campaign queue. Stages: QUEUED → DATA → BUILD → QA → READY →
+  SENT → REPLIED → SIGNED (mark manually with `node engine.mjs mark <slug> <STAGE>`).
