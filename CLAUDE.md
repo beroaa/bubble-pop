@@ -16,6 +16,23 @@ check an upload actually contains source before promising upgrades. To work on
 the real thing, he must zip those two folders (minus node_modules) and upload,
 or push them to a GitHub repo and ask to add it to the session.
 
+## 🏆 Reference menus — permanent, sacred
+
+Ibrahim's two favorite menus and their gift/welcome pages (the gold standard):
+
+- RUSTIC: https://menu-sadah.com/rustic-grill-welcome
+- BEYT:   https://menu-sadah.com/beyt-coffee-welcome
+
+**Gift-page law (applies to every menu from now on):** every menu ships as a
+pair — a `-welcome` gift page (warm explainer/invite with the menu link inside
+it) + the menu itself. Welcome page is the gift wrapper; the menu is the gift.
+The KFC v2 generator must output both.
+
+Access note: menu-sadah.com is unreachable from this environment (site
+bot-shield returns 403 AND the session's egress policy denies CONNECT to the
+domain). To analyze any page, ask Ibrahim for full-page screenshots or pasted
+HTML — do not burn time retrying fetches.
+
 ## 🎖 Mission Control (he loves this — reuse it)
 
 A live status board published as a private Artifact during big builds:
