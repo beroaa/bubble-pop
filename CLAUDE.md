@@ -2,6 +2,14 @@
 
 This repo hosts **Menu Sadah** premium bilingual (AR+EN) menu builds, delivered live at `menu-sadah.com/<slug>`. Reference build: `menus/cofleur/` (Maison de Cofleur). Follow this standard for every new cafe — no exceptions unless the user says so.
 
+## Workspace (PERMA — always ship these live with every deploy)
+- `clientos/` — **ClientOS**, the Menu Sadah client/lead management app (built SPA, owner-provided). Deploys to `menu-sadah.com/clientos/`. Never delete; update only when the user provides a new build (Mac wrapper kept in `clientos/_mac/`).
+- `tracker/` — the simple love tracker (single file + `leads.js` seeds). Deploys to `menu-sadah.com/tracker/`. Every new build/lead gets appended to `tracker/leads.js`.
+- `menus/_skeleton/` — generic build system: `build.mjs <menuDir>`, `qr.py`, `BUILD-AGENT-GUIDE.md`. Use it for every new cafe; `menus/cofleur/` keeps its own bespoke `_build/`.
+- `docs/BUILD-BRIEF-TEMPLATE.md` — the maxed per-cafe/batch prompt. Use it verbatim.
+- Batch/discovery runs live under `docs/<market>/` (e.g. `docs/bahrain/PIPELINE.md`).
+- Offer localization: Saudi SR 499 + 199/mo (founding 999/500) · Bahrain BD 49 + 19/mo (founding 99/50).
+
 ## The locked standard (per build)
 1. **SPY the brand first** — logo, Instagram, signage, press, and especially any existing menu platform. Many Saudi cafes use Yalla QR (`<slug>.yallaqrcodes.com`) with public JSON: `/api/info/`, `/api/categories/`, `/api/items-light/`. Pull exact names (their AR spelling!), prices, calories, descriptions, per-item artwork, links, VAT no.
 2. **Signature hero animation under the logo** — the brand's own logo mark rebuilt as animated SVG (elegant + abstract, never childish). Parametric trace, entrance stagger + subtle infinite breathe, `prefers-reduced-motion` static fallback.

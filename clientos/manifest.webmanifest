@@ -1,0 +1,9 @@
+{
+  "name": "ClientOS — MENU SADAH",
+  "short_name": "ClientOS",
+  "display": "standalone",
+  "background_color": "#161210",
+  "theme_color": "#161210",
+  "start_url": "./",
+  "icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}
