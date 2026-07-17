@@ -1,80 +1,44 @@
 window.TRACKER_STATE = {
- "generatedAt": 1784328297865,
- "note": "CLIENTOS x SINGULARITY fusion build",
- "doneNote": "read the masterplan + summary in chat",
+ "generatedAt": 1784328590690,
+ "note": "OVERNIGHT SHIFT — cooking while you sleep 🌙",
+ "doneNote": "morning summary waiting in chat",
  "tasks": [
   {
-   "id": "batch1",
-   "name": "Batch #1 — 10 Riyadh demo menus",
+   "id": "day",
+   "name": "Day shift — HQ, bridge, research, 41 menus (all pushed)",
    "status": "done",
    "pct": 100,
    "etaAt": null
   },
   {
-   "id": "engine",
-   "name": "SINGULARITY engine + self-learning QA",
-   "status": "done",
-   "pct": 100,
-   "etaAt": null
+   "id": "harvest2",
+   "name": "Overnight harvest — 5 agents sweeping new districts",
+   "status": "running",
+   "pct": 5,
+   "etaAt": 1784331290690,
+   "note": "south/east/west Riyadh, dessert shops, Arabic social, delivery apps"
   },
   {
-   "id": "control",
-   "name": "Mission Control + Build Tracker",
-   "status": "done",
-   "pct": 100,
-   "etaAt": null
+   "id": "sigs",
+   "name": "Signature research — real items for 31 cafes (evidence-only)",
+   "status": "running",
+   "pct": 5,
+   "etaAt": 1784333090690,
+   "note": "upgrades demos from typed to personal"
   },
   {
-   "id": "research",
-   "name": "Research group — 11 agents (capacity, market, prospects)",
-   "status": "done",
-   "pct": 100,
-   "etaAt": null,
-   "note": "6 of 11 reported in"
-  },
-  {
-   "id": "excavate",
-   "name": "ClientOS excavation — extract app schema (3 agents)",
-   "status": "done",
-   "pct": 100,
-   "etaAt": null,
-   "note": "so menus become real client records in YOUR app"
-  },
-  {
-   "id": "hq",
-   "name": "SINGULARITY HQ webapp — browser factory, zero terminal",
-   "status": "done",
-   "pct": 100,
-   "etaAt": null,
-   "note": "type name + pick type → menu born + DM ready"
-  },
-  {
-   "id": "bridge",
-   "name": "ClientOS bridge — menus ↔ client records (one system)",
-   "status": "done",
-   "pct": 100,
-   "etaAt": null
-  },
-  {
-   "id": "report",
-   "name": "RESEARCH.md + capacity answers + batch #2 queue",
-   "status": "done",
-   "pct": 100,
-   "etaAt": null
-  },
-  {
-   "id": "ship",
-   "name": "Verify everything + commit + push",
+   "id": "cook",
+   "name": "Build all new menus + upgrade existing with signatures",
    "status": "pending",
    "pct": 0,
-   "etaAt": 1784329876276
+   "etaAt": 1784333690690
   },
   {
-   "id": "batch2",
-   "name": "Batch #2 — 31 new Riyadh prospect menus BUILT (0 QA fails, 20ms)",
-   "status": "done",
-   "pct": 100,
-   "etaAt": null
+   "id": "morning",
+   "name": "Morning package — commit, push, summary",
+   "status": "pending",
+   "pct": 0,
+   "etaAt": 1784333990690
   }
  ]
 };
