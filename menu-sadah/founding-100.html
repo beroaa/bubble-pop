@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Founding 100 — Menu Sadah · منيو سادة</title>
+<style>
+/* ============ Menu Sadah · Founding 100 — drop-in sections ============
+   All rules are prefixed .ms- to avoid collisions with the existing site.
+   Design tokens match menu-sadah.com: parchment / gold / terracotta / serif. */
+:root{
+  --ms-bg:#F6F1E6; --ms-card:#FDFAF2; --ms-ink:#2B2118; --ms-muted:#8A7D6B;
+  --ms-gold:#B98A2F; --ms-gold-soft:rgba(185,138,47,.4); --ms-terra:#B5502B;
+  --ms-line:#E7DDC8; --ms-serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --ms-arabic:"Amiri","Scheherazade New","Noto Naskh Arabic","Geeza Pro",serif;
+  --ms-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--ms-bg);color:var(--ms-ink);font-family:var(--ms-sans);padding-bottom:110px}
+[dir="rtl"] body, [dir="rtl"] .ms-wrap{font-family:var(--ms-arabic)}
+[dir="rtl"] p, [dir="rtl"] li, [dir="rtl"] .ms-body{font-size:1.06em}
+.ms-wrap{max-width:430px;margin:0 auto;padding:26px 20px}
+
+/* ---- top bar (demo chrome) ---- */
+.ms-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.ms-brand{font-family:var(--ms-serif);font-weight:700;font-size:1.05rem;letter-spacing:.02em}
+.ms-brand .ar{font-family:var(--ms-arabic);color:var(--ms-gold);font-weight:400}
+.ms-langbtn{border:1px solid var(--ms-gold-soft);background:transparent;color:var(--ms-ink);
+  border-radius:99px;padding:8px 16px;font-size:.85rem;font-weight:700;cursor:pointer;min-height:36px}
+
+/* ---- pricing card ---- */
+.ms-eyebrow{letter-spacing:.16em;text-transform:uppercase;font-size:.66rem;color:var(--ms-gold);
+  font-weight:700;text-align:center;margin:6px 0 14px}
+[dir="rtl"] .ms-eyebrow{letter-spacing:0}
+.ms-card{background:var(--ms-card);border:1px solid var(--ms-gold-soft);border-radius:20px;
+  padding:24px;box-shadow:0 10px 30px rgba(43,33,24,.06)}
+.ms-cardhead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}
+.ms-badge{border:1px solid var(--ms-gold);color:var(--ms-gold);border-radius:99px;padding:5px 12px;
+  font-family:var(--ms-serif);font-variant:small-caps;letter-spacing:.06em;font-size:.8rem;white-space:nowrap}
+[dir="rtl"] .ms-badge{font-variant:normal;font-family:var(--ms-arabic)}
+.ms-cur{border:1px solid var(--ms-line);background:var(--ms-bg);color:var(--ms-ink);border-radius:99px;
+  height:32px;padding:0 10px;font-size:.8rem;font-weight:700;font-family:var(--ms-sans)}
+.ms-scarce{color:var(--ms-muted);font-size:.8rem;line-height:1.5;margin:0 0 16px}
+.ms-scarce b{color:var(--ms-ink)}
+.ms-ledger{border-top:1px solid var(--ms-line);border-bottom:1px solid var(--ms-line);padding:12px 0;margin-bottom:16px}
+.ms-ledger .row{display:flex;justify-content:space-between;gap:10px;font-size:.92rem;padding:5px 0;align-items:baseline}
+.ms-ledger .what{color:var(--ms-ink)}
+.ms-ledger .was{color:var(--ms-muted);opacity:.75;font-size:.85rem;white-space:nowrap}
+.ms-ledger .was s{text-decoration-color:var(--ms-terra);text-decoration-thickness:1.5px}
+.ms-ledger .zero{color:var(--ms-gold);font-weight:800;white-space:nowrap}
+.ms-hero{font-family:var(--ms-serif);color:var(--ms-gold);font-size:48px;line-height:1;text-align:center;
+  margin:4px 0 8px;font-weight:700;text-wrap:balance}
+[dir="rtl"] .ms-hero{font-family:var(--ms-arabic);font-size:44px}
+.ms-then{font-size:17px;font-weight:600;color:var(--ms-ink);text-align:center;margin:0 0 18px;line-height:1.45}
+.ms-incl{list-style:none;padding:0;margin:0 0 12px;display:flex;flex-direction:column;gap:12px}
+.ms-incl li{display:flex;gap:10px;font-size:15px;line-height:1.4;align-items:flex-start}
+.ms-incl .chk{color:var(--ms-gold);font-size:20px;line-height:1;flex:none}
+.ms-value{color:var(--ms-muted);font-size:13px;margin:0 0 18px;text-align:center}
+.ms-cta{display:flex;align-items:center;justify-content:center;width:100%;min-height:56px;background:var(--ms-terra);
+  color:#FDF6E9;border:none;border-radius:12px;font-family:var(--ms-serif);font-size:17px;font-weight:700;
+  cursor:pointer;text-decoration:none;letter-spacing:.01em}
+[dir="rtl"] .ms-cta{font-family:var(--ms-arabic)}
+.ms-cta:active{transform:scale(.985)}
+.ms-assure{list-style:none;padding:0;margin:8px 0 16px;display:flex;flex-direction:column;gap:7px}
+.ms-assure li{display:flex;gap:8px;font-size:13px;line-height:1.5;color:var(--ms-ink);align-items:flex-start}
+.ms-assure .ic{color:var(--ms-gold);flex:none;font-size:13px;margin-top:1px}
+.ms-pay{display:flex;gap:8px;justify-content:center;align-items:center;margin:0 0 14px;flex-wrap:wrap}
+.ms-paymark{border:1px solid var(--ms-line);border-radius:6px;height:24px;display:flex;align-items:center;
+  padding:0 8px;font-size:11px;font-weight:800;color:var(--ms-muted);letter-spacing:.02em;background:#fff}
+.ms-wa{display:flex;gap:10px;align-items:center;justify-content:center;font-size:13px;color:var(--ms-ink);
+  margin:0 0 16px;text-align:center;line-height:1.5}
+.ms-wa a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;
+  color:var(--ms-terra);font-weight:800;text-decoration:none;border-bottom:1px solid var(--ms-terra)}
+.ms-found{border-top:1px solid var(--ms-line);padding-top:12px;color:var(--ms-muted);font-size:13px;line-height:1.55}
+.ms-found p{margin:0 0 8px}
+.ms-terms{color:var(--ms-muted);font-size:12px;line-height:1.55;margin:10px 0 0}
+.ms-soft{color:var(--ms-muted);font-size:13.5px;text-align:center;line-height:1.6;margin:16px 6px}
+.ms-soft b{color:var(--ms-ink)}
+
+/* ---- timeline ---- */
+.ms-tl{display:flex;gap:0;margin:22px 0 8px;padding:0}
+.ms-tl li{list-style:none;flex:1;position:relative;padding:18px 6px 0;font-size:13px;line-height:1.45;color:var(--ms-ink)}
+.ms-tl li::before{content:"";position:absolute;top:0;inset-inline-start:6px;width:10px;height:10px;border-radius:50%;
+  background:var(--ms-gold)}
+.ms-tl li::after{content:"";position:absolute;top:4px;inset-inline-start:22px;inset-inline-end:0;height:1px;background:var(--ms-line)}
+.ms-tl li:last-child::after{display:none}
+.ms-tl b{display:block;font-size:12px;color:var(--ms-gold);letter-spacing:.04em;margin-bottom:2px}
+@media (max-width:359px){.ms-tl{flex-direction:column;gap:12px}.ms-tl li::after{display:none}}
+
+/* ---- checkout preview ---- */
+.ms-checkout{background:var(--ms-card);border:1px solid var(--ms-line);border-radius:20px;padding:20px;margin-top:22px}
+.ms-checkout h3{font-family:var(--ms-serif);font-size:1rem;margin:0 0 4px}
+[dir="rtl"] .ms-checkout h3{font-family:var(--ms-arabic)}
+.ms-checkout .why{color:var(--ms-muted);font-size:13px;line-height:1.55;margin:0 0 14px}
+.ms-applepay{width:100%;min-height:48px;background:#000;color:#fff;border:none;border-radius:10px;
+  font-size:16px;font-weight:600;margin-bottom:10px;cursor:pointer;font-family:var(--ms-sans)}
+.ms-cardfields{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.ms-cardfields input{border:1px solid var(--ms-line);border-radius:10px;min-height:44px;padding:0 12px;
+  font-size:15px;background:#fff;color:var(--ms-ink);width:100%}
+.ms-holdnote{color:var(--ms-muted);font-size:12.5px;line-height:1.5;margin:0 0 10px}
+.ms-consent{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;line-height:1.55;color:var(--ms-ink);margin:0 0 10px}
+.ms-consent input{width:20px;height:20px;margin-top:1px;accent-color:var(--ms-terra);flex:none}
+.ms-trust{color:var(--ms-muted);font-size:12px;line-height:1.5;margin:0}
+
+/* ---- demo shelf ---- */
+.ms-shelf-head{text-align:center;margin:44px 0 6px}
+.ms-shelf-head h2{font-family:var(--ms-serif);font-size:1.5rem;margin:0;text-wrap:balance}
+[dir="rtl"] .ms-shelf-head h2{font-family:var(--ms-arabic)}
+.ms-shelf-sub{color:var(--ms-muted);font-style:italic;font-family:var(--ms-serif);text-align:center;margin:4px 0 18px}
+[dir="rtl"] .ms-shelf-sub{font-family:var(--ms-arabic);font-style:normal}
+.ms-shelf{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;
+  padding:10px 24px 18px;scroll-padding-inline:24px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.ms-shelf::-webkit-scrollbar{display:none}
+.ms-shelfcard{flex:0 0 280px;scroll-snap-align:center;transition:transform .2s ease;transform:scale(.94)}
+.ms-shelfcard.is-center{transform:scale(1)}
+@media (prefers-reduced-motion: reduce){.ms-shelfcard{transition:none}}
+.ms-phone{width:240px;margin:0 auto;aspect-ratio:9/19.5;background:#1c1c1e;border-radius:32px;padding:7px;
+  box-shadow:0 14px 34px rgba(43,33,24,.18)}
+.ms-screen{width:100%;height:100%;border-radius:26px;overflow:hidden;position:relative;display:flex;
+  flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:18px 14px}
+.ms-screen img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff}
+.ms-shelflabel{text-align:center;margin-top:12px;font-family:var(--ms-serif);font-variant:small-caps;
+  letter-spacing:.05em;font-size:15px}
+.ms-shelflabel small{display:block;font-variant:normal;letter-spacing:0;font-family:var(--ms-sans);
+  font-size:12px;color:var(--ms-muted);margin-top:2px}
+.ms-dots{display:flex;gap:6px;justify-content:center;margin:2px 0 0}
+.ms-dots span{width:6px;height:6px;border-radius:50%;background:var(--ms-line)}
+.ms-dots span.on{background:var(--ms-gold)}
+
+/* demo cover art (CSS-drawn placeholders until real screenshots swap in) */
+.cover-gonia{background:linear-gradient(175deg,#F8E3A8 0%,#EFC96B 55%,#E4B84F 100%);color:#7A5A14}
+.cover-gonia .sun{font-size:22px;margin-bottom:10px}
+.cover-gonia .ar{font-family:var(--ms-arabic);font-size:13px;margin-bottom:2px}
+.cover-gonia .nm{font-family:var(--ms-serif);font-size:26px;letter-spacing:.22em;margin:0 0 4px}
+.cover-gonia .sub{font-size:8px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px}
+.cover-gonia .line{font-family:var(--ms-serif);font-style:italic;font-size:10.5px;line-height:1.6}
+.cover-gonia .cols{margin-top:auto;width:100%}
+.cover-gonia .meander{margin-top:8px;width:100%;height:8px;
+  background:repeating-linear-gradient(90deg,#7A5A14 0 2px,transparent 2px 6px,#7A5A14 6px 8px,transparent 8px 12px);
+  opacity:.35;border-top:1px solid rgba(122,90,20,.35);border-bottom:1px solid rgba(122,90,20,.35)}
+.cover-bocu{background:#FDFCF8;color:#43382B}
+.cover-bocu .ar{font-family:var(--ms-arabic);font-size:12px;margin-bottom:2px}
+.cover-bocu .nm{font-family:var(--ms-serif);font-size:24px;letter-spacing:.3em;margin:0 0 4px}
+.cover-bocu .sub{font-size:7.5px;letter-spacing:.2em;text-transform:uppercase;color:#9C8F7A;margin-bottom:12px}
+.cover-bocu .line{font-family:var(--ms-serif);font-style:italic;font-size:10.5px;line-height:1.6}
+.cover-bocu .rule{width:40px;height:1px;background:#C9B98F;margin:10px auto}
+.cover-slot{background:repeating-linear-gradient(45deg,#F1E9D6 0 12px,#EDE3CB 12px 24px);color:#8A7D6B;border:1px dashed #C9B98F}
+.cover-slot .nm{font-family:var(--ms-serif);font-size:15px;margin-bottom:6px}
+.cover-slot .sub{font-size:10px;line-height:1.6}
+
+/* ---- sticky CTA ---- */
+.ms-sticky{position:fixed;left:0;right:0;bottom:0;background:rgba(246,241,230,.9);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid var(--ms-gold-soft);
+  padding:10px 20px calc(10px + env(safe-area-inset-bottom));transform:translateY(110%);transition:transform .25s ease;z-index:50}
+.ms-sticky.show{transform:translateY(0)}
+@media (prefers-reduced-motion: reduce){.ms-sticky{transition:none}}
+.ms-sticky .cap{text-align:center;font-size:11px;color:var(--ms-muted);margin:0 0 6px}
+.ms-sticky .ms-cta{min-height:52px}
+</style>
+</head>
+<body>
+<div class="ms-wrap">
+
+  <div class="ms-top">
+    <div class="ms-brand">Menu Sadah <span class="ar">منيو سادة</span></div>
+    <button class="ms-langbtn" id="langBtn" aria-label="Switch language">عربي</button>
+  </div>
+
+  <!-- ======================= SECTION: FOUNDING 100 PRICING ======================= -->
+  <p class="ms-eyebrow" data-slot="section_eyebrow"></p>
+
+  <div class="ms-card" id="pricingCard">
+    <div class="ms-cardhead">
+      <span class="ms-badge" data-slot="promo_badge"></span>
+      <select class="ms-cur" id="curSel" aria-label="Currency">
+        <option value="SR" selected>SR</option><option value="AED">AED</option>
+        <option value="QAR">QAR</option><option value="KD">KD</option>
+        <option value="BD">BD</option><option value="USD">$</option>
+      </select>
+    </div>
+
+    <p class="ms-scarce" id="scarceLine"></p>
+
+    <div class="ms-ledger">
+      <div class="row">
+        <span class="what" data-slot="ledger_build_what"></span>
+        <span class="was" id="buildWas"></span>
+        <span class="zero" id="buildZero"></span>
+      </div>
+      <div class="row">
+        <span class="what" data-slot="ledger_month1_what"></span>
+        <span class="was" id="monthWas"></span>
+        <span class="zero" id="monthZero"></span>
+      </div>
+    </div>
+
+    <p class="ms-hero" id="priceHero"></p>
+    <p class="ms-then" id="thenLine" data-slot="price_then_line"></p>
+
+    <ul class="ms-incl">
+      <li><span class="chk">✓</span><span data-slot="included_1"></span></li>
+      <li><span class="chk">✓</span><span data-slot="included_2"></span></li>
+      <li><span class="chk">✓</span><span data-slot="included_3"></span></li>
+      <li><span class="chk">✓</span><span data-slot="included_4"></span></li>
+    </ul>
+    <p class="ms-value" data-slot="value_context"></p>
+
+    <a class="ms-cta" id="mainCta" href="#checkout" data-slot="cta_button"></a>
+
+    <ul class="ms-assure">
+      <li><span class="ic">◆</span><span data-slot="reassurance_1"></span></li>
+      <li><span class="ic">◆</span><span data-slot="reassurance_2"></span></li>
+      <li><span class="ic">◆</span><span data-slot="reassurance_3"></span></li>
+    </ul>
+
+    <div class="ms-pay" aria-label="Accepted payment methods">
+      <span class="ms-paymark">مدى mada</span>
+      <span class="ms-paymark"> Pay</span>
+      <span class="ms-paymark">VISA</span>
+      <span class="ms-paymark">Mastercard</span>
+    </div>
+
+    <p class="ms-wa"><span data-slot="whatsapp_ask_line"></span>&nbsp;
+      <!-- TODO: replace with the real Menu Sadah WhatsApp number -->
+      <a href="https://wa.me/REPLACE_WITH_REAL_NUMBER" data-slot="whatsapp_btn"></a>
+    </p>
+
+    <div class="ms-found">
+      <p data-slot="founding_status_line"></p>
+      <p data-slot="founding_lock"></p>
+      <p class="ms-terms" data-slot="billing_terms_footer"></p>
+    </div>
+  </div>
+
+  <ul class="ms-tl">
+    <li><b data-slot="tl_when_1"></b><span data-slot="timeline_step1"></span></li>
+    <li><b data-slot="tl_when_2"></b><span data-slot="timeline_step2"></span></li>
+    <li><b data-slot="tl_when_3"></b><span data-slot="timeline_step3"></span></li>
+  </ul>
+
+  <p class="ms-soft" data-slot="month2_softener"></p>
+  <p class="ms-soft" data-slot="cancel_line"></p>
+
+  <!-- ======================= SECTION: CHECKOUT PREVIEW (wire to gateway) ======================= -->
+  <div class="ms-checkout" id="checkout">
+    <h3 data-slot="checkout_title"></h3>
+    <p class="why" data-slot="why_card"></p>
+    <button class="ms-applepay" type="button"> Pay</button>
+    <div class="ms-cardfields">
+      <input type="text" inputmode="numeric" autocomplete="cc-number" data-slot-ph="ph_card" placeholder="">
+      <input type="text" inputmode="numeric" autocomplete="cc-exp" data-slot-ph="ph_exp" placeholder="">
+    </div>
+    <p class="ms-holdnote" data-slot="mada_hold_note"></p>
+    <label class="ms-consent">
+      <input type="checkbox" id="consentBox">
+      <span data-slot="billing_consent_checkbox"></span>
+    </label>
+    <p class="ms-trust" data-slot="payment_trust"></p>
+  </div>
+
+  <!-- ======================= SECTION: DEMO SHELF ======================= -->
+  <div class="ms-shelf-head"><h2 data-slot="shelf_heading"></h2></div>
+  <p class="ms-shelf-sub" data-slot="shelf_subline"></p>
+</div>
+
+<div class="ms-shelf" id="shelf">
+  <div class="ms-shelfcard">
+    <div class="ms-phone"><div class="ms-screen cover-gonia">
+      <div class="sun">☀</div>
+      <div class="ar">قونيا</div>
+      <div class="nm">GONIA</div>
+      <div class="sub">Al Nakheel · Al Takhassousi · Riyadh</div>
+      <div class="line">Join us to make the<br><em>most memorable moments.</em></div>
+      <div class="cols">
+        <!-- Column capitals redrawn per spec §8: flat abacus + straight fluting, no volutes/circles -->
+        <svg viewBox="0 0 200 46" width="100%" aria-hidden="true">
+          <g stroke="#7A5A14" stroke-width="1.6" fill="none" opacity=".7">
+            <rect x="28" y="4" width="24" height="5"/>
+            <line x1="34" y1="9" x2="34" y2="34"/><line x1="40" y1="9" x2="40" y2="34"/><line x1="46" y1="9" x2="46" y2="34"/>
+            <rect x="26" y="34" width="28" height="4"/>
+            <rect x="148" y="4" width="24" height="5"/>
+            <line x1="154" y1="9" x2="154" y2="34"/><line x1="160" y1="9" x2="160" y2="34"/><line x1="166" y1="9" x2="166" y2="34"/>
+            <rect x="146" y="34" width="28" height="4"/>
+            <path d="M92 30q8-8 16 0" />
+            <ellipse cx="100" cy="34" rx="10" ry="3"/>
+            <line x1="20" y1="42" x2="180" y2="42"/>
+          </g>
+        </svg>
+        <div class="meander"></div>
+      </div>
+    </div></div>
+    <div class="ms-shelflabel">Gonia<small>قونيا · Riyadh</small></div>
+  </div>
+
+  <div class="ms-shelfcard">
+    <div class="ms-phone"><div class="ms-screen cover-bocu">
+      <div class="ar">بوكو</div>
+      <div class="nm">BOCÚ</div>
+      <div class="sub">Luxe pâtisserie · Tahlia</div>
+      <div class="rule"></div>
+      <div class="line">Every plate,<br><em>a quiet work of art.</em></div>
+      <div class="rule"></div>
+    </div></div>
+    <div class="ms-shelflabel">Bocú<small>بوكو · Tahlia</small></div>
+  </div>
+
+  <div class="ms-shelfcard">
+    <div class="ms-phone"><div class="ms-screen cover-slot">
+      <div class="nm" data-slot="slot_title"></div>
+      <div class="sub" data-slot="slot_sub"></div>
+    </div></div>
+    <div class="ms-shelflabel"><span data-slot="slot_label"></span><small>—</small></div>
+  </div>
+
+  <div class="ms-shelfcard">
+    <div class="ms-phone"><div class="ms-screen cover-slot">
+      <div class="nm" data-slot="slot_title"></div>
+      <div class="sub" data-slot="slot_sub"></div>
+    </div></div>
+    <div class="ms-shelflabel"><span data-slot="slot_label"></span><small>—</small></div>
+  </div>
+
+  <div class="ms-shelfcard">
+    <div class="ms-phone"><div class="ms-screen cover-slot">
+      <div class="nm" data-slot="slot_title"></div>
+      <div class="sub" data-slot="slot_sub"></div>
+    </div></div>
+    <div class="ms-shelflabel"><span data-slot="slot_label"></span><small>—</small></div>
+  </div>
+</div>
+<div class="ms-dots" id="dots"><span class="on"></span><span></span><span></span><span></span><span></span></div>
+
+<!-- ---- sticky CTA ---- -->
+<div class="ms-sticky" id="sticky">
+  <p class="cap" data-slot="sticky_cta_caption"></p>
+  <a class="ms-cta" href="#checkout" data-slot="sticky_cta_button"></a>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+/* SEATS_TAKEN must be a REAL server-fed number (activated cafes only — menu live + kit shipped).
+   null hides the counter and shows the capacity line only. NEVER hardcode a fake count. */
+var SEATS_TAKEN = null;
+
+var CUR = {
+  SR:  {en:"SR",  ar:"ريال",         build:1199, month:199},
+  AED: {en:"AED", ar:"درهم",         build:1175, month:195},
+  QAR: {en:"QAR", ar:"ريال قطري",    build:1163, month:193},
+  KD:  {en:"KD",  ar:"دينار كويتي",  build:98,   month:16},
+  BD:  {en:"BD",  ar:"دينار بحريني", build:120,  month:20},
+  USD: {en:"$",   ar:"دولار",        build:320,  month:53}
+};
+function money(cur, n, lang){
+  var c = CUR[cur], num = n.toLocaleString("en-US");
+  return lang === "ar" ? num + " " + c.ar : (cur === "USD" ? c.en + num : c.en + " " + num);
+}
+
+/* Final copy from the expert synthesis — Western digits in both languages, بدل form in AR (no strikethrough), tokens {B}=build {M}=monthly {Z}=zero */
+var COPY = {
+  section_eyebrow:      {en:"The Founding 100", ar:"المئة الأوائل"},
+  promo_badge:          {en:"Founding 100 — the build, our gift", ar:"المئة الأوائل — التصميم هديتنا"},
+  scarcity_counter:     {en:"<b>{N} of 100</b> founding seats taken.", ar:"انحجز <b>{N} مقعد من أصل 100</b>."},
+  scarcity_reason:      {en:"Every menu is drawn by hand — we onboard a few cafés at a time.", ar:"كل قائمة تُرسم بيد، لذلك نستقبل مقاهي قليلة في كل دفعة."},
+  ledger_build_what:    {en:"Hand-designed bilingual menu", ar:"قائمة مصممة يدويًا بلغتين"},
+  ledger_month1_what:   {en:"Your first month", ar:"شهرك الأول"},
+  price_hero:           {en:"{Z} due today", ar:"المطلوب اليوم: صفر"},
+  price_then_line:      {en:"Then {M}/month from month 2 — cancel anytime, no contract.", ar:"من الشهر الثاني: {M} شهريًا — وتلغي متى ما تبي، بدون عقد."},
+  value_context:        {en:"A freelancer charges SR 2,000+ for one build like this.", ar:"تصميم مثل هذا يكلّف فوق 2,000 ريال عند أي مصمم مستقل."},
+  included_1:           {en:"Hand-designed menu — Arabic & English", ar:"قائمة مصممة يدويًا — بالعربي والإنجليزي"},
+  included_2:           {en:"Printed QR kit for your tables", ar:"طقم QR مطبوع لطاولاتك"},
+  included_3:           {en:"Your café's own private menu link", ar:"رابط خاص باسم مقهاك"},
+  included_4:           {en:"WhatsApp edits — prices & sold-outs same day", ar:"تعديلات عبر واتساب — الأسعار والنواقص بنفس اليوم"},
+  cta_button:           {en:"Reserve my seat — {Z} today", ar:"احجز مقعدك — صفر ريال اليوم"},
+  reassurance_1:        {en:"Nothing charged today — your first payment is in month 2, never sooner.", ar:"ما ينخصم منك شي اليوم — أول دفعة في الشهر الثاني، لا قبله."},
+  reassurance_2:        {en:"We WhatsApp you 3 days before any charge.", ar:"نرسل لك واتساب قبل أي خصم بثلاثة أيام."},
+  reassurance_3:        {en:"Cancel with one WhatsApp reply — same day, no calls.", ar:"تلغي برد واحد على الواتساب — بنفس اليوم، بدون مكالمات."},
+  whatsapp_ask_line:    {en:"A question before you enter your card?", ar:"عندك سؤال قبل ما تدخل بطاقتك؟"},
+  whatsapp_btn:         {en:"WhatsApp us — a real person replies", ar:"راسلنا واتساب — يرد عليك شخص حقيقي"},
+  founding_status_line: {en:"Founding cafés carry the Founding 100 mark on their menu page — the first hundred we will ever build.", ar:"مقاهي المئة الأوائل تحمل علامة التأسيس على صفحة قائمتها — أول مئة قائمة نصممها في تاريخنا."},
+  founding_lock:        {en:"Founding cafés keep SR 199/month for life. If you cancel, the free build doesn't return — rejoining costs the standard SR 1,199.", ar:"مقاهي التأسيس تحتفظ بسعر 199 ريال شهريًا مدى الحياة. إذا ألغيت، التصميم المجاني والسعر التأسيسي ما يرجعون — والرجوع لاحقًا يكون برسم التصميم الكامل 1,199 ريال."},
+  billing_terms_footer: {en:"Prices include VAT (15% KSA · 10% Bahrain). Billed monthly. Every receipt arrives by WhatsApp & email, with a cancel link inside.", ar:"الأسعار شاملة ضريبة القيمة المضافة (15٪ السعودية · 10٪ البحرين). الخصم شهري، وبعد كل دفعة نرسل لك الفاتورة واتساب وإيميل وفيها رابط الإلغاء."},
+  timeline_step1:       {en:"We design your menu · {Z}", ar:"نصمم قائمتك · صفر ريال"},
+  timeline_step2:       {en:"WhatsApp reminder. One reply cancels.", ar:"تذكير واتساب، ورد واحد يلغي."},
+  timeline_step3:       {en:"{M}/month begins, only if you stay.", ar:"يبدأ اشتراك {M} — فقط إذا حبيت تكمّل."},
+  month2_softener:      {en:"<b>{M} a month</b> — about ten cups of your own coffee, for a menu no template can copy.", ar:"<b>{M} بالشهر</b> — تقريبًا عشرة أكواب من قهوتك، مقابل قائمة ما يقدر أي قالب جاهز يقلّدها."},
+  cancel_line:          {en:"To cancel: send “Cancel” on WhatsApp. It counts from the moment you send it — your menu stays live to the end of your paid month.", ar:"للإلغاء: أرسل «إلغاء» على الواتساب. يُحتسب من لحظة إرسالك — وقائمتك تظل شغالة حتى نهاية شهرك المدفوع."},
+  sticky_cta_button:    {en:"Reserve my seat — {Z} today", ar:"احجز مقعدك — صفر ريال اليوم"},
+  sticky_cta_caption:   {en:"Cancel anytime · then {M}/mo", ar:"إلغاء بأي وقت · بعدها {M} شهريًا"},
+  checkout_title:       {en:"Reserve your founding seat", ar:"احجز مقعدك التأسيسي"},
+  why_card:             {en:"Why the card? It holds your founding seat for a real café, not a curious click. You'll see {Z}.00 today.", ar:"ليش نطلب البطاقة؟ لأن بطاقتك تحجز مقعدك — نبي المقاعد المئة تروح لمقاهي حقيقية وجادة. اليوم يظهر لك صفر ريال."},
+  mada_hold_note:       {en:"Your bank may show a SR 1 verification hold — released automatically. Charged today: SR 0.", ar:"قد يظهر لك مبلغ 1 ريال كتحقق مؤقت من البنك ويرجع تلقائيًا. المخصوم اليوم: صفر ريال."},
+  billing_consent_checkbox: {en:"I authorize Menu Sadah to charge this card {M}/month (VAT included) starting {DATE}, until I cancel. I can cancel anytime with one WhatsApp message — no calls, no forms.", ar:"أفوّض «منيو سادة» بخصم {M} شهريًا (شامل الضريبة) من هذه البطاقة ابتداءً من {DATE} وحتى ألغي. أقدر ألغي بأي وقت برسالة واتساب واحدة — بدون مكالمات وبدون نماذج."},
+  payment_trust:        {en:"Apple Pay & mada accepted. Your card details stay with the payment provider — never stored by us.", ar:"ادفع بـ Apple Pay أو مدى — بيانات بطاقتك عند مزوّد الدفع، ما نخزّنها عندنا أبدًا."},
+  shelf_heading:        {en:"Real menus, real cafés.", ar:"قوائم حقيقية لمقاهٍ حقيقية."},
+  shelf_subline:        {en:"Every one, unmistakably theirs.", ar:"وكل واحدة تحمل طابع أصحابها."},
+  slot_title:           {en:"Your menu here", ar:"قائمتك هنا"},
+  slot_sub:             {en:"Swap with a real client screenshot", ar:"استبدلها بلقطة قائمة عميل حقيقي"},
+  slot_label:           {en:"Coming soon", ar:"قريبًا"},
+  ph_card:              {en:"Card number", ar:"رقم البطاقة"},
+  ph_exp:               {en:"MM / YY", ar:"الشهر / السنة"},
+  tl_when_1:            {en:"Today", ar:"اليوم"}
+};
+
+var lang = "en";
+function fmtDate(d, l){
+  try { return d.toLocaleDateString(l === "ar" ? "ar-SA-u-nu-latn-ca-gregory" : "en-GB", {day:"numeric", month:"long"}); }
+  catch(e){ return d.toLocaleDateString("en-GB", {day:"numeric", month:"long"}); }
+}
+
+function render(){
+  var cur = document.getElementById("curSel").value;
+  var Z = lang === "ar" ? "صفر ريال" : money(cur, 0, lang);
+  var M = money(cur, CUR[cur].month, lang);
+  var B = money(cur, CUR[cur].build, lang);
+  var now = new Date();
+  var remind = new Date(now.getTime() + 27*864e5), charge = new Date(now.getTime() + 30*864e5);
+
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+  document.getElementById("langBtn").textContent = lang === "ar" ? "English" : "عربي";
+
+  function fill(el, slot){
+    var c = COPY[slot]; if (!c) return;
+    var t = (lang === "ar" ? c.ar : c.en)
+      .replace(/\{Z\}/g, Z).replace(/\{M\}/g, M).replace(/\{B\}/g, B)
+      .replace(/\{DATE\}/g, fmtDate(charge, lang));
+    el.innerHTML = t;
+  }
+  document.querySelectorAll("[data-slot]").forEach(function(el){ fill(el, el.getAttribute("data-slot")); });
+  document.querySelectorAll("[data-slot-ph]").forEach(function(el){
+    var c = COPY[el.getAttribute("data-slot-ph")]; if (c) el.placeholder = lang === "ar" ? c.ar : c.en;
+  });
+
+  /* ledger money cells — EN keeps the strikethrough, AR uses the بدل wording (no strike) */
+  if (lang === "ar"){
+    document.getElementById("buildWas").textContent = "بدل " + B + "…";
+    document.getElementById("monthWas").textContent = "بدل " + M + "…";
+    document.getElementById("buildZero").textContent = "صفر";
+    document.getElementById("monthZero").textContent = "صفر";
+  } else {
+    document.getElementById("buildWas").innerHTML = "<s>" + B + "</s>";
+    document.getElementById("monthWas").innerHTML = "<s>" + M + "</s>";
+    document.getElementById("buildZero").textContent = money(cur, 0, lang);
+    document.getElementById("monthZero").textContent = money(cur, 0, lang);
+  }
+  document.getElementById("priceHero").textContent =
+    lang === "ar" ? "المطلوب اليوم: صفر ريال" : Z + " due today";
+
+  /* scarcity: real number or capacity line only */
+  var sc = document.getElementById("scarceLine");
+  if (SEATS_TAKEN === null){
+    sc.innerHTML = (lang === "ar" ? COPY.scarcity_reason.ar : COPY.scarcity_reason.en);
+  } else {
+    sc.innerHTML = (lang === "ar" ? COPY.scarcity_counter.ar : COPY.scarcity_counter.en)
+      .replace("{N}", SEATS_TAKEN) + " " + (lang === "ar" ? COPY.scarcity_reason.ar : COPY.scarcity_reason.en);
+  }
+
+  /* timeline dates */
+  var w2 = document.querySelector('[data-slot="tl_when_2"]'), w3 = document.querySelector('[data-slot="tl_when_3"]');
+  if (w2) w2.textContent = fmtDate(remind, lang);
+  if (w3) w3.textContent = fmtDate(charge, lang);
+}
+
+document.getElementById("langBtn").addEventListener("click", function(){
+  lang = lang === "en" ? "ar" : "en"; render();
+});
+document.getElementById("curSel").addEventListener("change", render);
+
+/* sticky CTA — appears only once the in-card CTA leaves the viewport */
+var sticky = document.getElementById("sticky"), mainCta = document.getElementById("mainCta");
+if ("IntersectionObserver" in window){
+  new IntersectionObserver(function(en){
+    sticky.classList.toggle("show", !en[0].isIntersecting && en[0].boundingClientRect.top < 0);
+  }, {threshold: 0}).observe(mainCta);
+}
+
+/* shelf: center-card scale + pagination dots */
+var shelf = document.getElementById("shelf"),
+    cards = Array.prototype.slice.call(shelf.children),
+    dots = document.getElementById("dots").children;
+function shelfUpdate(){
+  var mid = shelf.scrollLeft + shelf.clientWidth / 2, best = 0, bd = 1e9;
+  cards.forEach(function(c, i){
+    var center = c.offsetLeft + c.offsetWidth / 2, d = Math.abs(center - mid);
+    if (d < bd){ bd = d; best = i; }
+  });
+  cards.forEach(function(c, i){ c.classList.toggle("is-center", i === best); });
+  Array.prototype.forEach.call(dots, function(d, i){ d.classList.toggle("on", i === best); });
+}
+shelf.addEventListener("scroll", function(){ requestAnimationFrame(shelfUpdate); }, {passive: true});
+window.addEventListener("resize", shelfUpdate);
+shelfUpdate();
+
+render();
+})();
+</script>
+</body>
+</html>
