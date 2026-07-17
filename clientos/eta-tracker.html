@@ -93,6 +93,7 @@
   }
   input::placeholder { color: var(--ink-3); }
   input:focus-visible { outline: none; border-color: var(--gold); }
+  input.invalid { border-color: var(--late); }
   .chips { display: flex; gap: 6px; flex-wrap: wrap; }
   .chip {
     font: inherit; font-size: 12px;
@@ -133,6 +134,7 @@
   }
 
   #list { display: grid; gap: 10px; }
+  #list:focus { outline: none; }
   .divider {
     font-size: 11px; font-weight: 700; letter-spacing: 1px;
     text-transform: uppercase;
@@ -147,7 +149,7 @@
     animation: rise 0.24s cubic-bezier(0.2, 0.7, 0.3, 1);
   }
   @keyframes rise { from { opacity: 0; transform: translateY(8px); } }
-  .card.leaving { opacity: 0; transform: scale(0.96); transition: opacity 0.18s ease, transform 0.18s ease; }
+  .card.leaving { opacity: 0; transform: scale(0.96); transition: opacity 0.18s ease, transform 0.18s ease; pointer-events: none; }
   .card-top { display: flex; align-items: baseline; gap: 8px; }
   .card .name {
     font-weight: 700; font-size: 15.5px;
@@ -242,6 +244,7 @@
     transition: transform 0.28s cubic-bezier(0.2, 0.7, 0.3, 1), opacity 0.28s ease;
     max-width: 90vw;
     text-align: center;
+    overflow-wrap: anywhere;
     pointer-events: none;
     z-index: 10;
   }
@@ -281,7 +284,7 @@
     <button class="btn btn-gold" type="submit">Add to board</button>
   </form>
 
-  <div id="list" aria-live="polite"></div>
+  <div id="list" aria-live="polite" tabindex="-1"></div>
 
   <footer>
     <button class="btn btn-ghost" type="button" id="btnExport">⬇ Backup</button>
@@ -308,6 +311,8 @@
   var state = { v: 1, jobs: [] };
   var refs = new Map();          // job id -> live DOM nodes patched by tick()
   var editingId = null;
+  var liveEdit = null;           // preserved edit-form node so re-renders never wipe typed input
+  var pendingSync = false;       // a cross-window write arrived while an edit form was open
   var storageOk = true;
   var confirmTimers = new Map();
   var lastStats = { a: -1, s: -1, l: -1 };
@@ -320,14 +325,21 @@
     return 'id-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10);
   }
 
+  // Number(null/false/[]/"") is 0, which would turn junk into a 1970 deadline
+  function numTs(v) {
+    if (typeof v === 'number') return v;
+    if (typeof v === 'string' && v.trim() !== '') return Number(v);
+    return NaN;
+  }
+
   function sanitizeJob(raw) {
     if (!raw || typeof raw !== 'object') return null;
     var name = (typeof raw.name === 'string' ? raw.name : '').trim().slice(0, 80);
-    var deadline = Number(raw.deadline);
-    if (!name || !isFinite(deadline)) return null;
-    var createdAt = Number(raw.createdAt);
-    if (!isFinite(createdAt)) createdAt = Date.now();
-    var doneAt = Number(raw.doneAt);
+    var deadline = numTs(raw.deadline);
+    if (!name || !isFinite(deadline) || deadline <= 0) return null;
+    var createdAt = numTs(raw.createdAt);
+    if (!isFinite(createdAt) || createdAt <= 0) createdAt = Date.now();
+    var doneAt = numTs(raw.doneAt);
     return {
       id: (typeof raw.id === 'string' && raw.id) ? raw.id.slice(0, 64) : makeId(),
       name: name,
@@ -339,11 +351,13 @@
   }
 
   function load() {
+    var raw = null;
     try {
-      var raw = localStorage.getItem(KEY);
-      if (!raw) return;
+      raw = localStorage.getItem(KEY);
+      if (!raw) { state.jobs = []; return; }
       var parsed = JSON.parse(raw);
-      var arr = Array.isArray(parsed) ? parsed : (parsed && Array.isArray(parsed.jobs) ? parsed.jobs : []);
+      var arr = Array.isArray(parsed) ? parsed : (parsed && Array.isArray(parsed.jobs) ? parsed.jobs : null);
+      if (!arr) throw new Error('unrecognized payload');
       var jobs = [], seen = new Set();
       for (var i = 0; i < arr.length; i++) {
         var j = sanitizeJob(arr[i]);
@@ -351,16 +365,27 @@
       }
       state.jobs = jobs;
     } catch (e) {
+      // keep the unreadable payload for manual rescue instead of overwriting it on next save
+      try { if (raw) localStorage.setItem(KEY + '.rescue', raw); } catch (e2) {}
       state.jobs = [];
     }
+  }
+
+  // storage is the source of truth: re-read it before every mutation so a
+  // second window's writes are never clobbered by stale in-memory state
+  function syncFromStorage() {
+    if (!storageOk) return;
+    load();
   }
 
   function save() {
     try {
       localStorage.setItem(KEY, JSON.stringify(state));
       if (!storageOk) { storageOk = true; renderBadge(); }
+      return true;
     } catch (e) {
       if (storageOk) { storageOk = false; renderBadge(); toast('⚠ Could not save — storage unavailable', true); }
+      return false;
     }
   }
 
@@ -423,7 +448,9 @@
 
   function toLocalInput(ts) {
     var d = new Date(ts);
-    return d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate()) +
+    var y = String(d.getFullYear());
+    while (y.length < 4) y = '0' + y;   // datetime-local rejects years shorter than 4 digits
+    return y + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate()) +
       'T' + pad2(d.getHours()) + ':' + pad2(d.getMinutes());
   }
 
@@ -441,6 +468,17 @@
     confirmTimers.clear();
     refs.clear();
     var now = Date.now();
+
+    var ae = document.activeElement;
+    var focusMemo = null;
+    if (ae && listEl.contains(ae)) {
+      if (liveEdit && liveEdit.el.contains(ae)) {
+        focusMemo = { type: 'edit', el: ae };
+      } else if (ae.dataset && ae.dataset.act) {
+        var host = ae.closest('.card');
+        if (host && host.dataset.id) focusMemo = { type: 'act', id: host.dataset.id, act: ae.dataset.act };
+      }
+    }
 
     var active = state.jobs.filter(function (j) { return !j.doneAt; })
       .sort(function (a, b) { return a.deadline - b.deadline; });
@@ -464,12 +502,23 @@
     }
 
     listEl.replaceChildren(frag);
+    if (focusMemo) {
+      if (focusMemo.type === 'edit' && document.contains(focusMemo.el)) {
+        focusMemo.el.focus({ preventScroll: true });
+      } else if (focusMemo.type === 'act') {
+        var fr = refs.get(focusMemo.id);
+        var fbtn = fr && fr.card.querySelector('[data-act="' + focusMemo.act + '"]');
+        if (fbtn) fbtn.focus({ preventScroll: true });
+        else listEl.focus({ preventScroll: true });
+      }
+    }
     updateStats(now, true);
   }
 
   function renderCard(job, now) {
     var card = el('article', 'card');
     card.dataset.status = statusOf(job, now);
+    card.dataset.id = job.id;
 
     if (editingId === job.id) {
       card.appendChild(renderEditForm(job));
@@ -507,18 +556,21 @@
 
     var doneBtn = el('button', 'icon-btn', job.doneAt ? '↩' : '✓');
     doneBtn.type = 'button';
+    doneBtn.dataset.act = 'done';
     doneBtn.setAttribute('aria-label', job.doneAt ? 'Mark not delivered' : 'Mark delivered');
     doneBtn.addEventListener('click', function () { toggleDone(job.id); });
     acts.appendChild(doneBtn);
 
     var editBtn = el('button', 'icon-btn', '✎');
     editBtn.type = 'button';
+    editBtn.dataset.act = 'edit';
     editBtn.setAttribute('aria-label', 'Edit');
     editBtn.addEventListener('click', function () { editingId = job.id; render(); });
     acts.appendChild(editBtn);
 
     var delBtn = el('button', 'icon-btn', '🗑');
     delBtn.type = 'button';
+    delBtn.dataset.act = 'del';
     delBtn.setAttribute('aria-label', 'Delete');
     delBtn.addEventListener('click', function () { onDelete(job.id, delBtn, card); });
     acts.appendChild(delBtn);
@@ -530,7 +582,35 @@
     return card;
   }
 
+  function shakeInput(input) {
+    input.classList.add('shake', 'invalid');   // border flash reads even under prefers-reduced-motion
+    setTimeout(function () { input.classList.remove('shake'); }, 350);
+    setTimeout(function () { input.classList.remove('invalid'); }, 1200);
+    input.focus();
+  }
+
+  function endEdit() {
+    editingId = null; liveEdit = null;
+    if (pendingSync) { pendingSync = false; syncFromStorage(); }
+    render();
+  }
+
+  function applyEdit(id, name, tag, deadline, createdAt, doneAt) {
+    editingId = null; liveEdit = null; pendingSync = false;
+    syncFromStorage();
+    var cur = state.jobs.find(function (j) { return j.id === id; });
+    if (cur) {
+      cur.name = name; cur.tag = tag; cur.deadline = deadline;
+    } else {
+      // the job was deleted in another window mid-edit; saving re-adds it
+      state.jobs.push({ id: id, name: name, tag: tag, createdAt: createdAt, deadline: deadline, doneAt: doneAt });
+    }
+    save(); render();
+  }
+
   function renderEditForm(job) {
+    if (liveEdit && liveEdit.id === job.id) return liveEdit.el;
+
     var form = el('form', 'edit-form');
     var inName = el('input');
     inName.type = 'text'; inName.value = job.name; inName.maxLength = 80; inName.dir = 'auto';
@@ -547,7 +627,7 @@
     var acts = el('div', 'edit-acts');
     var cancel = el('button', 'btn btn-ghost', 'Cancel');
     cancel.type = 'button';
-    cancel.addEventListener('click', function () { editingId = null; render(); });
+    cancel.addEventListener('click', endEdit);
     var saveBtn = el('button', 'btn btn-gold', 'Save');
     saveBtn.type = 'submit';
     acts.appendChild(cancel); acts.appendChild(saveBtn);
@@ -557,49 +637,58 @@
       ev.preventDefault();
       var name = inName.value.trim().slice(0, 80);
       var ts = inWhen.value ? new Date(inWhen.value).getTime() : NaN;
-      if (!name) { inName.classList.add('shake'); setTimeout(function () { inName.classList.remove('shake'); }, 350); inName.focus(); return; }
-      if (!isFinite(ts)) { inWhen.classList.add('shake'); setTimeout(function () { inWhen.classList.remove('shake'); }, 350); inWhen.focus(); return; }
-      job.name = name;
-      job.tag = inTag.value.trim().slice(0, 24);
-      job.deadline = ts;
-      editingId = null;
-      save(); render();
+      if (!name) { shakeInput(inName); return; }
+      if (!isFinite(ts)) { shakeInput(inWhen); return; }
+      applyEdit(job.id, name, inTag.value.trim().slice(0, 24), ts, job.createdAt, job.doneAt);
     });
     form.addEventListener('keydown', function (ev) {
-      if (ev.key === 'Escape') { editingId = null; render(); }
+      if (ev.key === 'Escape') endEdit();
     });
+    liveEdit = { id: job.id, el: form };
     setTimeout(function () { inName.focus(); }, 0);
     return form;
   }
 
   // ---------- actions ----------
 
+  var lastToggleAt = 0;
   function toggleDone(id) {
+    // after a click re-renders, the next card slides under the cursor — a
+    // double-click must not deliver two different jobs
+    var t = Date.now();
+    if (t - lastToggleAt < 300) return;
+    lastToggleAt = t;
+    syncFromStorage();
     var job = state.jobs.find(function (j) { return j.id === id; });
-    if (!job) return;
+    if (!job) { render(); return; }
     job.doneAt = job.doneAt ? null : Date.now();
-    save(); render();
+    var saved = save();
+    render();
     if (job.doneAt) {
       var r = refs.get(id);
       if (r) { r.pill.classList.add('pop'); }
-      toast('🎖 Delivered — ' + job.name);
+      if (saved) toast('🎖 Delivered — ' + job.name);
     }
   }
 
   function onDelete(id, btn, card) {
     if (btn.classList.contains('confirm')) {
+      // a fast double-click must not count as arm + confirm in one gesture
+      if (Date.now() - Number(btn.dataset.armedAt || 0) < 350) return;
       clearTimeout(confirmTimers.get(id));
       confirmTimers.delete(id);
       card.classList.add('leaving');
       setTimeout(function () {
+        syncFromStorage();
         state.jobs = state.jobs.filter(function (j) { return j.id !== id; });
-        if (editingId === id) editingId = null;
+        if (editingId === id) { editingId = null; liveEdit = null; }
         save(); render();
       }, 190);
       return;
     }
     btn.classList.add('confirm');
     btn.textContent = 'Sure?';
+    btn.dataset.armedAt = String(Date.now());
     confirmTimers.set(id, setTimeout(function () {
       btn.classList.remove('confirm');
       btn.textContent = '🗑';
@@ -612,8 +701,9 @@
     var inName = $('inName'), inWhen = $('inWhen'), inTag = $('inTag');
     var name = inName.value.trim().slice(0, 80);
     var ts = inWhen.value ? new Date(inWhen.value).getTime() : NaN;
-    if (!name) { inName.classList.add('shake'); setTimeout(function () { inName.classList.remove('shake'); }, 350); inName.focus(); return; }
-    if (!isFinite(ts)) { inWhen.classList.add('shake'); setTimeout(function () { inWhen.classList.remove('shake'); }, 350); inWhen.focus(); return; }
+    if (!name) { shakeInput(inName); return; }
+    if (!isFinite(ts)) { shakeInput(inWhen); return; }
+    syncFromStorage();
     state.jobs.push({
       id: makeId(),
       name: name,
@@ -634,8 +724,8 @@
         case '1h': d = new Date(now.getTime() + HOUR); break;
         case '4h': d = new Date(now.getTime() + 4 * HOUR); break;
         case 'tmrw': d.setDate(d.getDate() + 1); d.setHours(9, 0, 0, 0); break;
-        case '3d': d = new Date(now.getTime() + 3 * DAY); break;
-        case '1w': d = new Date(now.getTime() + 7 * DAY); break;
+        case '3d': d.setDate(d.getDate() + 3); break;   // calendar days, not 72h — stays same wall-clock time across DST
+        case '1w': d.setDate(d.getDate() + 7); break;
       }
       $('inWhen').value = toLocalInput(d.getTime());
     });
@@ -663,6 +753,7 @@
     var file = this.files && this.files[0];
     this.value = '';
     if (!file) return;
+    if (file.size > 2 * 1024 * 1024) { toast('Backup too large (max 2 MB)', true); return; }
     var reader = new FileReader();
     reader.onerror = function () { toast('Could not read that file', true); };
     reader.onload = function () {
@@ -670,6 +761,9 @@
         var parsed = JSON.parse(String(reader.result));
         var arr = Array.isArray(parsed) ? parsed : (parsed && Array.isArray(parsed.jobs) ? parsed.jobs : null);
         if (!arr) { toast('Not a valid backup file', true); return; }
+        var capped = arr.length > 5000;
+        if (capped) arr = arr.slice(0, 5000);
+        syncFromStorage();
         var existing = new Set(state.jobs.map(function (j) { return j.id; }));
         var added = 0, skipped = 0, invalid = 0;
         arr.forEach(function (raw) {
@@ -680,10 +774,14 @@
           state.jobs.push(j);
           added++;
         });
-        save(); render();
-        toast('Restored ' + added + ' job' + (added === 1 ? '' : 's') +
-          (skipped ? ' · ' + skipped + ' already here' : '') +
-          (invalid ? ' · ' + invalid + ' invalid' : ''));
+        var saved = save();
+        render();
+        if (saved) {
+          toast('Restored ' + added + ' job' + (added === 1 ? '' : 's') +
+            (skipped ? ' · ' + skipped + ' already here' : '') +
+            (invalid ? ' · ' + invalid + ' invalid' : '') +
+            (capped ? ' · capped at 5000' : ''));
+        }
       } catch (e) {
         toast('Not a valid backup file', true);
       }
@@ -707,10 +805,12 @@
     clearTimeout(clearTimer);
     clearArmed = false;
     this.textContent = 'Clear delivered';
-    if (editingId && state.jobs.some(function (j) { return j.id === editingId && j.doneAt; })) editingId = null;
+    syncFromStorage();
+    if (editingId && !state.jobs.some(function (j) { return j.id === editingId && !j.doneAt; })) { editingId = null; liveEdit = null; }
     state.jobs = state.jobs.filter(function (j) { return !j.doneAt; });
-    save(); render();
-    toast('Board cleaned ✨');
+    var saved = save();
+    render();
+    if (saved) toast('Board cleaned ✨');
   });
 
   // ---------- live tick ----------
@@ -755,9 +855,12 @@
   document.addEventListener('visibilitychange', function () { if (!document.hidden) tick(); });
   window.addEventListener('focus', tick);
 
-  // another ClientOS window may write the same key; storage events only fire cross-window
+  // another ClientOS window may write the same key; storage events only fire cross-window.
+  // While an edit form is open we defer (not drop) the sync so typed input survives —
+  // endEdit/applyEdit reconcile against fresh storage before writing anything back.
   window.addEventListener('storage', function (ev) {
-    if (ev.key !== KEY || editingId) return;
+    if (ev.key !== KEY) return;
+    if (editingId) { pendingSync = true; return; }
     load(); render();
   });
 

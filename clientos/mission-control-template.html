@@ -1,0 +1,258 @@
+<title>Godzilla Build — Mission Control</title>
+<style>
+  :root {
+    --ground: #0F0D08;
+    --panel: #1C1810;
+    --panel-edge: rgba(217, 174, 86, 0.14);
+    --ink: #F2EFE7;
+    --muted: #A89F8D;
+    --faint: #6E6552;
+    --gold: #D9AE56;
+    --good: #64D695;
+    --busy: #EFBE45;
+    --bad: #E04B55;
+    --track: rgba(255, 255, 255, 0.08);
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --ground: #F6F1E6;
+      --panel: #FFFDF7;
+      --panel-edge: rgba(143, 109, 31, 0.22);
+      --ink: #26200F;
+      --muted: #6E6552;
+      --faint: #9C9077;
+      --gold: #8F6D1F;
+      --good: #1F8A4C;
+      --busy: #8A6A12;
+      --bad: #B3323B;
+      --track: rgba(38, 32, 15, 0.10);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #0F0D08; --panel: #1C1810; --panel-edge: rgba(217,174,86,0.14);
+    --ink: #F2EFE7; --muted: #A89F8D; --faint: #6E6552; --gold: #D9AE56;
+    --good: #64D695; --busy: #EFBE45; --bad: #E04B55; --track: rgba(255,255,255,0.08);
+  }
+  :root[data-theme="light"] {
+    --ground: #F6F1E6; --panel: #FFFDF7; --panel-edge: rgba(143,109,31,0.22);
+    --ink: #26200F; --muted: #6E6552; --faint: #9C9077; --gold: #8F6D1F;
+    --good: #1F8A4C; --busy: #8A6A12; --bad: #B3323B; --track: rgba(38,32,15,0.10);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans Arabic", sans-serif;
+    line-height: 1.5;
+    padding: 28px 18px 48px;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; display: grid; gap: 14px; }
+
+  .eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--bad); }
+  @media (prefers-reduced-motion: no-preference) {
+    .dot { animation: pulse 1.6s ease-in-out infinite; }
+    @keyframes pulse { 50% { opacity: 0.35; } }
+  }
+  h1 {
+    font-size: clamp(26px, 6vw, 34px);
+    font-weight: 800; letter-spacing: -0.02em; text-wrap: balance;
+    margin-top: 2px;
+  }
+  h1 .medal { color: var(--gold); }
+
+  .hero {
+    background: var(--panel);
+    border: 1px solid var(--panel-edge);
+    border-radius: 18px;
+    padding: 22px 20px 20px;
+    text-align: center;
+  }
+  .hero .lbl { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  .clock {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: clamp(64px, 17vw, 108px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    color: var(--gold);
+    margin: 6px 0 2px;
+  }
+  .clock.finalizing { font-size: clamp(30px, 8vw, 44px); color: var(--busy); padding: 18px 0; }
+  .hero .sub { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .mission-bar { height: 7px; background: var(--track); border-radius: 4px; margin: 16px 0 6px; overflow: hidden; }
+  .mission-fill { height: 100%; width: 62%; background: var(--gold); border-radius: 4px; }
+  .hero .pct { font-size: 12px; color: var(--muted); }
+
+  .tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+  .tile {
+    background: var(--panel); border: 1px solid var(--panel-edge); border-radius: 14px;
+    padding: 14px 10px 11px; text-align: center; min-width: 0;
+  }
+  .tile .n {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 34px; font-weight: 800; line-height: 1.1; font-variant-numeric: tabular-nums;
+  }
+  .tile .t { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .tile.warn .n { color: var(--busy); }
+  .tile.bad .n { color: var(--bad); }
+
+  section { background: var(--panel); border: 1px solid var(--panel-edge); border-radius: 18px; padding: 18px; }
+  section > h2 {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 12px;
+  }
+  .agents { display: grid; gap: 10px; }
+  .agent { display: flex; gap: 10px; align-items: baseline; }
+  .agent .pill {
+    flex: none; font-size: 11px; font-weight: 700; border-radius: 999px; padding: 2px 9px;
+    font-variant-numeric: tabular-nums; white-space: nowrap;
+  }
+  .pill.done { color: var(--good); background: color-mix(in srgb, var(--good) 14%, transparent); }
+  .pill.busy { color: var(--busy); background: color-mix(in srgb, var(--busy) 14%, transparent); }
+  .agent b { font-weight: 700; }
+  .agent .what { color: var(--muted); font-size: 13.5px; }
+
+  .findings { display: grid; gap: 10px; }
+  .finding { display: grid; gap: 2px; border-left: 3px solid var(--track); padding-left: 12px; }
+  .finding.major { border-left-color: var(--bad); }
+  .finding.minor { border-left-color: var(--busy); }
+  .finding .sev { font-size: 11px; font-weight: 800; letter-spacing: 0.1em; }
+  .finding.major .sev { color: var(--bad); }
+  .finding.minor .sev { color: var(--busy); }
+  .finding p { font-size: 13.5px; color: var(--muted); }
+  .finding p b { color: var(--ink); }
+
+  ol.pipe { list-style: none; display: grid; gap: 8px; counter-reset: step; }
+  ol.pipe li {
+    display: flex; gap: 10px; align-items: baseline; font-size: 14px;
+    counter-increment: step;
+  }
+  ol.pipe li::before {
+    content: counter(step, decimal-leading-zero);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px; color: var(--faint); flex: none; width: 22px;
+  }
+  ol.pipe .st { margin-left: auto; flex: none; font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .st.ok { color: var(--good); }
+  .st.run { color: var(--busy); }
+  .st.wait { color: var(--faint); }
+
+  .foot { font-size: 12px; color: var(--faint); text-align: center; text-wrap: balance; }
+  .foot b { color: var(--muted); }
+</style>
+
+<div class="wrap">
+  <div>
+    <div class="eyebrow"><span class="dot"></span> Live · Menu Sadah · Session in progress</div>
+    <h1><span class="medal">🎖</span> Godzilla Build — Mission Control</h1>
+  </div>
+
+  <div class="hero">
+    <div class="lbl">ETA — all fixes verified &amp; pushed</div>
+    <div class="clock" id="clock">--:--</div>
+    <div class="sub" id="etaAbs"></div>
+    <div class="mission-bar"><div class="mission-fill" style="width:70%"></div></div>
+    <div class="pct">Mission ~70% — phase 4 of 6 · ETA extended +16m: hunters found 3× more than planned</div>
+  </div>
+
+  <div class="tiles">
+    <div class="tile"><div class="n">27</div><div class="t">agents deployed</div></div>
+    <div class="tile warn"><div class="n">22</div><div class="t">raw findings</div></div>
+    <div class="tile bad"><div class="n">8</div><div class="t">critical + major</div></div>
+  </div>
+
+  <section>
+    <h2>The squad — what each agent hunts</h2>
+    <div class="agents">
+      <div class="agent"><span class="pill done">✓ done · 3</span><div><b>Time &amp; date</b> <span class="what">— countdown math, DST traps, deadline round-trips, clock sleep/wake</span></div></div>
+      <div class="agent"><span class="pill done">✓ done · 4</span><div><b>Storage</b> <span class="what">— corrupt data, quota, cross-window sync, hostile backup imports, silent data loss</span></div></div>
+      <div class="agent"><span class="pill done">✓ done · 5</span><div><b>DOM safety</b> <span class="what">— XSS through names/tags/imports, listener leaks, animation races</span></div></div>
+      <div class="agent"><span class="pill done">✓ done · 6</span><div><b>Interaction</b> <span class="what">— long Arabic names, 50+ jobs, keyboard-only use, 430px layout stress</span></div></div>
+      <div class="agent"><span class="pill done">✓ done · 4</span><div><b>Pure logic</b> <span class="what">— line-by-line hostile read: off-by-ones, NaN, dead branches</span></div></div>
+      <div class="agent"><span class="pill busy">◑ 14 / 22</span><div><b>Skeptic wave</b> <span class="what">— one skeptic per finding tries to REFUTE it; only survivors get fixed</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Verified findings feed</h2>
+    <div class="findings">
+      <div class="finding major">
+        <span class="sev">CRITICAL — caught independently by 5 of 5 agents</span>
+        <p><b>Two-window edit race:</b> editing in one ClientOS window while adding a job in another could silently erase the new job on save. Fix queued.</p>
+      </div>
+      <div class="finding major">
+        <span class="sev">MAJOR</span>
+        <p><b>Double-click delete:</b> a fast double-tap on the trash icon arms AND fires the confirm — accidental permanent delete.</p>
+      </div>
+      <div class="finding major">
+        <span class="sev">MAJOR</span>
+        <p><b>Edit form eats typing:</b> any other action while an edit is open re-renders the form and wipes unsaved input.</p>
+      </div>
+      <div class="finding major">
+        <span class="sev">MAJOR</span>
+        <p><b>Keyboard focus lost:</b> after every action, focus drops to the page body — keyboard flow restarts from the top.</p>
+      </div>
+      <div class="finding minor">
+        <span class="sev">MINOR</span>
+        <p><b>DST hour shift:</b> "+3 days" / "+1 week" chips drift one hour across daylight-saving changes.</p>
+      </div>
+      <div class="finding minor">
+        <span class="sev">MINOR</span>
+        <p><b>Corrupt-storage overwrite:</b> an unreadable save is discarded instead of preserved for rescue.</p>
+      </div>
+      <div class="finding minor">
+        <span class="sev">MINOR</span>
+        <p><b>Toast masking:</b> a success toast can hide an earlier "could not save" warning.</p>
+      </div>
+      <div class="finding minor">
+        <span class="sev">MINOR</span>
+        <p><b>Unbounded import:</b> a giant backup file could freeze the tab — needs a size cap.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Mission pipeline</h2>
+    <ol class="pipe">
+      <li>Build offline ETA tracker <span class="st ok">✓ shipped</span></li>
+      <li>End-to-end suite in real Chromium <span class="st ok">✓ 28/28</span></li>
+      <li>Adversarial hunt — 5 lenses <span class="st ok">✓ 22 findings</span></li>
+      <li>Skeptic verification per finding <span class="st run">◑ 14 / 22</span></li>
+      <li>Fix confirmed bugs <span class="st wait">— queued</span></li>
+      <li>Re-test, commit, push <span class="st wait">— queued</span></li>
+    </ol>
+  </section>
+
+  <p class="foot">Countdown is live. Agent statuses refresh when <b>Claude redeploys this page</b> at each phase change — reload to pull the latest. Data on the board: session <b>claude/menu-sadah-kfc-upgrade</b>, repo beroaa/bubble-pop.</p>
+</div>
+
+<script>
+  var ETA = 1784304600000;
+  var clock = document.getElementById('clock');
+  var etaAbs = document.getElementById('etaAbs');
+  try {
+    etaAbs.textContent = 'target ' + new Date(ETA).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }) + ' your time';
+  } catch (e) { etaAbs.textContent = ''; }
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function tick() {
+    var left = ETA - Date.now();
+    if (left <= 0) {
+      clock.textContent = 'FINALIZING — push imminent';
+      clock.classList.add('finalizing');
+      return;
+    }
+    var h = Math.floor(left / 3600000);
+    var m = Math.floor((left % 3600000) / 60000);
+    var s = Math.floor((left % 60000) / 1000);
+    clock.textContent = (h ? h + ':' + pad(m) : m) + ':' + pad(s);
+  }
+  tick();
+  setInterval(tick, 1000);
+</script>
