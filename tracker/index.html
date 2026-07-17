@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Menu Sadah — Love Tracker</title>
+<meta name="theme-color" content="#fff8f2">
+<style>
+:root{--cream:#fff8f2;--card:#fffdfa;--caramel:#a67b51;--deep:#8a6540;--ink:#3f3227;--soft:#6b5a49;--faint:#877663;--line:rgba(166,123,81,.16)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--cream);color:var(--ink);font:15px/1.45 -apple-system,'Segoe UI',sans-serif;-webkit-tap-highlight-color:transparent;padding-bottom:90px}
+header{position:sticky;top:0;z-index:9;background:rgba(255,248,242,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:14px 16px 10px}
+h1{font-size:16px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+h1 span{color:var(--deep)}
+.stats{display:flex;gap:6px;margin-top:9px;flex-wrap:wrap}
+.stat{font-size:12px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:4px 10px;color:var(--soft)}
+.stat b{color:var(--ink)}
+main{max-width:560px;margin:0 auto;padding:10px 12px}
+.lead{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 13px;margin-top:10px;box-shadow:0 1px 2px rgba(75,56,43,.04)}
+.top{display:flex;align-items:center;gap:8px}
+.nm{font-weight:600;font-size:15px;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nm small{color:var(--faint);font-weight:400}
+.stage{border:1px solid var(--line);background:var(--cream);border-radius:999px;padding:5px 11px;font-size:13px;cursor:pointer;user-select:none;white-space:nowrap}
+.row2{display:flex;align-items:center;gap:6px;margin-top:8px;flex-wrap:wrap}
+.chip{font-size:11.5px;color:var(--deep);border:1px solid var(--line);border-radius:999px;padding:3px 9px;text-decoration:none;background:var(--cream)}
+.back{border:none;background:none;color:var(--faint);font-size:11px;cursor:pointer;padding:3px 6px}
+.note{width:100%;margin-top:8px;border:1px solid var(--line);background:var(--cream);border-radius:10px;padding:7px 9px;font-size:12.5px;color:var(--soft);font-family:inherit;resize:none}
+.addbar{position:fixed;bottom:0;left:0;right:0;background:rgba(255,248,242,.95);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom));display:flex;gap:7px;justify-content:center}
+.addbar input{flex:1;max-width:170px;border:1px solid var(--line);border-radius:10px;padding:9px 10px;font-size:13px;background:var(--card)}
+.addbar button{border:none;background:var(--caramel);color:#fff;border-radius:10px;padding:9px 14px;font-size:13px;font-weight:600;cursor:pointer}
+.tools{display:flex;gap:10px;justify-content:center;margin:18px 0 6px}
+.tools button{border:none;background:none;color:var(--faint);font-size:11.5px;cursor:pointer;text-decoration:underline}
+.empty{text-align:center;color:var(--faint);font-size:13px;margin-top:34px}
+</style>
+</head>
+<body>
+<header>
+  <h1>MENU <span>SADAH</span> · LOVE TRACKER</h1>
+  <div class="stats" id="stats"></div>
+</header>
+<main id="list"></main>
+<div class="tools">
+  <button onclick="doExport()">export</button>
+  <button onclick="doImport()">import</button>
+</div>
+<div class="addbar">
+  <input id="a-name" placeholder="cafe name">
+  <input id="a-handle" placeholder="instagram handle">
+  <button onclick="addLead()">+ add</button>
+</div>
+<script src="leads.js"></script>
+<script>
+const STAGES=[["💤","lead"],["🎁","gift sent"],["👀","seen"],["💬","replied"],["❤️","loved"],["💰","paid"],["🪦","passed"]];
+const KEY="ms-love-tracker";
+let leads=[];
+function load(){
+  const saved=JSON.parse(localStorage.getItem(KEY)||"[]");
+  const byH={}; saved.forEach(l=>byH[l.handle||l.name]=l);
+  (window.SEED_LEADS||[]).forEach(s=>{const k=s.handle||s.name; if(!byH[k]) byH[k]={...s}; else byH[k]={...s,...byH[k]};});
+  leads=Object.values(byH);
+}
+function save(){localStorage.setItem(KEY,JSON.stringify(leads));render();}
+function stat(){
+  const c=leads.reduce((m,l)=>{m[l.status||0]=(m[l.status||0]||0)+1;return m;},{});
+  document.getElementById("stats").innerHTML=
+    `<span class="stat"><b>${leads.length}</b> leads</span>`+
+    STAGES.map((s,i)=>c[i]?`<span class="stat">${s[0]} <b>${c[i]}</b></span>`:"").join("");
+}
+function render(){
+  stat();
+  const el=document.getElementById("list");
+  if(!leads.length){el.innerHTML='<p class="empty">no leads yet 🌸 add your first below</p>';return;}
+  const order=[...leads].sort((a,b)=>(b.status||0)-(a.status||0));
+  el.innerHTML=order.map(l=>{
+    const i=leads.indexOf(l), s=STAGES[l.status||0];
+    return `<div class="lead">
+      <div class="top">
+        <div class="nm">${esc(l.name)} ${l.area?`<small>· ${esc(l.area)}</small>`:""}</div>
+        <div class="stage" onclick="advance(${i})" title="tap to advance">${s[0]} ${s[1]}</div>
+      </div>
+      <div class="row2">
+        ${l.handle?`<a class="chip" href="https://ig.me/m/${esc(l.handle)}" target="_blank">@${esc(l.handle)}</a>`:""}
+        ${l.wa?`<a class="chip" href="https://wa.me/${esc(l.wa)}" target="_blank">whatsapp</a>`:""}
+        ${l.link?`<a class="chip" href="${esc(l.link)}" target="_blank">menu</a>`:""}
+        <button class="back" onclick="back(${i})">↩ back</button>
+        <button class="back" onclick="del(${i})">remove</button>
+      </div>
+      <textarea class="note" rows="1" placeholder="note…" onchange="note(${i},this.value)">${esc(l.note||"")}</textarea>
+    </div>`;}).join("");
+}
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function advance(i){leads[i].status=Math.min((leads[i].status||0)+1,STAGES.length-1);save();}
+function back(i){leads[i].status=Math.max((leads[i].status||0)-1,0);save();}
+function note(i,v){leads[i].note=v;save();}
+function del(i){if(confirm("remove "+leads[i].name+"?")){leads.splice(i,1);save();}}
+function addLead(){
+  const n=document.getElementById("a-name").value.trim(), h=document.getElementById("a-handle").value.trim().replace(/^@/,"");
+  if(!n)return; leads.push({name:n,handle:h,status:0}); document.getElementById("a-name").value="";document.getElementById("a-handle").value="";save();
+}
+function doExport(){
+  const b=new Blob([JSON.stringify(leads,null,1)],{type:"application/json"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="love-tracker.json";a.click();
+}
+function doImport(){
+  const inp=document.createElement("input");inp.type="file";inp.accept=".json";
+  inp.onchange=()=>{const r=new FileReader();r.onload=()=>{try{leads=JSON.parse(r.result);save();}catch(e){alert("bad file")}};r.readAsText(inp.files[0]);};
+  inp.click();
+}
+load();render();
+</script>
+</body>
+</html>
