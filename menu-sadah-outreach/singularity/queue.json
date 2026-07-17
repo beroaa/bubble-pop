@@ -108,7 +108,21 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "A minimalist, design-led café — a clean QR e-menu matches its aesthetic far better than laminated cards, and lets it update seasonal brews without reprinting.",
-    "stageAt": 1784328276433
+    "stageAt": 1784329759034,
+    "signature": [
+      [
+        "Spanish Latte",
+        "سبانش لاتيه",
+        20
+      ],
+      [
+        "Pistachio Latte",
+        "بستاشيو لاتيه",
+        21
+      ]
+    ],
+    "social": "@thewoodencoffee",
+    "chainFlag": true
   },
   {
     "slug": "najd-roastery",
@@ -119,7 +133,15 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "Riyadh-born roastery selling take-home beans plus espresso, drip and cold coffee — an e-menu can list rotating bean origins and retail bags in Arabic and English, which changes too often for print.",
-    "stageAt": 1784328276434
+    "stageAt": 1784329759035,
+    "signature": [
+      [
+        "Hot Chocolate",
+        "هوت تشوكليت",
+        18
+      ]
+    ],
+    "social": "@najdroastery"
   },
   {
     "slug": "kicksters-coffee",
@@ -129,7 +151,8 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "A modern independent with bold signature brews — a shareable QR menu doubles as marketing for a small shop competing next to big names like Camel Step in the same district.",
-    "stageAt": 1784328276434
+    "stageAt": 1784328276434,
+    "social": "@kicksters.sa"
   },
   {
     "slug": "jorn-coffee-roasters",
@@ -140,7 +163,15 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "A respected homegrown precision roaster — single-origin offerings rotate constantly, so a digital menu that updates in minutes beats reprinting cards every time a bean sells out.",
-    "stageAt": 1784328276435
+    "stageAt": 1784329759037,
+    "signature": [
+      [
+        "V60 Pour-Over",
+        "قهوة V60",
+        20
+      ]
+    ],
+    "social": "@jorn.sa"
   },
   {
     "slug": "las-cafe",
@@ -150,7 +181,20 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "Two locations (Al Malqa and Al Olaya) — one QR e-menu keeps both branches identical and lets the owner change prices once for both shops.",
-    "stageAt": 1784328276436
+    "stageAt": 1784329759038,
+    "signature": [
+      [
+        "Honey Cake (served warm)",
+        "كيكة العسل",
+        35
+      ],
+      [
+        "Pistachio Latte",
+        "بستاشيو لاتيه",
+        26
+      ]
+    ],
+    "social": "@las_cafe0"
   },
   {
     "slug": "idmi-coffee",
@@ -160,7 +204,8 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "A roastery-led café in a quiet residential stretch of Al Yasmin — a process-focused menu (brew methods, origins, tasting notes) is much easier to present bilingually on a phone than on a printed card.",
-    "stageAt": 1784328276437
+    "stageAt": 1784328276437,
+    "social": "@idmicoffee"
   },
   {
     "slug": "boss-co-roastery",
@@ -170,7 +215,20 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "Curated single-origin brews in a soft-industrial space — its bean lineup changes with each roast, and an e-menu lets it showcase current origins without wasting print runs.",
-    "stageAt": 1784328276437
+    "stageAt": 1784329759038,
+    "signature": [
+      [
+        "Spanish Latte",
+        "سبانش لاتيه",
+        18
+      ],
+      [
+        "Carrot Cake",
+        "كيكة الجزر",
+        29
+      ]
+    ],
+    "social": "@boss.co.sa"
   },
   {
     "slug": "drip-coffee",
@@ -180,7 +238,25 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "A sleek specialty café in Riyadh's busiest business district — Olaya's mix of Saudi and international office workers makes a bilingual AR/EN QR menu an immediate daily convenience.",
-    "stageAt": 1784328276438
+    "stageAt": 1784329759040,
+    "signature": [
+      [
+        "Iced Drip (Yemeni-bean filter coffee over ice)",
+        "آيس دريب",
+        22
+      ],
+      [
+        "Iced Spanish Latte",
+        "آيس سبانش لاتيه",
+        19
+      ],
+      [
+        "Farwa Um Ali (chestnut and roasted-nut Um Ali with brulee cream)",
+        "فروة أم علي",
+        24
+      ]
+    ],
+    "social": "@dripcoffeesa"
   },
   {
     "slug": "yamm-coffee",
@@ -190,7 +266,8 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "Known for signature drink creations and unique pastries in an Instagrammable space — a QR menu with photos extends that visual identity and is easy to share on social media.",
-    "stageAt": 1784328276439
+    "stageAt": 1784328276439,
+    "social": "@yamm.sa"
   },
   {
     "slug": "carve-coffee-bar",
@@ -200,7 +277,20 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "A calm, cozy espresso retreat — small independents like this rarely have any web presence, so a MENU SADAH page is both their menu and their first website.",
-    "stageAt": 1784328276439
+    "stageAt": 1784329759042,
+    "signature": [
+      [
+        "Honey Toast",
+        "توست العسل",
+        22
+      ],
+      [
+        "Iced Drip Coffee",
+        "ايسد دريب",
+        21
+      ]
+    ],
+    "social": "@carvecoffee.sa"
   },
   {
     "slug": "just-a-space",
@@ -210,7 +300,8 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "A design-focused café where the interior is the brand — a beautifully typeset bilingual e-menu fits the concept, while a laminated sheet undermines it.",
-    "stageAt": 1784328276440
+    "stageAt": 1784328276440,
+    "social": "@justaspace.sa"
   },
   {
     "slug": "crops-coffee",
@@ -220,7 +311,25 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "Single-origin beans and precision brewing with cupping-led discovery — tasting notes and rotating origins are exactly the kind of content that needs a menu you can edit weekly, not reprint.",
-    "stageAt": 1784328276440
+    "stageAt": 1784329759043,
+    "signature": [
+      [
+        "Iced Cubano",
+        "آيس كوبانو",
+        22
+      ],
+      [
+        "Iced Drip Coffee",
+        "آيس دريب",
+        16
+      ],
+      [
+        "Pecan Cheesecake",
+        "بيكان تشيز كيك",
+        15
+      ]
+    ],
+    "social": "@crops.sa"
   },
   {
     "slug": "somatcha",
@@ -231,7 +340,15 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "Founder-led matcha brand with three branches open 6am to 3am — multi-branch consistency plus a young, phone-first customer base makes a shared QR e-menu a natural fit.",
-    "stageAt": 1784328276440
+    "stageAt": 1784329759043,
+    "signature": [
+      [
+        "Strawberry Matcha Latte",
+        "ماتشا لاتيه بالفراولة",
+        27
+      ]
+    ],
+    "social": "@somatcha.me"
   },
   {
     "slug": "key-cafe",
@@ -241,7 +358,9 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "24-hour café serving coffee, matcha, juices and top V60 across three branches — round-the-clock service with rotating staff is where a self-serve bilingual menu saves the most explaining.",
-    "stageAt": 1784328276441
+    "stageAt": 1784328276441,
+    "social": "@keycafe.sa",
+    "chainFlag": true
   },
   {
     "slug": "happyland-matcha",
@@ -251,7 +370,8 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "New 2025 opening with drinks whisked to order and house-made syrups like miso honey and carrot-cake matcha — a specialty menu this unusual needs descriptions in both Arabic and English so customers kn",
-    "stageAt": 1784328276442
+    "stageAt": 1784328276442,
+    "social": "@happylandmatcha"
   },
   {
     "slug": "kuro",
@@ -261,7 +381,8 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "A new Japanese-style café serving fluffy pancakes and matcha drinks — an unfamiliar Japanese menu benefits enormously from a photo-rich bilingual QR page that explains each dish.",
-    "stageAt": 1784328276443
+    "stageAt": 1784328276443,
+    "social": "@kuro.saudi"
   },
   {
     "slug": "9th-street-coffee-roasters",
@@ -271,7 +392,8 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "An independent roaster praised for specialty coffee, healthy food and single-origin organic beans — a combined food-plus-beans menu is complex enough that a searchable digital menu clearly beats print",
-    "stageAt": 1784328276443
+    "stageAt": 1784328276443,
+    "social": "@9thstcoffee"
   },
   {
     "slug": "roof-coffee",
@@ -295,7 +417,24 @@
     "source": "batch2-harvest",
     "why": "In trial (soft) opening, one floor, indoor seating only; menu (specialty coffee + cheesecakes) exists only in reviewer photos on X — ideal early-stage QR menu client.",
     "social": "X coverage by @DHDH9933",
-    "stageAt": 1784328276444
+    "stageAt": 1784329759045,
+    "signature": [
+      [
+        "Flat White",
+        "فلات وايت",
+        16
+      ],
+      [
+        "Iced Hibiscus",
+        "ايس كركديه",
+        22
+      ],
+      [
+        "Flat Cheesecake",
+        "فلات تشيز كيك",
+        27
+      ]
+    ]
   },
   {
     "slug": "razeen-coffee",
@@ -331,7 +470,19 @@
     "source": "batch2-harvest",
     "why": "Recent Takhassusi opening pushed heavily by paid TikTok/Instagram reels; desserts and drinks shown only in influencer video, no digital menu.",
     "social": "Instagram @harmony_caffeksa; TikTok ads by @alriyadh.trend",
-    "stageAt": 1784328276445
+    "stageAt": 1784329759045,
+    "signature": [
+      [
+        "Hot V60 (specialty drip coffee)",
+        "في 60 ساخن",
+        23
+      ],
+      [
+        "Ice Cream Cookie",
+        "كوكيز آيس كريم",
+        24
+      ]
+    ]
   },
   {
     "slug": "eya-coffee",

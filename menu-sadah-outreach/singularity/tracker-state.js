@@ -1,5 +1,5 @@
 window.TRACKER_STATE = {
- "generatedAt": 1784329239013,
+ "generatedAt": 1784329779548,
  "note": "OVERNIGHT SHIFT — cooking while you sleep 🌙",
  "doneNote": "morning summary waiting in chat",
  "tasks": [
@@ -21,24 +21,24 @@ window.TRACKER_STATE = {
   {
    "id": "sigs",
    "name": "Signature research — real items for 31 cafes (evidence-only)",
-   "status": "running",
-   "pct": 5,
-   "etaAt": 1784333090690,
+   "status": "done",
+   "pct": 100,
+   "etaAt": null,
    "note": "upgrades demos from typed to personal"
   },
   {
    "id": "cook",
    "name": "Build all new menus + upgrade existing with signatures",
-   "status": "running",
-   "pct": 70,
-   "etaAt": 1784331639013
+   "status": "done",
+   "pct": 100,
+   "etaAt": null
   },
   {
    "id": "morning",
    "name": "Morning package — commit, push, summary",
-   "status": "pending",
-   "pct": 0,
-   "etaAt": 1784333990690
+   "status": "done",
+   "pct": 100,
+   "etaAt": null
   }
  ]
 };
