@@ -1,5 +1,5 @@
 window.TRACKER_STATE = {
- "generatedAt": 1784328590690,
+ "generatedAt": 1784329239013,
  "note": "OVERNIGHT SHIFT — cooking while you sleep 🌙",
  "doneNote": "morning summary waiting in chat",
  "tasks": [
@@ -13,9 +13,9 @@ window.TRACKER_STATE = {
   {
    "id": "harvest2",
    "name": "Overnight harvest — 5 agents sweeping new districts",
-   "status": "running",
-   "pct": 5,
-   "etaAt": 1784331290690,
+   "status": "done",
+   "pct": 100,
+   "etaAt": null,
    "note": "south/east/west Riyadh, dessert shops, Arabic social, delivery apps"
   },
   {
@@ -29,9 +29,9 @@ window.TRACKER_STATE = {
   {
    "id": "cook",
    "name": "Build all new menus + upgrade existing with signatures",
-   "status": "pending",
-   "pct": 0,
-   "etaAt": 1784333690690
+   "status": "running",
+   "pct": 70,
+   "etaAt": 1784331639013
   },
   {
    "id": "morning",
