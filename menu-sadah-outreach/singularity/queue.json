@@ -6,7 +6,8 @@
     "area": "Riyadh",
     "type": "specialty_coffee",
     "stage": "READY",
-    "source": "batch1"
+    "source": "batch1",
+    "priority": 3
   },
   {
     "slug": "78-specialty",
@@ -15,7 +16,8 @@
     "area": "Ar Rayyan",
     "type": "specialty_coffee",
     "stage": "READY",
-    "source": "batch1"
+    "source": "batch1",
+    "priority": 3
   },
   {
     "slug": "bearu",
@@ -24,7 +26,8 @@
     "area": "Al Malqa",
     "type": "family_cafe",
     "stage": "READY",
-    "source": "batch1"
+    "source": "batch1",
+    "priority": 3
   },
   {
     "slug": "little-henri",
@@ -33,7 +36,8 @@
     "area": "Al Muruj",
     "type": "matcha_bar",
     "stage": "READY",
-    "source": "batch1"
+    "source": "batch1",
+    "priority": 3
   },
   {
     "slug": "hlo",
@@ -42,7 +46,8 @@
     "area": "Olaya",
     "type": "dessert_cafe",
     "stage": "READY",
-    "source": "batch1"
+    "source": "batch1",
+    "priority": 3
   },
   {
     "slug": "place-and-people",
@@ -51,7 +56,8 @@
     "area": "Riyadh",
     "type": "dessert_cafe",
     "stage": "READY",
-    "source": "batch1"
+    "source": "batch1",
+    "priority": 3
   },
   {
     "slug": "salam-cafe",
@@ -60,7 +66,8 @@
     "area": "Al Malqa",
     "type": "specialty_coffee",
     "stage": "READY",
-    "source": "batch1"
+    "source": "batch1",
+    "priority": 3
   },
   {
     "slug": "aim-coffee-bar",
@@ -69,7 +76,8 @@
     "area": "Al Malqa",
     "type": "specialty_coffee",
     "stage": "READY",
-    "source": "batch1"
+    "source": "batch1",
+    "priority": 3
   },
   {
     "slug": "woods",
@@ -78,7 +86,8 @@
     "area": "Al Yasmin",
     "type": "specialty_coffee",
     "stage": "READY",
-    "source": "batch1"
+    "source": "batch1",
+    "priority": 3
   },
   {
     "slug": "breehant",
@@ -87,7 +96,8 @@
     "area": "Al Yasmin",
     "type": "roastery",
     "stage": "READY",
-    "source": "batch1"
+    "source": "batch1",
+    "priority": 3
   },
   {
     "slug": "namq-caf",
@@ -98,7 +108,8 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "Open around the clock and famous for its 'Namq cake' — a 24-hour spot with a big food-plus-coffee menu is exactly where a paper menu wears out fastest; a bilingual QR menu keeps late-night study crowd",
-    "stageAt": 1784328276432
+    "stageAt": 1784328276432,
+    "priority": 1
   },
   {
     "slug": "wooden-coffee",
@@ -122,7 +133,8 @@
       ]
     ],
     "social": "@thewoodencoffee",
-    "chainFlag": true
+    "chainFlag": true,
+    "priority": 5
   },
   {
     "slug": "najd-roastery",
@@ -141,7 +153,8 @@
         18
       ]
     ],
-    "social": "@najdroastery"
+    "social": "@najdroastery",
+    "priority": 6
   },
   {
     "slug": "kicksters-coffee",
@@ -152,7 +165,8 @@
     "source": "batch2-harvest",
     "why": "A modern independent with bold signature brews — a shareable QR menu doubles as marketing for a small shop competing next to big names like Camel Step in the same district.",
     "stageAt": 1784328276434,
-    "social": "@kicksters.sa"
+    "social": "@kicksters.sa",
+    "priority": 3
   },
   {
     "slug": "jorn-coffee-roasters",
@@ -171,7 +185,8 @@
         20
       ]
     ],
-    "social": "@jorn.sa"
+    "social": "@jorn.sa",
+    "priority": 6
   },
   {
     "slug": "las-cafe",
@@ -194,7 +209,8 @@
         26
       ]
     ],
-    "social": "@las_cafe0"
+    "social": "@las_cafe0",
+    "priority": 6
   },
   {
     "slug": "idmi-coffee",
@@ -205,7 +221,8 @@
     "source": "batch2-harvest",
     "why": "A roastery-led café in a quiet residential stretch of Al Yasmin — a process-focused menu (brew methods, origins, tasting notes) is much easier to present bilingually on a phone than on a printed card.",
     "stageAt": 1784328276437,
-    "social": "@idmicoffee"
+    "social": "@idmicoffee",
+    "priority": 3
   },
   {
     "slug": "boss-co-roastery",
@@ -228,7 +245,8 @@
         29
       ]
     ],
-    "social": "@boss.co.sa"
+    "social": "@boss.co.sa",
+    "priority": 6
   },
   {
     "slug": "drip-coffee",
@@ -256,7 +274,8 @@
         24
       ]
     ],
-    "social": "@dripcoffeesa"
+    "social": "@dripcoffeesa",
+    "priority": 6
   },
   {
     "slug": "yamm-coffee",
@@ -267,7 +286,8 @@
     "source": "batch2-harvest",
     "why": "Known for signature drink creations and unique pastries in an Instagrammable space — a QR menu with photos extends that visual identity and is easy to share on social media.",
     "stageAt": 1784328276439,
-    "social": "@yamm.sa"
+    "social": "@yamm.sa",
+    "priority": 3
   },
   {
     "slug": "carve-coffee-bar",
@@ -290,7 +310,8 @@
         21
       ]
     ],
-    "social": "@carvecoffee.sa"
+    "social": "@carvecoffee.sa",
+    "priority": 6
   },
   {
     "slug": "just-a-space",
@@ -301,7 +322,8 @@
     "source": "batch2-harvest",
     "why": "A design-focused café where the interior is the brand — a beautifully typeset bilingual e-menu fits the concept, while a laminated sheet undermines it.",
     "stageAt": 1784328276440,
-    "social": "@justaspace.sa"
+    "social": "@justaspace.sa",
+    "priority": 3
   },
   {
     "slug": "crops-coffee",
@@ -329,7 +351,8 @@
         15
       ]
     ],
-    "social": "@crops.sa"
+    "social": "@crops.sa",
+    "priority": 6
   },
   {
     "slug": "somatcha",
@@ -348,7 +371,8 @@
         27
       ]
     ],
-    "social": "@somatcha.me"
+    "social": "@somatcha.me",
+    "priority": 6
   },
   {
     "slug": "key-cafe",
@@ -360,7 +384,8 @@
     "why": "24-hour café serving coffee, matcha, juices and top V60 across three branches — round-the-clock service with rotating staff is where a self-serve bilingual menu saves the most explaining.",
     "stageAt": 1784328276441,
     "social": "@keycafe.sa",
-    "chainFlag": true
+    "chainFlag": true,
+    "priority": 2
   },
   {
     "slug": "happyland-matcha",
@@ -371,7 +396,8 @@
     "source": "batch2-harvest",
     "why": "New 2025 opening with drinks whisked to order and house-made syrups like miso honey and carrot-cake matcha — a specialty menu this unusual needs descriptions in both Arabic and English so customers kn",
     "stageAt": 1784328276442,
-    "social": "@happylandmatcha"
+    "social": "@happylandmatcha",
+    "priority": 3
   },
   {
     "slug": "kuro",
@@ -382,7 +408,8 @@
     "source": "batch2-harvest",
     "why": "A new Japanese-style café serving fluffy pancakes and matcha drinks — an unfamiliar Japanese menu benefits enormously from a photo-rich bilingual QR page that explains each dish.",
     "stageAt": 1784328276443,
-    "social": "@kuro.saudi"
+    "social": "@kuro.saudi",
+    "priority": 3
   },
   {
     "slug": "9th-street-coffee-roasters",
@@ -393,7 +420,8 @@
     "source": "batch2-harvest",
     "why": "An independent roaster praised for specialty coffee, healthy food and single-origin organic beans — a combined food-plus-beans menu is complex enough that a searchable digital menu clearly beats print",
     "stageAt": 1784328276443,
-    "social": "@9thstcoffee"
+    "social": "@9thstcoffee",
+    "priority": 3
   },
   {
     "slug": "roof-coffee",
@@ -405,7 +433,8 @@
     "source": "batch2-harvest",
     "why": "Brand-new single-floor specialty coffee spot announced via X coffee reviewers; presence is social-only with indoor/outdoor seating photos, no structured menu online.",
     "social": "X coverage by @DHDH9933",
-    "stageAt": 1784328276443
+    "stageAt": 1784328276443,
+    "priority": 3
   },
   {
     "slug": "agrio-coffee",
@@ -434,7 +463,8 @@
         "فلات تشيز كيك",
         27
       ]
-    ]
+    ],
+    "priority": 6
   },
   {
     "slug": "razeen-coffee",
@@ -446,7 +476,8 @@
     "source": "batch2-harvest",
     "why": "Just-opened neighborhood specialty coffee inside a residential district; only footprint is X/TikTok posts, classic photos-as-menu case.",
     "social": "X coverage by @DHDH9933; TikTok discover 'رزين قهوة مختصة الرياض'",
-    "stageAt": 1784328276444
+    "stageAt": 1784328276444,
+    "priority": 3
   },
   {
     "slug": "qawam",
@@ -458,7 +489,8 @@
     "source": "batch2-harvest",
     "why": "Small south-Riyadh specialty cafe with indoor/outdoor sittings promoted only through local X promo accounts; south Riyadh is underserved by menu tech.",
     "social": "Promoted by @Liveriyadh011 on X",
-    "stageAt": 1784328276445
+    "stageAt": 1784328276445,
+    "priority": 3
   },
   {
     "slug": "harmony-cafe",
@@ -482,7 +514,8 @@
         "كوكيز آيس كريم",
         24
       ]
-    ]
+    ],
+    "priority": 6
   },
   {
     "slug": "eya-coffee",
@@ -494,7 +527,8 @@
     "source": "batch2-harvest",
     "why": "Two-year-old independent cafe near a metro station whose whole identity lives on its Instagram grid; menu discoverable only via photos and TikTok reviews.",
     "social": "Instagram @eya.coffee",
-    "stageAt": 1784328276446
+    "stageAt": 1784328276446,
+    "priority": 3
   },
   {
     "slug": "cafe-n",
@@ -506,7 +540,8 @@
     "source": "batch2-harvest",
     "why": "Small Olaya coffee spot known for its seating vibe, discovered through Instagram reels; no structured bilingual menu online.",
     "social": "Instagram reel coverage",
-    "stageAt": 1784328276446
+    "stageAt": 1784328276446,
+    "priority": 3
   },
   {
     "slug": "vark",
@@ -518,7 +553,8 @@
     "source": "batch2-harvest",
     "why": "Two-branch local concept (signature toasted-bread sandwiches, 5 fillings, plus specialty coffee and desserts) whose menu exists only inside TikTok ad videos — perfect fit for a structured item-list me",
     "social": "TikTok @VARK, promoted via @riyadh_rest1",
-    "stageAt": 1784328276446
+    "stageAt": 1784328276446,
+    "priority": 3
   },
   {
     "slug": "chi-chi",
@@ -530,7 +566,8 @@
     "source": "batch2-harvest",
     "why": "Cozy new cafe riding the viral chimney-cake trend, open 4pm-2am; discovery is purely Instagram (@chi.chi.ksa) and word of mouth.",
     "social": "Instagram @chi.chi.ksa",
-    "stageAt": 1784328276447
+    "stageAt": 1784328276447,
+    "priority": 3
   },
   {
     "slug": "jadeel",
@@ -542,7 +579,8 @@
     "source": "batch2-harvest",
     "why": "Independent specialty coffee that just opened a Suwaidi location in west/south Riyadh, an area with few QR-menu adopters; covered in Time Out's Arabic new-cafes roundup.",
     "social": "Listed in Time Out Riyadh (AR)",
-    "stageAt": 1784328276448
+    "stageAt": 1784328276448,
+    "priority": 3
   },
   {
     "slug": "ralph-cafe",
@@ -554,7 +592,8 @@
     "source": "batch2-harvest",
     "why": "New independent cafe featured in Time Out's Arabic new-cafes list for creative coffee in a distinctive setting; social-first presence, no structured online menu found.",
     "social": "Listed in Time Out Riyadh (AR)",
-    "stageAt": 1784328276448
+    "stageAt": 1784328276448,
+    "priority": 3
   },
   {
     "slug": "house-of-matcha",
@@ -566,7 +605,8 @@
     "source": "batch2-harvest",
     "why": "Small matcha-focused bar riding Riyadh's matcha wave; brand lives on Instagram (@housematcha.sa) and delivery apps, no owned bilingual menu page.",
     "social": "Instagram @housematcha.sa",
-    "stageAt": 1784328276449
+    "stageAt": 1784328276449,
+    "priority": 3
   },
   {
     "slug": "on-off-coffee",
@@ -578,7 +618,8 @@
     "source": "batch2-harvest",
     "why": "Cozy independent spot praised for its matcha latte and coffee in local roundups; social-first small cafe with no structured digital menu found.",
     "social": "Featured in Lovin Riyadh matcha roundup",
-    "stageAt": 1784328276450
+    "stageAt": 1784328276450,
+    "priority": 3
   },
   {
     "slug": "public-cafe",
@@ -590,7 +631,8 @@
     "source": "batch3-overnight",
     "why": "Tiny specialty shop (~1.3k IG followers) whose menu exists only in Instagram photo posts",
     "social": "@public.sa",
-    "stageAt": 1784329222138
+    "stageAt": 1784329222138,
+    "priority": 3
   },
   {
     "slug": "cactus-cafe",
@@ -602,7 +644,8 @@
     "source": "batch3-overnight",
     "why": "Neighborhood family cafe opposite the public park, discoverable only via Instagram with no digital menu",
     "social": "@cactuscafe_sa",
-    "stageAt": 1784329222139
+    "stageAt": 1784329222139,
+    "priority": 3
   },
   {
     "slug": "dark-mood",
@@ -613,7 +656,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "V60/filter-focused micro cafe known only through local coverage accounts; rotating crops need an updatable e-menu",
-    "stageAt": 1784329222140
+    "stageAt": 1784329222140,
+    "priority": 1
   },
   {
     "slug": "vote-specialty-coffee",
@@ -624,7 +668,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "New street-corner specialty spot marketed purely through TikTok coverage videos, no menu link anywhere",
-    "stageAt": 1784329222142
+    "stageAt": 1784329222142,
+    "priority": 1
   },
   {
     "slug": "nqweh-albon",
@@ -636,7 +681,8 @@
     "source": "batch3-overnight",
     "why": "Grab-and-go micro roastery too small for seating; a QR menu is the natural counter/ordering surface for beans and drinks",
     "social": "@nqweh_albon",
-    "stageAt": 1784329222143
+    "stageAt": 1784329222143,
+    "priority": 3
   },
   {
     "slug": "c3-cafe",
@@ -647,7 +693,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Breakfast-and-cheesecake menu is scattered across review blogs and IG posts instead of one shareable link",
-    "stageAt": 1784329222145
+    "stageAt": 1784329222145,
+    "priority": 1
   },
   {
     "slug": "eqd-coffee",
@@ -658,7 +705,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Hidden in-neighborhood gem known only through TikTok coverage; walk-ins have no way to browse offerings in advance",
-    "stageAt": 1784329222146
+    "stageAt": 1784329222146,
+    "priority": 1
   },
   {
     "slug": "specialty-bean",
@@ -669,7 +717,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Quiet work-friendly specialty cafe whose multi-roaster lineup changes often but is only documented in blog reviews",
-    "stageAt": 1784329222147
+    "stageAt": 1784329222147,
+    "priority": 1
   },
   {
     "slug": "thawa-cafe",
@@ -680,7 +729,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Newly opened trending specialty cafe (6:30am openings) riding TikTok hype with no menu infrastructure yet",
-    "stageAt": 1784329222148
+    "stageAt": 1784329222148,
+    "priority": 1
   },
   {
     "slug": "view-cafe",
@@ -692,7 +742,8 @@
     "source": "batch3-overnight",
     "why": "Instagram-only presence promoting premium coffee crops; followers must DM or visit to learn prices",
     "social": "@viewcoffee.sa",
-    "stageAt": 1784329222149
+    "stageAt": 1784329222149,
+    "priority": 3
   },
   {
     "slug": "rifqah-cafe",
@@ -703,7 +754,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Specialty coffee and dessert menu lives only in third-party review-blog screenshots",
-    "stageAt": 1784329222151
+    "stageAt": 1784329222151,
+    "priority": 1
   },
   {
     "slug": "qirmiz-cafe",
@@ -714,7 +766,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Cozy study-friendly specialty cafe surfaced only via X/Twitter reviews — no digital menu to send families before visits",
-    "stageAt": 1784329222152
+    "stageAt": 1784329222152,
+    "priority": 1
   },
   {
     "slug": "ark-cafe",
@@ -725,7 +778,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Known for Western and Eastern desserts plus specialty drinks, yet has no unified menu link across its social presence",
-    "stageAt": 1784329222154
+    "stageAt": 1784329222154,
+    "priority": 1
   },
   {
     "slug": "qahwat-al-musafir",
@@ -736,7 +790,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "New upscale-feel neighborhood cafe reviewed on aggregator sites with no first-party menu anywhere",
-    "stageAt": 1784329222154
+    "stageAt": 1784329222154,
+    "priority": 1
   },
   {
     "slug": "rewanted-cafe",
@@ -748,7 +803,8 @@
     "source": "batch3-overnight",
     "why": "Instagram-first neighborhood cafe with no website or menu link in bio",
     "social": "@rewantedcafe",
-    "stageAt": 1784329222155
+    "stageAt": 1784329222155,
+    "priority": 3
   },
   {
     "slug": "sakaf-specialty-coffee",
@@ -760,7 +816,8 @@
     "source": "batch3-overnight",
     "why": "Praised for its striking storefront on coverage accounts, but customers can only see drinks via reposted IG stories",
     "social": "@sakafcafe",
-    "stageAt": 1784329222156
+    "stageAt": 1784329222156,
+    "priority": 3
   },
   {
     "slug": "find-hai-roastery-and-cafe",
@@ -772,7 +829,8 @@
     "source": "batch3-overnight",
     "why": "Independent roastery-cafe promoted through coverage bloggers; rotating roast lineup begs for a live QR menu",
     "social": "@find.hai",
-    "stageAt": 1784329222157
+    "stageAt": 1784329222157,
+    "priority": 3
   },
   {
     "slug": "muhjah-cafe",
@@ -784,7 +842,8 @@
     "source": "batch3-overnight",
     "why": "Small family cafe visible only through Riyadh food-coverage Instagram posts, no menu or ordering link",
     "social": "@muhjahcafe",
-    "stageAt": 1784329222158
+    "stageAt": 1784329222158,
+    "priority": 3
   },
   {
     "slug": "trov-cafe",
@@ -796,7 +855,8 @@
     "source": "batch3-overnight",
     "why": "Well-reviewed specialty spot whose entire footprint is an Instagram handle — an e-menu would convert coverage traffic",
     "social": "@trov_co",
-    "stageAt": 1784329222158
+    "stageAt": 1784329222158,
+    "priority": 3
   },
   {
     "slug": "serene-roastery-and-bakery",
@@ -807,7 +867,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Brand-new roastery-bakery capturing metro foot traffic with zero menu tech in place",
-    "stageAt": 1784329222159
+    "stageAt": 1784329222159,
+    "priority": 1
   },
   {
     "slug": "qahwat-dar",
@@ -818,7 +879,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Just-opened neighborhood coffee house announced via IG coverage posts only — perfect timing for a launch e-menu",
-    "stageAt": 1784329222159
+    "stageAt": 1784329222159,
+    "priority": 1
   },
   {
     "slug": "snoo-cafe",
@@ -829,7 +891,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "New drinks-and-desserts cafe generating TikTok buzz with no way for viewers to browse the actual menu",
-    "stageAt": 1784329222160
+    "stageAt": 1784329222160,
+    "priority": 1
   },
   {
     "slug": "zoni-bakery",
@@ -840,7 +903,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Independent bakery-cafe with a wide rotating pastry range that is undocumented outside social videos",
-    "stageAt": 1784329222161
+    "stageAt": 1784329222161,
+    "priority": 1
   },
   {
     "slug": "sadeq-cafe",
@@ -851,7 +915,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "24-hour family cafe with private rooms — high order volume across shifts and no digital menu to speed service",
-    "stageAt": 1784329222161
+    "stageAt": 1784329222161,
+    "priority": 1
   },
   {
     "slug": "wisb-coffee",
@@ -862,7 +927,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Recently opened specialty concept in an underserved south-Riyadh district, promoted only via short-form video",
-    "stageAt": 1784329222162
+    "stageAt": 1784329222162,
+    "priority": 1
   },
   {
     "slug": "anwah-cafe",
@@ -873,7 +939,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "TikTok-famous for coffee and desserts with outdoor winter seating, yet has no menu link for the traffic it attracts",
-    "stageAt": 1784329222162
+    "stageAt": 1784329222162,
+    "priority": 1
   },
   {
     "slug": "sort-cafe",
@@ -884,7 +951,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Roadside specialty cafe whose only discoverability is coverage-account Instagram posts",
-    "stageAt": 1784329222163
+    "stageAt": 1784329222163,
+    "priority": 1
   },
   {
     "slug": "ob-cafe",
@@ -896,7 +964,8 @@
     "source": "batch3-overnight",
     "why": "Pancake-and-more concept open 6am-2am that lives entirely on Instagram posts — no browsable digital menu for its long-hours crowd",
     "social": "@obcaf.e",
-    "stageAt": 1784329222163
+    "stageAt": 1784329222163,
+    "priority": 3
   },
   {
     "slug": "yellow-rose",
@@ -908,7 +977,8 @@
     "source": "batch3-overnight",
     "why": "15K Instagram followers but menu discovery happens via DMs and story highlights — a QR menu would convert that following at the table",
     "social": "@yellowrosecafee",
-    "stageAt": 1784329222164
+    "stageAt": 1784329222164,
+    "priority": 3
   },
   {
     "slug": "nabtat-shay-bayt-issa",
@@ -919,7 +989,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "New tea shop inside a converted old heritage house — trending on TikTok tours but has no structured menu anywhere online",
-    "stageAt": 1784329222164
+    "stageAt": 1784329222164,
+    "priority": 1
   },
   {
     "slug": "daily-dosage",
@@ -930,7 +1001,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "New cafe with match screens, outdoor seating and a VIP room — depends on TikTok coverage videos instead of a proper menu",
-    "stageAt": 1784329222165
+    "stageAt": 1784329222165,
+    "priority": 1
   },
   {
     "slug": "bulja-cafe",
@@ -941,7 +1013,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Specialty coffee + bakery known for za'atar danish and berry cheesecake — visibility is via listicles and IG only, no e-menu of its rotating bakes",
-    "stageAt": 1784329222165
+    "stageAt": 1784329222165,
+    "priority": 1
   },
   {
     "slug": "ouia-coffee",
@@ -952,7 +1025,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Neighborhood specialty spot found only through TikTok discover pages — a QR menu would capture the drive-by Boulevard 2030 traffic",
-    "stageAt": 1784329222165
+    "stageAt": 1784329222165,
+    "priority": 1
   },
   {
     "slug": "noma-coffee",
@@ -964,7 +1038,8 @@
     "source": "batch3-overnight",
     "why": "Specialty coffee with indoor/outdoor seating promoted through Instagram reels — customers have to watch videos to guess the offering",
     "social": "@nomacoffee.sa",
-    "stageAt": 1784329222166
+    "stageAt": 1784329222166,
+    "priority": 3
   },
   {
     "slug": "outset-cafe",
@@ -976,7 +1051,8 @@
     "source": "batch3-overnight",
     "why": "Instagram-first specialty cafe in a fast-growing new district — an e-menu would serve the new-resident audience finding it via IG",
     "social": "@outsetksa",
-    "stageAt": 1784329222166
+    "stageAt": 1784329222166,
+    "priority": 3
   },
   {
     "slug": "nuviq-cafe",
@@ -988,7 +1064,8 @@
     "source": "batch3-overnight",
     "why": "Brand-new specialty opening hyped by blogger reposts — perfect timing to launch with a proper QR menu before habits form",
     "social": "@nuviq.sa",
-    "stageAt": 1784329222167
+    "stageAt": 1784329222167,
+    "priority": 3
   },
   {
     "slug": "yellow-sugar",
@@ -999,7 +1076,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Viral trompe-l'oeil fruit-shaped cakes on TikTok — a visual QR menu is the natural upsell for a product this photogenic",
-    "stageAt": 1784329222167
+    "stageAt": 1784329222167,
+    "priority": 1
   },
   {
     "slug": "lihaf",
@@ -1011,7 +1089,8 @@
     "source": "batch3-overnight",
     "why": "24-hour specialty coffee spot whose only menu surface is its Instagram grid — late-night customers need a scannable menu",
     "social": "@le_hf1",
-    "stageAt": 1784329222167
+    "stageAt": 1784329222167,
+    "priority": 3
   },
   {
     "slug": "jiba",
@@ -1022,7 +1101,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Just-opened specialty coffee and bakery announced via X/Instagram teasers — launching with zero digital menu infrastructure",
-    "stageAt": 1784329222168
+    "stageAt": 1784329222168,
+    "priority": 1
   },
   {
     "slug": "sei-coffee",
@@ -1034,7 +1114,8 @@
     "source": "batch3-overnight",
     "why": "New west-Riyadh spot discovered through paid TikTok coverage — converting that reach needs an on-table QR menu, not more ads",
     "social": "@sei.sa.coffee",
-    "stageAt": 1784329222168
+    "stageAt": 1784329222168,
+    "priority": 3
   },
   {
     "slug": "serb-coffee",
@@ -1046,7 +1127,8 @@
     "source": "batch3-overnight",
     "why": "24-hour specialty micro-cafe promoted by TikTok bloggers — round-the-clock walk-ins with no menu to browse online",
     "social": "@serb.coffee",
-    "stageAt": 1784329222169
+    "stageAt": 1784329222169,
+    "priority": 3
   },
   {
     "slug": "hot-sip-ex-port-beans",
@@ -1058,7 +1140,8 @@
     "source": "batch3-overnight",
     "why": "Recently rebranded from Port Beans — a fresh QR menu would cement the new identity that currently exists only in TikTok clips",
     "social": "@hotsip.sa",
-    "stageAt": 1784329222169
+    "stageAt": 1784329222169,
+    "priority": 3
   },
   {
     "slug": "mawten-alkeef",
@@ -1069,7 +1152,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Bakery-cafe doing fatayer and desserts, marketed purely through TikTok ad posts — no menu link anywhere for family orders",
-    "stageAt": 1784329222170
+    "stageAt": 1784329222170,
+    "priority": 1
   },
   {
     "slug": "faza-coffee",
@@ -1080,7 +1164,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Serves 13 single-origin crops at budget prices but the crop list lives only in reels — an e-menu would showcase the rotating origins",
-    "stageAt": 1784329222170
+    "stageAt": 1784329222170,
+    "priority": 1
   },
   {
     "slug": "batlat-bun",
@@ -1091,7 +1176,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Well-reviewed neighborhood specialty cafe with no web or menu presence beyond word-of-mouth TikTok mentions",
-    "stageAt": 1784329222171
+    "stageAt": 1784329222171,
+    "priority": 1
   },
   {
     "slug": "gist-coffee",
@@ -1102,7 +1188,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Small specialty operator in an underserved district — discovery is entirely social, so a QR menu is its cheapest conversion tool",
-    "stageAt": 1784329222171
+    "stageAt": 1784329222171,
+    "priority": 1
   },
   {
     "slug": "old-lane-coffee",
@@ -1113,7 +1200,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Specialty spot known for V60 Yemen and tiramisu, surfacing only in TikTok roundups — no digital menu for its brew list",
-    "stageAt": 1784329222171
+    "stageAt": 1784329222171,
+    "priority": 1
   },
   {
     "slug": "mat-cookies",
@@ -1125,7 +1213,8 @@
     "source": "batch3-overnight",
     "why": "Square stuffed-cookie shop whose 11+ rotating flavors live only in Instagram reels — no browsable menu for walk-ins",
     "social": "@matcookies",
-    "stageAt": 1784329222172
+    "stageAt": 1784329222172,
+    "priority": 3
   },
   {
     "slug": "hacked",
@@ -1137,7 +1226,8 @@
     "source": "batch3-overnight",
     "why": "Home-grown cookie brand with seasonal drops (s'mores, cookinafa trio) announced only on socials — a QR menu would fix constant 'what's available' DMs",
     "social": "@hacked.sa",
-    "stageAt": 1784329222172
+    "stageAt": 1784329222172,
+    "priority": 3
   },
   {
     "slug": "secret-pot-bakery",
@@ -1149,7 +1239,8 @@
     "source": "batch3-overnight",
     "why": "Tucked-away mini-pastry and cinnamon-roll bakery whose seasonal items (matcha cookies, custard doughnuts) exist only as Instagram photos",
     "social": "@secretpotbakery",
-    "stageAt": 1784329222172
+    "stageAt": 1784329222172,
+    "priority": 3
   },
   {
     "slug": "coated",
@@ -1160,7 +1251,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Boutique dessert bar (upside-down cheesecakes, brulee cheesecakes) with no proper digital menu — discovery happens via reels and phone calls",
-    "stageAt": 1784329222173
+    "stageAt": 1784329222173,
+    "priority": 1
   },
   {
     "slug": "sugar-coated",
@@ -1171,7 +1263,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Local gem known for its scattered cheesecake board; menu is scattered too — across Instagram posts with a phone number for orders",
-    "stageAt": 1784329222173
+    "stageAt": 1784329222173,
+    "priority": 1
   },
   {
     "slug": "delish-bakery",
@@ -1182,7 +1275,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Cookies, mini cakes and custom creations ordered by DM — a structured e-menu with customization options would streamline orders",
-    "stageAt": 1784329222174
+    "stageAt": 1784329222174,
+    "priority": 1
   },
   {
     "slug": "the-cake-corner",
@@ -1194,7 +1288,8 @@
     "source": "batch3-overnight",
     "why": "Custom cakes and cupcakes ordered entirely through Instagram DMs — a textbook case for a browsable e-menu with pricing",
     "social": "@thecakecornerksa",
-    "stageAt": 1784329222174
+    "stageAt": 1784329222174,
+    "priority": 3
   },
   {
     "slug": "kunafa-abul-haus",
@@ -1206,7 +1301,8 @@
     "source": "batch3-overnight",
     "why": "Beloved kunafa house with big variety but no digital menu — customers rely on Instagram photos and aggregator apps to see options",
     "social": "@kabualhous",
-    "stageAt": 1784329222174
+    "stageAt": 1784329222174,
+    "priority": 3
   },
   {
     "slug": "breddy",
@@ -1218,7 +1314,8 @@
     "source": "batch3-overnight",
     "why": "Home-grown sourdough and croissant bakery whose daily loaf lineup is announced only in stories — no menu customers can scan",
     "social": "@breddy_sa",
-    "stageAt": 1784329222175
+    "stageAt": 1784329222175,
+    "priority": 3
   },
   {
     "slug": "green-mill-bakery",
@@ -1229,7 +1326,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Weekly surprise sourdough-flavor drops promoted via TikTok/Instagram — a live e-menu would let regulars see this week's drop instantly",
-    "stageAt": 1784329222175
+    "stageAt": 1784329222175,
+    "priority": 1
   },
   {
     "slug": "rustic-bakery",
@@ -1240,7 +1338,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Independent sourdough and Italian-dessert bakery with no digital menu — variety of flavors only discoverable in person or on social clips",
-    "stageAt": 1784329222176
+    "stageAt": 1784329222176,
+    "priority": 1
   },
   {
     "slug": "chimney-cafe",
@@ -1252,7 +1351,8 @@
     "source": "batch3-overnight",
     "why": "Small chimney-cake spot riding a viral trend with only 14 Instagram posts as its 'menu' — fillings and prices are DM questions",
     "social": "@chimneycafe.ksa",
-    "stageAt": 1784329222176
+    "stageAt": 1784329222176,
+    "priority": 3
   },
   {
     "slug": "framboise-and-olive",
@@ -1263,7 +1363,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Cheesecake specialist with a wide rotating selection that exists only as Instagram photos — no scannable menu for its many flavors",
-    "stageAt": 1784329222176
+    "stageAt": 1784329222176,
+    "priority": 1
   },
   {
     "slug": "scout-coffee",
@@ -1274,7 +1375,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Brand-new trial opening announced only via TikTok/X posts; dessert lineup (mango/banana pudding) circulates in videos with no digital menu link",
-    "stageAt": 1784329222177
+    "stageAt": 1784329222177,
+    "priority": 1
   },
   {
     "slug": "lumas-cafe",
@@ -1285,7 +1387,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Opening announced solely through a reviewer tweet; customers must visit or DM to see offerings",
-    "stageAt": 1784329222177
+    "stageAt": 1784329222177,
+    "priority": 1
   },
   {
     "slug": "do-ido-cafe",
@@ -1296,7 +1399,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "New specialty coffee spot living entirely off X hype posts with no menu infrastructure",
-    "stageAt": 1784329222177
+    "stageAt": 1784329222177,
+    "priority": 1
   },
   {
     "slug": "opinion-cafe",
@@ -1307,7 +1411,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Just-opened neighborhood specialty cafe promoted only by coffee reviewer tweets; a QR menu would convert that traffic",
-    "stageAt": 1784329222178
+    "stageAt": 1784329222178,
+    "priority": 1
   },
   {
     "slug": "ochre-cafe",
@@ -1318,7 +1423,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "New opening announced on X with photos only — no linked menu for the first-visit crowd",
-    "stageAt": 1784329222178
+    "stageAt": 1784329222178,
+    "priority": 1
   },
   {
     "slug": "stage-cafe",
@@ -1329,7 +1435,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "First-branch indie known on TikTok for its matcha; discovery is all social clips, ordering info scattered",
-    "stageAt": 1784329222179
+    "stageAt": 1784329222179,
+    "priority": 1
   },
   {
     "slug": "pax-coffee",
@@ -1340,7 +1447,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Opening-day free-coffee promo ran purely on X; no digital menu to retain the promo visitors",
-    "stageAt": 1784329222179
+    "stageAt": 1784329222179,
+    "priority": 1
   },
   {
     "slug": "naram-coffee",
@@ -1351,7 +1459,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Small west-Riyadh neighborhood opening known only from a reviewer roundup tweet — zero menu presence",
-    "stageAt": 1784329222180
+    "stageAt": 1784329222180,
+    "priority": 1
   },
   {
     "slug": "hawaf-cafe",
@@ -1362,7 +1471,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "In-neighborhood cafe whose launch lived on X; nearby-resident clientele would use a scan-to-order menu daily",
-    "stageAt": 1784329222180
+    "stageAt": 1784329222180,
+    "priority": 1
   },
   {
     "slug": "press-cafe",
@@ -1373,7 +1483,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Soft-opening announced with a Google Maps pin on X — a maps pin plus QR menu is exactly the missing piece",
-    "stageAt": 1784329222181
+    "stageAt": 1784329222181,
+    "priority": 1
   },
   {
     "slug": "wabar-coffee",
@@ -1384,7 +1495,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Monday-opening indie announced in a 4-cafe reviewer tweet; no owned digital channel for its menu",
-    "stageAt": 1784329222181
+    "stageAt": 1784329222181,
+    "priority": 1
   },
   {
     "slug": "vov-coffee",
@@ -1395,7 +1507,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "New Hittin cafe surfacing only in Arabic X roundups; upscale district crowd expects a slick e-menu",
-    "stageAt": 1784329222182
+    "stageAt": 1784329222182,
+    "priority": 1
   },
   {
     "slug": "yardek-coffee",
@@ -1406,7 +1519,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Grows through TikTok review clips; viewers arriving from videos have no menu to browse before visiting",
-    "stageAt": 1784329222182
+    "stageAt": 1784329222182,
+    "priority": 1
   },
   {
     "slug": "hilme",
@@ -1417,7 +1531,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Newest-cafe TikTok trend spot pitched by walking distance from the metro — perfect candidate for a QR menu at the counter",
-    "stageAt": 1784329222183
+    "stageAt": 1784329222183,
+    "priority": 1
   },
   {
     "slug": "lucial-cafe",
@@ -1428,7 +1543,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Catering and dessert variety praised in TikTok clips, but no digital menu for its varied sweets lineup",
-    "stageAt": 1784329222183
+    "stageAt": 1784329222183,
+    "priority": 1
   },
   {
     "slug": "croi-bakehouse",
@@ -1440,7 +1556,8 @@
     "source": "batch3-overnight",
     "why": "French bakery-cafe whose only channel is Instagram; rotating pastry lineup begs for an updatable e-menu",
     "social": "@croi.bakehouse",
-    "stageAt": 1784329222184
+    "stageAt": 1784329222184,
+    "priority": 3
   },
   {
     "slug": "lyrs-bakery",
@@ -1452,7 +1569,8 @@
     "source": "batch3-overnight",
     "why": "Instagram-native bakery discovered through reels; followers can't see prices or the full pastry list anywhere",
     "social": "@lyrsbakery",
-    "stageAt": 1784329222184
+    "stageAt": 1784329222184,
+    "priority": 3
   },
   {
     "slug": "mihad-cafe",
@@ -1463,7 +1581,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Coffee-and-reading cultural cafe trending on TikTok; its book-cafe crowd would embrace a quiet scan-to-order QR menu",
-    "stageAt": 1784329222184
+    "stageAt": 1784329222184,
+    "priority": 1
   },
   {
     "slug": "dar-qahwa-hai",
@@ -1474,7 +1593,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Underserved south-Riyadh neighborhood cafe announced on X; low competition makes a pro e-menu a differentiator",
-    "stageAt": 1784329222185
+    "stageAt": 1784329222185,
+    "priority": 1
   },
   {
     "slug": "teajoy",
@@ -1485,7 +1605,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Specialty Chinese-tea house known via social mentions; a bilingual tea-list e-menu suits its niche catalog",
-    "stageAt": 1784329222185
+    "stageAt": 1784329222185,
+    "priority": 1
   },
   {
     "slug": "qewnq-coffee",
@@ -1496,7 +1617,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Najdi-design cafe going viral on TikTok; visitors arrive from clips with no way to preview the menu",
-    "stageAt": 1784329222185
+    "stageAt": 1784329222185,
+    "priority": 1
   },
   {
     "slug": "sip-day-specialty-coffee",
@@ -1508,7 +1630,8 @@
     "source": "batch3-overnight",
     "why": "Sells V60/cold brew via HungerStation and posts menus as Instagram reels — no ownable menu link to share",
     "social": "@sipday10",
-    "stageAt": 1784329222186
+    "stageAt": 1784329222186,
+    "priority": 3
   },
   {
     "slug": "pot-specialty-coffee",
@@ -1518,7 +1641,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Full drink menu lives only on HungerStation's commission platform — zero owned web presence",
-    "stageAt": 1784329222186
+    "stageAt": 1784329222186,
+    "priority": 1
   },
   {
     "slug": "nafas-cafe",
@@ -1530,7 +1654,8 @@
     "source": "batch3-overnight",
     "why": "Two delivery-app listings and an Instagram bio — customers must open an app to see prices",
     "social": "@nafascafe.sa",
-    "stageAt": 1784329222187
+    "stageAt": 1784329222187,
+    "priority": 3
   },
   {
     "slug": "12-senses-boutique-cafe",
@@ -1540,7 +1665,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Boutique cafe reachable only through HungerStation — a QR e-menu would cut app dependency for dine-in",
-    "stageAt": 1784329222187
+    "stageAt": 1784329222187,
+    "priority": 1
   },
   {
     "slug": "coffee-berry",
@@ -1550,7 +1676,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Independent coffee shop whose only findable menu is a delivery-app page",
-    "stageAt": 1784329222187
+    "stageAt": 1784329222187,
+    "priority": 1
   },
   {
     "slug": "matcha-time",
@@ -1561,7 +1688,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Trend-driven matcha menu (mango, vanilla cream) changes fast but is trapped inside HungerStation's format",
-    "stageAt": 1784329222188
+    "stageAt": 1784329222188,
+    "priority": 1
   },
   {
     "slug": "matchafulll",
@@ -1573,7 +1701,8 @@
     "source": "batch3-overnight",
     "why": "16K Instagram followers but orders route through delivery apps — no branded menu page to pin in bio",
     "social": "@matchafulll",
-    "stageAt": 1784329222188
+    "stageAt": 1784329222188,
+    "priority": 3
   },
   {
     "slug": "given-cafe",
@@ -1583,7 +1712,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Milk-option-heavy matcha and coffee menu poorly served by static app listings; no own site",
-    "stageAt": 1784329222188
+    "stageAt": 1784329222188,
+    "priority": 1
   },
   {
     "slug": "sociale-cafe",
@@ -1593,7 +1723,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Signature cheese-foam matcha lives only on a HungerStation page — nothing ownable to market",
-    "stageAt": 1784329222189
+    "stageAt": 1784329222189,
+    "priority": 1
   },
   {
     "slug": "bakery-way",
@@ -1603,7 +1734,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "5.0-rated bakery-coffee shop with rotating croissant lineup visible only via delivery app",
-    "stageAt": 1784329222189
+    "stageAt": 1784329222189,
+    "priority": 1
   },
   {
     "slug": "puffery",
@@ -1613,7 +1745,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Croissant specialist paying app commissions with no direct menu link for walk-in or social customers",
-    "stageAt": 1784329222189
+    "stageAt": 1784329222189,
+    "priority": 1
   },
   {
     "slug": "haseel-cafe-and-bakery",
@@ -1624,7 +1757,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Combined cafe-bakery menu exists only as a HungerStation listing",
-    "stageAt": 1784329222190
+    "stageAt": 1784329222190,
+    "priority": 1
   },
   {
     "slug": "the-sweet-sip",
@@ -1635,7 +1769,8 @@
     "source": "batch3-overnight",
     "why": "Specialty coffee and bakery running entirely off Instagram plus delivery apps — no menu URL of their own",
     "social": "@thesweetsip5",
-    "stageAt": 1784329222190
+    "stageAt": 1784329222190,
+    "priority": 3
   },
   {
     "slug": "suwalif-tea",
@@ -1646,7 +1781,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Neighborhood karak/tea spot findable only through its HungerStation delivery page",
-    "stageAt": 1784329222190
+    "stageAt": 1784329222190,
+    "priority": 1
   },
   {
     "slug": "tuwaiq-tea",
@@ -1657,7 +1793,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Tea house paying delivery-app commissions with no owned digital menu for dine-in or pickup",
-    "stageAt": 1784329222191
+    "stageAt": 1784329222191,
+    "priority": 1
   },
   {
     "slug": "khosh-shay",
@@ -1668,7 +1805,8 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Simple hot-tea menu locked inside HungerStation — a lightweight QR menu fits perfectly",
-    "stageAt": 1784329222191
+    "stageAt": 1784329222191,
+    "priority": 1
   },
   {
     "slug": "m-dee",
@@ -1678,6 +1816,7 @@
     "stage": "READY",
     "source": "batch3-overnight",
     "why": "Dessert shop whose only online storefront is a commission-based delivery listing",
-    "stageAt": 1784329222192
+    "stageAt": 1784329222192,
+    "priority": 1
   }
 ]
