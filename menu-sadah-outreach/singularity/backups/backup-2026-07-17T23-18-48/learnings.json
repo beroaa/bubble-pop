@@ -1,0 +1,60 @@
+{
+  "formulaVersion": "2.3",
+  "lessons": [
+    {
+      "id": 1,
+      "desc": "QA guard: price out of range",
+      "source": "test-bad",
+      "addedAt": 1784326089419
+    },
+    {
+      "id": 2,
+      "desc": "Harvest filter miss: multi-branch chains (Namq, Wooden) slipped through — signature research now double-checks branch count",
+      "source": "overnight-signatures",
+      "addedAt": 1784329758917
+    },
+    {
+      "id": 3,
+      "desc": "Signature rule: only sourced items with real prices go on demo pages; price-unknown items stay off (never invent)",
+      "source": "overnight-signatures",
+      "addedAt": 1784329758917
+    }
+  ],
+  "qa": {
+    "priceMin": 5,
+    "priceMax": 300,
+    "minHtmlBytes": 4000,
+    "requireArabic": true,
+    "requireDisclaimer": true
+  },
+  "runs": [
+    {
+      "at": 1784326089415,
+      "ms": 4,
+      "built": 1,
+      "failed": 1,
+      "total": 2
+    },
+    {
+      "at": 1784328276431,
+      "ms": 19,
+      "built": 31,
+      "failed": 0,
+      "total": 31
+    },
+    {
+      "at": 1784329222136,
+      "ms": 56,
+      "built": 98,
+      "failed": 0,
+      "total": 98
+    },
+    {
+      "at": 1784329759032,
+      "ms": 13,
+      "built": 11,
+      "failed": 0,
+      "total": 11
+    }
+  ]
+}
