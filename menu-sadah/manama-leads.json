@@ -1,0 +1,962 @@
+[
+  {
+    "name": "Angelo Cafe",
+    "name_ar": null,
+    "area": "Juffair (Juffair Square)",
+    "ig": "@angelocafebh",
+    "followers_est": 9800,
+    "menu_problem": "Menu surfaced only via Talabat listing and IG; no own website found in any result",
+    "why_target": "Italian-espresso branding ('The Soul of Italian Coffee at the Heart of Bahrain'), Juffair Square storefront. in ICP follower band (~9,800); weak digital menu (IG/Talabat/third-party only); design-forward brand; phone contact public",
+    "score": 100
+  },
+  {
+    "name": "Arte de Cafe",
+    "name_ar": null,
+    "area": "Block 338, Adliya, Manama",
+    "ig": "@artedecafebh",
+    "followers_est": 4230,
+    "menu_problem": "No own website surfaced in any search; menu exposure limited to Instagram and tourism-listing descriptions",
+    "why_target": "Specialty coffee shop fused with a creative art studio. in ICP follower band (~4,230); weak digital menu (IG/Talabat/third-party only); design-forward brand; phone contact public",
+    "score": 100
+  },
+  {
+    "name": "Blanc Specialty Coffee",
+    "name_ar": null,
+    "area": "The Flagship, Bahrain (exact area label unconfirmed; Facebook lists Manama)",
+    "ig": "@blanc_bh_",
+    "followers_est": 6122,
+    "menu_problem": "Talabat listing plus Instagram only; no website found",
+    "why_target": "Minimal white 'blanc' branding, specialty coffee bar. in ICP follower band (~6,122); weak digital menu (IG/Talabat/third-party only); design-forward brand; reachable on WhatsApp",
+    "score": 100
+  },
+  {
+    "name": "Bogota Cafe",
+    "name_ar": null,
+    "area": "Juffair / Al Fateh",
+    "ig": "@bogota.bh",
+    "followers_est": 3198,
+    "menu_problem": "Menu only on Talabat and third-party aggregators (menu-res.com, offernmenu.com); no own website seen",
+    "why_target": "Specialty-coffee positioning (V60, Spanish lattes praised in reviews). in ICP follower band (~3,198); weak digital menu (IG/Talabat/third-party only); design-forward brand; publicly reachable",
+    "score": 100
+  },
+  {
+    "name": "CAF",
+    "name_ar": null,
+    "area": "Seef, Manama (The Courtyard + Seef Mall) and Bahrain Harbour, Bahrain Bay",
+    "ig": "@cafcafe.bh",
+    "followers_est": 15000,
+    "menu_problem": "No dedicated website surfaced; digital presence Instagram-first (menu/branch info via IG bio and posts); Talabat listings exist",
+    "why_target": "Self-described 'social-driven specialty coffee bar'. in ICP follower band (~15,000); weak digital menu (IG/Talabat/third-party only); design-forward brand; publicly reachable",
+    "score": 100
+  },
+  {
+    "name": "Chaise Cafe & Art Gallery",
+    "name_ar": null,
+    "area": "Adliya, Manama (Building 236, Block 325, Road 2508, near Andalus Garden)",
+    "ig": "@chaisecafe",
+    "followers_est": 13000,
+    "menu_problem": "No own website surfaced; menu via Talabat and third-party directory pages",
+    "why_target": "Cafe + art gallery hybrid, cozy eclectic French-inspired interior. in ICP follower band (~13,000); weak digital menu (IG/Talabat/third-party only); design-forward brand; phone contact public",
+    "score": 100
+  },
+  {
+    "name": "Crust & Crema",
+    "name_ar": null,
+    "area": "Manama (Bu Ghazal/Karbabad), plus Saar and Al Janabiyah branches",
+    "ig": "@crustandcrema",
+    "followers_est": 10000,
+    "menu_problem": "No own website found; menu lives on Talabat and a third-party menu aggregator (bahrainmenus.flyoapp.com); Instagram is primary channel",
+    "why_target": "Third-wave specialty cafe + roastery + gourmet bakery, artisanal branding with stylized Unicode IG name. in ICP follower band (~10,000); weak digital menu (IG/Talabat/third-party only); design-forward brand; phone contact public",
+    "score": 100
+  },
+  {
+    "name": "Quin's Coffee House",
+    "name_ar": null,
+    "area": "Muharraq (pop-ups/branches also noted in Manama - Andalus Garden, Pearling Waters)",
+    "ig": "@quin.bh",
+    "followers_est": 5724,
+    "menu_problem": "No website; menu via Instagram and a third-party offers site (offernmenu.com)",
+    "why_target": "'Home of the Earl Grey' boutique coffee house branding. in ICP follower band (~5,724); weak digital menu (IG/Talabat/third-party only); design-forward brand; publicly reachable",
+    "score": 100
+  },
+  {
+    "name": "There Coffee Roasters",
+    "name_ar": null,
+    "area": "Harbour Row, Bahrain Financial Harbour, Manama",
+    "ig": "@there.bahrain",
+    "followers_est": 9545,
+    "menu_problem": "No own website; menu surfaces only via third-party page (there-coffee-roasters.res-discover.com); no bilingual digital menu found",
+    "why_target": "Immaculate all-white minimalist interior on the Manama waterfront. in ICP follower band (~9,545); weak digital menu (IG/Talabat/third-party only); design-forward brand; phone contact public",
+    "score": 100
+  },
+  {
+    "name": "Been Cafe",
+    "name_ar": null,
+    "area": "Seef, Manama (Shop 1007C, Road 2813, Block 428)",
+    "ig": "@beencafe.bh",
+    "followers_est": 6910,
+    "menu_problem": "Menu hosted on generic third-party oddmenu.com page + Talabat; no own website",
+    "why_target": "Coffee + freshly baked goods with a garden 'chill zone'. in ICP follower band (~6,910); weak digital menu (IG/Talabat/third-party only); phone contact public",
+    "score": 99
+  },
+  {
+    "name": "Coftea Cafe",
+    "name_ar": null,
+    "area": "Muharraq - Souq Al Baraha, shop 1012 (Talabat lists Diyar Al Muharraq; one IG snippet showed a Riffa location tag)",
+    "ig": "@cofteacafe",
+    "followers_est": 2463,
+    "menu_problem": "Menu only on Talabat and Instagram; no website found",
+    "why_target": "Small coffee-and-matcha concept (Cherry Matcha, San Sebastian cake bestsellers). in ICP follower band (~2,463); weak digital menu (IG/Talabat/third-party only); publicly reachable",
+    "score": 99
+  },
+  {
+    "name": "180° Specialty Coffee (180 Degrees)",
+    "name_ar": null,
+    "area": "Saar and Sitra",
+    "ig": "@180.bh_",
+    "followers_est": 8461,
+    "menu_problem": "No website found; menu discovery via Instagram only",
+    "why_target": "Trendy interior with a charming pink theme (per Wanderlog description). in ICP follower band (~8,461); weak digital menu (IG/Talabat/third-party only); design-forward brand; publicly reachable",
+    "score": 98
+  },
+  {
+    "name": "Al Sedra Cafe",
+    "name_ar": null,
+    "area": "Muharraq (next to Pearling Path Visitors Center)",
+    "ig": "@alsedra_bh",
+    "followers_est": 7578,
+    "menu_problem": "Menu on Talabat only; no website surfaced; discovery via press articles",
+    "why_target": "Traditional Bahraini garden cafe under a Sedra tree on the Pearling Path — heritage-aesthetic, heavily featured by Bahrain This Month and food bloggers. in ICP follower band (~7,578); weak digital menu (IG/Talabat/third-party only); design-forward brand; phone contact public",
+    "score": 98
+  },
+  {
+    "name": "Blanco Cafe",
+    "name_ar": null,
+    "area": "The Wharf (Southern Wharf, Road 4612), Bahrain Bay, Manama",
+    "ig": "@blancocafebh",
+    "followers_est": 11000,
+    "menu_problem": "No website surfaced; discovery via Instagram/Foursquare; no owned digital menu found",
+    "why_target": "Evening waterfront cafe at Bahrain Bay (4pm-midnight). in ICP follower band (~11,000); weak digital menu (IG/Talabat/third-party only); design-forward brand",
+    "score": 98
+  },
+  {
+    "name": "Calla Cafe + Flowers",
+    "name_ar": null,
+    "area": "Diyar Al Muharraq",
+    "ig": "@callabhr",
+    "followers_est": 8823,
+    "menu_problem": "Menu on a generic third-party QR service (calla-cafe-and-flowers.yallaqrcodes.com) and coupon sites — prime candidate for a proper branded bilingual menu",
+    "why_target": "Cafe + flower shop concept — inherently aesthetic/design-forward branding. in ICP follower band (~8,823); weak digital menu (IG/Talabat/third-party only); design-forward brand; publicly reachable",
+    "score": 98
+  },
+  {
+    "name": "Cinnamon In The Souq",
+    "name_ar": null,
+    "area": "Bab Al Bahrain / Manama Souq (Shop 18, Government Ave), Manama",
+    "ig": "@cinnamoninthesouq_bh",
+    "followers_est": 4400,
+    "menu_problem": "Menu hosted on third-party sites (nearby-res.com, offernmenu.com); no own website; tourist-heavy souq location makes bilingual menu an easy sell",
+    "why_target": "Heritage-souq charm meets cafe culture. in ICP follower band (~4,400); weak digital menu (IG/Talabat/third-party only); design-forward brand",
+    "score": 98
+  },
+  {
+    "name": "Greek Street",
+    "name_ar": null,
+    "area": "Seef, Manama (Avenue 40 / Road 2811)",
+    "ig": "@greekstreetbahrain",
+    "followers_est": 17000,
+    "menu_problem": "No own website confirmed; presence is Instagram + Facebook; no bilingual digital menu found",
+    "why_target": "Mykonos-style Greek cafe, bakery and marketplace — strongly themed, photogenic concept. in ICP follower band (~17,000); weak digital menu (IG/Talabat/third-party only); design-forward brand",
+    "score": 98
+  },
+  {
+    "name": "Palms Cafe",
+    "name_ar": null,
+    "area": "Manama Souq (Yateem Centre), Manama",
+    "ig": "@palmscafe.bh",
+    "followers_est": 3939,
+    "menu_problem": "No website found; TikTok feature says menu info is 'in their Instagram account'; no bilingual digital menu found",
+    "why_target": "Small design-forward specialty coffee spot inside the heritage Yateem Centre. in ICP follower band (~3,939); weak digital menu (IG/Talabat/third-party only); design-forward brand",
+    "score": 98
+  },
+  {
+    "name": "Rever Specialty Coffee",
+    "name_ar": null,
+    "area": "The Wharf, Bahrain Bay, Manama",
+    "ig": "@reverbahrain",
+    "followers_est": 8347,
+    "menu_problem": "No website found; presence is Instagram + TikTok + local directory; menu appears IG/in-store only",
+    "why_target": "Specialty coffee and sweets on the Bahrain Bay seafront promenade. in ICP follower band (~8,347); weak digital menu (IG/Talabat/third-party only); design-forward brand",
+    "score": 98
+  },
+  {
+    "name": "Sweet Teddy",
+    "name_ar": null,
+    "area": "Water Garden City (Seef/Sanabis corridor), Manama",
+    "ig": "@sweetteddy.bh",
+    "followers_est": 3231,
+    "menu_problem": "Instagram-first presence; no website found; discovery via IG reels and mall account reposts",
+    "why_target": "Whimsical teddy-bear-themed dessert cafe (giant teddy at entrance). in ICP follower band (~3,231); weak digital menu (IG/Talabat/third-party only); design-forward brand",
+    "score": 98
+  },
+  {
+    "name": "TOO Bakery & Bistro",
+    "name_ar": null,
+    "area": "Bahrain Bay, Manama (Office 31 Building, Road 4609)",
+    "ig": "@too.bakery",
+    "followers_est": 19000,
+    "menu_problem": "Menu lives on Talabat and a Linktree; no own website found; no bilingual digital menu found",
+    "why_target": "Trendy all-day bakery/bistro in Bahrain Bay. in ICP follower band (~19,000); weak digital menu (IG/Talabat/third-party only); design-forward brand",
+    "score": 98
+  },
+  {
+    "name": "The Matcha Bar by Nomad",
+    "name_ar": null,
+    "area": "Marassi Galleria (Diyar Al Muharraq) + The Avenues (Manama waterfront)",
+    "ig": "@matchabar.bh",
+    "followers_est": 5138,
+    "menu_problem": "Menu only via Talabat listing and Instagram; no own website found; no bilingual digital menu found",
+    "why_target": "Premium matcha-only bar with modern minimal setting. in ICP follower band (~5,138); weak digital menu (IG/Talabat/third-party only); design-forward brand",
+    "score": 98
+  },
+  {
+    "name": "Manual Specialty Coffee Roastery",
+    "name_ar": null,
+    "area": "Adliya/Seef, Manama",
+    "ig": "@manualbahrain",
+    "followers_est": 11000,
+    "menu_problem": "No functional menu website; digital presence is Instagram plus directory listings; no bilingual digital menu found",
+    "why_target": "Minimalist, modern aesthetic. in ICP follower band (~11,000); design-forward brand; phone contact public",
+    "score": 96
+  },
+  {
+    "name": "Adda Cafe (Desi Adda)",
+    "name_ar": null,
+    "area": "Zinj (Segaya Walk)",
+    "ig": "@addacafe.bh",
+    "followers_est": 2968,
+    "menu_problem": "Menu only on Talabat and IG posts; no website",
+    "why_target": "Modest desi tea-cafe branding ('The Art of Tea & Vegetarian Snacks'). in ICP follower band (~2,968); weak digital menu (IG/Talabat/third-party only); phone contact public",
+    "score": 95
+  },
+  {
+    "name": "L'ancien Cafe",
+    "name_ar": null,
+    "area": "Hoora (Exhibition Road, near Safari Hotel)",
+    "ig": "@leancien_cafe",
+    "followers_est": null,
+    "menu_problem": "No website or delivery listing found; only IG reels and a directory entry",
+    "why_target": "French-styled name/branding. weak digital menu (IG/Talabat/third-party only); design-forward brand; publicly reachable",
+    "score": 94
+  },
+  {
+    "name": "The Roastery",
+    "name_ar": null,
+    "area": "District 2 (near Hamala); roastery HQ, one of Bahrain's largest roasting facilities",
+    "ig": "@theroasterybahrain",
+    "followers_est": 3557,
+    "menu_problem": "No website found; presence is Instagram plus press coverage; no digital menu seen",
+    "why_target": "Craft roastery founded 2018 by Sadiq Al Thahaba. in ICP follower band (~3,557); weak digital menu (IG/Talabat/third-party only); publicly reachable",
+    "score": 94
+  },
+  {
+    "name": "V60 Speciality Coffee",
+    "name_ar": null,
+    "area": "Isa Town (also Malkiya and District 1)",
+    "ig": "@v60official",
+    "followers_est": 9916,
+    "menu_problem": "Menu only on Talabat and Instagram; no website found",
+    "why_target": "Brew-method-named cafe, cosy artisanal coffee and pastries. in ICP follower band (~9,916); weak digital menu (IG/Talabat/third-party only); phone contact public",
+    "score": 94
+  },
+  {
+    "name": "SIO Specialty Coffee",
+    "name_ar": "سِيّو",
+    "area": "Muharraq (Block 215)",
+    "ig": "@siocafe.bh",
+    "followers_est": 2414,
+    "menu_problem": "Menu only via Instagram + Talabat listing; no website; only 27 IG posts — thin digital presence",
+    "why_target": "Specialty coffee bar, bilingual IG bio 'SPECIALTY COFFEE | قهوة مختصة', flamingo-emoji branding. in ICP follower band (~2,414); weak digital menu (IG/Talabat/third-party only); design-forward brand",
+    "score": 93
+  },
+  {
+    "name": "Romeo's (Coffee + Not Coffee)",
+    "name_ar": null,
+    "area": "Seef (City Centre), The Avenues Phase II, Bahrain Harbour, Manama",
+    "ig": "@romeos_bh",
+    "followers_est": 11000,
+    "menu_problem": "Has a simple site (romeos.me) and Talabat listings, but menu discovery is largely Instagram/pop-up driven across several small outlets",
+    "why_target": "Micro-bakery and specialty coffee concept. in ICP follower band (~11,000); design-forward brand",
+    "score": 91
+  },
+  {
+    "name": "Story Cafe",
+    "name_ar": null,
+    "area": "Water Garden City (Seef/Sanabis corridor), Manama",
+    "ig": "@storycafebh",
+    "followers_est": 1210,
+    "menu_problem": "Delivery via Talabat and Jahez only; no website; tiny digital footprint",
+    "why_target": "Library/history-themed: Roman pillars, shelves with thousands of books. ~1,210 IG followers; weak digital menu (IG/Talabat/third-party only); design-forward brand",
+    "score": 91
+  },
+  {
+    "name": "Coco's",
+    "name_ar": null,
+    "area": "Block 338, Adliya, Manama (between Zoe and Cafe Lilou)",
+    "ig": "@cocoscafebahrain",
+    "followers_est": null,
+    "menu_problem": "No own website surfaced; menu visibility via Instagram and directory sites only",
+    "why_target": "Ethnic Parisian interior with breezy outdoor seating under parasols on pebbled flooring. weak digital menu (IG/Talabat/third-party only); phone contact public",
+    "score": 90
+  },
+  {
+    "name": "Darseen Cafe",
+    "name_ar": null,
+    "area": "Manama city center (branch inside Bahrain National Museum)",
+    "ig": "@darseencafebh",
+    "followers_est": 13000,
+    "menu_problem": "Has own site (darseencafebahrain.com) but IG bio pushes delivery via Keeta/WhatsApp — menu flow appears WhatsApp/IG-driven",
+    "why_target": "Khaleeji-international cafe. in ICP follower band (~13,000); has a site but no bilingual/branded digital menu; reachable on WhatsApp",
+    "score": 90
+  },
+  {
+    "name": "Levante Restaurant & Cafe",
+    "name_ar": null,
+    "area": "Amwaj Islands (The Lagoon)",
+    "ig": "@levanteamwaj_",
+    "followers_est": 2048,
+    "menu_problem": "Menu only on Talabat; only 3 TripAdvisor reviews; no website surfaced — weak digital presence overall",
+    "why_target": "Lagoon-view shisha cafe/restaurant. in ICP follower band (~2,048); weak digital menu (IG/Talabat/third-party only); phone contact public",
+    "score": 90
+  },
+  {
+    "name": "Brulee Croissant Co.",
+    "name_ar": null,
+    "area": "Manama (exact neighborhood not confirmed)",
+    "ig": "@bruleecroissant",
+    "followers_est": null,
+    "menu_problem": "Only digital presence found is Instagram; no website, no delivery listing surfaced",
+    "why_target": "Unapologetically French croissanterie, ornate interiors. weak digital menu (IG/Talabat/third-party only); design-forward brand",
+    "score": 89
+  },
+  {
+    "name": "Cafe La Ventana",
+    "name_ar": null,
+    "area": "Block 338, Adliya, Manama (Villa 41, Road 3801)",
+    "ig": "@cafe_la_ventana",
+    "followers_est": null,
+    "menu_problem": "No website found; menu known only via Instagram photos, TripAdvisor and review-blog mentions",
+    "why_target": "Quaint old-style villa, homey interior with local artwork, indoor/outdoor seating. weak digital menu (IG/Talabat/third-party only); design-forward brand",
+    "score": 89
+  },
+  {
+    "name": "Ciao Cafe (x Raheeq Flower Centre)",
+    "name_ar": null,
+    "area": "Adliya, Block 327, Manama (Road 2731, Building 1466)",
+    "ig": "@ciaocafe.bh",
+    "followers_est": null,
+    "menu_problem": "No website found; presence is Instagram plus a Talabat listing",
+    "why_target": "Flower-shop cafe concept inside Raheeq Flower Centre (florist since 2004, 112K followers) — very photogenic coffee-and-blooms branding. weak digital menu (IG/Talabat/third-party only); design-forward brand",
+    "score": 89
+  },
+  {
+    "name": "GUJI Specialty Coffee",
+    "name_ar": "قوجي",
+    "area": "Hamala / Al Sayh (also District 1)",
+    "ig": "@guji.bh",
+    "followers_est": 23000,
+    "menu_problem": "Menu only on Talabat and Instagram; no website found",
+    "why_target": "Minimal specialty branding, V60 + creative matcha menu (peanut-butter matcha latte). ~23,000 IG followers; weak digital menu (IG/Talabat/third-party only); design-forward brand; publicly reachable",
+    "score": 89
+  },
+  {
+    "name": "Madeleine",
+    "name_ar": null,
+    "area": "Block 338, Adliya, Manama",
+    "ig": "@madeleinebah",
+    "followers_est": null,
+    "menu_problem": "No website or delivery-app listing surfaced; menu appears to exist only as Instagram content",
+    "why_target": "French cafe/bakery in Block 338, one of two French cafes on the block per reviewers. weak digital menu (IG/Talabat/third-party only); design-forward brand",
+    "score": 89
+  },
+  {
+    "name": "Marzipan Restaurant and Cafe",
+    "name_ar": "مرزبان",
+    "area": "Galleria Mall, Zinj, Manama (delivers to Segaya)",
+    "ig": "@marzipanbahrain",
+    "followers_est": null,
+    "menu_problem": "Menu accessible mainly via Talabat listing; no own website surfaced",
+    "why_target": "Self-described neo-contemporary French-style bistro cafe. weak digital menu (IG/Talabat/third-party only); design-forward brand",
+    "score": 89
+  },
+  {
+    "name": "Saffron By Jena",
+    "name_ar": "زعفران",
+    "area": "Bab Al Bahrain Mall / Manama Souq, Manama (original in Muharraq)",
+    "ig": "@saffronbyjena",
+    "followers_est": null,
+    "menu_problem": "Menu only on third-party aggregator (bahrainmenus.flyoapp.com); no own website found; famous brand with weak owned digital menu",
+    "why_target": "Popular authentic Bahraini breakfast/brunch concept in heritage setting. weak digital menu (IG/Talabat/third-party only); design-forward brand",
+    "score": 89
+  },
+  {
+    "name": "The Light House Amwaj Cafe",
+    "name_ar": "ذا لايت هاوس أمواج كافيه",
+    "area": "Amwaj Islands (seafront, next to American Mission Hospital)",
+    "ig": "@lighthouse_amwaj",
+    "followers_est": 17000,
+    "menu_problem": "Menu only on Talabat + Instagram; no website surfaced",
+    "why_target": "Seafront cafe, open 8 AM-12 AM. in ICP follower band (~17,000); weak digital menu (IG/Talabat/third-party only)",
+    "score": 89
+  },
+  {
+    "name": "Black22 Coffee Bar & Roastery",
+    "name_ar": null,
+    "area": "Seef, Manama (also Riffa and Marassi branches)",
+    "ig": "@black22bh",
+    "followers_est": 18000,
+    "menu_problem": "Has a website (black22.net) but ordering/menu discovery is Instagram-centric; no bilingual digital menu seen",
+    "why_target": "Bahrain's first micro-roastery (2016), siphon and Phoenix 70 brewing, community-driven spaces. in ICP follower band (~18,000); has a site but no bilingual/branded digital menu; publicly reachable",
+    "score": 88
+  },
+  {
+    "name": "Bindaira Cafe (Adliya)",
+    "name_ar": null,
+    "area": "Adliya, Manama",
+    "ig": "@bindairacafe",
+    "followers_est": 16000,
+    "menu_problem": "Group website (albindaira.com) exists; menu discovery otherwise via Instagram/TripAdvisor",
+    "why_target": "Traditional Arabic majlis-style design — stone arches, sofa seating, ornate split-level rooms. in ICP follower band (~16,000)",
+    "score": 87
+  },
+  {
+    "name": "Papercup",
+    "name_ar": null,
+    "area": "Diplomatic Area, Manama (second branch Jasra)",
+    "ig": "@papercupbh",
+    "followers_est": null,
+    "menu_problem": "No standalone menu site; web presence is parent studio page (mansquared.com/papercup) plus Instagram; menu not published bilingually online",
+    "why_target": "Designed by Bahraini creative think tank MAN2. design-forward brand; phone contact public",
+    "score": 87
+  },
+  {
+    "name": "C6 Cafe",
+    "name_ar": null,
+    "area": "Juffair (Rd 4216, Bldg 878)",
+    "ig": "@c6.cafe",
+    "followers_est": null,
+    "menu_problem": "No website; discoverable only via TripAdvisor, IG and directory listings",
+    "why_target": "Casual Arabic cafe (burgers, grills, juices). weak digital menu (IG/Talabat/third-party only); phone contact public",
+    "score": 86
+  },
+  {
+    "name": "Madras Cafe",
+    "name_ar": null,
+    "area": "Umm Al Hassam, Manama (Block 337, Building 54, Road 338)",
+    "ig": "@madrascafebahrain",
+    "followers_est": null,
+    "menu_problem": "Menu only on Talabat and Instagram; no website found",
+    "why_target": "Casual South Indian eatery (dosas, chaat, chai) — not design-forward. weak digital menu (IG/Talabat/third-party only); phone contact public",
+    "score": 86
+  },
+  {
+    "name": "With You 24 Cafe",
+    "name_ar": null,
+    "area": "Juffair (Juffair Mall, 1st floor)",
+    "ig": "@withu24.bh",
+    "followers_est": null,
+    "menu_problem": "No website found; presence is Instagram + roundup articles only",
+    "why_target": "24/7 social cafe with pool/billiards area. weak digital menu (IG/Talabat/third-party only); phone contact public",
+    "score": 86
+  },
+  {
+    "name": "Old School Cafe",
+    "name_ar": null,
+    "area": "Hidd (branches also Al Sayh/Muharraq and Al Hoora)",
+    "ig": "@osc.bh",
+    "followers_est": null,
+    "menu_problem": "Menu only on Talabat branch pages; no website surfaced",
+    "why_target": "Retro 'old school' concept branding. weak digital menu (IG/Talabat/third-party only)",
+    "score": 85
+  },
+  {
+    "name": "Roast Coffee Roastery",
+    "name_ar": null,
+    "area": "Saar (also Busaiteen, Al Janabiyah, Riffa)",
+    "ig": "@roastbahrain",
+    "followers_est": 25000,
+    "menu_problem": "Menu only on Talabat (4.4 rating, 1000+ reviews) and Instagram; no own website found",
+    "why_target": "Nature-inspired 'vibey' branches. ~25,000 IG followers; weak digital menu (IG/Talabat/third-party only); phone contact public",
+    "score": 85
+  },
+  {
+    "name": "[es'presso]",
+    "name_ar": null,
+    "area": "Saar",
+    "ig": "@espresso_bh",
+    "followers_est": null,
+    "menu_problem": "No website found; presence is Instagram and Facebook only",
+    "why_target": "Third-wave coffee bar with responsible sourcing and community give-back programs. weak digital menu (IG/Talabat/third-party only); publicly reachable",
+    "score": 85
+  },
+  {
+    "name": "Bianco Cafe",
+    "name_ar": null,
+    "area": "Busaiteen (Talabat also lists Budaiya branch)",
+    "ig": "@bianco.bh",
+    "followers_est": null,
+    "menu_problem": "Menu only on Talabat; no website surfaced",
+    "why_target": "Minimal 'Bianco' white-themed branding. weak digital menu (IG/Talabat/third-party only); design-forward brand",
+    "score": 84
+  },
+  {
+    "name": "Higher Grounds Cafe",
+    "name_ar": null,
+    "area": "Saar & Janabiya (also Tubli and Muharraq branches)",
+    "ig": "@highergrounds.bh",
+    "followers_est": null,
+    "menu_problem": "Menu spread across Talabat branch pages and aggregators (bahrainmenus.flyoapp.com); no own website surfaced",
+    "why_target": "Specialty cafe covered by fact Magazine. weak digital menu (IG/Talabat/third-party only); design-forward brand",
+    "score": 84
+  },
+  {
+    "name": "Mama Mocha",
+    "name_ar": null,
+    "area": "Muharraq",
+    "ig": "@mamamocha_bh",
+    "followers_est": null,
+    "menu_problem": "Menu only on Talabat (listed as 'Mama Mocha Cafeteria'); no website surfaced",
+    "why_target": "Blend of traditional and modern Bahraini decor, local art and live music. weak digital menu (IG/Talabat/third-party only); design-forward brand",
+    "score": 84
+  },
+  {
+    "name": "Resso Cafe",
+    "name_ar": "ريسو كافي",
+    "area": "Budaiya / Shakhura",
+    "ig": "@resso.bh",
+    "followers_est": null,
+    "menu_problem": "Menu lives on Talabat and Instagram; no own website surfaced; Talabat branch listing is main ordering channel",
+    "why_target": "Cozy specialty/dessert cafe (San Sebastian cheesecake, iced Spanish latte signatures). weak digital menu (IG/Talabat/third-party only); design-forward brand",
+    "score": 84
+  },
+  {
+    "name": "Sip Cafe (Sip Coffee Co.)",
+    "name_ar": null,
+    "area": "West Riffa",
+    "ig": "@sipcoffeeco.bh",
+    "followers_est": null,
+    "menu_problem": "Menu only on Talabat (only 4 reviews there); no website; low digital traction overall",
+    "why_target": "Small specialty coffee spot. weak digital menu (IG/Talabat/third-party only); design-forward brand",
+    "score": 84
+  },
+  {
+    "name": "The Knot Coffee Bar",
+    "name_ar": null,
+    "area": "Riffa (Al Raya Plaza, Mashtan Avenue)",
+    "ig": "@theknot_bh",
+    "followers_est": null,
+    "menu_problem": "Menu only on Talabat and a menu-aggregator page; no own website surfaced",
+    "why_target": "Trendy specialty coffee bar (V60, Spanish latte). weak digital menu (IG/Talabat/third-party only); design-forward brand",
+    "score": 84
+  },
+  {
+    "name": "New York Coffee",
+    "name_ar": null,
+    "area": "Adliya, Block 327, Manama (Road 306, Building 62)",
+    "ig": "@nycoffeebh",
+    "followers_est": 17000,
+    "menu_problem": "Has a live website (nycoffee.com) and Talabat listing, so menu pain is moderate; no evidence of bilingual digital menu",
+    "why_target": "NY-inspired roastery cafe, roasts own beans in Sitra. in ICP follower band (~17,000); has a site but no bilingual/branded digital menu",
+    "score": 83
+  },
+  {
+    "name": "Peme Cafe and Patisserie",
+    "name_ar": null,
+    "area": "Seef, Manama (also Riffa)",
+    "ig": "@peme.bh",
+    "followers_est": 46000,
+    "menu_problem": "Menu access via Instagram/Linktree (linktr.ee/peme.bh); no dedicated website seen",
+    "why_target": "Extremely design-forward: all-pink cafe, patisserie, chocolatier and florist with pink swing seats. ~46,000 IG followers; weak digital menu (IG/Talabat/third-party only); design-forward brand",
+    "score": 83
+  },
+  {
+    "name": "Nomad Urban Eatery",
+    "name_ar": null,
+    "area": "Seef, Manama (The Courtyard)",
+    "ig": "@nomadeatery",
+    "followers_est": null,
+    "menu_problem": "No standalone menu site confirmed; nomadurbancafe.com appears tied to a different account (@nomadurbancafe) — eatery's own digital menu presence unclear/weak",
+    "why_target": "Design-forward interior: copper accents, greenery, geometric ceiling. design-forward brand",
+    "score": 82
+  },
+  {
+    "name": "Place Brunch & Coffee Bar",
+    "name_ar": null,
+    "area": "Saar (Saar Greens, St 23)",
+    "ig": "@placebahrain",
+    "followers_est": 18000,
+    "menu_problem": "Deviation: already has a FineDine QR menu and a website (placebahrain.com); pitch would be upgrade/bilingual rather than first digital menu",
+    "why_target": "Design-forward brunch bar in Saar Greens. in ICP follower band (~18,000); has a site but no bilingual/branded digital menu; design-forward brand",
+    "score": 82
+  },
+  {
+    "name": "Al Adheed Cafe",
+    "name_ar": "مقهى العضيد",
+    "area": "Zinj (Sheikh Salman Expressway)",
+    "ig": null,
+    "followers_est": null,
+    "menu_problem": "No digital menu at all found — directory listings only; no IG/website surfaced",
+    "why_target": "Traditional Bahraini coffee shop, breakfast all day. weak digital menu (IG/Talabat/third-party only)",
+    "score": 81
+  },
+  {
+    "name": "Haji Gahwa",
+    "name_ar": null,
+    "area": "Manama Souq (old souq lanes), Manama",
+    "ig": null,
+    "followers_est": null,
+    "menu_problem": "Essentially no digital menu presence at all — only TripAdvisor reviews and blog mentions found",
+    "why_target": "Historic institution since 1950. weak digital menu (IG/Talabat/third-party only)",
+    "score": 81
+  },
+  {
+    "name": "Cappuccino Cafe",
+    "name_ar": null,
+    "area": "Saar",
+    "ig": "@cappuccinocafebh",
+    "followers_est": null,
+    "menu_problem": "Menu only via Talabat and Instagram; no own website surfaced; discovery relies on directories",
+    "why_target": "Cozy neighborhood cafe, 'hidden gem' framing in local guides. weak digital menu (IG/Talabat/third-party only)",
+    "score": 80
+  },
+  {
+    "name": "Chocology Cafe",
+    "name_ar": null,
+    "area": "Isa Town (Jurdab)",
+    "ig": "@chocology.ba",
+    "followers_est": null,
+    "menu_problem": "Menu on Talabat and menu-aggregator; no own website surfaced",
+    "why_target": "Cozy neighborhood dessert cafe, 'modern and elegant interior decorations' per reviews. weak digital menu (IG/Talabat/third-party only)",
+    "score": 80
+  },
+  {
+    "name": "Ohana Cafe",
+    "name_ar": null,
+    "area": "Amwaj Islands (Block 258, near Amwaj Cineplex)",
+    "ig": "@ohana_amwaj",
+    "followers_est": null,
+    "menu_problem": "Menu discovery via Instagram and TripAdvisor; no own website surfaced",
+    "why_target": "All-day breakfast/brunch neighborhood cafe with homemade bakes and vegan options. weak digital menu (IG/Talabat/third-party only)",
+    "score": 80
+  },
+  {
+    "name": "The Coffee Station",
+    "name_ar": null,
+    "area": "Hidd / Arad",
+    "ig": "@thecoffeestation.bh",
+    "followers_est": null,
+    "menu_problem": "Menu only on Talabat; no website or TripAdvisor presence surfaced — very thin digital footprint",
+    "why_target": "Neighborhood coffee shop. weak digital menu (IG/Talabat/third-party only)",
+    "score": 80
+  },
+  {
+    "name": "Friend's House Cafe by Sushi Mood",
+    "name_ar": null,
+    "area": "Hoora (Exhibition Road)",
+    "ig": "@friendshouse.bh",
+    "followers_est": null,
+    "menu_problem": "Has own website (friendshousebh.com) — weaker menu gap; menu also on Talabat",
+    "why_target": "Cozy-apartment concept, 'Russian touch'. has a site but no bilingual/branded digital menu; publicly reachable",
+    "score": 79
+  },
+  {
+    "name": "Amalia Cafe & Restaurant",
+    "name_ar": null,
+    "area": "Amwaj Islands (Amwaj Marina)",
+    "ig": "@amalia.bhr",
+    "followers_est": null,
+    "menu_problem": "Deviation: has own website (amalia.bh) with menu portfolio pages, though brochure-style; also on Talabat",
+    "why_target": "Open-air marina-view Lebanese cafe/restaurant. has a site but no bilingual/branded digital menu; design-forward brand; phone contact public",
+    "score": 78
+  },
+  {
+    "name": "Mamushka Cafe & Bakery",
+    "name_ar": null,
+    "area": "Seef, Manama (Marassi Galleria branch announced)",
+    "ig": "@mamushkabakery",
+    "followers_est": null,
+    "menu_problem": "Weaker fit: has own website (mamushka.net) with online shop; still relies on Talabat/Instagram for daily menu",
+    "why_target": "European patisserie styling ('the little mother' concept), branded by agency Antonia Skaraki — clearly design-forward. has a site but no bilingual/branded digital menu; design-forward brand",
+    "score": 78
+  },
+  {
+    "name": "Cafe Lilou",
+    "name_ar": null,
+    "area": "Block 338, Adliya, Manama",
+    "ig": "@cafelilou",
+    "followers_est": 123000,
+    "menu_problem": "Strong existing brand; no bilingual digital menu confirmed but likely well-resourced",
+    "why_target": "19th-century Parisian brasserie: wrought-iron banisters, velvet upholstery. ~123,000 IG followers; phone contact public",
+    "score": 77
+  },
+  {
+    "name": "Cafe Sego",
+    "name_ar": null,
+    "area": "Diplomatic Area, Manama (also Marassi)",
+    "ig": "@cafesego",
+    "followers_est": 167000,
+    "menu_problem": "Weak pain point: has own website with food menu (cafesego.com); still no evidence of bilingual AR/EN structured menu",
+    "why_target": "French cafe and in-house roastery with antique French decor (vintage grinders, bronze chandeliers). ~167,000 IG followers; has a site but no bilingual/branded digital menu; design-forward brand; publicly reachable",
+    "score": 77
+  },
+  {
+    "name": "My Cafe",
+    "name_ar": null,
+    "area": "Block 338, Adliya, Manama (behind Gulf Hotel)",
+    "ig": "@mycafebh",
+    "followers_est": 43000,
+    "menu_problem": "Digital presence mostly Instagram plus directory/50Best listings; no own-website menu confirmed",
+    "why_target": "Boutique all-day cafe with fresh flowers, books and art. ~43,000 IG followers; design-forward brand",
+    "score": 76
+  },
+  {
+    "name": "Naseef Restaurant",
+    "name_ar": null,
+    "area": "Bab Al Bahrain / Manama Souq, Manama",
+    "ig": "@naseefrestaurant",
+    "followers_est": 60000,
+    "menu_problem": "No own menu website surfaced; presence via Instagram/Facebook and review platforms",
+    "why_target": "Beloved heritage dessert institution since 1920 — famous mango, rose and saffron ice cream, Bahraini breakfasts. ~60,000 IG followers; design-forward brand",
+    "score": 76
+  },
+  {
+    "name": "Mockingbird",
+    "name_ar": null,
+    "area": "Hala Plaza, Bu Ghazal, Manama",
+    "ig": "@mockingbird_bh",
+    "followers_est": null,
+    "menu_problem": "Has a website (mockingbirdbh.com) of unknown quality; menu discovery otherwise via Instagram/TripAdvisor; no bilingual digital menu confirmed",
+    "why_target": "'Cute cafe with the prettiest china' — vintage/charming brunch aesthetic. has a site but no bilingual/branded digital menu; design-forward brand; phone contact public",
+    "score": 75
+  },
+  {
+    "name": "Spicy Cafe Gudaibiya",
+    "name_ar": null,
+    "area": "Gudaibiya (Palace Avenue)",
+    "ig": "@spicy_cafe_manama",
+    "followers_est": null,
+    "menu_problem": "Menu on own site (spicycafegcc.com) and aggregators; unclear if bilingual/updated",
+    "why_target": "Basic fast-food cafe branding. has a site but no bilingual/branded digital menu; phone contact public",
+    "score": 75
+  },
+  {
+    "name": "668 Cafe",
+    "name_ar": null,
+    "area": "West Riffa (Shop 38, Road 2)",
+    "ig": "@668cafe",
+    "followers_est": null,
+    "menu_problem": "Deviation: has own website (668cafe.com); menu ordering still via Talabat",
+    "why_target": "Homegrown brand started 2018 as a 14 sqm shop. has a site but no bilingual/branded digital menu; phone contact public",
+    "score": 74
+  },
+  {
+    "name": "80+ (Eighty Plus) Speciality Coffee Roastery",
+    "name_ar": null,
+    "area": "Bahrain (specific area not confirmed in sources seen)",
+    "ig": "@80plus.roastery",
+    "followers_est": null,
+    "menu_problem": "Has an e-commerce style site (80pluscoffeebh.com) for beans, but no cafe digital menu; weaker menu pain point",
+    "why_target": "Science/education-driven roastery branding, SCA-certified team. has a site but no bilingual/branded digital menu; publicly reachable",
+    "score": 74
+  },
+  {
+    "name": "Fresco Juice Bar & Cafe",
+    "name_ar": null,
+    "area": "Zinj (one of its locations)",
+    "ig": "@fresco.bahrain",
+    "followers_est": 14000,
+    "menu_problem": "Menu visibility via IG; no website seen in results",
+    "why_target": "Fresh juice/health cafe branding. in ICP follower band (~14,000); weak digital menu (IG/Talabat/third-party only); publicly reachable; NEEDS 2nd-source verification before outreach",
+    "score": 74
+  },
+  {
+    "name": "Layers Artisan Croissanterie",
+    "name_ar": null,
+    "area": "Juffair, Manama",
+    "ig": "@layers_croissant",
+    "followers_est": null,
+    "menu_problem": "Basic website (layerscroissant.com) but ordering/menu mainly via Talabat and Instagram; no bilingual digital menu confirmed",
+    "why_target": "Artisan French croissanterie (72-hour proofing), covered by Stars & Stripes as an alluring patisserie-style shop. design-forward brand",
+    "score": 74
+  },
+  {
+    "name": "Bahrain Roastery",
+    "name_ar": null,
+    "area": "Bahrain (industrial roastery; retail via website)",
+    "ig": "@bahrainroastery",
+    "followers_est": 99000,
+    "menu_problem": "None significant: full e-commerce website (bahrainroastery.com) with product catalog",
+    "why_target": "Polished 'Bahrain's #1 artisan roastery' branding. ~99,000 IG followers; publicly reachable",
+    "score": 72
+  },
+  {
+    "name": "The English Rose Tea Room",
+    "name_ar": null,
+    "area": "Block 338, Adliya, Manama",
+    "ig": "@theenglishrosebh",
+    "followers_est": 36000,
+    "menu_problem": "Has own website (theenglishrosebh.com) and Talabat listing, but no evidence of bilingual AR/EN digital menu; menu marketing mostly Instagram/TikTok",
+    "why_target": "Highly design-forward: pink floral tea room with London streetscape, UK-sourced antique teapots, elevated floral terrace. ~36,000 IG followers; has a site but no bilingual/branded digital menu; design-forward brand",
+    "score": 72
+  },
+  {
+    "name": "Brewed Cafe",
+    "name_ar": null,
+    "area": "Diplomatic Area, Manama",
+    "ig": "@brewed.cafe",
+    "followers_est": 3125,
+    "menu_problem": "Instagram-only presence found; no website, no delivery-platform listing surfaced",
+    "why_target": "Small independent coffee spot. in ICP follower band (~3,125); weak digital menu (IG/Talabat/third-party only); NEEDS 2nd-source verification before outreach",
+    "score": 69
+  },
+  {
+    "name": "Al Dasmah Bakery",
+    "name_ar": null,
+    "area": "Manama / Gudaibiya",
+    "ig": "@aldasmah.bakery",
+    "followers_est": 4515,
+    "menu_problem": "Instagram-only digital presence found; no website or digital menu of any kind surfaced",
+    "why_target": "Likely traditional neighborhood bakery rather than design-forward cafe — aesthetic fit unconfirmed. in ICP follower band (~4,515); weak digital menu (IG/Talabat/third-party only); NEEDS 2nd-source verification before outreach",
+    "score": 65
+  },
+  {
+    "name": "Matcha Bahrain",
+    "name_ar": null,
+    "area": "Manama (exact neighborhood not confirmed)",
+    "ig": "@matcha_bahrain",
+    "followers_est": null,
+    "menu_problem": "Facebook/Instagram only; no website or menu platform surfaced",
+    "why_target": "Dedicated matcha concept riding Bahrain's matcha trend. weak digital menu (IG/Talabat/third-party only); phone contact public; NEEDS 2nd-source verification before outreach",
+    "score": 65
+  },
+  {
+    "name": "Studio 9 Cafe",
+    "name_ar": null,
+    "area": "Hoora (Exhibition Road)",
+    "ig": null,
+    "followers_est": null,
+    "menu_problem": "No website or delivery listing surfaced; Facebook page is the main presence",
+    "why_target": "Late-night cafe (11:30am-4am). weak digital menu (IG/Talabat/third-party only); phone contact public; NEEDS 2nd-source verification before outreach",
+    "score": 61
+  },
+  {
+    "name": "Baladna Cafe and Sweets",
+    "name_ar": null,
+    "area": "Salmaniya",
+    "ig": null,
+    "followers_est": null,
+    "menu_problem": "Directory listing only; no website/IG surfaced",
+    "why_target": "Sweets/baklava-focused local cafe. weak digital menu (IG/Talabat/third-party only); NEEDS 2nd-source verification before outreach",
+    "score": 60
+  },
+  {
+    "name": "Sourdo",
+    "name_ar": "ساوردو",
+    "area": "Harbour Row, Bahrain Bay, Manama",
+    "ig": "@sourdo.bh",
+    "followers_est": null,
+    "menu_problem": "Instagram-only footprint found; no website or delivery listing surfaced",
+    "why_target": "Artisan sourdough bakery-cafe concept at the new Bahrain Harbour waterfront. weak digital menu (IG/Talabat/third-party only); NEEDS 2nd-source verification before outreach",
+    "score": 60
+  },
+  {
+    "name": "The Orangery",
+    "name_ar": null,
+    "area": "Palmyard Hotel, Adliya, Manama",
+    "ig": null,
+    "followers_est": null,
+    "menu_problem": "Only editorial mentions found; no menu platform, website, or Instagram handle seen in results",
+    "why_target": "Refined all-day dining, European-Arabian fusion, picture-pretty pastries per TimeOut. weak digital menu (IG/Talabat/third-party only); NEEDS 2nd-source verification before outreach",
+    "score": 60
+  },
+  {
+    "name": "Copa Specialty Coffee",
+    "name_ar": null,
+    "area": "Janabiya",
+    "ig": null,
+    "followers_est": null,
+    "menu_problem": "Only footprint found is a Talabat branch page — no website, no IG handle seen in results",
+    "why_target": "Specialty coffee positioning per name. weak digital menu (IG/Talabat/third-party only); design-forward brand; NEEDS 2nd-source verification before outreach",
+    "score": 59
+  },
+  {
+    "name": "Cafe Italia",
+    "name_ar": null,
+    "area": "Block 338, Adliya, Manama (Building 753, Road 3825)",
+    "ig": null,
+    "followers_est": null,
+    "menu_problem": "Only a TripAdvisor listing found; no website or Instagram surfaced",
+    "why_target": "Old-school Italian cafe. weak digital menu (IG/Talabat/third-party only); NEEDS 2nd-source verification before outreach",
+    "score": 56
+  },
+  {
+    "name": "Daddy Cool Cafe",
+    "name_ar": null,
+    "area": "Umm Al Hassam, Manama",
+    "ig": null,
+    "followers_est": null,
+    "menu_problem": "No website, no delivery listing seen; only a Facebook page surfaced",
+    "why_target": "Unknown — insufficient evidence. weak digital menu (IG/Talabat/third-party only); NEEDS 2nd-source verification before outreach",
+    "score": 56
+  },
+  {
+    "name": "Aflo Cafe by 668",
+    "name_ar": null,
+    "area": "Bahrain Bay, Manama",
+    "ig": null,
+    "followers_est": null,
+    "menu_problem": "Not yet established — announced 'coming soon' premium bakery-cafe; no menu infrastructure yet (greenfield)",
+    "why_target": "Premium bakery-cafe pairing 668's signature beverages with luxury pastries. NEEDS 2nd-source verification before outreach",
+    "score": 53
+  },
+  {
+    "name": "Coco's (Juffair Square branch)",
+    "name_ar": "كوكوز كافيه",
+    "area": "Juffair (Juffair Square)",
+    "ig": null,
+    "followers_est": null,
+    "menu_problem": "No-signage cult spot; digital menu presence not evidenced in results",
+    "why_target": "Iconic no-logo/no-signboard cafe, indoor+outdoor seating over two floors. NEEDS 2nd-source verification before outreach",
+    "score": 53
+  },
+  {
+    "name": "Beena Cafe",
+    "name_ar": null,
+    "area": "Juffair (Bldg 518, Rd 2408)",
+    "ig": null,
+    "followers_est": null,
+    "menu_problem": "Has own website (beenacafe.com) — menu gap smaller; bilingual status unknown",
+    "why_target": "Mediterranean/Asian + shisha concept. has a site but no bilingual/branded digital menu; publicly reachable; NEEDS 2nd-source verification before outreach",
+    "score": 50
+  },
+  {
+    "name": "Lemon Cafe",
+    "name_ar": null,
+    "area": "Budaiya / Saar-Budaiya Highway",
+    "ig": "@lemonbahrain",
+    "followers_est": 34000,
+    "menu_problem": "Menu discovery via Instagram; no website surfaced",
+    "why_target": "Popular local cafe on the Saar-Budaiya Highway, long hours (6 AM-1/2 AM). ~34,000 IG followers; weak digital menu (IG/Talabat/third-party only); NEEDS 2nd-source verification before outreach",
+    "score": 49
+  },
+  {
+    "name": "Mervana Coffee Shop and Restaurant",
+    "name_ar": null,
+    "area": "Zinj",
+    "ig": null,
+    "followers_est": null,
+    "menu_problem": "Talabat-only digital presence found",
+    "why_target": "Traditional coffee shop/restaurant. NEEDS 2nd-source verification before outreach",
+    "score": 49
+  }
+]

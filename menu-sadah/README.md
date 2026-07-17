@@ -4,9 +4,15 @@
 
 | File | What it is |
 |---|---|
-| `manama-leads.json` | Full verified cafe lead list for Bahrain/Manama, best fit first — paste into ClientOS |
-| `winners-top20.json` | The top-20 winners only, same format |
+| `manama-leads.json` | 96 cafe leads for Bahrain/Manama, best fit first — ClientOS paste format |
+| `winners-top20.json` | The top-20 winners only (all fully verified, non-chain), same format |
+| `leads-full-evidence.json` | Same leads with source URLs, follower evidence, contacts, verification flags |
 | `eta-tracker.html` | Live ETA tracker — big numbers, works 100% offline, saves locally |
+
+**Hunt result (2026-07-17):** 99 unique real cafes found; 3 chains excluded per ICP → 96 in the
+list, of which **80 are fully verified** (two independent public sources each) and 16 are marked
+`NEEDS 2nd-source verification` in their `why_target`. A verified 100 for Manama alone wasn't
+reachable without padding — nothing here is invented.
 
 ## Installing the ETA tracker into ClientOS
 
