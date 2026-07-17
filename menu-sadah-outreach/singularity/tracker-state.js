@@ -1,5 +1,5 @@
 window.TRACKER_STATE = {
- "generatedAt": 1784326377532,
+ "generatedAt": 1784326519062,
  "note": "live build session",
  "doneNote": "read the full summary in chat",
  "tasks": [
@@ -38,8 +38,8 @@ window.TRACKER_STATE = {
    "id": "research",
    "name": "AI research group — 11 agents (self-learning, capacity, market, prospects)",
    "status": "running",
-   "pct": 15,
-   "etaAt": 1784327877532,
+   "pct": 25,
+   "etaAt": 1784328019061,
    "note": "4 researchers + fact-checkers + 2 Riyadh harvesters + synthesizer"
   },
   {
