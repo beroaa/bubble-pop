@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ETA Tracker — Menu Sadah</title>
+<style>
+/* ======== FlipDown v0.3.2 (c) 2018 Peter Butcher — MIT License — https://github.com/PButcher/flipdown ======== */
+.flipdown.flipdown__theme-dark{font-family:sans-serif;font-weight:bold}.flipdown.flipdown__theme-dark .rotor-group-heading:before{color:#000}.flipdown.flipdown__theme-dark .rotor-group:nth-child(n+2):nth-child(-n+3):before,.flipdown.flipdown__theme-dark .rotor-group:nth-child(n+2):nth-child(-n+3):after{background-color:#151515}.flipdown.flipdown__theme-dark .rotor,.flipdown.flipdown__theme-dark .rotor-top,.flipdown.flipdown__theme-dark .rotor-leaf-front{color:#fff;background-color:#151515}.flipdown.flipdown__theme-dark .rotor-bottom,.flipdown.flipdown__theme-dark .rotor-leaf-rear{color:#efefef;background-color:#202020}.flipdown.flipdown__theme-dark .rotor:after{border-top:solid 1px #151515}.flipdown.flipdown__theme-light{font-family:sans-serif;font-weight:bold}.flipdown.flipdown__theme-light .rotor-group-heading:before{color:#eee}.flipdown.flipdown__theme-light .rotor-group:nth-child(n+2):nth-child(-n+3):before,.flipdown.flipdown__theme-light .rotor-group:nth-child(n+2):nth-child(-n+3):after{background-color:#ddd}.flipdown.flipdown__theme-light .rotor,.flipdown.flipdown__theme-light .rotor-top,.flipdown.flipdown__theme-light .rotor-leaf-front{color:#222;background-color:#ddd}.flipdown.flipdown__theme-light .rotor-bottom,.flipdown.flipdown__theme-light .rotor-leaf-rear{color:#333;background-color:#eee}.flipdown.flipdown__theme-light .rotor:after{border-top:solid 1px #222}.flipdown{overflow:visible;width:510px;height:110px}.flipdown .rotor-group{position:relative;float:left;padding-right:30px}.flipdown .rotor-group:last-child{padding-right:0}.flipdown .rotor-group-heading:before{display:block;height:30px;line-height:30px;text-align:center}.flipdown .rotor-group:nth-child(1) .rotor-group-heading:before{content:attr(data-before)}.flipdown .rotor-group:nth-child(2) .rotor-group-heading:before{content:attr(data-before)}.flipdown .rotor-group:nth-child(3) .rotor-group-heading:before{content:attr(data-before)}.flipdown .rotor-group:nth-child(4) .rotor-group-heading:before{content:attr(data-before)}.flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):before{content:'';position:absolute;bottom:20px;left:115px;width:10px;height:10px;border-radius:50%}.flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):after{content:'';position:absolute;bottom:50px;left:115px;width:10px;height:10px;border-radius:50%}.flipdown .rotor{position:relative;float:left;width:50px;height:80px;margin:0 5px 0 0;border-radius:4px;font-size:4rem;text-align:center;perspective:200px}.flipdown .rotor:last-child{margin-right:0}.flipdown .rotor-top,.flipdown .rotor-bottom{overflow:hidden;position:absolute;width:50px;height:40px}.flipdown .rotor-leaf{z-index:1;position:absolute;width:50px;height:80px;transform-style:preserve-3d;transition:transform 0s}.flipdown .rotor-leaf.flipped{transform:rotateX(-180deg);transition:all .5s ease-in-out}.flipdown .rotor-leaf-front,.flipdown .rotor-leaf-rear{overflow:hidden;position:absolute;width:50px;height:40px;margin:0;transform:rotateX(0);backface-visibility:hidden;-webkit-backface-visibility:hidden}.flipdown .rotor-leaf-front{line-height:80px;border-radius:4px 4px 0 0}.flipdown .rotor-leaf-rear{line-height:0;border-radius:0 0 4px 4px;transform:rotateX(-180deg)}.flipdown .rotor-top{line-height:80px;border-radius:4px 4px 0 0}.flipdown .rotor-bottom{bottom:0;line-height:0;border-radius:0 0 4px 4px}.flipdown .rotor:after{content:'';z-index:2;position:absolute;bottom:0;left:0;width:50px;height:40px;border-radius:0 0 4px 4px}@media(max-width:550px){.flipdown{width:312px;height:70px}.flipdown .rotor{font-size:2.2rem;margin-right:3px}.flipdown .rotor,.flipdown .rotor-leaf,.flipdown .rotor-leaf-front,.flipdown .rotor-leaf-rear,.flipdown .rotor-top,.flipdown .rotor-bottom,.flipdown .rotor:after{width:30px}.flipdown .rotor-group{padding-right:20px}.flipdown .rotor-group:last-child{padding-right:0}.flipdown .rotor-group-heading:before{font-size:.8rem;height:20px;line-height:20px}.flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):before,.flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):after{left:69px}.flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):before{bottom:13px;height:8px;width:8px}.flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):after{bottom:29px;height:8px;width:8px}.flipdown .rotor-leaf-front,.flipdown .rotor-top{line-height:50px}.flipdown .rotor-leaf,.flipdown .rotor{height:50px}.flipdown .rotor-leaf-front,.flipdown .rotor-leaf-rear,.flipdown .rotor-top,.flipdown .rotor-bottom,.flipdown .rotor:after{height:25px}}
+
+/* ======== ETA Tracker styles ======== */
+:root{
+  --bg:#0e1117; --card:#161b26; --card2:#1c2333; --ink:#f2f5fa; --muted:#8b95a8;
+  --accent:#31c48d; --accent2:#f6ad37; --danger:#f05252; --radius:18px;
+  font-size:16px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  min-height:100vh; padding:16px 14px 90px;
+}
+header{display:flex;align-items:center;justify-content:space-between;margin:2px 2px 14px}
+header h1{font-size:1.05rem;margin:0;letter-spacing:.4px;font-weight:700}
+header h1 span{color:var(--accent)}
+.badge{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);
+  border:1px solid rgba(49,196,141,.35);border-radius:99px;padding:4px 10px;background:rgba(49,196,141,.08)}
+#nowClock{
+  text-align:center;font-variant-numeric:tabular-nums;font-weight:800;
+  font-size:clamp(2.6rem,13vw,4rem);letter-spacing:.02em;margin:4px 0 2px;line-height:1;
+}
+#nowDate{text-align:center;color:var(--muted);font-size:.8rem;margin-bottom:18px;letter-spacing:.08em;text-transform:uppercase}
+
+form#addForm{
+  background:var(--card);border:1px solid #232c3d;border-radius:var(--radius);
+  padding:14px;margin-bottom:18px;display:flex;flex-direction:column;gap:10px;
+}
+form#addForm .row{display:flex;gap:8px}
+input[type=text],input[type=datetime-local]{
+  flex:1;min-width:0;background:var(--card2);border:1px solid #2a3448;color:var(--ink);
+  border-radius:12px;padding:12px 12px;font-size:1rem;outline:none;
+}
+input:focus{border-color:var(--accent)}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chips button{
+  background:var(--card2);color:var(--ink);border:1px solid #2a3448;border-radius:99px;
+  padding:8px 13px;font-size:.85rem;cursor:pointer;font-weight:600;
+}
+.chips button:active{transform:scale(.95)}
+#addBtn{
+  background:var(--accent);color:#06281c;border:none;border-radius:12px;padding:14px;
+  font-size:1.05rem;font-weight:800;cursor:pointer;letter-spacing:.02em;
+}
+#addBtn:active{transform:scale(.98)}
+
+.card{
+  background:var(--card);border:1px solid #232c3d;border-radius:var(--radius);
+  padding:16px 14px 8px;margin-bottom:14px;position:relative;overflow:hidden;
+}
+.card.done{border-color:rgba(49,196,141,.6)}
+.card .label{font-size:1.05rem;font-weight:700;margin:0 34px 2px 2px;word-break:break-word}
+.card .target{color:var(--muted);font-size:.75rem;margin:0 2px 10px}
+.card .bigleft{
+  font-variant-numeric:tabular-nums;font-weight:800;line-height:1;
+  font-size:clamp(2.2rem,11vw,3.4rem);margin:2px 2px 10px;letter-spacing:.01em;
+}
+.card.done .bigleft{color:var(--accent)}
+.card .del{
+  position:absolute;top:10px;right:10px;background:transparent;border:none;color:var(--muted);
+  font-size:1.15rem;cursor:pointer;padding:6px;line-height:1;
+}
+.card .del:hover{color:var(--danger)}
+.fdwrap{display:flex;justify-content:center;padding-bottom:10px}
+.arrived{
+  text-align:center;font-size:2rem;font-weight:900;color:var(--accent);
+  padding:10px 0 18px;letter-spacing:.06em;
+}
+#empty{
+  text-align:center;color:var(--muted);padding:34px 10px;font-size:.95rem;
+  border:1px dashed #2a3448;border-radius:var(--radius);
+}
+footer{
+  position:fixed;bottom:0;left:0;right:0;text-align:center;padding:10px;
+  font-size:.65rem;color:var(--muted);background:linear-gradient(transparent,var(--bg) 40%);
+  letter-spacing:.06em;
+}
+/* shrink flipdown a touch so it fits the 430px ClientOS window */
+.flipdown{transform:scale(.9);transform-origin:top center}
+@media (max-width:420px){.flipdown{transform:scale(.8)}}
+</style>
+</head>
+<body>
+<header>
+  <h1>ETA <span>TRACKER</span> · Menu Sadah</h1>
+  <span class="badge" id="netBadge">offline ready</span>
+</header>
+
+<div id="nowClock">--:--:--</div>
+<div id="nowDate"></div>
+
+<form id="addForm" autocomplete="off">
+  <div class="row"><input type="text" id="etaLabel" placeholder="What are we waiting for? (e.g. Cafe X menu delivery)" maxlength="80"></div>
+  <div class="row"><input type="datetime-local" id="etaWhen"></div>
+  <div class="chips">
+    <button type="button" data-min="15">+15m</button>
+    <button type="button" data-min="30">+30m</button>
+    <button type="button" data-min="60">+1h</button>
+    <button type="button" data-min="120">+2h</button>
+    <button type="button" data-min="1440">+1 day</button>
+    <button type="button" data-min="2880">+2 days</button>
+  </div>
+  <button id="addBtn" type="submit">＋ Track ETA</button>
+</form>
+
+<div id="cards"></div>
+<div id="empty">No ETAs yet. Add one above — it stays saved on this Mac, even offline, even after restart.</div>
+
+<footer>saved locally · flip clock by FlipDown.js (MIT) · timers are clock-based, switching apps/chats never desyncs them</footer>
+
+<script>
+/* ======== FlipDown v0.3.2 (c) 2018 Peter Butcher — MIT License — https://github.com/PButcher/flipdown ======== */
+"use strict";function _typeof(a){return _typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(a){return typeof a}:function(a){return a&&"function"==typeof Symbol&&a.constructor===Symbol&&a!==Symbol.prototype?"symbol":typeof a},_typeof(a)}function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot call a class as a function")}function _defineProperties(a,b){for(var c,d=0;d<b.length;d++)c=b[d],c.enumerable=c.enumerable||!1,c.configurable=!0,"value"in c&&(c.writable=!0),Object.defineProperty(a,c.key,c)}function _createClass(a,b,c){return b&&_defineProperties(a.prototype,b),c&&_defineProperties(a,c),a}var FlipDown=function(){var b=Math.floor;function a(b){var c=1<arguments.length&&void 0!==arguments[1]?arguments[1]:"flipdown",d=2<arguments.length&&void 0!==arguments[2]?arguments[2]:{};if(_classCallCheck(this,a),"number"!=typeof b)throw new Error("FlipDown: Constructor expected unix timestamp, got ".concat(_typeof(b)," instead."));"object"===_typeof(c)&&(d=c,c="flipdown"),this.version="0.3.2",this.initialised=!1,this.now=this._getTime(),this.epoch=b,this.countdownEnded=!1,this.hasEndedCallback=null,this.element=document.getElementById(c),this.rotors=[],this.rotorLeafFront=[],this.rotorLeafRear=[],this.rotorTops=[],this.rotorBottoms=[],this.countdown=null,this.daysRemaining=0,this.clockValues={},this.clockStrings={},this.clockValuesAsString=[],this.prevClockValuesAsString=[],this.opts=this._parseOptions(d),this._setOptions(),console.log("FlipDown ".concat(this.version," (Theme: ").concat(this.opts.theme,")"))}return _createClass(a,[{key:"start",value:function a(){return this.initialised||this._init(),this.countdown=setInterval(this._tick.bind(this),1e3),this}},{key:"ifEnded",value:function b(a){return this.hasEndedCallback=function(){a(),this.hasEndedCallback=null},this}},{key:"_getTime",value:function a(){return new Date().getTime()/1e3}},{key:"_hasCountdownEnded",value:function a(){return 0>this.epoch-this.now?(this.countdownEnded=!0,null!=this.hasEndedCallback&&(this.hasEndedCallback(),this.hasEndedCallback=null),!0):(this.countdownEnded=!1,!1)}},{key:"_parseOptions",value:function c(a){var b=["Days","Hours","Minutes","Seconds"];return a.headings&&4===a.headings.length&&(b=a.headings),{theme:a.hasOwnProperty("theme")?a.theme:"dark",headings:b}}},{key:"_setOptions",value:function a(){this.element.classList.add("flipdown__theme-".concat(this.opts.theme))}},{key:"_init",value:function h(){this.initialised=!0,this.daysremaining=this._hasCountdownEnded()?0:b((this.epoch-this.now)/86400).toString().length;for(var a=2>=this.daysremaining?2:this.daysremaining,c=0;c<a+6;c++)this.rotors.push(this._createRotor(0));for(var d=[],c=0;c<a;c++)d.push(this.rotors[c]);this.element.appendChild(this._createRotorGroup(d,0));for(var e,f=a,c=0;3>c;c++){e=[];for(var g=0;2>g;g++)e.push(this.rotors[f]),f++;this.element.appendChild(this._createRotorGroup(e,c+1))}return this.rotorLeafFront=Array.prototype.slice.call(this.element.getElementsByClassName("rotor-leaf-front")),this.rotorLeafRear=Array.prototype.slice.call(this.element.getElementsByClassName("rotor-leaf-rear")),this.rotorTop=Array.prototype.slice.call(this.element.getElementsByClassName("rotor-top")),this.rotorBottom=Array.prototype.slice.call(this.element.getElementsByClassName("rotor-bottom")),this._tick(),this._updateClockValues(!0),this}},{key:"_createRotorGroup",value:function e(a,b){var c=document.createElement("div");c.className="rotor-group";var d=document.createElement("div");return d.className="rotor-group-heading",d.setAttribute("data-before",this.opts.headings[b]),c.appendChild(d),appendChildren(c,a),c}},{key:"_createRotor",value:function h(){var a=0<arguments.length&&void 0!==arguments[0]?arguments[0]:0,b=document.createElement("div"),c=document.createElement("div"),d=document.createElement("figure"),e=document.createElement("figure"),f=document.createElement("div"),g=document.createElement("div");return b.className="rotor",c.className="rotor-leaf",d.className="rotor-leaf-rear",e.className="rotor-leaf-front",f.className="rotor-top",g.className="rotor-bottom",d.textContent=a,f.textContent=a,g.textContent=a,appendChildren(b,[c,f,g]),appendChildren(c,[d,e]),b}},{key:"_tick",value:function c(){this.now=this._getTime();var a=0>=this.epoch-this.now?0:this.epoch-this.now;this.clockValues.d=b(a/86400),a-=86400*this.clockValues.d,this.clockValues.h=b(a/3600),a-=3600*this.clockValues.h,this.clockValues.m=b(a/60),a-=60*this.clockValues.m,this.clockValues.s=b(a),this._updateClockValues(),this._hasCountdownEnded()}},{key:"_updateClockValues",value:function e(){function a(){var a=this;this.rotorTop.forEach(function(b,c){b.textContent!=a.clockValuesAsString[c]&&(b.textContent=a.clockValuesAsString[c])})}function b(){var a=this;this.rotorLeafRear.forEach(function(b,c){if(b.textContent!=a.clockValuesAsString[c]){b.textContent=a.clockValuesAsString[c],b.parentElement.classList.add("flipped");var d=setInterval(function(){b.parentElement.classList.remove("flipped"),clearInterval(d)}.bind(a),500)}})}var c=this,d=!!(0<arguments.length&&void 0!==arguments[0])&&arguments[0];this.clockStrings.d=pad(this.clockValues.d,2),this.clockStrings.h=pad(this.clockValues.h,2),this.clockStrings.m=pad(this.clockValues.m,2),this.clockStrings.s=pad(this.clockValues.s,2),this.clockValuesAsString=(this.clockStrings.d+this.clockStrings.h+this.clockStrings.m+this.clockStrings.s).split(""),this.rotorLeafFront.forEach(function(a,b){a.textContent=c.prevClockValuesAsString[b]}),this.rotorBottom.forEach(function(a,b){a.textContent=c.prevClockValuesAsString[b]}),d?(a.call(this),b.call(this)):(setTimeout(a.bind(this),500),setTimeout(b.bind(this),500)),this.prevClockValuesAsString=this.clockValuesAsString}}]),a}();function pad(a,b){return a=a.toString(),a.length<b?pad("0"+a,b):a}function appendChildren(a,b){b.forEach(function(b){a.appendChild(b)})}
+
+/* ======== ETA Tracker app ======== */
+(function(){
+  "use strict";
+  var STORE_KEY = "menusadah_eta_v1";
+  var cardsEl = document.getElementById("cards");
+  var emptyEl = document.getElementById("empty");
+  var labelEl = document.getElementById("etaLabel");
+  var whenEl  = document.getElementById("etaWhen");
+  var instances = {}; // id -> FlipDown instance (so we can clearInterval on delete)
+
+  function load(){
+    try{
+      var raw = localStorage.getItem(STORE_KEY);
+      var arr = raw ? JSON.parse(raw) : [];
+      return Array.isArray(arr) ? arr.filter(function(e){ return e && e.id && e.targetMs; }) : [];
+    }catch(e){ return []; }
+  }
+  function save(arr){
+    try{ localStorage.setItem(STORE_KEY, JSON.stringify(arr)); }catch(e){}
+  }
+  var etas = load();
+
+  function fmtTarget(ms){
+    var d = new Date(ms);
+    return d.toLocaleString(undefined, {weekday:"short", day:"numeric", month:"short", hour:"2-digit", minute:"2-digit"});
+  }
+  function bigLeftText(ms){
+    var diff = ms - Date.now();
+    if(diff <= 0) return "00:00";
+    var s = Math.floor(diff/1000);
+    var d = Math.floor(s/86400), h = Math.floor(s%86400/3600), m = Math.floor(s%3600/60), sec = s%60;
+    if(d > 0) return d + "d " + h + "h";
+    if(h > 0) return h + "h " + String(m).padStart(2,"0") + "m";
+    return String(m).padStart(2,"0") + ":" + String(sec).padStart(2,"0");
+  }
+
+  function render(){
+    // tear down old flip clocks so no orphan intervals keep running
+    Object.keys(instances).forEach(function(id){
+      try{ clearInterval(instances[id].countdown); }catch(e){}
+      delete instances[id];
+    });
+    cardsEl.innerHTML = "";
+    etas.sort(function(a,b){ return a.targetMs - b.targetMs; });
+    emptyEl.style.display = etas.length ? "none" : "block";
+
+    etas.forEach(function(eta){
+      var done = eta.targetMs <= Date.now();
+      var card = document.createElement("div");
+      card.className = "card" + (done ? " done" : "");
+      card.innerHTML =
+        '<button class="del" title="Remove" aria-label="Remove">✕</button>' +
+        '<p class="label"></p>' +
+        '<p class="target"></p>' +
+        '<div class="bigleft" id="big-' + eta.id + '"></div>' +
+        (done
+          ? '<div class="arrived">✓ ARRIVED</div>'
+          : '<div class="fdwrap"><div id="fd-' + eta.id + '" class="flipdown"></div></div>');
+      card.querySelector(".label").textContent = eta.label || "Untitled ETA";
+      card.querySelector(".target").textContent = "ETA " + fmtTarget(eta.targetMs);
+      card.querySelector(".del").addEventListener("click", function(){
+        etas = etas.filter(function(e){ return e.id !== eta.id; });
+        save(etas); render();
+      });
+      cardsEl.appendChild(card);
+      document.getElementById("big-" + eta.id).textContent = done ? "✓" : bigLeftText(eta.targetMs);
+
+      if(!done){
+        var fd = new FlipDown(Math.floor(eta.targetMs/1000), "fd-" + eta.id, {theme:"dark"})
+          .start()
+          .ifEnded(function(){ render(); });
+        instances[eta.id] = fd;
+      }
+    });
+  }
+
+  // big minutes/seconds line ticks every second, derived from wall clock (never drifts)
+  setInterval(function(){
+    etas.forEach(function(eta){
+      var el = document.getElementById("big-" + eta.id);
+      if(el && eta.targetMs > Date.now()) el.textContent = bigLeftText(eta.targetMs);
+    });
+  }, 1000);
+
+  // live clock
+  var clockEl = document.getElementById("nowClock"), dateEl = document.getElementById("nowDate");
+  function tickClock(){
+    var n = new Date();
+    clockEl.textContent = n.toLocaleTimeString(undefined, {hour:"2-digit", minute:"2-digit", second:"2-digit"});
+    dateEl.textContent = n.toLocaleDateString(undefined, {weekday:"long", day:"numeric", month:"long"});
+  }
+  tickClock(); setInterval(tickClock, 1000);
+
+  // when the window comes back after chat-switching, force everything current immediately
+  document.addEventListener("visibilitychange", function(){
+    if(!document.hidden){
+      tickClock();
+      var anyExpired = etas.some(function(e){ return e.targetMs <= Date.now(); });
+      if(anyExpired) render();
+      else etas.forEach(function(eta){
+        var el = document.getElementById("big-" + eta.id);
+        if(el) el.textContent = bigLeftText(eta.targetMs);
+        var fd = instances[eta.id];
+        try{ if(fd && typeof fd._tick === "function") fd._tick(); }catch(e){}
+      });
+    }
+  });
+
+  // form
+  document.querySelectorAll(".chips button").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var t = new Date(Date.now() + parseInt(btn.dataset.min,10)*60000);
+      t.setSeconds(0,0);
+      var pad = function(x){ return String(x).padStart(2,"0"); };
+      whenEl.value = t.getFullYear()+"-"+pad(t.getMonth()+1)+"-"+pad(t.getDate())+"T"+pad(t.getHours())+":"+pad(t.getMinutes());
+    });
+  });
+  document.getElementById("addForm").addEventListener("submit", function(ev){
+    ev.preventDefault();
+    if(!whenEl.value){ whenEl.focus(); return; }
+    var ms = new Date(whenEl.value).getTime();
+    if(isNaN(ms)){ whenEl.focus(); return; }
+    etas.push({
+      id: Date.now().toString(36) + Math.random().toString(36).slice(2,7),
+      label: labelEl.value.trim(),
+      targetMs: ms,
+      createdMs: Date.now()
+    });
+    save(etas);
+    labelEl.value = ""; whenEl.value = "";
+    render();
+  });
+
+  // online/offline badge (purely informational — app never needs network)
+  var badge = document.getElementById("netBadge");
+  function net(){ badge.textContent = navigator.onLine ? "offline ready" : "offline mode"; }
+  window.addEventListener("online", net); window.addEventListener("offline", net); net();
+
+  render();
+})();
+</script>
+</body>
+</html>
