@@ -1,5 +1,5 @@
 window.BUILDS_STATE = {
- "generatedAt": 1784380240875,
+ "generatedAt": 1784382989151,
  "builds": [
   {
    "id": "b1",
@@ -164,6 +164,21 @@ window.BUILDS_STATE = {
     }
    ],
    "result": "Recon merged: +1 priced sig (40 total), +2 dish mentions, +10 photo-lead sets; 18 cafes stay honestly dark; war-room + follow-up buttons shipped"
+  },
+  {
+   "id": "b10",
+   "name": "LINK-RESCUE 🚑 — ClientOS gift buttons 404: wrong URL pattern + safety-net redirects",
+   "status": "running",
+   "pct": 0,
+   "etaAt": 1784383689269,
+   "note": "diagnosing the 404s",
+   "startedAt": 1784382969269,
+   "feed": [
+    {
+     "at": 1784382989151,
+     "msg": "Safety net built: wrong links now auto-forward to the right page"
+    }
+   ]
   }
  ]
 };
