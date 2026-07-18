@@ -86,10 +86,14 @@
     border-radius:.35em .5em .4em .55em/.5em .4em .55em .35em;transform:rotate(-1.5deg)}
   .st{background:var(--card);border:2px solid var(--ink);border-radius:22px 10px 22px 10px;overflow:hidden;margin-top:16px;box-shadow:4px 4px 0 #3a301322}
   .st .ph{position:relative;height:150px;background:linear-gradient(135deg,#94782422,#799a3222);display:flex;align-items:center;justify-content:center}
-  .st .ph img{width:100%;height:100%;object-fit:cover;filter:sepia(.12) saturate(1.05)}
+  .st .ph img{width:100%;height:100%;object-fit:cover;filter:sepia(.12) saturate(1.08) contrast(1.04)}
+  /* designed photo treatment: brand-tint wash (multiply where supported, plain elsewhere) + 1px inner border */
+  .st .ph.hasimg::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(160deg,#947824,transparent 55%);opacity:.28;mix-blend-mode:multiply}
+  .st .ph.hasimg::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;box-shadow:inset 0 0 0 1px #3a301340}
   .st .ph .big-init{font-size:64px;font-weight:800;color:#3a301333}
   .st .tag{position:absolute;top:10px;inset-inline-start:12px;background:var(--card);border:2px solid var(--ink);border-radius:999px;
-    padding:3px 12px;font-size:11px;font-weight:800;letter-spacing:.1em;transform:rotate(-3deg)}
+    padding:3px 12px;font-size:11px;font-weight:800;letter-spacing:.1em;transform:rotate(-3deg);z-index:2}
   .st .bd{padding:16px 18px}
   .st .bd b{font-size:17px}
   .st .bd b i{color:var(--rose);font-style:italic}
@@ -317,7 +321,7 @@ body{
       <div class="bd"><b><span class="ar">عالمكم: <i>«فرن الحارة قبل الفجر»</i></span><span class="en">Your world: <i>"the neighborhood oven before dawn"</i></span></b><p><span class="ar">غرف المنيو: «طالع حار.. الحق عليه»، «بين شريحتين.. قصة»، «قهوتك مع ريحة الخبز» — والبقية داخل.</span><span class="en">The rooms: "hot out, catch it quick", "a story between two slices", "coffee beside the baking smell" — the rest is inside.</span></p></div>
     </div>
     <div class="st rv">
-      <div class="ph"><span class="big-init">B</span><span class="tag"><span class="ar">تفصيلة 03</span><span class="en">Detail 03</span></span></div>
+      <div class="ph"><span class="big-init">B</span><img src="../assets/photos/dessert.jpg" alt="" onload="this.parentElement.classList.add('hasimg')" onerror="this.remove()" loading="lazy"><span class="tag"><span class="ar">تفصيلة 03</span><span class="en">Detail 03</span></span></div>
       <div class="bd"><b><span class="ar">الصفحة تعيش، <i>من الصبح لليل.</i></span><span class="en">The page is alive, <i>from morning to night.</i></span></b><p><span class="ar">ألوانها بألوانكم، وتغمق مع الليل وأنتم تقلبون فيها — عربي وإنجليزي بضغطة.</span><span class="en">It wears your colors and darkens into night as guests scroll — Arabic and English in one tap.</span></p></div>
     </div>
     <div style="text-align:center;margin-top:22px"><a class="cta gold" href="../breddy/"><span class="ar">شوفوا منيوكم حيّاً ←</span><span class="en">See your menu live →</span></a></div>

@@ -47,6 +47,47 @@ function polishFor(slug) {
   return p;
 }
 
+/* ---------- roomvoice50: per-cafe spoken room asides + a third diary line (pre-vetted copy) ---------- */
+const ROOMVOICE_FILE = fileURLToPath(new URL('../singularity/roomvoice50.json', import.meta.url));
+const ROOMVOICE = (() => {
+  try {
+    if (existsSync(ROOMVOICE_FILE)) return JSON.parse(readFileSync(ROOMVOICE_FILE, 'utf8'));
+  } catch { /* malformed file → no voices, menus still build */ }
+  return {};
+})();
+
+/* ---------- IMAGE SANITY: shared category photos only render where the key fits the cafe type.
+   matcha.jpg is matcha-bar-only; coffee keys stay with coffee-ish houses; bakery/dessert keys
+   with sweet houses; saudi.jpg is welcome everywhere. A key that doesn't fit → tinted SVG art
+   only. Per-cafe folder photos (dist/assets/photos/<slug>/) always win over this gate. */
+const QUEUE_TYPES_FILE = fileURLToPath(new URL('../singularity/queue.json', import.meta.url));
+const TYPE_BY_SLUG = (() => {
+  try {
+    if (existsSync(QUEUE_TYPES_FILE)) {
+      const q = JSON.parse(readFileSync(QUEUE_TYPES_FILE, 'utf8'));
+      if (Array.isArray(q)) return Object.fromEntries(q.filter((c) => c && c.slug && c.type).map((c) => [c.slug, c.type]));
+    }
+  } catch { /* no queue → type unknown → strictest gate (SVG art only, saudi excepted) */ }
+  return {};
+})();
+const COFFEEISH = ['specialty_coffee', 'roastery', 'family_cafe', 'tea_house'];
+const PHOTO_KEY_TYPES = {
+  matcha: ['matcha_bar'],
+  espresso: [...COFFEEISH, 'dessert_cafe'],
+  latte: [...COFFEEISH, 'dessert_cafe'],
+  v60: COFFEEISH, cold: COFFEEISH, beans: COFFEEISH, tea: COFFEEISH,
+  bakery: ['bakery_cafe', 'dessert_cafe', 'family_cafe'],
+  dessert: ['bakery_cafe', 'dessert_cafe', 'family_cafe'],
+  snacks: ['gaming_cafe', 'family_cafe'],
+  saudi: '*',
+};
+function photoKeyFits(key, type) {
+  const allowed = PHOTO_KEY_TYPES[key];
+  if (allowed === '*') return true; // saudi: every house pours it
+  return Array.isArray(allowed) && allowed.includes(type);
+}
+const cafeTypeOf = (cafe, extras) => (extras && extras.type) || cafe.type || TYPE_BY_SLUG[cafe.slug] || '';
+
 const SAR = '﷼';
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const seedOf = (str) => { let h = 2166136261; for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619) >>> 0; } return h >>> 0; };
@@ -254,6 +295,8 @@ export function masterpieceMenuPage(cafe, brief) {
   const shots = cafePhotos(cafe.slug); // per-cafe photo mode (VISUALS-FIRST law)
   const shotSrc = (i) => esc('../assets/photos/' + cafe.slug + '/' + shots[i % shots.length].file);
   const polish = polishFor(cafe.slug); // bespoke per-cafe touch (polish50)
+  const cafeType = cafeTypeOf(cafe); // IMAGE SANITY: gate shared category photos by type
+  const voice = ROOMVOICE[cafe.slug] || null; // roomvoice50: spoken room asides + third diary
 
   /* SELLABLE PASS 1 — TAP-TO-ORDER: real phone → wa.me deep link per item;
      no phone (the norm — CONTACT placeholder never counts) → premium demo chip
@@ -287,26 +330,42 @@ export function masterpieceMenuPage(cafe, brief) {
     </div>
   </section>` : '';
 
+  // roomvoice50 third diary — woven in after the 5th room (or after the last room in shorter houses)
+  const diary3 = voice && voice.diary3Ar ? `
+  <div class="diary reveal" dir="rtl"><span class="tape" style="background:${R[2]}33"></span>${esc(voice.diary3Ar)}</div>` : '';
+  const voiceFor = (cat) => voice
+    ? (voice.rooms || []).find((v) => v.catEn && (String(v.catEn).toLowerCase() === String(cat.cat).toLowerCase() || v.catEn === cat.catAr))
+    : null;
+
   const catHtml = cats.map((c, ci) => {
     const i = cafe.menu.indexOf(c);
     const r = roomFor(c);
+    const v = voiceFor(c);
     const [artKey, photoKey] = artFor(c.cat, c.catAr);
     const acc = R[ci % 4], acc2 = R[(ci + 1) % 4];
     const diaryNote = (ci === 1 && diary[0]) ? `
   <div class="diary reveal" dir="rtl"><span class="tape" style="background:${R[1]}33"></span>${esc(diary[0])}</div>` :
       (ci === 3 && diary[1]) ? `
-  <div class="diary reveal" dir="rtl"><span class="tape" style="background:${R[3]}33"></span>${esc(diary[1])}</div>` : '';
+  <div class="diary reveal" dir="rtl"><span class="tape" style="background:${R[3]}33"></span>${esc(diary[1])}</div>` :
+      (ci === 4 && diary3) ? diary3 : '';
+    // IMAGE SANITY: per-cafe shots always win; shared key renders only when it fits the type, else SVG art alone
+    const catImg = shots.length
+      ? `<img src="${shotSrc(ci)}" alt="" onload="this.parentElement.classList.add('hasimg')">`
+      : photoKeyFits(photoKey, cafeType)
+        ? `<img src="../assets/photos/${photoKey}.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">`
+        : '';
     return `${ci > 0 ? (SC ? SC.sepHtml : sepHtml(arch, R)) : ''}
-  <section class="cat reveal" id="cat-${i}" style="--sa:${acc};--sa2:${acc2}">
+  <section class="cat reveal${ci % 2 === 0 ? ' cat--flip' : ''}" id="cat-${i}" style="--sa:${acc};--sa2:${acc2}">
     <div class="cat-head">
       <div class="cat-art">
         <div class="cat-svg">${ART[artKey](P)}</div>
-        <img src="${shots.length ? shotSrc(ci) : `../assets/photos/${photoKey}.jpg`}" alt="" onload="this.parentElement.classList.add('hasimg')">
+        ${catImg}
       </div>
       <div class="cat-title">
         ${r ? `<div class="room-eyebrow"><span class="ar">${esc(c.catAr)}</span><span class="en">${esc(c.cat)}</span></div>` : ''}
         <h2 class="room-h2"><span class="ar">${esc(r ? r.titleAr : c.catAr)}</span><span class="en">${esc(r ? r.titleEn : c.cat)}</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
+        ${v ? `<p class="room-voice"><span class="ar">${esc(v.introAr)}</span><span class="en">${esc(v.introEn)}</span></p>` : ''}
       </div>
     </div>
     <div class="items">
@@ -321,7 +380,7 @@ export function masterpieceMenuPage(cafe, brief) {
       </div>`).join('')}
     </div>
   </section>${diaryNote}`;
-  }).join('');
+  }).join('') + (cats.length <= 4 ? diary3 : ''); // short houses still get their third diary, after the last room
 
   const wa = CONTACT.whatsapp && CONTACT.whatsapp !== '966500000000' ? `https://wa.me/${CONTACT.whatsapp}` : null;
   const rgbOf = (x) => [parseInt(x.slice(1, 3), 16), parseInt(x.slice(3, 5), 16), parseInt(x.slice(5, 7), 16)];
@@ -430,8 +489,13 @@ export function masterpieceMenuPage(cafe, brief) {
   .cat-art:hover{transform:rotate(-3deg) scale(1.05)}
   .cat-art .cat-svg{position:absolute;inset:8px}
   .cat-art .cat-svg svg{filter:drop-shadow(0 5px 12px ${a}4d)}
-  .cat-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
+  .cat-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;filter:saturate(1.08) contrast(1.04)}
   .cat-art.hasimg img{display:block}
+  /* designed photo treatment: brand-tint wash (multiply where supported, plain elsewhere) + 1px inner border */
+  .cat-art.hasimg::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
+    background:linear-gradient(160deg,var(--sa,${a}),transparent 55%);opacity:.28;mix-blend-mode:multiply}
+  .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
+    box-shadow:inset 0 0 0 1px ${a}55}
   .cat-title{flex:1;min-width:0}
   .room-eyebrow{color:var(--text-3);font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:3px}
   .room-h2{color:var(--sa);font-size:22px;line-height:1.3}
@@ -443,6 +507,17 @@ export function masterpieceMenuPage(cafe, brief) {
   .inkline path{stroke:var(--sa);stroke-dasharray:101;stroke-dashoffset:101;
     transition:stroke-dashoffset .9s cubic-bezier(.2,.8,.2,1) .15s}
   .reveal.in .inkline path{stroke-dashoffset:0}
+  /* room-voice: the room leans in and says one line (roomvoice50) — reveals with its section */
+  .room-voice{margin-top:7px;font-size:15px;color:var(--sa);line-height:1.5;
+    opacity:0;transform:translateY(6px) rotate(-.5deg);transition:opacity .6s ease .35s,transform .6s ease .35s}
+  .reveal.in .room-voice{opacity:.85;transform:rotate(-.5deg)}
+  .room-voice .ar{font-family:${T.fonts.ar}}
+  .room-voice .en{font-family:${T.fonts.en};font-style:italic}
+  /* rhythm: even rooms flip their head — the eye zigzags down the house */
+  .cat--flip .cat-head{flex-direction:row-reverse}
+  /* sep idle drift: dividers breathe softly while the page rests (killed by reduced-motion) */
+  .sep,.sep-scene{animation:sepidle 7s ease-in-out infinite}
+  @keyframes sepidle{0%,100%{transform:translateX(0);opacity:.82}50%{transform:translateX(6px);opacity:1}}
 
   .items{position:relative;background:${P.bg1}d9;border:1px solid var(--border-1);border-radius:20px;padding:6px 18px;box-shadow:var(--shadow)}
   /* vertical spine: the room's name whispered down the card's edge */
@@ -531,6 +606,7 @@ export function masterpieceMenuPage(cafe, brief) {
     .world{font-size:15px;margin-top:16px}
     .heroline{font-size:27px;margin-top:12px}
     .room-h2{font-size:34px}
+    .room-voice{font-size:17px}
     .inkline{width:min(190px,72%)}
     .inkline path{stroke-width:2.6}
     .cat-art{width:96px;height:96px}
@@ -558,7 +634,11 @@ ${shots.length ? `
     opacity:0;animation:up .8s 1.15s forwards}
   .bshot{position:relative;width:96px;margin:0;background:${P.bg1};border:1px solid var(--border-2);padding:6px 6px 16px;
     box-shadow:4px 5px 0 ${P.deep}30}
-  .bshot img{display:block;width:100%;height:84px;object-fit:cover}
+  .bshot img{display:block;width:100%;height:84px;object-fit:cover;filter:saturate(1.08) contrast(1.04)}
+  /* designed photo treatment on the polaroids: tint wash + 1px inner border */
+  .bshot::after{content:"";position:absolute;inset:6px 6px 16px;pointer-events:none;
+    background:linear-gradient(160deg,${a}48,transparent 55%);mix-blend-mode:multiply;
+    box-shadow:inset 0 0 0 1px ${a}55}
   .bshot::before{content:"";position:absolute;top:-9px;left:50%;width:44px;height:16px;background:${R[1]}40;border-radius:2px;
     transform:translateX(-50%) rotate(-3deg);backdrop-filter:blur(1px);z-index:2}
   .bshot:nth-child(1){transform:rotate(-4deg)}
@@ -570,6 +650,8 @@ ${shots.length ? `
   @media (prefers-reduced-motion: reduce){
     *{animation:none!important;transition:none!important}
     .reveal,.reveal.in .item,.heroline,.world,.meta,.greet,h1 .w,h1 .lt{opacity:1!important;transform:none!important}
+    .room-voice{opacity:.85!important;transform:none!important}
+    .sep,.sep-scene{animation:none!important;transform:none!important}
     .pdot{opacity:.9!important;transform:scale(1)!important}
     .inkline path{stroke-dashoffset:0!important}
     [dir="rtl"] .inkline{transform:scaleX(-1)!important}
@@ -597,6 +679,8 @@ ${shots.length ? `
     .sig,.items,.sig-card,.demo-note{background:#fff!important;border:1px solid #000!important;color:#000!important;border-radius:8px!important}
     .sig-card::before,.sig-card::after{display:none!important}
     .sig-ribbon,.room-h2,.room-eyebrow{color:#000!important}
+    .room-voice{color:#000!important;opacity:1!important;transform:none!important}
+    .cat--flip .cat-head{flex-direction:row!important}
     .stamp{border-color:#000!important;color:#000!important;transform:none!important}
     .item{padding:9px 0!important;border-bottom:1px solid #00000026!important}
     .item-name,.footer,.footer a,.sfda,.sfda-legend,.demo-note{color:#000!important}
@@ -777,9 +861,9 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
   const SC = SCENES[brief.archetype] ? SCENES[brief.archetype](P, accentRotation(P), SCENE_GOLD) : null;
   const flavor = FLAVOR2[extras.type] || FLAVOR2.specialty_coffee;
   const sig = (extras.signature && extras.signature.length ? extras.signature[0] : null) || extras.sigMention || null;
-  // per-cafe shots (VISUALS-FIRST law) always show; generic drink photos only fit coffee/tea-centric brands
+  // per-cafe shots (VISUALS-FIRST law) always show; shared category photos pass the IMAGE SANITY gate per key
   const shots = cafePhotos(cafe.slug);
-  const usePhotos = shots.length > 0 || ['specialty_coffee', 'roastery', 'matcha_bar', 'tea_house'].includes(extras.type);
+  const wType = cafeTypeOf(cafe, extras);
   const social = extras.social && /^@/.test(String(extras.social).trim()) ? String(extras.social).trim() : null;
   const rooms = (brief.rooms || []).slice(0, 3);
   const diary = (brief.diaryAr || [])[0];
@@ -879,10 +963,14 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
     border-radius:.35em .5em .4em .55em/.5em .4em .55em .35em;transform:rotate(-1.5deg)}
   .st{background:var(--card);border:2px solid var(--ink);border-radius:22px 10px 22px 10px;overflow:hidden;margin-top:16px;box-shadow:4px 4px 0 ${ink}22}
   .st .ph{position:relative;height:150px;background:linear-gradient(135deg,${rose}22,${gold}22);display:flex;align-items:center;justify-content:center}
-  .st .ph img{width:100%;height:100%;object-fit:cover;filter:sepia(.12) saturate(1.05)}
+  .st .ph img{width:100%;height:100%;object-fit:cover;filter:sepia(.12) saturate(1.08) contrast(1.04)}
+  /* designed photo treatment: brand-tint wash (multiply where supported, plain elsewhere) + 1px inner border */
+  .st .ph.hasimg::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(160deg,${rose},transparent 55%);opacity:.28;mix-blend-mode:multiply}
+  .st .ph.hasimg::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;box-shadow:inset 0 0 0 1px ${ink}40}
   .st .ph .big-init{font-size:64px;font-weight:800;color:${ink}33}
   .st .tag{position:absolute;top:10px;inset-inline-start:12px;background:var(--card);border:2px solid var(--ink);border-radius:999px;
-    padding:3px 12px;font-size:11px;font-weight:800;letter-spacing:.1em;transform:rotate(-3deg)}
+    padding:3px 12px;font-size:11px;font-weight:800;letter-spacing:.1em;transform:rotate(-3deg);z-index:2}
   .st .bd{padding:16px 18px}
   .st .bd b{font-size:17px}
   .st .bd b i{color:var(--rose);font-style:italic}
@@ -1006,7 +1094,7 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
       { t: '03', bAr: 'الصفحة تعيش، <i>من الصبح لليل.</i>', bEn: 'The page is alive, <i>from morning to night.</i>', pAr: 'ألوانها بألوانكم، وتغمق مع الليل وأنتم تقلبون فيها — عربي وإنجليزي بضغطة.', pEn: 'It wears your colors and darkens into night as guests scroll — Arabic and English in one tap.', img: 'dessert' },
     ].map((d, di) => `
     <div class="st rv">
-      <div class="ph"><span class="big-init">${initEn}</span>${usePhotos ? `<img src="${shots.length ? esc('../assets/photos/' + cafe.slug + '/' + shots[di % shots.length].file) : `../assets/photos/${d.img}.jpg`}" alt="" onerror="this.remove()" loading="lazy">` : ''}<span class="tag">${B('تفصيلة ' + d.t, 'Detail ' + d.t)}</span></div>
+      <div class="ph"><span class="big-init">${initEn}</span>${shots.length || photoKeyFits(d.img, wType) ? `<img src="${shots.length ? esc('../assets/photos/' + cafe.slug + '/' + shots[di % shots.length].file) : `../assets/photos/${d.img}.jpg`}" alt="" onload="this.parentElement.classList.add('hasimg')" onerror="this.remove()" loading="lazy">` : ''}<span class="tag">${B('تفصيلة ' + d.t, 'Detail ' + d.t)}</span></div>
       <div class="bd"><b>${B(d.bAr, d.bEn)}</b><p>${B(d.pAr, d.pEn)}</p></div>
     </div>`).join('')}
     <div style="text-align:center;margin-top:22px"><a class="cta gold" href="../${cafe.slug}/">${B('شوفوا منيوكم حيّاً ←', 'See your menu live →')}</a></div>

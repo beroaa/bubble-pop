@@ -1,0 +1,1367 @@
+{
+ "roof-coffee": {
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "introAr": "الشمس تطلع ونحن نصبّ لك",
+    "introEn": "poured while the sky turns gold"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "introAr": "خذ لك نفس، الصبح كله لك",
+    "introEn": "the morning has nowhere to be"
+   },
+   {
+    "catEn": "Cold Bar",
+    "introAr": "نسمتك وصلت قبل لا تطلب",
+    "introEn": "chilled like the wind up here"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "introAr": "ريحة الدلة توصل آخر السطح",
+    "introEn": "the dallah's steam meets the sunrise"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "introAr": "حلّي صبحك والمدينة كلها تحتك",
+    "introEn": "a small sweetness above the city"
+   }
+  ],
+  "diary3Ar": "من فوق، كل شي يصير أهون"
+ },
+ "razeen-coffee": {
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "introAr": "تفضّل، أول صبّة باسمك",
+    "introEn": "the first pour waits for you"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "introAr": "المجلس ما يستعجل على أحد",
+    "introEn": "even the water takes its time"
+   },
+   {
+    "catEn": "Cold Bar",
+    "introAr": "برد يطفي زحمة يومك",
+    "introEn": "cool, as the room goes quiet"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "introAr": "الدلة تفوح والمجلس عامر",
+    "introEn": "poured right, the way elders taught"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "introAr": "الحلا يطيب مع طول الجلسة",
+    "introEn": "sweetness for those who stay late"
+   }
+  ],
+  "diary3Ar": "الهدوء هنا يسمّعك صوت الصبّة"
+ },
+ "qawam": {
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "introAr": "كل صبّة عندنا لها حساب",
+    "introEn": "each shot, written before it's poured"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "introAr": "على مهلك، القطرة تعرف طريقها",
+    "introEn": "every drop knows its line"
+   },
+   {
+    "catEn": "Cold Bar",
+    "introAr": "البرودة هنا محسوبة بالضبط",
+    "introEn": "cold, ruled to the last degree"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "introAr": "الأصول محفوظة عندنا عن قلب",
+    "introEn": "heritage, copied in careful hand"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "introAr": "لقمة موزونة تسدّ مزاجك",
+    "introEn": "a sweet note in the margin"
+   }
+  ],
+  "diary3Ar": "سطر جديد بالدفتر: فنجال يستاهل"
+ },
+ "cafe-n": {
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "introAr": "خذ شحنتك وولّع الليل",
+    "introEn": "one shot and the night boots up"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "introAr": "حتى وسط النيون في ركن هادي",
+    "introEn": "a soft glow off the main street"
+   },
+   {
+    "catEn": "Cold Bar",
+    "introAr": "برد يلمع مثل لمبة جديدة",
+    "introEn": "ice that hums like neon"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "introAr": "فنجالنا العربي ساهر معك",
+    "introEn": "old warmth under new lights"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "introAr": "الحلا نقطة إضافية لك الليلة",
+    "introEn": "sweet bonus, saved for you"
+   }
+  ],
+  "diary3Ar": "الأنوار سهرانة ونحنا معها"
+ },
+ "public-cafe": {
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "introAr": "نادينا باسمك، طلبك حامي",
+    "introEn": "your name, called warm and loud"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "introAr": "الدور يمشي وأنت مرتاح",
+    "introEn": "brewing slow while you settle in"
+   },
+   {
+    "catEn": "Cold Bar",
+    "introAr": "بارد للحي كله، ولك أول",
+    "introEn": "cold enough for the whole block"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "introAr": "قهوة بيتنا صارت بيتكم",
+    "introEn": "home, poured out for neighbors"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "introAr": "الحلا وسط الطاولة للكل",
+    "introEn": "set in the middle, help yourself"
+   }
+  ],
+  "diary3Ar": "كرسي فاضي عندنا معناه هلا"
+ },
+ "rewanted-cafe": {
+  "rooms": [
+   {
+    "catEn": "House Desserts",
+    "introAr": "تعال شوف وش جهّزنا لك الليلة",
+    "introEn": "tonight's tenderness, plated in pink"
+   },
+   {
+    "catEn": "Warm & Gooey",
+    "introAr": "دافي وناطرك، لا تبرد عليه",
+    "introEn": "still warm, don't keep it waiting"
+   },
+   {
+    "catEn": "Coffee",
+    "introAr": "قهوة تعدّل سكّر الليل",
+    "introEn": "a dark sip to steady the sweet"
+   },
+   {
+    "catEn": "Cold Drinks",
+    "introAr": "برودة تختم سهرتك عدل",
+    "introEn": "the night's last cool breath"
+   }
+  ],
+  "diary3Ar": "وعدنا نمشي بدري وما مشينا"
+ },
+ "sei-coffee": {
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "introAr": "الحرارة عندنا مثل حمرة الغروب",
+    "introEn": "hot as the day's last light"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "introAr": "اهدأ، الغروب ما يخلص بسرعة",
+    "introEn": "poured slow as the sinking sun"
+   },
+   {
+    "catEn": "Cold Bar",
+    "introAr": "عنبر بارد يريّح آخر النهار",
+    "introEn": "amber, cooled by the evening wind"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "introAr": "صبّة عربية على ضو المغربية",
+    "introEn": "the dallah faces the sunset"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "introAr": "لقمة صغيرة تكمّل المغربية",
+    "introEn": "small comforts as the light fades"
+   }
+  ],
+  "diary3Ar": "طويق يغرب ونحن نصبّ"
+ },
+ "solio-cafe": {
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "introAr": "أول شعاع لك، حامي وجاهز",
+    "introEn": "the day's first ray, poured hot"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "introAr": "الشمس تمشي بطيء وإحنا معها",
+    "introEn": "slow light through paper and water"
+   },
+   {
+    "catEn": "Cold Bar",
+    "introAr": "ظلنا بارد وقلبنا دافي",
+    "introEn": "cold comfort in the bright noon"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "introAr": "قعدة ضحى على نور هادي",
+    "introEn": "mid-morning warmth, the old way"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "introAr": "حلاة الصبح تكتمل بلقمة",
+    "introEn": "a bright little start, sweetened"
+   }
+  ],
+  "diary3Ar": "طاولتي اليوم غسلتها الشمس"
+ },
+ "good-mate-cafe": {
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "introAr": "فنجانك حامي وخويّك بالطريق",
+    "introEn": "poured hot before your mate arrives"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "introAr": "على مهلنا، السالفة طويلة",
+    "introEn": "long stories need a slow pour"
+   },
+   {
+    "catEn": "Cold Bar",
+    "introAr": "بارد يلمّ الربع بالصيف",
+    "introEn": "cold rounds keep the crew close"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "introAr": "العادة عندنا: أول فنجال للرفيق",
+    "introEn": "first cup always for the friend"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "introAr": "الحلا نصّه لك ونصّه له",
+    "introEn": "half yours, half his, all laughs"
+   }
+  ],
+  "diary3Ar": "قعدتنا تبدأ بفنجال وتنسى الساعة"
+ },
+ "laminam-cafe": {
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "introAr": "حرارة هادية توصلك بلا صوت",
+    "introEn": "heat that arrives without a sound"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "introAr": "قطرة بعد قطرة والمكان ساكن",
+    "introEn": "each drop lands soft as stone"
+   },
+   {
+    "catEn": "Cold Bar",
+    "introAr": "برد ساكن يريّح البال",
+    "introEn": "stillness, served cold"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "introAr": "صبّة عربية وسواليف خافتة",
+    "introEn": "old warmth in a low voice"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "introAr": "لقمة هادية تختم الجلسة",
+    "introEn": "a quiet sweetness, nothing more"
+   }
+  ],
+  "diary3Ar": "الحجر هنا يعرف يسكت معك"
+ },
+ "salam-coffee": {
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "introAr": "تعال خذ سلامك الأول، حار وصادق",
+    "introEn": "your first salam, poured hot and true"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "introAr": "اقعد براحتك، الليل ما يستعجل",
+    "introEn": "sit easy, the night hurries for no one"
+   },
+   {
+    "catEn": "Cold Bar",
+    "introAr": "خذ لك نفس بارد، الحوش ساكن",
+    "introEn": "a cool breath in the still courtyard"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "introAr": "الدلة حاضرة والسلام أول كلامها",
+    "introEn": "the dallah waits, peace her first word"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "introAr": "حلّي ليلك قبل لا تقوم",
+    "introEn": "sweeten the night before you rise"
+   }
+  ],
+  "diary3Ar": "سكون الليل يحلى بفنجان ورفيق"
+ },
+ "matal-al-wadi": {
+  "rooms": [
+   {
+    "catEn": "Coffee & More",
+    "introAr": "دنّق فنجانك، اللمة توّها بدت",
+    "introEn": "pour your cup, the gathering just began"
+   },
+   {
+    "catEn": "Little Ones",
+    "introAr": "للصغار نصيبهم من اللمة بعد",
+    "introEn": "the little ones get their share too"
+   },
+   {
+    "catEn": "Family Bites",
+    "introAr": "قرّبوا، الصحن ما يحلى إلا كامل",
+    "introEn": "come closer, the table wants everyone"
+   },
+   {
+    "catEn": "Sweets",
+    "introAr": "ختام اللمة عندنا دايم حلو",
+    "introEn": "our gatherings always end on sweetness"
+   }
+  ],
+  "diary3Ar": "ضحكة العيال بالحوش أحلى من الغنى"
+ },
+ "rakiyah-roastery": {
+  "rooms": [
+   {
+    "catEn": "Today's Origins",
+    "introAr": "افتح الدفتر وشوف وين سافرنا",
+    "introEn": "open the notebook, see where we wandered"
+   },
+   {
+    "catEn": "Espresso",
+    "introAr": "رحلة كاملة مختصرة لك برشفة",
+    "introEn": "a whole journey folded into one sip"
+   },
+   {
+    "catEn": "Beans To Go",
+    "introAr": "خذ لك صفحة من الرحلة لبيتك",
+    "introEn": "tear out a page, take it home"
+   },
+   {
+    "catEn": "Bites",
+    "introAr": "كل رحّال يحتاج له زاد",
+    "introEn": "every traveler packs a little something"
+   }
+  ],
+  "diary3Ar": "كل كيس بن عندنا خريطة لأرض جديدة"
+ },
+ "marthad-coffee": {
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "introAr": "نادِ طلبك، المكينة صاحية لك",
+    "introEn": "call your order, the machine is awake"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "introAr": "هذي وردية الهدوء، خذ راحتك",
+    "introEn": "the slow shift, patient to the last drop"
+   },
+   {
+    "catEn": "Cold Bar",
+    "introAr": "برد الليل جاهز على الكاونتر",
+    "introEn": "the night's cold, ready at the counter"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "introAr": "الفنجال له كرسي محجوز عندنا",
+    "introEn": "the finjal keeps a reserved seat here"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "introAr": "خذ لك شي يعينك على السهرة",
+    "introEn": "grab what carries you past midnight"
+   }
+  ],
+  "diary3Ar": "آخر وردية وأول فنجان، هذي عادتنا"
+ },
+ "haffa-coffee-roaster": {
+  "rooms": [
+   {
+    "catEn": "Today's Origins",
+    "introAr": "توّه نازل من النار، تعال قرّب",
+    "introEn": "just off the fire, come closer"
+   },
+   {
+    "catEn": "Espresso",
+    "introAr": "رشفة من الحافة، حرّها طيب",
+    "introEn": "a sip pulled straight off the edge"
+   },
+   {
+    "catEn": "Beans To Go",
+    "introAr": "لفّ الجمرة وخذها معك",
+    "introEn": "wrap an ember, carry it with you"
+   },
+   {
+    "catEn": "Bites",
+    "introAr": "وقفتك عند النار تبي لها سند",
+    "introEn": "the fire's edge deserves small company"
+   }
+  ],
+  "diary3Ar": "صوت الحمصة عندنا مثل الطرب"
+ },
+ "kazar-cafe": {
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "introAr": "الستارة ترتفع والمكينة تبدأ العرض",
+    "introEn": "curtain up, the machine takes the stage"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "introAr": "مقطع هادي، اسمعه قطرة قطرة",
+    "introEn": "a quiet solo, played drop by drop"
+   },
+   {
+    "catEn": "Cold Bar",
+    "introAr": "استراحة باردة بين الفصلين",
+    "introEn": "a cool intermission between two acts"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "introAr": "الدلة نجمة المسرح من زمان",
+    "introEn": "the dallah, the oldest star here"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "introAr": "ختام العرض عندنا دايم أحلى",
+    "introEn": "every show closes on a sweet note"
+   }
+  ],
+  "diary3Ar": "كل ليلة عرض جديد ونفس العشق"
+ },
+ "cave-cafe": {
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "introAr": "دفّ نفسك، الجمر بآخر المغارة",
+    "introEn": "warm yourself, embers glow deep inside"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "introAr": "بالعتمة الهادية خل القطرة تدلّك",
+    "introEn": "let the slow drops light the dark"
+   },
+   {
+    "catEn": "Cold Bar",
+    "introAr": "حتى الكهف له نسمته الباردة",
+    "introEn": "even caves keep a cool corner"
+   },
+   {
+    "catEn": "الركن السعودي",
+    "introAr": "فنجال بالمخبأ يسوى مجلس كامل",
+    "introEn": "one finjal in the hideout, a whole majlis"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "introAr": "خبّينا لك شي حلو هنا",
+    "introEn": "we hid something sweet for you"
+   }
+  ],
+  "diary3Ar": "بعيد عن الزحمة، قريب من الدفا"
+ },
+ "rym-coffee": {
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "introAr": "صبح الله عينك، النار توّها قامت",
+    "introEn": "morning's first fire is lit for you"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "introAr": "على مهل الغزال، قطرة ورا قطرة",
+    "introEn": "gazelle-patient, one drop after another"
+   },
+   {
+    "catEn": "Cold Bar",
+    "introAr": "نسمة فجر باردة على المورد",
+    "introEn": "a dawn breeze over the water"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "introAr": "حيّ الله من جانا، الفنجال حاضر",
+    "introEn": "welcome, the finjal awaits its guest"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "introAr": "حلاك حاضر يا ضيفنا الغالي",
+    "introEn": "for our dearest guest, something tender"
+   }
+  ],
+  "diary3Ar": "الريم يرد الماء ونحن نرد الفنجال"
+ },
+ "sakaf-specialty-coffee": {
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "introAr": "تعال بدري، الدفا أوله فنجان",
+    "introEn": "come early, the porch wakes with warmth"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "introAr": "خل الضحى يقطر على راحته",
+    "introEn": "let the morning light drip slowly"
+   },
+   {
+    "catEn": "Cold Bar",
+    "introAr": "ظلنا بارد وقلبنا دافي",
+    "introEn": "cool in the shade, warm at heart"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "introAr": "افرش لك مكان تحت السقيفة",
+    "introEn": "spread out beneath the old roof"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "introAr": "شي خفيف على رواقة الضحى",
+    "introEn": "something light for an unhurried morning"
+   }
+  ],
+  "diary3Ar": "الشمس برا ونحن بظلنا مرتاحين"
+ },
+ "find-hai-roastery-and-cafe": {
+  "rooms": [
+   {
+    "catEn": "Today's Origins",
+    "introAr": "تعال حس بنبض المحمصة الحين",
+    "introEn": "come feel the roastery's pulse now"
+   },
+   {
+    "catEn": "Espresso",
+    "introAr": "رشفة حية توّها من القلب",
+    "introEn": "a live sip, straight from the heart"
+   },
+   {
+    "catEn": "Beans To Go",
+    "introAr": "خذ من نبضنا حصة لبيتك",
+    "introEn": "carry a piece of the pulse home"
+   },
+   {
+    "catEn": "Bites",
+    "introAr": "رفقة خفيفة تمشي مع الرشفة",
+    "introEn": "light company walking beside your cup"
+   }
+  ],
+  "diary3Ar": "قلب المحمصة ينبض ونحن نمشي معه"
+ },
+ "muhjah-cafe": {
+  "rooms": [
+   {
+    "catEn": "Coffee & More",
+    "introAr": "ادخل تدفّى، الفنجان أول ما ينسكب لك",
+    "introEn": "step in, the warm cup finds you first"
+   },
+   {
+    "catEn": "Little Ones",
+    "introAr": "ضحكة الصغار تملا البيت دفا",
+    "introEn": "little laughter warms the whole house"
+   },
+   {
+    "catEn": "Family Bites",
+    "introAr": "قرّبوا، الصحن يوصل لكل يد",
+    "introEn": "come closer, every hand finds the plate"
+   },
+   {
+    "catEn": "Sweets",
+    "introAr": "خلّوا الحلا يختم السهرة على خير",
+    "introEn": "let sweetness tuck the evening in"
+   }
+  ],
+  "diary3Ar": "أدفى مكان بالبيت جنب الدلّة"
+ },
+ "trov-cafe": {
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "introAr": "اسمع صوت المكينة، الشغل بدأ",
+    "introEn": "hear the machine sing, craft begins"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "introAr": "خذ راحتك، الضوء والقطرة على كيفك",
+    "introEn": "sunlight and slow drops, all yours"
+   },
+   {
+    "catEn": "Cold Bar",
+    "introAr": "برّد قلبك والشمس برا حامية",
+    "introEn": "cool sips while the sun works outside"
+   },
+   {
+    "catEn": "الركن السعودي",
+    "introAr": "هيلنا يعطّر الورشة كلها",
+    "introEn": "cardamom drifts through the bright workshop"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "introAr": "لقمة صغيرة تحلّي وقفتك عند البار",
+    "introEn": "a little sweetness in the light"
+   }
+  ],
+  "diary3Ar": "الشمس والتحميص لهم نفس الدفا"
+ },
+ "ob-cafe": {
+  "rooms": [
+   {
+    "catEn": "Coffee & More",
+    "introAr": "اقعد، أول فنجان على السالفة",
+    "introEn": "sit down, coffee opens the talk"
+   },
+   {
+    "catEn": "Little Ones",
+    "introAr": "الطاولة تسع شقاوتهم كلها",
+    "introEn": "the table fits all their mischief"
+   },
+   {
+    "catEn": "Family Bites",
+    "introAr": "مدّ يدك قبل لا يخلص الصحن",
+    "introEn": "reach fast, the plate won't wait"
+   },
+   {
+    "catEn": "Sweets",
+    "introAr": "آخر شي حلو يطوّل القعدة",
+    "introEn": "one sweet more, stay a little"
+   }
+  ],
+  "diary3Ar": "طاولة المطبخ ما تعرف النوم"
+ },
+ "yellow-rose": {
+  "rooms": [
+   {
+    "catEn": "Coffee & More",
+    "introAr": "فنجانك ينسقى وريحة الورد حولك",
+    "introEn": "your cup blooms among the petals"
+   },
+   {
+    "catEn": "Little Ones",
+    "introAr": "للبراعم مقعد صغير وسط الحديقة",
+    "introEn": "a tiny seat inside the garden"
+   },
+   {
+    "catEn": "Family Bites",
+    "introAr": "الحديقة تجمعنا على صحن واحد",
+    "introEn": "the garden gathers us round one plate"
+   },
+   {
+    "catEn": "Sweets",
+    "introAr": "الحلا يفتّح مثل ورد الليل",
+    "introEn": "sweetness opens like a night rose"
+   }
+  ],
+  "diary3Ar": "الحديقة تسهر ونحن معها"
+ },
+ "noma-coffee": {
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "introAr": "المكينة صاحية ونحن معها",
+    "introEn": "the machine glows, so do we"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "introAr": "خلّ الليل يقطر على مهله",
+    "introEn": "let midnight drip at its pace"
+   },
+   {
+    "catEn": "Cold Bar",
+    "introAr": "برودة تشعل السهرة من جديد",
+    "introEn": "cold light for the long night"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "introAr": "الدلّة نجمة وسط المختبر",
+    "introEn": "the dallah, our brightest lab light"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "introAr": "شحنة صغيرة تكمّل سهرتك",
+    "introEn": "a small charge to keep going"
+   }
+  ],
+  "diary3Ar": "الضوء والفنجان صحّوا الليل كله"
+ },
+ "lihaf": {
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "introAr": "أول رشفة تدفّيك قبل الشمس",
+    "introEn": "warmth arrives before the sun does"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "introAr": "الصبح بارد وفنجانك يقطر دفا",
+    "introEn": "cold morning, warmth dripping slowly down"
+   },
+   {
+    "catEn": "Cold Bar",
+    "introAr": "خذ نسمتك، اللحاف قريب",
+    "introEn": "a cool sip, the quilt stays near"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "introAr": "دلّتنا تصبّح على أهل البيت",
+    "introEn": "the house dallah greets the morning"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "introAr": "حلا خفيف يكمّل الدفا",
+    "introEn": "a soft sweetness folded in warmth"
+   }
+  ],
+  "diary3Ar": "صباح طويق أحن مع فنجان"
+ },
+ "serb-coffee": {
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "introAr": "فنجانك أول جناح يرفرف",
+    "introEn": "your first wingbeat of the night"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "introAr": "حلّق على مهلك فوق السهرة",
+    "introEn": "glide slow above the quiet night"
+   },
+   {
+    "catEn": "Cold Bar",
+    "introAr": "نسمة عالية تبرّد جناحك",
+    "introEn": "high cool winds under your wings"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "introAr": "الديرة تنادي والسرب يلبّي",
+    "introEn": "home calls, and the flock answers"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "introAr": "زوّد قبل ما تكمل التحليق",
+    "introEn": "fuel the wings before the flight"
+   }
+  ],
+  "diary3Ar": "السما الليلة تسع السرب كله"
+ },
+ "mat-cookies": {
+  "rooms": [
+   {
+    "catEn": "House Desserts",
+    "introAr": "دورك بدأ، اختر حلاك",
+    "introEn": "your turn, pick your sweet move"
+   },
+   {
+    "catEn": "Warm & Gooey",
+    "introAr": "الحقه وهو دافي، الوقت يمشي",
+    "introEn": "grab it warm before the timer"
+   },
+   {
+    "catEn": "Coffee",
+    "introAr": "شحن كامل، السهرة طويلة",
+    "introEn": "full recharge for the night run"
+   },
+   {
+    "catEn": "Cold Drinks",
+    "introAr": "برّد النظام وكمّل لعب",
+    "introEn": "cool the system, keep on playing"
+   }
+  ],
+  "diary3Ar": "أنوار الصالة تحلّي السهرة"
+ },
+ "hacked": {
+  "rooms": [
+   {
+    "catEn": "House Desserts",
+    "introAr": "افتح الدفتر، الخطة كلها حلا",
+    "introEn": "open the notebook, plans taste sweet"
+   },
+   {
+    "catEn": "Warm & Gooey",
+    "introAr": "خربشناها دافية عمداً",
+    "introEn": "we doodled it warm on purpose"
+   },
+   {
+    "catEn": "Coffee",
+    "introAr": "رشفة وتنحل كل الشفرات",
+    "introEn": "one sip and the code opens"
+   },
+   {
+    "catEn": "Cold Drinks",
+    "introAr": "برودة محسوبة بخط اليد",
+    "introEn": "cool plans sketched in the margins"
+   }
+  ],
+  "diary3Ar": "كل شخبطة وراها سر حلو"
+ },
+ "secret-pot-bakery": {
+  "rooms": [
+   {
+    "catEn": "From the Oven",
+    "introAr": "الباب انفتح والحرارة تسلّم عليك",
+    "introEn": "the door opens, warmth slips out"
+   },
+   {
+    "catEn": "Toasts & Sandwiches",
+    "introAr": "كل لقمة تخبي سالفتها",
+    "introEn": "every bite keeps its own secret"
+   },
+   {
+    "catEn": "Coffee",
+    "introAr": "فنجانك يفتح لك باب الفرن",
+    "introEn": "a cup that opens the door"
+   },
+   {
+    "catEn": "Fresh",
+    "introAr": "بارد وطازج من ورا الباب",
+    "introEn": "fresh and cool from behind the door"
+   }
+  ],
+  "diary3Ar": "القدر يغلي والسر يطيب"
+ },
+ "the-cake-corner": {
+  "rooms": [
+   {
+    "catEn": "House Desserts",
+    "introAr": "تعال اقعد.. الركن محفوظ لك ولحلاك",
+    "introEn": "settle in, this corner kept your seat"
+   },
+   {
+    "catEn": "Warm & Gooey",
+    "introAr": "لسه دافي.. لا تطوّل عليه",
+    "introEn": "still warm, don't keep it waiting"
+   },
+   {
+    "catEn": "Coffee",
+    "introAr": "مرّة خفيفة تعدّل حلاة الليل",
+    "introEn": "a gentle bitter for a sweet night"
+   },
+   {
+    "catEn": "Cold Drinks",
+    "introAr": "شي بارد يهدّي آخر الليل",
+    "introEn": "something cold to slow the midnight down"
+   }
+  ],
+  "diary3Ar": "سكّرنا آخر الليل على قطعة"
+ },
+ "kunafa-abul-haus": {
+  "rooms": [
+   {
+    "catEn": "House Desserts",
+    "introAr": "من أول قطعة تعرف ليه الهوس",
+    "introEn": "one bite explains the whole obsession"
+   },
+   {
+    "catEn": "Warm & Gooey",
+    "introAr": "حامية من الصينية.. لا تبرد عليك",
+    "introEn": "still crackling, eat it while it sings"
+   },
+   {
+    "catEn": "Coffee",
+    "introAr": "فنجان مرّ يعدّل حلاة الصينية",
+    "introEn": "a dark cup to steady the sweetness"
+   },
+   {
+    "catEn": "Cold Drinks",
+    "introAr": "برد يطفي حماس النار شوي",
+    "introEn": "a cool breath beside the fire"
+   }
+  ],
+  "diary3Ar": "النار هادية والصينية لها هيبة"
+ },
+ "breddy": {
+  "rooms": [
+   {
+    "catEn": "From the Oven",
+    "introAr": "الفرن حامي وناطرك من الفجر",
+    "introEn": "the oven's been up since before dawn"
+   },
+   {
+    "catEn": "Toasts & Sandwiches",
+    "introAr": "لقمة مرتّبة تمشي معك المشوار",
+    "introEn": "packed neat, ready for the road"
+   },
+   {
+    "catEn": "Coffee",
+    "introAr": "خذ فنجانك وخلّك جنب الفرن",
+    "introEn": "sip slow while the bread works"
+   },
+   {
+    "catEn": "Fresh",
+    "introAr": "شي طازج يفتح لك الصباح",
+    "introEn": "something bright before the sun climbs"
+   }
+  ],
+  "diary3Ar": "الفجر له ناسه.. والفرن أولهم"
+ },
+ "chimney-cafe": {
+  "rooms": [
+   {
+    "catEn": "House Desserts",
+    "introAr": "المشوار خلص.. باقي أحلى جزء",
+    "introEn": "the drive ends, the sweetness begins"
+   },
+   {
+    "catEn": "Warm & Gooey",
+    "introAr": "دافي تحت الأضواء.. خذ راحتك",
+    "introEn": "melting slow under the neon glow"
+   },
+   {
+    "catEn": "Coffee",
+    "introAr": "كوب يشدّ حيلك للسهرة",
+    "introEn": "a spark to keep the night going"
+   },
+   {
+    "catEn": "Cold Drinks",
+    "introAr": "برودة تريّح وسط زحمة الليل",
+    "introEn": "a cold hush in the bright rush"
+   }
+  ],
+  "diary3Ar": "أضواء المدينة أحلى مع الحلا"
+ },
+ "croi-bakehouse": {
+  "rooms": [
+   {
+    "catEn": "From the Oven",
+    "introAr": "الفرن صاحي من بدري عشانك",
+    "introEn": "the oven kept its promise this morning"
+   },
+   {
+    "catEn": "Toasts & Sandwiches",
+    "introAr": "خبزنا يشيل.. وأنت بس اختر",
+    "introEn": "our bread carries, you just choose"
+   },
+   {
+    "catEn": "Coffee",
+    "introAr": "فنجان هادي على قد المزاج",
+    "introEn": "a quiet cup for quiet hands"
+   },
+   {
+    "catEn": "Fresh",
+    "introAr": "شي بارد يختم على خفيف",
+    "introEn": "a light cool note to close"
+   }
+  ],
+  "diary3Ar": "الشغل بالقلب طعمه يبين"
+ },
+ "lyrs-bakery": {
+  "rooms": [
+   {
+    "catEn": "From the Oven",
+    "introAr": "الفرن ما نام.. عشان صباحك",
+    "introEn": "the oven stayed awake for your morning"
+   },
+   {
+    "catEn": "Toasts & Sandwiches",
+    "introAr": "خذها لقمة تسند يومك",
+    "introEn": "a bite to lean your day on"
+   },
+   {
+    "catEn": "Coffee",
+    "introAr": "فنجان صاحي مثل فرننا",
+    "introEn": "brewed dark, awake like the oven"
+   },
+   {
+    "catEn": "Fresh",
+    "introAr": "شي بارد ينعش وسط الدفا",
+    "introEn": "a cool sip amid the warmth"
+   }
+  ],
+  "diary3Ar": "الليل يمشي.. والفرن ما وقف"
+ },
+ "sip-day-specialty-coffee": {
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "introAr": "شوت صادق يفتح لك النهار",
+    "introEn": "one honest shot to open the day"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "introAr": "على مهلك.. الترشيح ما يستعجل",
+    "introEn": "sit back, the pour takes its time"
+   },
+   {
+    "catEn": "Cold Bar",
+    "introAr": "برودة تهدّي حرارة يومك",
+    "introEn": "a cool answer when the day burns"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "introAr": "صبّة فنجال مثل بيوت الأولين",
+    "introEn": "poured the way grandmothers taught"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "introAr": "لقمة صغيرة ترافق الرشفة",
+    "introEn": "a little sweetness beside the sip"
+   }
+  ],
+  "diary3Ar": "المهل نص طعم الفنجال"
+ },
+ "nafas-cafe": {
+  "rooms": [
+   {
+    "catEn": "Coffee & More",
+    "introAr": "خذ كوبك واقعد على راحتك",
+    "introEn": "take your cup, take your time"
+   },
+   {
+    "catEn": "Little Ones",
+    "introAr": "الصغار لهم ركنهم وضحكتهم",
+    "introEn": "little joys for little hands"
+   },
+   {
+    "catEn": "Family Bites",
+    "introAr": "صحن واحد يكفي سوالف الكل",
+    "introEn": "one plate, and the stories flow"
+   },
+   {
+    "catEn": "Sweets",
+    "introAr": "الحلا يطوّل القعدة شوي",
+    "introEn": "sweetness that stretches the gathering longer"
+   }
+  ],
+  "diary3Ar": "الحوش واسع.. والقلب أوسع"
+ },
+ "matchafulll": {
+  "rooms": [
+   {
+    "catEn": "Matcha Bar",
+    "introAr": "جولة خضرا تشحن سهرتك",
+    "introEn": "level up on a green wave"
+   },
+   {
+    "catEn": "Coffee Too",
+    "introAr": "أهل البن لهم نصيبهم عندنا",
+    "introEn": "the dark side still gets served"
+   },
+   {
+    "catEn": "Sweets",
+    "introAr": "حلا خفيف يوازن الجرعة",
+    "introEn": "a sweet bonus round"
+   }
+  ],
+  "diary3Ar": "التوهّج الأخضر ما له منافس الليلة"
+ },
+ "the-sweet-sip": {
+  "rooms": [
+   {
+    "catEn": "House Desserts",
+    "introAr": "الليل مخملي.. والحلا سيد السهرة",
+    "introEn": "velvet night, dessert takes the stage"
+   },
+   {
+    "catEn": "Warm & Gooey",
+    "introAr": "دافي على مهله.. مثل السهرة",
+    "introEn": "slow warmth for a slow evening"
+   },
+   {
+    "catEn": "Coffee",
+    "introAr": "رشفة مرّة تكمّل الحلاة",
+    "introEn": "one dark sip completes the sweet"
+   },
+   {
+    "catEn": "Cold Drinks",
+    "introAr": "برودة حلوة تسكّر الليلة",
+    "introEn": "a cold sweet curtain call"
+   }
+  ],
+  "diary3Ar": "الليل مخمل.. والقعدة أحلى"
+ },
+ "harf-cafe": {
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "introAr": "أول حرف دايم أثقل، خله علينا",
+    "introEn": "We write the heavy first letter for you"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "introAr": "على مهلك، السطر ما ينكتب بعجلة",
+    "introEn": "No line worth reading was ever rushed"
+   },
+   {
+    "catEn": "Cold Bar",
+    "introAr": "الحبر البارد أثبت، ويدنا ما ترجف",
+    "introEn": "Cool ink flows steadiest of all"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "introAr": "خط الديوان نحفظه من زمان، تفضل",
+    "introEn": "An old script we know by heart"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "introAr": "كل سطر حلو يبغى له نقطة",
+    "introEn": "Every good line deserves its sweet ending"
+   }
+  ],
+  "diary3Ar": "بعض الأحرف تنشرب قبل لا تنقرا"
+ },
+ "caia-coffee": {
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "introAr": "أول جمرة، والليل لسا بأوله",
+    "introEn": "The first ember, the night still young"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "introAr": "خل الليل ينقط، ما وراك شي",
+    "introEn": "Let the night drip, nowhere to be"
+   },
+   {
+    "catEn": "Cold Bar",
+    "introAr": "نسمة آخر الليل تصحصح السهران",
+    "introEn": "A breeze for those still awake"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "introAr": "الضو خافت والسالفة توها بدت",
+    "introEn": "Low light, the story just beginning"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "introAr": "الحلو يمد السهرة ساعة زيادة",
+    "introEn": "Sweetness buys the night one more hour"
+   }
+  ],
+  "diary3Ar": "أنوار المدينة بعيدة وفنجاني قريب"
+ },
+ "shanab-cafe": {
+  "rooms": [
+   {
+    "catEn": "Coffee & More",
+    "introAr": "اقعد يا بو شنب، القهوة حامية",
+    "introEn": "Coffee worthy of a proud mustache"
+   },
+   {
+    "catEn": "Little Ones",
+    "introAr": "وللصغار قعدتهم ولهم كل الدلع",
+    "introEn": "For grins with no mustache yet"
+   },
+   {
+    "catEn": "Family Bites",
+    "introAr": "مد يدك، البيت بيتك والصحن للكل",
+    "introEn": "Reach in, the plate belongs to everyone"
+   },
+   {
+    "catEn": "Sweets",
+    "introAr": "حلا يضحك حتى العم المكشر",
+    "introEn": "Sweet enough to make uncle laugh"
+   }
+  ],
+  "diary3Ar": "جمعة العيلة تبدأ من هالطاولة"
+ },
+ "hdn-coffee": {
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "introAr": "وقف الدنيا شوي، أول رشفة هدنة",
+    "introEn": "Pause the world, the truce starts here"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "introAr": "الوقت هنا يمشي بكيفه، امش معه",
+    "introEn": "Walk at the drip's slow pace"
+   },
+   {
+    "catEn": "Cold Bar",
+    "introAr": "برودة تهدي الخاطر وسط الزحمة",
+    "introEn": "Coolness that settles the loud day"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "introAr": "فنجان صلح بينك وبين يومك",
+    "introEn": "One cup, and the day forgives"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "introAr": "مد الهدنة شوي، الحلا يشفع",
+    "introEn": "Let sweetness extend the ceasefire awhile"
+   }
+  ],
+  "diary3Ar": "خذ لك نفس، الدنيا ما بتطير"
+ },
+ "sharq-coffee-and-roastery": {
+  "rooms": [
+   {
+    "catEn": "Today's Origins",
+    "introAr": "كل صباح جمرة جديدة وسالفة جديدة",
+    "introEn": "Each dawn brings a new tale"
+   },
+   {
+    "catEn": "Espresso",
+    "introAr": "من قلب النار لك على طول",
+    "introEn": "Straight from the ember to you"
+   },
+   {
+    "catEn": "Beans To Go",
+    "introAr": "لف الجمرة وخذها معك للبيت",
+    "introEn": "Wrap the fire, carry it home"
+   },
+   {
+    "catEn": "Bites",
+    "introAr": "شي خفيف يوقف جنب الجمرة",
+    "introEn": "A small companion for the flame"
+   }
+  ],
+  "diary3Ar": "المحمصة تصحى والشمس لسا نايمة"
+ },
+ "nakhati-gelato": {
+  "rooms": [
+   {
+    "catEn": "House Desserts",
+    "introAr": "افتح السهرة بحلا، الليل طويل",
+    "introEn": "Open the night on a sweet note"
+   },
+   {
+    "catEn": "Warm & Gooey",
+    "introAr": "الدافي يذوب على كيفه، لا تستعجل",
+    "introEn": "Warmth melting slowly under the stars"
+   },
+   {
+    "catEn": "Coffee",
+    "introAr": "قهوة تسند ظهر السهرة",
+    "introEn": "Coffee to keep the night company"
+   },
+   {
+    "catEn": "Cold Drinks",
+    "introAr": "نسمة باردة والنجوم فوق راسك",
+    "introEn": "A cold breeze beneath city stars"
+   }
+  ],
+  "diary3Ar": "أحلى سوالف الليل جنب الحلا"
+ },
+ "salve-artisan-gelato": {
+  "rooms": [
+   {
+    "catEn": "House Desserts",
+    "introAr": "افتح الصفحة الأولى، البداية حلوة",
+    "introEn": "Open the book, the beginning is sweet"
+   },
+   {
+    "catEn": "Warm & Gooey",
+    "introAr": "فصل دافي يذوب بين إيدينك",
+    "introEn": "A warm chapter, melting mid-sentence"
+   },
+   {
+    "catEn": "Coffee",
+    "introAr": "كل حكاية تبغى لها قهوة",
+    "introEn": "Every good story asks for coffee"
+   },
+   {
+    "catEn": "Cold Drinks",
+    "introAr": "اقلب الصفحة وخذ لك انتعاشة",
+    "introEn": "Turn the page, catch the breeze"
+   }
+  ],
+  "diary3Ar": "الصبح هنا يقرا لك حكاية"
+ },
+ "duirrah": {
+  "rooms": [
+   {
+    "catEn": "House Desserts",
+    "introAr": "الباب مفتوح، والحلا أول الحفاوة",
+    "introEn": "The door opens onto something sweet"
+   },
+   {
+    "catEn": "Warm & Gooey",
+    "introAr": "دفا البيت يوصلك قبل الصحن",
+    "introEn": "The hearth's warmth reaches you first"
+   },
+   {
+    "catEn": "Coffee",
+    "introAr": "القهوة تنصب والمجلس عامر بك",
+    "introEn": "The majlis fills, the cup pours"
+   },
+   {
+    "catEn": "Cold Drinks",
+    "introAr": "برودة تريح ضيف الظهيرة",
+    "introEn": "Cool relief for the noon guest"
+   }
+  ],
+  "diary3Ar": "البيوت الصغيرة قلوبها أوسع"
+ },
+ "cavida-cafe": {
+  "rooms": [
+   {
+    "catEn": "House Desserts",
+    "introAr": "السهرة تضوي من أول صحن",
+    "introEn": "The night switches on, glowing sweet"
+   },
+   {
+    "catEn": "Warm & Gooey",
+    "introAr": "دافي يلمع والليل برا بارد",
+    "introEn": "Warm glow against the midnight city"
+   },
+   {
+    "catEn": "Coffee",
+    "introAr": "شحنة كاملة، والسهرة لسا بأولها",
+    "introEn": "Full charge, the night barely started"
+   },
+   {
+    "catEn": "Cold Drinks",
+    "introAr": "برد نيون يصحصح السهران",
+    "introEn": "Neon cold to wake the night"
+   }
+  ],
+  "diary3Ar": "الليل يحلو عند اللمبة الصاحية"
+ },
+ "ouia-cafe": {
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "introAr": "وقف هنا أول، البخار يناديك",
+    "introEn": "First stop, the steam is calling"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "introAr": "قطرة قطرة، والمحطة ما تستعجل",
+    "introEn": "Drop by drop, no train to catch"
+   },
+   {
+    "catEn": "Cold Bar",
+    "introAr": "الثلج صابر، وأنت خذ كيفك",
+    "introEn": "The ice is patient, so are we"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "introAr": "الدلة دافية من قبل لا توصل",
+    "introEn": "The dallah waits warm for you"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "introAr": "لقمة صغيرة تونس الفنجان",
+    "introEn": "A small bite keeps the cup company"
+   }
+  ],
+  "diary3Ar": "هنا ما يفوتك شي، على مهلك"
+ }
+}

@@ -100,8 +100,13 @@
   .cat-art:hover{transform:rotate(-3deg) scale(1.05)}
   .cat-art .cat-svg{position:absolute;inset:8px}
   .cat-art .cat-svg svg{filter:drop-shadow(0 5px 12px #cb72aa4d)}
-  .cat-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
+  .cat-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;filter:saturate(1.08) contrast(1.04)}
   .cat-art.hasimg img{display:block}
+  /* designed photo treatment: brand-tint wash (multiply where supported, plain elsewhere) + 1px inner border */
+  .cat-art.hasimg::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
+    background:linear-gradient(160deg,var(--sa,#cb72aa),transparent 55%);opacity:.28;mix-blend-mode:multiply}
+  .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
+    box-shadow:inset 0 0 0 1px #cb72aa55}
   .cat-title{flex:1;min-width:0}
   .room-eyebrow{color:var(--text-3);font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:3px}
   .room-h2{color:var(--sa);font-size:22px;line-height:1.3}
@@ -113,6 +118,17 @@
   .inkline path{stroke:var(--sa);stroke-dasharray:101;stroke-dashoffset:101;
     transition:stroke-dashoffset .9s cubic-bezier(.2,.8,.2,1) .15s}
   .reveal.in .inkline path{stroke-dashoffset:0}
+  /* room-voice: the room leans in and says one line (roomvoice50) — reveals with its section */
+  .room-voice{margin-top:7px;font-size:15px;color:var(--sa);line-height:1.5;
+    opacity:0;transform:translateY(6px) rotate(-.5deg);transition:opacity .6s ease .35s,transform .6s ease .35s}
+  .reveal.in .room-voice{opacity:.85;transform:rotate(-.5deg)}
+  .room-voice .ar{font-family:'Lalezar',cursive}
+  .room-voice .en{font-family:'Lobster',cursive;font-style:italic}
+  /* rhythm: even rooms flip their head — the eye zigzags down the house */
+  .cat--flip .cat-head{flex-direction:row-reverse}
+  /* sep idle drift: dividers breathe softly while the page rests (killed by reduced-motion) */
+  .sep,.sep-scene{animation:sepidle 7s ease-in-out infinite}
+  @keyframes sepidle{0%,100%{transform:translateX(0);opacity:.82}50%{transform:translateX(6px);opacity:1}}
 
   .items{position:relative;background:#22161ed9;border:1px solid var(--border-1);border-radius:20px;padding:6px 18px;box-shadow:var(--shadow)}
   /* vertical spine: the room's name whispered down the card's edge */
@@ -200,6 +216,7 @@
     .world{font-size:15px;margin-top:16px}
     .heroline{font-size:27px;margin-top:12px}
     .room-h2{font-size:34px}
+    .room-voice{font-size:17px}
     .inkline{width:min(190px,72%)}
     .inkline path{stroke-width:2.6}
     .cat-art{width:96px;height:96px}
@@ -324,6 +341,8 @@ body{
   @media (prefers-reduced-motion: reduce){
     *{animation:none!important;transition:none!important}
     .reveal,.reveal.in .item,.heroline,.world,.meta,.greet,h1 .w,h1 .lt{opacity:1!important;transform:none!important}
+    .room-voice{opacity:.85!important;transform:none!important}
+    .sep,.sep-scene{animation:none!important;transform:none!important}
     .pdot{opacity:.9!important;transform:scale(1)!important}
     .inkline path{stroke-dashoffset:0!important}
     [dir="rtl"] .inkline{transform:scaleX(-1)!important}
@@ -351,6 +370,8 @@ body{
     .sig,.items,.sig-card,.demo-note{background:#fff!important;border:1px solid #000!important;color:#000!important;border-radius:8px!important}
     .sig-card::before,.sig-card::after{display:none!important}
     .sig-ribbon,.room-h2,.room-eyebrow{color:#000!important}
+    .room-voice{color:#000!important;opacity:1!important;transform:none!important}
+    .cat--flip .cat-head{flex-direction:row!important}
     .stamp{border-color:#000!important;color:#000!important;transform:none!important}
     .item{padding:9px 0!important;border-bottom:1px solid #00000026!important}
     .item-name,.footer,.footer a,.sfda,.sfda-legend,.demo-note{color:#000!important}
@@ -447,7 +468,7 @@ body{
   <nav class="chips"><a class="chip" href="#cat-0"><span class="ar">الهوس يبدأ من هنا</span><span class="en">where the obsession begins</span></a><a class="chip" href="#cat-1"><span class="ar">حاميها أطيب.. لا تنطر</span><span class="en">best eaten before it cools</span></a><a class="chip" href="#cat-2"><span class="ar">قهوة تعدل مزاج الحلا</span><span class="en">the bitter that balances sweet</span></a><a class="chip" href="#cat-3"><span class="ar">شي بارد يهدي الحماس</span><span class="en">something cold to calm the craze</span></a></nav>
   
   
-  <section class="cat reveal" id="cat-0" style="--sa:#cb72aa;--sa2:#cd7981">
+  <section class="cat reveal cat--flip" id="cat-0" style="--sa:#cb72aa;--sa2:#cd7981">
     <div class="cat-head">
       <div class="cat-art">
         <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2e0c8"/><stop offset="1" stop-color="#cb72aa"/></linearGradient></defs><path d="M34 50h52v38a6 6 0 0 1-6 6H40a6 6 0 0 1-6-6z" fill="url(#gk)"/><path d="M34 62h52M34 76h52" stroke="#77315e" stroke-width="5" opacity=".5"/><path d="M34 50c8-8 18-12 26-12s18 4 26 12c-8 5-17 7-26 7s-18-2-26-7z" fill="#e199b3"/><circle cx="60" cy="34" r="5" fill="#e25c5c"/><ellipse cx="60" cy="100" rx="32" ry="4" fill="#000" opacity=".3"/></svg></div>
@@ -457,6 +478,7 @@ body{
         <div class="room-eyebrow"><span class="ar">حلا البيت</span><span class="en">House Desserts</span></div>
         <h2 class="room-h2"><span class="ar">الهوس يبدأ من هنا</span><span class="en">where the obsession begins</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
+        <p class="room-voice"><span class="ar">من أول قطعة تعرف ليه الهوس</span><span class="en">one bite explains the whole obsession</span></p>
       </div>
     </div>
     <div class="items">
@@ -541,6 +563,7 @@ body{
         <div class="room-eyebrow"><span class="ar">دافي ولذيذ</span><span class="en">Warm &amp; Gooey</span></div>
         <h2 class="room-h2"><span class="ar">حاميها أطيب.. لا تنطر</span><span class="en">best eaten before it cools</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
+        <p class="room-voice"><span class="ar">حامية من الصينية.. لا تبرد عليك</span><span class="en">still crackling, eat it while it sings</span></p>
       </div>
     </div>
     <div class="items">
@@ -595,7 +618,7 @@ body{
 <circle cx="86" cy="0" r="2.5" fill="rgba(149,182,145,0.9)"/>
 </g>
 </svg></div>
-  <section class="cat reveal" id="cat-2" style="--sa:#aa79c3;--sa2:#95b691">
+  <section class="cat reveal cat--flip" id="cat-2" style="--sa:#aa79c3;--sa2:#95b691">
     <div class="cat-head">
       <div class="cat-art">
         <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f5efe6"/><stop offset=".45" stop-color="#e199b3"/><stop offset="1" stop-color="#cb72aa"/></linearGradient></defs><path d="M38 24h44l-5 74a10 10 0 0 1-10 9H53a10 10 0 0 1-10-9z" fill="url(#gl)"/><path d="M38 24h44l-1.2 18H39.2z" fill="#fff" opacity=".85"/><path d="M52 42c4-6 12-6 16 0-6 4-10 4-16 0z" fill="#cb72aa" opacity=".7"/><ellipse cx="60" cy="24" rx="22" ry="4.5" fill="#fff"/><ellipse cx="60" cy="111" rx="26" ry="4" fill="#000" opacity=".3"/></svg></div>
@@ -605,6 +628,7 @@ body{
         <div class="room-eyebrow"><span class="ar">القهوة</span><span class="en">Coffee</span></div>
         <h2 class="room-h2"><span class="ar">قهوة تعدل مزاج الحلا</span><span class="en">the bitter that balances sweet</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
+        <p class="room-voice"><span class="ar">فنجان مرّ يعدّل حلاة الصينية</span><span class="en">a dark cup to steady the sweetness</span></p>
       </div>
     </div>
     <div class="items">
@@ -669,12 +693,13 @@ body{
     <div class="cat-head">
       <div class="cat-art">
         <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e199b3" stop-opacity=".5"/><stop offset="1" stop-color="#cb72aa"/></linearGradient></defs><path d="M40 22h40l-4 78a8 8 0 0 1-8 8H52a8 8 0 0 1-8-8z" fill="url(#gc)" opacity=".9"/><rect x="46" y="34" width="13" height="13" rx="3" fill="#fff" opacity=".7" transform="rotate(12 52 40)"/><rect x="60" y="52" width="13" height="13" rx="3" fill="#fff" opacity=".55" transform="rotate(-14 66 58)"/><rect x="48" y="70" width="12" height="12" rx="3" fill="#fff" opacity=".45" transform="rotate(8 54 76)"/><path d="M74 14 60 46" stroke="#cabac4" stroke-width="4" stroke-linecap="round"/><ellipse cx="60" cy="112" rx="24" ry="4" fill="#000" opacity=".3"/></svg></div>
-        <img src="../assets/photos/cold.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
+        
       </div>
       <div class="cat-title">
         <div class="room-eyebrow"><span class="ar">المشروبات الباردة</span><span class="en">Cold Drinks</span></div>
         <h2 class="room-h2"><span class="ar">شي بارد يهدي الحماس</span><span class="en">something cold to calm the craze</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
+        <p class="room-voice"><span class="ar">برد يطفي حماس النار شوي</span><span class="en">a cool breath beside the fire</span></p>
       </div>
     </div>
     <div class="items">
@@ -704,6 +729,7 @@ body{
     </div>
   </section>
   <div class="diary reveal" dir="rtl"><span class="tape" style="background:#95b69133"></span>ريحة الصينية تجمع البيت كله</div>
+  <div class="diary reveal" dir="rtl"><span class="tape" style="background:#aa79c333"></span>النار هادية والصينية لها هيبة</div>
   <div class="demo-note">
     <span class="ar">هذه نسخة تجريبية أعدّها فريق منيو سادة خصيصاً لكم — الأصناف والأسعار والصور قابلة للتعديل خلال دقائق.</span>
     <span class="en">A demo lovingly prepared by MENU SADAH for you — items, prices & photos update in minutes.</span>

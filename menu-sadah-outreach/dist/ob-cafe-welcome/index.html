@@ -86,10 +86,14 @@
     border-radius:.35em .5em .4em .55em/.5em .4em .55em .35em;transform:rotate(-1.5deg)}
   .st{background:var(--card);border:2px solid var(--ink);border-radius:22px 10px 22px 10px;overflow:hidden;margin-top:16px;box-shadow:4px 4px 0 #17361f22}
   .st .ph{position:relative;height:150px;background:linear-gradient(135deg,#32864822,#418b7e22);display:flex;align-items:center;justify-content:center}
-  .st .ph img{width:100%;height:100%;object-fit:cover;filter:sepia(.12) saturate(1.05)}
+  .st .ph img{width:100%;height:100%;object-fit:cover;filter:sepia(.12) saturate(1.08) contrast(1.04)}
+  /* designed photo treatment: brand-tint wash (multiply where supported, plain elsewhere) + 1px inner border */
+  .st .ph.hasimg::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(160deg,#328648,transparent 55%);opacity:.28;mix-blend-mode:multiply}
+  .st .ph.hasimg::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;box-shadow:inset 0 0 0 1px #17361f40}
   .st .ph .big-init{font-size:64px;font-weight:800;color:#17361f33}
   .st .tag{position:absolute;top:10px;inset-inline-start:12px;background:var(--card);border:2px solid var(--ink);border-radius:999px;
-    padding:3px 12px;font-size:11px;font-weight:800;letter-spacing:.1em;transform:rotate(-3deg)}
+    padding:3px 12px;font-size:11px;font-weight:800;letter-spacing:.1em;transform:rotate(-3deg);z-index:2}
   .st .bd{padding:16px 18px}
   .st .bd b{font-size:17px}
   .st .bd b i{color:var(--rose);font-style:italic}
@@ -309,15 +313,15 @@ body{
     <div class="sub"><span class="ar">كل تفصيلة في المنيو جاية منكم</span><span class="en">Every detail in the menu comes from you</span></div>
     
     <div class="st rv">
-      <div class="ph"><span class="big-init">O</span><span class="tag"><span class="ar">تفصيلة 01</span><span class="en">Detail 01</span></span></div>
+      <div class="ph"><span class="big-init">O</span><img src="../assets/photos/espresso.jpg" alt="" onload="this.parentElement.classList.add('hasimg')" onerror="this.remove()" loading="lazy"><span class="tag"><span class="ar">تفصيلة 01</span><span class="en">Detail 01</span></span></div>
       <div class="bd"><b><span class="ar">منيو مبني غرفة غرفة، <i>مو قائمة وبس.</i></span><span class="en">A menu built room by room, <i>not just a list.</i></span></b><p><span class="ar">كل قسم غرفة من عالمكم، بعنوان يحكي قصتكم.</span><span class="en">Every section is a room of your world, titled with your story.</span></p></div>
     </div>
     <div class="st rv">
-      <div class="ph"><span class="big-init">O</span><span class="tag"><span class="ar">تفصيلة 02</span><span class="en">Detail 02</span></span></div>
+      <div class="ph"><span class="big-init">O</span><img src="../assets/photos/latte.jpg" alt="" onload="this.parentElement.classList.add('hasimg')" onerror="this.remove()" loading="lazy"><span class="tag"><span class="ar">تفصيلة 02</span><span class="en">Detail 02</span></span></div>
       <div class="bd"><b><span class="ar">عالمكم: <i>«طاولة المطبخ وسوالفها»</i></span><span class="en">Your world: <i>"the kitchen table after dark"</i></span></b><p><span class="ar">غرف المنيو: «أول شي، القهوة»، «لصغارنا وشقاوتهم»، «صحون تنلمّ عليها الأيادي» — والبقية داخل.</span><span class="en">The rooms: "first things first: coffee", "for the smallest bosses", "made for sharing, barely" — the rest is inside.</span></p></div>
     </div>
     <div class="st rv">
-      <div class="ph"><span class="big-init">O</span><span class="tag"><span class="ar">تفصيلة 03</span><span class="en">Detail 03</span></span></div>
+      <div class="ph"><span class="big-init">O</span><img src="../assets/photos/dessert.jpg" alt="" onload="this.parentElement.classList.add('hasimg')" onerror="this.remove()" loading="lazy"><span class="tag"><span class="ar">تفصيلة 03</span><span class="en">Detail 03</span></span></div>
       <div class="bd"><b><span class="ar">الصفحة تعيش، <i>من الصبح لليل.</i></span><span class="en">The page is alive, <i>from morning to night.</i></span></b><p><span class="ar">ألوانها بألوانكم، وتغمق مع الليل وأنتم تقلبون فيها — عربي وإنجليزي بضغطة.</span><span class="en">It wears your colors and darkens into night as guests scroll — Arabic and English in one tap.</span></p></div>
     </div>
     <div style="text-align:center;margin-top:22px"><a class="cta gold" href="../ob-cafe/"><span class="ar">شوفوا منيوكم حيّاً ←</span><span class="en">See your menu live →</span></a></div>
