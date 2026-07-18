@@ -1,0 +1,112 @@
+[
+  {
+    "key": "espresso",
+    "pool": "p029",
+    "source_url": "https://ananinja.com/sa/en/restaurants/house-of-matcha-37244",
+    "lead_cafe": "House of Matcha",
+    "orig_size": [
+      1024,
+      1024
+    ],
+    "bytes": 35763
+  },
+  {
+    "key": "latte",
+    "pool": "p030",
+    "source_url": "https://ananinja.com/sa/en/restaurants/house-of-matcha-37244",
+    "lead_cafe": "House of Matcha",
+    "orig_size": [
+      1024,
+      1024
+    ],
+    "bytes": 36237
+  },
+  {
+    "key": "v60",
+    "pool": "p164",
+    "source_url": "https://ashjarcafe.com/en/",
+    "lead_cafe": "Ashjar Cafe & Roastery",
+    "orig_size": [
+      1024,
+      1024
+    ],
+    "bytes": 57496
+  },
+  {
+    "key": "cold",
+    "pool": "p033",
+    "source_url": "https://ananinja.com/sa/en/restaurants/house-of-matcha-37244",
+    "lead_cafe": "House of Matcha",
+    "orig_size": [
+      1024,
+      1024
+    ],
+    "bytes": 36642
+  },
+  {
+    "key": "matcha",
+    "pool": "p036",
+    "source_url": "https://ananinja.com/sa/en/restaurants/house-of-matcha-37244",
+    "lead_cafe": "House of Matcha",
+    "orig_size": [
+      832,
+      547
+    ],
+    "bytes": 29559
+  },
+  {
+    "key": "bakery",
+    "pool": "p195",
+    "source_url": "https://ananinja.com/sa/ar/restaurants/qasar-toleen-sweets-24280",
+    "lead_cafe": "Qasr Tolin Sweets",
+    "orig_size": [
+      1024,
+      1024
+    ],
+    "bytes": 48078
+  },
+  {
+    "key": "dessert",
+    "pool": "p168",
+    "source_url": "https://hungerstation.com/sa-en/qc/99112/Vov/branch/riyadh~masiaf~177117",
+    "lead_cafe": "VOV Cafe",
+    "orig_size": [
+      1500,
+      750
+    ],
+    "bytes": 42899
+  },
+  {
+    "key": "snacks",
+    "pool": "p197",
+    "source_url": "https://ananinja.com/sa/ar/restaurants/qasar-toleen-sweets-24280",
+    "lead_cafe": "Qasr Tolin Sweets",
+    "orig_size": [
+      1024,
+      1024
+    ],
+    "bytes": 71111
+  },
+  {
+    "key": "beans",
+    "pool": "p154",
+    "source_url": "https://ashjarcafe.com/en/",
+    "lead_cafe": "Ashjar Cafe & Roastery",
+    "orig_size": [
+      1024,
+      1024
+    ],
+    "bytes": 32057
+  },
+  {
+    "key": "saudi",
+    "pool": "p194",
+    "source_url": "https://ananinja.com/sa/ar/restaurants/qasar-toleen-sweets-24280",
+    "lead_cafe": "Qasr Tolin Sweets",
+    "orig_size": [
+      1024,
+      1024
+    ],
+    "bytes": 48696
+  }
+]

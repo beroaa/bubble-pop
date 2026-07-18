@@ -1,5 +1,5 @@
 window.BUILDS_STATE = {
- "generatedAt": 1784369697014,
+ "generatedAt": 1784370680566,
  "builds": [
   {
    "id": "b1",
@@ -43,12 +43,13 @@ window.BUILDS_STATE = {
   },
   {
    "id": "b5",
-   "name": "PHOTO-MISSION 📸 — running on YOUR MACBOOK: real food photos for 53 cafes (147 leads)",
-   "status": "running",
-   "pct": 0,
-   "etaAt": 1784371197014,
-   "note": "Mac-Claude hunting — this card counts the estimate; live detail is in your Mac terminal",
-   "startedAt": 1784369697014
+   "name": "PHOTO-MISSION 📸 — real food photos for luxe menus (ran on the MacBook)",
+   "status": "done",
+   "pct": 100,
+   "etaAt": null,
+   "note": "harvested 147 leads -> 10/11 shared category keys filled",
+   "startedAt": 1784369697014,
+   "result": "10/11 shared photo keys filled from 127 real cafe photos (52 cafes); tea stays illustrated; 3 before/after screenshots captured"
   }
  ]
 };

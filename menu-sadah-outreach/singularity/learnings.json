@@ -1,5 +1,5 @@
 {
- "formulaVersion": "2.7",
+ "formulaVersion": "2.8",
  "lessons": [
   {
    "id": 1,
@@ -41,6 +41,11 @@
    "at": 1784368803842,
    "lesson": "Delivery apps (HungerStation/Jahez) 403 direct fetches — harvest dishes/prices from search SNIPPETS + fetchable aggregators (ksamenus.com, cafesriyadh.com, menus-sa, tayarmedia, restaurant guru, sao.sa). Collect photo-lead URLs for Mac-side download instead of fetching images here.",
    "from": "swarm-10k"
+  },
+  {
+   "at": 1784370680516,
+   "lesson": "MacBook photo pipeline (verified): cafes’ own sites (Zid stores, WordPress, S3) + delivery/social og:image covers ARE fetchable on Mac; Instagram/TikTok are login/JS-walled (no yt-dlp = no video frames). Menus use 11 SHARED category keys at dist/assets/photos/<key>.jpg via <img onload->hasimg>; ONE real photo per key upgrades ALL luxe menus (no per-cafe slot in current template). Harvested 127 real photos from 52 cafes -> filled 10/11 keys; tea had no clean source so it stays illustrated (never fake it).",
+   "from": "photo-mission-mac"
   }
  ],
  "qa": {
