@@ -88,6 +88,21 @@ export const ARCHETYPES = {
         ['House Savoury Pastries', 'فطائر البيت المالحة', 14], ['Mini Pancakes', 'ميني بان كيك', 16], ['Date Cake', 'كيكة التمر', 15] ] },
     ],
   },
+  gaming_cafe: {
+    accent: '#5ca8e8',
+    tagline: 'Coffee, snacks & good games',
+    taglineAr: 'قهوة وسناكات وقيمنق يجمعنا',
+    menu: [
+      { cat: 'Drinks', catAr: 'المشروبات', items: [
+        ['Espresso', 'إسبريسو', 12], ['Iced Latte', 'لاتيه بارد', 18],
+        ['Spanish Latte', 'سبانيش لاتيه', 20], ['Iced Tea', 'شاي مثلج', 14] ] },
+      { cat: 'Game Fuel', catAr: 'وقود القيمرز', items: [
+        ['Smash Burger', 'سماش برجر', 28], ['Loaded Fries', 'بطاطس محمّلة', 19],
+        ['Nachos', 'ناتشوز', 22], ['Hot Dog', 'هوت دوق', 16] ] },
+      { cat: 'Sweets', catAr: 'الحلويات', items: [
+        ['Chocolate Cookie', 'كوكيز شوكولاتة', 10], ['Brownie', 'براوني', 16] ] },
+    ],
+  },
   tea_house: {
     accent: '#5ca8e8',
     tagline: 'Teas from everywhere, steeped right',
