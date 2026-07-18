@@ -354,6 +354,9 @@ export function masterpieceMenuPage(cafe, brief) {
     border-radius:999px;color:var(--sa);font-weight:800;font-size:16px;transform:rotate(-4deg);
     box-shadow:0 0 0 3px ${a}0f}
   .reveal.in .stamp{animation:pstamp .5s cubic-bezier(.2,1.5,.4,1) both .35s}
+  .sig-card::before,.sig-card::after{content:"";position:absolute;top:-8px;width:44px;height:16px;background:${R[1]}40;border-radius:2px;z-index:2}
+  .sig-card::before{left:14px;transform:rotate(-8deg)}
+  .sig-card::after{right:14px;transform:rotate(6deg)}
   @keyframes pstamp{0%{opacity:0;transform:rotate(-14deg) scale(1.6)}100%{opacity:1;transform:rotate(-4deg) scale(1)}}
   .sar{font-size:11px}
 
@@ -527,13 +530,14 @@ const FLAVOR2 = {
 };
 
 export function masterpieceWelcomePage(cafe, brief, extras = {}) {
-  const arch = PACKS[brief.archetype] ? brief.archetype : 'storybook-light';
-  const P = paletteFor(cafe.theme, MODE_BY_ARCH[arch] || cafe.theme.mode);
-  const R = accentRotation(P);
-  const T = cafe.theme;
-  const sd = seedOf(cafe.slug || cafe.name);
+  // Beyt-blueprint gift landing: paper + ink in the cafe's own hues.
+  const P = paletteFor(cafe.theme, 'light');
+  const [bh, bs] = hexHsl(P.accentBright || P.accent);
+  const ink = hslHex(bh, clamp(bs, 40, 70), 15);
+  const rose = P.accent, gold = hslHex(bh + 34, clamp(bs, 35, 75), 40), ochre = hslHex(bh - 38, clamp(bs - 10, 28, 62), 38), sage = hslHex(bh + 150, clamp(bs - 30, 16, 40), 62);
+  const paper = hslHex(bh, 40, 98), paper2 = hslHex(bh, 34, 94), card = hslHex(bh, 45, 99);
+  const T = cafe.theme, sd = seedOf(cafe.slug || cafe.name);
   const M = MOTIFS[brief.motif] || MOTIFS.stars;
-  const a = P.accent, a2 = P.accent2;
   const flavor = FLAVOR2[extras.type] || FLAVOR2.specialty_coffee;
   const sig = (extras.signature && extras.signature.length ? extras.signature[0] : null) || extras.sigMention || null;
   const social = extras.social && /^@/.test(String(extras.social).trim()) ? String(extras.social).trim() : null;
@@ -541,206 +545,215 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
   const diary = (brief.diaryAr || [])[0];
   const waMsg = encodeURIComponent('مرحباً، معكم ' + cafe.name + ' — شفنا المنيو التجريبي وحابين نكمل');
   const wa = CONTACT.whatsapp && CONTACT.whatsapp !== '966500000000' ? `https://wa.me/${CONTACT.whatsapp}?text=${waMsg}` : null;
+  const initAr = esc((cafe.nameAr || cafe.name).trim()[0]), initEn = esc(cafe.name.trim()[0].toUpperCase());
+  const inkframe = `border:2px solid ${ink};border-radius:255px 18px 225px 18px/18px 225px 18px 255px;position:relative`;
+  const B = (ar, en) => `<span class="ar">${ar}</span><span class="en">${en}</span>`;
 
   return `<!doctype html>
 <html lang="ar" dir="rtl" data-lang="ar">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="${P.bg0}">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="${paper}">
 <title>🎁 ${esc(cafe.name)} × MENU SADAH</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=${T.fonts.q}&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=${T.fonts.q}&family=Caveat:wght@600;700&family=Patrick+Hand&family=Aref+Ruqaa:wght@400;700&display=swap">
 <style>
-  :root{--bg-0:${P.bg0};--bg-1:${P.bg1};--bg-2:${P.bg2};--border-1:${P.border1};--border-2:${P.border2};
-    --text-1:${P.text1};--text-2:${P.text2};--text-3:${P.text3};--accent:${a};--accent-2:${a2};--accent-soft:${a}22;
-    --sa:${R[0]};--sa2:${R[1]};--radius:16px;--shadow:${P.shadow}}
+  :root{--ink:${ink};--rose:${rose};--gold:${gold};--ochre:${ochre};--sage:${sage};--paper:${paper};--paper2:${paper2};--card:${card}}
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:${T.fonts.body},-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;
-    background:var(--bg-0);color:var(--text-1);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100svh;overflow-x:hidden}
+  html{scroll-behavior:smooth}
+  body{font-family:${T.fonts.body},"Work Sans",-apple-system,Tahoma,sans-serif;background:var(--paper);color:var(--ink);
+    font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
-    background:radial-gradient(620px 460px at 50% -120px,${a}1c,transparent 70%)}
-  .wrap{max-width:560px;margin:0 auto;padding:0 20px 90px;position:relative;z-index:1}
+    background:radial-gradient(700px 500px at 80% -10%,${rose}0d,transparent 60%),
+    repeating-linear-gradient(0deg,${ink}05 0 2px,transparent 2px 5px)}
   [data-lang="ar"] .en,[data-lang="en"] .ar{display:none}
-  .lang-toggle{position:fixed;top:14px;inset-inline-end:14px;z-index:40;background:${P.bg1}d9;backdrop-filter:blur(10px);
-    border:1px solid var(--border-2);color:var(--text-1);border-radius:999px;padding:8px 16px;font-size:13.5px;cursor:pointer}
-
-  .hero{position:relative;text-align:center;padding:84px 0 16px}
-  .orb{position:absolute;top:-70px;left:50%;transform:translateX(-50%);width:380px;height:380px;border-radius:50%;
-    background:radial-gradient(circle,${a}38,transparent 64%);pointer-events:none;animation:breathe 5s ease-in-out infinite}
-  @keyframes breathe{50%{transform:translateX(-50%) scale(1.08)}}
+  .hand{font-family:Caveat,"Aref Ruqaa",cursive}
+  .ar .hand,[data-lang="ar"] .hand{font-family:"Aref Ruqaa",Caveat,cursive}
+  .wrap{max-width:640px;margin:0 auto;padding:0 20px 80px;position:relative;z-index:1}
+  .top{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;
+    background:${paper}ee;backdrop-filter:blur(8px);border-bottom:2px solid var(--ink);padding:10px 18px}
+  .top .bx{display:flex;align-items:center;gap:10px}
+  .top .medal-s{width:38px;height:38px;border-radius:50% 44% 52% 46%;border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;
+    background:var(--card);font-weight:800;color:var(--rose);font-size:19px;box-shadow:2px 2px 0 var(--ink)}
+  .top .bn{font-weight:800;font-size:15px;letter-spacing:.02em;line-height:1.1}
+  .top .loc{font-size:10.5px;letter-spacing:.14em;color:var(--ochre);text-transform:uppercase}
+  .lang{border:2px solid var(--ink);background:var(--card);border-radius:999px;padding:7px 15px;font-size:13px;font-weight:700;
+    cursor:pointer;box-shadow:2px 2px 0 var(--ink)}
+  .kick{letter-spacing:.2em;font-size:11.5px;font-weight:700;color:var(--ochre);text-transform:uppercase}
+  .hero{text-align:center;padding:52px 0 20px;position:relative}
   .mote{position:absolute;pointer-events:none;z-index:0}
-  ${M.css(a2)}
-  .gift-tag{display:inline-block;background:var(--accent-soft);border:1px solid ${a}88;color:var(--accent);
-    border-radius:999px;padding:6px 20px;font-size:13px;letter-spacing:.14em;opacity:0;animation:up .8s .15s forwards}
-  .medal{position:relative;width:118px;height:118px;margin:22px auto 6px;border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-    background:radial-gradient(circle at 32% 24%,#ffffff30,transparent 42%),radial-gradient(circle at 32% 28%,${a}48,${a}16 62%,transparent);
-    border:2px solid var(--accent);box-shadow:0 0 0 8px ${a}14,0 0 46px ${a}55,inset 0 1px 0 #ffffff33;
-    opacity:0;animation:pop .9s .5s cubic-bezier(.2,1.4,.4,1) forwards}
-  .medal::after{content:"";position:absolute;inset:7px;border-radius:inherit;border:1px solid ${a}55}
-  .medal span{font-size:52px;font-weight:700;color:var(--accent);text-shadow:0 2px 14px ${a}73}
-  .medal span .ar{font-family:${T.fonts.ar}}
-  .medal span .en{font-family:${T.fonts.en}}
-  @keyframes pop{0%{opacity:0;transform:scale(.4)}70%{transform:scale(1.06)}100%{opacity:1;transform:scale(1)}}
+  ${M.css(gold)}
+  .medal{width:110px;height:110px;margin:20px auto 8px;border-radius:50% 46% 52% 48%/48% 52% 46% 54%;border:2.5px solid var(--ink);
+    display:flex;align-items:center;justify-content:center;background:var(--card);box-shadow:4px 4px 0 var(--ink);
+    opacity:0;animation:pop .8s .3s cubic-bezier(.2,1.4,.4,1) forwards}
+  .medal span{font-size:50px;font-weight:800;color:var(--rose)}
+  .medal span .ar{font-family:${T.fonts.ar}}.medal span .en{font-family:${T.fonts.en}}
+  @keyframes pop{0%{opacity:0;transform:scale(.4) rotate(-8deg)}70%{transform:scale(1.06)}100%{opacity:1;transform:scale(1)}}
   @keyframes up{0%{opacity:0;transform:translateY(14px)}100%{opacity:1;transform:none}}
-  h1{font-size:32px;line-height:1.25;margin-top:12px;opacity:0;animation:up .8s .9s forwards}
-  h1 b{color:var(--accent)}
-  h1 .ar{font-family:${T.fonts.ar}}
-  h1 .en{font-family:${T.fonts.en}}
-  .world{margin-top:10px;color:var(--text-3);font-size:13px;letter-spacing:.08em;opacity:0;animation:up .8s 1.1s forwards}
-  .world b{color:${R[1]};font-weight:600}
-  .heroline{margin-top:8px;color:var(--text-2);font-size:19px;opacity:0;animation:up .8s 1.3s forwards}
-  .heroline .ar{font-family:${T.fonts.ar}}
-  .heroline .en{font-family:${T.fonts.en}}
-
-  .letter{position:relative;margin-top:24px;background:linear-gradient(180deg,${P.bg1}f0,${P.bg1}d0);
-    border:1px solid ${a}44;border-radius:24px;padding:24px 22px;box-shadow:var(--shadow);
-    opacity:0;animation:up .9s 1.55s forwards}
-  .letter .to{color:var(--accent);font-size:13px;letter-spacing:.12em;margin-bottom:10px}
-  .letter p{color:var(--text-2);font-size:15.5px;margin-bottom:12px}
-  .letter p b{color:var(--text-1)}
-  .letter .sigline{color:var(--sa);font-weight:700}
-  .benefits{list-style:none;margin-top:6px}
-  .benefits li{display:flex;gap:11px;align-items:flex-start;padding:8px 0;color:var(--text-2);font-size:14.5px}
-  .benefits .tick{font-weight:800;flex:0 0 auto}
-  .benefits li:nth-child(1) .tick{color:${R[0]}}
-  .benefits li:nth-child(2) .tick{color:${R[1]}}
-  .benefits li:nth-child(3) .tick{color:${R[2]}}
-
-  .rooms{margin-top:22px;opacity:0;animation:up .9s 1.8s forwards}
-  .rooms .lbl{text-align:center;color:var(--text-3);font-size:12.5px;letter-spacing:.14em;margin-bottom:11px}
-  .room-chips{display:flex;flex-wrap:wrap;gap:9px;justify-content:center}
-  .room-chip{border:1px solid;border-radius:999px;padding:8px 17px;font-size:13.5px;background:${P.bg1}cc}
-  .room-chip .ar{font-family:${T.fonts.ar}}
-  .room-chip .en{font-family:${T.fonts.en}}
-  .room-chip:nth-child(1){color:${R[0]};border-color:${R[0]}66}
-  .room-chip:nth-child(2){color:${R[1]};border-color:${R[1]}66}
-  .room-chip:nth-child(3){color:${R[2]};border-color:${R[2]}66}
-  .rooms .more{text-align:center;margin-top:10px;color:var(--text-3);font-size:12.5px}
-
-  .cta-stack{display:grid;gap:12px;margin-top:24px;opacity:0;animation:up .9s 2.05s forwards}
-  .btn{display:block;text-align:center;text-decoration:none;background:linear-gradient(135deg,${a},${a2});
-    color:${P.ink};font-weight:800;font-size:18px;border-radius:18px;padding:18px 20px;
-    box-shadow:0 10px 30px ${a}55;transition:transform .15s}
-  .btn:active{transform:scale(.98)}
-  .btn.pulse{animation:pl 2.2s 2.8s infinite}
-  @keyframes pl{0%,100%{box-shadow:0 10px 30px ${a}55}50%{box-shadow:0 10px 44px ${a}90}}
-  .btn .ar{font-family:${T.fonts.ar}}
-  .btn .en{font-family:${T.fonts.en}}
-  .btn.ghost{background:transparent;color:var(--accent);border:1px solid ${a}88;box-shadow:none;font-weight:600;font-size:15px}
-
-  .diary{position:relative;margin:26px auto 0;max-width:420px;background:${P.bg1};border:1px solid var(--border-1);
-    border-radius:4px;padding:16px 20px 14px;color:var(--text-2);font-size:15.5px;text-align:center;
-    font-family:${T.fonts.ar};transform:rotate(-1.6deg);box-shadow:var(--shadow);opacity:0;animation:up .9s 2.3s forwards}
-  .diary .tape{position:absolute;top:-9px;left:50%;transform:translateX(-50%) rotate(-2deg);width:88px;height:20px;
-    border-radius:2px;background:${R[1]}33;backdrop-filter:blur(1px)}
-
-  .small{margin-top:14px;text-align:center;color:var(--text-3);font-size:12.5px}
-  .small a{color:var(--accent);text-decoration:none}
-  .footer{margin-top:28px;text-align:center;color:var(--text-3);font-size:12.5px}
-  .footer a{color:var(--accent);text-decoration:none}
-  .fineline{font-size:12.5px;color:var(--text-3);border-top:1px dashed var(--border-1);padding-top:11px;margin-top:4px;text-align:center}
-  .letter::after{content:"";position:absolute;top:-10px;inset-inline-start:36px;width:92px;height:22px;
-    background:${R[1]}2e;transform:rotate(-3deg);border-radius:2px;backdrop-filter:blur(1px)}
-
-  /* ---- big-screen stage ---- */
-  .bigmark{display:none;position:fixed;top:4vh;inset-inline-end:-3vw;z-index:0;font-size:48vh;line-height:1;
-    color:var(--accent);opacity:.055;pointer-events:none;user-select:none}
-  .bigmark .ar{font-family:${T.fonts.ar}}
-  .bigmark .en{font-family:${T.fonts.en}}
+  h1{font-size:clamp(34px,9vw,54px);line-height:1.18;margin-top:8px;opacity:0;animation:up .8s .7s forwards}
+  h1 b{color:var(--rose)}
+  h1 .ar{font-family:${T.fonts.ar}}h1 .en{font-family:${T.fonts.en}}
+  .world{margin-top:8px;color:var(--ochre);font-size:14px;letter-spacing:.06em;opacity:0;animation:up .8s .95s forwards}
+  .heroline{font-size:24px;margin-top:6px;color:var(--rose);opacity:0;animation:up .8s 1.1s forwards}
+  .heroline.hand{font-size:clamp(24px,6vw,32px);transform:rotate(-1.2deg)}
+  .cta{display:inline-block;margin-top:20px;background:var(--rose);color:#fff;text-decoration:none;font-weight:800;font-size:18px;
+    border:2px solid var(--ink);border-radius:16px 8px 16px 8px;padding:15px 34px;box-shadow:4px 4px 0 var(--ink);
+    transition:transform .12s;opacity:0;animation:up .8s 1.3s forwards}
+  .cta:active{transform:translate(2px,2px)}
+  .cta.gold{background:var(--gold)}
+  .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .rv.in{opacity:1;transform:none}
+  .sec{margin-top:44px}
+  .h2{font-family:Patrick Hand,Caveat,cursive;font-size:clamp(30px,8vw,44px);text-align:center;transform:rotate(-1.5deg);line-height:1.15}
+  [data-lang="ar"] .h2{font-family:"Aref Ruqaa",cursive}
+  .h2 b{color:var(--rose)}
+  .sub{text-align:center;color:var(--ink);opacity:.75;font-size:14.5px;margin-top:6px}
+  .letter{${inkframe};background:var(--card);padding:28px 26px;margin-top:40px;box-shadow:5px 5px 0 ${ink}22}
+  .letter::after{content:"";position:absolute;inset:5px;border:1.5px dashed ${ink}55;border-radius:inherit;pointer-events:none}
+  .salut{font-size:26px;color:var(--rose);margin-bottom:8px;transform:rotate(-1deg)}
+  .letter p{margin-bottom:12px;font-size:16px}
+  .punch{color:var(--rose);font-weight:800}
+  .sigline{font-size:24px;color:var(--ochre);margin-top:10px;transform:rotate(-1.5deg)}
+  .freecard{position:relative;background:var(--ink);color:${paper};border-radius:26px 12px 26px 12px;padding:34px 24px 26px;margin-top:46px;
+    text-align:center;box-shadow:6px 6px 0 ${ink}33}
+  .giftbadge{position:absolute;top:-14px;inset-inline-end:22px;background:var(--rose);color:#fff;border:2px solid var(--ink);
+    border-radius:999px;padding:6px 16px;font-size:13px;font-weight:800;transform:rotate(3deg);animation:bwob 4s ease-in-out infinite}
+  @keyframes bwob{50%{transform:rotate(-2deg)}}
+  .freecard .lbl{letter-spacing:.18em;font-size:11.5px;color:var(--sage);text-transform:uppercase}
+  .was{display:inline-block;margin-top:12px;font-size:26px;color:var(--rose);text-decoration:line-through;text-decoration-thickness:5px;transform:rotate(-2deg);font-weight:800}
+  .big{font-family:Patrick Hand,Caveat,cursive;font-size:clamp(72px,22vw,120px);line-height:1;color:var(--gold);transform:rotate(-1.5deg);text-shadow:0 3px 0 #00000055}
+  [data-lang="ar"] .big{font-family:"Aref Ruqaa",cursive;font-size:clamp(56px,17vw,96px)}
+  .fine{margin-top:12px;font-size:13px;color:${paper}bb}
+  .pt{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:2px solid var(--ink);
+    border-radius:120px 16px 120px 16px/16px 120px 16px 120px;padding:16px 20px;margin-top:14px;box-shadow:3px 3px 0 var(--ink)}
+  .pt .n{flex:0 0 auto;width:38px;height:38px;border-radius:50%;border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;
+    font-weight:800;color:#fff;transform:rotate(-5deg)}
+  .pt:nth-child(1) .n{background:var(--rose)}.pt:nth-child(2) .n{background:var(--gold)}.pt:nth-child(3) .n{background:var(--ochre)}
+  .pt b{display:block;font-size:16.5px}
+  .pt span.d{font-size:14px;opacity:.8}
+  .why{text-align:center;margin-top:30px;font-size:17px;font-weight:700}
+  .hl{position:relative;white-space:nowrap}
+  .hl::before{content:"";position:absolute;inset:-.1em -.3em;background:${sage}88;z-index:-1;
+    border-radius:.35em .5em .4em .55em/.5em .4em .55em .35em;transform:rotate(-1.5deg)}
+  .st{background:var(--card);border:2px solid var(--ink);border-radius:22px 10px 22px 10px;overflow:hidden;margin-top:16px;box-shadow:4px 4px 0 ${ink}22}
+  .st .ph{position:relative;height:150px;background:linear-gradient(135deg,${rose}22,${gold}22);display:flex;align-items:center;justify-content:center}
+  .st .ph img{width:100%;height:100%;object-fit:cover;filter:sepia(.12) saturate(1.05)}
+  .st .ph .big-init{font-size:64px;font-weight:800;color:${ink}33}
+  .st .tag{position:absolute;top:10px;inset-inline-start:12px;background:var(--card);border:2px solid var(--ink);border-radius:999px;
+    padding:3px 12px;font-size:11px;font-weight:800;letter-spacing:.1em;transform:rotate(-3deg)}
+  .st .bd{padding:16px 18px}
+  .st .bd b{font-size:17px}
+  .st .bd b i{color:var(--rose);font-style:italic}
+  .st .bd p{font-size:14px;opacity:.8;margin-top:4px}
+  .agrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+  .atile{background:var(--card);border:2px solid var(--ink);border-radius:14px 6px 14px 6px;padding:16px;box-shadow:3px 3px 0 var(--ink);text-decoration:none;color:var(--ink)}
+  .atile .ic{width:34px;height:34px;border-radius:9px;background:var(--ink);color:${paper};display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:8px}
+  .atile b{font-size:15px;display:block}
+  .atile span.go{color:var(--ochre);font-size:13px;font-weight:700}
+  .chips2{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:20px}
+  .chip2{border:2px solid var(--ink);border-radius:999px;background:var(--card);padding:8px 16px;font-size:13.5px;font-weight:700;box-shadow:2px 2px 0 var(--ink)}
+  .chip2::before{content:"✓ ";color:var(--rose);font-weight:800}
+  .diary{position:relative;margin:34px auto 0;max-width:440px;background:var(--card);border:2px solid var(--ink);
+    border-radius:4px;padding:18px 20px 14px;text-align:center;font-family:"Aref Ruqaa",cursive;font-size:17px;transform:rotate(-1.6deg);box-shadow:4px 4px 0 ${ink}22}
+  .diary .tape{position:absolute;top:-10px;left:50%;transform:translateX(-50%) rotate(-2deg);width:92px;height:22px;background:${gold}44;border-radius:2px}
+  .reply{text-align:center;margin-top:48px}
+  .reply .hand{font-size:clamp(28px,7vw,38px);color:var(--rose);transform:rotate(-1deg)}
+  .foot{margin-top:44px;text-align:center;font-size:12.5px;color:var(--ochre);letter-spacing:.08em}
+  .foot a{color:var(--rose);text-decoration:none;font-weight:700}
+  .bigmark{position:fixed;top:6vh;inset-inline-end:-4vw;z-index:0;font-size:44vh;line-height:1;color:var(--rose);opacity:.05;pointer-events:none}
   @media(min-width:900px){
-    .bigmark{display:block}
     .wrap{max-width:720px}
-    .hero{min-height:64vh;display:flex;flex-direction:column;justify-content:center;padding:60px 0 10px}
-    .medal{width:140px;height:140px}
-    .medal span{font-size:60px}
-    h1{font-size:54px}
-    .world{font-size:15px;margin-top:14px}
-    .heroline{font-size:26px}
-    .letter{padding:34px 36px;border-radius:28px}
-    .letter p{font-size:17px}
-    .room-chip{font-size:15px;padding:10px 22px}
-    .btn{font-size:20px;padding:22px}
-    .diary{max-width:480px;font-size:17px}
+    .hero{padding:76px 0 30px}
+    .medal{width:132px;height:132px}.medal span{font-size:58px}
+    .agrid{gap:16px}
     .mote{font-size:22px!important}
   }
-
-  /* ---- architecture pack: ${arch} ---- */
-  ${PACKS[arch](P, R)}
-
+  @media(max-width:520px){.agrid{grid-template-columns:1fr}}
   @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}
-    .gift-tag,.medal,h1,.world,.heroline,.letter,.rooms,.cta-stack,.diary{opacity:1!important;transform:none!important}}
+    .medal,h1,.world,.heroline,.cta,.rv{opacity:1!important;transform:none!important}}
 </style>
 </head>
 <body>
-<button class="lang-toggle" id="langToggle">English</button>
-<div class="bigmark" aria-hidden="true"><span class="ar">${esc((cafe.nameAr || cafe.name).trim()[0])}</span><span class="en">${esc(cafe.name.trim()[0].toUpperCase())}</span></div>
+<div class="bigmark" aria-hidden="true"><span class="ar">${initAr}</span><span class="en">${initEn}</span></div>
+<header class="top">
+  <div class="bx"><div class="medal-s"><span class="ar">${initAr}</span><span class="en">${initEn}</span></div>
+    <div><div class="bn">${B(esc(cafe.nameAr), esc(cafe.name))}</div><div class="loc">${B(esc(cafe.areaAr) + ' · الرياض', esc(cafe.area) + ' · Riyadh')}</div></div></div>
+  <button class="lang" id="langToggle">English</button>
+</header>
 <div class="wrap">
-  <header class="hero">
-    <div class="orb"></div>
+  <section class="hero">
     ${motesHtml(brief.motif, sd)}
-    <span class="gift-tag"><span class="ar">🎁 هدية خاصة · ليست إعلاناً</span><span class="en">🎁 A personal gift · not an ad</span></span>
-    <div class="medal"><span><span class="ar">${esc((cafe.nameAr || cafe.name).trim()[0])}</span><span class="en">${esc(cafe.name.trim()[0].toUpperCase())}</span></span></div>
-    <h1>
-      <span class="ar">إلى بيت <b>${esc(cafe.nameAr)}</b></span>
-      <span class="en">To the house of <b>${esc(cafe.name)}</b></span>
-    </h1>
-    <div class="world"><span class="ar">✦ <b>${esc(brief.world?.ar || '')}</b> ✦</span><span class="en">✦ <b>${esc(brief.world?.en || '')}</b> ✦</span></div>
-    <div class="heroline"><span class="ar">${esc(brief.heroAr || '')}</span><span class="en">${esc(brief.heroEn || '')}</span></div>
-  </header>
+    <div class="kick">${B('🎁 هدية من منيو سادة · ليست إعلاناً', '🎁 A gift from Menu Sadah · not an ad')}</div>
+    <div class="medal"><span><span class="ar">${initAr}</span><span class="en">${initEn}</span></span></div>
+    <h1>${B('أهلاً ببيت <b>' + esc(cafe.nameAr) + '</b>', 'Welcome home, <b>' + esc(cafe.name) + '</b>.')}</h1>
+    <div class="world">${B('✦ ' + esc(brief.world?.ar || '') + ' ✦', '✦ ' + esc(brief.world?.en || '') + ' ✦')}</div>
+    <div class="heroline hand">${B(esc(brief.heroAr || ''), esc(brief.heroEn || ''))}</div>
+    <div><a class="cta" href="../${cafe.slug}/">${B('افتحوا منيوكم ←', 'Open your menu →')}</a></div>
+  </section>
 
-  <div class="letter">
-    <div class="to"><span class="ar">🏡 مرحباً يا بيت ${esc(cafe.nameAr)}</span><span class="en">🏡 Hello, house of ${esc(cafe.name)}</span></div>
-    <p>
-      <span class="ar">أنا إبراهيم من «منيو سادة». ${social ? 'تابعت <b>' + esc(social) + '</b> — و' : ''}${esc(flavor.ar)}${cafe.areaAr && cafe.areaAr !== 'الرياض' ? '، وسط <b>' + esc(cafe.areaAr) + '</b>' : ''}. صراحةً، وقّفني.</span>
-      <span class="en">I'm Ibrahim from MENU SADAH. ${social ? 'I\'ve been following <b>' + esc(social) + '</b> — and ' : ''}${esc(flavor.en)}. Honestly, it stopped me.</span>
-    </p>
-    <p>
-      <span class="ar">بين فترة وفترة نختار مكاناً واحداً يستاهل شغلاً خاصاً — وهالمرة اخترناكم.</span>
-      <span class="en">Every so often we pick one place that deserves special work — and this time we picked you.</span>
-    </p>
-    <p>
-      <span class="ar">بنينا لكم منيو رقمياً بهويتكم، عربي وإنجليزي، مبنياً مثل عالمكم: <b>«${esc(brief.world?.ar || '')}»</b> — غرفة غرفة، بألوانكم وخطوطكم، وألوان صفحته تتبدّل وأنتم تتجولون فيه.</span>
-      <span class="en">We built you a digital menu in your identity, Arabic and English, shaped like your world: <b>"${esc(brief.world?.en || '')}"</b> — room by room, in your colors and type, and the page itself shifts as you wander through it.</span>
-    </p>
-    ${sig ? `<p class="sigline"><span class="ar">وبلغنا أن «${esc(sig[1])}» حديث الناس عندكم — جعلناه يفتتح المنيو.</span><span class="en">And we hear your «${esc(sig[0])}» is the one people talk about — it opens the menu.</span></p>` : ''}
-    <p>
-      <span class="ar"><b>كله هدية. لكم. جاهز الآن.</b> إن نال إعجابكم فعّلناه بنفس اليوم — وإن لم يناسبكم يكفينا شرف اطلاعكم.</span>
-      <span class="en"><b>All of it is a gift. Yours. Ready now.</b> If you love it, it goes live the same day — if not, we're honored you looked.</span>
-    </p>
-    <p class="fineline">
-      <span class="ar">عربي/إنجليزي بضغطة · متوافق مع هيئة الغذاء والدواء (السعرات والكافيين) · تعديل الأسعار خلال دقائق</span>
-      <span class="en">AR/EN toggle · SFDA-ready (calories & caffeine) · prices update in minutes</span>
-    </p>
+  <div class="letter rv">
+    <div class="salut hand">${B('مرحباً يا بيت ' + esc(cafe.nameAr) + '،', 'Hello, house of ' + esc(cafe.name) + ',')}</div>
+    <p>${B('أنا إبراهيم من «منيو سادة». ' + (social ? 'تابعت <b>' + esc(social) + '</b> — و' : '') + esc(flavor.ar) + '. صراحةً، وقّفني. <span class="punch">فبنينا لكم هدية.</span>',
+      "I'm Ibrahim from MENU SADAH. " + (social ? "I've been following <b>" + esc(social) + "</b> — and " : '') + esc(flavor.en) + '. Honestly, it stopped me. <span class="punch">So we built you a gift.</span>')}</p>
+    <p>${B('منيو رقمي كامل بهويتكم، عربي وإنجليزي، مبني مثل عالمكم: <b>«' + esc(brief.world?.ar || '') + '»</b> — غرفة غرفة، وألوان الصفحة تتبدّل وأنتم تتجولون فيها.',
+      'A complete digital menu in your identity, Arabic and English, shaped like your world: <b>"' + esc(brief.world?.en || '') + '"</b> — room by room, and the page shifts as you wander through it.')}</p>
+    ${sig ? `<p>${B('وبلغنا أن «' + esc(sig[1]) + '» حديث الناس عندكم — جعلناه يفتتح المنيو.', 'And we hear your «' + esc(sig[0]) + '» is the one people talk about — it opens the menu.')}</p>` : ''}
+    <div class="sigline hand">${B('إبراهيم — منيو سادة', 'Ibrahim — Menu Sadah')}</div>
   </div>
 
-  ${rooms.length ? `<div class="rooms">
-    <div class="lbl"><span class="ar">✦ جولة سريعة في الغرف ✦</span><span class="en">✦ A peek inside the rooms ✦</span></div>
-    <div class="room-chips">
-      ${rooms.map((r) => `<span class="room-chip"><span class="ar">${esc(r.titleAr)}</span><span class="en">${esc(r.titleEn)}</span></span>`).join('')}
+  <div class="freecard rv">
+    <div class="giftbadge">${B('هدية من القلب', 'A gift from the heart')}</div>
+    <div class="lbl">${B('المنيو + أول شهر دعم كامل', 'The menu + first month of support')}</div>
+    <div><span class="was">${B('٤٩$ / شهر', '$49 / mo')}</span></div>
+    <div class="big">${B('مجاناً', 'FREE')}</div>
+    <div class="fine">${B('المنيو هدية تبقى لكم، وأول شهر دعم وتعديلات علينا — بعدها القرار قراركم.', 'The menu is yours to keep, and the first month of support and tweaks is on us — after that, the decision is yours.')}</div>
+  </div>
+
+  <div class="sec rv">
+    <div class="pt"><div class="n">1</div><div><b>${B('هدية حقيقية', 'A true gift')}</b><span class="d">${B('المنيو لكم، مجاناً، للأبد.', 'The menu is yours to keep, free, forever.')}</span></div></div>
+    <div class="pt"><div class="n">2</div><div><b>${B('شهر مجاني كامل', 'One free month')}</b><span class="d">${B('دعم وتعديلات بلا حدود، علينا.', 'Support and unlimited tweaks, on us.')}</span></div></div>
+    <div class="pt"><div class="n">3</div><div><b>${B('بعدها أنتم تقررون', 'Then you decide')}</b><span class="d">${B('تكملون بـ٤٩$ شهرياً، أو تلغون وتحتفظون بالمنيو.', 'Continue at $49 a month, or cancel and keep the menu.')}</span></div></div>
+    <div class="why">${B('بدون شروط، بدون عقد. نبني مجاناً للبيوت اللي نؤمن فيها — <span class="hl">وبيتكم واحد منها.</span>', 'No catch, no contract. We build free for houses we believe in — <span class="hl">and yours is one of them.</span>')}</div>
+  </div>
+
+  <div class="sec rv">
+    <div class="h2">${B('درسنا بيتكم', 'We studied your house')}</div>
+    <div class="sub">${B('كل تفصيلة في المنيو جاية منكم', 'Every detail in the menu comes from you')}</div>
+    ${[
+      sig ? { t: '01', bAr: 'توقيعكم يفتتح المنيو، <i>مثل ما يستاهل.</i>', bEn: 'Your signature opens the menu, <i>as it should.</i>', pAr: '«' + esc(sig[1]) + '» أول ما يشوفه الضيف — بختم سعر مرسوم باليد.', pEn: '«' + esc(sig[0]) + '» is the first thing a guest sees — with a hand-drawn price stamp.', img: 'espresso' } : { t: '01', bAr: 'منيو مبني غرفة غرفة، <i>مو قائمة وبس.</i>', bEn: 'A menu built room by room, <i>not just a list.</i>', pAr: 'كل قسم غرفة من عالمكم، بعنوان يحكي قصتكم.', pEn: 'Every section is a room of your world, titled with your story.', img: 'espresso' },
+      { t: '02', bAr: 'عالمكم: <i>«' + esc(brief.world?.ar || '') + '»</i>', bEn: 'Your world: <i>"' + esc(brief.world?.en || '') + '"</i>', pAr: rooms.length ? 'غرف المنيو: ' + rooms.map((r) => '«' + esc(r.titleAr) + '»').join('، ') + ' — والبقية داخل.' : 'كل صفحة تتنفس هالعالم — ألوان وخطوط وحركة.', pEn: rooms.length ? 'The rooms: ' + rooms.map((r) => '"' + esc(r.titleEn) + '"').join(', ') + ' — the rest is inside.' : 'Every page breathes this world — color, type and motion.', img: 'latte' },
+      { t: '03', bAr: 'الصفحة تعيش، <i>من الصبح لليل.</i>', bEn: 'The page is alive, <i>from morning to night.</i>', pAr: 'ألوانها بألوانكم، وتغمق مع الليل وأنتم تقلبون فيها — عربي وإنجليزي بضغطة.', pEn: 'It wears your colors and darkens into night as guests scroll — Arabic and English in one tap.', img: 'dessert' },
+    ].map((d) => `
+    <div class="st rv">
+      <div class="ph"><span class="big-init">${initEn}</span><img src="../assets/photos/${d.img}.jpg" alt="" onerror="this.remove()" loading="lazy"><span class="tag">${B('تفصيلة ' + d.t, 'Detail ' + d.t)}</span></div>
+      <div class="bd"><b>${B(d.bAr, d.bEn)}</b><p>${B(d.pAr, d.pEn)}</p></div>
+    </div>`).join('')}
+    <div style="text-align:center;margin-top:22px"><a class="cta gold" href="../${cafe.slug}/">${B('شوفوا منيوكم حيّاً ←', 'See your menu live →')}</a></div>
+  </div>
+
+  <div class="sec rv">
+    <div class="h2">${B('كل شيء <b>جاهز</b> لكم', 'Everything is <b>ready</b> for you')}</div>
+    <div class="agrid">
+      <a class="atile" href="../${cafe.slug}/"><div class="ic">📱</div><b>${B('المنيو الحي', 'Live menu')}</b><span class="go">${B('افتحوه ←', 'Open →')}</span></a>
+      <div class="atile"><div class="ic">🖨</div><b>${B('كود QR للطاولات', 'Table QR code')}</b><span class="go">${B('نجهزه لكم يوم التفعيل', 'Printed & ready on activation')}</span></div>
     </div>
-    <div class="more"><span class="ar">…والبقية داخل الهدية</span><span class="en">…the rest is inside the gift</span></div>
-  </div>` : ''}
-
-  <div class="cta-stack">
-    <a class="btn pulse" href="../${cafe.slug}/">
-      <span class="ar">🎁 افتحوا هديتكم — منيو ${esc(cafe.nameAr)}</span>
-      <span class="en">🎁 Open your gift — the ${esc(cafe.name)} menu</span>
-    </a>
-    ${wa ? `<a class="btn ghost" href="${wa}"><span class="ar">💬 عجبكم؟ نفعّله لكم بنفس اليوم</span><span class="en">💬 Love it? Live the same day</span></a>` : ''}
+    <div class="chips2">
+      <span class="chip2">${B('عربي + إنجليزي', 'Arabic + English')}</span>
+      <span class="chip2">${B('ضغطة وحدة، بلا تطبيق', 'One tap, no app')}</span>
+      <span class="chip2">${B('متوافق مع هيئة الغذاء والدواء', 'SFDA-ready')}</span>
+      <span class="chip2">${B('تعديلات بلا حدود', 'Unlimited edits')}</span>
+    </div>
   </div>
 
-  ${diary ? `<div class="diary" dir="rtl"><span class="tape"></span>${esc(diary)}</div>` : ''}
+  ${diary ? `<div class="diary rv"><span class="tape"></span>${esc(diary)}</div>` : ''}
 
-  <p class="small">
-    <span class="ar">شاهدوا عميلنا الحي: <a href="${CONTACT.site}/beyt-coffee">بيت كوفي ↗</a></span>
-    <span class="en">See a live client: <a href="${CONTACT.site}/beyt-coffee">Beyt Coffee ↗</a></span>
-  </p>
-  <div class="footer">
-    <span class="ar">صُنعت بحب في الرياض — <a href="${CONTACT.site}">منيو سادة MENU SADAH</a></span>
-    <span class="en">Crafted with love in Riyadh — <a href="${CONTACT.site}">MENU SADAH</a></span>
+  <div class="reply rv">
+    <div class="hand">${B('باب البيت مفتوح', 'The door of the house is open')}</div>
+    <p style="margin-top:8px">${B('عجبكم؟ ردّوا على رسالتنا ونفعّله بنفس اليوم.', 'Love it? Reply to our message and it goes live the same day.')}</p>
+    <div style="margin-top:14px"><a class="cta" href="${wa || '../' + cafe.slug + '/'}">${wa ? B('💬 نفعّله اليوم', '💬 Switch it on today') : B('🎁 افتحوا هديتكم', '🎁 Open your gift')}</a></div>
+    <p style="margin-top:16px;font-size:13px">${B('شاهدوا عميلنا الحي: <a href="' + CONTACT.site + '/beyt-coffee" style="color:var(--rose);font-weight:700">بيت كوفي ↗</a>', 'See a live client: <a href="' + CONTACT.site + '/beyt-coffee" style="color:var(--rose);font-weight:700">Beyt Coffee ↗</a>')}</p>
   </div>
+  <div class="foot">${B('منيو سادة · منيوهات جميلة لبيوت نحبها — <a href="' + CONTACT.site + '">menu-sadah.com</a>', 'MENU SADAH · beautiful menus for houses we admire — <a href="' + CONTACT.site + '">menu-sadah.com</a>')}</div>
 </div>
 <script>
   const root=document.documentElement;
@@ -749,6 +762,9 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
   function setLang(l){root.setAttribute('data-lang',l);root.setAttribute('lang',l);root.setAttribute('dir',l==='ar'?'rtl':'ltr');
     const t=document.getElementById('langToggle');if(t)t.textContent=l==='ar'?'English':'العربية';localStorage.setItem('ms-lang',l);}
   document.getElementById('langToggle').addEventListener('click',()=>{setLang(root.getAttribute('data-lang')==='ar'?'en':'ar');});
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.06});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+  setTimeout(()=>document.querySelectorAll('.rv:not(.in)').forEach(el=>{const r=el.getBoundingClientRect();if(r.top<innerHeight)el.classList.add('in');}),1400);
 </script>
 </body>
 </html>`;
