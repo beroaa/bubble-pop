@@ -35,6 +35,11 @@ These orders apply to EVERY Claude session in this repo — cloud or MacBook. Re
 - Swarm research: use parallel Workflow squadrons with structured-output agents; merge via singularity/merge-swarm.mjs (re-validates everything).
 - MacBook sessions: network is open — photos, fonts, and menu-sadah.com fetches happen THERE.
 
+## VISUALS-FIRST LAW (Ibrahim's most important order — locked 2026-07-18)
+- Real brand visuals are the #1 quality lever. For EVERY menu (starting with the 50): hunt ALL findable images of the cafe's products, shop, and existing menu (Instagram, TikTok, Google Maps, delivery apps), study them, and place them like a Mayfair design firm — hero shots, room headers, detail cards, texture crops. Upscale/clean before use (min ~1200px wide, tasteful crops).
+- Division of labor is physics: cloud box CANNOT download images (network wall) — photo HUNTING always runs on the MacBook via the current PHOTO-MISSION file; cloud box builds the per-cafe photo slots, layout logic, and auto-upgrade wiring so menus improve the moment photos land in dist/assets/photos/<slug>/.
+- Per-cafe folders: dist/assets/photos/<slug>/1.jpg..N.jpg + meta.json (what each shot shows). Engine prefers per-cafe photos over shared category photos, always with graceful fallback. Evidence rule holds: only images actually from that cafe's own accounts/pages.
+
 ## Brand-soul rule (locked 2026-07-18)
 - EVERY gift link and menu — all tiers, all 948+ — must carry its cafe's own brand palette (lib/brand-theme.mjs) and the bilingual medallion mark (Arabic initial in AR mode, English initial in EN mode). Never ship a shared-gold generic page again.
 - Real cafe logos can only be fetched on the MacBook (network wall) — when logo work is requested, extend PHOTO-MISSION.md rather than faking marks.
