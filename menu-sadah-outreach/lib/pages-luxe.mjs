@@ -402,13 +402,13 @@ export function luxeWelcomePage(cafe, extras = {}) {
   <div class="letter">
     <div class="to"><span class="ar">رسالة من فريق منيو سادة ✦</span><span class="en">A note from MENU SADAH ✦</span></div>
     <p>
-      <span class="ar">${social ? 'تابعنا <b>' + esc(social) + '</b> وأعجبنا ذوقكم. ' : ''}${esc(flavor.ar)}${cafe.areaAr && cafe.areaAr !== 'الرياض' ? '، وأهل <b>' + esc(cafe.areaAr) + '</b> يستاهلون يشوفونه كامل' : ''}.</span>
-      <span class="en">${social ? 'We follow <b>' + esc(social) + '</b> and love your taste. ' : ''}${esc(flavor.en)}.</span>
+      <span class="ar">في العادة، يُبنى المنيو بعد التعاقد — نحن عكسنا الترتيب. ${social ? 'تابعنا <b>' + esc(social) + '</b> منذ فترة، و' : ''}${esc(flavor.ar)}${cafe.areaAr && cafe.areaAr !== 'الرياض' ? '، وأهل <b>' + esc(cafe.areaAr) + '</b> يستحقون رؤيته كاملاً' : ''}.</span>
+      <span class="en">Menus are usually built after the contract — we reversed the order. ${social ? 'We\'ve followed <b>' + esc(social) + '</b> for a while, and ' : ''}${esc(flavor.en)}.</span>
     </p>
-    ${sig ? `<p class="sigline"><span class="ar">وسمعنا إن «${esc(sig[1])}» عندكم أسطورة — حطيناها أول صفحة في المنيو 😉</span><span class="en">And we hear your «${esc(sig[0])}» is legendary — it opens your menu 😉</span></p>` : ''}
+    ${sig ? `<p class="sigline"><span class="ar">وبلغنا أن «${esc(sig[1])}» من أطباقكم المميزة — جعلناه في صدارة المنيو.</span><span class="en">We also hear your «${esc(sig[0])}» is the house favorite — it opens the menu.</span></p>` : ''}
     <p>
-      <span class="ar">فبنينا لكم <b>منيو إلكتروني كامل بهويتكم وألوانكم</b> — جاهز الآن، قبل أي التزام وبدون أي مقابل للتجربة.</span>
-      <span class="en">So we built you a <b>complete e-menu in your identity & colors</b> — ready now, before any commitment.</span>
+      <span class="ar">بنى فريقنا لكم <b>منيو إلكترونياً كاملاً بهويتكم وألوانكم</b> — جاهز الآن، قبل أي التزام منكم وعلى حسابنا. إن نال إعجابكم فعّلناه بنفس اليوم، وإن لم يناسبكم يكفينا شرف اطلاعكم عليه.</span>
+      <span class="en">Our team built you a <b>complete e-menu in your identity & colors</b> — ready now, before any commitment, at our expense. If you like it, it goes live the same day. If not, we're honored you took a look.</span>
     </p>
     <ul class="benefits">
       <li><span class="tick">✦</span><span><span class="ar">عربي / إنجليزي بضغطة — ورابط واحد + QR للطاولة</span><span class="en">Arabic/English toggle — one link + table QR</span></span></li>

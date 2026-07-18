@@ -1,5 +1,5 @@
 window.BUILDS_STATE = {
- "generatedAt": 1784374513709,
+ "generatedAt": 1784375258103,
  "builds": [
   {
    "id": "b1",
@@ -110,6 +110,16 @@ window.BUILDS_STATE = {
     }
    ],
    "result": "FUSED: 948 menus live in ClientOS MENUS tab (1002 total brands) — status/type/search filters, gift+DM per cafe, native XP. App backed up + zipped."
+  },
+  {
+   "id": "b7",
+   "name": "STICKY-1000 ✍ — Made-to-Stick rewrite: every DM + gift letter, Arabic + English, businessman voice",
+   "status": "done",
+   "pct": 100,
+   "etaAt": null,
+   "note": "",
+   "startedAt": 1784374358102,
+   "result": "948 gift letters + 1896 DM messages rewritten Made-to-Stick style, Arabic + English"
   }
  ]
 };

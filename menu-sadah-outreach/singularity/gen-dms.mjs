@@ -2,6 +2,7 @@
 // Ranks all cafes best-first and writes one personalized Arabic DM per cafe.
 // Usage: node gen-dms.mjs
 import { readFileSync, writeFileSync } from 'node:fs';
+import { dmAr, dmEn } from '../lib/messages.mjs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -22,24 +23,16 @@ const score = (c) => {
 };
 const stars = (c) => (c.signature && c.signature.length) ? '⭐⭐⭐' : c.sigMention ? '⭐⭐' : c.social ? '⭐' : '·';
 
-const dmFor = (c) => {
-  const nameAr = c.nameAr || c.name;
-  const dish = (c.signature && c.signature.length) ? c.signature[0][1] : c.sigMention ? c.sigMention[1] : null;
-  const opener = c.social
-    ? `السلام عليكم 🌟 تابعنا حساب ${nameAr} وأعجبنا شغلكم!`
-    : `السلام عليكم 🌟 شفنا ${nameAr} وأعجبنا شغلكم!`;
-  const dishLine = dish ? ` حتى «${dish}» موجود 😉` : '';
-  return `${opener}\nجهّزنا لكم منيو إلكتروني تجريبي خاص فيكم — بالعربي والإنجليزي ومتوافق مع اشتراطات هيئة الغذاء والدواء.${dishLine}\nشوفوه هنا: ${SITE}/${c.slug}-welcome\nإذا عجبكم، نفعّله لكم بنفس اليوم 🤝`;
-};
-
 const sorted = queue.slice().sort((a, b) => score(b) - score(a) || (a.name > b.name ? 1 : -1));
 const rows = sorted.map((c, i) => {
   const dish = (c.signature && c.signature.length) ? c.signature[0][1] : c.sigMention ? c.sigMention[1] : null;
   return `<div class="row"><div class="top"><b>#${i + 1}</b> <span class="nm">${esc(c.name)}${c.tier === 'luxe' ? ' ✨' : ''}</span> <span class="ar">${esc(c.nameAr || '')}</span>
 <span class="meta">${esc(c.area || 'Riyadh')} · ${esc((c.type || '').replace(/_/g, ' '))} · ${stars(c)}${c.themeLabel ? ' · 🎨 ' + esc(c.themeLabel) : ''}${c.chainFlag ? ' · <span class="chain">⚠ chain — low priority</span>' : ''}</span></div>
 <div class="soc">${c.social ? '📱 ' + esc(c.social) + ' &nbsp; ' : ''}🔗 <a href="${SITE}/${c.slug}-welcome">/${c.slug}-welcome</a>${dish ? ' &nbsp; 🍽 «' + esc(dish) + '»' : ''}</div>
-<textarea readonly id="dm${i}">${esc(dmFor(c))}</textarea>
-<button onclick="copyDm(${i})">📋 Copy DM</button></div>`;
+<textarea readonly id="dmA${i}">${esc(dmAr(c))}</textarea>
+<button onclick="copyDm('A${i}')">📋 نسخ الرسالة العربية</button>
+<textarea readonly id="dmE${i}" dir="ltr" style="direction:ltr;margin-top:6px">${esc(dmEn(c))}</textarea>
+<button onclick="copyDm('E${i}')">📋 Copy English DM</button></div>`;
 }).join('\n');
 
 const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -60,7 +53,7 @@ button{margin-top:8px;background:var(--a);color:#1d1610;border:none;border-radiu
 <p class="sub">All ${sorted.length} cafes, best first: ⭐⭐⭐ real dishes+prices · ⭐⭐ real dish named in gift · ⭐ social known · ✨ luxe · 🎨 its own brand palette. PRIVATE — do not upload with the menus.</p>
 ${rows}
 </div><script>
-function copyDm(i){const t=document.getElementById('dm'+i);navigator.clipboard.writeText(t.value).then(()=>{const r=t.closest('.row');r.classList.add('done');r.querySelector('button').textContent='✓ Copied — go send it';});}
+function copyDm(i){const t=document.getElementById('dm'+i);navigator.clipboard.writeText(t.value).then(()=>{const r=t.closest('.row');r.classList.add('done');t.nextElementSibling.textContent='✓ Copied — go send it';});}
 </script></body></html>`;
 
 writeFileSync(join(DIR, 'dms.html'), html);
