@@ -131,7 +131,7 @@ ${baseCss(cafe.accent)}
 <button class="lang-toggle" id="langToggle">English</button>
 <div class="wrap">
   <header class="hero">
-    <div class="logo-badge">${cafe.name.trim()[0].toUpperCase()}</div>
+    <div class="logo-badge"><span class="ar">${(cafe.nameAr || cafe.name).trim()[0]}</span><span class="en">${cafe.name.trim()[0].toUpperCase()}</span></div>
     <h1><span class="ar">${cafe.nameAr}</span><span class="en">${cafe.name}</span></h1>
     <div class="tagline"><span class="ar">${cafe.taglineAr}</span><span class="en">${cafe.tagline}</span></div>
     <div class="area"><span class="ar">${cafe.areaAr === 'الرياض' ? 'الرياض' : `${cafe.areaAr} · الرياض`}</span><span class="en">${cafe.area === 'Riyadh' ? 'Riyadh' : `${cafe.area} · Riyadh`}</span></div>

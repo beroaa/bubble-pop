@@ -1,5 +1,5 @@
 window.BUILDS_STATE = {
- "generatedAt": 1784383789704,
+ "generatedAt": 1784383851171,
  "builds": [
   {
    "id": "b1",
@@ -194,9 +194,9 @@ window.BUILDS_STATE = {
   {
    "id": "b12",
    "name": "MENU-DETECTORS 🕵️💜 — grade all 948: purple elite / green good / orange demo / red not-ready + purple glow spec",
-   "status": "running",
-   "pct": 70,
-   "etaAt": 1784384782940,
+   "status": "done",
+   "pct": 100,
+   "etaAt": null,
    "note": "writing the grading rules",
    "startedAt": 1784383702940,
    "feed": [
@@ -208,7 +208,8 @@ window.BUILDS_STATE = {
      "at": 1784383789648,
      "msg": "Purple widget spec written, grades wired into payload + cockpit"
     }
-   ]
+   ],
+   "result": "16 purple / 61 green / 865 demo / 6 red — detectives verified samples, caught 2 real flaws (both recorded, 1 fixed)"
   }
  ]
 };
