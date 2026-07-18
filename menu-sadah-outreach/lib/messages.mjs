@@ -56,3 +56,31 @@ If you like it, we take it live the same day — and any price update takes minu
 Warm regards,
 The MENU SADAH team · menu-sadah.com`;
 }
+
+/* ---- follow-up touch 2 (day 2): soft value nudge ---- */
+export function nudgeAr(c) {
+  const nm = c.nameAr || c.name;
+  return `مساء الخير 🌱
+
+للتذكير فقط — منيو ${nm} التجريبي ما زال جاهزاً، وأضفنا عليه لمسات جديدة (صور حقيقية وهوية ألوان خاصة فيكم).
+
+نفس الرابط: https://menu-sadah.com/${c.slug}-welcome
+
+نسعد برأيكم ولو بكلمة.
+فريق منيو سادة`;
+}
+
+/* ---- follow-up touch 3 (day 5): SFDA card + dignified goodbye ---- */
+export function byeAr(c) {
+  const nm = c.nameAr || c.name;
+  return `السلام عليكم،
+
+آخر رسالة من طرفنا حتى لا نثقل عليكم — معلومة نافعة فقط:
+اشتراطات هيئة الغذاء والدواء أصبحت تشمل المنيو الرقمي (السعرات إلزامية منذ ٢٠١٩، والكافيين منذ يوليو ٢٠٢٥). أغلب المنيوهات في الرياض غير متوافقة حالياً.
+
+منيو ${nm} الذي جهزناه متوافق وجاهز، ويبقى الرابط لكم هدية سواء تواصلتم أو لا:
+https://menu-sadah.com/${c.slug}-welcome
+
+نتشرف بخدمتكم متى ما رغبتم.
+فريق منيو سادة · menu-sadah.com`;
+}

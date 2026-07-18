@@ -1,5 +1,5 @@
 window.BUILDS_STATE = {
- "generatedAt": 1784379085226,
+ "generatedAt": 1784379896606,
  "builds": [
   {
    "id": "b1",
@@ -144,6 +144,21 @@ window.BUILDS_STATE = {
     }
    ],
    "result": "All 948 gift links + menus brand-matched (924 unique shades), bilingual logo marks, triple-check passed clean"
+  },
+  {
+   "id": "b9",
+   "name": "NIGHT-OPS 🌙 — last 21 bare cafes researched + objection scripts + follow-up buttons in cockpit",
+   "status": "running",
+   "pct": 40,
+   "etaAt": 1784381510992,
+   "note": "deploying final recon squad",
+   "startedAt": 1784379830993,
+   "feed": [
+    {
+     "at": 1784379896543,
+     "msg": "Cockpit upgraded: Day-2 nudge + Day-5 goodbye buttons per cafe"
+    }
+   ]
   }
  ]
 };

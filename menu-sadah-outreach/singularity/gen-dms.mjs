@@ -2,7 +2,7 @@
 // Ranks all cafes best-first and writes one personalized Arabic DM per cafe.
 // Usage: node gen-dms.mjs
 import { readFileSync, writeFileSync } from 'node:fs';
-import { dmAr, dmEn } from '../lib/messages.mjs';
+import { dmAr, dmEn, nudgeAr, byeAr } from '../lib/messages.mjs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -32,7 +32,11 @@ const rows = sorted.map((c, i) => {
 <textarea readonly id="dmA${i}">${esc(dmAr(c))}</textarea>
 <button onclick="copyDm('A${i}')">📋 نسخ الرسالة العربية</button>
 <textarea readonly id="dmE${i}" dir="ltr" style="direction:ltr;margin-top:6px">${esc(dmEn(c))}</textarea>
-<button onclick="copyDm('E${i}')">📋 Copy English DM</button></div>`;
+<button onclick="copyDm('E${i}')">📋 Copy English DM</button>
+<textarea readonly id="dmN${i}" style="display:none">${esc(nudgeAr(c))}</textarea>
+<textarea readonly id="dmB${i}" style="display:none">${esc(byeAr(c))}</textarea>
+<button class="mini" onclick="copyDm('N${i}')">↻ Day-2 nudge</button>
+<button class="mini" onclick="copyDm('B${i}')">🕊 Day-5 goodbye</button></div>`;
 }).join('\n');
 
 const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -48,6 +52,7 @@ const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta n
 textarea{width:100%;min-height:96px;background:var(--bg);border:1px solid var(--b);border-radius:10px;color:var(--t2);padding:10px;font:12.5px/1.6 inherit;direction:rtl;resize:vertical}
 button{margin-top:8px;background:var(--a);color:#1d1610;border:none;border-radius:999px;padding:7px 18px;font-weight:700;cursor:pointer}
 .done button{background:#57b380}
+button.mini{background:transparent;border:1px solid var(--b);color:var(--t2);font-weight:600;margin-inline-start:6px}
 </style></head><body><div class="wrap">
 <h1>💬 DM <b>COCKPIT</b> — MENU SADAH</h1>
 <p class="sub">All ${sorted.length} cafes, best first: ⭐⭐⭐ real dishes+prices · ⭐⭐ real dish named in gift · ⭐ social known · ✨ luxe · 🎨 its own brand palette. PRIVATE — do not upload with the menus.</p>
