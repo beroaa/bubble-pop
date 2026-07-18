@@ -255,6 +255,15 @@ export function masterpieceMenuPage(cafe, brief) {
   const shotSrc = (i) => esc('../assets/photos/' + cafe.slug + '/' + shots[i % shots.length].file);
   const polish = polishFor(cafe.slug); // bespoke per-cafe touch (polish50)
 
+  /* SELLABLE PASS 1 — TAP-TO-ORDER: real phone → wa.me deep link per item;
+     no phone (the norm — CONTACT placeholder never counts) → premium demo chip
+     whose tooltip honestly sells the activation. */
+  const rawPhone = String(cafe.phone || '').replace(/\D/g, '');
+  const cafePhone = rawPhone && rawPhone !== '966500000000' ? rawPhone : null;
+  const orderChip = (en, ar) => cafePhone
+    ? `<a class="order-chip" href="https://wa.me/${cafePhone}?text=${encodeURIComponent('مرحباً ' + (cafe.nameAr || cafe.name) + '، أبغى أطلب: ' + ar)}" target="_blank" rel="noopener"><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></a>`
+    : `<button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>`;
+
   const roomFor = (cat) => (brief.rooms || []).find((r) => r.catEn && r.catEn.toLowerCase() === String(cat.cat).toLowerCase());
   const sigCat = cafe.menu.find((c) => /signature|توقيع/i.test(c.cat + c.catAr));
   const cats = cafe.menu.filter((c) => c !== sigCat);
@@ -304,9 +313,11 @@ export function masterpieceMenuPage(cafe, brief) {
       <span class="spine" aria-hidden="true">${esc(String(r ? r.titleEn : c.cat).toUpperCase())}</span>
       ${c.items.map(([en, ar, price]) => `
       <div class="item">
-        <div class="item-name"><span class="ar">${esc(ar)}</span><span class="en">${esc(en)}</span></div>
+        <div class="item-name"><span class="ar">${esc(ar)}</span><span class="en">${esc(en)}</span>
+          <span class="sfda"><span class="ar">— سعرة · — كافيين</span><span class="en">— kcal · — caffeine</span></span></div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>${price}<span class="sar"> ${SAR}</span></div>
+        ${orderChip(en, ar)}
       </div>`).join('')}
     </div>
   </section>${diaryNote}`;
@@ -469,6 +480,31 @@ export function masterpieceMenuPage(cafe, brief) {
     padding:13px 16px;font-size:13.5px;color:var(--text-2);text-align:center}
   .footer{margin-top:34px;text-align:center;color:var(--text-3);font-size:13px}
   .footer a{color:var(--accent);text-decoration:none}
+
+  /* ---- SELLABLE 1: tap-to-order chips (demo state is intentional & premium) ---- */
+  .order-chip{flex:0 0 auto;display:inline-flex;align-items:center;gap:4px;margin-inline-start:2px;
+    background:transparent;border:1.5px solid ${a}88;color:var(--sa);border-radius:999px;padding:3px 11px;
+    font-size:11px;font-weight:700;font-family:inherit;line-height:1.4;cursor:pointer;text-decoration:none;
+    white-space:nowrap;transition:transform .16s,box-shadow .16s}
+  .order-chip:hover{transform:translateY(-1px);box-shadow:0 0 12px ${a}33}
+  .order-chip.demo{border-style:dashed;opacity:.8}
+  .acttip{position:fixed;z-index:60;max-width:min(330px,86vw);background:${P.bg1}f5;backdrop-filter:blur(10px);
+    color:var(--text-1);border:1px solid var(--accent);border-radius:14px;padding:10px 16px;font-size:13px;
+    line-height:1.5;text-align:center;box-shadow:0 0 0 4px ${a}14,0 12px 30px ${a}40;
+    opacity:0;pointer-events:none;transform:translate(-50%,6px);transition:opacity .25s,transform .25s}
+  .acttip.show{opacity:1;transform:translate(-50%,0)}
+
+  /* ---- SELLABLE 2: table-aware QR — waiter bell (?t=N wakes it via JS) ---- */
+  .waiter-btn{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:30;display:inline-flex;
+    align-items:center;gap:7px;background:${P.bg1}e6;backdrop-filter:blur(10px);border:1.5px solid var(--accent);
+    color:var(--accent);border-radius:999px;padding:11px 20px;font-size:14px;font-weight:700;font-family:inherit;
+    cursor:pointer;text-decoration:none;box-shadow:0 0 0 4px ${a}12,0 8px 22px ${a}40}
+  .waiter-btn[hidden]{display:none}
+
+  /* ---- SELLABLE 4: SFDA calorie layer — honest placeholders, zero invented numbers ---- */
+  .sfda{display:block;margin-top:2px;font-size:10.5px;letter-spacing:.05em;color:var(--text-3);font-variant-numeric:tabular-nums}
+  .sfda-legend{margin-top:10px;text-align:center;font-size:12px;color:var(--text-3);line-height:1.6}
+  .print-note{display:none}
   ${wa ? `.wa{position:fixed;bottom:18px;inset-inline-start:18px;z-index:30;background:#1faa53;color:#fff;border-radius:999px;
     padding:12px 20px;text-decoration:none;font-weight:700;font-size:14px;box-shadow:0 8px 22px #1faa5366}` : ''}
 
@@ -539,6 +575,39 @@ ${shots.length ? `
     [dir="rtl"] .inkline{transform:scaleX(-1)!important}
     .skydial:hover{transform:none!important}
   }
+
+  /* ---- SELLABLE 3: PRINT-PERFECT MODE — same URL, Cmd+P, one clean A4 paper menu ---- */
+  @media print{
+    @page{margin:12mm}
+    *{animation:none!important;transition:none!important;box-shadow:none!important;text-shadow:none!important;
+      backdrop-filter:none!important;filter:none!important}
+    html,body{background:#fff!important;background-image:none!important;color:#000!important}
+    body::before,body::after{display:none!important}
+    .mote,.orb,.scenebg,.skydial,.order-chip,.waiter-btn,.lang-toggle,.wa,.bigmark,.chips,.acttip,.sep,
+    .cat-art,.sig-art,.brandshots,.diary,.spine,.pdot{display:none!important}
+    .wrap{max-width:100%;padding:0}
+    .hero{min-height:0!important;padding:0 0 8px!important;display:block!important}
+    .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
+    h1{color:#000!important;background:none!important;-webkit-text-fill-color:#000!important;font-size:30px!important}
+    .medal{width:70px!important;height:70px!important;margin-bottom:8px;border-color:#000!important;background:#fff!important}
+    .medal span{color:#000!important;font-size:32px!important}
+    .medal::after{border-color:#00000055!important}
+    .greet,.world,.world b,.heroline{color:#000!important}
+    .badge{background:#fff!important;border-color:#000!important;color:#000!important}
+    .sig,.items,.sig-card,.demo-note{background:#fff!important;border:1px solid #000!important;color:#000!important;border-radius:8px!important}
+    .sig-card::before,.sig-card::after{display:none!important}
+    .sig-ribbon,.room-h2,.room-eyebrow{color:#000!important}
+    .stamp{border-color:#000!important;color:#000!important;transform:none!important}
+    .item{padding:9px 0!important;border-bottom:1px solid #00000026!important}
+    .item-name,.footer,.footer a,.sfda,.sfda-legend,.demo-note{color:#000!important}
+    .dots{border-bottom-color:#00000080!important}
+    .price{color:#000!important}
+    .inkline path{stroke:#000!important;stroke-dashoffset:0!important}
+    .cat,.sig{break-inside:avoid;margin-top:18px!important}
+    .cat-head{margin-bottom:8px!important}
+    .print-note{display:block!important;margin-top:16px;text-align:center;font-size:12px;color:#000!important;
+      border-top:1px solid #000;padding-top:10px}
+  }
 </style>
 </head>
 <body>
@@ -568,6 +637,14 @@ ${shots.length ? `
     <span class="ar">هذه نسخة تجريبية أعدّها فريق منيو سادة خصيصاً لكم — الأصناف والأسعار والصور قابلة للتعديل خلال دقائق.</span>
     <span class="en">A demo lovingly prepared by MENU SADAH for you — items, prices & photos update in minutes.</span>
   </div>
+  <div class="sfda-legend">
+    <span class="ar">خانات السعرات والكافيين جاهزة — تتفعّل ببياناتكم خلال دقائق (متوافق مع اشتراطات هيئة الغذاء والدواء).</span>
+    <span class="en">Calorie & caffeine slots are built in — they activate with your data in minutes (SFDA-compliant).</span>
+  </div>
+  <div class="print-note">
+    <span class="ar">📱 النسخة الرقمية الحية: امسحوا كود QR على الطاولة — menu-sadah.com/${esc(cafe.slug)}</span>
+    <span class="en">📱 Live digital menu: scan the table QR — menu-sadah.com/${esc(cafe.slug)}</span>
+  </div>
   <div class="footer">
     ${cafe.social && /^@/.test(String(cafe.social)) ? `<div style="margin-bottom:6px;color:var(--text-2)"><span class="ar">تابعوا ${esc(cafe.nameAr)}: <b style="color:var(--accent)">${esc(cafe.social)}</b></span><span class="en">Follow ${esc(cafe.name)}: <b style="color:var(--accent)">${esc(cafe.social)}</b></span></div>` : ''}
     <span class="ar">تجربة من <a href="${CONTACT.site}">منيو سادة — MENU SADAH</a></span>
@@ -575,6 +652,10 @@ ${shots.length ? `
   </div>
 </div>
 ${wa ? `<a class="wa" href="${wa}"><span class="ar">💬 اطلب منيو مثله</span><span class="en">💬 Get a menu like this</span></a>` : ''}
+${cafePhone
+    ? `<a class="waiter-btn" id="waiterBtn" href="https://wa.me/${cafePhone}" target="_blank" rel="noopener" hidden>🔔 <span class="ar">نادِ النادل</span><span class="en">Call the waiter</span></a>`
+    : `<button class="waiter-btn" id="waiterBtn" type="button" data-tip hidden>🔔 <span class="ar">نادِ النادل</span><span class="en">Call the waiter</span></button>`}
+<div class="acttip" id="actTip" role="status" aria-live="polite"><span class="ar">يتفعّل مع رقم واتساب المقهى ✦</span><span class="en">✦ Activates with the cafe's WhatsApp</span></div>
 <button class="skydial" id="skyDial" aria-label="تبديل السماء: نهار / ليل — Toggle sky: day / night" aria-pressed="false">☀</button>
 <script>
   const root=document.documentElement;
@@ -595,6 +676,36 @@ ${wa ? `<a class="wa" href="${wa}"><span class="ar">💬 اطلب منيو مث�
     const el=document.querySelector('.greet');if(!el)return;
     const ar=el.querySelector('.ar'),en=el.querySelector('.en');
     if(ar)ar.textContent=g[0]+' ✦';if(en)en.textContent=g[1]+' ✦';
+  })();
+  // table-greet JS — TABLE-AWARE QR (?t=N): the doorway greets the table, the waiter bell wakes up
+  (function(){
+    const q=new URLSearchParams(location.search).get('t');
+    const n=q&&/^\\d{1,3}$/.test(q)?parseInt(q,10):0;
+    if(!n)return;
+    const arN=String(n).replace(/\\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[+d]);
+    const g=document.querySelector('.greet');
+    if(g){g.classList.add('table-greet');
+      const ar=g.querySelector('.ar'),en=g.querySelector('.en');
+      if(ar)ar.textContent='طاولة '+arN+' — حياكم ✦';
+      if(en)en.textContent='Table '+n+' — welcome ✦';}
+    const w=document.getElementById('waiterBtn');
+    if(w){w.hidden=false;${cafePhone ? `
+      w.href='https://wa.me/${cafePhone}?text='+encodeURIComponent('🔔 طاولة '+n+' تحتاج النادل — '+${JSON.stringify(cafe.nameAr || cafe.name)});` : ''}}
+    ${cafePhone ? `document.querySelectorAll('a.order-chip').forEach(c=>{c.href+=encodeURIComponent(' (طاولة '+n+')');});` : ''}
+  })();
+  // activation tooltip: demo order chips + demo waiter bell sell the WhatsApp activation, honestly
+  (function(){
+    const tip=document.getElementById('actTip');if(!tip)return;let tmr;
+    document.addEventListener('click',(ev)=>{
+      const b=ev.target.closest('[data-tip]');if(!b)return;
+      const r=b.getBoundingClientRect();
+      tip.classList.add('show');
+      const half=(tip.offsetWidth/2)||150;
+      tip.style.left=Math.min(Math.max(r.left+r.width/2,half+8),innerWidth-half-8)+'px';
+      const above=r.top-tip.offsetHeight-10;
+      tip.style.top=(above>8?above:r.bottom+10)+'px';
+      clearTimeout(tmr);tmr=setTimeout(()=>tip.classList.remove('show'),2600);
+    });
   })();
   // hero entrance: AR words glide in whole (letter joining stays intact),
   // EN letters land one by one with a tiny deterministic ink-tilt each
@@ -674,6 +785,8 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
   const diary = (brief.diaryAr || [])[0];
   const waMsg = encodeURIComponent('مرحباً، معكم ' + cafe.name + ' — شفنا المنيو التجريبي وحابين نكمل');
   const wa = CONTACT.whatsapp && CONTACT.whatsapp !== '966500000000' ? `https://wa.me/${CONTACT.whatsapp}?text=${waMsg}` : null;
+  // SELLABLE 5 — THE ROYAL OFFER: wa.me when CONTACT.whatsapp is real, honest demo tooltip otherwise
+  const waRoyal = wa ? `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent('مرحباً، معكم ' + cafe.name + ' — نبغى نفعّل التجربة الملكية اليوم 👑')}` : null;
   const initAr = esc((cafe.nameAr || cafe.name).trim()[0]), initEn = esc(cafe.name.trim()[0].toUpperCase());
   const inkframe = `border:2px solid ${ink};border-radius:255px 18px 225px 18px/18px 225px 18px 255px;position:relative`;
   const B = (ar, en) => `<span class="ar">${ar}</span><span class="en">${en}</span>`;
@@ -785,6 +898,22 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
   .diary{position:relative;margin:34px auto 0;max-width:440px;background:var(--card);border:2px solid var(--ink);
     border-radius:4px;padding:18px 20px 14px;text-align:center;font-family:"Aref Ruqaa",cursive;font-size:17px;transform:rotate(-1.6deg);box-shadow:4px 4px 0 ${ink}22}
   .diary .tape{position:absolute;top:-10px;left:50%;transform:translateX(-50%) rotate(-2deg);width:92px;height:22px;background:${gold}44;border-radius:2px}
+  /* ---- royal offer section (founding-20 — a real cap Ibrahim honors, zero fake countdowns) ---- */
+  .royal-offer{position:relative;background:var(--card);border:2.5px solid var(--ink);border-radius:26px 12px 26px 12px;
+    padding:36px 24px 28px;box-shadow:6px 6px 0 ${gold}88}
+  .royal-offer .rbadge{position:absolute;top:-15px;inset-inline-start:22px;background:var(--gold);color:#fff;
+    border:2px solid var(--ink);border-radius:999px;padding:6px 16px;font-size:13px;font-weight:800;transform:rotate(-2deg)}
+  .rlist{list-style:none;margin-top:18px;display:grid;gap:9px}
+  .rlist li{position:relative;padding-inline-start:28px;font-size:15px;font-weight:600}
+  .rlist li::before{content:"✦";position:absolute;inset-inline-start:4px;color:var(--gold);font-weight:800}
+  .rlist li:first-child{font-weight:800}
+  .rlist li:first-child::before{content:"👑";inset-inline-start:0}
+  button.cta{font-family:inherit;cursor:pointer}
+  .acttip{position:fixed;z-index:60;max-width:min(330px,86vw);background:var(--card);color:var(--ink);
+    border:2px solid var(--ink);border-radius:14px 6px 14px 6px;padding:10px 16px;font-size:13.5px;font-weight:600;
+    text-align:center;box-shadow:3px 3px 0 var(--ink);opacity:0;pointer-events:none;
+    transform:translate(-50%,6px);transition:opacity .25s,transform .25s}
+  .acttip.show{opacity:1;transform:translate(-50%,0)}
   .reply{text-align:center;margin-top:48px}
   .reply .hand{font-size:clamp(28px,7vw,38px);color:var(--rose);transform:rotate(-1deg)}
   .foot{margin-top:44px;text-align:center;font-size:12.5px;color:var(--ochre);letter-spacing:.08em}
@@ -833,6 +962,26 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
     <div class="sigline hand">${B('إبراهيم — منيو سادة', 'Ibrahim — Menu Sadah')}</div>
   </div>
 
+  <!-- royal offer section — SELLABLE 5: founding-20 scarcity is REAL (Ibrahim honors the cap; no countdown timers, ever) -->
+  <div class="sec royal-offer rv">
+    <div class="rbadge">${B('👑 العرض الملكي', '👑 The Founding Offer')}</div>
+    <div class="h2">${B('العرض <b>الملكي</b> ✦', 'The <b>Founding</b> Offer ✦')}</div>
+    <div class="sub">${B('أول ٢٠ مقهى مؤسس في الرياض — والقائمة تقف عند ٢٠، كلمة من إبراهيم. بدون عدّادات، بدون استعجال مصطنع.', "The first 20 founding cafés of Riyadh — the list closes at 20, Ibrahim's word. No countdown clocks, no fake urgency.")}</div>
+    <ul class="rlist">
+      <li>${B('شهر مجاني كامل → بعدها ٤٩$ شهرياً', 'One full month free → then $49/mo')}</li>
+      <li>${B('تعديلات بلا حدود', 'Unlimited edits')}</li>
+      <li>${B('أزرار طلب واتساب', 'WhatsApp order buttons')}</li>
+      <li>${B('QR لكل طاولة', 'A QR code for every table')}</li>
+      <li>${B('نسخة طباعة A4', 'A4 print edition')}</li>
+      <li>${B('خانات السعرات والكافيين (SFDA)', 'SFDA calorie & caffeine slots')}</li>
+      <li>${B('تقرير زيارات شهري', 'Monthly visits report')}</li>
+      <li>${B('أولوية دعم بنفس اليوم', 'Same-day priority support')}</li>
+    </ul>
+    <div style="text-align:center;margin-top:22px">${waRoyal
+      ? `<a class="cta gold" href="${waRoyal}">${B('فعّلوا تجربتكم الملكية — بنفس اليوم', 'Activate your royal experience — same day')}</a>`
+      : `<button class="cta gold" type="button" data-tip>${B('فعّلوا تجربتكم الملكية — بنفس اليوم', 'Activate your royal experience — same day')}</button>`}</div>
+  </div>
+
   <div class="freecard rv">
     <div class="giftbadge">${B('هدية من القلب', 'A gift from the heart')}</div>
     <div class="lbl">${B('المنيو + أول شهر دعم كامل', 'The menu + first month of support')}</div>
@@ -867,7 +1016,7 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
     <div class="h2">${B('كل شيء <b>جاهز</b> لكم', 'Everything is <b>ready</b> for you')}</div>
     <div class="agrid">
       <a class="atile" href="../${cafe.slug}/"><div class="ic">📱</div><b>${B('المنيو الحي', 'Live menu')}</b><span class="go">${B('افتحوه ←', 'Open →')}</span></a>
-      <div class="atile"><div class="ic">🖨</div><b>${B('كود QR للطاولات', 'Table QR code')}</b><span class="go">${B('نجهزه لكم يوم التفعيل', 'Printed & ready on activation')}</span></div>
+      <div class="atile"><div class="ic">🖨</div><b>${B('كود QR للطاولات', 'Table QR codes')}</b><span class="go">${B('كود خاص لكل طاولة (١–١٢) والمنيو يرحّب بها باسمها — نطبعها يوم التفعيل', 'A personal code per table (1–12), the menu greets each by name — printed on activation')}</span></div>
     </div>
     <div class="chips2">
       <span class="chip2">${B('عربي + إنجليزي', 'Arabic + English')}</span>
@@ -888,6 +1037,7 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
   </div>
   <div class="foot">${B('منيو سادة · منيوهات جميلة لبيوت نحبها — <a href="' + CONTACT.site + '">menu-sadah.com</a>', 'MENU SADAH · beautiful menus for houses we admire — <a href="' + CONTACT.site + '">menu-sadah.com</a>')}</div>
 </div>
+<div class="acttip" id="actTip" role="status" aria-live="polite"><span class="ar">يتفعّل مع رقم واتساب منيو سادة ✦ رد على رسالتنا ونمشي</span><span class="en">✦ Activates over MENU SADAH's WhatsApp — reply to our message and we roll</span></div>
 <script>
   const root=document.documentElement;
   const saved=localStorage.getItem('ms-lang')||'ar';
@@ -898,6 +1048,20 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
   const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.06});
   document.querySelectorAll('.rv').forEach(el=>io.observe(el));
   setTimeout(()=>document.querySelectorAll('.rv:not(.in)').forEach(el=>{const r=el.getBoundingClientRect();if(r.top<innerHeight)el.classList.add('in');}),1400);
+  // activation tooltip — the royal CTA's demo state sells honestly instead of dead-linking
+  (function(){
+    const tip=document.getElementById('actTip');if(!tip)return;let tmr;
+    document.addEventListener('click',(ev)=>{
+      const b=ev.target.closest('[data-tip]');if(!b)return;
+      const r=b.getBoundingClientRect();
+      tip.classList.add('show');
+      const half=(tip.offsetWidth/2)||150;
+      tip.style.left=Math.min(Math.max(r.left+r.width/2,half+8),innerWidth-half-8)+'px';
+      const above=r.top-tip.offsetHeight-10;
+      tip.style.top=(above>8?above:r.bottom+10)+'px';
+      clearTimeout(tmr);tmr=setTimeout(()=>tip.classList.remove('show'),2600);
+    });
+  })();
 </script>
 </body>
 </html>`;

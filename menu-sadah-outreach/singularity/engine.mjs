@@ -106,6 +106,7 @@ export function makeCafe(entry) {
     area: entry.area || 'Riyadh',
     areaAr: entry.areaAr || 'الرياض',
     social: entry.social || 'Instagram',
+    phone: entry.phone || '', // queue.json `phone` (rare) — powers tap-to-order; empty = demo chips
     accent: theme.accentBright || theme.accent,
     tagline: entry.tagline || arch.tagline,
     taglineAr: entry.taglineAr || arch.taglineAr,
