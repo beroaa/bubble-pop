@@ -1,5 +1,5 @@
 window.BUILDS_STATE = {
- "generatedAt": 1784384796831,
+ "generatedAt": 1784385008560,
  "builds": [
   {
    "id": "b1",
@@ -177,6 +177,10 @@ window.BUILDS_STATE = {
     {
      "at": 1784382989151,
      "msg": "Safety net built: wrong links now auto-forward to the right page"
+    },
+    {
+     "at": 1784385008511,
+     "msg": "Mac ✓ exact payload URLs live (0 constructed) + dist redeployed; higanah-send 301 verified"
     }
    ],
    "result": "2844 redirect rules pushed — app link fix + redeploy handed to the Mac"
@@ -189,7 +193,13 @@ window.BUILDS_STATE = {
    "etaAt": null,
    "note": "writing the card blueprint",
    "startedAt": 1784383094683,
-   "result": "Card blueprint written + pushed — surgery line handed to the Mac"
+   "result": "Card blueprint written + pushed — surgery line handed to the Mac",
+   "feed": [
+    {
+     "at": 1784385008536,
+     "msg": "Mac ✓ 3-per-row bubbly cards + smart stage-button + motion, verified in Chrome"
+    }
+   ]
   },
   {
    "id": "b12",
@@ -207,6 +217,10 @@ window.BUILDS_STATE = {
     {
      "at": 1784383789648,
      "msg": "Purple widget spec written, grades wired into payload + cockpit"
+    },
+    {
+     "at": 1784385008560,
+     "msg": "Mac ✓ 4 grades + purple ELITE glow; rail exact 16/61/865/6; 6 dups removed (996 live)"
     }
    ],
    "result": "16 purple / 61 green / 865 demo / 6 red — detectives verified samples, caught 2 real flaws (both recorded, 1 fixed)"
