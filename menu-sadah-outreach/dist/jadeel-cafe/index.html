@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-lang="ar">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#161210">
+<title>Jadeel Cafe — Menu · MENU SADAH</title>
+<style>
+
+  :root{
+    --bg-0:#161210;--bg-1:#1f1915;--bg-2:#2a221b;--bg-3:#372c22;
+    --border-1:#35291f;--border-2:#55422f;
+    --text-1:#f5efe6;--text-2:#c6b9a6;--text-3:#8b7d6a;
+    --accent:#e3b23c;--accent-soft:#e3b23c24;--on-accent:#1d1610;
+    --radius-md:12px;--radius-lg:16px;--radius-xl:24px;--radius-full:999px;
+    --shadow-2:0 4px 12px #00000073,0 12px 32px #00000059;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Tahoma,Roboto,Arial,sans-serif;
+    background:var(--bg-0);color:var(--text-1);font-size:16px;line-height:1.5;
+    -webkit-font-smoothing:antialiased;min-height:100svh;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:20px 16px 96px}
+  .pill{display:inline-block;background:var(--accent-soft);color:var(--accent);
+    border:1px solid var(--accent);border-radius:var(--radius-full);
+    padding:4px 14px;font-size:12.5px;letter-spacing:.08em}
+  .btn{display:block;text-align:center;text-decoration:none;background:var(--accent);
+    color:var(--on-accent);font-weight:700;font-size:17px;border-radius:var(--radius-lg);
+    padding:16px 20px;box-shadow:var(--shadow-2)}
+  .btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent);box-shadow:none}
+  .footer{margin-top:48px;text-align:center;color:var(--text-3);font-size:13px}
+  .footer a{color:var(--accent);text-decoration:none}
+  .lang-toggle{position:fixed;top:14px;inset-inline-end:14px;z-index:10;
+    background:var(--bg-2);border:1px solid var(--border-2);color:var(--text-1);
+    border-radius:var(--radius-full);padding:8px 16px;font-size:14px;cursor:pointer}
+  [data-lang="ar"] .en,[data-lang="en"] .ar{display:none}
+
+  .hero{padding:56px 0 20px;text-align:center}
+  .logo-badge{width:84px;height:84px;margin:0 auto 16px;border-radius:var(--radius-full);
+    background:radial-gradient(circle at 30% 30%,#e3b23c59,#e3b23c26 60%,transparent);
+    border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;
+    font-size:34px;font-weight:800;color:var(--accent)}
+  h1{font-size:28px;letter-spacing:-.02em}
+  .tagline{color:var(--text-2);margin-top:6px;font-size:15px}
+  .area{color:var(--text-3);font-size:13px;margin-top:4px}
+  .chips{display:flex;gap:8px;overflow-x:auto;padding:18px 0 6px;position:sticky;top:0;
+    background:linear-gradient(#161210 75%,transparent);scrollbar-width:none}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{flex:0 0 auto;text-decoration:none;color:var(--text-2);background:var(--bg-1);
+    border:1px solid var(--border-1);border-radius:var(--radius-full);padding:8px 16px;font-size:14px}
+  .chip:active{background:var(--accent-soft);color:var(--accent)}
+  .cat{margin-top:28px}
+  .cat h2{color:var(--accent);font-size:15px;letter-spacing:.08em;margin-bottom:12px}
+  .items{background:var(--bg-1);border:1px solid var(--border-1);border-radius:var(--radius-lg);
+    padding:6px 16px;box-shadow:var(--shadow-2)}
+  .item{display:flex;align-items:baseline;gap:10px;padding:14px 0;border-bottom:1px solid var(--border-1)}
+  .item:last-child{border-bottom:none}
+  .item-name{font-size:16px}
+  .dots{flex:1;border-bottom:1px dotted var(--border-2);transform:translateY(-4px)}
+  .price{color:var(--accent);font-weight:700;white-space:nowrap}
+  .sar{font-size:12px}
+  .demo-note{margin-top:28px;background:var(--accent-soft);border:1px dashed var(--accent);
+    border-radius:var(--radius-md);padding:12px 16px;font-size:13.5px;color:var(--text-2);text-align:center}
+</style>
+</head>
+<body>
+<button class="lang-toggle" id="langToggle">English</button>
+<div class="wrap">
+  <header class="hero">
+    <div class="logo-badge">J</div>
+    <h1><span class="ar">مقهى جديل</span><span class="en">Jadeel Cafe</span></h1>
+    <div class="tagline"><span class="ar">قهوة مختصة تُحضّر بعناية</span><span class="en">Specialty coffee, brewed with care</span></div>
+    <div class="area"><span class="ar">الرياض</span><span class="en">Al-Suwaidi · Riyadh</span></div>
+  </header>
+  <nav class="chips"><a class="chip" href="#cat-0"><span class="ar">البار الحار</span><span class="en">Espresso Bar</span></a><a class="chip" href="#cat-1"><span class="ar">المقطّرة</span><span class="en">Filter</span></a><a class="chip" href="#cat-2"><span class="ar">البار البارد</span><span class="en">Cold Bar</span></a><a class="chip" href="#cat-3"><span class="ar">اللقيمات</span><span class="en">Bites</span></a></nav>
+  
+      <section class="cat" id="cat-0">
+        <h2><span class="ar">البار الحار</span><span class="en">Espresso Bar</span></h2>
+        <div class="items">
+          
+          <div class="item">
+            <div class="item-name"><span class="ar">إسبريسو</span><span class="en">Espresso</span></div>
+            <div class="dots"></div>
+            <div class="price">12 <span class="sar">﷼</span></div>
+          </div>
+          <div class="item">
+            <div class="item-name"><span class="ar">كورتادو</span><span class="en">Cortado</span></div>
+            <div class="dots"></div>
+            <div class="price">15 <span class="sar">﷼</span></div>
+          </div>
+          <div class="item">
+            <div class="item-name"><span class="ar">فلات وايت</span><span class="en">Flat White</span></div>
+            <div class="dots"></div>
+            <div class="price">17 <span class="sar">﷼</span></div>
+          </div>
+          <div class="item">
+            <div class="item-name"><span class="ar">سبانيش لاتيه</span><span class="en">Spanish Latte</span></div>
+            <div class="dots"></div>
+            <div class="price">20 <span class="sar">﷼</span></div>
+          </div>
+        </div>
+      </section>
+      <section class="cat" id="cat-1">
+        <h2><span class="ar">المقطّرة</span><span class="en">Filter</span></h2>
+        <div class="items">
+          
+          <div class="item">
+            <div class="item-name"><span class="ar">في60 — محصول فردي</span><span class="en">V60 — Single Origin</span></div>
+            <div class="dots"></div>
+            <div class="price">24 <span class="sar">﷼</span></div>
+          </div>
+          <div class="item">
+            <div class="item-name"><span class="ar">مقطّرة باردة</span><span class="en">Iced Drip</span></div>
+            <div class="dots"></div>
+            <div class="price">22 <span class="sar">﷼</span></div>
+          </div>
+        </div>
+      </section>
+      <section class="cat" id="cat-2">
+        <h2><span class="ar">البار البارد</span><span class="en">Cold Bar</span></h2>
+        <div class="items">
+          
+          <div class="item">
+            <div class="item-name"><span class="ar">لاتيه بارد</span><span class="en">Iced Latte</span></div>
+            <div class="dots"></div>
+            <div class="price">18 <span class="sar">﷼</span></div>
+          </div>
+          <div class="item">
+            <div class="item-name"><span class="ar">سبانيش لاتيه بارد</span><span class="en">Iced Spanish Latte</span></div>
+            <div class="dots"></div>
+            <div class="price">21 <span class="sar">﷼</span></div>
+          </div>
+          <div class="item">
+            <div class="item-name"><span class="ar">كولد برو</span><span class="en">Cold Brew</span></div>
+            <div class="dots"></div>
+            <div class="price">19 <span class="sar">﷼</span></div>
+          </div>
+        </div>
+      </section>
+      <section class="cat" id="cat-3">
+        <h2><span class="ar">اللقيمات</span><span class="en">Bites</span></h2>
+        <div class="items">
+          
+          <div class="item">
+            <div class="item-name"><span class="ar">كرواسون زبدة</span><span class="en">Butter Croissant</span></div>
+            <div class="dots"></div>
+            <div class="price">12 <span class="sar">﷼</span></div>
+          </div>
+          <div class="item">
+            <div class="item-name"><span class="ar">كوكيز شوكولاتة</span><span class="en">Chocolate Cookie</span></div>
+            <div class="dots"></div>
+            <div class="price">10 <span class="sar">﷼</span></div>
+          </div>
+        </div>
+      </section>
+  <div class="demo-note">
+    <span class="ar">هذه نسخة تجريبية أعدّها فريق منيو سادة — الأصناف والأسعار قابلة للتعديل خلال دقائق.</span>
+    <span class="en">This is a demo prepared by MENU SADAH — items & prices can be updated in minutes.</span>
+  </div>
+  
+  <div class="footer">
+    <span class="ar">تجربة من <a href="https://menu-sadah.com">منيو سادة — MENU SADAH</a></span>
+    <span class="en">Powered by <a href="https://menu-sadah.com">MENU SADAH</a></span>
+  </div>
+</div>
+
+<script>
+  const root=document.documentElement;
+  const saved=localStorage.getItem('ms-lang')||'ar';
+  setLang(saved);
+  function setLang(l){
+    root.setAttribute('data-lang',l);
+    root.setAttribute('lang',l);
+    root.setAttribute('dir',l==='ar'?'rtl':'ltr');
+    const t=document.getElementById('langToggle');
+    if(t)t.textContent=l==='ar'?'English':'العربية';
+    localStorage.setItem('ms-lang',l);
+  }
+  document.getElementById('langToggle').addEventListener('click',()=>{
+    setLang(root.getAttribute('data-lang')==='ar'?'en':'ar');
+  });
+</script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 window.BUILDS_STATE = {
- "generatedAt": 1784367003397,
+ "generatedAt": 1784367926658,
  "builds": [
   {
    "id": "b1",
@@ -20,6 +20,16 @@ window.BUILDS_STATE = {
    "note": "luxe welcome template + rebuild 100",
    "startedAt": 1784366203874,
    "result": "100 cinematic personal gift pages live"
+  },
+  {
+   "id": "b3",
+   "name": "TWIN-100 — bespoke brand identity per cafe: unique palette + Pixar glow, 100 menus + 100 gifts",
+   "status": "done",
+   "pct": 100,
+   "etaAt": null,
+   "note": "948 rebuilt themed — visual verification next",
+   "startedAt": 1784367452068,
+   "result": "100 luxe menus re-skinned: 100 unique brand palettes (name-DNA + type-DNA), Pixar glow, gifts re-themed to match"
   }
  ]
 };

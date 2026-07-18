@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-lang="ar">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#161210">
+<title>Ouia Coffee × MENU SADAH</title>
+<style>
+
+  :root{
+    --bg-0:#161210;--bg-1:#1f1915;--bg-2:#2a221b;--bg-3:#372c22;
+    --border-1:#35291f;--border-2:#55422f;
+    --text-1:#f5efe6;--text-2:#c6b9a6;--text-3:#8b7d6a;
+    --accent:#e3b23c;--accent-soft:#e3b23c24;--on-accent:#1d1610;
+    --radius-md:12px;--radius-lg:16px;--radius-xl:24px;--radius-full:999px;
+    --shadow-2:0 4px 12px #00000073,0 12px 32px #00000059;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Tahoma,Roboto,Arial,sans-serif;
+    background:var(--bg-0);color:var(--text-1);font-size:16px;line-height:1.5;
+    -webkit-font-smoothing:antialiased;min-height:100svh;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:20px 16px 96px}
+  .pill{display:inline-block;background:var(--accent-soft);color:var(--accent);
+    border:1px solid var(--accent);border-radius:var(--radius-full);
+    padding:4px 14px;font-size:12.5px;letter-spacing:.08em}
+  .btn{display:block;text-align:center;text-decoration:none;background:var(--accent);
+    color:var(--on-accent);font-weight:700;font-size:17px;border-radius:var(--radius-lg);
+    padding:16px 20px;box-shadow:var(--shadow-2)}
+  .btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent);box-shadow:none}
+  .footer{margin-top:48px;text-align:center;color:var(--text-3);font-size:13px}
+  .footer a{color:var(--accent);text-decoration:none}
+  .lang-toggle{position:fixed;top:14px;inset-inline-end:14px;z-index:10;
+    background:var(--bg-2);border:1px solid var(--border-2);color:var(--text-1);
+    border-radius:var(--radius-full);padding:8px 16px;font-size:14px;cursor:pointer}
+  [data-lang="ar"] .en,[data-lang="en"] .ar{display:none}
+
+  .hero{padding:72px 0 28px;text-align:center}
+  .x{color:var(--text-3);font-size:20px;margin:0 10px}
+  h1{font-size:26px;line-height:1.3;margin-top:18px}
+  h1 b{color:var(--accent)}
+  .sub{color:var(--text-2);margin-top:12px;font-size:16px}
+  .card{background:var(--bg-1);border:1px solid var(--border-1);border-radius:var(--radius-xl);
+    padding:24px 20px;margin-top:28px;box-shadow:var(--shadow-2)}
+  .benefits{list-style:none;margin-top:4px}
+  .benefits li{display:flex;gap:12px;align-items:flex-start;padding:10px 0;color:var(--text-2);font-size:15px}
+  .benefits .tick{color:var(--accent);font-weight:800;flex:0 0 auto}
+  .cta-stack{display:grid;gap:12px;margin-top:28px}
+  .small{margin-top:14px;text-align:center;color:var(--text-3);font-size:13px}
+</style>
+</head>
+<body>
+<button class="lang-toggle" id="langToggle">English</button>
+<div class="wrap">
+  <header class="hero">
+    <span class="pill">منيو سادة · MENU SADAH</span>
+    <h1>
+      <span class="ar">أهلاً <b>قهوة أويا</b> 👋<br>جهّزنا لكم منيو إلكتروني خاص فيكم</span>
+      <span class="en">Hello <b>Ouia Coffee</b> 👋<br>We built your e-menu — it's ready</span>
+    </h1>
+    <p class="sub">
+      <span class="ar">تابعنا حسابكم وأعجبنا شغلكم في الرياض، فصمّمنا لكم نسخة تجريبية كاملة قبل أي التزام.</span>
+      <span class="en">We loved what you're doing in Al Qirawan, so we designed a full working demo before you commit to anything.</span>
+    </p>
+  </header>
+
+  <div class="card">
+    <ul class="benefits">
+      <li><span class="tick">✓</span><span><span class="ar">رابط واحد + QR على الطاولة — بدون PDF وبدون تصوير المنيو</span><span class="en">One link + a table QR — no PDFs, no photographed menus</span></span></li>
+      <li><span class="tick">✓</span><span><span class="ar">عربي / إنجليزي بضغطة زر، بهوية قهوة أويا وألوانكم</span><span class="en">Arabic / English toggle, in Ouia Coffee's own colors</span></span></li>
+      <li><span class="tick">✓</span><span><span class="ar">تعديل الأسعار والأصناف خلال دقائق — بدون إعادة طباعة</span><span class="en">Update items & prices in minutes — never reprint again</span></span></li>
+      <li><span class="tick">✓</span><span><span class="ar">جاهز لاشتراطات هيئة الغذاء والدواء — خانات السعرات والكافيين مدعومة</span><span class="en">SFDA-ready — calorie & caffeine fields supported out of the box</span></span></li>
+      <li><span class="tick">✓</span><span><span class="ar">سريع على الجوال ويفتح بدون تطبيق</span><span class="en">Instant on mobile, no app needed</span></span></li>
+    </ul>
+  </div>
+
+  <div class="cta-stack">
+    <a class="btn" href="../ouia-coffee/">
+      <span class="ar">👀 شاهد منيو قهوة أويا التجريبي</span>
+      <span class="en">👀 See your demo menu</span>
+    </a>
+    <a class="btn ghost" href="https://wa.me/966500000000?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D9%85%D8%B9%D9%83%D9%85%20Ouia%20Coffee%20%E2%80%94%20%D8%B4%D9%81%D9%86%D8%A7%20%D8%A7%D9%84%D9%85%D9%86%D9%8A%D9%88%20%D8%A7%D9%84%D8%AA%D8%AC%D8%B1%D9%8A%D8%A8%D9%8A%20%D9%88%D8%AD%D8%A7%D8%A8%D9%8A%D9%86%20%D9%86%D9%83%D9%85%D9%84">
+      <span class="ar">💬 كلمنا واتساب — نفعّله لكم بنفس اليوم</span>
+      <span class="en">💬 WhatsApp us — live the same day</span>
+    </a>
+  </div>
+  <p class="small">
+    <span class="ar">شاهد مثالاً حياً لعميلنا: <a href="https://menu-sadah.com/beyt-coffee" style="color:var(--accent)">بيت كوفي</a></span>
+    <span class="en">See a live client example: <a href="https://menu-sadah.com/beyt-coffee" style="color:var(--accent)">Beyt Coffee</a></span>
+  </p>
+  
+  <div class="footer">
+    <span class="ar">تجربة من <a href="https://menu-sadah.com">منيو سادة — MENU SADAH</a></span>
+    <span class="en">Powered by <a href="https://menu-sadah.com">MENU SADAH</a></span>
+  </div>
+</div>
+
+<script>
+  const root=document.documentElement;
+  const saved=localStorage.getItem('ms-lang')||'ar';
+  setLang(saved);
+  function setLang(l){
+    root.setAttribute('data-lang',l);
+    root.setAttribute('lang',l);
+    root.setAttribute('dir',l==='ar'?'rtl':'ltr');
+    const t=document.getElementById('langToggle');
+    if(t)t.textContent=l==='ar'?'English':'العربية';
+    localStorage.setItem('ms-lang',l);
+  }
+  document.getElementById('langToggle').addEventListener('click',()=>{
+    setLang(root.getAttribute('data-lang')==='ar'?'en':'ar');
+  });
+</script>
+</body>
+</html>

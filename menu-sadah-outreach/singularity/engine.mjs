@@ -14,6 +14,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { menuPage, welcomePage } from '../lib/pages.mjs';
 import { luxeMenuPage, luxeWelcomePage, FULL_MENUS } from '../lib/pages-luxe.mjs';
+import { brandTheme } from '../lib/brand-theme.mjs';
 import { ARCHETYPES, DEFAULT_TYPE } from './archetypes.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -92,7 +93,10 @@ export function makeCafe(entry) {
   const menu = entry.signature?.length
     ? [{ cat: 'House Signatures', catAr: 'توقيع البيت', items: entry.signature }, ...base]
     : base;
+  const theme = entry.tier === 'luxe' ? brandTheme(entry) : null;
+  if (theme) entry.themeLabel = theme.label;
   return {
+    theme,
     slug: entry.slug,
     name: entry.name,
     nameAr: entry.nameAr || entry.name,

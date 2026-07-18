@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-lang="ar">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#16110e">
+<title>Kicksters Coffee — Menu · MENU SADAH</title>
+<style>
+  :root{--bg-0:#16110e;--bg-1:#221b16;--bg-2:#2d251f;--border-1:#3a2e27;--border-2:#594336;
+    --text-1:#f2efed;--text-2:#cac0ba;--text-3:#94877f;--accent:#c28056;--accent-2:#d9b97d;--accent-soft:#c2805622;
+    --radius:16px;--shadow:0 6px 16px #00000080,0 16px 40px #00000059}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Tahoma,Roboto,Arial,sans-serif;
+    background:var(--bg-0) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Ccircle cx='24' cy='24' r='1.2' fill='%23c28056' fill-opacity='.13'/%3E%3C/svg%3E");color:var(--text-1);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100svh}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background:radial-gradient(620px 420px at 50% -120px,#c2805617,transparent 70%)}
+  .wrap{max-width:560px;margin:0 auto;padding:0 18px 110px;position:relative;z-index:1}
+  [data-lang="ar"] .en,[data-lang="en"] .ar{display:none}
+  .lang-toggle{position:fixed;top:14px;inset-inline-end:14px;z-index:30;background:#221b16d9;backdrop-filter:blur(10px);
+    border:1px solid var(--border-2);color:var(--text-1);border-radius:999px;padding:8px 16px;font-size:13.5px;cursor:pointer}
+
+  .hero{position:relative;text-align:center;padding:76px 0 30px;overflow:hidden}
+  .orb{position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:340px;height:340px;border-radius:50%;
+    background:radial-gradient(circle,#c2805630,transparent 65%);pointer-events:none}
+  .orb2{position:absolute;top:30px;left:12%;width:180px;height:180px;border-radius:50%;
+    background:radial-gradient(circle,#d9b97d1f,transparent 65%);pointer-events:none}
+  .medal{position:relative;width:104px;height:104px;margin:0 auto 18px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:radial-gradient(circle at 32% 24%,#ffffff2b,transparent 42%),radial-gradient(circle at 32% 28%,#c2805642,#c2805614 62%,transparent);
+    border:2px solid var(--accent);box-shadow:0 0 0 7px #c2805614,0 0 34px #c2805640,inset 0 1px 0 #ffffff33}
+  .medal::after{content:"";position:absolute;inset:6px;border-radius:50%;border:1px solid #c2805655}
+  .medal span{font-family:Georgia,'Times New Roman',serif;font-size:44px;font-weight:700;color:var(--accent);
+    text-shadow:0 2px 12px #c2805666}
+  h1{font-size:34px;letter-spacing:-.01em;line-height:1.2}
+  h1 .en{font-family:Georgia,'Times New Roman',serif}
+  .tagline{color:var(--text-2);margin-top:8px;font-size:15.5px}
+  .meta{margin-top:12px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+  .badge{background:var(--accent-soft);border:1px solid #c2805666;color:var(--accent);border-radius:999px;padding:4px 14px;font-size:12px;letter-spacing:.05em}
+  .hrule{display:flex;align-items:center;gap:12px;margin:26px auto 0;max-width:280px;color:var(--accent)}
+  .hrule::before,.hrule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,#c2805688)}
+  .hrule::after{background:linear-gradient(90deg,#c2805688,transparent)}
+
+  .chips{display:flex;gap:8px;overflow-x:auto;padding:14px 2px;position:sticky;top:0;z-index:20;
+    background:linear-gradient(#16110ef2 78%,transparent);backdrop-filter:blur(8px);scrollbar-width:none}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{flex:0 0 auto;text-decoration:none;color:var(--text-2);background:#221b16cc;border:1px solid var(--border-1);
+    border-radius:999px;padding:9px 18px;font-size:14px;transition:all .2s}
+  .chip:hover{color:var(--accent);border-color:var(--accent);box-shadow:0 0 14px #c2805633}
+
+  .sig{margin-top:26px;background:linear-gradient(180deg,#c2805614,transparent 90%);border:1px solid #c2805644;
+    border-radius:22px;padding:20px 16px 18px;position:relative}
+  .sig-ribbon{text-align:center;color:var(--accent);letter-spacing:.14em;font-size:13px;margin-bottom:16px;font-weight:700}
+  .sig-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
+  .sig-card{background:var(--bg-1);border:1px solid var(--border-2);border-radius:var(--radius);padding:14px 12px;text-align:center;box-shadow:var(--shadow)}
+  .sig-art{width:74px;height:74px;margin:0 auto 8px}
+  .sig-art svg{width:100%;height:100%;filter:drop-shadow(0 6px 14px #c2805659)}
+  .sig-name{font-size:14.5px;font-weight:600;line-height:1.35}
+  .sig-price{margin-top:6px;color:var(--accent);font-weight:800;font-size:17px}
+  .sar{font-size:11px}
+
+  .cat{margin-top:34px}
+  .cat-head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+  .cat-art{position:relative;width:76px;height:76px;flex:0 0 auto;border-radius:18px;overflow:hidden;
+    border:1px solid var(--border-2);background:var(--bg-1);box-shadow:var(--shadow)}
+  .cat-art .cat-svg{position:absolute;inset:8px}
+  .cat-art .cat-svg svg{filter:drop-shadow(0 5px 12px #c280564d)}
+  .cat-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
+  .cat-art.hasimg img{display:block}
+  .cat-title{flex:1}
+  .cat-title h2{color:var(--accent);font-size:19px;letter-spacing:.04em}
+  .cat-title h2 .en{font-family:Georgia,'Times New Roman',serif}
+  .rule{display:flex;align-items:center;gap:10px;color:#c2805688;font-size:10px;margin-top:6px}
+  .rule::before{content:"";width:46px;height:1px;background:#c2805666}
+  .rule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,#c2805644,transparent)}
+
+  .items{background:#221b16d9;border:1px solid var(--border-1);border-radius:20px;padding:6px 18px;box-shadow:var(--shadow)}
+  .item{display:flex;align-items:baseline;gap:10px;padding:15px 0;border-bottom:1px solid #2d251f99}
+  .item:last-child{border-bottom:none}
+  .item-name{font-size:16px}
+  .dots{flex:1;border-bottom:1px dotted var(--border-2);transform:translateY(-4px)}
+  .price{color:var(--accent);font-weight:800;white-space:nowrap;font-variant-numeric:tabular-nums}
+
+  .demo-note{margin-top:34px;background:var(--accent-soft);border:1px dashed #c2805688;border-radius:14px;
+    padding:13px 16px;font-size:13.5px;color:var(--text-2);text-align:center}
+  .footer{margin-top:34px;text-align:center;color:var(--text-3);font-size:13px}
+  .footer a{color:var(--accent);text-decoration:none}
+  
+
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<button class="lang-toggle" id="langToggle">English</button>
+<div class="wrap">
+  <header class="hero">
+    <div class="orb"></div>
+    <div class="orb2"></div>
+    <div class="medal"><span>K</span></div>
+    <h1><span class="ar">Kicksters Coffee</span><span class="en">Kicksters Coffee</span></h1>
+    <div class="tagline"><span class="ar">قهوة مختصة تُحضّر بعناية</span><span class="en">Specialty coffee, brewed with care</span></div>
+    <div class="meta">
+      <span class="badge"><span class="ar">الرياض</span><span class="en">Al Malqa · Riyadh</span></span>
+      <span class="badge"><span class="ar">متوافق مع اشتراطات هيئة الغذاء والدواء</span><span class="en">SFDA-ready</span></span>
+    </div>
+    <div class="hrule"><span>✦</span></div>
+  </header>
+  <nav class="chips"><a class="chip" href="#cat-0"><span class="ar">توقيع البيت</span><span class="en">House Signatures</span></a><a class="chip" href="#cat-1"><span class="ar">البار الحار</span><span class="en">Espresso Bar</span></a><a class="chip" href="#cat-2"><span class="ar">بار الترشيح</span><span class="en">Filter &amp; Slow Bar</span></a><a class="chip" href="#cat-3"><span class="ar">البار البارد</span><span class="en">Cold Bar</span></a><a class="chip" href="#cat-4"><span class="ar">الركن السعودي</span><span class="en">Saudi Corner</span></a><a class="chip" href="#cat-5"><span class="ar">اللقيمات والحلا</span><span class="en">Bites &amp; Sweets</span></a></nav>
+  
+  <section class="sig reveal" id="cat-0">
+    <div class="sig-ribbon"><span class="ar">✦ توقيع البيت ✦</span><span class="en">✦ House Signatures ✦</span></div>
+    <div class="sig-grid">
+      
+      <div class="sig-card">
+        <div class="sig-art"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f5efe6"/><stop offset=".45" stop-color="#d9b97d"/><stop offset="1" stop-color="#c28056"/></linearGradient></defs><path d="M38 24h44l-5 74a10 10 0 0 1-10 9H53a10 10 0 0 1-10-9z" fill="url(#gl)"/><path d="M38 24h44l-1.2 18H39.2z" fill="#fff" opacity=".85"/><path d="M52 42c4-6 12-6 16 0-6 4-10 4-16 0z" fill="#c28056" opacity=".7"/><ellipse cx="60" cy="24" rx="22" ry="4.5" fill="#fff"/><ellipse cx="60" cy="111" rx="26" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <div class="sig-name"><span class="ar">فلات وايت</span><span class="en">Flat White</span></div>
+        <div class="sig-price">15 <span class="sar">﷼</span></div>
+      </div>
+      <div class="sig-card">
+        <div class="sig-art"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f5efe6"/><stop offset=".45" stop-color="#d9b97d"/><stop offset="1" stop-color="#c28056"/></linearGradient></defs><path d="M38 24h44l-5 74a10 10 0 0 1-10 9H53a10 10 0 0 1-10-9z" fill="url(#gl)"/><path d="M38 24h44l-1.2 18H39.2z" fill="#fff" opacity=".85"/><path d="M52 42c4-6 12-6 16 0-6 4-10 4-16 0z" fill="#c28056" opacity=".7"/><ellipse cx="60" cy="24" rx="22" ry="4.5" fill="#fff"/><ellipse cx="60" cy="111" rx="26" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <div class="sig-name"><span class="ar">سبانش لاتيه</span><span class="en">Spanish Latte</span></div>
+        <div class="sig-price">19 <span class="sar">﷼</span></div>
+      </div>
+      <div class="sig-card">
+        <div class="sig-art"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f5efe6"/><stop offset=".45" stop-color="#d9b97d"/><stop offset="1" stop-color="#c28056"/></linearGradient></defs><path d="M38 24h44l-5 74a10 10 0 0 1-10 9H53a10 10 0 0 1-10-9z" fill="url(#gl)"/><path d="M38 24h44l-1.2 18H39.2z" fill="#fff" opacity=".85"/><path d="M52 42c4-6 12-6 16 0-6 4-10 4-16 0z" fill="#c28056" opacity=".7"/><ellipse cx="60" cy="24" rx="22" ry="4.5" fill="#fff"/><ellipse cx="60" cy="111" rx="26" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <div class="sig-name"><span class="ar">كورتادو</span><span class="en">Cortado</span></div>
+        <div class="sig-price">10 <span class="sar">﷼</span></div>
+      </div>
+      <div class="sig-card">
+        <div class="sig-art"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><path d="M28 30h64l-22 34h-20z" fill="none" stroke="#c28056" stroke-width="5"/><path d="M40 36h40l-15 23h-10z" fill="#c28056" opacity=".35"/><path d="M60 66v12" stroke="#cac0ba" stroke-width="4" stroke-dasharray="2 6" stroke-linecap="round"/><path d="M36 84h48v6a16 16 0 0 1-16 16H52a16 16 0 0 1-16-16z" fill="#c28056"/><path d="M84 86h8a8 8 0 0 1 0 16h-6" fill="none" stroke="#c28056" stroke-width="4"/><ellipse cx="60" cy="108" rx="28" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <div class="sig-name"><span class="ar">في 60</span><span class="en">V60</span></div>
+        <div class="sig-price">16 <span class="sar">﷼</span></div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="cat reveal" id="cat-1">
+    <div class="cat-head">
+      <div class="cat-art">
+        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ge" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c28056"/><stop offset="1" stop-color="#784c30"/></linearGradient></defs><path d="M30 55h52v28a14 14 0 0 1-14 14H44a14 14 0 0 1-14-14z" fill="url(#ge)"/><path d="M82 58h10a10 10 0 0 1 0 20h-8" fill="none" stroke="#c28056" stroke-width="5"/><ellipse cx="56" cy="55" rx="26" ry="5" fill="#d9b97d"/><path d="M46 20c-4 8 4 10 0 18M60 16c-4 8 4 10 0 18M74 20c-4 8 4 10 0 18" stroke="#cac0ba" stroke-width="4" fill="none" stroke-linecap="round" opacity=".8"/><ellipse cx="56" cy="104" rx="30" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <img src="../assets/photos/espresso.jpg" alt="" loading="lazy" onload="this.parentElement.classList.add('hasimg')">
+      </div>
+      <div class="cat-title">
+        <h2><span class="ar">البار الحار</span><span class="en">Espresso Bar</span></h2>
+        <div class="rule"><span>✦</span></div>
+      </div>
+    </div>
+    <div class="items">
+      
+      <div class="item">
+        <div class="item-name"><span class="ar">إسبريسو</span><span class="en">Espresso</span></div>
+        <div class="dots"></div>
+        <div class="price">12<span class="sar"> ﷼</span></div>
+      </div>
+      <div class="item">
+        <div class="item-name"><span class="ar">ماكياتو</span><span class="en">Macchiato</span></div>
+        <div class="dots"></div>
+        <div class="price">13<span class="sar"> ﷼</span></div>
+      </div>
+      <div class="item">
+        <div class="item-name"><span class="ar">كورتادو</span><span class="en">Cortado</span></div>
+        <div class="dots"></div>
+        <div class="price">15<span class="sar"> ﷼</span></div>
+      </div>
+      <div class="item">
+        <div class="item-name"><span class="ar">فلات وايت</span><span class="en">Flat White</span></div>
+        <div class="dots"></div>
+        <div class="price">17<span class="sar"> ﷼</span></div>
+      </div>
+      <div class="item">
+        <div class="item-name"><span class="ar">كابتشينو</span><span class="en">Cappuccino</span></div>
+        <div class="dots"></div>
+        <div class="price">17<span class="sar"> ﷼</span></div>
+      </div>
+      <div class="item">
+        <div class="item-name"><span class="ar">لاتيه</span><span class="en">Latte</span></div>
+        <div class="dots"></div>
+        <div class="price">18<span class="sar"> ﷼</span></div>
+      </div>
+      <div class="item">
+        <div class="item-name"><span class="ar">سبانيش لاتيه</span><span class="en">Spanish Latte</span></div>
+        <div class="dots"></div>
+        <div class="price">20<span class="sar"> ﷼</span></div>
+      </div>
+      <div class="item">
+        <div class="item-name"><span class="ar">لاتيه فستق</span><span class="en">Pistachio Latte</span></div>
+        <div class="dots"></div>
+        <div class="price">23<span class="sar"> ﷼</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="cat reveal" id="cat-2">
+    <div class="cat-head">
+      <div class="cat-art">
+        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><path d="M28 30h64l-22 34h-20z" fill="none" stroke="#c28056" stroke-width="5"/><path d="M40 36h40l-15 23h-10z" fill="#c28056" opacity=".35"/><path d="M60 66v12" stroke="#cac0ba" stroke-width="4" stroke-dasharray="2 6" stroke-linecap="round"/><path d="M36 84h48v6a16 16 0 0 1-16 16H52a16 16 0 0 1-16-16z" fill="#c28056"/><path d="M84 86h8a8 8 0 0 1 0 16h-6" fill="none" stroke="#c28056" stroke-width="4"/><ellipse cx="60" cy="108" rx="28" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <img src="../assets/photos/v60.jpg" alt="" loading="lazy" onload="this.parentElement.classList.add('hasimg')">
+      </div>
+      <div class="cat-title">
+        <h2><span class="ar">بار الترشيح</span><span class="en">Filter &amp; Slow Bar</span></h2>
+        <div class="rule"><span>✦</span></div>
+      </div>
+    </div>
+    <div class="items">
+      
+      <div class="item">
+        <div class="item-name"><span class="ar">في60 — محصول فردي</span><span class="en">V60 — Single Origin</span></div>
+        <div class="dots"></div>
+        <div class="price">24<span class="sar"> ﷼</span></div>
+      </div>
+      <div class="item">
+        <div class="item-name"><span class="ar">كيمكس</span><span class="en">Chemex</span></div>
+        <div class="dots"></div>
+        <div class="price">24<span class="sar"> ﷼</span></div>
+      </div>
+      <div class="item">
+        <div class="item-name"><span class="ar">إيروبرس</span><span class="en">Aeropress</span></div>
+        <div class="dots"></div>
+        <div class="price">22<span class="sar"> ﷼</span></div>
+      </div>
+      <div class="item">
+        <div class="item-name"><span class="ar">قهوة اليوم</span><span class="en">Coffee of the Day</span></div>
+        <div class="dots"></div>
+        <div class="price">16<span class="sar"> ﷼</span></div>
+      </div>
+      <div class="item">
+        <div class="item-name"><span class="ar">مقطّرة باردة</span><span class="en">Iced Drip</span></div>
+        <div class="dots"></div>
+        <div class="price">22<span class="sar"> ﷼</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="cat reveal" id="cat-3">
+    <div class="cat-head">
+      <div class="cat-art">
+        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9b97d" stop-opacity=".5"/><stop offset="1" stop-color="#c28056"/></linearGradient></defs><path d="M40 22h40l-4 78a8 8 0 0 1-8 8H52a8 8 0 0 1-8-8z" fill="url(#gc)" opacity=".9"/><rect x="46" y="34" width="13" height="13" rx="3" fill="#fff" opacity=".7" transform="rotate(12 52 40)"/><rect x="60" y="52" width="13" height="13" rx="3" fill="#fff" opacity=".55" transform="rotate(-14 66 58)"/><rect x="48" y="70" width="12" height="12" rx="3" fill="#fff" opacity=".45" transform="rotate(8 54 76)"/><path d="M74 14 60 46" stroke="#cac0ba" stroke-width="4" stroke-linecap="round"/><ellipse cx="60" cy="112" rx="24" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <img src="../assets/photos/cold.jpg" alt="" loading="lazy" onload="this.parentElement.classList.add('hasimg')">
+      </div>
+      <div class="cat-title">
+        <h2><span class="ar">البار البارد</span><span class="en">Cold Bar</span></h2>
+        <div class="rule"><span>✦</span></div>
+      </div>
+    </div>
+    <div class="items">
+      
+      <div class="item">
+        <div class="item-name"><span class="ar">لاتيه بارد</span><span class="en">Iced Latte</span></div>
+        <div class="dots"></div>
+        <div class="price">18<span class="sar"> ﷼</span></div>
+      </div>
+      <div class="item">
+        <div class="item-name"><span class="ar">سبانيش لاتيه بارد</span><span class="en">Iced Spanish Latte</span></div>
+        <div class="dots"></div>
+        <div class="price">21<span class="sar"> ﷼</span></div>
+      </div>
+      <div class="item">
+        <div class="item-name"><span class="ar">كولد برو</span><span class="en">Cold Brew</span></div>
+        <div class="dots"></div>
+        <div class="price">19<span class="sar"> ﷼</span></div>
+      </div>
+      <div class="item">
+        <div class="item-name"><span class="ar">كولد برو تونيك</span><span class="en">Cold Brew Tonic</span></div>
+        <div class="dots"></div>
+        <div class="price">24<span class="sar"> ﷼</span></div>
+      </div>
+      <div class="item">
+        <div class="item-name"><span class="ar">موكا باردة</span><span class="en">Iced Mocha</span></div>
+        <div class="dots"></div>
+        <div class="price">20<span class="sar"> ﷼</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="cat reveal" id="cat-4">
+    <div class="cat-head">
+      <div class="cat-art">
+        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gs" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9b97d"/><stop offset="1" stop-color="#c28056"/></linearGradient></defs><path d="M46 34h28l6 34a20 14 0 0 1-40 0z" fill="url(#gs)"/><path d="M50 30h20l3 6H47z" fill="#c28056"/><path d="M58 22h4v8h-4z" fill="#c28056"/><circle cx="60" cy="18" r="4" fill="#d9b97d"/><path d="M46 40c-9 2-13 10-9 17 3 5 8 6 11 5" fill="none" stroke="#c28056" stroke-width="5" stroke-linecap="round"/><path d="M74 38l6-10 5 3-6 10" fill="#c28056"/><ellipse cx="60" cy="96" rx="28" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <img src="../assets/photos/saudi.jpg" alt="" loading="lazy" onload="this.parentElement.classList.add('hasimg')">
+      </div>
+      <div class="cat-title">
+        <h2><span class="ar">الركن السعودي</span><span class="en">Saudi Corner</span></h2>
+        <div class="rule"><span>✦</span></div>
+      </div>
+    </div>
+    <div class="items">
+      
+      <div class="item">
+        <div class="item-name"><span class="ar">قهوة سعودية (دلة)</span><span class="en">Saudi Coffee (dallah)</span></div>
+        <div class="dots"></div>
+        <div class="price">25<span class="sar"> ﷼</span></div>
+      </div>
+      <div class="item">
+        <div class="item-name"><span class="ar">طبق تمر</span><span class="en">Dates Plate</span></div>
+        <div class="dots"></div>
+        <div class="price">12<span class="sar"> ﷼</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="cat reveal" id="cat-5">
+    <div class="cat-head">
+      <div class="cat-art">
+        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gcr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0cf8f"/><stop offset="1" stop-color="#c28056"/></linearGradient></defs><path d="M20 74c4-18 20-32 40-32s36 14 40 32c-6 8-16 8-22 2-4-10-12-16-18-16s-14 6-18 16c-6 6-16 6-22-2z" fill="url(#gcr)"/><path d="M45 46 38 70M60 42v26M75 46l7 24" stroke="#784c30" stroke-width="3" opacity=".5" stroke-linecap="round"/><ellipse cx="60" cy="88" rx="34" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <img src="../assets/photos/bakery.jpg" alt="" loading="lazy" onload="this.parentElement.classList.add('hasimg')">
+      </div>
+      <div class="cat-title">
+        <h2><span class="ar">اللقيمات والحلا</span><span class="en">Bites &amp; Sweets</span></h2>
+        <div class="rule"><span>✦</span></div>
+      </div>
+    </div>
+    <div class="items">
+      
+      <div class="item">
+        <div class="item-name"><span class="ar">كرواسون زبدة</span><span class="en">Butter Croissant</span></div>
+        <div class="dots"></div>
+        <div class="price">12<span class="sar"> ﷼</span></div>
+      </div>
+      <div class="item">
+        <div class="item-name"><span class="ar">كرواسون زعتر</span><span class="en">Zaatar Croissant</span></div>
+        <div class="dots"></div>
+        <div class="price">13<span class="sar"> ﷼</span></div>
+      </div>
+      <div class="item">
+        <div class="item-name"><span class="ar">كوكيز شوكولاتة</span><span class="en">Chocolate Cookie</span></div>
+        <div class="dots"></div>
+        <div class="price">10<span class="sar"> ﷼</span></div>
+      </div>
+      <div class="item">
+        <div class="item-name"><span class="ar">تشيز كيك سان سباستيان</span><span class="en">San Sebastián Cheesecake</span></div>
+        <div class="dots"></div>
+        <div class="price">26<span class="sar"> ﷼</span></div>
+      </div>
+      <div class="item">
+        <div class="item-name"><span class="ar">كيكة التمر</span><span class="en">Date Cake</span></div>
+        <div class="dots"></div>
+        <div class="price">15<span class="sar"> ﷼</span></div>
+      </div>
+    </div>
+  </section>
+  <div class="demo-note">
+    <span class="ar">هذه نسخة تجريبية أعدّها فريق منيو سادة خصيصاً لكم — الأصناف والأسعار والصور قابلة للتعديل خلال دقائق.</span>
+    <span class="en">A demo lovingly prepared by MENU SADAH for you — items, prices & photos update in minutes.</span>
+  </div>
+  <div class="footer">
+    <span class="ar">تجربة من <a href="https://menu-sadah.com">منيو سادة — MENU SADAH</a></span>
+    <span class="en">Crafted by <a href="https://menu-sadah.com">MENU SADAH</a></span>
+  </div>
+</div>
+
+<script>
+  const root=document.documentElement;
+  const saved=localStorage.getItem('ms-lang')||'ar';
+  setLang(saved);
+  function setLang(l){root.setAttribute('data-lang',l);root.setAttribute('lang',l);root.setAttribute('dir',l==='ar'?'rtl':'ltr');
+    const t=document.getElementById('langToggle');if(t)t.textContent=l==='ar'?'English':'العربية';localStorage.setItem('ms-lang',l);}
+  document.getElementById('langToggle').addEventListener('click',()=>{setLang(root.getAttribute('data-lang')==='ar'?'en':'ar');});
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
