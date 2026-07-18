@@ -87,9 +87,9 @@ export function brandTheme(entry = {}) {
     label = pool.label;
   }
   // per-cafe jitter: even same-family neighbours get their own shade
-  h += (seed % 13) - 6;
-  s = clamp(s + ((seed >> 4) % 11) - 5, 15, 90);
-  const l = 62 + ((seed >> 8) % 7) - 3;
+  h += (seed % 13) - 6 + (((seed >>> 16) % 7) - 3);
+  s = clamp(s + ((seed >> 4) % 11) - 5 + (((seed >>> 20) % 5) - 2), 15, 90);
+  const l = 62 + ((seed >> 8) % 7) - 3 + (((seed >>> 24) % 3) - 1);
 
   const bgS = clamp(Math.round(s * 0.5), 12, 30);
   return {

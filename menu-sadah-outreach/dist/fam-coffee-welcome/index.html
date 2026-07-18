@@ -3,55 +3,55 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#170d14">
+<meta name="theme-color" content="#160d14">
 <title>🎁 Fam Coffee × MENU SADAH</title>
 <style>
-  :root{--bg-0:#170d14;--bg-1:#23151f;--border-1:#3a2734;--border-2:#59364e;
-    --text-1:#f2edf1;--text-2:#cabac5;--text-3:#947f8e;--accent:#ce5fad;--accent-soft:#ce5fad22}
+  :root{--bg-0:#160d14;--bg-1:#23161f;--border-1:#3a2734;--border-2:#59364e;
+    --text-1:#f2edf1;--text-2:#cabac5;--text-3:#947f8e;--accent:#cb5daa;--accent-soft:#cb5daa22}
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Tahoma,Roboto,Arial,sans-serif;
-    background:var(--bg-0) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Ccircle cx='24' cy='24' r='1.2' fill='%23ce5fad' fill-opacity='.13'/%3E%3C/svg%3E");color:var(--text-1);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+    background:var(--bg-0) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Ccircle cx='24' cy='24' r='1.2' fill='%23cb5daa' fill-opacity='.13'/%3E%3C/svg%3E");color:var(--text-1);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
     min-height:100svh;overflow-x:hidden}
   body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
-    background:radial-gradient(620px 460px at 50% -120px,#ce5fad1c,transparent 70%)}
+    background:radial-gradient(620px 460px at 50% -120px,#cb5daa1c,transparent 70%)}
   .wrap{max-width:560px;margin:0 auto;padding:0 20px 90px;position:relative}
   [data-lang="ar"] .en,[data-lang="en"] .ar{display:none}
-  .lang-toggle{position:fixed;top:14px;inset-inline-end:14px;z-index:40;background:#23151fd9;backdrop-filter:blur(10px);
+  .lang-toggle{position:fixed;top:14px;inset-inline-end:14px;z-index:40;background:#23161fd9;backdrop-filter:blur(10px);
     border:1px solid var(--border-2);color:var(--text-1);border-radius:999px;padding:8px 16px;font-size:13.5px;cursor:pointer}
 
   .stars{position:fixed;inset:0;pointer-events:none;z-index:1}
-  .stars span{position:absolute;color:#ce5fad;opacity:0;animation:tw 3.2s infinite}
+  .stars span{position:absolute;color:#cb5daa;opacity:0;animation:tw 3.2s infinite}
   @keyframes tw{0%,100%{opacity:0;transform:scale(.5)}50%{opacity:.85;transform:scale(1.15)}}
 
   .hero{position:relative;text-align:center;padding:84px 0 20px;z-index:2}
   .orb{position:absolute;top:-70px;left:50%;transform:translateX(-50%);width:380px;height:380px;border-radius:50%;
-    background:radial-gradient(circle,#ce5fad38,transparent 64%);pointer-events:none;animation:breathe 5s ease-in-out infinite}
+    background:radial-gradient(circle,#cb5daa38,transparent 64%);pointer-events:none;animation:breathe 5s ease-in-out infinite}
   .orb2{position:absolute;top:40px;left:8%;width:200px;height:200px;border-radius:50%;
-    background:radial-gradient(circle,#e288af24,transparent 65%);pointer-events:none;animation:breathe2 6.5s 1s ease-in-out infinite}
+    background:radial-gradient(circle,#e085ac24,transparent 65%);pointer-events:none;animation:breathe2 6.5s 1s ease-in-out infinite}
   @keyframes breathe{50%{transform:translateX(-50%) scale(1.08)}}
   @keyframes breathe2{50%{transform:scale(1.1)}}
-  .gift-tag{display:inline-block;background:var(--accent-soft);border:1px solid #ce5fad88;color:var(--accent);
+  .gift-tag{display:inline-block;background:var(--accent-soft);border:1px solid #cb5daa88;color:var(--accent);
     border-radius:999px;padding:6px 20px;font-size:13px;letter-spacing:.14em;
     opacity:0;animation:up .8s .15s forwards}
   .medal{position:relative;width:118px;height:118px;margin:22px auto 6px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;
-    background:radial-gradient(circle at 32% 24%,#ffffff30,transparent 42%),radial-gradient(circle at 32% 28%,#ce5fad48,#ce5fad16 62%,transparent);
-    border:2px solid var(--accent);box-shadow:0 0 0 8px #ce5fad14,0 0 46px #ce5fad55,inset 0 1px 0 #ffffff33;
+    background:radial-gradient(circle at 32% 24%,#ffffff30,transparent 42%),radial-gradient(circle at 32% 28%,#cb5daa48,#cb5daa16 62%,transparent);
+    border:2px solid var(--accent);box-shadow:0 0 0 8px #cb5daa14,0 0 46px #cb5daa55,inset 0 1px 0 #ffffff33;
     opacity:0;animation:pop .9s .5s cubic-bezier(.2,1.4,.4,1) forwards}
-  .medal::after{content:"";position:absolute;inset:7px;border-radius:50%;border:1px solid #ce5fad55}
+  .medal::after{content:"";position:absolute;inset:7px;border-radius:50%;border:1px solid #cb5daa55}
   .medal span{font-family:Georgia,'Times New Roman',serif;font-size:52px;font-weight:700;color:var(--accent);
-    text-shadow:0 2px 14px #ce5fad73}
+    text-shadow:0 2px 14px #cb5daa73}
   @keyframes pop{0%{opacity:0;transform:scale(.4)}70%{transform:scale(1.06)}100%{opacity:1;transform:scale(1)}}
   @keyframes up{0%{opacity:0;transform:translateY(14px)}100%{opacity:1;transform:none}}
   h1{font-size:32px;line-height:1.25;margin-top:12px;opacity:0;animation:up .8s .9s forwards}
   h1 b{color:var(--accent)}
   h1 .en{font-family:Georgia,'Times New Roman',serif}
-  .shimmer{background:linear-gradient(90deg,var(--text-1) 40%,#ce5fad 50%,var(--text-1) 60%);background-size:220% 100%;
+  .shimmer{background:linear-gradient(90deg,var(--text-1) 40%,#cb5daa 50%,var(--text-1) 60%);background-size:220% 100%;
     -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:sh 3.4s 1.8s infinite}
   @keyframes sh{0%{background-position:120% 0}100%{background-position:-120% 0}}
 
-  .letter{position:relative;z-index:2;margin-top:26px;background:linear-gradient(180deg,#23151ff0,#23151fd0);
-    border:1px solid #ce5fad44;border-radius:24px;padding:24px 22px;box-shadow:0 10px 34px #00000080;
+  .letter{position:relative;z-index:2;margin-top:26px;background:linear-gradient(180deg,#23161ff0,#23161fd0);
+    border:1px solid #cb5daa44;border-radius:24px;padding:24px 22px;box-shadow:0 10px 34px #00000080;
     opacity:0;animation:up .9s 1.25s forwards}
   .letter .to{color:var(--accent);font-size:13px;letter-spacing:.12em;margin-bottom:10px}
   .letter p{color:var(--text-2);font-size:15.5px;margin-bottom:12px}
@@ -62,13 +62,13 @@
   .benefits .tick{color:var(--accent);font-weight:800;flex:0 0 auto}
 
   .cta-stack{position:relative;z-index:2;display:grid;gap:12px;margin-top:26px;opacity:0;animation:up .9s 1.6s forwards}
-  .btn{display:block;text-align:center;text-decoration:none;background:linear-gradient(135deg,#ce5fad,#e288af);
+  .btn{display:block;text-align:center;text-decoration:none;background:linear-gradient(135deg,#cb5daa,#e085ac);
     color:#1e101a;font-weight:800;font-size:18px;border-radius:18px;padding:18px 20px;
-    box-shadow:0 10px 30px #ce5fad55;transition:transform .15s}
+    box-shadow:0 10px 30px #cb5daa55;transition:transform .15s}
   .btn:active{transform:scale(.98)}
   .btn.pulse{animation:pl 2.2s 2.4s infinite}
-  @keyframes pl{0%,100%{box-shadow:0 10px 30px #ce5fad55}50%{box-shadow:0 10px 44px #ce5fad90}}
-  .btn.ghost{background:transparent;color:var(--accent);border:1px solid #ce5fad88;box-shadow:none;font-weight:600;font-size:15px}
+  @keyframes pl{0%,100%{box-shadow:0 10px 30px #cb5daa55}50%{box-shadow:0 10px 44px #cb5daa90}}
+  .btn.ghost{background:transparent;color:var(--accent);border:1px solid #cb5daa88;box-shadow:none;font-weight:600;font-size:15px}
   .small{margin-top:14px;text-align:center;color:var(--text-3);font-size:12.5px;position:relative;z-index:2}
   .small a{color:var(--accent);text-decoration:none}
   .footer{margin-top:30px;text-align:center;color:var(--text-3);font-size:12.5px;position:relative;z-index:2}
@@ -84,7 +84,7 @@
     <div class="orb"></div>
     <div class="orb2"></div>
     <span class="gift-tag"><span class="ar">🎁 هدية خاصة · ليست إعلاناً</span><span class="en">🎁 A personal gift · not an ad</span></span>
-    <div class="medal"><span>F</span></div>
+    <div class="medal"><span><span class="ar">ف</span><span class="en">F</span></span></div>
     <h1>
       <span class="ar">إلى بيت <b class="shimmer">فام كوفي</b></span>
       <span class="en">To the house of <b class="shimmer">Fam Coffee</b></span>

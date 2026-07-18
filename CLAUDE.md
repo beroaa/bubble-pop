@@ -32,3 +32,8 @@ These orders apply to EVERY Claude session in this repo — cloud or MacBook. Re
 - Cloud box: WebSearch works (budget ~200/session, resets each new session); direct fetches to delivery apps/Instagram/image hosts are blocked (403/000).
 - Swarm research: use parallel Workflow squadrons with structured-output agents; merge via singularity/merge-swarm.mjs (re-validates everything).
 - MacBook sessions: network is open — photos, fonts, and menu-sadah.com fetches happen THERE.
+
+## Brand-soul rule (locked 2026-07-18)
+- EVERY gift link and menu — all tiers, all 948+ — must carry its cafe's own brand palette (lib/brand-theme.mjs) and the bilingual medallion mark (Arabic initial in AR mode, English initial in EN mode). Never ship a shared-gold generic page again.
+- Real cafe logos can only be fetched on the MacBook (network wall) — when logo work is requested, extend PHOTO-MISSION.md rather than faking marks.
+- Big rebuilds get a triple-check: (1) data pass — QA gate, palette uniqueness, welcome→menu links, no private files in dist; (2) browser pass — Playwright error sweep + screenshots across tiers; (3) regression pass — regenerate payload/gameos/dms/hq and boot them.

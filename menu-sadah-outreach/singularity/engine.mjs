@@ -93,8 +93,8 @@ export function makeCafe(entry) {
   const menu = entry.signature?.length
     ? [{ cat: 'House Signatures', catAr: 'توقيع البيت', items: entry.signature }, ...base]
     : base;
-  const theme = entry.tier === 'luxe' ? brandTheme(entry) : null;
-  if (theme) entry.themeLabel = theme.label;
+  const theme = brandTheme(entry); // every cafe gets its own brand soul, all tiers
+  entry.themeLabel = theme.label;
   return {
     theme,
     slug: entry.slug,
@@ -103,7 +103,7 @@ export function makeCafe(entry) {
     area: entry.area || 'Riyadh',
     areaAr: entry.areaAr || 'الرياض',
     social: entry.social || 'Instagram',
-    accent: entry.accent || arch.accent,
+    accent: theme.accent,
     tagline: entry.tagline || arch.tagline,
     taglineAr: entry.taglineAr || arch.taglineAr,
     pitchNote: entry.why || '',
@@ -155,7 +155,7 @@ export function runBuild() {
       const cafe = makeCafe(entry);
       setStage('BUILD');
       const html = entry.tier === 'luxe' ? luxeMenuPage(cafe) : menuPage(cafe);
-      const welcomeHtml = entry.tier === 'luxe' ? luxeWelcomePage(cafe, { type: entry.type, signature: entry.signature, sigMention: entry.sigMention, social: entry.social }) : welcomePage(cafe);
+      const welcomeHtml = luxeWelcomePage(cafe, { type: entry.type, signature: entry.signature, sigMention: entry.sigMention, social: entry.social });
       setStage('QA');
       const fails = qaCheck(cafe, html, welcomeHtml, learnings.qa);
       if (fails.length) {

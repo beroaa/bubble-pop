@@ -248,7 +248,7 @@ export function luxeMenuPage(cafe) {
   <header class="hero">
     <div class="orb"></div>
     <div class="orb2"></div>
-    <div class="medal"><span>${esc(cafe.name.trim()[0].toUpperCase())}</span></div>
+    <div class="medal"><span><span class="ar">${esc((cafe.nameAr || cafe.name).trim()[0])}</span><span class="en">${esc(cafe.name.trim()[0].toUpperCase())}</span></span></div>
     <h1><span class="ar">${esc(cafe.nameAr)}</span><span class="en">${esc(cafe.name)}</span></h1>
     <div class="tagline"><span class="ar">${esc(cafe.taglineAr)}</span><span class="en">${esc(cafe.tagline)}</span></div>
     <div class="meta">
@@ -392,7 +392,7 @@ export function luxeWelcomePage(cafe, extras = {}) {
     <div class="orb"></div>
     <div class="orb2"></div>
     <span class="gift-tag"><span class="ar">🎁 هدية خاصة · ليست إعلاناً</span><span class="en">🎁 A personal gift · not an ad</span></span>
-    <div class="medal"><span>${esc(cafe.name.trim()[0].toUpperCase())}</span></div>
+    <div class="medal"><span><span class="ar">${esc((cafe.nameAr || cafe.name).trim()[0])}</span><span class="en">${esc(cafe.name.trim()[0].toUpperCase())}</span></span></div>
     <h1>
       <span class="ar">إلى بيت <b class="shimmer">${esc(cafe.nameAr)}</b></span>
       <span class="en">To the house of <b class="shimmer">${esc(cafe.name)}</b></span>

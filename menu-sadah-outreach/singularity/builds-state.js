@@ -1,5 +1,5 @@
 window.BUILDS_STATE = {
- "generatedAt": 1784375258103,
+ "generatedAt": 1784379085226,
  "builds": [
   {
    "id": "b1",
@@ -120,6 +120,30 @@ window.BUILDS_STATE = {
    "note": "",
    "startedAt": 1784374358102,
    "result": "948 gift letters + 1896 DM messages rewritten Made-to-Stick style, Arabic + English"
+  },
+  {
+   "id": "b8",
+   "name": "BRAND-SOUL-948 🎨 — every gift link + menu matches its cafe's brand: colors + bilingual logo mark, triple-checked",
+   "status": "done",
+   "pct": 100,
+   "etaAt": null,
+   "note": "extending brand themes to all 948",
+   "startedAt": 1784378909293,
+   "feed": [
+    {
+     "at": 1784378909363,
+     "msg": "Giving all 848 standard cafes their own brand colors too"
+    },
+    {
+     "at": 1784378937923,
+     "msg": "All 948 rebuilt with brand souls — starting the triple-check"
+    },
+    {
+     "at": 1784378978430,
+     "msg": "Color twins fixed — re-verifying in real browser"
+    }
+   ],
+   "result": "All 948 gift links + menus brand-matched (924 unique shades), bilingual logo marks, triple-check passed clean"
   }
  ]
 };
