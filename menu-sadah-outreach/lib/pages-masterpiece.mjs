@@ -6,6 +6,10 @@
 // the same vetted menu data as the luxe tier.
 import { CONTACT } from '../cafes.mjs';
 import { ART, artFor } from './pages-luxe.mjs';
+import { SCENES } from './scenes/index.mjs';
+
+/* shared gold trio handed to every scene pack */
+const SCENE_GOLD = { gold: '#c79a3a', goldBright: '#e8c268', goldDeep: '#8a6a1f' };
 
 const SAR = '﷼';
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -206,6 +210,7 @@ export function masterpieceMenuPage(cafe, brief) {
   const arch = PACKS[brief.archetype] ? brief.archetype : 'storybook-light';
   const P = paletteFor(cafe.theme, MODE_BY_ARCH[arch] || cafe.theme.mode);
   const R = accentRotation(P);
+  const SC = SCENES[arch] ? SCENES[arch](P, R, SCENE_GOLD) : null;
   const T = cafe.theme; // fonts + label live here
   const sd = seedOf(cafe.slug || cafe.name);
   const M = MOTIFS[brief.motif] || MOTIFS.stars;
@@ -243,7 +248,7 @@ export function masterpieceMenuPage(cafe, brief) {
   <div class="diary reveal" dir="rtl"><span class="tape" style="background:${R[1]}33"></span>${esc(diary[0])}</div>` :
       (ci === 3 && diary[1]) ? `
   <div class="diary reveal" dir="rtl"><span class="tape" style="background:${R[3]}33"></span>${esc(diary[1])}</div>` : '';
-    return `${ci > 0 ? sepHtml(arch, R) : ''}
+    return `${ci > 0 ? (SC ? SC.sepHtml : sepHtml(arch, R)) : ''}
   <section class="cat reveal" id="cat-${i}" style="--sa:${acc};--sa2:${acc2}">
     <div class="cat-head">
       <div class="cat-art">
@@ -444,6 +449,9 @@ export function masterpieceMenuPage(cafe, brief) {
   /* ---- architecture pack: ${arch} ---- */
   ${PACKS[arch](P, R)}
 
+  /* ---- immersive scene pack: ${arch} ---- */
+  ${SC ? SC.css : ''}
+
   @media (prefers-reduced-motion: reduce){
     *{animation:none!important;transition:none!important}
     .reveal,.reveal.in .item,.heroline,.world,.meta,.greet,h1 .w{opacity:1!important;transform:none!important}
@@ -459,6 +467,7 @@ export function masterpieceMenuPage(cafe, brief) {
   <header class="hero">
     <div class="orb"></div>
     ${motesHtml(brief.motif, sd)}
+    ${SC ? SC.heroHtml : ''}
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
     <div class="medal"><span><span class="ar">${esc((cafe.nameAr || cafe.name).trim()[0])}</span><span class="en">${esc(cafe.name.trim()[0].toUpperCase())}</span></span></div>
     <h1><span class="ar">${esc(cafe.nameAr)}</span><span class="en">${esc(cafe.name)}</span></h1>
@@ -495,7 +504,7 @@ ${wa ? `<a class="wa" href="${wa}"><span class="ar">💬 اطلب منيو مث�
   // word-by-word hero entrance (word-level keeps Arabic letter joining intact)
   if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
     document.querySelectorAll('h1 .ar, h1 .en').forEach(el=>{
-      const words=el.textContent.trim().split(/\s+/);
+      const words=el.textContent.trim().split(/\\s+/);
       el.innerHTML=words.map((w,i)=>'<span class="w" style="animation-delay:'+(0.35+i*0.12)+'s">'+w+'</span>').join(' ');
     });
     setTimeout(()=>{
@@ -538,8 +547,11 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
   const paper = hslHex(bh, 40, 98), paper2 = hslHex(bh, 34, 94), card = hslHex(bh, 45, 99);
   const T = cafe.theme, sd = seedOf(cafe.slug || cafe.name);
   const M = MOTIFS[brief.motif] || MOTIFS.stars;
+  const SC = SCENES[brief.archetype] ? SCENES[brief.archetype](P, accentRotation(P), SCENE_GOLD) : null;
   const flavor = FLAVOR2[extras.type] || FLAVOR2.specialty_coffee;
   const sig = (extras.signature && extras.signature.length ? extras.signature[0] : null) || extras.sigMention || null;
+  // generic drink photos only fit coffee/tea-centric brands — others keep the .big-init + gradient look
+  const usePhotos = ['specialty_coffee', 'roastery', 'matcha_bar', 'tea_house'].includes(extras.type);
   const social = extras.social && /^@/.test(String(extras.social).trim()) ? String(extras.social).trim() : null;
   const rooms = (brief.rooms || []).slice(0, 3);
   const diary = (brief.diaryAr || [])[0];
@@ -669,6 +681,8 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
     .mote{font-size:22px!important}
   }
   @media(max-width:520px){.agrid{grid-template-columns:1fr}}
+  /* ---- immersive scene pack: ${brief.archetype || 'none'} ---- */
+  ${SC ? SC.css : ''}
   @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}
     .medal,h1,.world,.heroline,.cta,.rv{opacity:1!important;transform:none!important}}
 </style>
@@ -682,6 +696,7 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
 </header>
 <div class="wrap">
   <section class="hero">
+    ${SC ? SC.heroHtml : ''}
     ${motesHtml(brief.motif, sd)}
     <div class="kick">${B('🎁 هدية من منيو سادة · ليست إعلاناً', '🎁 A gift from Menu Sadah · not an ad')}</div>
     <div class="medal"><span><span class="ar">${initAr}</span><span class="en">${initEn}</span></span></div>
@@ -725,7 +740,7 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
       { t: '03', bAr: 'الصفحة تعيش، <i>من الصبح لليل.</i>', bEn: 'The page is alive, <i>from morning to night.</i>', pAr: 'ألوانها بألوانكم، وتغمق مع الليل وأنتم تقلبون فيها — عربي وإنجليزي بضغطة.', pEn: 'It wears your colors and darkens into night as guests scroll — Arabic and English in one tap.', img: 'dessert' },
     ].map((d) => `
     <div class="st rv">
-      <div class="ph"><span class="big-init">${initEn}</span><img src="../assets/photos/${d.img}.jpg" alt="" onerror="this.remove()" loading="lazy"><span class="tag">${B('تفصيلة ' + d.t, 'Detail ' + d.t)}</span></div>
+      <div class="ph"><span class="big-init">${initEn}</span>${usePhotos ? `<img src="../assets/photos/${d.img}.jpg" alt="" onerror="this.remove()" loading="lazy">` : ''}<span class="tag">${B('تفصيلة ' + d.t, 'Detail ' + d.t)}</span></div>
       <div class="bd"><b>${B(d.bAr, d.bEn)}</b><p>${B(d.pAr, d.pEn)}</p></div>
     </div>`).join('')}
     <div style="text-align:center;margin-top:22px"><a class="cta gold" href="../${cafe.slug}/">${B('شوفوا منيوكم حيّاً ←', 'See your menu live →')}</a></div>
@@ -742,6 +757,7 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
       <span class="chip2">${B('ضغطة وحدة، بلا تطبيق', 'One tap, no app')}</span>
       <span class="chip2">${B('متوافق مع هيئة الغذاء والدواء', 'SFDA-ready')}</span>
       <span class="chip2">${B('تعديلات بلا حدود', 'Unlimited edits')}</span>
+      <span class="chip2"><span class="ar">جاهز لعصر السعودية الرقمي</span><span class="en">Built for Saudi's digital era</span></span>
     </div>
   </div>
 

@@ -358,7 +358,7 @@ ${wa ? `<a class="wa" href="${wa}"><span class="ar">💬 اطلب منيو مث�
   // word-by-word hero entrance (word-level keeps Arabic letter joining intact)
   if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
     document.querySelectorAll('h1 .ar, h1 .en').forEach(el=>{
-      const words=el.textContent.trim().split(/\s+/);
+      const words=el.textContent.trim().split(/\\s+/);
       el.innerHTML=words.map((w,i)=>'<span class="w" style="animation-delay:'+(0.35+i*0.12)+'s">'+w+'</span>').join(' ');
     });
     setTimeout(()=>{
