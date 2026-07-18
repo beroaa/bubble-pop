@@ -25,3 +25,15 @@ Target: all 50 masterpiece menus (lib/pages-masterpiece.mjs). Evidence law holds
 
 QA: rebuild 50, browser sweep incl. print emulation (page.emulateMedia print screenshot),
 ?t=4 param test, reduced-motion, then commit+push. Board: btrack card + m50 feed updates.
+
+5. THE ROYAL OFFER (gift pages — masterpieceWelcomePage)
+   - New section "العرض الملكي ✦ The Founding Offer" above the FREE card:
+     * "أول ٢٠ مقهى مؤسس في الرياض" — founding-20 scarcity (REAL: Ibrahim commits to
+       honoring the cap; no fake countdown timers ever).
+     * Elite tier list (what the card eventually buys): شهر مجاني كامل → then 49$/mo:
+       تعديلات بلا حدود · أزرار طلب واتساب · QR لكل طاولة · نسخة طباعة A4 ·
+       خانات SFDA · تقرير زيارات شهري · أولوية دعم بنفس اليوم.
+     * CTA: "فعّلوا تجربتكم الملكية — بنفس اليوم" → wa.me (CONTACT.whatsapp when real,
+       demo tooltip otherwise).
+   - Copy voice: Made-to-Stick, businessman, zero hype-lies. Payment links (Moyasar/Tap)
+     get wired ONLY when Ibrahim's merchant account exists — until then WhatsApp closes the deal.
