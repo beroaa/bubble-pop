@@ -1,5 +1,5 @@
 window.BUILDS_STATE = {
- "generatedAt": 1784368681057,
+ "generatedAt": 1784368877130,
  "builds": [
   {
    "id": "b1",
@@ -34,11 +34,12 @@ window.BUILDS_STATE = {
   {
    "id": "b4",
    "name": "SWARM-10K — CIA/FBI squads hunt real menus on delivery apps + photo leads, all bare luxe cafes",
-   "status": "running",
-   "pct": 55,
-   "etaAt": 1784369281057,
-   "note": "ALPHA reported in (18/18 found) — waiting on BRAVO + CHARLIE",
-   "startedAt": 1784368290622
+   "status": "done",
+   "pct": 100,
+   "etaAt": null,
+   "note": "ALPHA + CHARLIE home — waiting on BRAVO, then merge + rebuild",
+   "startedAt": 1784368290622,
+   "result": "53/54 cafes: +12 priced signatures (39 total), +21 dish mentions, 147 photo leads, formula v2.7"
   }
  ]
 };

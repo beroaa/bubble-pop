@@ -1,0 +1,520 @@
+[
+ {
+  "slug": "9th-street-coffee-roasters",
+  "name": "9th Street Coffee Roasters",
+  "social": "@9thstcoffee",
+  "leads": [
+   "https://www.tripadvisor.com/Restaurant_Review-g293995-d19484792-Reviews-9th_Street_Coffee_Roasters-Riyadh_Riyadh_Province.html",
+   "https://hungerstation.com/sa-en/restaurant/riyadh/boulevard/159695",
+   "https://www.facebook.com/9thstcoffee/"
+  ]
+ },
+ {
+  "slug": "roof-coffee",
+  "name": "Roof Coffee",
+  "social": "X coverage by @DHDH9933",
+  "leads": [
+   "https://www.tiktok.com/@d7ad7/video/7537764250090081554",
+   "https://www.instagram.com/reel/DNdoHsKIy-U/",
+   "https://www.tiktok.com/@riyadhreviews/video/7543229009736371474"
+  ]
+ },
+ {
+  "slug": "razeen-coffee",
+  "name": "Razeen Coffee",
+  "social": "X coverage by @DHDH9933; TikTok discover 'رزين قهوة مختصة الرياض'",
+  "leads": [
+   "https://www.tiktok.com/@azizyah_kh/video/7630858874517458184",
+   "https://www.tiktok.com/discover/%D8%B1%D8%B2%D9%8A%D9%86-%D9%82%D9%87%D9%88%D8%A9-%D9%85%D8%AE%D8%AA%D8%B5%D8%A9-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6"
+  ]
+ },
+ {
+  "slug": "qawam",
+  "name": "Qawam",
+  "social": "Promoted by @Liveriyadh011 on X",
+  "leads": [
+   "https://x.com/Liveriyadh011/status/1753145420941848919",
+   "https://www.tiktok.com/@m886432/video/7522207140518333714",
+   "https://www.instagram.com/reel/DMBpqzioVzn/"
+  ]
+ },
+ {
+  "slug": "eya-coffee",
+  "name": "Eya Coffee",
+  "social": "Instagram @eya.coffee",
+  "leads": [
+   "https://www.instagram.com/eya.coffee/",
+   "https://www.tiktok.com/@eya.coffee",
+   "https://www.instagram.com/p/DMueZVMs19a/"
+  ]
+ },
+ {
+  "slug": "cafe-n",
+  "name": "Cafe !N",
+  "social": "Instagram reel coverage",
+  "leads": [
+   "https://www.instagram.com/cafein.23/",
+   "https://www.tiktok.com/@cafein.23"
+  ]
+ },
+ {
+  "slug": "vark",
+  "name": "VARK",
+  "social": "TikTok @VARK, promoted via @riyadh_rest1",
+  "leads": [
+   "https://hungerstation.com/sa-ar/restaurant/%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/%D8%A7%D9%84%D9%8A%D8%A7%D8%B3%D9%85%D9%8A%D9%86/129039",
+   "https://www.instagram.com/vark_sa/",
+   "https://vark.tryorder.net/"
+  ]
+ },
+ {
+  "slug": "house-of-matcha",
+  "name": "House of Matcha",
+  "social": "Instagram @housematcha.sa",
+  "leads": [
+   "https://hungerstation.com/sa-en/restaurant/riyadh/ulaishah/180725",
+   "https://ananinja.com/sa/en/restaurants/house-of-matcha-37244",
+   "https://www.instagram.com/housematcha.sa/"
+  ]
+ },
+ {
+  "slug": "on-off-coffee",
+  "name": "ON OFF Coffee",
+  "social": "Featured in Lovin Riyadh matcha roundup",
+  "leads": [
+   "https://onoffsa.com/en/menu/",
+   "https://hungerstation.com/sa-ar/restaurant/riyadh/ulaishah/68743",
+   "https://www.instagram.com/onoff_sa/"
+  ]
+ },
+ {
+  "slug": "public-cafe",
+  "name": "Public Cafe",
+  "social": "@public.sa",
+  "leads": [
+   "https://www.instagram.com/public.sa/"
+  ]
+ },
+ {
+  "slug": "cactus-cafe",
+  "name": "Cactus Cafe",
+  "social": "@cactuscafe_sa",
+  "leads": [
+   "https://www.instagram.com/cactuscafe_sa/",
+   "https://cafesriyadh.com/2021/%D9%83%D8%A7%D9%83%D8%AA%D8%B3-%D9%83%D8%A7%D9%81%D9%8A%D9%87-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/"
+  ]
+ },
+ {
+  "slug": "nqweh-albon",
+  "name": "Nqweh Albon",
+  "social": "@nqweh_albon",
+  "leads": [
+   "https://cafesriyadh.com/2021/%D9%85%D8%AD%D9%85%D8%B5%D8%A9-%D9%88-%D9%85%D9%82%D9%87%D9%89-%D9%86%D9%82%D9%88%D8%A9-%D8%A7%D9%84%D8%A8%D9%86-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/",
+   "https://hungerstation.com/sa-ar/restaurant/bishah/al-rawdah/140321"
+  ]
+ },
+ {
+  "slug": "view-cafe",
+  "name": "View Cafe",
+  "social": "@viewcoffee.sa",
+  "leads": [
+   "https://hungerstation.com/sa-ar/restaurant/%D8%A7%D9%84%D8%A8%D8%AF%D8%A7%D8%A6%D8%B9/%D8%A7%D8%B4%D8%A8%D9%8A%D9%84%D9%8A%D8%A7/47861",
+   "https://www.instagram.com/viewcoffee.sa/",
+   "https://view-coffee.menus-sa.com/ar"
+  ]
+ },
+ {
+  "slug": "rewanted-cafe",
+  "name": "Rewanted Cafe",
+  "social": "@rewantedcafe",
+  "leads": [
+   "https://www.instagram.com/rewantedcafe/",
+   "https://www.instagram.com/p/CuNnVQTo8vb/"
+  ]
+ },
+ {
+  "slug": "sei-coffee",
+  "name": "Sei Coffee",
+  "social": "@sei.sa.coffee",
+  "leads": [
+   "https://www.instagram.com/sei.sa.coffee/",
+   "https://www.tiktok.com/@sei.sa.coffee",
+   "https://www.instagram.com/reel/DWWpK28iDwH/"
+  ]
+ },
+ {
+  "slug": "hot-sip-ex-port-beans",
+  "name": "Hot Sip (ex Port Beans)",
+  "social": "@hotsip.sa",
+  "leads": [
+   "https://www.instagram.com/hotsip.sa/",
+   "https://www.tiktok.com/@riyadhdaily2/video/7513954521454857480",
+   "https://www.instagram.com/p/DMt_GtmicoK/"
+  ]
+ },
+ {
+  "slug": "solio-cafe",
+  "name": "Solio Cafe",
+  "social": "@find.solio",
+  "leads": [
+   "https://www.instagram.com/p/DTM1DXijF5-/",
+   "https://www.instagram.com/p/DQTScSMCgeH/",
+   "https://maps.yango.com/en-sa/org/168513371529/"
+  ]
+ },
+ {
+  "slug": "skoops",
+  "name": "Skoops",
+  "social": "@skoops.sa",
+  "leads": [
+   "https://www.instagram.com/skoops.sa/",
+   "https://ananinja.com/sa/ar/restaurants/skoops-18058",
+   "https://hungerstation.com/sa-ar/qc/67482/Skoops-ice-cream/branch/riyadh~king-fahd-neighborhood~119035"
+  ]
+ },
+ {
+  "slug": "recaf",
+  "name": "Recaf",
+  "social": "@Recaf_ksa",
+  "leads": [
+   "https://hungerstation.com/sa-ar/qc/98357/%D8%B1%D9%8A%D9%83%D8%A7%D9%81/branch/%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6~%D8%A7%D9%84%D8%AE%D9%84%D9%8A%D8%AC~175487",
+   "https://www.instagram.com/recaf_sa/",
+   "https://recaf.sa/"
+  ]
+ },
+ {
+  "slug": "hav-bakery",
+  "name": "Hav Bakery",
+  "social": "@thamer.86 (coverage) / Hav Bakery on TikTok",
+  "leads": [
+   "https://hungerstation.com/sa-ar/restaurant/riyadh/al-rawabi/168634",
+   "https://www.instagram.com/hav_bakery/",
+   "https://www.instagram.com/reel/DRNkuwLDUWj/"
+  ]
+ },
+ {
+  "slug": "essert",
+  "name": "Essert",
+  "social": "@Essert (TikTok tag), coverage @east_of_riyadh",
+  "leads": [
+   "https://hungerstation.com/sa-ar/qc/80633/%D8%A7%D9%8A%D8%B2%D8%B1%D8%AA/branch/%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6~%D8%AC%D8%B1%D9%8A%D8%B1~142734",
+   "https://www.tiktok.com/@lifeby.lm/video/7508086530578205960",
+   "https://www.tiktok.com/@kunuz_luluh/video/7493788386302446856"
+  ]
+ },
+ {
+  "slug": "easy-bakery",
+  "name": "Easy Bakery",
+  "social": "covered by @hajar_600 on TikTok",
+  "leads": [
+   "https://www.instagram.com/easybakery.sa/",
+   "https://thechefz.co/ar/riyadh/easy-bakery-%D8%A7%D9%8A%D8%B2%D9%8A-%D8%A8%D9%8A%D9%83%D8%B1%D9%8A-3005148/",
+   "https://easybakery.sa/"
+  ]
+ },
+ {
+  "slug": "good-mate-cafe",
+  "name": "Good Mate Cafe",
+  "social": "@good.matecafe",
+  "leads": [
+   "https://www.instagram.com/p/DT7QnAfjLS_/",
+   "https://www.tiktok.com/@goodmatecafe/video/7593737040009710856"
+  ]
+ },
+ {
+  "slug": "desert-tree",
+  "name": "Desert Tree",
+  "social": "@deserttree.sa",
+  "leads": [
+   "https://www.instagram.com/deserttree.sa/",
+   "https://desert-tree.yallaqrcodes.com/",
+   "https://www.tiktok.com/@ixii43_/video/7596407318607269140"
+  ]
+ },
+ {
+  "slug": "blumen-cafe",
+  "name": "Blumen Cafe",
+  "social": "@blumen.coffeee (TikTok)",
+  "leads": [
+   "https://hungerstation.com/sa-ar/restaurant/%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/%D9%84%D8%A8%D9%86/144773",
+   "https://oddmenu.com/p/blumen",
+   "https://www.instagram.com/blumen.coffee/"
+  ]
+ },
+ {
+  "slug": "tuus-cafe",
+  "name": "Tuus Cafe",
+  "social": "@tuuscafe",
+  "leads": [
+   "https://hungerstation.com/sa-ar/restaurant/riyadh/okaz/154907",
+   "https://www.instagram.com/tuuscafe/",
+   "https://www.tiktok.com/@tuuscafe"
+  ]
+ },
+ {
+  "slug": "laminam-cafe",
+  "name": "Laminam Cafe",
+  "social": "@laminam_ksa",
+  "leads": [
+   "https://hungerstation.com/sa-ar/restaurant/riyadh/manfuhah/144235",
+   "https://www.instagram.com/laminam_ksa/",
+   "https://www.instagram.com/reel/DFfKrS_i3ZJ/"
+  ]
+ },
+ {
+  "slug": "scout-cafe",
+  "name": "Scout Cafe",
+  "social": "tiktok/IG: Scout Cafe",
+  "leads": [
+   "https://x.com/Liveriyadh011/status/2071594010838278604",
+   "https://x.com/hamudkaa/status/2071240430688096650"
+  ]
+ },
+ {
+  "slug": "jiba-coffee",
+  "name": "Jiba Coffee",
+  "social": "tiktok @jibacoffee",
+  "leads": [
+   "https://www.tiktok.com/@jibacoffee/video/7639754576228355349",
+   "https://www.tiktok.com/@ksatrend1/video/7649077694742777095",
+   "https://www.instagram.com/reel/DYicAyhs8TS/"
+  ]
+ },
+ {
+  "slug": "dm-cafe",
+  "name": "DM Cafe",
+  "social": "@dmcafe_1",
+  "leads": [
+   "https://hungerstation.com/sa-en/qc/98938/DM-Cafe/branch/riyadh~hateen~176840",
+   "https://www.tiktok.com/@dmcafe_1",
+   "https://linktr.ee/dmcafe_1"
+  ]
+ },
+ {
+  "slug": "goya-cafe",
+  "name": "GOYA Cafe",
+  "social": "instagram.com/p/DKMvRG7oyDC",
+  "leads": [
+   "https://www.instagram.com/p/DKMvRG7oyDC/",
+   "https://www.tiktok.com/@hajar_600/video/7496938586042928402",
+   "https://www.instagram.com/goya_ksa/"
+  ]
+ },
+ {
+  "slug": "ashjar-cafe-and-roastery",
+  "name": "Ashjar Cafe & Roastery",
+  "social": "@ashjar (Instagram)",
+  "leads": [
+   "https://hungerstation.com/sa-en/restaurant/%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/%D8%A7%D9%84%D9%82%D9%8A%D8%B1%D9%88%D8%A7%D9%86/157460",
+   "https://www.instagram.com/ashjarcafe/",
+   "https://ashjarcafe.com/en/"
+  ]
+ },
+ {
+  "slug": "vov-cafe",
+  "name": "VOV Cafe",
+  "social": "@vov.cafe (Instagram)",
+  "leads": [
+   "https://hungerstation.com/sa-en/qc/99112/Vov/branch/riyadh~masiaf~177117",
+   "https://www.instagram.com/p/DRrJRgHDNeY/",
+   "https://www.instagram.com/reel/DO1MIO3jLG2/"
+  ]
+ },
+ {
+  "slug": "slant-cafe",
+  "name": "Slant Cafe",
+  "social": "Instagram (post: instagram.com/p/DP1jo8DinnH)",
+  "leads": [
+   "https://www.instagram.com/slant.sa/",
+   "https://hungerstation.com/sa-en/restaurant/riyadh/al-zahra/185536",
+   "https://www.instagram.com/p/DRreQdnDBmC/"
+  ]
+ },
+ {
+  "slug": "markab-coffee",
+  "name": "Markab Coffee",
+  "social": "Instagram reel: instagram.com/reel/DQkGh_FjIFb",
+  "leads": [
+   "https://www.instagram.com/markab.sa/",
+   "https://www.tiktok.com/@riyadhblog2022/video/7568183337064467732",
+   "https://www.tiktok.com/@rawnaq_almadinah/photo/7583372139093413127"
+  ]
+ },
+ {
+  "slug": "your-coffee-qahwatak",
+  "name": "Your Coffee (Qahwatak)",
+  "social": "TikTok @riyadh_evnt coverage",
+  "leads": [
+   "https://www.instagram.com/yourcoffeesa/",
+   "https://www.tiktok.com/@riyadh_evnt/video/7385285885513731348"
+  ]
+ },
+ {
+  "slug": "salam-coffee",
+  "name": "Salam Coffee",
+  "social": "TikTok @yazeedalhu coverage",
+  "leads": [
+   "https://www.instagram.com/salamcafe.sa/",
+   "https://linktr.ee/salamcafe.sa",
+   "https://www.tiktok.com/@1hmoudii/video/7504731028431392007"
+  ]
+ },
+ {
+  "slug": "peacock-roastery",
+  "name": "Peacock Roastery",
+  "social": "TikTok @cafes40 coverage",
+  "leads": [
+   "https://peacockroaster.com/products",
+   "https://www.instagram.com/peacock_roaster/",
+   "https://qavashop.com/ar/manufacturer/peacock-roaster.html"
+  ]
+ },
+ {
+  "slug": "kaif-al-mazraa",
+  "name": "Kaif Al Mazraa",
+  "social": "https://www.instagram.com/reel/DYubOhdsyT8/",
+  "leads": [
+   "https://www.instagram.com/kaif_ksa/",
+   "https://webook.com/ar/experiences/kaif-farm",
+   "https://www.instagram.com/reel/DYubOhdsyT8/"
+  ]
+ },
+ {
+  "slug": "sarb",
+  "name": "Sarb",
+  "social": "https://www.tiktok.com/@nawader.8/video/7421219201513213202",
+  "leads": [
+   "https://serbcoffee.tryorder.net/menu",
+   "https://www.instagram.com/serb.coffee/",
+   "https://www.tiktok.com/@riyadhreviews/video/7420775793153936647"
+  ]
+ },
+ {
+  "slug": "anwan-al-qahwa",
+  "name": "Anwan Al Qahwa",
+  "social": "instagram.com/p/Cy0wbaUN4wa",
+  "leads": [
+   "https://hungerstation.com/sa-ar/restaurant/riyadh/alnodhem/176047",
+   "https://www.tiktok.com/@oudi_xoxo/video/7366219972017704208",
+   "https://linktr.ee/addresscafe"
+  ]
+ },
+ {
+  "slug": "qasr-tolin-sweets",
+  "name": "Qasr Tolin Sweets",
+  "social": "tiktok.com/@tmha2030",
+  "leads": [
+   "https://hungerstation.com/sa-ar/restaurant/%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/%D8%A7%D9%84%D9%86%D8%B8%D9%8A%D9%85/113083",
+   "https://www.instagram.com/qasar_toleen.sweets/",
+   "https://ananinja.com/sa/ar/restaurants/qasar-toleen-sweets-24280"
+  ]
+ },
+ {
+  "slug": "lyrs-artisan-bakery",
+  "name": "Lyrs Artisan Bakery",
+  "social": "https://www.instagram.com/lyrsbakery/",
+  "leads": [
+   "https://hungerstation.com/sa-en/restaurant/%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/154151",
+   "https://www.instagram.com/lyrsbakery/",
+   "https://restaurantguru.com/LYRS-Artisan-Bakery-lyrz-bykry-alhrfy-Riyadh"
+  ]
+ },
+ {
+  "slug": "rakiyah-roastery",
+  "name": "Rakiyah Roastery",
+  "social": "@rukayaa.sa",
+  "leads": [
+   "https://www.instagram.com/rukayaa.sa/",
+   "https://www.instagram.com/p/DVHF9AAjRB6/",
+   "https://rukayaa.sa/"
+  ]
+ },
+ {
+  "slug": "marthad-coffee",
+  "name": "Marthad Coffee",
+  "social": "TikTok/IG coverage: instagram.com/reel/DZ7mMigqr5I",
+  "leads": [
+   "https://x.com/DHDH9933/status/2068412966655938744",
+   "https://www.instagram.com/reel/DZ7mMigqr5I/",
+   "https://www.tiktok.com/content/%D9%83%D9%88%D9%81%D9%8A-%D9%85%D8%B1%D8%AB%D8%AF-%D8%A7%D9%84%D8%B1%D9%88%D8%B6%D9%87"
+  ]
+ },
+ {
+  "slug": "insire-coffee",
+  "name": "InSire Coffee",
+  "social": "https://www.instagram.com/insire.sa0 (@insire.sa0)",
+  "leads": [
+   "https://www.instagram.com/p/DWdcVxkIuvR/",
+   "https://www.instagram.com/p/DUtg4ceCAgk/",
+   "https://www.instagram.com/reel/DUZJdeSgB9r/"
+  ]
+ },
+ {
+  "slug": "fam-coffee",
+  "name": "Fam Coffee",
+  "social": "TikTok coverage (@hajar_600)",
+  "leads": [
+   "https://www.instagram.com/fam.coffeehouse/",
+   "https://www.tiktok.com/@riyadhreviews/video/7562200533658766600",
+   "https://www.tiktok.com/@g.rr9/video/7561031111258688788"
+  ]
+ },
+ {
+  "slug": "haffa-coffee-roaster",
+  "name": "Haffa Coffee Roaster",
+  "social": "Instagram @haffa.sa",
+  "leads": [
+   "https://www.instagram.com/haffa.sa/",
+   "https://www.instagram.com/p/DKUmJ5mIOmA/"
+  ]
+ },
+ {
+  "slug": "farina-cafe",
+  "name": "Farina Cafe",
+  "social": "Instagram",
+  "leads": [
+   "https://www.instagram.com/farinasaudi/",
+   "https://linktr.ee/farinasaudi",
+   "https://www.instagram.com/p/Ci8I7KaoR2I/"
+  ]
+ },
+ {
+  "slug": "kazar-cafe",
+  "name": "Kazar Cafe",
+  "social": "Instagram",
+  "leads": [
+   "https://www.instagram.com/cazarcafe/",
+   "https://cafesriyadh.com/2021/%D9%83%D8%A7%D8%B2%D8%A7%D8%B1-%D9%83%D8%A7%D9%81%D9%8A%D9%87/"
+  ]
+ },
+ {
+  "slug": "cave-cafe",
+  "name": "Cave Cafe",
+  "social": "instagram.com/cave.coffe1",
+  "leads": [
+   "https://www.instagram.com/p/DOpufLAjNZp/",
+   "https://www.instagram.com/p/DMeyag0of4N/",
+   "https://www.tiktok.com/@d7ad7/video/7561143196340768007"
+  ]
+ },
+ {
+  "slug": "sica-coffee-roastery",
+  "name": "Sica Coffee Roastery",
+  "social": "@SICA COFFEE ROASTERY (TikTok)",
+  "leads": [
+   "https://www.instagram.com/sicacoffee.sa/",
+   "https://sicaroastry.com/ar/",
+   "https://salla.sa/cathaf/%D9%85%D8%AD%D9%85%D8%B5%D8%A9-%D8%B3%D9%8A%D9%83%D8%A7-sica/c666039287"
+  ]
+ },
+ {
+  "slug": "rym-coffee",
+  "name": "RYM Coffee",
+  "social": "@RYM.RUH",
+  "leads": [
+   "https://www.instagram.com/rym.ruh/",
+   "https://www.instagram.com/p/DXv3hQ1jNhQ/",
+   "https://x.com/DHDH9933/status/2022039118663082484"
+  ]
+ }
+]
