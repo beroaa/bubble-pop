@@ -9,7 +9,7 @@
     "source": "batch1",
     "priority": 3,
     "tier": "luxe",
-    "stageAt": 1784366087107
+    "stageAt": 1784366275783
   },
   {
     "slug": "78-specialty",
@@ -21,7 +21,7 @@
     "source": "batch1",
     "priority": 3,
     "tier": "luxe",
-    "stageAt": 1784366087108
+    "stageAt": 1784366275799
   },
   {
     "slug": "bearu",
@@ -33,7 +33,7 @@
     "source": "batch1",
     "priority": 3,
     "tier": "luxe",
-    "stageAt": 1784366087108
+    "stageAt": 1784366275807
   },
   {
     "slug": "little-henri",
@@ -45,7 +45,7 @@
     "source": "batch1",
     "priority": 3,
     "tier": "luxe",
-    "stageAt": 1784366087109
+    "stageAt": 1784366275828
   },
   {
     "slug": "hlo",
@@ -57,7 +57,7 @@
     "source": "batch1",
     "priority": 3,
     "tier": "luxe",
-    "stageAt": 1784366087110
+    "stageAt": 1784366275838
   },
   {
     "slug": "place-and-people",
@@ -69,7 +69,7 @@
     "source": "batch1",
     "priority": 3,
     "tier": "luxe",
-    "stageAt": 1784366087110
+    "stageAt": 1784366275877
   },
   {
     "slug": "salam-cafe",
@@ -81,7 +81,7 @@
     "source": "batch1",
     "priority": 3,
     "tier": "luxe",
-    "stageAt": 1784366087111
+    "stageAt": 1784366275886
   },
   {
     "slug": "aim-coffee-bar",
@@ -93,7 +93,7 @@
     "source": "batch1",
     "priority": 3,
     "tier": "luxe",
-    "stageAt": 1784366087111
+    "stageAt": 1784366275897
   },
   {
     "slug": "woods",
@@ -105,7 +105,7 @@
     "source": "batch1",
     "priority": 3,
     "tier": "luxe",
-    "stageAt": 1784366087112
+    "stageAt": 1784366275905
   },
   {
     "slug": "breehant",
@@ -117,7 +117,7 @@
     "source": "batch1",
     "priority": 3,
     "tier": "luxe",
-    "stageAt": 1784366087113
+    "stageAt": 1784366275912
   },
   {
     "slug": "namq-caf",
@@ -140,7 +140,7 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "A minimalist, design-led café — a clean QR e-menu matches its aesthetic far better than laminated cards, and lets it update seasonal brews without reprinting.",
-    "stageAt": 1784366087114,
+    "stageAt": 1784366275923,
     "signature": [
       [
         "Spanish Latte",
@@ -167,7 +167,7 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "Riyadh-born roastery selling take-home beans plus espresso, drip and cold coffee — an e-menu can list rotating bean origins and retail bags in Arabic and English, which changes too often for print.",
-    "stageAt": 1784366087114,
+    "stageAt": 1784366275941,
     "signature": [
       [
         "Hot Chocolate",
@@ -187,7 +187,7 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "A modern independent with bold signature brews — a shareable QR menu doubles as marketing for a small shop competing next to big names like Camel Step in the same district.",
-    "stageAt": 1784366087115,
+    "stageAt": 1784366275957,
     "social": "@kicksters.sa",
     "priority": 3,
     "tier": "luxe"
@@ -201,7 +201,7 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "A respected homegrown precision roaster — single-origin offerings rotate constantly, so a digital menu that updates in minutes beats reprinting cards every time a bean sells out.",
-    "stageAt": 1784366087116,
+    "stageAt": 1784366275965,
     "signature": [
       [
         "V60 Pour-Over",
@@ -221,7 +221,7 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "Two locations (Al Malqa and Al Olaya) — one QR e-menu keeps both branches identical and lets the owner change prices once for both shops.",
-    "stageAt": 1784366087117,
+    "stageAt": 1784366275982,
     "signature": [
       [
         "Honey Cake (served warm)",
@@ -246,7 +246,7 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "A roastery-led café in a quiet residential stretch of Al Yasmin — a process-focused menu (brew methods, origins, tasting notes) is much easier to present bilingually on a phone than on a printed card.",
-    "stageAt": 1784366087117,
+    "stageAt": 1784366275995,
     "social": "@idmicoffee",
     "priority": 3,
     "tier": "luxe"
@@ -259,7 +259,7 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "Curated single-origin brews in a soft-industrial space — its bean lineup changes with each roast, and an e-menu lets it showcase current origins without wasting print runs.",
-    "stageAt": 1784366087118,
+    "stageAt": 1784366276002,
     "signature": [
       [
         "Spanish Latte",
@@ -284,7 +284,7 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "A sleek specialty café in Riyadh's busiest business district — Olaya's mix of Saudi and international office workers makes a bilingual AR/EN QR menu an immediate daily convenience.",
-    "stageAt": 1784366087118,
+    "stageAt": 1784366276009,
     "signature": [
       [
         "Iced Drip (Yemeni-bean filter coffee over ice)",
@@ -314,7 +314,7 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "Known for signature drink creations and unique pastries in an Instagrammable space — a QR menu with photos extends that visual identity and is easy to share on social media.",
-    "stageAt": 1784366087119,
+    "stageAt": 1784366276019,
     "social": "@yamm.sa",
     "priority": 3,
     "tier": "luxe"
@@ -327,7 +327,7 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "A calm, cozy espresso retreat — small independents like this rarely have any web presence, so a MENU SADAH page is both their menu and their first website.",
-    "stageAt": 1784366087119,
+    "stageAt": 1784366276030,
     "signature": [
       [
         "Honey Toast",
@@ -352,7 +352,7 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "A design-focused café where the interior is the brand — a beautifully typeset bilingual e-menu fits the concept, while a laminated sheet undermines it.",
-    "stageAt": 1784366087119,
+    "stageAt": 1784366276043,
     "social": "@justaspace.sa",
     "priority": 3,
     "tier": "luxe"
@@ -365,7 +365,7 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "Single-origin beans and precision brewing with cupping-led discovery — tasting notes and rotating origins are exactly the kind of content that needs a menu you can edit weekly, not reprint.",
-    "stageAt": 1784366087120,
+    "stageAt": 1784366276070,
     "signature": [
       [
         "Iced Cubano",
@@ -396,7 +396,7 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "Founder-led matcha brand with three branches open 6am to 3am — multi-branch consistency plus a young, phone-first customer base makes a shared QR e-menu a natural fit.",
-    "stageAt": 1784366087120,
+    "stageAt": 1784366276084,
     "signature": [
       [
         "Strawberry Matcha Latte",
@@ -430,7 +430,7 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "New 2025 opening with drinks whisked to order and house-made syrups like miso honey and carrot-cake matcha — a specialty menu this unusual needs descriptions in both Arabic and English so customers kn",
-    "stageAt": 1784366087121,
+    "stageAt": 1784366276093,
     "social": "@happylandmatcha",
     "priority": 3,
     "tier": "luxe"
@@ -443,7 +443,7 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "A new Japanese-style café serving fluffy pancakes and matcha drinks — an unfamiliar Japanese menu benefits enormously from a photo-rich bilingual QR page that explains each dish.",
-    "stageAt": 1784366087121,
+    "stageAt": 1784366276109,
     "social": "@kuro.saudi",
     "priority": 3,
     "tier": "luxe"
@@ -456,7 +456,7 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "An independent roaster praised for specialty coffee, healthy food and single-origin organic beans — a combined food-plus-beans menu is complex enough that a searchable digital menu clearly beats print",
-    "stageAt": 1784366087122,
+    "stageAt": 1784366276117,
     "social": "@9thstcoffee",
     "priority": 3,
     "tier": "luxe"
@@ -471,7 +471,7 @@
     "source": "batch2-harvest",
     "why": "Brand-new single-floor specialty coffee spot announced via X coffee reviewers; presence is social-only with indoor/outdoor seating photos, no structured menu online.",
     "social": "X coverage by @DHDH9933",
-    "stageAt": 1784366087122,
+    "stageAt": 1784366276124,
     "priority": 3,
     "tier": "luxe"
   },
@@ -485,7 +485,7 @@
     "source": "batch2-harvest",
     "why": "In trial (soft) opening, one floor, indoor seating only; menu (specialty coffee + cheesecakes) exists only in reviewer photos on X — ideal early-stage QR menu client.",
     "social": "X coverage by @DHDH9933",
-    "stageAt": 1784366087123,
+    "stageAt": 1784366276133,
     "signature": [
       [
         "Flat White",
@@ -516,7 +516,7 @@
     "source": "batch2-harvest",
     "why": "Just-opened neighborhood specialty coffee inside a residential district; only footprint is X/TikTok posts, classic photos-as-menu case.",
     "social": "X coverage by @DHDH9933; TikTok discover 'رزين قهوة مختصة الرياض'",
-    "stageAt": 1784366087123,
+    "stageAt": 1784366276144,
     "priority": 3,
     "tier": "luxe"
   },
@@ -530,7 +530,7 @@
     "source": "batch2-harvest",
     "why": "Small south-Riyadh specialty cafe with indoor/outdoor sittings promoted only through local X promo accounts; south Riyadh is underserved by menu tech.",
     "social": "Promoted by @Liveriyadh011 on X",
-    "stageAt": 1784366087124,
+    "stageAt": 1784366276152,
     "priority": 3,
     "tier": "luxe"
   },
@@ -544,7 +544,7 @@
     "source": "batch2-harvest",
     "why": "Recent Takhassusi opening pushed heavily by paid TikTok/Instagram reels; desserts and drinks shown only in influencer video, no digital menu.",
     "social": "Instagram @harmony_caffeksa; TikTok ads by @alriyadh.trend",
-    "stageAt": 1784366087124,
+    "stageAt": 1784366276158,
     "signature": [
       [
         "Hot V60 (specialty drip coffee)",
@@ -570,7 +570,7 @@
     "source": "batch2-harvest",
     "why": "Two-year-old independent cafe near a metro station whose whole identity lives on its Instagram grid; menu discoverable only via photos and TikTok reviews.",
     "social": "Instagram @eya.coffee",
-    "stageAt": 1784366087125,
+    "stageAt": 1784366276164,
     "priority": 3,
     "tier": "luxe"
   },
@@ -584,7 +584,7 @@
     "source": "batch2-harvest",
     "why": "Small Olaya coffee spot known for its seating vibe, discovered through Instagram reels; no structured bilingual menu online.",
     "social": "Instagram reel coverage",
-    "stageAt": 1784366087125,
+    "stageAt": 1784366276173,
     "priority": 3,
     "tier": "luxe"
   },
@@ -598,7 +598,7 @@
     "source": "batch2-harvest",
     "why": "Two-branch local concept (signature toasted-bread sandwiches, 5 fillings, plus specialty coffee and desserts) whose menu exists only inside TikTok ad videos — perfect fit for a structured item-list me",
     "social": "TikTok @VARK, promoted via @riyadh_rest1",
-    "stageAt": 1784366087126,
+    "stageAt": 1784366276182,
     "priority": 3,
     "tier": "luxe"
   },
@@ -612,7 +612,7 @@
     "source": "batch2-harvest",
     "why": "Cozy new cafe riding the viral chimney-cake trend, open 4pm-2am; discovery is purely Instagram (@chi.chi.ksa) and word of mouth.",
     "social": "Instagram @chi.chi.ksa",
-    "stageAt": 1784366087126,
+    "stageAt": 1784366276190,
     "priority": 3,
     "tier": "luxe"
   },
@@ -626,7 +626,7 @@
     "source": "batch2-harvest",
     "why": "Independent specialty coffee that just opened a Suwaidi location in west/south Riyadh, an area with few QR-menu adopters; covered in Time Out's Arabic new-cafes roundup.",
     "social": "Listed in Time Out Riyadh (AR)",
-    "stageAt": 1784366087127,
+    "stageAt": 1784366276200,
     "priority": 3,
     "tier": "luxe"
   },
@@ -640,7 +640,7 @@
     "source": "batch2-harvest",
     "why": "New independent cafe featured in Time Out's Arabic new-cafes list for creative coffee in a distinctive setting; social-first presence, no structured online menu found.",
     "social": "Listed in Time Out Riyadh (AR)",
-    "stageAt": 1784366087127,
+    "stageAt": 1784366276207,
     "priority": 3,
     "tier": "luxe"
   },
@@ -654,7 +654,7 @@
     "source": "batch2-harvest",
     "why": "Small matcha-focused bar riding Riyadh's matcha wave; brand lives on Instagram (@housematcha.sa) and delivery apps, no owned bilingual menu page.",
     "social": "Instagram @housematcha.sa",
-    "stageAt": 1784366087127,
+    "stageAt": 1784366276214,
     "priority": 3,
     "tier": "luxe"
   },
@@ -668,7 +668,7 @@
     "source": "batch2-harvest",
     "why": "Cozy independent spot praised for its matcha latte and coffee in local roundups; social-first small cafe with no structured digital menu found.",
     "social": "Featured in Lovin Riyadh matcha roundup",
-    "stageAt": 1784366087128,
+    "stageAt": 1784366276223,
     "priority": 3,
     "tier": "luxe"
   },
@@ -682,7 +682,7 @@
     "source": "batch3-overnight",
     "why": "Tiny specialty shop (~1.3k IG followers) whose menu exists only in Instagram photo posts",
     "social": "@public.sa",
-    "stageAt": 1784366087128,
+    "stageAt": 1784366276232,
     "priority": 3,
     "tier": "luxe"
   },
@@ -696,7 +696,7 @@
     "source": "batch3-overnight",
     "why": "Neighborhood family cafe opposite the public park, discoverable only via Instagram with no digital menu",
     "social": "@cactuscafe_sa",
-    "stageAt": 1784366087129,
+    "stageAt": 1784366276240,
     "priority": 3,
     "tier": "luxe"
   },
@@ -736,7 +736,7 @@
     "source": "batch3-overnight",
     "why": "Grab-and-go micro roastery too small for seating; a QR menu is the natural counter/ordering surface for beans and drinks",
     "social": "@nqweh_albon",
-    "stageAt": 1784366087129,
+    "stageAt": 1784366276246,
     "priority": 3,
     "tier": "luxe"
   },
@@ -802,7 +802,7 @@
     "source": "batch3-overnight",
     "why": "Instagram-only presence promoting premium coffee crops; followers must DM or visit to learn prices",
     "social": "@viewcoffee.sa",
-    "stageAt": 1784366087130,
+    "stageAt": 1784366276254,
     "priority": 3,
     "tier": "luxe"
   },
@@ -868,7 +868,7 @@
     "source": "batch3-overnight",
     "why": "Instagram-first neighborhood cafe with no website or menu link in bio",
     "social": "@rewantedcafe",
-    "stageAt": 1784366087130,
+    "stageAt": 1784366276263,
     "priority": 3,
     "tier": "luxe"
   },
@@ -1136,7 +1136,7 @@
     "source": "batch3-overnight",
     "why": "Instagram-first specialty cafe in a fast-growing new district — an e-menu would serve the new-resident audience finding it via IG",
     "social": "@outsetksa",
-    "stageAt": 1784366087131,
+    "stageAt": 1784366276270,
     "priority": 3,
     "tier": "luxe"
   },
@@ -1150,7 +1150,7 @@
     "source": "batch3-overnight",
     "why": "Brand-new specialty opening hyped by blogger reposts — perfect timing to launch with a proper QR menu before habits form",
     "social": "@nuviq.sa",
-    "stageAt": 1784366087131,
+    "stageAt": 1784366276277,
     "priority": 3,
     "tier": "luxe"
   },
@@ -1204,7 +1204,7 @@
     "source": "batch3-overnight",
     "why": "New west-Riyadh spot discovered through paid TikTok coverage — converting that reach needs an on-table QR menu, not more ads",
     "social": "@sei.sa.coffee",
-    "stageAt": 1784366087132,
+    "stageAt": 1784366276286,
     "priority": 3,
     "tier": "luxe"
   },
@@ -1232,7 +1232,7 @@
     "source": "batch3-overnight",
     "why": "Recently rebranded from Port Beans — a fresh QR menu would cement the new identity that currently exists only in TikTok clips",
     "social": "@hotsip.sa",
-    "stageAt": 1784366087132,
+    "stageAt": 1784366276295,
     "priority": 3,
     "tier": "luxe"
   },
@@ -2307,7 +2307,7 @@
     "why": "New Al Quds specialty cafe hyped on Instagram reels; no proper menu link.",
     "social": "@heal_coffe",
     "priority": 3,
-    "stageAt": 1784366087133,
+    "stageAt": 1784366276304,
     "tier": "luxe"
   },
   {
@@ -2335,7 +2335,7 @@
     "why": "Newly opened cafe in Al Quds promoted via Instagram reels; menu lives in photos.",
     "social": "@find.solio",
     "priority": 3,
-    "stageAt": 1784366087133,
+    "stageAt": 1784366276310,
     "tier": "luxe"
   },
   {
@@ -2509,7 +2509,7 @@
     "why": "Small local ice cream shop covered by Arab News; menu lives on Instagram",
     "social": "@skoops.sa",
     "priority": 3,
-    "stageAt": 1784366087133,
+    "stageAt": 1784366276318,
     "tier": "luxe"
   },
   {
@@ -2643,7 +2643,7 @@
     "why": "New local coffee spot promoted via TikTok covers only",
     "social": "@Recaf_ksa",
     "priority": 3,
-    "stageAt": 1784366087134,
+    "stageAt": 1784366276325,
     "tier": "luxe"
   },
   {
@@ -3092,7 +3092,7 @@
     "why": "Newly opened bakery-cafe doing gathering boxes and cinnamon rolls, promoted purely via TikTok coverage accounts.",
     "social": "@thamer.86 (coverage) / Hav Bakery on TikTok",
     "priority": 3,
-    "stageAt": 1784366087134,
+    "stageAt": 1784366276332,
     "tier": "luxe"
   },
   {
@@ -3171,7 +3171,7 @@
     "why": "Brand-new dessert-and-coffee spot in east Riyadh, announced through a TikTok coverage account with no digital menu.",
     "social": "@Essert (TikTok tag), coverage @east_of_riyadh",
     "priority": 3,
-    "stageAt": 1784366087135,
+    "stageAt": 1784366276344,
     "tier": "luxe"
   },
   {
@@ -3227,7 +3227,7 @@
     "why": "New bakery-cafe addition to Al Suwaidi promoted via resident TikTok posts; menu in photos only.",
     "social": "covered by @hajar_600 on TikTok",
     "priority": 3,
-    "stageAt": 1784366087135,
+    "stageAt": 1784366276351,
     "tier": "luxe"
   },
   {
@@ -3254,7 +3254,7 @@
     "why": "Newly opened cosy independent coffee spot; presence is essentially Instagram-only.",
     "social": "@good.matecafe",
     "priority": 3,
-    "stageAt": 1784366087135,
+    "stageAt": 1784366276358,
     "tier": "luxe"
   },
   {
@@ -3377,7 +3377,7 @@
     "why": "Newly opened 2026 specialty coffee spot covered only via TikTok opening videos and Instagram.",
     "social": "@deserttree.sa",
     "priority": 3,
-    "stageAt": 1784366087136,
+    "stageAt": 1784366276366,
     "tier": "luxe"
   },
   {
@@ -3675,7 +3675,7 @@
     "why": "24h specialty coffee spot newly opened in Laban, promotes only via TikTok/IG",
     "social": "@blumen.coffeee (TikTok)",
     "priority": 3,
-    "stageAt": 1784366087136,
+    "stageAt": 1784366276377,
     "tier": "luxe"
   },
   {
@@ -3755,7 +3755,7 @@
     "why": "Newly opened Uqaz specialty cafe, ~2k IG followers, menu in posts only",
     "social": "@tuuscafe",
     "priority": 3,
-    "stageAt": 1784366087137,
+    "stageAt": 1784366276383,
     "tier": "luxe"
   },
   {
@@ -3769,7 +3769,7 @@
     "why": "Brand-new Uqaz cafe covered only in TikTok opening reviews",
     "social": "@laminam_ksa",
     "priority": 3,
-    "stageAt": 1784366087137,
+    "stageAt": 1784366276390,
     "tier": "luxe"
   },
   {
@@ -4199,7 +4199,7 @@
     "why": "Brand-new trial opening covered by Riyadh coverage accounts on X; menu lives in social posts (Riyadh cheesecake, puddings), no digital menu found.",
     "social": "tiktok/IG: Scout Cafe",
     "priority": 3,
-    "stageAt": 1784366087138,
+    "stageAt": 1784366276399,
     "tier": "luxe"
   },
   {
@@ -4331,7 +4331,7 @@
     "why": "New 24h two-story bakery-coffee spot announced via TikTok trend account; menu only in videos.",
     "social": "tiktok @jibacoffee",
     "priority": 3,
-    "stageAt": 1784366087139,
+    "stageAt": 1784366276407,
     "tier": "luxe"
   },
   {
@@ -4566,7 +4566,7 @@
     "why": "New specialty coffee spot on Olaya St near Sulaiman Al Habib metro; menu only lives on IG/TikTok posts",
     "social": "@dmcafe_1",
     "priority": 3,
-    "stageAt": 1784366087139,
+    "stageAt": 1784366276418,
     "tier": "luxe"
   },
   {
@@ -4635,7 +4635,7 @@
     "why": "New small cafe with camel-themed seating serving coffee and cookies; menu lives in social photos",
     "social": "@hakwah_cafe",
     "priority": 3,
-    "stageAt": 1784366087140,
+    "stageAt": 1784366276426,
     "tier": "luxe"
   },
   {
@@ -4783,7 +4783,7 @@
     "why": "New specialty coffee shop in Al Falah known via Threads/IG coverage posts",
     "social": "@wondercoffee.sa",
     "priority": 3,
-    "stageAt": 1784366087140,
+    "stageAt": 1784366276434,
     "tier": "luxe"
   },
   {
@@ -5558,7 +5558,7 @@
     "why": "Newly opened specialty coffee + cinnabon spot promoted only through Instagram/TikTok reels.",
     "social": "@nsl (per reel tag)",
     "priority": 3,
-    "stageAt": 1784366087140,
+    "stageAt": 1784366276443,
     "tier": "luxe"
   },
   {
@@ -6820,7 +6820,7 @@
     "why": "Brand-new coffee-and-dessert spot known only through TikTok ads — no digital menu yet.",
     "social": "@at.anotherside (TikTok/Instagram)",
     "priority": 3,
-    "stageAt": 1784366087141,
+    "stageAt": 1784366276449,
     "tier": "luxe"
   },
   {
@@ -7018,7 +7018,7 @@
     "why": "New independent PlayStation lounge with cafe service, site has no ordering menu",
     "social": "https://404gaminglounge.com/",
     "priority": 3,
-    "stageAt": 1784366087141,
+    "stageAt": 1784366276456,
     "tier": "luxe"
   },
   {
@@ -7277,7 +7277,7 @@
     "why": "Owner-run gallery cafe letting customers hang their art free; local independent brand covered by Arab News, no proper digital menu.",
     "social": "https://www.instagram.com/artcafe_ksa/",
     "priority": 3,
-    "stageAt": 1784366087142,
+    "stageAt": 1784366276466,
     "tier": "luxe"
   },
   {
@@ -7732,7 +7732,7 @@
     "why": "Announced on Instagram as now serving at JAX District — brand-new small independent in the creative district.",
     "social": "https://www.instagram.com/p/DV3Tp4MDS8o/",
     "priority": 3,
-    "stageAt": 1784366087142,
+    "stageAt": 1784366276473,
     "tier": "luxe"
   },
   {
@@ -7772,7 +7772,7 @@
     "why": "Opened a new location June 2026 with specialty coffee and daily-baked pastries and desserts — growing local independent, not a franchise.",
     "social": "https://instagram.com/alezcafe",
     "priority": 3,
-    "stageAt": 1784366087143,
+    "stageAt": 1784366276478,
     "tier": "luxe"
   },
   {
@@ -7897,7 +7897,7 @@
     "why": "New independent coffee spot on a Qirawan side street, promoted only through Instagram reels.",
     "social": "instagram.com/p/DKMvRG7oyDC",
     "priority": 3,
-    "stageAt": 1784366087143,
+    "stageAt": 1784366276486,
     "tier": "luxe"
   },
   {
@@ -7924,7 +7924,7 @@
     "why": "Independent cafe-roastery that just opened a Qirawan location, announced via Instagram only.",
     "social": "@ashjar (Instagram)",
     "priority": 3,
-    "stageAt": 1784366087143,
+    "stageAt": 1784366276490,
     "tier": "luxe"
   },
   {
@@ -7938,7 +7938,7 @@
     "why": "New small specialty coffee in Hittin taking orders via Instagram DMs — no proper e-menu.",
     "social": "@vov.cafe (Instagram)",
     "priority": 3,
-    "stageAt": 1784366087144,
+    "stageAt": 1784366276496,
     "tier": "luxe"
   },
   {
@@ -8780,7 +8780,7 @@
     "why": "Tiny brand-new neighborhood specialty spot flagged by local coverage accounts; Instagram-only presence, no digital menu.",
     "social": "Instagram (post: instagram.com/p/DP1jo8DinnH)",
     "priority": 3,
-    "stageAt": 1784366087144,
+    "stageAt": 1784366276502,
     "tier": "luxe"
   },
   {
@@ -8898,7 +8898,7 @@
     "why": "New small coffee opening announced via Instagram reel only — no site or digital menu.",
     "social": "Instagram reel: instagram.com/reel/DQkGh_FjIFb",
     "priority": 3,
-    "stageAt": 1784366087145,
+    "stageAt": 1784366276510,
     "tier": "luxe"
   },
   {
@@ -8965,7 +8965,7 @@
     "why": "New independent 24h family cafe in Olaya with specialty coffee and dessert menu, visibility relies on TikTok coverage",
     "social": "TikTok @riyadh_evnt coverage",
     "priority": 3,
-    "stageAt": 1784366087145,
+    "stageAt": 1784366276518,
     "tier": "luxe"
   },
   {
@@ -9006,7 +9006,7 @@
     "why": "Freshly opened independent coffee shop in Malqa announced via TikTok opening coverage",
     "social": "TikTok @yazeedalhu coverage",
     "priority": 3,
-    "stageAt": 1784366087145,
+    "stageAt": 1784366276529,
     "tier": "luxe"
   },
   {
@@ -9046,7 +9046,7 @@
     "why": "Small independent roastery newly expanding from Hail to Riyadh, announced via TikTok hashtag coverage",
     "social": "TikTok @cafes40 coverage",
     "priority": 3,
-    "stageAt": 1784366087146,
+    "stageAt": 1784366276541,
     "tier": "luxe"
   },
   {
@@ -9183,7 +9183,7 @@
     "why": "Coffee-and-tea jalsat inside a palm farm in Wadi Hanifa; new pop-up-style farm branch with no proper menu system.",
     "social": "https://www.instagram.com/reel/DYubOhdsyT8/",
     "priority": 3,
-    "stageAt": 1784366087146,
+    "stageAt": 1784366276549,
     "tier": "luxe"
   },
   {
@@ -9197,7 +9197,7 @@
     "why": "New cafe inside a farm overlooking the wadi — pure istiraha-garden format discovered via Instagram only.",
     "social": "https://www.instagram.com/p/CYAL-KsoBe4/",
     "priority": 3,
-    "stageAt": 1784366087147,
+    "stageAt": 1784366276557,
     "tier": "luxe"
   },
   {
@@ -9317,7 +9317,7 @@
     "why": "New independent Rimal cafe surfaced via TikTok coverage, no structured menu online.",
     "social": "https://www.tiktok.com/@nawader.8/video/7421219201513213202",
     "priority": 3,
-    "stageAt": 1784366087147,
+    "stageAt": 1784366276568,
     "tier": "luxe"
   },
   {
@@ -9924,7 +9924,7 @@
     "why": "Newly opened independent coffee address in Al Nadhim announcing openings via Instagram only.",
     "social": "instagram.com/p/Cy0wbaUN4wa",
     "priority": 3,
-    "stageAt": 1784366087147,
+    "stageAt": 1784366276574,
     "tier": "luxe"
   },
   {
@@ -10058,7 +10058,7 @@
     "why": "Newly opened sweets shop promoted via local TikTok coverage with opening discounts, no e-menu.",
     "social": "tiktok.com/@tmha2030",
     "priority": 3,
-    "stageAt": 1784366087148,
+    "stageAt": 1784366276585,
     "tier": "luxe"
   },
   {
@@ -10153,7 +10153,7 @@
     "why": "New small artisan European-style bakery with only ~3K IG followers — early-stage digital presence.",
     "social": "https://www.instagram.com/lyrsbakery/",
     "priority": 3,
-    "stageAt": 1784366087148,
+    "stageAt": 1784366276598,
     "tier": "luxe"
   },
   {
@@ -10167,7 +10167,7 @@
     "why": "French-style neighborhood bakery-cafe featured by Arab News, small independent.",
     "social": "https://www.instagram.com/le.journal.bk/",
     "priority": 3,
-    "stageAt": 1784366087149,
+    "stageAt": 1784366276608,
     "tier": "luxe"
   },
   {
@@ -10353,7 +10353,7 @@
     "why": "Trial opening Feb 2026, indoor/outdoor seating, announced only via X — no proper digital menu.",
     "social": "x.com/DHDH9933",
     "priority": 3,
-    "stageAt": 1784366087149,
+    "stageAt": 1784366276617,
     "tier": "luxe"
   },
   {
@@ -10661,7 +10661,7 @@
     "why": "Small new neighborhood specialty cafe on Ibn Ziyad St, active on socials but no proper digital menu",
     "social": "instagram.com/hintia.cafe",
     "priority": 3,
-    "stageAt": 1784366087150,
+    "stageAt": 1784366276624,
     "tier": "luxe"
   },
   {
@@ -10740,7 +10740,7 @@
     "why": "Tiny new tea shop in Al Malqa (explicitly described as small), Instagram-only presence",
     "social": "instagram.com/p/CisF4L3O0Bx/",
     "priority": 3,
-    "stageAt": 1784366087150,
+    "stageAt": 1784366276634,
     "tier": "luxe"
   },
   {
@@ -11273,7 +11273,7 @@
     "why": "Small new neighborhood coffee house with retro concept and limited menu, evenings only — no digital menu presence.",
     "social": "instagram.com/hazza.cafe",
     "priority": 3,
-    "stageAt": 1784366087151,
+    "stageAt": 1784366276641,
     "tier": "luxe"
   },
   {
@@ -11645,7 +11645,7 @@
     "why": "Brand-new neighborhood specialty spot (opened recently in Al-Rawdah, second corner near Jawazat metro) hyped only via IG/TikTok reels — no proper digital menu.",
     "social": "TikTok/IG coverage: instagram.com/reel/DZ7mMigqr5I",
     "priority": 3,
-    "stageAt": 1784366087152,
+    "stageAt": 1784366276655,
     "tier": "luxe"
   },
   {
@@ -11673,7 +11673,7 @@
     "why": "New single-location cafe (indoor/outdoor seating) getting discovered via #جديد_الرياض reels; menu shared only in reviewer posts.",
     "social": "https://www.instagram.com/celiecafee",
     "priority": 3,
-    "stageAt": 1784366087153,
+    "stageAt": 1784366276663,
     "tier": "luxe"
   },
   {
@@ -11701,7 +11701,7 @@
     "why": "New/pop-up style indie coffee spot that went viral post-Taraweeh; everything is announced via IG posts, no proper menu system.",
     "social": "https://www.instagram.com/insire.sa0 (@insire.sa0)",
     "priority": 3,
-    "stageAt": 1784366087153,
+    "stageAt": 1784366276671,
     "tier": "luxe"
   },
   {
@@ -11891,7 +11891,7 @@
     "why": "New independent cafe covered by TikTok reviewers for its Fam.Special drink and banana pudding — fresh opening without a proper menu presence.",
     "social": "TikTok coverage (@hajar_600)",
     "priority": 3,
-    "stageAt": 1784366087153,
+    "stageAt": 1784366276683,
     "tier": "luxe"
   },
   {
@@ -11932,7 +11932,7 @@
     "why": "New neighborhood specialty roastery covered by Riyadh coffee Snap/X reviewers during its soft opening — small in-district concept, no digital menu found.",
     "social": "Instagram @haffa.sa",
     "priority": 3,
-    "stageAt": 1784366087154,
+    "stageAt": 1784366276689,
     "tier": "luxe"
   },
   {
@@ -12092,7 +12092,7 @@
     "why": "Early-opening (7am) independent cafe on the student strip opposite Imam University, Instagram-only presence.",
     "social": "Instagram",
     "priority": 3,
-    "stageAt": 1784366087154,
+    "stageAt": 1784366276695,
     "tier": "luxe"
   },
   {
@@ -12119,7 +12119,7 @@
     "why": "Independent cafe in the new student-facing strip mall opposite Imam University, surfaced only via an Instagram post.",
     "social": "Instagram",
     "priority": 3,
-    "stageAt": 1784366087155,
+    "stageAt": 1784366276712,
     "tier": "luxe"
   },
   {
@@ -12224,7 +12224,7 @@
     "why": "Brand-new cafe inside the residential fabric of Al Nafal, marketing purely via Instagram/X",
     "social": "instagram.com/cave.coffe1",
     "priority": 3,
-    "stageAt": 1784366087155,
+    "stageAt": 1784366276727,
     "tier": "luxe"
   },
   {
@@ -12487,7 +12487,7 @@
     "why": "Small neighborhood roastery that just opened its Al Rayyan location, covered by local TikTok cafe scouts.",
     "social": "@SICA COFFEE ROASTERY (TikTok)",
     "priority": 3,
-    "stageAt": 1784366087156,
+    "stageAt": 1784366276734,
     "tier": "luxe"
   },
   {
@@ -12645,7 +12645,7 @@
     "why": "Announced as opening soon in Al Narjis via TikTok teaser — pre-opening, no menu infrastructure yet.",
     "social": "@RYM.RUH",
     "priority": 3,
-    "stageAt": 1784366087156,
+    "stageAt": 1784366276749,
     "tier": "luxe"
   },
   {

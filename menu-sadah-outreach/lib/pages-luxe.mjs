@@ -271,3 +271,161 @@ ${wa ? `<a class="wa" href="${wa}"><span class="ar">💬 اطلب منيو مث�
 </body>
 </html>`;
 }
+
+/* ---------- type-flavored personal compliment lines ---------- */
+const FLAVOR = {
+  specialty_coffee: { ar: 'ذوقكم في القهوة المختصة واضح من أول نظرة', en: 'Your specialty-coffee taste shows from the first glance' },
+  dessert_cafe: { ar: 'حلاكم صار حديث الناس — ويستاهل منيو بمستواه', en: 'Your desserts are the talk of the town — they deserve a menu at their level' },
+  bakery_cafe: { ar: 'ريحة الفرن عندكم تحتاج منيو يليق فيها', en: 'Bakes like yours deserve a menu that does them justice' },
+  matcha_bar: { ar: 'الماتشا عندكم فن — والمنيو لازم يكون بنفس الفن', en: 'Your matcha is an art — the menu should match it' },
+  roastery: { ar: 'محاصيلكم تتغير كل أسبوع — منيو ورقي ما يلحق عليكم', en: 'Your origins rotate weekly — paper menus can never keep up' },
+  family_cafe: { ar: 'مكانكم يجمع العائلة — والمنيو لازم يسهل عليهم الطلب', en: 'Your place brings families together — ordering should be effortless' },
+  tea_house: { ar: 'شاهيكم له عشاق — وعشاقه يستاهلون منيو يليق', en: 'Your chai has devoted fans — they deserve a proper menu' },
+  gaming_cafe: { ar: 'القيمرز عندكم ما يحبون يرفعون عيونهم عن الشاشة — منيو QR يحل المشكلة', en: 'Your gamers never look up from the screen — a QR menu fixes that' },
+};
+
+/* ---------- the LUXE gift page (the deal-or-no-deal link) ---------- */
+export function luxeWelcomePage(cafe, extras = {}) {
+  const a = cafe.accent;
+  const flavor = FLAVOR[extras.type] || FLAVOR.specialty_coffee;
+  const sig = extras.signature && extras.signature.length ? extras.signature[0] : null;
+  const social = extras.social && /^@/.test(String(extras.social).trim()) ? String(extras.social).trim() : null;
+  const waMsg = encodeURIComponent('مرحباً، معكم ' + cafe.name + ' — شفنا المنيو التجريبي وحابين نكمل');
+  const wa = CONTACT.whatsapp && CONTACT.whatsapp !== '966500000000' ? `https://wa.me/${CONTACT.whatsapp}?text=${waMsg}` : null;
+
+  return `<!doctype html>
+<html lang="ar" dir="rtl" data-lang="ar">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#12100d">
+<title>🎁 ${esc(cafe.name)} × MENU SADAH</title>
+<style>
+  :root{--bg-0:#12100d;--bg-1:#1c1712;--border-1:#35291f;--border-2:#55422f;
+    --text-1:#f5efe6;--text-2:#c6b9a6;--text-3:#8b7d6a;--accent:${a};--accent-soft:${a}22}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Tahoma,Roboto,Arial,sans-serif;
+    background:var(--bg-0) ${PATTERN};color:var(--text-1);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+    min-height:100svh;overflow-x:hidden}
+  .wrap{max-width:560px;margin:0 auto;padding:0 20px 90px;position:relative}
+  [data-lang="ar"] .en,[data-lang="en"] .ar{display:none}
+  .lang-toggle{position:fixed;top:14px;inset-inline-end:14px;z-index:40;background:#1c1712d9;backdrop-filter:blur(10px);
+    border:1px solid var(--border-2);color:var(--text-1);border-radius:999px;padding:8px 16px;font-size:13.5px;cursor:pointer}
+
+  .stars{position:fixed;inset:0;pointer-events:none;z-index:1}
+  .stars span{position:absolute;color:${a};opacity:0;animation:tw 3.2s infinite}
+  @keyframes tw{0%,100%{opacity:0;transform:scale(.5)}50%{opacity:.85;transform:scale(1.15)}}
+
+  .hero{position:relative;text-align:center;padding:84px 0 20px;z-index:2}
+  .orb{position:absolute;top:-70px;left:50%;transform:translateX(-50%);width:380px;height:380px;border-radius:50%;
+    background:radial-gradient(circle,${a}38,transparent 64%);pointer-events:none;animation:breathe 5s ease-in-out infinite}
+  @keyframes breathe{50%{transform:translateX(-50%) scale(1.08)}}
+  .gift-tag{display:inline-block;background:var(--accent-soft);border:1px solid ${a}88;color:var(--accent);
+    border-radius:999px;padding:6px 20px;font-size:13px;letter-spacing:.14em;
+    opacity:0;animation:up .8s .15s forwards}
+  .medal{position:relative;width:118px;height:118px;margin:22px auto 6px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:radial-gradient(circle at 32% 28%,${a}48,${a}16 62%,transparent);
+    border:2px solid var(--accent);box-shadow:0 0 0 8px ${a}14,0 0 46px ${a}55;
+    opacity:0;animation:pop .9s .5s cubic-bezier(.2,1.4,.4,1) forwards}
+  .medal::after{content:"";position:absolute;inset:7px;border-radius:50%;border:1px solid ${a}55}
+  .medal span{font-family:Georgia,'Times New Roman',serif;font-size:52px;font-weight:700;color:var(--accent)}
+  @keyframes pop{0%{opacity:0;transform:scale(.4)}70%{transform:scale(1.06)}100%{opacity:1;transform:scale(1)}}
+  @keyframes up{0%{opacity:0;transform:translateY(14px)}100%{opacity:1;transform:none}}
+  h1{font-size:32px;line-height:1.25;margin-top:12px;opacity:0;animation:up .8s .9s forwards}
+  h1 b{color:var(--accent)}
+  h1 .en{font-family:Georgia,'Times New Roman',serif}
+  .shimmer{background:linear-gradient(90deg,var(--text-1) 40%,${a} 50%,var(--text-1) 60%);background-size:220% 100%;
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:sh 3.4s 1.8s infinite}
+  @keyframes sh{0%{background-position:120% 0}100%{background-position:-120% 0}}
+
+  .letter{position:relative;z-index:2;margin-top:26px;background:linear-gradient(180deg,#1c1712f0,#1c1712d0);
+    border:1px solid ${a}44;border-radius:24px;padding:24px 22px;box-shadow:0 10px 34px #00000080;
+    opacity:0;animation:up .9s 1.25s forwards}
+  .letter .to{color:var(--accent);font-size:13px;letter-spacing:.12em;margin-bottom:10px}
+  .letter p{color:var(--text-2);font-size:15.5px;margin-bottom:12px}
+  .letter p b{color:var(--text-1)}
+  .letter .sigline{color:var(--accent);font-weight:700}
+  .benefits{list-style:none;margin-top:6px}
+  .benefits li{display:flex;gap:11px;align-items:flex-start;padding:8px 0;color:var(--text-2);font-size:14.5px}
+  .benefits .tick{color:var(--accent);font-weight:800;flex:0 0 auto}
+
+  .cta-stack{position:relative;z-index:2;display:grid;gap:12px;margin-top:26px;opacity:0;animation:up .9s 1.6s forwards}
+  .btn{display:block;text-align:center;text-decoration:none;background:linear-gradient(135deg,${a},#f0c45c);
+    color:#1d1610;font-weight:800;font-size:18px;border-radius:18px;padding:18px 20px;
+    box-shadow:0 10px 30px ${a}55;transition:transform .15s}
+  .btn:active{transform:scale(.98)}
+  .btn.pulse{animation:pl 2.2s 2.4s infinite}
+  @keyframes pl{0%,100%{box-shadow:0 10px 30px ${a}55}50%{box-shadow:0 10px 44px ${a}90}}
+  .btn.ghost{background:transparent;color:var(--accent);border:1px solid ${a}88;box-shadow:none;font-weight:600;font-size:15px}
+  .small{margin-top:14px;text-align:center;color:var(--text-3);font-size:12.5px;position:relative;z-index:2}
+  .small a{color:var(--accent);text-decoration:none}
+  .footer{margin-top:30px;text-align:center;color:var(--text-3);font-size:12.5px;position:relative;z-index:2}
+  .footer a{color:var(--accent);text-decoration:none}
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;opacity:1!important}}
+</style>
+</head>
+<body>
+<button class="lang-toggle" id="langToggle">English</button>
+<div class="stars" id="stars"></div>
+<div class="wrap">
+  <header class="hero">
+    <div class="orb"></div>
+    <span class="gift-tag"><span class="ar">🎁 هدية خاصة · ليست إعلاناً</span><span class="en">🎁 A personal gift · not an ad</span></span>
+    <div class="medal"><span>${esc(cafe.name.trim()[0].toUpperCase())}</span></div>
+    <h1>
+      <span class="ar">إلى بيت <b class="shimmer">${esc(cafe.nameAr)}</b></span>
+      <span class="en">To the house of <b class="shimmer">${esc(cafe.name)}</b></span>
+    </h1>
+  </header>
+
+  <div class="letter">
+    <div class="to"><span class="ar">رسالة من فريق منيو سادة ✦</span><span class="en">A note from MENU SADAH ✦</span></div>
+    <p>
+      <span class="ar">${social ? 'تابعنا <b>' + esc(social) + '</b> وأعجبنا ذوقكم. ' : ''}${esc(flavor.ar)}${cafe.areaAr && cafe.areaAr !== 'الرياض' ? '، وأهل <b>' + esc(cafe.areaAr) + '</b> يستاهلون يشوفونه كامل' : ''}.</span>
+      <span class="en">${social ? 'We follow <b>' + esc(social) + '</b> and love your taste. ' : ''}${esc(flavor.en)}.</span>
+    </p>
+    ${sig ? `<p class="sigline"><span class="ar">وسمعنا إن «${esc(sig[1])}» عندكم أسطورة — حطيناها أول صفحة في المنيو 😉</span><span class="en">And we hear your «${esc(sig[0])}» is legendary — it opens your menu 😉</span></p>` : ''}
+    <p>
+      <span class="ar">فبنينا لكم <b>منيو إلكتروني كامل بهويتكم</b> — جاهز الآن، قبل أي التزام وبدون أي مقابل للتجربة.</span>
+      <span class="en">So we built you a <b>complete e-menu in your identity</b> — ready now, before any commitment.</span>
+    </p>
+    <ul class="benefits">
+      <li><span class="tick">✦</span><span><span class="ar">عربي / إنجليزي بضغطة — ورابط واحد + QR للطاولة</span><span class="en">Arabic/English toggle — one link + table QR</span></span></li>
+      <li><span class="tick">✦</span><span><span class="ar">متوافق مع اشتراطات هيئة الغذاء والدواء (السعرات والكافيين)</span><span class="en">SFDA-compliant (calories & caffeine ready)</span></span></li>
+      <li><span class="tick">✦</span><span><span class="ar">تعديل الأسعار خلال دقائق — وداعاً لإعادة الطباعة</span><span class="en">Prices update in minutes — never reprint again</span></span></li>
+    </ul>
+  </div>
+
+  <div class="cta-stack">
+    <a class="btn pulse" href="../${cafe.slug}/">
+      <span class="ar">🎁 افتحوا هديتكم — منيو ${esc(cafe.nameAr)}</span>
+      <span class="en">🎁 Open your gift — the ${esc(cafe.name)} menu</span>
+    </a>
+    ${wa ? `<a class="btn ghost" href="${wa}"><span class="ar">💬 عجبكم؟ نفعّله لكم بنفس اليوم</span><span class="en">💬 Love it? Live the same day</span></a>` : ''}
+  </div>
+  <p class="small">
+    <span class="ar">شاهدوا عميلنا الحي: <a href="${CONTACT.site}/beyt-coffee">بيت كوفي ↗</a></span>
+    <span class="en">See a live client: <a href="${CONTACT.site}/beyt-coffee">Beyt Coffee ↗</a></span>
+  </p>
+  <div class="footer">
+    <span class="ar">صُنعت بحب في الرياض — <a href="${CONTACT.site}">منيو سادة MENU SADAH</a></span>
+    <span class="en">Crafted with love in Riyadh — <a href="${CONTACT.site}">MENU SADAH</a></span>
+  </div>
+</div>
+<script>
+  const root=document.documentElement;
+  const saved=localStorage.getItem('ms-lang')||'ar';
+  setLang(saved);
+  function setLang(l){root.setAttribute('data-lang',l);root.setAttribute('lang',l);root.setAttribute('dir',l==='ar'?'rtl':'ltr');
+    const t=document.getElementById('langToggle');if(t)t.textContent=l==='ar'?'English':'العربية';localStorage.setItem('ms-lang',l);}
+  document.getElementById('langToggle').addEventListener('click',()=>{setLang(root.getAttribute('data-lang')==='ar'?'en':'ar');});
+  // gold star field
+  const stars=document.getElementById('stars');
+  for(let i=0;i<26;i++){const s=document.createElement('span');s.textContent='✦';
+    s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';
+    s.style.fontSize=(6+Math.random()*10)+'px';s.style.animationDelay=(Math.random()*3.2)+'s';stars.appendChild(s);}
+</script>
+</body>
+</html>`;
+}
