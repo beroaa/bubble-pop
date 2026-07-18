@@ -1,5 +1,5 @@
 window.BUILDS_STATE = {
- "generatedAt": 1784383094683,
+ "generatedAt": 1784383095829,
  "builds": [
   {
    "id": "b1",
@@ -184,11 +184,12 @@ window.BUILDS_STATE = {
   {
    "id": "b11",
    "name": "CARD-DOPAMINE 🫧 — MENUS cards: 3-per-row, bubbly, smart stage-buttons, juicy motion (spec here, surgery on Mac)",
-   "status": "running",
-   "pct": 0,
-   "etaAt": 1784383694683,
+   "status": "done",
+   "pct": 100,
+   "etaAt": null,
    "note": "writing the card blueprint",
-   "startedAt": 1784383094683
+   "startedAt": 1784383094683,
+   "result": "Card blueprint written + pushed — surgery line handed to the Mac"
   }
  ]
 };
