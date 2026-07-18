@@ -1,5 +1,5 @@
 window.BUILDS_STATE = {
- "generatedAt": 1784373526890,
+ "generatedAt": 1784374513709,
  "builds": [
   {
    "id": "b1",
@@ -54,9 +54,9 @@ window.BUILDS_STATE = {
   {
    "id": "b6",
    "name": "GAME-OS STUDIO-30 🎮 — 30-agent build: all 948 menus fused into ClientOS as a game",
-   "status": "running",
-   "pct": 92,
-   "etaAt": 1784375209777,
+   "status": "done",
+   "pct": 100,
+   "etaAt": null,
    "note": "Wave 1: 12 design specialists deployed",
    "startedAt": 1784372322777,
    "feed": [
@@ -99,8 +99,17 @@ window.BUILDS_STATE = {
     {
      "at": 1784373526890,
      "msg": "Mac-Claude now fusing all 948 menus into the real ClientOS app"
+    },
+    {
+     "at": 1784374513664,
+     "msg": "948 menus fused into MENUS tab on the MacBook"
+    },
+    {
+     "at": 1784374513688,
+     "msg": "status+type filters + gift buttons wired, screenshots taken"
     }
-   ]
+   ],
+   "result": "FUSED: 948 menus live in ClientOS MENUS tab (1002 total brands) — status/type/search filters, gift+DM per cafe, native XP. App backed up + zipped."
   }
  ]
 };
