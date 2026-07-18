@@ -1,5 +1,5 @@
 window.BUILDS_STATE = {
- "generatedAt": 1784382989151,
+ "generatedAt": 1784382990567,
  "builds": [
   {
    "id": "b1",
@@ -168,9 +168,9 @@ window.BUILDS_STATE = {
   {
    "id": "b10",
    "name": "LINK-RESCUE 🚑 — ClientOS gift buttons 404: wrong URL pattern + safety-net redirects",
-   "status": "running",
-   "pct": 0,
-   "etaAt": 1784383689269,
+   "status": "done",
+   "pct": 100,
+   "etaAt": null,
    "note": "diagnosing the 404s",
    "startedAt": 1784382969269,
    "feed": [
@@ -178,7 +178,8 @@ window.BUILDS_STATE = {
      "at": 1784382989151,
      "msg": "Safety net built: wrong links now auto-forward to the right page"
     }
-   ]
+   ],
+   "result": "2844 redirect rules pushed — app link fix + redeploy handed to the Mac"
   }
  ]
 };
