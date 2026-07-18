@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0d0a14">
+<title>👑 MASTERPIECE-50 — COMMAND CENTER</title>
+<style>
+:root{--bg:#0d0a14;--bg1:#161022;--b:#2b2140;--t1:#f2edfa;--t2:#b7a6e3;--t3:#6f6396;--p:#a78bfa;--p2:#c4b5fd;--gold:#e3b23c;--pos:#57b380;
+--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--t1);font:15px/1.5 -apple-system,"Segoe UI",Tahoma,Arial,sans-serif;min-height:100vh;padding:26px 16px 60px}
+.wrap{max-width:680px;margin:0 auto;text-align:center}
+h1{font-size:16px;letter-spacing:.18em}h1 b{color:var(--p)}
+.phase{margin-top:6px;color:var(--t2);font-size:13px}
+.timer{font-family:var(--mono);font-size:clamp(56px,16vw,110px);font-weight:700;color:var(--p);
+font-variant-numeric:tabular-nums;line-height:1.05;margin:16px 0 2px;text-shadow:0 0 34px #8b5cf655;animation:br 3.6s ease-in-out infinite alternate}
+@keyframes br{from{text-shadow:0 0 22px #8b5cf640}to{text-shadow:0 0 44px #a78bfa77}}
+.esub{color:var(--t3);font-size:12px}
+.count{margin-top:14px;font-family:var(--mono);font-size:15px;color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(10,1fr);gap:7px;margin:18px auto 0;max-width:560px}
+.slot{aspect-ratio:1;border-radius:8px;background:var(--bg1);border:1px solid var(--b);transition:all .4s}
+.slot.done{background:radial-gradient(circle at 30% 30%,#c4b5fd73,#8b5cf68c 45%,#6d28d9d9 100%);border-color:#a78bfa88;
+box-shadow:0 0 10px #8b5cf655;animation:pop .5s cubic-bezier(.2,1.4,.4,1)}
+.slot.building{border-color:var(--gold);animation:bl 1s infinite}
+@keyframes bl{50%{background:#e3b23c22}}
+@keyframes pop{0%{transform:scale(.5)}70%{transform:scale(1.15)}100%{transform:scale(1)}}
+.feed{margin:22px auto 0;max-width:560px;text-align:left;border-top:1px dashed var(--b);padding-top:14px}
+.feed div{display:flex;gap:9px;color:var(--t2);font-size:14px;padding:4px 0;align-items:baseline}
+.feed div::before{content:"▸";color:var(--p)}
+.feed div:first-child{color:var(--t1);font-weight:600}
+.feed div:first-child::before{content:"▶";animation:pu 1.2s infinite}
+@keyframes pu{50%{opacity:.35}}
+footer{margin-top:26px;color:var(--t3);font-size:11px}footer b{color:var(--p)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>👑 MASTERPIECE-<b>50</b> COMMAND CENTER</h1>
+  <div class="phase" id="phase">…</div>
+  <div class="timer" id="timer">--:--.-</div>
+  <div class="esub" id="esub">time remaining · live 0.1s</div>
+  <div class="count" id="count">0 / 50 crafted</div>
+  <div class="grid" id="grid"></div>
+  <div class="feed" id="feed"></div>
+  <footer>reads <b>m50-state.js</b> · every square = one cafe's masterpiece · MENU SADAH</footer>
+</div>
+<script src="./m50-state.js"></script>
+<script>
+(function(){
+'use strict';
+let state=window.M50_STATE||{slots:{},feed:[]};let n=0,stamp=0;
+setInterval(()=>{const s=document.createElement('script');s.src='./m50-state.js?x='+(++n);
+s.onload=()=>{state=window.M50_STATE||state;s.remove();};s.onerror=()=>s.remove();document.body.appendChild(s);},2000);
+const esc=x=>String(x??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function fmt(ms){if(ms==null||!isFinite(ms))return'--:--.-';ms=Math.max(0,ms);
+const h=Math.floor(ms/3600000),m=Math.floor(ms/60000)%60,s=Math.floor(ms/1000)%60,d=Math.floor(ms/100)%10;
+return (h?String(h)+':':'')+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')+'.'+d;}
+function render(){
+  const slugs=Object.keys(state.slots||{});
+  document.getElementById('grid').innerHTML=slugs.map(s=>'<div class="slot '+(state.slots[s]||'')+'" title="'+esc(s)+'"></div>').join('');
+  const done=slugs.filter(s=>state.slots[s]==='done').length;
+  document.getElementById('count').textContent=done+' / '+slugs.length+' crafted';
+  document.getElementById('phase').textContent=state.phase||'';
+  document.getElementById('feed').innerHTML=(state.feed||[]).slice(-5).reverse().map(f=>'<div>'+esc(f.msg)+'</div>').join('');
+  if(done>=slugs.length&&slugs.length){document.getElementById('timer').textContent='DONE ✓';document.getElementById('timer').style.color='var(--pos)';}
+}
+setInterval(()=>{if(state.generatedAt!==stamp){stamp=state.generatedAt;render();}
+  const t=document.getElementById('timer');
+  if(t.textContent!=='DONE ✓'&&state.etaAt)t.textContent=fmt(state.etaAt-Date.now());},100);
+render();
+})();
+</script>
+</body>
+</html>
