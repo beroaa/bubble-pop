@@ -1,5 +1,5 @@
 window.BUILDS_STATE = {
- "generatedAt": 1784383095829,
+ "generatedAt": 1784383789704,
  "builds": [
   {
    "id": "b1",
@@ -190,6 +190,25 @@ window.BUILDS_STATE = {
    "note": "writing the card blueprint",
    "startedAt": 1784383094683,
    "result": "Card blueprint written + pushed — surgery line handed to the Mac"
+  },
+  {
+   "id": "b12",
+   "name": "MENU-DETECTORS 🕵️💜 — grade all 948: purple elite / green good / orange demo / red not-ready + purple glow spec",
+   "status": "running",
+   "pct": 70,
+   "etaAt": 1784384782940,
+   "note": "writing the grading rules",
+   "startedAt": 1784383702940,
+   "feed": [
+    {
+     "at": 1784383742523,
+     "msg": "9 menus photographed — 3 detector agents rating them blind"
+    },
+    {
+     "at": 1784383789648,
+     "msg": "Purple widget spec written, grades wired into payload + cockpit"
+    }
+   ]
   }
  ]
 };

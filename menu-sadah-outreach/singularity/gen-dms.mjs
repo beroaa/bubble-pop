@@ -22,12 +22,13 @@ const score = (c) => {
   return s;
 };
 const stars = (c) => (c.signature && c.signature.length) ? '⭐⭐⭐' : c.sigMention ? '⭐⭐' : c.social ? '⭐' : '·';
+const gradeEmoji = (c) => ({purple:'💜', green:'💚', orange:'🟠', red:'🔴'}[c.grade] || '');
 
 const sorted = queue.slice().sort((a, b) => score(b) - score(a) || (a.name > b.name ? 1 : -1));
 const rows = sorted.map((c, i) => {
   const dish = (c.signature && c.signature.length) ? c.signature[0][1] : c.sigMention ? c.sigMention[1] : null;
   return `<div class="row"><div class="top"><b>#${i + 1}</b> <span class="nm">${esc(c.name)}${c.tier === 'luxe' ? ' ✨' : ''}</span> <span class="ar">${esc(c.nameAr || '')}</span>
-<span class="meta">${esc(c.area || 'Riyadh')} · ${esc((c.type || '').replace(/_/g, ' '))} · ${stars(c)}${c.themeLabel ? ' · 🎨 ' + esc(c.themeLabel) : ''}${c.chainFlag ? ' · <span class="chain">⚠ chain — low priority</span>' : ''}</span></div>
+<span class="meta">${esc(c.area || 'Riyadh')} · ${esc((c.type || '').replace(/_/g, ' '))} · ${gradeEmoji(c)} ${stars(c)}${c.themeLabel ? ' · 🎨 ' + esc(c.themeLabel) : ''}${c.chainFlag ? ' · <span class="chain">⚠ chain — low priority</span>' : ''}</span></div>
 <div class="soc">${c.social ? '📱 ' + esc(c.social) + ' &nbsp; ' : ''}🔗 <a href="${SITE}/${c.slug}-welcome">/${c.slug}-welcome</a>${dish ? ' &nbsp; 🍽 «' + esc(dish) + '»' : ''}</div>
 <textarea readonly id="dmA${i}">${esc(dmAr(c))}</textarea>
 <button onclick="copyDm('A${i}')">📋 نسخ الرسالة العربية</button>
