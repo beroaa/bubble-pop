@@ -3,58 +3,64 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#17110c">
+<meta name="theme-color" content="#fcfaf8">
 <title>Celie Cafe — Menu · MENU SADAH</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Aref+Ruqaa:wght@400;700&family=Nunito:wght@400;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap">
 <style>
-  :root{--bg-0:#17110c;--bg-1:#231b15;--bg-2:#2f251e;--border-1:#3a2f27;--border-2:#594536;
-    --text-1:#f2efed;--text-2:#cac1ba;--text-3:#94887f;--accent:#d58e58;--accent-2:#e7c983;--accent-soft:#d58e5822;
-    --radius:16px;--shadow:0 6px 16px #00000080,0 16px 40px #00000059}
+  :root{--bg-0:#fcfaf8;--bg-1:#f8f4f2;--bg-2:#efeae6;--border-1:#e3dad3;--border-2:#cebaab;
+    --text-1:#312216;--text-2:#624f41;--text-3:#89786c;--accent:#9c531c;--accent-2:#d3a436;--accent-soft:#9c531c22;
+    --radius:16px;--shadow:0 6px 16px #6b482e22, 0 16px 40px #6b482e14}
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Tahoma,Roboto,Arial,sans-serif;
-    background:var(--bg-0) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Ccircle cx='24' cy='24' r='1.2' fill='%23d58e58' fill-opacity='.13'/%3E%3C/svg%3E");color:var(--text-1);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100svh}
+  body{font-family:'Nunito','IBM Plex Sans Arabic',sans-serif,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;
+    background:var(--bg-0) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M24 18l6 6-6 6-6-6z' fill='none' stroke='%23d58e58' stroke-opacity='.10'/%3E%3C/svg%3E");color:var(--text-1);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100svh}
   body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
-    background:radial-gradient(620px 420px at 50% -120px,#d58e5817,transparent 70%)}
+    background:radial-gradient(620px 420px at 50% -120px,#9c531c17,transparent 70%)}
   .wrap{max-width:560px;margin:0 auto;padding:0 18px 110px;position:relative;z-index:1}
   [data-lang="ar"] .en,[data-lang="en"] .ar{display:none}
-  .lang-toggle{position:fixed;top:14px;inset-inline-end:14px;z-index:30;background:#231b15d9;backdrop-filter:blur(10px);
+  .lang-toggle{position:fixed;top:14px;inset-inline-end:14px;z-index:30;background:#f8f4f2d9;backdrop-filter:blur(10px);
     border:1px solid var(--border-2);color:var(--text-1);border-radius:999px;padding:8px 16px;font-size:13.5px;cursor:pointer}
 
   .hero{position:relative;text-align:center;padding:76px 0 30px;overflow:hidden}
   .orb{position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:340px;height:340px;border-radius:50%;
-    background:radial-gradient(circle,#d58e5830,transparent 65%);pointer-events:none}
+    background:radial-gradient(circle,#9c531c30,transparent 65%);pointer-events:none}
   .orb2{position:absolute;top:30px;left:12%;width:180px;height:180px;border-radius:50%;
-    background:radial-gradient(circle,#e7c9831f,transparent 65%);pointer-events:none}
+    background:radial-gradient(circle,#d3a4361f,transparent 65%);pointer-events:none}
   .medal{position:relative;width:104px;height:104px;margin:0 auto 18px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;
-    background:radial-gradient(circle at 32% 24%,#ffffff2b,transparent 42%),radial-gradient(circle at 32% 28%,#d58e5842,#d58e5814 62%,transparent);
-    border:2px solid var(--accent);box-shadow:0 0 0 7px #d58e5814,0 0 34px #d58e5840,inset 0 1px 0 #ffffff33}
-  .medal::after{content:"";position:absolute;inset:6px;border-radius:50%;border:1px solid #d58e5855}
-  .medal span{font-family:Georgia,'Times New Roman',serif;font-size:44px;font-weight:700;color:var(--accent);
-    text-shadow:0 2px 12px #d58e5866}
+    background:radial-gradient(circle at 32% 24%,#ffffff2b,transparent 42%),radial-gradient(circle at 32% 28%,#9c531c42,#9c531c14 62%,transparent);
+    border:2px solid var(--accent);box-shadow:0 0 0 7px #9c531c14,0 0 34px #9c531c40,inset 0 1px 0 #ffffff33}
+  .medal::after{content:"";position:absolute;inset:6px;border-radius:50%;border:1px solid #9c531c55}
+  .medal span .ar{font-family:'Aref Ruqaa',serif}
+  .medal span .en{font-family:'Patrick Hand',cursive}
+  .medal span{font-size:44px;font-weight:700;color:var(--accent);text-shadow:0 2px 12px #9c531c66}
+  .medal{animation:mfloat 5s ease-in-out infinite}
+  @keyframes mfloat{50%{transform:translateY(-6px)}}
   h1{font-size:34px;letter-spacing:-.01em;line-height:1.2}
-  h1 .en{font-family:Georgia,'Times New Roman',serif}
+  h1 .ar{font-family:'Aref Ruqaa',serif}
+  h1 .en{font-family:'Patrick Hand',cursive}
   .tagline{color:var(--text-2);margin-top:8px;font-size:15.5px}
   .meta{margin-top:12px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
-  .badge{background:var(--accent-soft);border:1px solid #d58e5866;color:var(--accent);border-radius:999px;padding:4px 14px;font-size:12px;letter-spacing:.05em}
+  .badge{background:var(--accent-soft);border:1px solid #9c531c66;color:var(--accent);border-radius:999px;padding:4px 14px;font-size:12px;letter-spacing:.05em}
   .hrule{display:flex;align-items:center;gap:12px;margin:26px auto 0;max-width:280px;color:var(--accent)}
-  .hrule::before,.hrule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,#d58e5888)}
-  .hrule::after{background:linear-gradient(90deg,#d58e5888,transparent)}
+  .hrule::before,.hrule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,#9c531c88)}
+  .hrule::after{background:linear-gradient(90deg,#9c531c88,transparent)}
 
   .chips{display:flex;gap:8px;overflow-x:auto;padding:14px 2px;position:sticky;top:0;z-index:20;
-    background:linear-gradient(#17110cf2 78%,transparent);backdrop-filter:blur(8px);scrollbar-width:none}
+    background:linear-gradient(#fcfaf8f2 78%,transparent);backdrop-filter:blur(8px);scrollbar-width:none}
   .chips::-webkit-scrollbar{display:none}
-  .chip{flex:0 0 auto;text-decoration:none;color:var(--text-2);background:#231b15cc;border:1px solid var(--border-1);
+  .chip{flex:0 0 auto;text-decoration:none;color:var(--text-2);background:#f8f4f2cc;border:1px solid var(--border-1);
     border-radius:999px;padding:9px 18px;font-size:14px;transition:all .2s}
-  .chip:hover{color:var(--accent);border-color:var(--accent);box-shadow:0 0 14px #d58e5833}
+  .chip:hover{color:var(--accent);border-color:var(--accent);box-shadow:0 0 14px #9c531c33}
 
-  .sig{margin-top:26px;background:linear-gradient(180deg,#d58e5814,transparent 90%);border:1px solid #d58e5844;
+  .sig{margin-top:26px;background:linear-gradient(180deg,#9c531c14,transparent 90%);border:1px solid #9c531c44;
     border-radius:22px;padding:20px 16px 18px;position:relative}
   .sig-ribbon{text-align:center;color:var(--accent);letter-spacing:.14em;font-size:13px;margin-bottom:16px;font-weight:700}
   .sig-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
   .sig-card{background:var(--bg-1);border:1px solid var(--border-2);border-radius:var(--radius);padding:14px 12px;text-align:center;box-shadow:var(--shadow)}
   .sig-art{width:74px;height:74px;margin:0 auto 8px}
-  .sig-art svg{width:100%;height:100%;filter:drop-shadow(0 6px 14px #d58e5859)}
+  .sig-art svg{width:100%;height:100%;filter:drop-shadow(0 6px 14px #9c531c59)}
   .sig-name{font-size:14.5px;font-weight:600;line-height:1.35}
   .sig-price{margin-top:6px;color:var(--accent);font-weight:800;font-size:17px}
   .sar{font-size:11px}
@@ -64,32 +70,33 @@
   .cat-art{position:relative;width:76px;height:76px;flex:0 0 auto;border-radius:18px;overflow:hidden;
     border:1px solid var(--border-2);background:var(--bg-1);box-shadow:var(--shadow)}
   .cat-art .cat-svg{position:absolute;inset:8px}
-  .cat-art .cat-svg svg{filter:drop-shadow(0 5px 12px #d58e584d)}
+  .cat-art .cat-svg svg{filter:drop-shadow(0 5px 12px #9c531c4d)}
   .cat-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
   .cat-art.hasimg img{display:block}
   .cat-title{flex:1}
   .cat-title h2{color:var(--accent);font-size:19px;letter-spacing:.04em}
-  .cat-title h2 .en{font-family:Georgia,'Times New Roman',serif}
-  .rule{display:flex;align-items:center;gap:10px;color:#d58e5888;font-size:10px;margin-top:6px}
-  .rule::before{content:"";width:46px;height:1px;background:#d58e5866}
-  .rule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,#d58e5844,transparent)}
+  .cat-title h2 .ar{font-family:'Aref Ruqaa',serif}
+  .cat-title h2 .en{font-family:'Patrick Hand',cursive}
+  .rule{display:flex;align-items:center;gap:10px;color:#9c531c88;font-size:10px;margin-top:6px}
+  .rule::before{content:"";width:46px;height:1px;background:#9c531c66}
+  .rule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,#9c531c44,transparent)}
 
-  .items{background:#231b15d9;border:1px solid var(--border-1);border-radius:20px;padding:6px 18px;box-shadow:var(--shadow)}
-  .item{display:flex;align-items:baseline;gap:10px;padding:15px 0;border-bottom:1px solid #2f251e99}
+  .items{background:#f8f4f2d9;border:1px solid var(--border-1);border-radius:20px;padding:6px 18px;box-shadow:var(--shadow)}
+  .item{display:flex;align-items:baseline;gap:10px;padding:15px 0;border-bottom:1px solid #efeae699}
   .item:last-child{border-bottom:none}
   .item-name{font-size:16px}
   .dots{flex:1;border-bottom:1px dotted var(--border-2);transform:translateY(-4px)}
   .price{color:var(--accent);font-weight:800;white-space:nowrap;font-variant-numeric:tabular-nums}
 
-  .demo-note{margin-top:34px;background:var(--accent-soft);border:1px dashed #d58e5888;border-radius:14px;
+  .demo-note{margin-top:34px;background:var(--accent-soft);border:1px dashed #9c531c88;border-radius:14px;
     padding:13px 16px;font-size:13.5px;color:var(--text-2);text-align:center}
   .footer{margin-top:34px;text-align:center;color:var(--text-3);font-size:13px}
   .footer a{color:var(--accent);text-decoration:none}
   
 
-  .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
-  .reveal.in{opacity:1;transform:none}
-  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}}
+  .reveal{opacity:0;transform:translateX(18px);transition:opacity .55s ease,transform .55s ease}.reveal.in{opacity:1;transform:none}
+  .greet{color:var(--accent);font-size:13px;letter-spacing:.14em;margin-bottom:10px}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}.medal{animation:none}}
 </style>
 </head>
 <body>
@@ -98,6 +105,7 @@
   <header class="hero">
     <div class="orb"></div>
     <div class="orb2"></div>
+    <div class="greet"><span class="ar">أهلاً وسهلاً ✦</span><span class="en">Ahlan wa sahlan ✦</span></div>
     <div class="medal"><span><span class="ar">س</span><span class="en">C</span></span></div>
     <h1><span class="ar">سيلي كافيه</span><span class="en">Celie Cafe</span></h1>
     <div class="tagline"><span class="ar">قهوة مختصة تُحضّر بعناية</span><span class="en">Specialty coffee, brewed with care</span></div>
@@ -114,22 +122,22 @@
     <div class="sig-grid">
       
       <div class="sig-card">
-        <div class="sig-art"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e7c983" stop-opacity=".5"/><stop offset="1" stop-color="#d58e58"/></linearGradient></defs><path d="M40 22h40l-4 78a8 8 0 0 1-8 8H52a8 8 0 0 1-8-8z" fill="url(#gc)" opacity=".9"/><rect x="46" y="34" width="13" height="13" rx="3" fill="#fff" opacity=".7" transform="rotate(12 52 40)"/><rect x="60" y="52" width="13" height="13" rx="3" fill="#fff" opacity=".55" transform="rotate(-14 66 58)"/><rect x="48" y="70" width="12" height="12" rx="3" fill="#fff" opacity=".45" transform="rotate(8 54 76)"/><path d="M74 14 60 46" stroke="#cac1ba" stroke-width="4" stroke-linecap="round"/><ellipse cx="60" cy="112" rx="24" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <div class="sig-art"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d3a436" stop-opacity=".5"/><stop offset="1" stop-color="#9c531c"/></linearGradient></defs><path d="M40 22h40l-4 78a8 8 0 0 1-8 8H52a8 8 0 0 1-8-8z" fill="url(#gc)" opacity=".9"/><rect x="46" y="34" width="13" height="13" rx="3" fill="#fff" opacity=".7" transform="rotate(12 52 40)"/><rect x="60" y="52" width="13" height="13" rx="3" fill="#fff" opacity=".55" transform="rotate(-14 66 58)"/><rect x="48" y="70" width="12" height="12" rx="3" fill="#fff" opacity=".45" transform="rotate(8 54 76)"/><path d="M74 14 60 46" stroke="#624f41" stroke-width="4" stroke-linecap="round"/><ellipse cx="60" cy="112" rx="24" ry="4" fill="#000" opacity=".3"/></svg></div>
         <div class="sig-name"><span class="ar">قهوة اليوم بارد</span><span class="en">Iced Coffee of the Day</span></div>
         <div class="sig-price">12 <span class="sar">﷼</span></div>
       </div>
       <div class="sig-card">
-        <div class="sig-art"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f5efe6"/><stop offset=".45" stop-color="#e7c983"/><stop offset="1" stop-color="#d58e58"/></linearGradient></defs><path d="M38 24h44l-5 74a10 10 0 0 1-10 9H53a10 10 0 0 1-10-9z" fill="url(#gl)"/><path d="M38 24h44l-1.2 18H39.2z" fill="#fff" opacity=".85"/><path d="M52 42c4-6 12-6 16 0-6 4-10 4-16 0z" fill="#d58e58" opacity=".7"/><ellipse cx="60" cy="24" rx="22" ry="4.5" fill="#fff"/><ellipse cx="60" cy="111" rx="26" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <div class="sig-art"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f5efe6"/><stop offset=".45" stop-color="#d3a436"/><stop offset="1" stop-color="#9c531c"/></linearGradient></defs><path d="M38 24h44l-5 74a10 10 0 0 1-10 9H53a10 10 0 0 1-10-9z" fill="url(#gl)"/><path d="M38 24h44l-1.2 18H39.2z" fill="#fff" opacity=".85"/><path d="M52 42c4-6 12-6 16 0-6 4-10 4-16 0z" fill="#9c531c" opacity=".7"/><ellipse cx="60" cy="24" rx="22" ry="4.5" fill="#fff"/><ellipse cx="60" cy="111" rx="26" ry="4" fill="#000" opacity=".3"/></svg></div>
         <div class="sig-name"><span class="ar">فلات وايت</span><span class="en">Flat White</span></div>
         <div class="sig-price">15 <span class="sar">﷼</span></div>
       </div>
       <div class="sig-card">
-        <div class="sig-art"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2e0c8"/><stop offset="1" stop-color="#d58e58"/></linearGradient></defs><path d="M34 50h52v38a6 6 0 0 1-6 6H40a6 6 0 0 1-6-6z" fill="url(#gk)"/><path d="M34 62h52M34 76h52" stroke="#834e25" stroke-width="5" opacity=".5"/><path d="M34 50c8-8 18-12 26-12s18 4 26 12c-8 5-17 7-26 7s-18-2-26-7z" fill="#e7c983"/><circle cx="60" cy="34" r="5" fill="#e25c5c"/><ellipse cx="60" cy="100" rx="32" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <div class="sig-art"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2e0c8"/><stop offset="1" stop-color="#9c531c"/></linearGradient></defs><path d="M34 50h52v38a6 6 0 0 1-6 6H40a6 6 0 0 1-6-6z" fill="url(#gk)"/><path d="M34 62h52M34 76h52" stroke="#623818" stroke-width="5" opacity=".5"/><path d="M34 50c8-8 18-12 26-12s18 4 26 12c-8 5-17 7-26 7s-18-2-26-7z" fill="#d3a436"/><circle cx="60" cy="34" r="5" fill="#e25c5c"/><ellipse cx="60" cy="100" rx="32" ry="4" fill="#000" opacity=".3"/></svg></div>
         <div class="sig-name"><span class="ar">ماتيلدا كيك</span><span class="en">Matilda Cake</span></div>
         <div class="sig-price">28 <span class="sar">﷼</span></div>
       </div>
       <div class="sig-card">
-        <div class="sig-art"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f5efe6"/><stop offset=".45" stop-color="#e7c983"/><stop offset="1" stop-color="#d58e58"/></linearGradient></defs><path d="M38 24h44l-5 74a10 10 0 0 1-10 9H53a10 10 0 0 1-10-9z" fill="url(#gl)"/><path d="M38 24h44l-1.2 18H39.2z" fill="#fff" opacity=".85"/><path d="M52 42c4-6 12-6 16 0-6 4-10 4-16 0z" fill="#d58e58" opacity=".7"/><ellipse cx="60" cy="24" rx="22" ry="4.5" fill="#fff"/><ellipse cx="60" cy="111" rx="26" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <div class="sig-art"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f5efe6"/><stop offset=".45" stop-color="#d3a436"/><stop offset="1" stop-color="#9c531c"/></linearGradient></defs><path d="M38 24h44l-5 74a10 10 0 0 1-10 9H53a10 10 0 0 1-10-9z" fill="url(#gl)"/><path d="M38 24h44l-1.2 18H39.2z" fill="#fff" opacity=".85"/><path d="M52 42c4-6 12-6 16 0-6 4-10 4-16 0z" fill="#9c531c" opacity=".7"/><ellipse cx="60" cy="24" rx="22" ry="4.5" fill="#fff"/><ellipse cx="60" cy="111" rx="26" ry="4" fill="#000" opacity=".3"/></svg></div>
         <div class="sig-name"><span class="ar">تارت البيكان</span><span class="en">Pecan Tart</span></div>
         <div class="sig-price">12 <span class="sar">﷼</span></div>
       </div>
@@ -139,7 +147,7 @@
   <section class="cat reveal" id="cat-1">
     <div class="cat-head">
       <div class="cat-art">
-        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ge" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d58e58"/><stop offset="1" stop-color="#834e25"/></linearGradient></defs><path d="M30 55h52v28a14 14 0 0 1-14 14H44a14 14 0 0 1-14-14z" fill="url(#ge)"/><path d="M82 58h10a10 10 0 0 1 0 20h-8" fill="none" stroke="#d58e58" stroke-width="5"/><ellipse cx="56" cy="55" rx="26" ry="5" fill="#e7c983"/><path d="M46 20c-4 8 4 10 0 18M60 16c-4 8 4 10 0 18M74 20c-4 8 4 10 0 18" stroke="#cac1ba" stroke-width="4" fill="none" stroke-linecap="round" opacity=".8"/><ellipse cx="56" cy="104" rx="30" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ge" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9c531c"/><stop offset="1" stop-color="#623818"/></linearGradient></defs><path d="M30 55h52v28a14 14 0 0 1-14 14H44a14 14 0 0 1-14-14z" fill="url(#ge)"/><path d="M82 58h10a10 10 0 0 1 0 20h-8" fill="none" stroke="#9c531c" stroke-width="5"/><ellipse cx="56" cy="55" rx="26" ry="5" fill="#d3a436"/><path d="M46 20c-4 8 4 10 0 18M60 16c-4 8 4 10 0 18M74 20c-4 8 4 10 0 18" stroke="#624f41" stroke-width="4" fill="none" stroke-linecap="round" opacity=".8"/><ellipse cx="56" cy="104" rx="30" ry="4" fill="#000" opacity=".3"/></svg></div>
         <img src="../assets/photos/espresso.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
@@ -194,7 +202,7 @@
   <section class="cat reveal" id="cat-2">
     <div class="cat-head">
       <div class="cat-art">
-        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><path d="M28 30h64l-22 34h-20z" fill="none" stroke="#d58e58" stroke-width="5"/><path d="M40 36h40l-15 23h-10z" fill="#d58e58" opacity=".35"/><path d="M60 66v12" stroke="#cac1ba" stroke-width="4" stroke-dasharray="2 6" stroke-linecap="round"/><path d="M36 84h48v6a16 16 0 0 1-16 16H52a16 16 0 0 1-16-16z" fill="#d58e58"/><path d="M84 86h8a8 8 0 0 1 0 16h-6" fill="none" stroke="#d58e58" stroke-width="4"/><ellipse cx="60" cy="108" rx="28" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><path d="M28 30h64l-22 34h-20z" fill="none" stroke="#9c531c" stroke-width="5"/><path d="M40 36h40l-15 23h-10z" fill="#9c531c" opacity=".35"/><path d="M60 66v12" stroke="#624f41" stroke-width="4" stroke-dasharray="2 6" stroke-linecap="round"/><path d="M36 84h48v6a16 16 0 0 1-16 16H52a16 16 0 0 1-16-16z" fill="#9c531c"/><path d="M84 86h8a8 8 0 0 1 0 16h-6" fill="none" stroke="#9c531c" stroke-width="4"/><ellipse cx="60" cy="108" rx="28" ry="4" fill="#000" opacity=".3"/></svg></div>
         <img src="../assets/photos/v60.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
@@ -234,7 +242,7 @@
   <section class="cat reveal" id="cat-3">
     <div class="cat-head">
       <div class="cat-art">
-        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e7c983" stop-opacity=".5"/><stop offset="1" stop-color="#d58e58"/></linearGradient></defs><path d="M40 22h40l-4 78a8 8 0 0 1-8 8H52a8 8 0 0 1-8-8z" fill="url(#gc)" opacity=".9"/><rect x="46" y="34" width="13" height="13" rx="3" fill="#fff" opacity=".7" transform="rotate(12 52 40)"/><rect x="60" y="52" width="13" height="13" rx="3" fill="#fff" opacity=".55" transform="rotate(-14 66 58)"/><rect x="48" y="70" width="12" height="12" rx="3" fill="#fff" opacity=".45" transform="rotate(8 54 76)"/><path d="M74 14 60 46" stroke="#cac1ba" stroke-width="4" stroke-linecap="round"/><ellipse cx="60" cy="112" rx="24" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d3a436" stop-opacity=".5"/><stop offset="1" stop-color="#9c531c"/></linearGradient></defs><path d="M40 22h40l-4 78a8 8 0 0 1-8 8H52a8 8 0 0 1-8-8z" fill="url(#gc)" opacity=".9"/><rect x="46" y="34" width="13" height="13" rx="3" fill="#fff" opacity=".7" transform="rotate(12 52 40)"/><rect x="60" y="52" width="13" height="13" rx="3" fill="#fff" opacity=".55" transform="rotate(-14 66 58)"/><rect x="48" y="70" width="12" height="12" rx="3" fill="#fff" opacity=".45" transform="rotate(8 54 76)"/><path d="M74 14 60 46" stroke="#624f41" stroke-width="4" stroke-linecap="round"/><ellipse cx="60" cy="112" rx="24" ry="4" fill="#000" opacity=".3"/></svg></div>
         <img src="../assets/photos/cold.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
@@ -274,7 +282,7 @@
   <section class="cat reveal" id="cat-4">
     <div class="cat-head">
       <div class="cat-art">
-        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gs" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e7c983"/><stop offset="1" stop-color="#d58e58"/></linearGradient></defs><path d="M46 34h28l6 34a20 14 0 0 1-40 0z" fill="url(#gs)"/><path d="M50 30h20l3 6H47z" fill="#d58e58"/><path d="M58 22h4v8h-4z" fill="#d58e58"/><circle cx="60" cy="18" r="4" fill="#e7c983"/><path d="M46 40c-9 2-13 10-9 17 3 5 8 6 11 5" fill="none" stroke="#d58e58" stroke-width="5" stroke-linecap="round"/><path d="M74 38l6-10 5 3-6 10" fill="#d58e58"/><ellipse cx="60" cy="96" rx="28" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gs" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d3a436"/><stop offset="1" stop-color="#9c531c"/></linearGradient></defs><path d="M46 34h28l6 34a20 14 0 0 1-40 0z" fill="url(#gs)"/><path d="M50 30h20l3 6H47z" fill="#9c531c"/><path d="M58 22h4v8h-4z" fill="#9c531c"/><circle cx="60" cy="18" r="4" fill="#d3a436"/><path d="M46 40c-9 2-13 10-9 17 3 5 8 6 11 5" fill="none" stroke="#9c531c" stroke-width="5" stroke-linecap="round"/><path d="M74 38l6-10 5 3-6 10" fill="#9c531c"/><ellipse cx="60" cy="96" rx="28" ry="4" fill="#000" opacity=".3"/></svg></div>
         <img src="../assets/photos/saudi.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
@@ -299,7 +307,7 @@
   <section class="cat reveal" id="cat-5">
     <div class="cat-head">
       <div class="cat-art">
-        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gcr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0cf8f"/><stop offset="1" stop-color="#d58e58"/></linearGradient></defs><path d="M20 74c4-18 20-32 40-32s36 14 40 32c-6 8-16 8-22 2-4-10-12-16-18-16s-14 6-18 16c-6 6-16 6-22-2z" fill="url(#gcr)"/><path d="M45 46 38 70M60 42v26M75 46l7 24" stroke="#834e25" stroke-width="3" opacity=".5" stroke-linecap="round"/><ellipse cx="60" cy="88" rx="34" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gcr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0cf8f"/><stop offset="1" stop-color="#9c531c"/></linearGradient></defs><path d="M20 74c4-18 20-32 40-32s36 14 40 32c-6 8-16 8-22 2-4-10-12-16-18-16s-14 6-18 16c-6 6-16 6-22-2z" fill="url(#gcr)"/><path d="M45 46 38 70M60 42v26M75 46l7 24" stroke="#623818" stroke-width="3" opacity=".5" stroke-linecap="round"/><ellipse cx="60" cy="88" rx="34" ry="4" fill="#000" opacity=".3"/></svg></div>
         <img src="../assets/photos/bakery.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
@@ -341,6 +349,7 @@
     <span class="en">A demo lovingly prepared by MENU SADAH for you — items, prices & photos update in minutes.</span>
   </div>
   <div class="footer">
+    <div style="margin-bottom:6px;color:var(--text-2)"><span class="ar">تابعوا سيلي كافيه: <b style="color:var(--accent)">@celiecafee</b></span><span class="en">Follow Celie Cafe: <b style="color:var(--accent)">@celiecafee</b></span></div>
     <span class="ar">تجربة من <a href="https://menu-sadah.com">منيو سادة — MENU SADAH</a></span>
     <span class="en">Crafted by <a href="https://menu-sadah.com">MENU SADAH</a></span>
   </div>

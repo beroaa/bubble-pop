@@ -5,14 +5,16 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0e1514">
 <title>Shahi Kayf — Menu · MENU SADAH</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap">
 <style>
   :root{--bg-0:#0e1514;--bg-1:#18211e;--bg-2:#212b29;--border-1:#273a36;--border-2:#365951;
     --text-1:#edf2f1;--text-2:#bacac6;--text-3:#7f948f;--accent:#64b9a6;--accent-2:#88d0d3;--accent-soft:#64b9a622;
-    --radius:16px;--shadow:0 6px 16px #00000080,0 16px 40px #00000059}
+    --radius:16px;--shadow:0 6px 16px #00000080, 0 16px 40px #00000059}
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Tahoma,Roboto,Arial,sans-serif;
-    background:var(--bg-0) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Ccircle cx='24' cy='24' r='1.2' fill='%2364b9a6' fill-opacity='.13'/%3E%3C/svg%3E");color:var(--text-1);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100svh}
+  body{font-family:'IBM Plex Sans Arabic',sans-serif,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;
+    background:var(--bg-0) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Ccircle cx='24' cy='24' r='6' fill='none' stroke='%2364b9a6' stroke-opacity='.13'/%3E%3C/svg%3E");color:var(--text-1);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100svh}
   body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
     background:radial-gradient(620px 420px at 50% -120px,#64b9a617,transparent 70%)}
   .wrap{max-width:560px;margin:0 auto;padding:0 18px 110px;position:relative;z-index:1}
@@ -30,10 +32,14 @@
     background:radial-gradient(circle at 32% 24%,#ffffff2b,transparent 42%),radial-gradient(circle at 32% 28%,#64b9a642,#64b9a614 62%,transparent);
     border:2px solid var(--accent);box-shadow:0 0 0 7px #64b9a614,0 0 34px #64b9a640,inset 0 1px 0 #ffffff33}
   .medal::after{content:"";position:absolute;inset:6px;border-radius:50%;border:1px solid #64b9a655}
-  .medal span{font-family:Georgia,'Times New Roman',serif;font-size:44px;font-weight:700;color:var(--accent);
-    text-shadow:0 2px 12px #64b9a666}
+  .medal span .ar{font-family:'Amiri',serif}
+  .medal span .en{font-family:'Playfair Display',serif}
+  .medal span{font-size:44px;font-weight:700;color:var(--accent);text-shadow:0 2px 12px #64b9a666}
+  .medal{animation:mfloat 5s ease-in-out infinite}
+  @keyframes mfloat{50%{transform:translateY(-6px)}}
   h1{font-size:34px;letter-spacing:-.01em;line-height:1.2}
-  h1 .en{font-family:Georgia,'Times New Roman',serif}
+  h1 .ar{font-family:'Amiri',serif}
+  h1 .en{font-family:'Playfair Display',serif}
   .tagline{color:var(--text-2);margin-top:8px;font-size:15.5px}
   .meta{margin-top:12px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
   .badge{background:var(--accent-soft);border:1px solid #64b9a666;color:var(--accent);border-radius:999px;padding:4px 14px;font-size:12px;letter-spacing:.05em}
@@ -69,7 +75,8 @@
   .cat-art.hasimg img{display:block}
   .cat-title{flex:1}
   .cat-title h2{color:var(--accent);font-size:19px;letter-spacing:.04em}
-  .cat-title h2 .en{font-family:Georgia,'Times New Roman',serif}
+  .cat-title h2 .ar{font-family:'Amiri',serif}
+  .cat-title h2 .en{font-family:'Playfair Display',serif}
   .rule{display:flex;align-items:center;gap:10px;color:#64b9a688;font-size:10px;margin-top:6px}
   .rule::before{content:"";width:46px;height:1px;background:#64b9a666}
   .rule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,#64b9a644,transparent)}
@@ -87,9 +94,9 @@
   .footer a{color:var(--accent);text-decoration:none}
   
 
-  .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
-  .reveal.in{opacity:1;transform:none}
-  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}}
+  .reveal{opacity:0;transform:translateX(18px);transition:opacity .55s ease,transform .55s ease}.reveal.in{opacity:1;transform:none}
+  .greet{color:var(--accent);font-size:13px;letter-spacing:.14em;margin-bottom:10px}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}.medal{animation:none}}
 </style>
 </head>
 <body>
@@ -98,6 +105,7 @@
   <header class="hero">
     <div class="orb"></div>
     <div class="orb2"></div>
+    <div class="greet"><span class="ar">يسعدنا وجودكم ✦</span><span class="en">So glad you are here ✦</span></div>
     <div class="medal"><span><span class="ar">ش</span><span class="en">S</span></span></div>
     <h1><span class="ar">شاهي كايف</span><span class="en">Shahi Kayf</span></h1>
     <div class="tagline"><span class="ar">شاي من كل مكان — يُنقع كما يجب</span><span class="en">Teas from everywhere, steeped right</span></div>
@@ -251,6 +259,7 @@
     <span class="en">A demo lovingly prepared by MENU SADAH for you — items, prices & photos update in minutes.</span>
   </div>
   <div class="footer">
+    <div style="margin-bottom:6px;color:var(--text-2)"><span class="ar">تابعوا شاهي كايف: <b style="color:var(--accent)">@kaif_ksa</b></span><span class="en">Follow Shahi Kayf: <b style="color:var(--accent)">@kaif_ksa</b></span></div>
     <span class="ar">تجربة من <a href="https://menu-sadah.com">منيو سادة — MENU SADAH</a></span>
     <span class="en">Crafted by <a href="https://menu-sadah.com">MENU SADAH</a></span>
   </div>

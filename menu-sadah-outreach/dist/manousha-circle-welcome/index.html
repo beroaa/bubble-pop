@@ -5,12 +5,14 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#16120e">
 <title>🎁 Manousha Circle × MENU SADAH</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Reem+Kufi:wght@400;600&family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap">
 <style>
   :root{--bg-0:#16120e;--bg-1:#221c16;--border-1:#3a3127;--border-2:#594836;
     --text-1:#f2f0ed;--text-2:#cac2ba;--text-3:#948a7f;--accent:#c38e55;--accent-soft:#c38e5522}
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Tahoma,Roboto,Arial,sans-serif;
-    background:var(--bg-0) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Ccircle cx='24' cy='24' r='1.2' fill='%23c38e55' fill-opacity='.13'/%3E%3C/svg%3E");color:var(--text-1);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  body{font-family:'IBM Plex Sans Arabic',sans-serif,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;
+    background:var(--bg-0) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Ccircle cx='24' cy='24' r='6' fill='none' stroke='%23c38e55' stroke-opacity='.13'/%3E%3C/svg%3E");color:var(--text-1);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
     min-height:100svh;overflow-x:hidden}
   body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
     background:radial-gradient(620px 460px at 50% -120px,#c38e551c,transparent 70%)}
@@ -39,13 +41,14 @@
     border:2px solid var(--accent);box-shadow:0 0 0 8px #c38e5514,0 0 46px #c38e5555,inset 0 1px 0 #ffffff33;
     opacity:0;animation:pop .9s .5s cubic-bezier(.2,1.4,.4,1) forwards}
   .medal::after{content:"";position:absolute;inset:7px;border-radius:50%;border:1px solid #c38e5555}
-  .medal span{font-family:Georgia,'Times New Roman',serif;font-size:52px;font-weight:700;color:var(--accent);
+  .medal span{font-family:'DM Serif Display',serif;font-size:52px;font-weight:700;color:var(--accent);
     text-shadow:0 2px 14px #c38e5573}
   @keyframes pop{0%{opacity:0;transform:scale(.4)}70%{transform:scale(1.06)}100%{opacity:1;transform:scale(1)}}
   @keyframes up{0%{opacity:0;transform:translateY(14px)}100%{opacity:1;transform:none}}
   h1{font-size:32px;line-height:1.25;margin-top:12px;opacity:0;animation:up .8s .9s forwards}
   h1 b{color:var(--accent)}
-  h1 .en{font-family:Georgia,'Times New Roman',serif}
+  h1 .ar{font-family:'Reem Kufi',sans-serif}
+  h1 .en{font-family:'DM Serif Display',serif}
   .shimmer{background:linear-gradient(90deg,var(--text-1) 40%,#c38e55 50%,var(--text-1) 60%);background-size:220% 100%;
     -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:sh 3.4s 1.8s infinite}
   @keyframes sh{0%{background-position:120% 0}100%{background-position:-120% 0}}

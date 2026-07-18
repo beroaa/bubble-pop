@@ -91,7 +91,30 @@ export const FULL_MENUS = {
 /* ---------- helpers ---------- */
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
-const patternFor = (T) => `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Ccircle cx='24' cy='24' r='1.2' fill='%23${T.accent.slice(1)}' fill-opacity='.13'/%3E%3C/svg%3E")`;
+const seedOf = (str) => { let h = 2166136261; for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619) >>> 0; } return h >>> 0; };
+
+/* four background motifs — picked per cafe, low-opacity, both moods */
+const patternFor = (T, v) => {
+  const c = '%23' + (T.accentBright || T.accent).slice(1), o = T.mode === 'light' ? '.10' : '.13';
+  const shapes = [
+    `%3Ccircle cx='24' cy='24' r='1.2' fill='${c}' fill-opacity='${o}'/%3E`,
+    `%3Cpath d='M24 18l6 6-6 6-6-6z' fill='none' stroke='${c}' stroke-opacity='${o}'/%3E`,
+    `%3Ccircle cx='24' cy='24' r='6' fill='none' stroke='${c}' stroke-opacity='${o}'/%3E`,
+    `%3Cpath d='M24 19v10M19 24h10' stroke='${c}' stroke-opacity='${o}'/%3E`,
+  ];
+  return `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E${shapes[v % 4]}%3C/svg%3E")`;
+};
+
+/* entrance flavors + hero greetings — variety per cafe, honest words only */
+const REVEALS = [
+  '.reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}.reveal.in{opacity:1;transform:none}',
+  '.reveal{opacity:0;transform:scale(.96);transition:opacity .5s ease,transform .5s cubic-bezier(.2,1.2,.4,1)}.reveal.in{opacity:1;transform:none}',
+  '.reveal{opacity:0;transform:translateX(18px);transition:opacity .55s ease,transform .55s ease}.reveal.in{opacity:1;transform:none}',
+];
+const GREETS = [
+  ['حيّاكم الله ✦', 'Welcome ✦'], ['أهلاً وسهلاً ✦', 'Ahlan wa sahlan ✦'],
+  ['يسعدنا وجودكم ✦', 'So glad you are here ✦'], ['البيت بيتكم ✦', 'Make yourself at home ✦'],
+];
 
 const themeFor = (cafe) => cafe.theme || brandTheme(cafe);
 
@@ -99,6 +122,8 @@ const themeFor = (cafe) => cafe.theme || brandTheme(cafe);
 export function luxeMenuPage(cafe) {
   const T = themeFor(cafe);
   const a = T.accent, a2 = T.accent2;
+  const sd = seedOf(cafe.slug || cafe.name);
+  const greet = GREETS[(sd >>> 3) % GREETS.length];
   const sigCat = cafe.menu.find((c) => /signature|توقيع/i.test(c.cat + c.catAr));
   const cats = cafe.menu.filter((c) => c !== sigCat);
 
@@ -154,14 +179,14 @@ export function luxeMenuPage(cafe) {
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="${T.bg0}">
 <title>${esc(cafe.name)} — Menu · MENU SADAH</title>
-<style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=${T.fonts.q}&display=swap">\n<style>
   :root{--bg-0:${T.bg0};--bg-1:${T.bg1};--bg-2:${T.bg2};--border-1:${T.border1};--border-2:${T.border2};
     --text-1:${T.text1};--text-2:${T.text2};--text-3:${T.text3};--accent:${a};--accent-2:${a2};--accent-soft:${a}22;
-    --radius:16px;--shadow:0 6px 16px #00000080,0 16px 40px #00000059}
+    --radius:16px;--shadow:${T.shadow}}
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Tahoma,Roboto,Arial,sans-serif;
-    background:var(--bg-0) ${patternFor(T)};color:var(--text-1);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100svh}
+  body{font-family:${T.fonts.body},-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;
+    background:var(--bg-0) ${patternFor(T, sd)};color:var(--text-1);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100svh}
   body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
     background:radial-gradient(620px 420px at 50% -120px,${a}17,transparent 70%)}
   .wrap{max-width:560px;margin:0 auto;padding:0 18px 110px;position:relative;z-index:1}
@@ -179,10 +204,14 @@ export function luxeMenuPage(cafe) {
     background:radial-gradient(circle at 32% 24%,#ffffff2b,transparent 42%),radial-gradient(circle at 32% 28%,${a}42,${a}14 62%,transparent);
     border:2px solid var(--accent);box-shadow:0 0 0 7px ${a}14,0 0 34px ${a}40,inset 0 1px 0 #ffffff33}
   .medal::after{content:"";position:absolute;inset:6px;border-radius:50%;border:1px solid ${a}55}
-  .medal span{font-family:Georgia,'Times New Roman',serif;font-size:44px;font-weight:700;color:var(--accent);
-    text-shadow:0 2px 12px ${a}66}
+  .medal span .ar{font-family:${T.fonts.ar}}
+  .medal span .en{font-family:${T.fonts.en}}
+  .medal span{font-size:44px;font-weight:700;color:var(--accent);text-shadow:0 2px 12px ${a}66}
+  .medal{animation:mfloat 5s ease-in-out infinite}
+  @keyframes mfloat{50%{transform:translateY(-6px)}}
   h1{font-size:34px;letter-spacing:-.01em;line-height:1.2}
-  h1 .en{font-family:Georgia,'Times New Roman',serif}
+  h1 .ar{font-family:${T.fonts.ar}}
+  h1 .en{font-family:${T.fonts.en}}
   .tagline{color:var(--text-2);margin-top:8px;font-size:15.5px}
   .meta{margin-top:12px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
   .badge{background:var(--accent-soft);border:1px solid ${a}66;color:var(--accent);border-radius:999px;padding:4px 14px;font-size:12px;letter-spacing:.05em}
@@ -218,7 +247,8 @@ export function luxeMenuPage(cafe) {
   .cat-art.hasimg img{display:block}
   .cat-title{flex:1}
   .cat-title h2{color:var(--accent);font-size:19px;letter-spacing:.04em}
-  .cat-title h2 .en{font-family:Georgia,'Times New Roman',serif}
+  .cat-title h2 .ar{font-family:${T.fonts.ar}}
+  .cat-title h2 .en{font-family:${T.fonts.en}}
   .rule{display:flex;align-items:center;gap:10px;color:${a}88;font-size:10px;margin-top:6px}
   .rule::before{content:"";width:46px;height:1px;background:${a}66}
   .rule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,${a}44,transparent)}
@@ -237,9 +267,9 @@ export function luxeMenuPage(cafe) {
   ${wa ? `.wa{position:fixed;bottom:18px;inset-inline-start:18px;z-index:30;background:#1faa53;color:#fff;border-radius:999px;
     padding:12px 20px;text-decoration:none;font-weight:700;font-size:14px;box-shadow:0 8px 22px #1faa5366}` : ''}
 
-  .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
-  .reveal.in{opacity:1;transform:none}
-  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}}
+  ${REVEALS[(sd >>> 6) % REVEALS.length]}
+  .greet{color:var(--accent);font-size:13px;letter-spacing:.14em;margin-bottom:10px}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}.medal{animation:none}}
 </style>
 </head>
 <body>
@@ -248,6 +278,7 @@ export function luxeMenuPage(cafe) {
   <header class="hero">
     <div class="orb"></div>
     <div class="orb2"></div>
+    <div class="greet"><span class="ar">${greet[0]}</span><span class="en">${greet[1]}</span></div>
     <div class="medal"><span><span class="ar">${esc((cafe.nameAr || cafe.name).trim()[0])}</span><span class="en">${esc(cafe.name.trim()[0].toUpperCase())}</span></span></div>
     <h1><span class="ar">${esc(cafe.nameAr)}</span><span class="en">${esc(cafe.name)}</span></h1>
     <div class="tagline"><span class="ar">${esc(cafe.taglineAr)}</span><span class="en">${esc(cafe.tagline)}</span></div>
@@ -265,6 +296,7 @@ export function luxeMenuPage(cafe) {
     <span class="en">A demo lovingly prepared by MENU SADAH for you — items, prices & photos update in minutes.</span>
   </div>
   <div class="footer">
+    ${cafe.social && /^@/.test(String(cafe.social)) ? `<div style="margin-bottom:6px;color:var(--text-2)"><span class="ar">تابعوا ${esc(cafe.nameAr)}: <b style="color:var(--accent)">${esc(cafe.social)}</b></span><span class="en">Follow ${esc(cafe.name)}: <b style="color:var(--accent)">${esc(cafe.social)}</b></span></div>` : ''}
     <span class="ar">تجربة من <a href="${CONTACT.site}">منيو سادة — MENU SADAH</a></span>
     <span class="en">Crafted by <a href="${CONTACT.site}">MENU SADAH</a></span>
   </div>
@@ -313,12 +345,12 @@ export function luxeWelcomePage(cafe, extras = {}) {
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="${T.bg0}">
 <title>🎁 ${esc(cafe.name)} × MENU SADAH</title>
-<style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=${T.fonts.q}&display=swap">\n<style>
   :root{--bg-0:${T.bg0};--bg-1:${T.bg1};--border-1:${T.border1};--border-2:${T.border2};
     --text-1:${T.text1};--text-2:${T.text2};--text-3:${T.text3};--accent:${a};--accent-soft:${a}22}
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Tahoma,Roboto,Arial,sans-serif;
-    background:var(--bg-0) ${patternFor(T)};color:var(--text-1);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  body{font-family:${T.fonts.body},-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;
+    background:var(--bg-0) ${patternFor(T, seedOf(cafe.slug || cafe.name))};color:var(--text-1);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
     min-height:100svh;overflow-x:hidden}
   body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
     background:radial-gradient(620px 460px at 50% -120px,${a}1c,transparent 70%)}
@@ -347,13 +379,14 @@ export function luxeWelcomePage(cafe, extras = {}) {
     border:2px solid var(--accent);box-shadow:0 0 0 8px ${a}14,0 0 46px ${a}55,inset 0 1px 0 #ffffff33;
     opacity:0;animation:pop .9s .5s cubic-bezier(.2,1.4,.4,1) forwards}
   .medal::after{content:"";position:absolute;inset:7px;border-radius:50%;border:1px solid ${a}55}
-  .medal span{font-family:Georgia,'Times New Roman',serif;font-size:52px;font-weight:700;color:var(--accent);
+  .medal span{font-family:${T.fonts.en};font-size:52px;font-weight:700;color:var(--accent);
     text-shadow:0 2px 14px ${a}73}
   @keyframes pop{0%{opacity:0;transform:scale(.4)}70%{transform:scale(1.06)}100%{opacity:1;transform:scale(1)}}
   @keyframes up{0%{opacity:0;transform:translateY(14px)}100%{opacity:1;transform:none}}
   h1{font-size:32px;line-height:1.25;margin-top:12px;opacity:0;animation:up .8s .9s forwards}
   h1 b{color:var(--accent)}
-  h1 .en{font-family:Georgia,'Times New Roman',serif}
+  h1 .ar{font-family:${T.fonts.ar}}
+  h1 .en{font-family:${T.fonts.en}}
   .shimmer{background:linear-gradient(90deg,var(--text-1) 40%,${a} 50%,var(--text-1) 60%);background-size:220% 100%;
     -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:sh 3.4s 1.8s infinite}
   @keyframes sh{0%{background-position:120% 0}100%{background-position:-120% 0}}

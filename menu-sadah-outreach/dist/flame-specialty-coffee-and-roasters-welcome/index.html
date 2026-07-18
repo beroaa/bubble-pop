@@ -3,55 +3,58 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#17110d">
+<meta name="theme-color" content="#fcfaf8">
 <title>🎁 FLAME Specialty Coffee &amp; Roasters × MENU SADAH</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&family=Lalezar&family=Nunito:wght@400;700&family=Cairo:wght@400;700&display=swap">
 <style>
-  :root{--bg-0:#17110d;--bg-1:#231a15;--border-1:#3a2e27;--border-2:#594336;
-    --text-1:#f2efed;--text-2:#cac0ba;--text-3:#94877f;--accent:#d8976e;--accent-soft:#d8976e22}
+  :root{--bg-0:#fcfaf8;--bg-1:#f8f4f2;--border-1:#e3d9d3;--border-2:#ceb9ab;
+    --text-1:#312116;--text-2:#624e41;--text-3:#89776c;--accent:#9a4d1d;--accent-soft:#9a4d1d22}
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Tahoma,Roboto,Arial,sans-serif;
-    background:var(--bg-0) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Ccircle cx='24' cy='24' r='1.2' fill='%23d8976e' fill-opacity='.13'/%3E%3C/svg%3E");color:var(--text-1);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  body{font-family:'Nunito','Cairo',sans-serif,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;
+    background:var(--bg-0) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Ccircle cx='24' cy='24' r='1.2' fill='%23d8976e' fill-opacity='.10'/%3E%3C/svg%3E");color:var(--text-1);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
     min-height:100svh;overflow-x:hidden}
   body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
-    background:radial-gradient(620px 460px at 50% -120px,#d8976e1c,transparent 70%)}
+    background:radial-gradient(620px 460px at 50% -120px,#9a4d1d1c,transparent 70%)}
   .wrap{max-width:560px;margin:0 auto;padding:0 20px 90px;position:relative}
   [data-lang="ar"] .en,[data-lang="en"] .ar{display:none}
-  .lang-toggle{position:fixed;top:14px;inset-inline-end:14px;z-index:40;background:#231a15d9;backdrop-filter:blur(10px);
+  .lang-toggle{position:fixed;top:14px;inset-inline-end:14px;z-index:40;background:#f8f4f2d9;backdrop-filter:blur(10px);
     border:1px solid var(--border-2);color:var(--text-1);border-radius:999px;padding:8px 16px;font-size:13.5px;cursor:pointer}
 
   .stars{position:fixed;inset:0;pointer-events:none;z-index:1}
-  .stars span{position:absolute;color:#d8976e;opacity:0;animation:tw 3.2s infinite}
+  .stars span{position:absolute;color:#9a4d1d;opacity:0;animation:tw 3.2s infinite}
   @keyframes tw{0%,100%{opacity:0;transform:scale(.5)}50%{opacity:.85;transform:scale(1.15)}}
 
   .hero{position:relative;text-align:center;padding:84px 0 20px;z-index:2}
   .orb{position:absolute;top:-70px;left:50%;transform:translateX(-50%);width:380px;height:380px;border-radius:50%;
-    background:radial-gradient(circle,#d8976e38,transparent 64%);pointer-events:none;animation:breathe 5s ease-in-out infinite}
+    background:radial-gradient(circle,#9a4d1d38,transparent 64%);pointer-events:none;animation:breathe 5s ease-in-out infinite}
   .orb2{position:absolute;top:40px;left:8%;width:200px;height:200px;border-radius:50%;
-    background:radial-gradient(circle,#eace9924,transparent 65%);pointer-events:none;animation:breathe2 6.5s 1s ease-in-out infinite}
+    background:radial-gradient(circle,#d09b3924,transparent 65%);pointer-events:none;animation:breathe2 6.5s 1s ease-in-out infinite}
   @keyframes breathe{50%{transform:translateX(-50%) scale(1.08)}}
   @keyframes breathe2{50%{transform:scale(1.1)}}
-  .gift-tag{display:inline-block;background:var(--accent-soft);border:1px solid #d8976e88;color:var(--accent);
+  .gift-tag{display:inline-block;background:var(--accent-soft);border:1px solid #9a4d1d88;color:var(--accent);
     border-radius:999px;padding:6px 20px;font-size:13px;letter-spacing:.14em;
     opacity:0;animation:up .8s .15s forwards}
   .medal{position:relative;width:118px;height:118px;margin:22px auto 6px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;
-    background:radial-gradient(circle at 32% 24%,#ffffff30,transparent 42%),radial-gradient(circle at 32% 28%,#d8976e48,#d8976e16 62%,transparent);
-    border:2px solid var(--accent);box-shadow:0 0 0 8px #d8976e14,0 0 46px #d8976e55,inset 0 1px 0 #ffffff33;
+    background:radial-gradient(circle at 32% 24%,#ffffff30,transparent 42%),radial-gradient(circle at 32% 28%,#9a4d1d48,#9a4d1d16 62%,transparent);
+    border:2px solid var(--accent);box-shadow:0 0 0 8px #9a4d1d14,0 0 46px #9a4d1d55,inset 0 1px 0 #ffffff33;
     opacity:0;animation:pop .9s .5s cubic-bezier(.2,1.4,.4,1) forwards}
-  .medal::after{content:"";position:absolute;inset:7px;border-radius:50%;border:1px solid #d8976e55}
-  .medal span{font-family:Georgia,'Times New Roman',serif;font-size:52px;font-weight:700;color:var(--accent);
-    text-shadow:0 2px 14px #d8976e73}
+  .medal::after{content:"";position:absolute;inset:7px;border-radius:50%;border:1px solid #9a4d1d55}
+  .medal span{font-family:'Lobster',cursive;font-size:52px;font-weight:700;color:var(--accent);
+    text-shadow:0 2px 14px #9a4d1d73}
   @keyframes pop{0%{opacity:0;transform:scale(.4)}70%{transform:scale(1.06)}100%{opacity:1;transform:scale(1)}}
   @keyframes up{0%{opacity:0;transform:translateY(14px)}100%{opacity:1;transform:none}}
   h1{font-size:32px;line-height:1.25;margin-top:12px;opacity:0;animation:up .8s .9s forwards}
   h1 b{color:var(--accent)}
-  h1 .en{font-family:Georgia,'Times New Roman',serif}
-  .shimmer{background:linear-gradient(90deg,var(--text-1) 40%,#d8976e 50%,var(--text-1) 60%);background-size:220% 100%;
+  h1 .ar{font-family:'Lalezar',cursive}
+  h1 .en{font-family:'Lobster',cursive}
+  .shimmer{background:linear-gradient(90deg,var(--text-1) 40%,#9a4d1d 50%,var(--text-1) 60%);background-size:220% 100%;
     -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:sh 3.4s 1.8s infinite}
   @keyframes sh{0%{background-position:120% 0}100%{background-position:-120% 0}}
 
-  .letter{position:relative;z-index:2;margin-top:26px;background:linear-gradient(180deg,#231a15f0,#231a15d0);
-    border:1px solid #d8976e44;border-radius:24px;padding:24px 22px;box-shadow:0 10px 34px #00000080;
+  .letter{position:relative;z-index:2;margin-top:26px;background:linear-gradient(180deg,#f8f4f2f0,#f8f4f2d0);
+    border:1px solid #9a4d1d44;border-radius:24px;padding:24px 22px;box-shadow:0 10px 34px #00000080;
     opacity:0;animation:up .9s 1.25s forwards}
   .letter .to{color:var(--accent);font-size:13px;letter-spacing:.12em;margin-bottom:10px}
   .letter p{color:var(--text-2);font-size:15.5px;margin-bottom:12px}
@@ -62,13 +65,13 @@
   .benefits .tick{color:var(--accent);font-weight:800;flex:0 0 auto}
 
   .cta-stack{position:relative;z-index:2;display:grid;gap:12px;margin-top:26px;opacity:0;animation:up .9s 1.6s forwards}
-  .btn{display:block;text-align:center;text-decoration:none;background:linear-gradient(135deg,#d8976e,#eace99);
-    color:#1f150f;font-weight:800;font-size:18px;border-radius:18px;padding:18px 20px;
-    box-shadow:0 10px 30px #d8976e55;transition:transform .15s}
+  .btn{display:block;text-align:center;text-decoration:none;background:linear-gradient(135deg,#9a4d1d,#d09b39);
+    color:#ffffff;font-weight:800;font-size:18px;border-radius:18px;padding:18px 20px;
+    box-shadow:0 10px 30px #9a4d1d55;transition:transform .15s}
   .btn:active{transform:scale(.98)}
   .btn.pulse{animation:pl 2.2s 2.4s infinite}
-  @keyframes pl{0%,100%{box-shadow:0 10px 30px #d8976e55}50%{box-shadow:0 10px 44px #d8976e90}}
-  .btn.ghost{background:transparent;color:var(--accent);border:1px solid #d8976e88;box-shadow:none;font-weight:600;font-size:15px}
+  @keyframes pl{0%,100%{box-shadow:0 10px 30px #9a4d1d55}50%{box-shadow:0 10px 44px #9a4d1d90}}
+  .btn.ghost{background:transparent;color:var(--accent);border:1px solid #9a4d1d88;box-shadow:none;font-weight:600;font-size:15px}
   .small{margin-top:14px;text-align:center;color:var(--text-3);font-size:12.5px;position:relative;z-index:2}
   .small a{color:var(--accent);text-decoration:none}
   .footer{margin-top:30px;text-align:center;color:var(--text-3);font-size:12.5px;position:relative;z-index:2}

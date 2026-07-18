@@ -103,7 +103,7 @@ export function makeCafe(entry) {
     area: entry.area || 'Riyadh',
     areaAr: entry.areaAr || 'الرياض',
     social: entry.social || 'Instagram',
-    accent: theme.accent,
+    accent: theme.accentBright || theme.accent,
     tagline: entry.tagline || arch.tagline,
     taglineAr: entry.taglineAr || arch.taglineAr,
     pitchNote: entry.why || '',

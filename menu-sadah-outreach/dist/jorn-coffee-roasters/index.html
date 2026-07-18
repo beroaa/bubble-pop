@@ -3,58 +3,64 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#17110d">
+<meta name="theme-color" content="#fcfaf8">
 <title>Jorn Coffee Roasters — Menu · MENU SADAH</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Baloo+Bhaijaan+2:wght@500;700&family=Nunito:wght@400;700&display=swap">
 <style>
-  :root{--bg-0:#17110d;--bg-1:#231b15;--bg-2:#2f251e;--border-1:#3a2f27;--border-2:#594536;
-    --text-1:#f2efed;--text-2:#cac1ba;--text-3:#94887f;--accent:#ce8955;--accent-2:#e2c47e;--accent-soft:#ce895522;
-    --radius:16px;--shadow:0 6px 16px #00000080,0 16px 40px #00000059}
+  :root{--bg-0:#fcfaf8;--bg-1:#f8f4f2;--bg-2:#efeae6;--border-1:#e3dad3;--border-2:#cebaab;
+    --text-1:#312216;--text-2:#624f41;--text-3:#89786c;--accent:#975420;--accent-2:#cda13c;--accent-soft:#97542022;
+    --radius:16px;--shadow:0 6px 16px #6b482e22, 0 16px 40px #6b482e14}
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Tahoma,Roboto,Arial,sans-serif;
-    background:var(--bg-0) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Ccircle cx='24' cy='24' r='1.2' fill='%23ce8955' fill-opacity='.13'/%3E%3C/svg%3E");color:var(--text-1);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100svh}
+  body{font-family:'Nunito','Baloo Bhaijaan 2',sans-serif,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;
+    background:var(--bg-0) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M24 19v10M19 24h10' stroke='%23ce8955' stroke-opacity='.10'/%3E%3C/svg%3E");color:var(--text-1);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100svh}
   body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
-    background:radial-gradient(620px 420px at 50% -120px,#ce895517,transparent 70%)}
+    background:radial-gradient(620px 420px at 50% -120px,#97542017,transparent 70%)}
   .wrap{max-width:560px;margin:0 auto;padding:0 18px 110px;position:relative;z-index:1}
   [data-lang="ar"] .en,[data-lang="en"] .ar{display:none}
-  .lang-toggle{position:fixed;top:14px;inset-inline-end:14px;z-index:30;background:#231b15d9;backdrop-filter:blur(10px);
+  .lang-toggle{position:fixed;top:14px;inset-inline-end:14px;z-index:30;background:#f8f4f2d9;backdrop-filter:blur(10px);
     border:1px solid var(--border-2);color:var(--text-1);border-radius:999px;padding:8px 16px;font-size:13.5px;cursor:pointer}
 
   .hero{position:relative;text-align:center;padding:76px 0 30px;overflow:hidden}
   .orb{position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:340px;height:340px;border-radius:50%;
-    background:radial-gradient(circle,#ce895530,transparent 65%);pointer-events:none}
+    background:radial-gradient(circle,#97542030,transparent 65%);pointer-events:none}
   .orb2{position:absolute;top:30px;left:12%;width:180px;height:180px;border-radius:50%;
-    background:radial-gradient(circle,#e2c47e1f,transparent 65%);pointer-events:none}
+    background:radial-gradient(circle,#cda13c1f,transparent 65%);pointer-events:none}
   .medal{position:relative;width:104px;height:104px;margin:0 auto 18px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;
-    background:radial-gradient(circle at 32% 24%,#ffffff2b,transparent 42%),radial-gradient(circle at 32% 28%,#ce895542,#ce895514 62%,transparent);
-    border:2px solid var(--accent);box-shadow:0 0 0 7px #ce895514,0 0 34px #ce895540,inset 0 1px 0 #ffffff33}
-  .medal::after{content:"";position:absolute;inset:6px;border-radius:50%;border:1px solid #ce895555}
-  .medal span{font-family:Georgia,'Times New Roman',serif;font-size:44px;font-weight:700;color:var(--accent);
-    text-shadow:0 2px 12px #ce895566}
+    background:radial-gradient(circle at 32% 24%,#ffffff2b,transparent 42%),radial-gradient(circle at 32% 28%,#97542042,#97542014 62%,transparent);
+    border:2px solid var(--accent);box-shadow:0 0 0 7px #97542014,0 0 34px #97542040,inset 0 1px 0 #ffffff33}
+  .medal::after{content:"";position:absolute;inset:6px;border-radius:50%;border:1px solid #97542055}
+  .medal span .ar{font-family:'Baloo Bhaijaan 2',cursive}
+  .medal span .en{font-family:'Fredoka',sans-serif}
+  .medal span{font-size:44px;font-weight:700;color:var(--accent);text-shadow:0 2px 12px #97542066}
+  .medal{animation:mfloat 5s ease-in-out infinite}
+  @keyframes mfloat{50%{transform:translateY(-6px)}}
   h1{font-size:34px;letter-spacing:-.01em;line-height:1.2}
-  h1 .en{font-family:Georgia,'Times New Roman',serif}
+  h1 .ar{font-family:'Baloo Bhaijaan 2',cursive}
+  h1 .en{font-family:'Fredoka',sans-serif}
   .tagline{color:var(--text-2);margin-top:8px;font-size:15.5px}
   .meta{margin-top:12px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
-  .badge{background:var(--accent-soft);border:1px solid #ce895566;color:var(--accent);border-radius:999px;padding:4px 14px;font-size:12px;letter-spacing:.05em}
+  .badge{background:var(--accent-soft);border:1px solid #97542066;color:var(--accent);border-radius:999px;padding:4px 14px;font-size:12px;letter-spacing:.05em}
   .hrule{display:flex;align-items:center;gap:12px;margin:26px auto 0;max-width:280px;color:var(--accent)}
-  .hrule::before,.hrule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,#ce895588)}
-  .hrule::after{background:linear-gradient(90deg,#ce895588,transparent)}
+  .hrule::before,.hrule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,#97542088)}
+  .hrule::after{background:linear-gradient(90deg,#97542088,transparent)}
 
   .chips{display:flex;gap:8px;overflow-x:auto;padding:14px 2px;position:sticky;top:0;z-index:20;
-    background:linear-gradient(#17110df2 78%,transparent);backdrop-filter:blur(8px);scrollbar-width:none}
+    background:linear-gradient(#fcfaf8f2 78%,transparent);backdrop-filter:blur(8px);scrollbar-width:none}
   .chips::-webkit-scrollbar{display:none}
-  .chip{flex:0 0 auto;text-decoration:none;color:var(--text-2);background:#231b15cc;border:1px solid var(--border-1);
+  .chip{flex:0 0 auto;text-decoration:none;color:var(--text-2);background:#f8f4f2cc;border:1px solid var(--border-1);
     border-radius:999px;padding:9px 18px;font-size:14px;transition:all .2s}
-  .chip:hover{color:var(--accent);border-color:var(--accent);box-shadow:0 0 14px #ce895533}
+  .chip:hover{color:var(--accent);border-color:var(--accent);box-shadow:0 0 14px #97542033}
 
-  .sig{margin-top:26px;background:linear-gradient(180deg,#ce895514,transparent 90%);border:1px solid #ce895544;
+  .sig{margin-top:26px;background:linear-gradient(180deg,#97542014,transparent 90%);border:1px solid #97542044;
     border-radius:22px;padding:20px 16px 18px;position:relative}
   .sig-ribbon{text-align:center;color:var(--accent);letter-spacing:.14em;font-size:13px;margin-bottom:16px;font-weight:700}
   .sig-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
   .sig-card{background:var(--bg-1);border:1px solid var(--border-2);border-radius:var(--radius);padding:14px 12px;text-align:center;box-shadow:var(--shadow)}
   .sig-art{width:74px;height:74px;margin:0 auto 8px}
-  .sig-art svg{width:100%;height:100%;filter:drop-shadow(0 6px 14px #ce895559)}
+  .sig-art svg{width:100%;height:100%;filter:drop-shadow(0 6px 14px #97542059)}
   .sig-name{font-size:14.5px;font-weight:600;line-height:1.35}
   .sig-price{margin-top:6px;color:var(--accent);font-weight:800;font-size:17px}
   .sar{font-size:11px}
@@ -64,32 +70,33 @@
   .cat-art{position:relative;width:76px;height:76px;flex:0 0 auto;border-radius:18px;overflow:hidden;
     border:1px solid var(--border-2);background:var(--bg-1);box-shadow:var(--shadow)}
   .cat-art .cat-svg{position:absolute;inset:8px}
-  .cat-art .cat-svg svg{filter:drop-shadow(0 5px 12px #ce89554d)}
+  .cat-art .cat-svg svg{filter:drop-shadow(0 5px 12px #9754204d)}
   .cat-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
   .cat-art.hasimg img{display:block}
   .cat-title{flex:1}
   .cat-title h2{color:var(--accent);font-size:19px;letter-spacing:.04em}
-  .cat-title h2 .en{font-family:Georgia,'Times New Roman',serif}
-  .rule{display:flex;align-items:center;gap:10px;color:#ce895588;font-size:10px;margin-top:6px}
-  .rule::before{content:"";width:46px;height:1px;background:#ce895566}
-  .rule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,#ce895544,transparent)}
+  .cat-title h2 .ar{font-family:'Baloo Bhaijaan 2',cursive}
+  .cat-title h2 .en{font-family:'Fredoka',sans-serif}
+  .rule{display:flex;align-items:center;gap:10px;color:#97542088;font-size:10px;margin-top:6px}
+  .rule::before{content:"";width:46px;height:1px;background:#97542066}
+  .rule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,#97542044,transparent)}
 
-  .items{background:#231b15d9;border:1px solid var(--border-1);border-radius:20px;padding:6px 18px;box-shadow:var(--shadow)}
-  .item{display:flex;align-items:baseline;gap:10px;padding:15px 0;border-bottom:1px solid #2f251e99}
+  .items{background:#f8f4f2d9;border:1px solid var(--border-1);border-radius:20px;padding:6px 18px;box-shadow:var(--shadow)}
+  .item{display:flex;align-items:baseline;gap:10px;padding:15px 0;border-bottom:1px solid #efeae699}
   .item:last-child{border-bottom:none}
   .item-name{font-size:16px}
   .dots{flex:1;border-bottom:1px dotted var(--border-2);transform:translateY(-4px)}
   .price{color:var(--accent);font-weight:800;white-space:nowrap;font-variant-numeric:tabular-nums}
 
-  .demo-note{margin-top:34px;background:var(--accent-soft);border:1px dashed #ce895588;border-radius:14px;
+  .demo-note{margin-top:34px;background:var(--accent-soft);border:1px dashed #97542088;border-radius:14px;
     padding:13px 16px;font-size:13.5px;color:var(--text-2);text-align:center}
   .footer{margin-top:34px;text-align:center;color:var(--text-3);font-size:13px}
   .footer a{color:var(--accent);text-decoration:none}
   
 
-  .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
-  .reveal.in{opacity:1;transform:none}
-  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}}
+  .reveal{opacity:0;transform:scale(.96);transition:opacity .5s ease,transform .5s cubic-bezier(.2,1.2,.4,1)}.reveal.in{opacity:1;transform:none}
+  .greet{color:var(--accent);font-size:13px;letter-spacing:.14em;margin-bottom:10px}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}.medal{animation:none}}
 </style>
 </head>
 <body>
@@ -98,6 +105,7 @@
   <header class="hero">
     <div class="orb"></div>
     <div class="orb2"></div>
+    <div class="greet"><span class="ar">أهلاً وسهلاً ✦</span><span class="en">Ahlan wa sahlan ✦</span></div>
     <div class="medal"><span><span class="ar">ج</span><span class="en">J</span></span></div>
     <h1><span class="ar">جورن</span><span class="en">Jorn Coffee Roasters</span></h1>
     <div class="tagline"><span class="ar">محمصة داخلية ومحاصيل متغيّرة</span><span class="en">Roasted in-house, rotating origins</span></div>
@@ -114,7 +122,7 @@
     <div class="sig-grid">
       
       <div class="sig-card">
-        <div class="sig-art"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><path d="M28 30h64l-22 34h-20z" fill="none" stroke="#ce8955" stroke-width="5"/><path d="M40 36h40l-15 23h-10z" fill="#ce8955" opacity=".35"/><path d="M60 66v12" stroke="#cac1ba" stroke-width="4" stroke-dasharray="2 6" stroke-linecap="round"/><path d="M36 84h48v6a16 16 0 0 1-16 16H52a16 16 0 0 1-16-16z" fill="#ce8955"/><path d="M84 86h8a8 8 0 0 1 0 16h-6" fill="none" stroke="#ce8955" stroke-width="4"/><ellipse cx="60" cy="108" rx="28" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <div class="sig-art"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><path d="M28 30h64l-22 34h-20z" fill="none" stroke="#975420" stroke-width="5"/><path d="M40 36h40l-15 23h-10z" fill="#975420" opacity=".35"/><path d="M60 66v12" stroke="#624f41" stroke-width="4" stroke-dasharray="2 6" stroke-linecap="round"/><path d="M36 84h48v6a16 16 0 0 1-16 16H52a16 16 0 0 1-16-16z" fill="#975420"/><path d="M84 86h8a8 8 0 0 1 0 16h-6" fill="none" stroke="#975420" stroke-width="4"/><ellipse cx="60" cy="108" rx="28" ry="4" fill="#000" opacity=".3"/></svg></div>
         <div class="sig-name"><span class="ar">قهوة V60</span><span class="en">V60 Pour-Over</span></div>
         <div class="sig-price">20 <span class="sar">﷼</span></div>
       </div>
@@ -124,7 +132,7 @@
   <section class="cat reveal" id="cat-1">
     <div class="cat-head">
       <div class="cat-art">
-        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><path d="M28 30h64l-22 34h-20z" fill="none" stroke="#ce8955" stroke-width="5"/><path d="M40 36h40l-15 23h-10z" fill="#ce8955" opacity=".35"/><path d="M60 66v12" stroke="#cac1ba" stroke-width="4" stroke-dasharray="2 6" stroke-linecap="round"/><path d="M36 84h48v6a16 16 0 0 1-16 16H52a16 16 0 0 1-16-16z" fill="#ce8955"/><path d="M84 86h8a8 8 0 0 1 0 16h-6" fill="none" stroke="#ce8955" stroke-width="4"/><ellipse cx="60" cy="108" rx="28" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><path d="M28 30h64l-22 34h-20z" fill="none" stroke="#975420" stroke-width="5"/><path d="M40 36h40l-15 23h-10z" fill="#975420" opacity=".35"/><path d="M60 66v12" stroke="#624f41" stroke-width="4" stroke-dasharray="2 6" stroke-linecap="round"/><path d="M36 84h48v6a16 16 0 0 1-16 16H52a16 16 0 0 1-16-16z" fill="#975420"/><path d="M84 86h8a8 8 0 0 1 0 16h-6" fill="none" stroke="#975420" stroke-width="4"/><ellipse cx="60" cy="108" rx="28" ry="4" fill="#000" opacity=".3"/></svg></div>
         <img src="../assets/photos/v60.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
@@ -164,7 +172,7 @@
   <section class="cat reveal" id="cat-2">
     <div class="cat-head">
       <div class="cat-art">
-        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ge" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ce8955"/><stop offset="1" stop-color="#7f4e29"/></linearGradient></defs><path d="M30 55h52v28a14 14 0 0 1-14 14H44a14 14 0 0 1-14-14z" fill="url(#ge)"/><path d="M82 58h10a10 10 0 0 1 0 20h-8" fill="none" stroke="#ce8955" stroke-width="5"/><ellipse cx="56" cy="55" rx="26" ry="5" fill="#e2c47e"/><path d="M46 20c-4 8 4 10 0 18M60 16c-4 8 4 10 0 18M74 20c-4 8 4 10 0 18" stroke="#cac1ba" stroke-width="4" fill="none" stroke-linecap="round" opacity=".8"/><ellipse cx="56" cy="104" rx="30" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ge" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#975420"/><stop offset="1" stop-color="#5f391c"/></linearGradient></defs><path d="M30 55h52v28a14 14 0 0 1-14 14H44a14 14 0 0 1-14-14z" fill="url(#ge)"/><path d="M82 58h10a10 10 0 0 1 0 20h-8" fill="none" stroke="#975420" stroke-width="5"/><ellipse cx="56" cy="55" rx="26" ry="5" fill="#cda13c"/><path d="M46 20c-4 8 4 10 0 18M60 16c-4 8 4 10 0 18M74 20c-4 8 4 10 0 18" stroke="#624f41" stroke-width="4" fill="none" stroke-linecap="round" opacity=".8"/><ellipse cx="56" cy="104" rx="30" ry="4" fill="#000" opacity=".3"/></svg></div>
         <img src="../assets/photos/espresso.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
@@ -199,7 +207,7 @@
   <section class="cat reveal" id="cat-3">
     <div class="cat-head">
       <div class="cat-art">
-        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><path d="M34 44h52l-6 56H40z" fill="#ce8955" opacity=".85"/><path d="M34 44h52l-2 12H36z" fill="#7f4e29"/><path d="M46 30c0-8 28-8 28 0v14H46z" fill="none" stroke="#ce8955" stroke-width="5"/><g fill="#5a3d1e"><ellipse cx="52" cy="74" rx="7" ry="10" transform="rotate(-20 52 74)"/><ellipse cx="68" cy="80" rx="7" ry="10" transform="rotate(15 68 80)"/></g><path d="M49 70c2 3 4 6 3 9M66 76c2 3 3 6 2 9" stroke="#e2c47e" stroke-width="2" fill="none"/><ellipse cx="60" cy="104" rx="30" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><path d="M34 44h52l-6 56H40z" fill="#975420" opacity=".85"/><path d="M34 44h52l-2 12H36z" fill="#5f391c"/><path d="M46 30c0-8 28-8 28 0v14H46z" fill="none" stroke="#975420" stroke-width="5"/><g fill="#5a3d1e"><ellipse cx="52" cy="74" rx="7" ry="10" transform="rotate(-20 52 74)"/><ellipse cx="68" cy="80" rx="7" ry="10" transform="rotate(15 68 80)"/></g><path d="M49 70c2 3 4 6 3 9M66 76c2 3 3 6 2 9" stroke="#cda13c" stroke-width="2" fill="none"/><ellipse cx="60" cy="104" rx="30" ry="4" fill="#000" opacity=".3"/></svg></div>
         <img src="../assets/photos/beans.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
@@ -234,7 +242,7 @@
   <section class="cat reveal" id="cat-4">
     <div class="cat-head">
       <div class="cat-art">
-        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gcr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0cf8f"/><stop offset="1" stop-color="#ce8955"/></linearGradient></defs><path d="M20 74c4-18 20-32 40-32s36 14 40 32c-6 8-16 8-22 2-4-10-12-16-18-16s-14 6-18 16c-6 6-16 6-22-2z" fill="url(#gcr)"/><path d="M45 46 38 70M60 42v26M75 46l7 24" stroke="#7f4e29" stroke-width="3" opacity=".5" stroke-linecap="round"/><ellipse cx="60" cy="88" rx="34" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gcr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0cf8f"/><stop offset="1" stop-color="#975420"/></linearGradient></defs><path d="M20 74c4-18 20-32 40-32s36 14 40 32c-6 8-16 8-22 2-4-10-12-16-18-16s-14 6-18 16c-6 6-16 6-22-2z" fill="url(#gcr)"/><path d="M45 46 38 70M60 42v26M75 46l7 24" stroke="#5f391c" stroke-width="3" opacity=".5" stroke-linecap="round"/><ellipse cx="60" cy="88" rx="34" ry="4" fill="#000" opacity=".3"/></svg></div>
         <img src="../assets/photos/bakery.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
@@ -261,6 +269,7 @@
     <span class="en">A demo lovingly prepared by MENU SADAH for you — items, prices & photos update in minutes.</span>
   </div>
   <div class="footer">
+    <div style="margin-bottom:6px;color:var(--text-2)"><span class="ar">تابعوا جورن: <b style="color:var(--accent)">@jorn.sa</b></span><span class="en">Follow Jorn Coffee Roasters: <b style="color:var(--accent)">@jorn.sa</b></span></div>
     <span class="ar">تجربة من <a href="https://menu-sadah.com">منيو سادة — MENU SADAH</a></span>
     <span class="en">Crafted by <a href="https://menu-sadah.com">MENU SADAH</a></span>
   </div>

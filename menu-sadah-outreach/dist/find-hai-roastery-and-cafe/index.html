@@ -3,140 +3,264 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#161210">
-<title>Find Hai Roastery & Cafe — Menu · MENU SADAH</title>
+<meta name="theme-color" content="#17120d">
+<title>Find Hai Roastery &amp; Cafe — Menu · MENU SADAH</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Aref+Ruqaa:wght@400;700&family=Nunito:wght@400;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap">
 <style>
-
-  :root{
-    --bg-0:#161210;--bg-1:#1f1915;--bg-2:#2a221b;--bg-3:#372c22;
-    --border-1:#35291f;--border-2:#55422f;
-    --text-1:#f5efe6;--text-2:#c6b9a6;--text-3:#8b7d6a;
-    --accent:#ca9353;--accent-soft:#ca935324;--on-accent:#1d1610;
-    --radius-md:12px;--radius-lg:16px;--radius-xl:24px;--radius-full:999px;
-    --shadow-2:0 4px 12px #00000073,0 12px 32px #00000059;
-  }
+  :root{--bg-0:#17120d;--bg-1:#231c15;--bg-2:#2e271e;--border-1:#3a3127;--border-2:#594936;
+    --text-1:#f2f0ed;--text-2:#cac2ba;--text-3:#948a7f;--accent:#ca9353;--accent-2:#dfcb7c;--accent-soft:#ca935322;
+    --radius:16px;--shadow:0 6px 16px #00000080, 0 16px 40px #00000059}
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{
-    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Tahoma,Roboto,Arial,sans-serif;
-    background:var(--bg-0);color:var(--text-1);font-size:16px;line-height:1.5;
-    -webkit-font-smoothing:antialiased;min-height:100svh;
-  }
-  .wrap{max-width:560px;margin:0 auto;padding:20px 16px 96px}
-  .pill{display:inline-block;background:var(--accent-soft);color:var(--accent);
-    border:1px solid var(--accent);border-radius:var(--radius-full);
-    padding:4px 14px;font-size:12.5px;letter-spacing:.08em}
-  .btn{display:block;text-align:center;text-decoration:none;background:var(--accent);
-    color:var(--on-accent);font-weight:700;font-size:17px;border-radius:var(--radius-lg);
-    padding:16px 20px;box-shadow:var(--shadow-2)}
-  .btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent);box-shadow:none}
-  .footer{margin-top:48px;text-align:center;color:var(--text-3);font-size:13px}
-  .footer a{color:var(--accent);text-decoration:none}
-  .lang-toggle{position:fixed;top:14px;inset-inline-end:14px;z-index:10;
-    background:var(--bg-2);border:1px solid var(--border-2);color:var(--text-1);
-    border-radius:var(--radius-full);padding:8px 16px;font-size:14px;cursor:pointer}
+  body{font-family:'Nunito','IBM Plex Sans Arabic',sans-serif,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;
+    background:var(--bg-0) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M24 18l6 6-6 6-6-6z' fill='none' stroke='%23ca9353' stroke-opacity='.13'/%3E%3C/svg%3E");color:var(--text-1);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100svh}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background:radial-gradient(620px 420px at 50% -120px,#ca935317,transparent 70%)}
+  .wrap{max-width:560px;margin:0 auto;padding:0 18px 110px;position:relative;z-index:1}
   [data-lang="ar"] .en,[data-lang="en"] .ar{display:none}
+  .lang-toggle{position:fixed;top:14px;inset-inline-end:14px;z-index:30;background:#231c15d9;backdrop-filter:blur(10px);
+    border:1px solid var(--border-2);color:var(--text-1);border-radius:999px;padding:8px 16px;font-size:13.5px;cursor:pointer}
 
-  .hero{padding:56px 0 20px;text-align:center}
-  .logo-badge{width:84px;height:84px;margin:0 auto 16px;border-radius:var(--radius-full);
-    background:radial-gradient(circle at 30% 30%,#ca935359,#ca935326 60%,transparent);
-    border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;
-    font-size:34px;font-weight:800;color:var(--accent)}
-  h1{font-size:28px;letter-spacing:-.02em}
-  .tagline{color:var(--text-2);margin-top:6px;font-size:15px}
-  .area{color:var(--text-3);font-size:13px;margin-top:4px}
-  .chips{display:flex;gap:8px;overflow-x:auto;padding:18px 0 6px;position:sticky;top:0;
-    background:linear-gradient(#161210 75%,transparent);scrollbar-width:none}
+  .hero{position:relative;text-align:center;padding:76px 0 30px;overflow:hidden}
+  .orb{position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:340px;height:340px;border-radius:50%;
+    background:radial-gradient(circle,#ca935330,transparent 65%);pointer-events:none}
+  .orb2{position:absolute;top:30px;left:12%;width:180px;height:180px;border-radius:50%;
+    background:radial-gradient(circle,#dfcb7c1f,transparent 65%);pointer-events:none}
+  .medal{position:relative;width:104px;height:104px;margin:0 auto 18px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:radial-gradient(circle at 32% 24%,#ffffff2b,transparent 42%),radial-gradient(circle at 32% 28%,#ca935342,#ca935314 62%,transparent);
+    border:2px solid var(--accent);box-shadow:0 0 0 7px #ca935314,0 0 34px #ca935340,inset 0 1px 0 #ffffff33}
+  .medal::after{content:"";position:absolute;inset:6px;border-radius:50%;border:1px solid #ca935355}
+  .medal span .ar{font-family:'Aref Ruqaa',serif}
+  .medal span .en{font-family:'Patrick Hand',cursive}
+  .medal span{font-size:44px;font-weight:700;color:var(--accent);text-shadow:0 2px 12px #ca935366}
+  .medal{animation:mfloat 5s ease-in-out infinite}
+  @keyframes mfloat{50%{transform:translateY(-6px)}}
+  h1{font-size:34px;letter-spacing:-.01em;line-height:1.2}
+  h1 .ar{font-family:'Aref Ruqaa',serif}
+  h1 .en{font-family:'Patrick Hand',cursive}
+  .tagline{color:var(--text-2);margin-top:8px;font-size:15.5px}
+  .meta{margin-top:12px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+  .badge{background:var(--accent-soft);border:1px solid #ca935366;color:var(--accent);border-radius:999px;padding:4px 14px;font-size:12px;letter-spacing:.05em}
+  .hrule{display:flex;align-items:center;gap:12px;margin:26px auto 0;max-width:280px;color:var(--accent)}
+  .hrule::before,.hrule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,#ca935388)}
+  .hrule::after{background:linear-gradient(90deg,#ca935388,transparent)}
+
+  .chips{display:flex;gap:8px;overflow-x:auto;padding:14px 2px;position:sticky;top:0;z-index:20;
+    background:linear-gradient(#17120df2 78%,transparent);backdrop-filter:blur(8px);scrollbar-width:none}
   .chips::-webkit-scrollbar{display:none}
-  .chip{flex:0 0 auto;text-decoration:none;color:var(--text-2);background:var(--bg-1);
-    border:1px solid var(--border-1);border-radius:var(--radius-full);padding:8px 16px;font-size:14px}
-  .chip:active{background:var(--accent-soft);color:var(--accent)}
-  .cat{margin-top:28px}
-  .cat h2{color:var(--accent);font-size:15px;letter-spacing:.08em;margin-bottom:12px}
-  .items{background:var(--bg-1);border:1px solid var(--border-1);border-radius:var(--radius-lg);
-    padding:6px 16px;box-shadow:var(--shadow-2)}
-  .item{display:flex;align-items:baseline;gap:10px;padding:14px 0;border-bottom:1px solid var(--border-1)}
+  .chip{flex:0 0 auto;text-decoration:none;color:var(--text-2);background:#231c15cc;border:1px solid var(--border-1);
+    border-radius:999px;padding:9px 18px;font-size:14px;transition:all .2s}
+  .chip:hover{color:var(--accent);border-color:var(--accent);box-shadow:0 0 14px #ca935333}
+
+  .sig{margin-top:26px;background:linear-gradient(180deg,#ca935314,transparent 90%);border:1px solid #ca935344;
+    border-radius:22px;padding:20px 16px 18px;position:relative}
+  .sig-ribbon{text-align:center;color:var(--accent);letter-spacing:.14em;font-size:13px;margin-bottom:16px;font-weight:700}
+  .sig-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
+  .sig-card{background:var(--bg-1);border:1px solid var(--border-2);border-radius:var(--radius);padding:14px 12px;text-align:center;box-shadow:var(--shadow)}
+  .sig-art{width:74px;height:74px;margin:0 auto 8px}
+  .sig-art svg{width:100%;height:100%;filter:drop-shadow(0 6px 14px #ca935359)}
+  .sig-name{font-size:14.5px;font-weight:600;line-height:1.35}
+  .sig-price{margin-top:6px;color:var(--accent);font-weight:800;font-size:17px}
+  .sar{font-size:11px}
+
+  .cat{margin-top:34px}
+  .cat-head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+  .cat-art{position:relative;width:76px;height:76px;flex:0 0 auto;border-radius:18px;overflow:hidden;
+    border:1px solid var(--border-2);background:var(--bg-1);box-shadow:var(--shadow)}
+  .cat-art .cat-svg{position:absolute;inset:8px}
+  .cat-art .cat-svg svg{filter:drop-shadow(0 5px 12px #ca93534d)}
+  .cat-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
+  .cat-art.hasimg img{display:block}
+  .cat-title{flex:1}
+  .cat-title h2{color:var(--accent);font-size:19px;letter-spacing:.04em}
+  .cat-title h2 .ar{font-family:'Aref Ruqaa',serif}
+  .cat-title h2 .en{font-family:'Patrick Hand',cursive}
+  .rule{display:flex;align-items:center;gap:10px;color:#ca935388;font-size:10px;margin-top:6px}
+  .rule::before{content:"";width:46px;height:1px;background:#ca935366}
+  .rule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,#ca935344,transparent)}
+
+  .items{background:#231c15d9;border:1px solid var(--border-1);border-radius:20px;padding:6px 18px;box-shadow:var(--shadow)}
+  .item{display:flex;align-items:baseline;gap:10px;padding:15px 0;border-bottom:1px solid #2e271e99}
   .item:last-child{border-bottom:none}
   .item-name{font-size:16px}
   .dots{flex:1;border-bottom:1px dotted var(--border-2);transform:translateY(-4px)}
-  .price{color:var(--accent);font-weight:700;white-space:nowrap}
-  .sar{font-size:12px}
-  .demo-note{margin-top:28px;background:var(--accent-soft);border:1px dashed var(--accent);
-    border-radius:var(--radius-md);padding:12px 16px;font-size:13.5px;color:var(--text-2);text-align:center}
+  .price{color:var(--accent);font-weight:800;white-space:nowrap;font-variant-numeric:tabular-nums}
+
+  .demo-note{margin-top:34px;background:var(--accent-soft);border:1px dashed #ca935388;border-radius:14px;
+    padding:13px 16px;font-size:13.5px;color:var(--text-2);text-align:center}
+  .footer{margin-top:34px;text-align:center;color:var(--text-3);font-size:13px}
+  .footer a{color:var(--accent);text-decoration:none}
+  
+
+  .reveal{opacity:0;transform:scale(.96);transition:opacity .5s ease,transform .5s cubic-bezier(.2,1.2,.4,1)}.reveal.in{opacity:1;transform:none}
+  .greet{color:var(--accent);font-size:13px;letter-spacing:.14em;margin-bottom:10px}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}.medal{animation:none}}
 </style>
 </head>
 <body>
 <button class="lang-toggle" id="langToggle">English</button>
 <div class="wrap">
   <header class="hero">
-    <div class="logo-badge"><span class="ar">م</span><span class="en">F</span></div>
-    <h1><span class="ar">محمصة ومقهى حي</span><span class="en">Find Hai Roastery & Cafe</span></h1>
+    <div class="orb"></div>
+    <div class="orb2"></div>
+    <div class="greet"><span class="ar">البيت بيتكم ✦</span><span class="en">Make yourself at home ✦</span></div>
+    <div class="medal"><span><span class="ar">م</span><span class="en">F</span></span></div>
+    <h1><span class="ar">محمصة ومقهى حي</span><span class="en">Find Hai Roastery &amp; Cafe</span></h1>
     <div class="tagline"><span class="ar">محمصة داخلية ومحاصيل متغيّرة</span><span class="en">Roasted in-house, rotating origins</span></div>
-    <div class="area"><span class="ar">الرياض</span><span class="en">Al Salam · Riyadh</span></div>
+    <div class="meta">
+      <span class="badge"><span class="ar">الرياض</span><span class="en">Al Salam · Riyadh</span></span>
+      <span class="badge"><span class="ar">متوافق مع اشتراطات هيئة الغذاء والدواء</span><span class="en">SFDA-ready</span></span>
+    </div>
+    <div class="hrule"><span>✦</span></div>
   </header>
-  <nav class="chips"><a class="chip" href="#cat-0"><span class="ar">محاصيل اليوم</span><span class="en">Today's Origins</span></a><a class="chip" href="#cat-1"><span class="ar">الإسبريسو</span><span class="en">Espresso</span></a><a class="chip" href="#cat-2"><span class="ar">بن للبيت</span><span class="en">Beans To Go</span></a></nav>
+  <nav class="chips"><a class="chip" href="#cat-0"><span class="ar">محاصيل اليوم</span><span class="en">Today's Origins</span></a><a class="chip" href="#cat-1"><span class="ar">الإسبريسو</span><span class="en">Espresso</span></a><a class="chip" href="#cat-2"><span class="ar">بن للبيت</span><span class="en">Beans To Go</span></a><a class="chip" href="#cat-3"><span class="ar">اللقيمات</span><span class="en">Bites</span></a></nav>
   
-      <section class="cat" id="cat-0">
+  
+  <section class="cat reveal" id="cat-0">
+    <div class="cat-head">
+      <div class="cat-art">
+        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><path d="M28 30h64l-22 34h-20z" fill="none" stroke="#ca9353" stroke-width="5"/><path d="M40 36h40l-15 23h-10z" fill="#ca9353" opacity=".35"/><path d="M60 66v12" stroke="#cac2ba" stroke-width="4" stroke-dasharray="2 6" stroke-linecap="round"/><path d="M36 84h48v6a16 16 0 0 1-16 16H52a16 16 0 0 1-16-16z" fill="#ca9353"/><path d="M84 86h8a8 8 0 0 1 0 16h-6" fill="none" stroke="#ca9353" stroke-width="4"/><ellipse cx="60" cy="108" rx="28" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <img src="../assets/photos/v60.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
+      </div>
+      <div class="cat-title">
         <h2><span class="ar">محاصيل اليوم</span><span class="en">Today's Origins</span></h2>
-        <div class="items">
-          
-          <div class="item">
-            <div class="item-name"><span class="ar">في60 — إثيوبيا</span><span class="en">V60 — Ethiopia</span></div>
-            <div class="dots"></div>
-            <div class="price">24 <span class="sar">﷼</span></div>
-          </div>
-          <div class="item">
-            <div class="item-name"><span class="ar">في60 — كولومبيا</span><span class="en">V60 — Colombia</span></div>
-            <div class="dots"></div>
-            <div class="price">24 <span class="sar">﷼</span></div>
-          </div>
-          <div class="item">
-            <div class="item-name"><span class="ar">كيمكس</span><span class="en">Chemex</span></div>
-            <div class="dots"></div>
-            <div class="price">24 <span class="sar">﷼</span></div>
-          </div>
-        </div>
-      </section>
-      <section class="cat" id="cat-1">
+        <div class="rule"><span>✦</span></div>
+      </div>
+    </div>
+    <div class="items">
+      
+      <div class="item">
+        <div class="item-name"><span class="ar">في60 — إثيوبيا</span><span class="en">V60 — Ethiopia</span></div>
+        <div class="dots"></div>
+        <div class="price">24<span class="sar"> ﷼</span></div>
+      </div>
+      <div class="item">
+        <div class="item-name"><span class="ar">في60 — كولومبيا</span><span class="en">V60 — Colombia</span></div>
+        <div class="dots"></div>
+        <div class="price">24<span class="sar"> ﷼</span></div>
+      </div>
+      <div class="item">
+        <div class="item-name"><span class="ar">في60 — جيشا بنما</span><span class="en">V60 — Panama Geisha</span></div>
+        <div class="dots"></div>
+        <div class="price">38<span class="sar"> ﷼</span></div>
+      </div>
+      <div class="item">
+        <div class="item-name"><span class="ar">كيمكس</span><span class="en">Chemex</span></div>
+        <div class="dots"></div>
+        <div class="price">24<span class="sar"> ﷼</span></div>
+      </div>
+      <div class="item">
+        <div class="item-name"><span class="ar">مقطّرة باردة</span><span class="en">Iced Filter</span></div>
+        <div class="dots"></div>
+        <div class="price">22<span class="sar"> ﷼</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="cat reveal" id="cat-1">
+    <div class="cat-head">
+      <div class="cat-art">
+        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ge" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ca9353"/><stop offset="1" stop-color="#7d572b"/></linearGradient></defs><path d="M30 55h52v28a14 14 0 0 1-14 14H44a14 14 0 0 1-14-14z" fill="url(#ge)"/><path d="M82 58h10a10 10 0 0 1 0 20h-8" fill="none" stroke="#ca9353" stroke-width="5"/><ellipse cx="56" cy="55" rx="26" ry="5" fill="#dfcb7c"/><path d="M46 20c-4 8 4 10 0 18M60 16c-4 8 4 10 0 18M74 20c-4 8 4 10 0 18" stroke="#cac2ba" stroke-width="4" fill="none" stroke-linecap="round" opacity=".8"/><ellipse cx="56" cy="104" rx="30" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <img src="../assets/photos/espresso.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
+      </div>
+      <div class="cat-title">
         <h2><span class="ar">الإسبريسو</span><span class="en">Espresso</span></h2>
-        <div class="items">
-          
-          <div class="item">
-            <div class="item-name"><span class="ar">إسبريسو محصول فردي</span><span class="en">Single-Origin Espresso</span></div>
-            <div class="dots"></div>
-            <div class="price">14 <span class="sar">﷼</span></div>
-          </div>
-          <div class="item">
-            <div class="item-name"><span class="ar">سبانيش لاتيه</span><span class="en">Spanish Latte</span></div>
-            <div class="dots"></div>
-            <div class="price">20 <span class="sar">﷼</span></div>
-          </div>
-        </div>
-      </section>
-      <section class="cat" id="cat-2">
+        <div class="rule"><span>✦</span></div>
+      </div>
+    </div>
+    <div class="items">
+      
+      <div class="item">
+        <div class="item-name"><span class="ar">إسبريسو محصول فردي</span><span class="en">Single-Origin Espresso</span></div>
+        <div class="dots"></div>
+        <div class="price">14<span class="sar"> ﷼</span></div>
+      </div>
+      <div class="item">
+        <div class="item-name"><span class="ar">كورتادو</span><span class="en">Cortado</span></div>
+        <div class="dots"></div>
+        <div class="price">15<span class="sar"> ﷼</span></div>
+      </div>
+      <div class="item">
+        <div class="item-name"><span class="ar">سبانيش لاتيه</span><span class="en">Spanish Latte</span></div>
+        <div class="dots"></div>
+        <div class="price">20<span class="sar"> ﷼</span></div>
+      </div>
+      <div class="item">
+        <div class="item-name"><span class="ar">سبانيش لاتيه بارد</span><span class="en">Iced Spanish Latte</span></div>
+        <div class="dots"></div>
+        <div class="price">21<span class="sar"> ﷼</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="cat reveal" id="cat-2">
+    <div class="cat-head">
+      <div class="cat-art">
+        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><path d="M34 44h52l-6 56H40z" fill="#ca9353" opacity=".85"/><path d="M34 44h52l-2 12H36z" fill="#7d572b"/><path d="M46 30c0-8 28-8 28 0v14H46z" fill="none" stroke="#ca9353" stroke-width="5"/><g fill="#5a3d1e"><ellipse cx="52" cy="74" rx="7" ry="10" transform="rotate(-20 52 74)"/><ellipse cx="68" cy="80" rx="7" ry="10" transform="rotate(15 68 80)"/></g><path d="M49 70c2 3 4 6 3 9M66 76c2 3 3 6 2 9" stroke="#dfcb7c" stroke-width="2" fill="none"/><ellipse cx="60" cy="104" rx="30" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <img src="../assets/photos/beans.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
+      </div>
+      <div class="cat-title">
         <h2><span class="ar">بن للبيت</span><span class="en">Beans To Go</span></h2>
-        <div class="items">
-          
-          <div class="item">
-            <div class="item-name"><span class="ar">كيس ٢٥٠ جم — محصول متغيّر</span><span class="en">250g Bag — Rotating Origin</span></div>
-            <div class="dots"></div>
-            <div class="price">55 <span class="sar">﷼</span></div>
-          </div>
-          <div class="item">
-            <div class="item-name"><span class="ar">كيلو — خلطة المحمصة</span><span class="en">1kg — House Blend</span></div>
-            <div class="dots"></div>
-            <div class="price">160 <span class="sar">﷼</span></div>
-          </div>
-        </div>
-      </section>
+        <div class="rule"><span>✦</span></div>
+      </div>
+    </div>
+    <div class="items">
+      
+      <div class="item">
+        <div class="item-name"><span class="ar">٢٥٠ جم — محصول متغيّر</span><span class="en">250g — Rotating Origin</span></div>
+        <div class="dots"></div>
+        <div class="price">55<span class="sar"> ﷼</span></div>
+      </div>
+      <div class="item">
+        <div class="item-name"><span class="ar">٢٥٠ جم — خلطة إسبريسو</span><span class="en">250g — Espresso Blend</span></div>
+        <div class="dots"></div>
+        <div class="price">48<span class="sar"> ﷼</span></div>
+      </div>
+      <div class="item">
+        <div class="item-name"><span class="ar">كيلو — خلطة المحمصة</span><span class="en">1kg — House Blend</span></div>
+        <div class="dots"></div>
+        <div class="price">160<span class="sar"> ﷼</span></div>
+      </div>
+      <div class="item">
+        <div class="item-name"><span class="ar">أظرف تقطير (٥)</span><span class="en">Drip Bags (5)</span></div>
+        <div class="dots"></div>
+        <div class="price">35<span class="sar"> ﷼</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="cat reveal" id="cat-3">
+    <div class="cat-head">
+      <div class="cat-art">
+        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gcr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0cf8f"/><stop offset="1" stop-color="#ca9353"/></linearGradient></defs><path d="M20 74c4-18 20-32 40-32s36 14 40 32c-6 8-16 8-22 2-4-10-12-16-18-16s-14 6-18 16c-6 6-16 6-22-2z" fill="url(#gcr)"/><path d="M45 46 38 70M60 42v26M75 46l7 24" stroke="#7d572b" stroke-width="3" opacity=".5" stroke-linecap="round"/><ellipse cx="60" cy="88" rx="34" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <img src="../assets/photos/bakery.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
+      </div>
+      <div class="cat-title">
+        <h2><span class="ar">اللقيمات</span><span class="en">Bites</span></h2>
+        <div class="rule"><span>✦</span></div>
+      </div>
+    </div>
+    <div class="items">
+      
+      <div class="item">
+        <div class="item-name"><span class="ar">براوني</span><span class="en">Brownie</span></div>
+        <div class="dots"></div>
+        <div class="price">16<span class="sar"> ﷼</span></div>
+      </div>
+      <div class="item">
+        <div class="item-name"><span class="ar">معمول تمر</span><span class="en">Date Maamoul</span></div>
+        <div class="dots"></div>
+        <div class="price">9<span class="sar"> ﷼</span></div>
+      </div>
+    </div>
+  </section>
   <div class="demo-note">
-    <span class="ar">هذه نسخة تجريبية أعدّها فريق منيو سادة — الأصناف والأسعار قابلة للتعديل خلال دقائق.</span>
-    <span class="en">This is a demo prepared by MENU SADAH — items & prices can be updated in minutes.</span>
+    <span class="ar">هذه نسخة تجريبية أعدّها فريق منيو سادة خصيصاً لكم — الأصناف والأسعار والصور قابلة للتعديل خلال دقائق.</span>
+    <span class="en">A demo lovingly prepared by MENU SADAH for you — items, prices & photos update in minutes.</span>
   </div>
-  
   <div class="footer">
+    <div style="margin-bottom:6px;color:var(--text-2)"><span class="ar">تابعوا محمصة ومقهى حي: <b style="color:var(--accent)">@find.hai</b></span><span class="en">Follow Find Hai Roastery &amp; Cafe: <b style="color:var(--accent)">@find.hai</b></span></div>
     <span class="ar">تجربة من <a href="https://menu-sadah.com">منيو سادة — MENU SADAH</a></span>
-    <span class="en">Powered by <a href="https://menu-sadah.com">MENU SADAH</a></span>
+    <span class="en">Crafted by <a href="https://menu-sadah.com">MENU SADAH</a></span>
   </div>
 </div>
 
@@ -144,17 +268,11 @@
   const root=document.documentElement;
   const saved=localStorage.getItem('ms-lang')||'ar';
   setLang(saved);
-  function setLang(l){
-    root.setAttribute('data-lang',l);
-    root.setAttribute('lang',l);
-    root.setAttribute('dir',l==='ar'?'rtl':'ltr');
-    const t=document.getElementById('langToggle');
-    if(t)t.textContent=l==='ar'?'English':'العربية';
-    localStorage.setItem('ms-lang',l);
-  }
-  document.getElementById('langToggle').addEventListener('click',()=>{
-    setLang(root.getAttribute('data-lang')==='ar'?'en':'ar');
-  });
+  function setLang(l){root.setAttribute('data-lang',l);root.setAttribute('lang',l);root.setAttribute('dir',l==='ar'?'rtl':'ltr');
+    const t=document.getElementById('langToggle');if(t)t.textContent=l==='ar'?'English':'العربية';localStorage.setItem('ms-lang',l);}
+  document.getElementById('langToggle').addEventListener('click',()=>{setLang(root.getAttribute('data-lang')==='ar'?'en':'ar');});
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
 </body>
 </html>

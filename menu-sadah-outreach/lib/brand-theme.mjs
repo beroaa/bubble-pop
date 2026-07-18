@@ -71,6 +71,19 @@ const TYPE_POOLS = {
 };
 const DEFAULT_POOL = TYPE_POOLS.specialty_coffee;
 
+/* ---- curated Google Font pairings (AR display + EN display + body) ----
+   Loaded by the VISITOR's browser on the live site — works in production. */
+export const FONT_PAIRS = [
+  { en: "'Patrick Hand',cursive", ar: "'Aref Ruqaa',serif", body: "'Nunito','IBM Plex Sans Arabic',sans-serif", q: 'Patrick+Hand&family=Aref+Ruqaa:wght@400;700&family=Nunito:wght@400;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;600;700' },
+  { en: "'Anton',sans-serif", ar: "'Rakkas',serif", body: "'Oswald','Tajawal',sans-serif", q: 'Anton&family=Rakkas&family=Oswald:wght@400;600&family=Tajawal:wght@400;700' },
+  { en: "'Playfair Display',serif", ar: "'Amiri',serif", body: "'IBM Plex Sans Arabic',sans-serif", q: 'Playfair+Display:wght@600;800&family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;600' },
+  { en: "'Fredoka',sans-serif", ar: "'Baloo Bhaijaan 2',cursive", body: "'Nunito','Baloo Bhaijaan 2',sans-serif", q: 'Fredoka:wght@500;700&family=Baloo+Bhaijaan+2:wght@500;700&family=Nunito:wght@400;700' },
+  { en: "'Bebas Neue',sans-serif", ar: "'Cairo',sans-serif", body: "'Cairo',sans-serif", q: 'Bebas+Neue&family=Cairo:wght@400;700;900' },
+  { en: "'Lobster',cursive", ar: "'Lalezar',cursive", body: "'Nunito','Cairo',sans-serif", q: 'Lobster&family=Lalezar&family=Nunito:wght@400;700&family=Cairo:wght@400;700' },
+  { en: "'DM Serif Display',serif", ar: "'Reem Kufi',sans-serif", body: "'IBM Plex Sans Arabic',sans-serif", q: 'DM+Serif+Display&family=Reem+Kufi:wght@400;600&family=IBM+Plex+Sans+Arabic:wght@400;600' },
+  { en: "'Comfortaa',cursive", ar: "'Mada',sans-serif", body: "'Mada','Nunito',sans-serif", q: 'Comfortaa:wght@500;700&family=Mada:wght@400;600;800' },
+];
+
 export function brandTheme(entry = {}) {
   const src = `${entry.name || ''} ${entry.nameAr || ''} ${entry.slug || ''}`.toLowerCase();
   const seed = hash(entry.slug || entry.name || 'sadah');
@@ -92,8 +105,26 @@ export function brandTheme(entry = {}) {
   const l = 62 + ((seed >> 8) % 7) - 3 + (((seed >>> 24) % 3) - 1);
 
   const bgS = clamp(Math.round(s * 0.5), 12, 30);
+  const mode = ((seed >>> 9) % 5) < 2 ? 'light' : 'dark'; // ~40% paper-light (Beyt soul), 60% dark worlds
+  const F = FONT_PAIRS[(seed >>> 5) % FONT_PAIRS.length];
+  if (mode === 'light') {
+    return {
+      label, mode, fonts: F,
+      accent: hslHex(h, clamp(s + 10, 30, 90), 36),
+      accentBright: hslHex(h, s, l),
+      accent2: hslHex(h + 16, clamp(s + 4, 0, 90), 52),
+      deep: hslHex(h, s, 24),
+      ink: '#ffffff',
+      bg0: hslHex(h, 32, 98), bg1: hslHex(h, 28, 96), bg2: hslHex(h, 22, 92),
+      border1: hslHex(h, 22, 86), border2: hslHex(h, 26, 74),
+      text1: hslHex(h, 38, 14), text2: hslHex(h, 20, 32), text3: hslHex(h, 12, 48),
+      shadow: '0 6px 16px ' + hslHex(h, 40, 30) + '22, 0 16px 40px ' + hslHex(h, 40, 30) + '14',
+    };
+  }
   return {
-    label,
+    label, mode, fonts: F,
+    accentBright: hslHex(h, s, l),
+    shadow: '0 6px 16px #00000080, 0 16px 40px #00000059',
     accent: hslHex(h, s, l),                // the brand color
     accent2: hslHex(h + 16, clamp(s + 8, 0, 90), clamp(l + 12, 0, 92)), // glow gradient partner
     deep: hslHex(h, clamp(s - 4, 0, 100), 33),        // dark of the same world

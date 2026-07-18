@@ -1,5 +1,5 @@
 {
- "formulaVersion": "2.10",
+ "formulaVersion": "2.11",
  "lessons": [
   {
    "id": 1,
@@ -56,6 +56,11 @@
    "at": 1784383851113,
    "lesson": "Detective panel verdict: data-elite is not visual-elite — emoji/SVG icons in signature cards read as placeholders and shared archetype items are recognizable across sibling menus. True purple needs per-cafe dish photos (Mac photo mission priority = the 16 purple cafes). Also caught: standard-tier medallion showed Latin initial in AR mode (fixed).",
    "from": "menu-detectors"
+  },
+  {
+   "at": 1784389308379,
+   "lesson": "Renderer v5 (from recovered Beyt+RUSTIC masters): real Google Fonts work on the LIVE site (visitor browser loads them). Per-cafe font pairs, light-paper vs dark-world moods, motifs, entrance flavors, greetings, real-handle footers — personality per cafe, deterministic, zero invented facts.",
+   "from": "purple-factory-v5"
   }
  ],
  "qa": {
@@ -223,6 +228,13 @@
   {
    "at": 1784383850821,
    "ms": 249,
+   "built": 948,
+   "failed": 0,
+   "total": 948
+  },
+  {
+   "at": 1784389150075,
+   "ms": 222,
    "built": 948,
    "failed": 0,
    "total": 948
