@@ -136,6 +136,33 @@
   .footer a{color:var(--accent);text-decoration:none}
   
 
+  /* ---- big-screen stage (Beyt is designed wide — so are we) ---- */
+  .bigmark{display:none;position:fixed;top:4vh;inset-inline-end:-3vw;z-index:0;font-size:48vh;line-height:1;
+    color:var(--accent);opacity:.055;pointer-events:none;user-select:none}
+  .bigmark .ar{font-family:'Aref Ruqaa',serif}
+  .bigmark .en{font-family:'Patrick Hand',cursive}
+  @media(min-width:900px){
+    .bigmark{display:block}
+    .wrap{max-width:780px}
+    .hero{min-height:86vh;display:flex;flex-direction:column;justify-content:center;padding:60px 0 40px}
+    .medal{width:136px;height:136px}
+    .medal span{font-size:58px}
+    h1{font-size:66px}
+    .world{font-size:15px;margin-top:16px}
+    .heroline{font-size:27px;margin-top:12px}
+    .room-h2{font-size:34px}
+    .inkline{height:3px}
+    .cat-art{width:96px;height:96px}
+    .items{padding:10px 30px}
+    .item{padding:18px 0}
+    .item-name{font-size:17.5px}
+    .sig-art{width:96px;height:96px}
+    .sig{padding:26px 22px 24px}
+    .diary{max-width:480px;font-size:17px}
+    .mote{font-size:22px!important}
+    .chips{justify-content:center}
+  }
+
   /* ---- architecture pack: majlis-heritage ---- */
   
   .cat-art{border-radius:50% 50% 12px 12px/62% 62% 12px 12px}
@@ -158,6 +185,7 @@
 </head>
 <body>
 <button class="lang-toggle" id="langToggle">English</button>
+<div class="bigmark" aria-hidden="true"><span class="ar">م</span><span class="en">M</span></div>
 <div class="wrap">
   <header class="hero">
     <div class="orb"></div>
@@ -352,6 +380,14 @@
       document.querySelector('h1').classList.add('shimmer');
     },2400);
   }
+  // day -> night: the page's sky shifts as you walk deeper into the house
+  (function(){
+    const A=[15,21,16],B=[5,10,7];
+    const lerp=()=>{const m=document.documentElement.scrollHeight-innerHeight;
+      const f=m>60?Math.min(1,scrollY/m):0;
+      document.body.style.backgroundColor='rgb('+A.map((v,i)=>Math.round(v+(B[i]-v)*f)).join(',')+')';};
+    addEventListener('scroll',lerp,{passive:true});lerp();
+  })();
 </script>
 </body>
 </html>

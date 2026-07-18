@@ -268,6 +268,9 @@ export function masterpieceMenuPage(cafe, brief) {
   }).join('');
 
   const wa = CONTACT.whatsapp && CONTACT.whatsapp !== '966500000000' ? `https://wa.me/${CONTACT.whatsapp}` : null;
+  const rgbOf = (x) => [parseInt(x.slice(1, 3), 16), parseInt(x.slice(3, 5), 16), parseInt(x.slice(5, 7), 16)];
+  // Beyt's scroll magic: the sky changes as you walk through the house
+  const nightHex = P.mode === 'light' ? hslHex(hexHsl(P.accent)[0], 30, 84) : hslHex(hexHsl(P.bg0)[0] + 18, 30, 3);
 
   return `<!doctype html>
 <html lang="ar" dir="rtl" data-lang="ar">
@@ -408,6 +411,33 @@ export function masterpieceMenuPage(cafe, brief) {
   ${wa ? `.wa{position:fixed;bottom:18px;inset-inline-start:18px;z-index:30;background:#1faa53;color:#fff;border-radius:999px;
     padding:12px 20px;text-decoration:none;font-weight:700;font-size:14px;box-shadow:0 8px 22px #1faa5366}` : ''}
 
+  /* ---- big-screen stage (Beyt is designed wide — so are we) ---- */
+  .bigmark{display:none;position:fixed;top:4vh;inset-inline-end:-3vw;z-index:0;font-size:48vh;line-height:1;
+    color:var(--accent);opacity:.055;pointer-events:none;user-select:none}
+  .bigmark .ar{font-family:${T.fonts.ar}}
+  .bigmark .en{font-family:${T.fonts.en}}
+  @media(min-width:900px){
+    .bigmark{display:block}
+    .wrap{max-width:780px}
+    .hero{min-height:86vh;display:flex;flex-direction:column;justify-content:center;padding:60px 0 40px}
+    .medal{width:136px;height:136px}
+    .medal span{font-size:58px}
+    h1{font-size:66px}
+    .world{font-size:15px;margin-top:16px}
+    .heroline{font-size:27px;margin-top:12px}
+    .room-h2{font-size:34px}
+    .inkline{height:3px}
+    .cat-art{width:96px;height:96px}
+    .items{padding:10px 30px}
+    .item{padding:18px 0}
+    .item-name{font-size:17.5px}
+    .sig-art{width:96px;height:96px}
+    .sig{padding:26px 22px 24px}
+    .diary{max-width:480px;font-size:17px}
+    .mote{font-size:22px!important}
+    .chips{justify-content:center}
+  }
+
   /* ---- architecture pack: ${arch} ---- */
   ${PACKS[arch](P, R)}
 
@@ -421,6 +451,7 @@ export function masterpieceMenuPage(cafe, brief) {
 </head>
 <body>
 <button class="lang-toggle" id="langToggle">English</button>
+<div class="bigmark" aria-hidden="true"><span class="ar">${esc((cafe.nameAr || cafe.name).trim()[0])}</span><span class="en">${esc(cafe.name.trim()[0].toUpperCase())}</span></div>
 <div class="wrap">
   <header class="hero">
     <div class="orb"></div>
@@ -469,6 +500,254 @@ ${wa ? `<a class="wa" href="${wa}"><span class="ar">💬 اطلب منيو مث�
       document.querySelector('h1').classList.add('shimmer');
     },2400);
   }
+  // day -> night: the page's sky shifts as you walk deeper into the house
+  (function(){
+    const A=${JSON.stringify(rgbOf(P.bg0))},B=${JSON.stringify(rgbOf(nightHex))};
+    const lerp=()=>{const m=document.documentElement.scrollHeight-innerHeight;
+      const f=m>60?Math.min(1,scrollY/m):0;
+      document.body.style.backgroundColor='rgb('+A.map((v,i)=>Math.round(v+(B[i]-v)*f)).join(',')+')';};
+    addEventListener('scroll',lerp,{passive:true});lerp();
+  })();
+</script>
+</body>
+</html>`;
+}
+
+/* ---------- the masterpiece GIFT page (the theatrical envelope) ---------- */
+const FLAVOR2 = {
+  specialty_coffee: { ar: 'ذوقكم في القهوة المختصة واضح من أول نظرة', en: 'Your specialty-coffee taste shows from the first glance' },
+  dessert_cafe: { ar: 'حلاكم صار حديث الناس — ويستاهل منيو بمستواه', en: 'Your desserts are the talk of the town — they deserve a menu at their level' },
+  bakery_cafe: { ar: 'ريحة الفرن عندكم تحتاج منيو يليق فيها', en: 'Bakes like yours deserve a menu that does them justice' },
+  matcha_bar: { ar: 'الماتشا عندكم فن — والمنيو لازم يكون بنفس الفن', en: 'Your matcha is an art — the menu should match it' },
+  roastery: { ar: 'محاصيلكم تتغير كل أسبوع — منيو ورقي ما يلحق عليكم', en: 'Your origins rotate weekly — paper menus can never keep up' },
+  family_cafe: { ar: 'مكانكم يجمع العائلة — والمنيو لازم يسهل عليهم الطلب', en: 'Your place brings families together — ordering should be effortless' },
+  tea_house: { ar: 'شاهيكم له عشاق — وعشاقه يستاهلون منيو يليق', en: 'Your chai has devoted fans — they deserve a proper menu' },
+  gaming_cafe: { ar: 'القيمرز عندكم ما يحبون يرفعون عيونهم عن الشاشة — منيو QR يحل المشكلة', en: 'Your gamers never look up from the screen — a QR menu fixes that' },
+};
+
+export function masterpieceWelcomePage(cafe, brief, extras = {}) {
+  const arch = PACKS[brief.archetype] ? brief.archetype : 'storybook-light';
+  const P = paletteFor(cafe.theme, MODE_BY_ARCH[arch] || cafe.theme.mode);
+  const R = accentRotation(P);
+  const T = cafe.theme;
+  const sd = seedOf(cafe.slug || cafe.name);
+  const M = MOTIFS[brief.motif] || MOTIFS.stars;
+  const a = P.accent, a2 = P.accent2;
+  const flavor = FLAVOR2[extras.type] || FLAVOR2.specialty_coffee;
+  const sig = (extras.signature && extras.signature.length ? extras.signature[0] : null) || extras.sigMention || null;
+  const social = extras.social && /^@/.test(String(extras.social).trim()) ? String(extras.social).trim() : null;
+  const rooms = (brief.rooms || []).slice(0, 3);
+  const diary = (brief.diaryAr || [])[0];
+  const waMsg = encodeURIComponent('مرحباً، معكم ' + cafe.name + ' — شفنا المنيو التجريبي وحابين نكمل');
+  const wa = CONTACT.whatsapp && CONTACT.whatsapp !== '966500000000' ? `https://wa.me/${CONTACT.whatsapp}?text=${waMsg}` : null;
+
+  return `<!doctype html>
+<html lang="ar" dir="rtl" data-lang="ar">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="${P.bg0}">
+<title>🎁 ${esc(cafe.name)} × MENU SADAH</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=${T.fonts.q}&display=swap">
+<style>
+  :root{--bg-0:${P.bg0};--bg-1:${P.bg1};--bg-2:${P.bg2};--border-1:${P.border1};--border-2:${P.border2};
+    --text-1:${P.text1};--text-2:${P.text2};--text-3:${P.text3};--accent:${a};--accent-2:${a2};--accent-soft:${a}22;
+    --sa:${R[0]};--sa2:${R[1]};--radius:16px;--shadow:${P.shadow}}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:${T.fonts.body},-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;
+    background:var(--bg-0);color:var(--text-1);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100svh;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background:radial-gradient(620px 460px at 50% -120px,${a}1c,transparent 70%)}
+  .wrap{max-width:560px;margin:0 auto;padding:0 20px 90px;position:relative;z-index:1}
+  [data-lang="ar"] .en,[data-lang="en"] .ar{display:none}
+  .lang-toggle{position:fixed;top:14px;inset-inline-end:14px;z-index:40;background:${P.bg1}d9;backdrop-filter:blur(10px);
+    border:1px solid var(--border-2);color:var(--text-1);border-radius:999px;padding:8px 16px;font-size:13.5px;cursor:pointer}
+
+  .hero{position:relative;text-align:center;padding:84px 0 16px}
+  .orb{position:absolute;top:-70px;left:50%;transform:translateX(-50%);width:380px;height:380px;border-radius:50%;
+    background:radial-gradient(circle,${a}38,transparent 64%);pointer-events:none;animation:breathe 5s ease-in-out infinite}
+  @keyframes breathe{50%{transform:translateX(-50%) scale(1.08)}}
+  .mote{position:absolute;pointer-events:none;z-index:0}
+  ${M.css(a2)}
+  .gift-tag{display:inline-block;background:var(--accent-soft);border:1px solid ${a}88;color:var(--accent);
+    border-radius:999px;padding:6px 20px;font-size:13px;letter-spacing:.14em;opacity:0;animation:up .8s .15s forwards}
+  .medal{position:relative;width:118px;height:118px;margin:22px auto 6px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:radial-gradient(circle at 32% 24%,#ffffff30,transparent 42%),radial-gradient(circle at 32% 28%,${a}48,${a}16 62%,transparent);
+    border:2px solid var(--accent);box-shadow:0 0 0 8px ${a}14,0 0 46px ${a}55,inset 0 1px 0 #ffffff33;
+    opacity:0;animation:pop .9s .5s cubic-bezier(.2,1.4,.4,1) forwards}
+  .medal::after{content:"";position:absolute;inset:7px;border-radius:inherit;border:1px solid ${a}55}
+  .medal span{font-size:52px;font-weight:700;color:var(--accent);text-shadow:0 2px 14px ${a}73}
+  .medal span .ar{font-family:${T.fonts.ar}}
+  .medal span .en{font-family:${T.fonts.en}}
+  @keyframes pop{0%{opacity:0;transform:scale(.4)}70%{transform:scale(1.06)}100%{opacity:1;transform:scale(1)}}
+  @keyframes up{0%{opacity:0;transform:translateY(14px)}100%{opacity:1;transform:none}}
+  h1{font-size:32px;line-height:1.25;margin-top:12px;opacity:0;animation:up .8s .9s forwards}
+  h1 b{color:var(--accent)}
+  h1 .ar{font-family:${T.fonts.ar}}
+  h1 .en{font-family:${T.fonts.en}}
+  .world{margin-top:10px;color:var(--text-3);font-size:13px;letter-spacing:.08em;opacity:0;animation:up .8s 1.1s forwards}
+  .world b{color:${R[1]};font-weight:600}
+  .heroline{margin-top:8px;color:var(--text-2);font-size:19px;opacity:0;animation:up .8s 1.3s forwards}
+  .heroline .ar{font-family:${T.fonts.ar}}
+  .heroline .en{font-family:${T.fonts.en}}
+
+  .letter{position:relative;margin-top:24px;background:linear-gradient(180deg,${P.bg1}f0,${P.bg1}d0);
+    border:1px solid ${a}44;border-radius:24px;padding:24px 22px;box-shadow:var(--shadow);
+    opacity:0;animation:up .9s 1.55s forwards}
+  .letter .to{color:var(--accent);font-size:13px;letter-spacing:.12em;margin-bottom:10px}
+  .letter p{color:var(--text-2);font-size:15.5px;margin-bottom:12px}
+  .letter p b{color:var(--text-1)}
+  .letter .sigline{color:var(--sa);font-weight:700}
+  .benefits{list-style:none;margin-top:6px}
+  .benefits li{display:flex;gap:11px;align-items:flex-start;padding:8px 0;color:var(--text-2);font-size:14.5px}
+  .benefits .tick{font-weight:800;flex:0 0 auto}
+  .benefits li:nth-child(1) .tick{color:${R[0]}}
+  .benefits li:nth-child(2) .tick{color:${R[1]}}
+  .benefits li:nth-child(3) .tick{color:${R[2]}}
+
+  .rooms{margin-top:22px;opacity:0;animation:up .9s 1.8s forwards}
+  .rooms .lbl{text-align:center;color:var(--text-3);font-size:12.5px;letter-spacing:.14em;margin-bottom:11px}
+  .room-chips{display:flex;flex-wrap:wrap;gap:9px;justify-content:center}
+  .room-chip{border:1px solid;border-radius:999px;padding:8px 17px;font-size:13.5px;background:${P.bg1}cc}
+  .room-chip .ar{font-family:${T.fonts.ar}}
+  .room-chip .en{font-family:${T.fonts.en}}
+  .room-chip:nth-child(1){color:${R[0]};border-color:${R[0]}66}
+  .room-chip:nth-child(2){color:${R[1]};border-color:${R[1]}66}
+  .room-chip:nth-child(3){color:${R[2]};border-color:${R[2]}66}
+  .rooms .more{text-align:center;margin-top:10px;color:var(--text-3);font-size:12.5px}
+
+  .cta-stack{display:grid;gap:12px;margin-top:24px;opacity:0;animation:up .9s 2.05s forwards}
+  .btn{display:block;text-align:center;text-decoration:none;background:linear-gradient(135deg,${a},${a2});
+    color:${P.ink};font-weight:800;font-size:18px;border-radius:18px;padding:18px 20px;
+    box-shadow:0 10px 30px ${a}55;transition:transform .15s}
+  .btn:active{transform:scale(.98)}
+  .btn.pulse{animation:pl 2.2s 2.8s infinite}
+  @keyframes pl{0%,100%{box-shadow:0 10px 30px ${a}55}50%{box-shadow:0 10px 44px ${a}90}}
+  .btn .ar{font-family:${T.fonts.ar}}
+  .btn .en{font-family:${T.fonts.en}}
+  .btn.ghost{background:transparent;color:var(--accent);border:1px solid ${a}88;box-shadow:none;font-weight:600;font-size:15px}
+
+  .diary{position:relative;margin:26px auto 0;max-width:420px;background:${P.bg1};border:1px solid var(--border-1);
+    border-radius:4px;padding:16px 20px 14px;color:var(--text-2);font-size:15.5px;text-align:center;
+    font-family:${T.fonts.ar};transform:rotate(-1.6deg);box-shadow:var(--shadow);opacity:0;animation:up .9s 2.3s forwards}
+  .diary .tape{position:absolute;top:-9px;left:50%;transform:translateX(-50%) rotate(-2deg);width:88px;height:20px;
+    border-radius:2px;background:${R[1]}33;backdrop-filter:blur(1px)}
+
+  .small{margin-top:14px;text-align:center;color:var(--text-3);font-size:12.5px}
+  .small a{color:var(--accent);text-decoration:none}
+  .footer{margin-top:28px;text-align:center;color:var(--text-3);font-size:12.5px}
+  .footer a{color:var(--accent);text-decoration:none}
+  .fineline{font-size:12.5px;color:var(--text-3);border-top:1px dashed var(--border-1);padding-top:11px;margin-top:4px;text-align:center}
+  .letter::after{content:"";position:absolute;top:-10px;inset-inline-start:36px;width:92px;height:22px;
+    background:${R[1]}2e;transform:rotate(-3deg);border-radius:2px;backdrop-filter:blur(1px)}
+
+  /* ---- big-screen stage ---- */
+  .bigmark{display:none;position:fixed;top:4vh;inset-inline-end:-3vw;z-index:0;font-size:48vh;line-height:1;
+    color:var(--accent);opacity:.055;pointer-events:none;user-select:none}
+  .bigmark .ar{font-family:${T.fonts.ar}}
+  .bigmark .en{font-family:${T.fonts.en}}
+  @media(min-width:900px){
+    .bigmark{display:block}
+    .wrap{max-width:720px}
+    .hero{min-height:64vh;display:flex;flex-direction:column;justify-content:center;padding:60px 0 10px}
+    .medal{width:140px;height:140px}
+    .medal span{font-size:60px}
+    h1{font-size:54px}
+    .world{font-size:15px;margin-top:14px}
+    .heroline{font-size:26px}
+    .letter{padding:34px 36px;border-radius:28px}
+    .letter p{font-size:17px}
+    .room-chip{font-size:15px;padding:10px 22px}
+    .btn{font-size:20px;padding:22px}
+    .diary{max-width:480px;font-size:17px}
+    .mote{font-size:22px!important}
+  }
+
+  /* ---- architecture pack: ${arch} ---- */
+  ${PACKS[arch](P, R)}
+
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}
+    .gift-tag,.medal,h1,.world,.heroline,.letter,.rooms,.cta-stack,.diary{opacity:1!important;transform:none!important}}
+</style>
+</head>
+<body>
+<button class="lang-toggle" id="langToggle">English</button>
+<div class="bigmark" aria-hidden="true"><span class="ar">${esc((cafe.nameAr || cafe.name).trim()[0])}</span><span class="en">${esc(cafe.name.trim()[0].toUpperCase())}</span></div>
+<div class="wrap">
+  <header class="hero">
+    <div class="orb"></div>
+    ${motesHtml(brief.motif, sd)}
+    <span class="gift-tag"><span class="ar">🎁 هدية خاصة · ليست إعلاناً</span><span class="en">🎁 A personal gift · not an ad</span></span>
+    <div class="medal"><span><span class="ar">${esc((cafe.nameAr || cafe.name).trim()[0])}</span><span class="en">${esc(cafe.name.trim()[0].toUpperCase())}</span></span></div>
+    <h1>
+      <span class="ar">إلى بيت <b>${esc(cafe.nameAr)}</b></span>
+      <span class="en">To the house of <b>${esc(cafe.name)}</b></span>
+    </h1>
+    <div class="world"><span class="ar">✦ <b>${esc(brief.world?.ar || '')}</b> ✦</span><span class="en">✦ <b>${esc(brief.world?.en || '')}</b> ✦</span></div>
+    <div class="heroline"><span class="ar">${esc(brief.heroAr || '')}</span><span class="en">${esc(brief.heroEn || '')}</span></div>
+  </header>
+
+  <div class="letter">
+    <div class="to"><span class="ar">🏡 مرحباً يا بيت ${esc(cafe.nameAr)}</span><span class="en">🏡 Hello, house of ${esc(cafe.name)}</span></div>
+    <p>
+      <span class="ar">أنا إبراهيم من «منيو سادة». ${social ? 'تابعت <b>' + esc(social) + '</b> — و' : ''}${esc(flavor.ar)}${cafe.areaAr && cafe.areaAr !== 'الرياض' ? '، وسط <b>' + esc(cafe.areaAr) + '</b>' : ''}. صراحةً، وقّفني.</span>
+      <span class="en">I'm Ibrahim from MENU SADAH. ${social ? 'I\'ve been following <b>' + esc(social) + '</b> — and ' : ''}${esc(flavor.en)}. Honestly, it stopped me.</span>
+    </p>
+    <p>
+      <span class="ar">بين فترة وفترة نختار مكاناً واحداً يستاهل شغلاً خاصاً — وهالمرة اخترناكم.</span>
+      <span class="en">Every so often we pick one place that deserves special work — and this time we picked you.</span>
+    </p>
+    <p>
+      <span class="ar">بنينا لكم منيو رقمياً بهويتكم، عربي وإنجليزي، مبنياً مثل عالمكم: <b>«${esc(brief.world?.ar || '')}»</b> — غرفة غرفة، بألوانكم وخطوطكم، وألوان صفحته تتبدّل وأنتم تتجولون فيه.</span>
+      <span class="en">We built you a digital menu in your identity, Arabic and English, shaped like your world: <b>"${esc(brief.world?.en || '')}"</b> — room by room, in your colors and type, and the page itself shifts as you wander through it.</span>
+    </p>
+    ${sig ? `<p class="sigline"><span class="ar">وبلغنا أن «${esc(sig[1])}» حديث الناس عندكم — جعلناه يفتتح المنيو.</span><span class="en">And we hear your «${esc(sig[0])}» is the one people talk about — it opens the menu.</span></p>` : ''}
+    <p>
+      <span class="ar"><b>كله هدية. لكم. جاهز الآن.</b> إن نال إعجابكم فعّلناه بنفس اليوم — وإن لم يناسبكم يكفينا شرف اطلاعكم.</span>
+      <span class="en"><b>All of it is a gift. Yours. Ready now.</b> If you love it, it goes live the same day — if not, we're honored you looked.</span>
+    </p>
+    <p class="fineline">
+      <span class="ar">عربي/إنجليزي بضغطة · متوافق مع هيئة الغذاء والدواء (السعرات والكافيين) · تعديل الأسعار خلال دقائق</span>
+      <span class="en">AR/EN toggle · SFDA-ready (calories & caffeine) · prices update in minutes</span>
+    </p>
+  </div>
+
+  ${rooms.length ? `<div class="rooms">
+    <div class="lbl"><span class="ar">✦ جولة سريعة في الغرف ✦</span><span class="en">✦ A peek inside the rooms ✦</span></div>
+    <div class="room-chips">
+      ${rooms.map((r) => `<span class="room-chip"><span class="ar">${esc(r.titleAr)}</span><span class="en">${esc(r.titleEn)}</span></span>`).join('')}
+    </div>
+    <div class="more"><span class="ar">…والبقية داخل الهدية</span><span class="en">…the rest is inside the gift</span></div>
+  </div>` : ''}
+
+  <div class="cta-stack">
+    <a class="btn pulse" href="../${cafe.slug}/">
+      <span class="ar">🎁 افتحوا هديتكم — منيو ${esc(cafe.nameAr)}</span>
+      <span class="en">🎁 Open your gift — the ${esc(cafe.name)} menu</span>
+    </a>
+    ${wa ? `<a class="btn ghost" href="${wa}"><span class="ar">💬 عجبكم؟ نفعّله لكم بنفس اليوم</span><span class="en">💬 Love it? Live the same day</span></a>` : ''}
+  </div>
+
+  ${diary ? `<div class="diary" dir="rtl"><span class="tape"></span>${esc(diary)}</div>` : ''}
+
+  <p class="small">
+    <span class="ar">شاهدوا عميلنا الحي: <a href="${CONTACT.site}/beyt-coffee">بيت كوفي ↗</a></span>
+    <span class="en">See a live client: <a href="${CONTACT.site}/beyt-coffee">Beyt Coffee ↗</a></span>
+  </p>
+  <div class="footer">
+    <span class="ar">صُنعت بحب في الرياض — <a href="${CONTACT.site}">منيو سادة MENU SADAH</a></span>
+    <span class="en">Crafted with love in Riyadh — <a href="${CONTACT.site}">MENU SADAH</a></span>
+  </div>
+</div>
+<script>
+  const root=document.documentElement;
+  const saved=localStorage.getItem('ms-lang')||'ar';
+  setLang(saved);
+  function setLang(l){root.setAttribute('data-lang',l);root.setAttribute('lang',l);root.setAttribute('dir',l==='ar'?'rtl':'ltr');
+    const t=document.getElementById('langToggle');if(t)t.textContent=l==='ar'?'English':'العربية';localStorage.setItem('ms-lang',l);}
+  document.getElementById('langToggle').addEventListener('click',()=>{setLang(root.getAttribute('data-lang')==='ar'?'en':'ar');});
 </script>
 </body>
 </html>`;

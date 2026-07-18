@@ -120,6 +120,21 @@
   @keyframes itemin{0%{opacity:0;transform:translateX(-8px)}100%{opacity:1;transform:none}}
   .chip{transition:all .2s,transform .18s}.chip:hover{transform:translateY(-2px) scale(1.04)}
   .cat-art{transition:transform .25s}.cat-art:hover{transform:rotate(-3deg) scale(1.05)}
+  @media(min-width:900px){
+    .wrap{max-width:780px}
+    .hero{min-height:80vh;display:flex;flex-direction:column;justify-content:center;padding:60px 0 30px}
+    .medal{width:136px;height:136px}
+    .medal span{font-size:58px}
+    h1{font-size:62px}
+    .tagline{font-size:22px}
+    .cat-title h2{font-size:28px}
+    .cat-art{width:96px;height:96px}
+    .items{padding:10px 30px}
+    .item{padding:18px 0}
+    .item-name{font-size:17.5px}
+    .sig-art{width:96px;height:96px}
+    .chips{justify-content:center}
+  }
   @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}.medal{animation:none}}
 </style>
 </head>

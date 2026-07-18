@@ -76,6 +76,17 @@
   .small a{color:var(--accent);text-decoration:none}
   .footer{margin-top:30px;text-align:center;color:var(--text-3);font-size:12.5px;position:relative;z-index:2}
   .footer a{color:var(--accent);text-decoration:none}
+  .fineline{font-size:12.5px!important;color:var(--text-3)!important;border-top:1px dashed var(--border-1);padding-top:11px;margin-top:4px;text-align:center}
+  @media(min-width:900px){
+    .wrap{max-width:720px}
+    .hero{min-height:60vh;display:flex;flex-direction:column;justify-content:center;padding:60px 0 10px}
+    .medal{width:140px;height:140px}
+    .medal span{font-size:60px}
+    h1{font-size:52px}
+    .letter{padding:34px 36px;border-radius:28px}
+    .letter p{font-size:17px}
+    .btn{font-size:20px;padding:22px}
+  }
   @media (prefers-reduced-motion: reduce){*{animation:none!important;opacity:1!important}}
 </style>
 </head>
@@ -96,21 +107,24 @@
   </header>
 
   <div class="letter">
-    <div class="to"><span class="ar">رسالة من فريق منيو سادة ✦</span><span class="en">A note from MENU SADAH ✦</span></div>
+    <div class="to"><span class="ar">🏡 مرحباً يا بيت سرب</span><span class="en">🏡 Hello, house of Sarb</span></div>
     <p>
-      <span class="ar">في العادة، يُبنى المنيو بعد التعاقد — نحن عكسنا الترتيب. ذوقكم في القهوة المختصة واضح من أول نظرة.</span>
-      <span class="en">Menus are usually built after the contract — we reversed the order. Your specialty-coffee taste shows from the first glance.</span>
+      <span class="ar">أنا إبراهيم من «منيو سادة». ذوقكم في القهوة المختصة واضح من أول نظرة. صراحةً، وقّفني.</span>
+      <span class="en">I'm Ibrahim from MENU SADAH. Your specialty-coffee taste shows from the first glance. Honestly, it stopped me.</span>
     </p>
-    <p class="sigline"><span class="ar">وبلغنا أن «قهوة مقطرة V60» من أطباقكم المميزة — جعلناه في صدارة المنيو.</span><span class="en">We also hear your «V60 filter coffee» is the house favorite — it opens the menu.</span></p>
     <p>
-      <span class="ar">بنى فريقنا لكم <b>منيو إلكترونياً كاملاً بهويتكم وألوانكم</b> — جاهز الآن، قبل أي التزام منكم وعلى حسابنا. إن نال إعجابكم فعّلناه بنفس اليوم، وإن لم يناسبكم يكفينا شرف اطلاعكم عليه.</span>
-      <span class="en">Our team built you a <b>complete e-menu in your identity & colors</b> — ready now, before any commitment, at our expense. If you like it, it goes live the same day. If not, we're honored you took a look.</span>
+      <span class="ar">بين فترة وفترة نختار مكاناً واحداً يستاهل شغلاً خاصاً — وهالمرة اخترناكم.</span>
+      <span class="en">Every so often we pick one place that deserves special work — and this time we picked you.</span>
     </p>
-    <ul class="benefits">
-      <li><span class="tick">✦</span><span><span class="ar">عربي / إنجليزي بضغطة — ورابط واحد + QR للطاولة</span><span class="en">Arabic/English toggle — one link + table QR</span></span></li>
-      <li><span class="tick">✦</span><span><span class="ar">متوافق مع اشتراطات هيئة الغذاء والدواء (السعرات والكافيين)</span><span class="en">SFDA-compliant (calories & caffeine ready)</span></span></li>
-      <li><span class="tick">✦</span><span><span class="ar">تعديل الأسعار خلال دقائق — وداعاً لإعادة الطباعة</span><span class="en">Prices update in minutes — never reprint again</span></span></li>
-    </ul>
+    <p class="sigline"><span class="ar">وبلغنا أن «قهوة مقطرة V60» حديث الناس عندكم — جعلناه يفتتح المنيو.</span><span class="en">And we hear your «V60 filter coffee» is the one people talk about — it opens the menu.</span></p>
+    <p>
+      <span class="ar">بنينا لكم منيو رقمياً بهويتكم وألوانكم، عربي وإنجليزي. <b>كله هدية. لكم. جاهز الآن.</b> إن نال إعجابكم فعّلناه بنفس اليوم — وإن لم يناسبكم يكفينا شرف اطلاعكم.</span>
+      <span class="en">We built you a digital menu in your identity and colors, Arabic and English. <b>All of it is a gift. Yours. Ready now.</b> Love it? Live the same day — if not, we're honored you looked.</span>
+    </p>
+    <p class="fineline">
+      <span class="ar">عربي/إنجليزي بضغطة · متوافق مع هيئة الغذاء والدواء (السعرات والكافيين) · تعديل الأسعار خلال دقائق</span>
+      <span class="en">AR/EN toggle · SFDA-ready (calories & caffeine) · prices update in minutes</span>
+    </p>
   </div>
 
   <div class="cta-stack">

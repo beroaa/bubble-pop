@@ -293,6 +293,21 @@ export function luxeMenuPage(cafe) {
   @keyframes itemin{0%{opacity:0;transform:translateX(-8px)}100%{opacity:1;transform:none}}
   .chip{transition:all .2s,transform .18s}.chip:hover{transform:translateY(-2px) scale(1.04)}
   .cat-art{transition:transform .25s}.cat-art:hover{transform:rotate(-3deg) scale(1.05)}
+  @media(min-width:900px){
+    .wrap{max-width:780px}
+    .hero{min-height:80vh;display:flex;flex-direction:column;justify-content:center;padding:60px 0 30px}
+    .medal{width:136px;height:136px}
+    .medal span{font-size:58px}
+    h1{font-size:62px}
+    .tagline{font-size:22px}
+    .cat-title h2{font-size:28px}
+    .cat-art{width:96px;height:96px}
+    .items{padding:10px 30px}
+    .item{padding:18px 0}
+    .item-name{font-size:17.5px}
+    .sig-art{width:96px;height:96px}
+    .chips{justify-content:center}
+  }
   @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}.medal{animation:none}}
 </style>
 </head>
@@ -454,6 +469,17 @@ export function luxeWelcomePage(cafe, extras = {}) {
   .small a{color:var(--accent);text-decoration:none}
   .footer{margin-top:30px;text-align:center;color:var(--text-3);font-size:12.5px;position:relative;z-index:2}
   .footer a{color:var(--accent);text-decoration:none}
+  .fineline{font-size:12.5px!important;color:var(--text-3)!important;border-top:1px dashed var(--border-1);padding-top:11px;margin-top:4px;text-align:center}
+  @media(min-width:900px){
+    .wrap{max-width:720px}
+    .hero{min-height:60vh;display:flex;flex-direction:column;justify-content:center;padding:60px 0 10px}
+    .medal{width:140px;height:140px}
+    .medal span{font-size:60px}
+    h1{font-size:52px}
+    .letter{padding:34px 36px;border-radius:28px}
+    .letter p{font-size:17px}
+    .btn{font-size:20px;padding:22px}
+  }
   @media (prefers-reduced-motion: reduce){*{animation:none!important;opacity:1!important}}
 </style>
 </head>
@@ -474,21 +500,24 @@ export function luxeWelcomePage(cafe, extras = {}) {
   </header>
 
   <div class="letter">
-    <div class="to"><span class="ar">رسالة من فريق منيو سادة ✦</span><span class="en">A note from MENU SADAH ✦</span></div>
+    <div class="to"><span class="ar">🏡 مرحباً يا بيت ${esc(cafe.nameAr)}</span><span class="en">🏡 Hello, house of ${esc(cafe.name)}</span></div>
     <p>
-      <span class="ar">في العادة، يُبنى المنيو بعد التعاقد — نحن عكسنا الترتيب. ${social ? 'تابعنا <b>' + esc(social) + '</b> منذ فترة، و' : ''}${esc(flavor.ar)}${cafe.areaAr && cafe.areaAr !== 'الرياض' ? '، وأهل <b>' + esc(cafe.areaAr) + '</b> يستحقون رؤيته كاملاً' : ''}.</span>
-      <span class="en">Menus are usually built after the contract — we reversed the order. ${social ? 'We\'ve followed <b>' + esc(social) + '</b> for a while, and ' : ''}${esc(flavor.en)}.</span>
+      <span class="ar">أنا إبراهيم من «منيو سادة». ${social ? 'تابعت <b>' + esc(social) + '</b> — و' : ''}${esc(flavor.ar)}${cafe.areaAr && cafe.areaAr !== 'الرياض' ? '، وسط <b>' + esc(cafe.areaAr) + '</b>' : ''}. صراحةً، وقّفني.</span>
+      <span class="en">I'm Ibrahim from MENU SADAH. ${social ? 'I\'ve been following <b>' + esc(social) + '</b> — and ' : ''}${esc(flavor.en)}. Honestly, it stopped me.</span>
     </p>
-    ${sig ? `<p class="sigline"><span class="ar">وبلغنا أن «${esc(sig[1])}» من أطباقكم المميزة — جعلناه في صدارة المنيو.</span><span class="en">We also hear your «${esc(sig[0])}» is the house favorite — it opens the menu.</span></p>` : ''}
     <p>
-      <span class="ar">بنى فريقنا لكم <b>منيو إلكترونياً كاملاً بهويتكم وألوانكم</b> — جاهز الآن، قبل أي التزام منكم وعلى حسابنا. إن نال إعجابكم فعّلناه بنفس اليوم، وإن لم يناسبكم يكفينا شرف اطلاعكم عليه.</span>
-      <span class="en">Our team built you a <b>complete e-menu in your identity & colors</b> — ready now, before any commitment, at our expense. If you like it, it goes live the same day. If not, we're honored you took a look.</span>
+      <span class="ar">بين فترة وفترة نختار مكاناً واحداً يستاهل شغلاً خاصاً — وهالمرة اخترناكم.</span>
+      <span class="en">Every so often we pick one place that deserves special work — and this time we picked you.</span>
     </p>
-    <ul class="benefits">
-      <li><span class="tick">✦</span><span><span class="ar">عربي / إنجليزي بضغطة — ورابط واحد + QR للطاولة</span><span class="en">Arabic/English toggle — one link + table QR</span></span></li>
-      <li><span class="tick">✦</span><span><span class="ar">متوافق مع اشتراطات هيئة الغذاء والدواء (السعرات والكافيين)</span><span class="en">SFDA-compliant (calories & caffeine ready)</span></span></li>
-      <li><span class="tick">✦</span><span><span class="ar">تعديل الأسعار خلال دقائق — وداعاً لإعادة الطباعة</span><span class="en">Prices update in minutes — never reprint again</span></span></li>
-    </ul>
+    ${sig ? `<p class="sigline"><span class="ar">وبلغنا أن «${esc(sig[1])}» حديث الناس عندكم — جعلناه يفتتح المنيو.</span><span class="en">And we hear your «${esc(sig[0])}» is the one people talk about — it opens the menu.</span></p>` : ''}
+    <p>
+      <span class="ar">بنينا لكم منيو رقمياً بهويتكم وألوانكم، عربي وإنجليزي. <b>كله هدية. لكم. جاهز الآن.</b> إن نال إعجابكم فعّلناه بنفس اليوم — وإن لم يناسبكم يكفينا شرف اطلاعكم.</span>
+      <span class="en">We built you a digital menu in your identity and colors, Arabic and English. <b>All of it is a gift. Yours. Ready now.</b> Love it? Live the same day — if not, we're honored you looked.</span>
+    </p>
+    <p class="fineline">
+      <span class="ar">عربي/إنجليزي بضغطة · متوافق مع هيئة الغذاء والدواء (السعرات والكافيين) · تعديل الأسعار خلال دقائق</span>
+      <span class="en">AR/EN toggle · SFDA-ready (calories & caffeine) · prices update in minutes</span>
+    </p>
   </div>
 
   <div class="cta-stack">

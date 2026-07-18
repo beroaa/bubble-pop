@@ -8,109 +8,184 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&family=Lalezar&family=Nunito:wght@400;700&family=Cairo:wght@400;700&display=swap">
 <style>
-  :root{--bg-0:#160e13;--bg-1:#22161e;--border-1:#3a2733;--border-2:#59364c;
-    --text-1:#f2edf0;--text-2:#cabac4;--text-3:#947f8d;--accent:#cb72aa;--accent-soft:#cb72aa22}
+  :root{--bg-0:#160e13;--bg-1:#22161e;--bg-2:#2d2028;--border-1:#3a2733;--border-2:#59364c;
+    --text-1:#f2edf0;--text-2:#cabac4;--text-3:#947f8d;--accent:#cb72aa;--accent-2:#e199b3;--accent-soft:#cb72aa22;
+    --sa:#cb72aa;--sa2:#cd7981;--radius:16px;--shadow:0 6px 16px #00000080, 0 16px 40px #00000059}
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:'Nunito','Cairo',sans-serif,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;
-    background:var(--bg-0) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Ccircle cx='24' cy='24' r='6' fill='none' stroke='%23cb72aa' stroke-opacity='.13'/%3E%3C/svg%3E");color:var(--text-1);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
-    min-height:100svh;overflow-x:hidden}
+    background:var(--bg-0);color:var(--text-1);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100svh;overflow-x:hidden}
   body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
     background:radial-gradient(620px 460px at 50% -120px,#cb72aa1c,transparent 70%)}
-  .wrap{max-width:560px;margin:0 auto;padding:0 20px 90px;position:relative}
+  .wrap{max-width:560px;margin:0 auto;padding:0 20px 90px;position:relative;z-index:1}
   [data-lang="ar"] .en,[data-lang="en"] .ar{display:none}
   .lang-toggle{position:fixed;top:14px;inset-inline-end:14px;z-index:40;background:#22161ed9;backdrop-filter:blur(10px);
     border:1px solid var(--border-2);color:var(--text-1);border-radius:999px;padding:8px 16px;font-size:13.5px;cursor:pointer}
 
-  .stars{position:fixed;inset:0;pointer-events:none;z-index:1}
-  .stars span{position:absolute;color:#cb72aa;opacity:0;animation:tw 3.2s infinite}
-  @keyframes tw{0%,100%{opacity:0;transform:scale(.5)}50%{opacity:.85;transform:scale(1.15)}}
-
-  .hero{position:relative;text-align:center;padding:84px 0 20px;z-index:2}
+  .hero{position:relative;text-align:center;padding:84px 0 16px}
   .orb{position:absolute;top:-70px;left:50%;transform:translateX(-50%);width:380px;height:380px;border-radius:50%;
     background:radial-gradient(circle,#cb72aa38,transparent 64%);pointer-events:none;animation:breathe 5s ease-in-out infinite}
-  .orb2{position:absolute;top:40px;left:8%;width:200px;height:200px;border-radius:50%;
-    background:radial-gradient(circle,#e199b324,transparent 65%);pointer-events:none;animation:breathe2 6.5s 1s ease-in-out infinite}
   @keyframes breathe{50%{transform:translateX(-50%) scale(1.08)}}
-  @keyframes breathe2{50%{transform:scale(1.1)}}
+  .mote{position:absolute;pointer-events:none;z-index:0}
+  .mote{color:#e199b3;font-size:15px;animation:mrise 4.5s ease-in-out infinite}@keyframes mrise{0%{opacity:0;transform:translateY(10px) rotate(90deg)}45%{opacity:.55}100%{opacity:0;transform:translateY(-26px) rotate(90deg)}}
   .gift-tag{display:inline-block;background:var(--accent-soft);border:1px solid #cb72aa88;color:var(--accent);
-    border-radius:999px;padding:6px 20px;font-size:13px;letter-spacing:.14em;
-    opacity:0;animation:up .8s .15s forwards}
+    border-radius:999px;padding:6px 20px;font-size:13px;letter-spacing:.14em;opacity:0;animation:up .8s .15s forwards}
   .medal{position:relative;width:118px;height:118px;margin:22px auto 6px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;
     background:radial-gradient(circle at 32% 24%,#ffffff30,transparent 42%),radial-gradient(circle at 32% 28%,#cb72aa48,#cb72aa16 62%,transparent);
     border:2px solid var(--accent);box-shadow:0 0 0 8px #cb72aa14,0 0 46px #cb72aa55,inset 0 1px 0 #ffffff33;
     opacity:0;animation:pop .9s .5s cubic-bezier(.2,1.4,.4,1) forwards}
-  .medal::after{content:"";position:absolute;inset:7px;border-radius:50%;border:1px solid #cb72aa55}
-  .medal span{font-family:'Lobster',cursive;font-size:52px;font-weight:700;color:var(--accent);
-    text-shadow:0 2px 14px #cb72aa73}
+  .medal::after{content:"";position:absolute;inset:7px;border-radius:inherit;border:1px solid #cb72aa55}
+  .medal span{font-size:52px;font-weight:700;color:var(--accent);text-shadow:0 2px 14px #cb72aa73}
+  .medal span .ar{font-family:'Lalezar',cursive}
+  .medal span .en{font-family:'Lobster',cursive}
   @keyframes pop{0%{opacity:0;transform:scale(.4)}70%{transform:scale(1.06)}100%{opacity:1;transform:scale(1)}}
   @keyframes up{0%{opacity:0;transform:translateY(14px)}100%{opacity:1;transform:none}}
   h1{font-size:32px;line-height:1.25;margin-top:12px;opacity:0;animation:up .8s .9s forwards}
   h1 b{color:var(--accent)}
   h1 .ar{font-family:'Lalezar',cursive}
   h1 .en{font-family:'Lobster',cursive}
-  .shimmer{background:linear-gradient(90deg,var(--text-1) 40%,#cb72aa 50%,var(--text-1) 60%);background-size:220% 100%;
-    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:sh 3.4s 1.8s infinite}
-  @keyframes sh{0%{background-position:120% 0}100%{background-position:-120% 0}}
+  .world{margin-top:10px;color:var(--text-3);font-size:13px;letter-spacing:.08em;opacity:0;animation:up .8s 1.1s forwards}
+  .world b{color:#cd7981;font-weight:600}
+  .heroline{margin-top:8px;color:var(--text-2);font-size:19px;opacity:0;animation:up .8s 1.3s forwards}
+  .heroline .ar{font-family:'Lalezar',cursive}
+  .heroline .en{font-family:'Lobster',cursive}
 
-  .letter{position:relative;z-index:2;margin-top:26px;background:linear-gradient(180deg,#22161ef0,#22161ed0);
-    border:1px solid #cb72aa44;border-radius:24px;padding:24px 22px;box-shadow:0 10px 34px #00000080;
-    opacity:0;animation:up .9s 1.25s forwards}
+  .letter{position:relative;margin-top:24px;background:linear-gradient(180deg,#22161ef0,#22161ed0);
+    border:1px solid #cb72aa44;border-radius:24px;padding:24px 22px;box-shadow:var(--shadow);
+    opacity:0;animation:up .9s 1.55s forwards}
   .letter .to{color:var(--accent);font-size:13px;letter-spacing:.12em;margin-bottom:10px}
   .letter p{color:var(--text-2);font-size:15.5px;margin-bottom:12px}
   .letter p b{color:var(--text-1)}
-  .letter .sigline{color:var(--accent);font-weight:700}
+  .letter .sigline{color:var(--sa);font-weight:700}
   .benefits{list-style:none;margin-top:6px}
   .benefits li{display:flex;gap:11px;align-items:flex-start;padding:8px 0;color:var(--text-2);font-size:14.5px}
-  .benefits .tick{color:var(--accent);font-weight:800;flex:0 0 auto}
+  .benefits .tick{font-weight:800;flex:0 0 auto}
+  .benefits li:nth-child(1) .tick{color:#cb72aa}
+  .benefits li:nth-child(2) .tick{color:#cd7981}
+  .benefits li:nth-child(3) .tick{color:#aa79c3}
 
-  .cta-stack{position:relative;z-index:2;display:grid;gap:12px;margin-top:26px;opacity:0;animation:up .9s 1.6s forwards}
+  .rooms{margin-top:22px;opacity:0;animation:up .9s 1.8s forwards}
+  .rooms .lbl{text-align:center;color:var(--text-3);font-size:12.5px;letter-spacing:.14em;margin-bottom:11px}
+  .room-chips{display:flex;flex-wrap:wrap;gap:9px;justify-content:center}
+  .room-chip{border:1px solid;border-radius:999px;padding:8px 17px;font-size:13.5px;background:#22161ecc}
+  .room-chip .ar{font-family:'Lalezar',cursive}
+  .room-chip .en{font-family:'Lobster',cursive}
+  .room-chip:nth-child(1){color:#cb72aa;border-color:#cb72aa66}
+  .room-chip:nth-child(2){color:#cd7981;border-color:#cd798166}
+  .room-chip:nth-child(3){color:#aa79c3;border-color:#aa79c366}
+  .rooms .more{text-align:center;margin-top:10px;color:var(--text-3);font-size:12.5px}
+
+  .cta-stack{display:grid;gap:12px;margin-top:24px;opacity:0;animation:up .9s 2.05s forwards}
   .btn{display:block;text-align:center;text-decoration:none;background:linear-gradient(135deg,#cb72aa,#e199b3);
     color:#1d1119;font-weight:800;font-size:18px;border-radius:18px;padding:18px 20px;
     box-shadow:0 10px 30px #cb72aa55;transition:transform .15s}
   .btn:active{transform:scale(.98)}
-  .btn.pulse{animation:pl 2.2s 2.4s infinite}
+  .btn.pulse{animation:pl 2.2s 2.8s infinite}
   @keyframes pl{0%,100%{box-shadow:0 10px 30px #cb72aa55}50%{box-shadow:0 10px 44px #cb72aa90}}
+  .btn .ar{font-family:'Lalezar',cursive}
+  .btn .en{font-family:'Lobster',cursive}
   .btn.ghost{background:transparent;color:var(--accent);border:1px solid #cb72aa88;box-shadow:none;font-weight:600;font-size:15px}
-  .small{margin-top:14px;text-align:center;color:var(--text-3);font-size:12.5px;position:relative;z-index:2}
+
+  .diary{position:relative;margin:26px auto 0;max-width:420px;background:#22161e;border:1px solid var(--border-1);
+    border-radius:4px;padding:16px 20px 14px;color:var(--text-2);font-size:15.5px;text-align:center;
+    font-family:'Lalezar',cursive;transform:rotate(-1.6deg);box-shadow:var(--shadow);opacity:0;animation:up .9s 2.3s forwards}
+  .diary .tape{position:absolute;top:-9px;left:50%;transform:translateX(-50%) rotate(-2deg);width:88px;height:20px;
+    border-radius:2px;background:#cd798133;backdrop-filter:blur(1px)}
+
+  .small{margin-top:14px;text-align:center;color:var(--text-3);font-size:12.5px}
   .small a{color:var(--accent);text-decoration:none}
-  .footer{margin-top:30px;text-align:center;color:var(--text-3);font-size:12.5px;position:relative;z-index:2}
+  .footer{margin-top:28px;text-align:center;color:var(--text-3);font-size:12.5px}
   .footer a{color:var(--accent);text-decoration:none}
-  @media (prefers-reduced-motion: reduce){*{animation:none!important;opacity:1!important}}
+  .fineline{font-size:12.5px;color:var(--text-3);border-top:1px dashed var(--border-1);padding-top:11px;margin-top:4px;text-align:center}
+  .letter::after{content:"";position:absolute;top:-10px;inset-inline-start:36px;width:92px;height:22px;
+    background:#cd79812e;transform:rotate(-3deg);border-radius:2px;backdrop-filter:blur(1px)}
+
+  /* ---- big-screen stage ---- */
+  .bigmark{display:none;position:fixed;top:4vh;inset-inline-end:-3vw;z-index:0;font-size:48vh;line-height:1;
+    color:var(--accent);opacity:.055;pointer-events:none;user-select:none}
+  .bigmark .ar{font-family:'Lalezar',cursive}
+  .bigmark .en{font-family:'Lobster',cursive}
+  @media(min-width:900px){
+    .bigmark{display:block}
+    .wrap{max-width:720px}
+    .hero{min-height:64vh;display:flex;flex-direction:column;justify-content:center;padding:60px 0 10px}
+    .medal{width:140px;height:140px}
+    .medal span{font-size:60px}
+    h1{font-size:54px}
+    .world{font-size:15px;margin-top:14px}
+    .heroline{font-size:26px}
+    .letter{padding:34px 36px;border-radius:28px}
+    .letter p{font-size:17px}
+    .room-chip{font-size:15px;padding:10px 22px}
+    .btn{font-size:20px;padding:22px}
+    .diary{max-width:480px;font-size:17px}
+    .mote{font-size:22px!important}
+  }
+
+  /* ---- architecture pack: majlis-heritage ---- */
+  
+  .cat-art{border-radius:50% 50% 12px 12px/62% 62% 12px 12px}
+  .medal{border-radius:50% 50% 46% 46%/58% 58% 42% 42%}
+  .items{border-radius:18px 18px 26px 26px;background:linear-gradient(180deg,#22161ef5,#22161ee0)}
+  .sep-sadu{height:10px;margin:34px 8px -6px;border-radius:3px;opacity:.75;
+    background:repeating-linear-gradient(90deg,#cb72aa 0 10px,#2d2028 10px 14px,#cd7981 14px 24px,#2d2028 24px 28px,#95b691 28px 38px,#2d2028 38px 42px)}
+  .room-h2{font-size:24px}
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(420px 320px at 85% 20%,#cd798114,transparent 70%)}
+  .hero .orb{animation:lantern 6s ease-in-out infinite}
+  @keyframes lantern{50%{opacity:.75;transform:translateX(-50%) scale(1.06)}}
+
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}
+    .gift-tag,.medal,h1,.world,.heroline,.letter,.rooms,.cta-stack,.diary{opacity:1!important;transform:none!important}}
 </style>
 </head>
 <body>
 <button class="lang-toggle" id="langToggle">English</button>
-<div class="stars" id="stars"></div>
+<div class="bigmark" aria-hidden="true"><span class="ar">ك</span><span class="en">K</span></div>
 <div class="wrap">
   <header class="hero">
     <div class="orb"></div>
-    <div class="orb2"></div>
+    <span class="mote" style="left:14%;top:10%;font-size:11px;animation-delay:0s">〜</span><span class="mote" style="left:78%;top:16%;font-size:10px;animation-delay:0.7s">〜</span><span class="mote" style="left:8%;top:46%;font-size:9px;animation-delay:1.4s">〜</span><span class="mote" style="left:86%;top:52%;font-size:12px;animation-delay:2.0999999999999996s">〜</span><span class="mote" style="left:24%;top:74%;font-size:10px;animation-delay:2.8s">〜</span><span class="mote" style="left:68%;top:80%;font-size:9px;animation-delay:3.5s">〜</span><span class="mote" style="left:46%;top:8%;font-size:12px;animation-delay:0.1999999999999993s">〜</span><span class="mote" style="left:90%;top:30%;font-size:14px;animation-delay:0.8999999999999995s">〜</span>
     <span class="gift-tag"><span class="ar">🎁 هدية خاصة · ليست إعلاناً</span><span class="en">🎁 A personal gift · not an ad</span></span>
     <div class="medal"><span><span class="ar">ك</span><span class="en">K</span></span></div>
     <h1>
-      <span class="ar">إلى بيت <b class="shimmer">كنافة أبو الهوس</b></span>
-      <span class="en">To the house of <b class="shimmer">Kunafa Abul Haus</b></span>
+      <span class="ar">إلى بيت <b>كنافة أبو الهوس</b></span>
+      <span class="en">To the house of <b>Kunafa Abul Haus</b></span>
     </h1>
-    <div style="margin-top:10px;color:var(--text-3);font-size:13px;letter-spacing:.06em;opacity:0;animation:up .8s 1.1s forwards"><span class="ar">✦ صينية كنافة على نار هادية ✦</span><span class="en">✦ a kunafa tray fresh off the fire ✦</span></div>
+    <div class="world"><span class="ar">✦ <b>صينية كنافة على نار هادية</b> ✦</span><span class="en">✦ <b>a kunafa tray fresh off the fire</b> ✦</span></div>
+    <div class="heroline"><span class="ar">الهوس حلال إذا كان كنافة</span><span class="en">an honest obsession, served warm</span></div>
   </header>
 
   <div class="letter">
-    <div class="to"><span class="ar">رسالة من فريق منيو سادة ✦</span><span class="en">A note from MENU SADAH ✦</span></div>
+    <div class="to"><span class="ar">🏡 مرحباً يا بيت كنافة أبو الهوس</span><span class="en">🏡 Hello, house of Kunafa Abul Haus</span></div>
     <p>
-      <span class="ar">في العادة، يُبنى المنيو بعد التعاقد — نحن عكسنا الترتيب. تابعنا <b>@kabualhous</b> منذ فترة، وحلاكم صار حديث الناس — ويستاهل منيو بمستواه.</span>
-      <span class="en">Menus are usually built after the contract — we reversed the order. We've followed <b>@kabualhous</b> for a while, and Your desserts are the talk of the town — they deserve a menu at their level.</span>
+      <span class="ar">أنا إبراهيم من «منيو سادة». تابعت <b>@kabualhous</b> — وحلاكم صار حديث الناس — ويستاهل منيو بمستواه. صراحةً، وقّفني.</span>
+      <span class="en">I'm Ibrahim from MENU SADAH. I've been following <b>@kabualhous</b> — and Your desserts are the talk of the town — they deserve a menu at their level. Honestly, it stopped me.</span>
+    </p>
+    <p>
+      <span class="ar">بين فترة وفترة نختار مكاناً واحداً يستاهل شغلاً خاصاً — وهالمرة اخترناكم.</span>
+      <span class="en">Every so often we pick one place that deserves special work — and this time we picked you.</span>
+    </p>
+    <p>
+      <span class="ar">بنينا لكم منيو رقمياً بهويتكم، عربي وإنجليزي، مبنياً مثل عالمكم: <b>«صينية كنافة على نار هادية»</b> — غرفة غرفة، بألوانكم وخطوطكم، وألوان صفحته تتبدّل وأنتم تتجولون فيه.</span>
+      <span class="en">We built you a digital menu in your identity, Arabic and English, shaped like your world: <b>"a kunafa tray fresh off the fire"</b> — room by room, in your colors and type, and the page itself shifts as you wander through it.</span>
     </p>
     
     <p>
-      <span class="ar">بنى فريقنا لكم <b>منيو إلكترونياً كاملاً بهويتكم وألوانكم</b> — جاهز الآن، قبل أي التزام منكم وعلى حسابنا. إن نال إعجابكم فعّلناه بنفس اليوم، وإن لم يناسبكم يكفينا شرف اطلاعكم عليه.</span>
-      <span class="en">Our team built you a <b>complete e-menu in your identity & colors</b> — ready now, before any commitment, at our expense. If you like it, it goes live the same day. If not, we're honored you took a look.</span>
+      <span class="ar"><b>كله هدية. لكم. جاهز الآن.</b> إن نال إعجابكم فعّلناه بنفس اليوم — وإن لم يناسبكم يكفينا شرف اطلاعكم.</span>
+      <span class="en"><b>All of it is a gift. Yours. Ready now.</b> If you love it, it goes live the same day — if not, we're honored you looked.</span>
     </p>
-    <ul class="benefits">
-      <li><span class="tick">✦</span><span><span class="ar">عربي / إنجليزي بضغطة — ورابط واحد + QR للطاولة</span><span class="en">Arabic/English toggle — one link + table QR</span></span></li>
-      <li><span class="tick">✦</span><span><span class="ar">متوافق مع اشتراطات هيئة الغذاء والدواء (السعرات والكافيين)</span><span class="en">SFDA-compliant (calories & caffeine ready)</span></span></li>
-      <li><span class="tick">✦</span><span><span class="ar">تعديل الأسعار خلال دقائق — وداعاً لإعادة الطباعة</span><span class="en">Prices update in minutes — never reprint again</span></span></li>
-    </ul>
+    <p class="fineline">
+      <span class="ar">عربي/إنجليزي بضغطة · متوافق مع هيئة الغذاء والدواء (السعرات والكافيين) · تعديل الأسعار خلال دقائق</span>
+      <span class="en">AR/EN toggle · SFDA-ready (calories & caffeine) · prices update in minutes</span>
+    </p>
+  </div>
+
+  <div class="rooms">
+    <div class="lbl"><span class="ar">✦ جولة سريعة في الغرف ✦</span><span class="en">✦ A peek inside the rooms ✦</span></div>
+    <div class="room-chips">
+      <span class="room-chip"><span class="ar">الهوس يبدأ من هنا</span><span class="en">where the obsession begins</span></span><span class="room-chip"><span class="ar">حاميها أطيب.. لا تنطر</span><span class="en">best eaten before it cools</span></span><span class="room-chip"><span class="ar">قهوة تعدل مزاج الحلا</span><span class="en">the bitter that balances sweet</span></span>
+    </div>
+    <div class="more"><span class="ar">…والبقية داخل الهدية</span><span class="en">…the rest is inside the gift</span></div>
   </div>
 
   <div class="cta-stack">
@@ -120,6 +195,9 @@
     </a>
     
   </div>
+
+  <div class="diary" dir="rtl"><span class="tape"></span>الكنافة ما تنأكل إلا حامية</div>
+
   <p class="small">
     <span class="ar">شاهدوا عميلنا الحي: <a href="https://menu-sadah.com/beyt-coffee">بيت كوفي ↗</a></span>
     <span class="en">See a live client: <a href="https://menu-sadah.com/beyt-coffee">Beyt Coffee ↗</a></span>
@@ -136,11 +214,6 @@
   function setLang(l){root.setAttribute('data-lang',l);root.setAttribute('lang',l);root.setAttribute('dir',l==='ar'?'rtl':'ltr');
     const t=document.getElementById('langToggle');if(t)t.textContent=l==='ar'?'English':'العربية';localStorage.setItem('ms-lang',l);}
   document.getElementById('langToggle').addEventListener('click',()=>{setLang(root.getAttribute('data-lang')==='ar'?'en':'ar');});
-  // brand star field
-  const stars=document.getElementById('stars');
-  for(let i=0;i<26;i++){const s=document.createElement('span');s.textContent='✦';
-    s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';
-    s.style.fontSize=(6+Math.random()*10)+'px';s.style.animationDelay=(Math.random()*3.2)+'s';stars.appendChild(s);}
 </script>
 </body>
 </html>
