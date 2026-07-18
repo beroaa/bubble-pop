@@ -178,6 +178,79 @@
   .sep-neon{height:2px;margin:34px 20px -6px;border-radius:2px;background:linear-gradient(90deg,transparent,#ca9353,transparent);box-shadow:0 0 12px #ca935388}
   .medal{box-shadow:0 0 0 7px #ca935314,0 0 44px #ca935366,inset 0 1px 0 #ffffff33}
 
+  /* ---- immersive scene pack: neon-arcade ---- */
+  
+/* ===== neon-arcade scene: vivid Saudi neon night ===== */
+body{
+  background-color:#17120d;
+  background-image:
+    radial-gradient(1100px 560px at 16% -8%, color-mix(in srgb, #ca9353 26%, transparent), transparent 62%),
+    radial-gradient(900px 520px at 86% 2%, color-mix(in srgb, #dfcb7c 22%, transparent), transparent 60%),
+    radial-gradient(1200px 640px at 50% 112%, color-mix(in srgb, #c79a3a 18%, transparent), transparent 66%),
+    conic-gradient(from 210deg at 72% 18%, #231c15, #17120d 30%, color-mix(in srgb, #7d572b 55%, #17120d) 52%, #17120d 76%, #231c15),
+    linear-gradient(180deg, #17120d, #231c15 58%, #2e271e);
+  background-attachment:fixed;
+}
+/* CRT scanlines + soft vignette, above content but click-through */
+body::after{
+  content:""; position:fixed; inset:0; z-index:2; pointer-events:none;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 3px, color-mix(in srgb, #1e1710 30%, transparent) 3px 4px),
+    radial-gradient(130% 96% at 50% 38%, transparent 58%, color-mix(in srgb, #1e1710 42%, transparent));
+  opacity:.32;
+}
+/* the big fixed scene (SVG lives in heroHtml) */
+.scenebg{position:fixed; inset:0; width:100%; height:100%; z-index:-1; pointer-events:none; display:block;}
+.nz-neon{filter:drop-shadow(0 0 5px color-mix(in srgb, #ca9353 85%, transparent)) drop-shadow(0 0 16px color-mix(in srgb, #ca9353 55%, transparent));}
+.nz-goldneon{filter:drop-shadow(0 0 4px color-mix(in srgb, #e8c268 80%, transparent)) drop-shadow(0 0 14px color-mix(in srgb, #c79a3a 45%, transparent));}
+/* gold-foil headline shine (static fallback = solid bright gold) */
+.room-h2 b, .heroline{color:#e8c268; text-shadow:0 0 18px color-mix(in srgb, #c79a3a 45%, transparent);}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .room-h2 b, .heroline{
+    background-image:linear-gradient(105deg, #8a6a1f 0%, #c79a3a 30%, #e8c268 46%, #fff4d0 52%, #e8c268 58%, #c79a3a 72%, #8a6a1f 100%);
+    background-size:250% 100%; background-position:50% 0;
+    -webkit-background-clip:text; background-clip:text;
+    -webkit-text-fill-color:transparent; color:transparent; text-shadow:none;
+  }
+}
+/* sadu-inspired gold accent band (triangle weave over brand warp threads) */
+.gold-band{
+  height:14px;
+  border-top:1px solid color-mix(in srgb, #8a6a1f 80%, transparent);
+  border-bottom:1px solid color-mix(in srgb, #8a6a1f 80%, transparent);
+  background:
+    conic-gradient(from 45deg at 50% 50%, color-mix(in srgb, #e8c268 92%, #17120d) 0 25%, transparent 0 50%, #c79a3a 0 75%, transparent 0) 0 50%/14px 14px repeat,
+    repeating-linear-gradient(90deg, color-mix(in srgb, #ca9353 80%, #1e1710) 0 10px, color-mix(in srgb, #7d572b 85%, #1e1710) 10px 14px);
+  box-shadow:0 0 18px color-mix(in srgb, #c79a3a 30%, transparent);
+}
+/* section separator: neon rails meeting sadu diamonds */
+.sep-scene{display:flex; align-items:center; justify-content:center; gap:14px; margin:38px auto; padding:0 20px; max-width:640px;}
+.sep-scene::before, .sep-scene::after{
+  content:""; flex:1; height:2px; border-radius:2px;
+  background:linear-gradient(90deg, transparent, color-mix(in srgb, #ca7281 65%, transparent) 55%, #e8c268);
+}
+.sep-scene::after{transform:scaleX(-1);}
+.sep-scene svg{display:block; flex:none; filter:drop-shadow(0 0 7px color-mix(in srgb, #e8c268 60%, transparent));}
+/* motion only when the visitor allows it */
+@media (prefers-reduced-motion: no-preference){
+  @supports ((-webkit-background-clip:text) or (background-clip:text)){
+    .room-h2 b, .heroline{animation:nzFoil 7s linear infinite;}
+  }
+  body::after{animation:nzScan 9s linear infinite;}
+  .nz-pulse{animation:nzPulse 5.5s ease-in-out infinite;}
+  .nz-flick{animation:nzFlick 6.4s steps(1,end) infinite;}
+  .nz-stars{animation:nzTwinkle 4.8s ease-in-out infinite;}
+}
+@media (prefers-reduced-motion: reduce){
+  body::after, .room-h2 b, .heroline, .nz-pulse, .nz-flick, .nz-stars{animation:none;}
+}
+@keyframes nzFoil{from{background-position:130% 0}to{background-position:-130% 0}}
+@keyframes nzScan{from{background-position:0 0, 0 0}to{background-position:0 160px, 0 0}}
+@keyframes nzPulse{0%,100%{opacity:.75}50%{opacity:1}}
+@keyframes nzFlick{0%,100%{opacity:1}7%{opacity:.35}9%{opacity:1}11%{opacity:.55}13%{opacity:1}54%{opacity:1}56%{opacity:.4}58%{opacity:1}}
+@keyframes nzTwinkle{0%,100%{opacity:.9}50%{opacity:.45}}
+
+
   @media (prefers-reduced-motion: reduce){
     *{animation:none!important;transition:none!important}
     .reveal,.reveal.in .item,.heroline,.world,.meta,.greet,h1 .w{opacity:1!important;transform:none!important}
@@ -193,6 +266,33 @@
   <header class="hero">
     <div class="orb"></div>
     <span class="mote" style="left:14%;top:10%;font-size:4px;animation-delay:0s">✴</span><span class="mote" style="left:78%;top:16%;font-size:6px;animation-delay:0.7s">✳</span><span class="mote" style="left:8%;top:46%;font-size:4px;animation-delay:1.4s">·</span><span class="mote" style="left:86%;top:52%;font-size:3px;animation-delay:2.0999999999999996s">✦</span><span class="mote" style="left:24%;top:74%;font-size:9px;animation-delay:2.8s">✴</span><span class="mote" style="left:68%;top:80%;font-size:5px;animation-delay:3.5s">✳</span><span class="mote" style="left:46%;top:8%;font-size:7px;animation-delay:0.1999999999999993s">·</span><span class="mote" style="left:90%;top:30%;font-size:8px;animation-delay:0.8999999999999995s">✦</span>
+    <svg class="scenebg" viewBox="0 0 1200 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+<defs>
+<linearGradient id="nzSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#17120d"/><stop offset=".58" stop-color="#7d572b" stop-opacity=".5"/><stop offset="1" stop-color="#231c15"/></linearGradient>
+<radialGradient id="nzHal" cx=".5" cy=".63" r=".6"><stop offset="0" stop-color="#ca9353" stop-opacity=".4"/><stop offset=".45" stop-color="#ca9353" stop-opacity=".16"/><stop offset="1" stop-color="#ca9353" stop-opacity="0"/></radialGradient>
+<linearGradient id="nzAu" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e8c268"/><stop offset=".55" stop-color="#c79a3a"/><stop offset="1" stop-color="#8a6a1f"/></linearGradient>
+<linearGradient id="nzSun" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e8c268" stop-opacity=".8"/><stop offset="1" stop-color="#cdd473" stop-opacity=".12"/></linearGradient>
+</defs>
+<rect width="1200" height="640" fill="url(#nzSky)"/>
+<rect width="1200" height="640" fill="url(#nzHal)"/>
+<g class="nz-stars" fill="#e8c268"><circle cx="90" cy="70" r="1.6"/><circle cx="210" cy="128" r="1.2"/><circle cx="330" cy="52" r="1.5"/><circle cx="520" cy="120" r="1.2"/><circle cx="705" cy="60" r="1.6"/><circle cx="838" cy="140" r="1.2"/><circle cx="1080" cy="72" r="1.5"/><circle cx="1150" cy="200" r="1.2"/><path d="M600 66l4 11 11 4-11 4-4 11-4-11-11-4 11-4z" opacity=".9"/><path d="M158 210l3 8 8 3-8 3-3 8-3-8-8-3 8-3z" opacity=".7"/></g>
+<path class="nz-pulse" d="M512 401a88 88 0 0 1 176 0z" fill="url(#nzSun)"/>
+<g class="nz-neon" fill="none" stroke="#cdd473" stroke-width="2.5" opacity=".85">
+<path d="M120 401v-46c0-30 14-46 38-54 24 8 38 24 38 54v46"/>
+<path class="nz-flick" d="M232 401v-64c0-40 18-60 48-70 30 10 48 30 48 70v64"/>
+<path d="M364 401v-42c0-27 12-42 34-49 22 7 34 22 34 49v42"/>
+</g>
+<g class="nz-goldneon" fill="none" stroke="url(#nzAu)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+<path d="M912 300c-16-28-12-56 10-74 10-9 12-20 6-32l-8-16 28 8 8-14h20l8 14 28-8-8 16c-6 12-4 23 6 32 22 18 26 46 10 74z"/>
+<path d="M960 172l6-16 6 16"/>
+<path d="M924 202q-28-8-36-36l16 2q6 20 24 26z"/>
+<path d="M1010 200q30 8 28 36q-2 16-16 24"/>
+<path d="M902 300h128"/>
+</g>
+<g fill="none" stroke="#ca9353" stroke-width="1.4" opacity=".55"><path d="M600 402 -80 640M600 402 120 640M600 402 300 640M600 402 462 640M600 402 600 640M600 402 738 640M600 402 900 640M600 402 1080 640M600 402 1280 640"/></g>
+<g fill="none" stroke="#dfcb7c" stroke-width="1.2" opacity=".5"><path d="M0 414h1200M0 430h1200M0 452h1200M0 482h1200M0 522h1200M0 574h1200M0 636h1200"/></g>
+<path class="nz-neon" d="M0 401h1200" fill="none" stroke="#ca9353" stroke-width="2.2"/>
+</svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
     <div class="medal"><span><span class="ar">م</span><span class="en">F</span></span></div>
     <h1><span class="ar">محمصة ومقهى حي</span><span class="en">Find Hai Roastery &amp; Cafe</span></h1>
@@ -246,7 +346,7 @@
         <div class="price"><span class="pdot"></span>22<span class="sar"> ﷼</span></div>
       </div>
     </div>
-  </section><div class="sep sep-neon" aria-hidden="true"></div>
+  </section><div class="sep-scene" aria-hidden="true"><svg viewBox="0 0 132 26" width="132" height="26"><g fill="none" stroke-width="1.6"><path stroke="#c79a3a" opacity=".8" d="M16 13l11-8 11 8-11 8zM94 13l11-8 11 8-11 8z"/><path stroke="#e8c268" stroke-width="2" d="M50 13 66 3l16 10-16 10z"/></g><path d="M60 13l6-4 6 4-6 4z" fill="#ca7281"/><circle cx="6" cy="13" r="2" fill="#8a6a1f"/><circle cx="126" cy="13" r="2" fill="#8a6a1f"/></svg></div>
   <section class="cat reveal" id="cat-1" style="--sa:#cdd473;--sa2:#ca7281">
     <div class="cat-head">
       <div class="cat-art">
@@ -283,7 +383,7 @@
       </div>
     </div>
   </section>
-  <div class="diary reveal" dir="rtl"><span class="tape" style="background:#cdd47333"></span>ريحة التحميص تسبق السلام</div><div class="sep sep-neon" aria-hidden="true"></div>
+  <div class="diary reveal" dir="rtl"><span class="tape" style="background:#cdd47333"></span>ريحة التحميص تسبق السلام</div><div class="sep-scene" aria-hidden="true"><svg viewBox="0 0 132 26" width="132" height="26"><g fill="none" stroke-width="1.6"><path stroke="#c79a3a" opacity=".8" d="M16 13l11-8 11 8-11 8zM94 13l11-8 11 8-11 8z"/><path stroke="#e8c268" stroke-width="2" d="M50 13 66 3l16 10-16 10z"/></g><path d="M60 13l6-4 6 4-6 4z" fill="#ca7281"/><circle cx="6" cy="13" r="2" fill="#8a6a1f"/><circle cx="126" cy="13" r="2" fill="#8a6a1f"/></svg></div>
   <section class="cat reveal" id="cat-2" style="--sa:#ca7281;--sa2:#8ab9bc">
     <div class="cat-head">
       <div class="cat-art">
@@ -319,7 +419,7 @@
         <div class="price"><span class="pdot"></span>35<span class="sar"> ﷼</span></div>
       </div>
     </div>
-  </section><div class="sep sep-neon" aria-hidden="true"></div>
+  </section><div class="sep-scene" aria-hidden="true"><svg viewBox="0 0 132 26" width="132" height="26"><g fill="none" stroke-width="1.6"><path stroke="#c79a3a" opacity=".8" d="M16 13l11-8 11 8-11 8zM94 13l11-8 11 8-11 8z"/><path stroke="#e8c268" stroke-width="2" d="M50 13 66 3l16 10-16 10z"/></g><path d="M60 13l6-4 6 4-6 4z" fill="#ca7281"/><circle cx="6" cy="13" r="2" fill="#8a6a1f"/><circle cx="126" cy="13" r="2" fill="#8a6a1f"/></svg></div>
   <section class="cat reveal" id="cat-3" style="--sa:#8ab9bc;--sa2:#ca9353">
     <div class="cat-head">
       <div class="cat-art">
@@ -370,7 +470,7 @@
   // word-by-word hero entrance (word-level keeps Arabic letter joining intact)
   if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
     document.querySelectorAll('h1 .ar, h1 .en').forEach(el=>{
-      const words=el.textContent.trim().split(/s+/);
+      const words=el.textContent.trim().split(/\s+/);
       el.innerHTML=words.map((w,i)=>'<span class="w" style="animation-delay:'+(0.35+i*0.12)+'s">'+w+'</span>').join(' ');
     });
     setTimeout(()=>{

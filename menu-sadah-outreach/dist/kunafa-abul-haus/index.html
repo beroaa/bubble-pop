@@ -178,6 +178,98 @@
   .hero .orb{animation:lantern 6s ease-in-out infinite}
   @keyframes lantern{50%{opacity:.75;transform:translateX(-50%) scale(1.06)}}
 
+  /* ---- immersive scene pack: majlis-heritage ---- */
+  
+/* ===== majlis-heritage scene: vivid evening-majlis body wash ===== */
+body{
+  background-color:#160e13;
+  background-image:
+    radial-gradient(1150px 720px at 50% -12%, rgba(199,154,58,0.2), transparent 62%),
+    radial-gradient(880px 620px at 8% 18%, rgba(203,114,170,0.3), transparent 60%),
+    radial-gradient(900px 640px at 94% 30%, rgba(225,153,179,0.18), transparent 62%),
+    radial-gradient(1500px 940px at 50% 116%, rgba(119,49,94,0.6), transparent 74%),
+    conic-gradient(from 140deg at 50% 4%, rgba(138,106,31,0.14), transparent 26%, rgba(203,114,170,0.09) 48%, transparent 68%, rgba(199,154,58,0.1));
+  background-attachment:fixed;
+}
+
+/* ===== big fixed scene canvas (SVG lives in heroHtml) ===== */
+.scenebg{
+  position:fixed; inset:0; width:100%; height:100%;
+  z-index:0; pointer-events:none; display:block; opacity:.94;
+}
+.hero{ position:relative; isolation:isolate; }
+.hero > *{ position:relative; z-index:1; }
+.hero .scenebg{ z-index:0; }
+.hero::before{
+  content:""; position:absolute; inset:-6% -4% auto -4%; height:66%;
+  background:radial-gradient(56% 78% at 50% 6%, rgba(232,194,104,0.14), transparent 70%);
+  pointer-events:none; z-index:0;
+}
+.hero::after{
+  content:""; position:absolute; inset:auto 0 0 0; height:34%;
+  background:linear-gradient(0deg, rgba(119,49,94,0.34), transparent);
+  pointer-events:none; z-index:0;
+}
+
+/* ===== lantern-gold foil headline (static base = reduced-motion fallback) ===== */
+.room-h2 b, .heroline{
+  background-image:linear-gradient(96deg,
+    #8a6a1f 0%, #c79a3a 20%, #e8c268 37%, #fff4cf 50%,
+    #e8c268 63%, #c79a3a 80%, #8a6a1f 100%);
+  background-size:230% 100%; background-position:0% 0%;
+  -webkit-background-clip:text; background-clip:text;
+  color:transparent; -webkit-text-fill-color:transparent;
+  text-shadow:none;
+}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){
+  .room-h2 b, .heroline{
+    background-image:none; color:#e8c268; -webkit-text-fill-color:#e8c268;
+  }
+}
+
+/* ===== sadu weave accent band: stripes + 45deg diamond lattice ===== */
+.gold-band{
+  height:16px; width:100%;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(119,49,94,0.55) 0 6px, transparent 6px 12px),
+    repeating-linear-gradient(-45deg, rgba(119,49,94,0.55) 0 6px, transparent 6px 12px),
+    repeating-linear-gradient(90deg,
+      rgba(199,154,58,0.95) 0 10px, #77315e 10px 12px,
+      rgba(205,121,129,0.9) 12px 16px, #77315e 16px 18px,
+      rgba(232,194,104,0.9) 18px 24px, #77315e 24px 26px,
+      rgba(138,106,31,0.95) 26px 34px, #77315e 34px 36px);
+  border-top:1px solid rgba(232,194,104,0.6);
+  border-bottom:1px solid rgba(138,106,31,0.75);
+  box-shadow:0 0 24px rgba(199,154,58,0.28);
+}
+
+/* ===== section separator ===== */
+.sep-scene{ display:block; max-width:720px; margin:44px auto; padding:0 18px; }
+.sep-scene svg{ display:block; width:100%; height:auto; overflow:visible; }
+
+/* ===== motion: gated + explicit reduce override ===== */
+@media (prefers-reduced-motion: no-preference){
+  .mh-glow{ animation:mhBreathe 8s ease-in-out infinite alternate; }
+  .mh-lan{ transform-box:fill-box; transform-origin:50% 0%; animation:mhSway 7s ease-in-out infinite alternate; }
+  .mh-lan2{ animation-duration:9s; animation-delay:1.2s; }
+  .mh-lan3{ animation-duration:8s; animation-delay:2.3s; }
+  .mh-flame{ animation:mhFlicker 3.8s ease-in-out infinite; }
+  .mh-star{ animation:mhTwinkle 5s ease-in-out infinite; }
+  .mh-star2{ animation-delay:1.6s; }
+  .mh-star3{ animation-delay:3.1s; }
+  .room-h2 b, .heroline{ animation:mhFoil 8s linear infinite; }
+  @keyframes mhBreathe{ from{opacity:.72} to{opacity:1} }
+  @keyframes mhSway{ from{transform:rotate(-2.2deg)} to{transform:rotate(2.2deg)} }
+  @keyframes mhFlicker{ 0%,100%{opacity:.55} 42%{opacity:1} 58%{opacity:.8} }
+  @keyframes mhTwinkle{ 0%,100%{opacity:.25} 50%{opacity:.95} }
+  @keyframes mhFoil{ from{background-position:0% 0%} to{background-position:230% 0%} }
+}
+@media (prefers-reduced-motion: reduce){
+  .scenebg, .scenebg *{ animation:none !important; }
+  .room-h2 b, .heroline{ animation:none !important; background-position:0% 0%; }
+}
+
+
   @media (prefers-reduced-motion: reduce){
     *{animation:none!important;transition:none!important}
     .reveal,.reveal.in .item,.heroline,.world,.meta,.greet,h1 .w{opacity:1!important;transform:none!important}
@@ -193,6 +285,67 @@
   <header class="hero">
     <div class="orb"></div>
     <span class="mote" style="left:14%;top:10%;font-size:11px;animation-delay:0s">〜</span><span class="mote" style="left:78%;top:16%;font-size:10px;animation-delay:0.7s">〜</span><span class="mote" style="left:8%;top:46%;font-size:9px;animation-delay:1.4s">〜</span><span class="mote" style="left:86%;top:52%;font-size:12px;animation-delay:2.0999999999999996s">〜</span><span class="mote" style="left:24%;top:74%;font-size:10px;animation-delay:2.8s">〜</span><span class="mote" style="left:68%;top:80%;font-size:9px;animation-delay:3.5s">〜</span><span class="mote" style="left:46%;top:8%;font-size:12px;animation-delay:0.1999999999999993s">〜</span><span class="mote" style="left:90%;top:30%;font-size:14px;animation-delay:0.8999999999999995s">〜</span>
+    <svg class="scenebg" viewBox="0 0 1440 810" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false" role="presentation">
+<defs>
+<radialGradient id="mhSky" cx="50%" cy="24%" r="66%">
+<stop offset="0" stop-color="rgba(232,194,104,0.2)"/>
+<stop offset=".4" stop-color="rgba(203,114,170,0.1)"/>
+<stop offset=".75" stop-color="rgba(0,0,0,0)"/>
+</radialGradient>
+<linearGradient id="mhGold" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#e8c268"/>
+<stop offset=".5" stop-color="#c79a3a"/>
+<stop offset="1" stop-color="#8a6a1f"/>
+</linearGradient>
+<linearGradient id="mhNiche" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="rgba(232,194,104,0.5)"/>
+<stop offset=".55" stop-color="rgba(199,154,58,0.24)"/>
+<stop offset="1" stop-color="rgba(119,49,94,0.1)"/>
+</linearGradient>
+<radialGradient id="mhHalo" cx="50%" cy="50%" r="50%">
+<stop offset="0" stop-color="rgba(232,194,104,0.34)"/>
+<stop offset=".55" stop-color="rgba(199,154,58,0.12)"/>
+<stop offset="1" stop-color="rgba(0,0,0,0)"/>
+</radialGradient>
+<pattern id="mhSadu" width="24" height="24" patternUnits="userSpaceOnUse">
+<rect width="24" height="24" fill="rgba(119,49,94,0.72)"/>
+<path d="M12 3 21 12 12 21 3 12Z" fill="rgba(199,154,58,0.88)"/>
+<path d="M12 8 16 12 12 16 8 12Z" fill="#cd7981"/>
+</pattern>
+<pattern id="mhCrest" width="48" height="26" patternUnits="userSpaceOnUse">
+<path d="M0 26 24 2 48 26Z" fill="rgba(119,49,94,0.85)"/>
+</pattern>
+<path id="mhArch" d="M-36 150 L-36 44 Q-36 -4 0 -28 Q36 -4 36 44 L36 150 Z"/>
+<g id="mhLan">
+<rect x="-1" y="-420" width="2" height="416" fill="rgba(199,154,58,0.55)"/>
+<circle cx="0" cy="0" r="4" fill="none" stroke="#c79a3a" stroke-width="2"/>
+<path d="M-12 12 L12 12 L7 4 L-7 4 Z" fill="url(#mhGold)"/>
+<path d="M-15 14 L15 14 L10 50 L0 58 L-10 50 Z" fill="rgba(119,49,94,0.8)" stroke="#c79a3a" stroke-width="1.6"/>
+<path class="mh-flame" d="M-8 18 L8 18 L5 46 L-5 46 Z" fill="rgba(232,194,104,0.85)"/>
+<circle cx="0" cy="62" r="3" fill="#8a6a1f"/>
+</g>
+</defs>
+<rect class="mh-glow" width="1440" height="810" fill="url(#mhSky)"/>
+<path d="M1074 96 A58 58 0 1 0 1130 168 A46 46 0 1 1 1074 96 Z" fill="url(#mhGold)" opacity=".5"/>
+<g>
+<path class="mh-star" transform="translate(268,150) scale(.95)" fill="#e8c268" d="M0 -9 2 -2 9 0 2 2 0 9 -2 2 -9 0 -2 -2Z"/>
+<path class="mh-star mh-star2" transform="translate(672,92) scale(.6)" fill="#aa79c3" d="M0 -9 2 -2 9 0 2 2 0 9 -2 2 -9 0 -2 -2Z"/>
+<path class="mh-star mh-star3" transform="translate(1256,236) scale(.75)" fill="#95b691" d="M0 -9 2 -2 9 0 2 2 0 9 -2 2 -9 0 -2 -2Z"/>
+</g>
+<g class="mh-lan" transform="translate(300,168)"><circle r="76" fill="url(#mhHalo)"/><use href="#mhLan"/></g>
+<g class="mh-lan mh-lan2" transform="translate(1148,224)"><circle r="88" fill="url(#mhHalo)"/><use href="#mhLan"/></g>
+<g class="mh-lan mh-lan3" transform="translate(958,120) scale(.78)"><circle r="70" fill="url(#mhHalo)"/><use href="#mhLan"/></g>
+<rect x="0" y="556" width="1440" height="26" fill="url(#mhCrest)"/>
+<rect x="0" y="580" width="1440" height="230" fill="rgba(119,49,94,0.82)"/>
+<rect x="0" y="580" width="1440" height="3" fill="rgba(199,154,58,0.5)"/>
+<g fill="url(#mhNiche)" stroke="rgba(199,154,58,0.45)" stroke-width="2">
+<use href="#mhArch" x="140" y="646"/><use href="#mhArch" x="430" y="646"/>
+<use href="#mhArch" x="720" y="632"/>
+<use href="#mhArch" x="1010" y="646"/><use href="#mhArch" x="1300" y="646"/>
+</g>
+<rect x="0" y="782" width="1440" height="28" fill="url(#mhSadu)" opacity=".92"/>
+<rect x="0" y="779" width="1440" height="2" fill="rgba(232,194,104,0.55)"/>
+</svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
     <div class="medal"><span><span class="ar">ك</span><span class="en">K</span></span></div>
     <h1><span class="ar">كنافة أبو الهوس</span><span class="en">Kunafa Abul Haus</span></h1>
@@ -251,7 +404,32 @@
         <div class="price"><span class="pdot"></span>24<span class="sar"> ﷼</span></div>
       </div>
     </div>
-  </section><div class="sep sep-sadu" aria-hidden="true"></div>
+  </section><div class="sep-scene" aria-hidden="true"><svg viewBox="0 0 720 44" focusable="false" role="presentation">
+<defs>
+<linearGradient id="mhSepL" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="rgba(0,0,0,0)"/>
+<stop offset=".22" stop-color="rgba(138,106,31,0.9)"/>
+<stop offset=".5" stop-color="#e8c268"/>
+<stop offset=".78" stop-color="rgba(138,106,31,0.9)"/>
+<stop offset="1" stop-color="rgba(0,0,0,0)"/>
+</linearGradient>
+<linearGradient id="mhSepG" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#e8c268"/>
+<stop offset="1" stop-color="#8a6a1f"/>
+</linearGradient>
+</defs>
+<rect x="0" y="21" width="720" height="2" rx="1" fill="url(#mhSepL)"/>
+<g transform="translate(360,22)">
+<path d="M-16 14 L-16 0 Q-16 -12 0 -18 Q16 -12 16 0 L16 14 Z" fill="rgba(119,49,94,0.9)" stroke="url(#mhSepG)" stroke-width="2"/>
+<path d="M-9 14 L-9 2 Q-9 -6 0 -10 Q9 -6 9 2 L9 14 Z" fill="rgba(232,194,104,0.55)"/>
+<path transform="translate(-42,0)" d="M0 -7 7 0 0 7 -7 0Z" fill="#c79a3a"/>
+<path transform="translate(42,0)" d="M0 -7 7 0 0 7 -7 0Z" fill="#c79a3a"/>
+<path transform="translate(-64,0)" d="M0 -4 4 0 0 4 -4 0Z" fill="#aa79c3"/>
+<path transform="translate(64,0)" d="M0 -4 4 0 0 4 -4 0Z" fill="#aa79c3"/>
+<circle cx="-86" cy="0" r="2.5" fill="rgba(149,182,145,0.9)"/>
+<circle cx="86" cy="0" r="2.5" fill="rgba(149,182,145,0.9)"/>
+</g>
+</svg></div>
   <section class="cat reveal" id="cat-1" style="--sa:#cd7981;--sa2:#aa79c3">
     <div class="cat-head">
       <div class="cat-art">
@@ -283,7 +461,32 @@
       </div>
     </div>
   </section>
-  <div class="diary reveal" dir="rtl"><span class="tape" style="background:#cd798133"></span>الكنافة ما تنأكل إلا حامية</div><div class="sep sep-sadu" aria-hidden="true"></div>
+  <div class="diary reveal" dir="rtl"><span class="tape" style="background:#cd798133"></span>الكنافة ما تنأكل إلا حامية</div><div class="sep-scene" aria-hidden="true"><svg viewBox="0 0 720 44" focusable="false" role="presentation">
+<defs>
+<linearGradient id="mhSepL" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="rgba(0,0,0,0)"/>
+<stop offset=".22" stop-color="rgba(138,106,31,0.9)"/>
+<stop offset=".5" stop-color="#e8c268"/>
+<stop offset=".78" stop-color="rgba(138,106,31,0.9)"/>
+<stop offset="1" stop-color="rgba(0,0,0,0)"/>
+</linearGradient>
+<linearGradient id="mhSepG" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#e8c268"/>
+<stop offset="1" stop-color="#8a6a1f"/>
+</linearGradient>
+</defs>
+<rect x="0" y="21" width="720" height="2" rx="1" fill="url(#mhSepL)"/>
+<g transform="translate(360,22)">
+<path d="M-16 14 L-16 0 Q-16 -12 0 -18 Q16 -12 16 0 L16 14 Z" fill="rgba(119,49,94,0.9)" stroke="url(#mhSepG)" stroke-width="2"/>
+<path d="M-9 14 L-9 2 Q-9 -6 0 -10 Q9 -6 9 2 L9 14 Z" fill="rgba(232,194,104,0.55)"/>
+<path transform="translate(-42,0)" d="M0 -7 7 0 0 7 -7 0Z" fill="#c79a3a"/>
+<path transform="translate(42,0)" d="M0 -7 7 0 0 7 -7 0Z" fill="#c79a3a"/>
+<path transform="translate(-64,0)" d="M0 -4 4 0 0 4 -4 0Z" fill="#aa79c3"/>
+<path transform="translate(64,0)" d="M0 -4 4 0 0 4 -4 0Z" fill="#aa79c3"/>
+<circle cx="-86" cy="0" r="2.5" fill="rgba(149,182,145,0.9)"/>
+<circle cx="86" cy="0" r="2.5" fill="rgba(149,182,145,0.9)"/>
+</g>
+</svg></div>
   <section class="cat reveal" id="cat-2" style="--sa:#aa79c3;--sa2:#95b691">
     <div class="cat-head">
       <div class="cat-art">
@@ -319,7 +522,32 @@
         <div class="price"><span class="pdot"></span>20<span class="sar"> ﷼</span></div>
       </div>
     </div>
-  </section><div class="sep sep-sadu" aria-hidden="true"></div>
+  </section><div class="sep-scene" aria-hidden="true"><svg viewBox="0 0 720 44" focusable="false" role="presentation">
+<defs>
+<linearGradient id="mhSepL" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="rgba(0,0,0,0)"/>
+<stop offset=".22" stop-color="rgba(138,106,31,0.9)"/>
+<stop offset=".5" stop-color="#e8c268"/>
+<stop offset=".78" stop-color="rgba(138,106,31,0.9)"/>
+<stop offset="1" stop-color="rgba(0,0,0,0)"/>
+</linearGradient>
+<linearGradient id="mhSepG" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#e8c268"/>
+<stop offset="1" stop-color="#8a6a1f"/>
+</linearGradient>
+</defs>
+<rect x="0" y="21" width="720" height="2" rx="1" fill="url(#mhSepL)"/>
+<g transform="translate(360,22)">
+<path d="M-16 14 L-16 0 Q-16 -12 0 -18 Q16 -12 16 0 L16 14 Z" fill="rgba(119,49,94,0.9)" stroke="url(#mhSepG)" stroke-width="2"/>
+<path d="M-9 14 L-9 2 Q-9 -6 0 -10 Q9 -6 9 2 L9 14 Z" fill="rgba(232,194,104,0.55)"/>
+<path transform="translate(-42,0)" d="M0 -7 7 0 0 7 -7 0Z" fill="#c79a3a"/>
+<path transform="translate(42,0)" d="M0 -7 7 0 0 7 -7 0Z" fill="#c79a3a"/>
+<path transform="translate(-64,0)" d="M0 -4 4 0 0 4 -4 0Z" fill="#aa79c3"/>
+<path transform="translate(64,0)" d="M0 -4 4 0 0 4 -4 0Z" fill="#aa79c3"/>
+<circle cx="-86" cy="0" r="2.5" fill="rgba(149,182,145,0.9)"/>
+<circle cx="86" cy="0" r="2.5" fill="rgba(149,182,145,0.9)"/>
+</g>
+</svg></div>
   <section class="cat reveal" id="cat-3" style="--sa:#95b691;--sa2:#cb72aa">
     <div class="cat-head">
       <div class="cat-art">
@@ -375,7 +603,7 @@
   // word-by-word hero entrance (word-level keeps Arabic letter joining intact)
   if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
     document.querySelectorAll('h1 .ar, h1 .en').forEach(el=>{
-      const words=el.textContent.trim().split(/s+/);
+      const words=el.textContent.trim().split(/\s+/);
       el.innerHTML=words.map((w,i)=>'<span class="w" style="animation-delay:'+(0.35+i*0.12)+'s">'+w+'</span>').join(' ');
     });
     setTimeout(()=>{

@@ -118,6 +118,97 @@
     .mote{font-size:22px!important}
   }
   @media(max-width:520px){.agrid{grid-template-columns:1fr}}
+  /* ---- immersive scene pack: majlis-heritage ---- */
+  
+/* ===== majlis-heritage scene: vivid evening-majlis body wash ===== */
+body{
+  background-color:#fcf8fa;
+  background-image:
+    radial-gradient(1150px 720px at 50% -12%, rgba(199,154,58,0.2), transparent 62%),
+    radial-gradient(880px 620px at 8% 18%, rgba(143,40,106,0.3), transparent 60%),
+    radial-gradient(900px 640px at 94% 30%, rgba(194,71,116,0.18), transparent 62%),
+    radial-gradient(1500px 940px at 50% 116%, rgba(89,33,69,0.6), transparent 74%),
+    conic-gradient(from 140deg at 50% 4%, rgba(138,106,31,0.14), transparent 26%, rgba(143,40,106,0.09) 48%, transparent 68%, rgba(199,154,58,0.1));
+  background-attachment:fixed;
+}
+
+/* ===== big fixed scene canvas (SVG lives in heroHtml) ===== */
+.scenebg{
+  position:fixed; inset:0; width:100%; height:100%;
+  z-index:0; pointer-events:none; display:block; opacity:.94;
+}
+.hero{ position:relative; isolation:isolate; }
+.hero > *{ position:relative; z-index:1; }
+.hero .scenebg{ z-index:0; }
+.hero::before{
+  content:""; position:absolute; inset:-6% -4% auto -4%; height:66%;
+  background:radial-gradient(56% 78% at 50% 6%, rgba(232,194,104,0.14), transparent 70%);
+  pointer-events:none; z-index:0;
+}
+.hero::after{
+  content:""; position:absolute; inset:auto 0 0 0; height:34%;
+  background:linear-gradient(0deg, rgba(89,33,69,0.34), transparent);
+  pointer-events:none; z-index:0;
+}
+
+/* ===== lantern-gold foil headline (static base = reduced-motion fallback) ===== */
+.room-h2 b, .heroline{
+  background-image:linear-gradient(96deg,
+    #8a6a1f 0%, #c79a3a 20%, #e8c268 37%, #fff4cf 50%,
+    #e8c268 63%, #c79a3a 80%, #8a6a1f 100%);
+  background-size:230% 100%; background-position:0% 0%;
+  -webkit-background-clip:text; background-clip:text;
+  color:transparent; -webkit-text-fill-color:transparent;
+  text-shadow:none;
+}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){
+  .room-h2 b, .heroline{
+    background-image:none; color:#e8c268; -webkit-text-fill-color:#e8c268;
+  }
+}
+
+/* ===== sadu weave accent band: stripes + 45deg diamond lattice ===== */
+.gold-band{
+  height:16px; width:100%;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(89,33,69,0.55) 0 6px, transparent 6px 12px),
+    repeating-linear-gradient(-45deg, rgba(89,33,69,0.55) 0 6px, transparent 6px 12px),
+    repeating-linear-gradient(90deg,
+      rgba(199,154,58,0.95) 0 10px, #592145 10px 12px,
+      rgba(141,52,61,0.9) 12px 16px, #592145 16px 18px,
+      rgba(232,194,104,0.9) 18px 24px, #592145 24px 26px,
+      rgba(138,106,31,0.95) 26px 34px, #592145 34px 36px);
+  border-top:1px solid rgba(232,194,104,0.6);
+  border-bottom:1px solid rgba(138,106,31,0.75);
+  box-shadow:0 0 24px rgba(199,154,58,0.28);
+}
+
+/* ===== section separator ===== */
+.sep-scene{ display:block; max-width:720px; margin:44px auto; padding:0 18px; }
+.sep-scene svg{ display:block; width:100%; height:auto; overflow:visible; }
+
+/* ===== motion: gated + explicit reduce override ===== */
+@media (prefers-reduced-motion: no-preference){
+  .mh-glow{ animation:mhBreathe 8s ease-in-out infinite alternate; }
+  .mh-lan{ transform-box:fill-box; transform-origin:50% 0%; animation:mhSway 7s ease-in-out infinite alternate; }
+  .mh-lan2{ animation-duration:9s; animation-delay:1.2s; }
+  .mh-lan3{ animation-duration:8s; animation-delay:2.3s; }
+  .mh-flame{ animation:mhFlicker 3.8s ease-in-out infinite; }
+  .mh-star{ animation:mhTwinkle 5s ease-in-out infinite; }
+  .mh-star2{ animation-delay:1.6s; }
+  .mh-star3{ animation-delay:3.1s; }
+  .room-h2 b, .heroline{ animation:mhFoil 8s linear infinite; }
+  @keyframes mhBreathe{ from{opacity:.72} to{opacity:1} }
+  @keyframes mhSway{ from{transform:rotate(-2.2deg)} to{transform:rotate(2.2deg)} }
+  @keyframes mhFlicker{ 0%,100%{opacity:.55} 42%{opacity:1} 58%{opacity:.8} }
+  @keyframes mhTwinkle{ 0%,100%{opacity:.25} 50%{opacity:.95} }
+  @keyframes mhFoil{ from{background-position:0% 0%} to{background-position:230% 0%} }
+}
+@media (prefers-reduced-motion: reduce){
+  .scenebg, .scenebg *{ animation:none !important; }
+  .room-h2 b, .heroline{ animation:none !important; background-position:0% 0%; }
+}
+
   @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}
     .medal,h1,.world,.heroline,.cta,.rv{opacity:1!important;transform:none!important}}
 </style>
@@ -131,6 +222,67 @@
 </header>
 <div class="wrap">
   <section class="hero">
+    <svg class="scenebg" viewBox="0 0 1440 810" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false" role="presentation">
+<defs>
+<radialGradient id="mhSky" cx="50%" cy="24%" r="66%">
+<stop offset="0" stop-color="rgba(232,194,104,0.2)"/>
+<stop offset=".4" stop-color="rgba(143,40,106,0.1)"/>
+<stop offset=".75" stop-color="rgba(0,0,0,0)"/>
+</radialGradient>
+<linearGradient id="mhGold" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#e8c268"/>
+<stop offset=".5" stop-color="#c79a3a"/>
+<stop offset="1" stop-color="#8a6a1f"/>
+</linearGradient>
+<linearGradient id="mhNiche" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="rgba(232,194,104,0.5)"/>
+<stop offset=".55" stop-color="rgba(199,154,58,0.24)"/>
+<stop offset="1" stop-color="rgba(89,33,69,0.1)"/>
+</linearGradient>
+<radialGradient id="mhHalo" cx="50%" cy="50%" r="50%">
+<stop offset="0" stop-color="rgba(232,194,104,0.34)"/>
+<stop offset=".55" stop-color="rgba(199,154,58,0.12)"/>
+<stop offset="1" stop-color="rgba(0,0,0,0)"/>
+</radialGradient>
+<pattern id="mhSadu" width="24" height="24" patternUnits="userSpaceOnUse">
+<rect width="24" height="24" fill="rgba(89,33,69,0.72)"/>
+<path d="M12 3 21 12 12 21 3 12Z" fill="rgba(199,154,58,0.88)"/>
+<path d="M12 8 16 12 12 16 8 12Z" fill="#8d343d"/>
+</pattern>
+<pattern id="mhCrest" width="48" height="26" patternUnits="userSpaceOnUse">
+<path d="M0 26 24 2 48 26Z" fill="rgba(89,33,69,0.85)"/>
+</pattern>
+<path id="mhArch" d="M-36 150 L-36 44 Q-36 -4 0 -28 Q36 -4 36 44 L36 150 Z"/>
+<g id="mhLan">
+<rect x="-1" y="-420" width="2" height="416" fill="rgba(199,154,58,0.55)"/>
+<circle cx="0" cy="0" r="4" fill="none" stroke="#c79a3a" stroke-width="2"/>
+<path d="M-12 12 L12 12 L7 4 L-7 4 Z" fill="url(#mhGold)"/>
+<path d="M-15 14 L15 14 L10 50 L0 58 L-10 50 Z" fill="rgba(89,33,69,0.8)" stroke="#c79a3a" stroke-width="1.6"/>
+<path class="mh-flame" d="M-8 18 L8 18 L5 46 L-5 46 Z" fill="rgba(232,194,104,0.85)"/>
+<circle cx="0" cy="62" r="3" fill="#8a6a1f"/>
+</g>
+</defs>
+<rect class="mh-glow" width="1440" height="810" fill="url(#mhSky)"/>
+<path d="M1074 96 A58 58 0 1 0 1130 168 A46 46 0 1 1 1074 96 Z" fill="url(#mhGold)" opacity=".5"/>
+<g>
+<path class="mh-star" transform="translate(268,150) scale(.95)" fill="#e8c268" d="M0 -9 2 -2 9 0 2 2 0 9 -2 2 -9 0 -2 -2Z"/>
+<path class="mh-star mh-star2" transform="translate(672,92) scale(.6)" fill="#733f8d" d="M0 -9 2 -2 9 0 2 2 0 9 -2 2 -9 0 -2 -2Z"/>
+<path class="mh-star mh-star3" transform="translate(1256,236) scale(.75)" fill="#51744e" d="M0 -9 2 -2 9 0 2 2 0 9 -2 2 -9 0 -2 -2Z"/>
+</g>
+<g class="mh-lan" transform="translate(300,168)"><circle r="76" fill="url(#mhHalo)"/><use href="#mhLan"/></g>
+<g class="mh-lan mh-lan2" transform="translate(1148,224)"><circle r="88" fill="url(#mhHalo)"/><use href="#mhLan"/></g>
+<g class="mh-lan mh-lan3" transform="translate(958,120) scale(.78)"><circle r="70" fill="url(#mhHalo)"/><use href="#mhLan"/></g>
+<rect x="0" y="556" width="1440" height="26" fill="url(#mhCrest)"/>
+<rect x="0" y="580" width="1440" height="230" fill="rgba(89,33,69,0.82)"/>
+<rect x="0" y="580" width="1440" height="3" fill="rgba(199,154,58,0.5)"/>
+<g fill="url(#mhNiche)" stroke="rgba(199,154,58,0.45)" stroke-width="2">
+<use href="#mhArch" x="140" y="646"/><use href="#mhArch" x="430" y="646"/>
+<use href="#mhArch" x="720" y="632"/>
+<use href="#mhArch" x="1010" y="646"/><use href="#mhArch" x="1300" y="646"/>
+</g>
+<rect x="0" y="782" width="1440" height="28" fill="url(#mhSadu)" opacity=".92"/>
+<rect x="0" y="779" width="1440" height="2" fill="rgba(232,194,104,0.55)"/>
+</svg>
     <span class="mote" style="left:14%;top:10%;font-size:11px;animation-delay:0s">〜</span><span class="mote" style="left:78%;top:16%;font-size:10px;animation-delay:0.7s">〜</span><span class="mote" style="left:8%;top:46%;font-size:9px;animation-delay:1.4s">〜</span><span class="mote" style="left:86%;top:52%;font-size:12px;animation-delay:2.0999999999999996s">〜</span><span class="mote" style="left:24%;top:74%;font-size:10px;animation-delay:2.8s">〜</span><span class="mote" style="left:68%;top:80%;font-size:9px;animation-delay:3.5s">〜</span><span class="mote" style="left:46%;top:8%;font-size:12px;animation-delay:0.1999999999999993s">〜</span><span class="mote" style="left:90%;top:30%;font-size:14px;animation-delay:0.8999999999999995s">〜</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
     <div class="medal"><span><span class="ar">ك</span><span class="en">K</span></span></div>
@@ -168,15 +320,15 @@
     <div class="sub"><span class="ar">كل تفصيلة في المنيو جاية منكم</span><span class="en">Every detail in the menu comes from you</span></div>
     
     <div class="st rv">
-      <div class="ph"><span class="big-init">K</span><img src="../assets/photos/espresso.jpg" alt="" onerror="this.remove()" loading="lazy"><span class="tag"><span class="ar">تفصيلة 01</span><span class="en">Detail 01</span></span></div>
+      <div class="ph"><span class="big-init">K</span><span class="tag"><span class="ar">تفصيلة 01</span><span class="en">Detail 01</span></span></div>
       <div class="bd"><b><span class="ar">منيو مبني غرفة غرفة، <i>مو قائمة وبس.</i></span><span class="en">A menu built room by room, <i>not just a list.</i></span></b><p><span class="ar">كل قسم غرفة من عالمكم، بعنوان يحكي قصتكم.</span><span class="en">Every section is a room of your world, titled with your story.</span></p></div>
     </div>
     <div class="st rv">
-      <div class="ph"><span class="big-init">K</span><img src="../assets/photos/latte.jpg" alt="" onerror="this.remove()" loading="lazy"><span class="tag"><span class="ar">تفصيلة 02</span><span class="en">Detail 02</span></span></div>
+      <div class="ph"><span class="big-init">K</span><span class="tag"><span class="ar">تفصيلة 02</span><span class="en">Detail 02</span></span></div>
       <div class="bd"><b><span class="ar">عالمكم: <i>«صينية كنافة على نار هادية»</i></span><span class="en">Your world: <i>"a kunafa tray fresh off the fire"</i></span></b><p><span class="ar">غرف المنيو: «الهوس يبدأ من هنا»، «حاميها أطيب.. لا تنطر»، «قهوة تعدل مزاج الحلا» — والبقية داخل.</span><span class="en">The rooms: "where the obsession begins", "best eaten before it cools", "the bitter that balances sweet" — the rest is inside.</span></p></div>
     </div>
     <div class="st rv">
-      <div class="ph"><span class="big-init">K</span><img src="../assets/photos/dessert.jpg" alt="" onerror="this.remove()" loading="lazy"><span class="tag"><span class="ar">تفصيلة 03</span><span class="en">Detail 03</span></span></div>
+      <div class="ph"><span class="big-init">K</span><span class="tag"><span class="ar">تفصيلة 03</span><span class="en">Detail 03</span></span></div>
       <div class="bd"><b><span class="ar">الصفحة تعيش، <i>من الصبح لليل.</i></span><span class="en">The page is alive, <i>from morning to night.</i></span></b><p><span class="ar">ألوانها بألوانكم، وتغمق مع الليل وأنتم تقلبون فيها — عربي وإنجليزي بضغطة.</span><span class="en">It wears your colors and darkens into night as guests scroll — Arabic and English in one tap.</span></p></div>
     </div>
     <div style="text-align:center;margin-top:22px"><a class="cta gold" href="../kunafa-abul-haus/"><span class="ar">شوفوا منيوكم حيّاً ←</span><span class="en">See your menu live →</span></a></div>
@@ -193,6 +345,7 @@
       <span class="chip2"><span class="ar">ضغطة وحدة، بلا تطبيق</span><span class="en">One tap, no app</span></span>
       <span class="chip2"><span class="ar">متوافق مع هيئة الغذاء والدواء</span><span class="en">SFDA-ready</span></span>
       <span class="chip2"><span class="ar">تعديلات بلا حدود</span><span class="en">Unlimited edits</span></span>
+      <span class="chip2"><span class="ar">جاهز لعصر السعودية الرقمي</span><span class="en">Built for Saudi's digital era</span></span>
     </div>
   </div>
 

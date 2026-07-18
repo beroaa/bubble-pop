@@ -118,6 +118,64 @@
     .mote{font-size:22px!important}
   }
   @media(max-width:520px){.agrid{grid-template-columns:1fr}}
+  /* ---- immersive scene pack: ticket-diner ---- */
+  
+/* ===== ticket-diner scene (Saudi premium) ===== */
+body{
+  background-color:#fcfaf8;
+  background-image:
+    radial-gradient(1100px 640px at 84% -12%, color-mix(in srgb, #936725 26%, transparent), transparent 62%),
+    radial-gradient(840px 540px at -8% 32%, color-mix(in srgb, #c79a3a 18%, transparent), transparent 58%),
+    radial-gradient(920px 720px at 50% 118%, color-mix(in srgb, #5c431f 52%, transparent), transparent 72%),
+    conic-gradient(from 210deg at 50% 132%, #fcfaf8, color-mix(in srgb, #5c431f 38%, #fcfaf8), color-mix(in srgb, #936725 12%, #fcfaf8), #fcfaf8);
+  background-attachment:fixed;
+}
+/* big fixed scene canvas (SVG supplied by heroHtml) */
+.scenebg{
+  position:fixed;inset:0;width:100%;height:100%;
+  z-index:-1;pointer-events:none;display:block;
+  opacity:.44;
+}
+/* gold-foil text treatment — static gold fallback first, foil where supported */
+.room-h2 b,.heroline{color:#e8c268;}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .room-h2 b,.heroline{
+    background-image:linear-gradient(105deg, #8a6a1f 0%, #c79a3a 24%, #e8c268 42%, #fff3cf 50%, #e8c268 58%, #c79a3a 76%, #8a6a1f 100%);
+    background-size:240% 100%;background-position:50% 0;
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;color:transparent;
+  }
+}
+/* sadu-inspired accent band (pure CSS diamond weave) */
+.gold-band{
+  height:16px;border-top:1px solid #8a6a1f;border-bottom:1px solid #8a6a1f;
+  background-color:#5c431f;
+  background-image:
+    repeating-linear-gradient(45deg, #c79a3a 0 25%, transparent 0 50%),
+    repeating-linear-gradient(-45deg, color-mix(in srgb, #849130 70%, #c79a3a) 0 25%, transparent 0 50%);
+  background-size:18px 18px;
+  box-shadow:0 1px 0 color-mix(in srgb, #e8c268 45%, transparent), 0 -1px 0 color-mix(in srgb, #e8c268 45%, transparent);
+}
+/* section separator */
+.sep-scene{display:flex;justify-content:center;align-items:center;padding:20px 0;}
+.sep-scene svg{width:min(440px,78vw);height:auto;display:block;opacity:.92;}
+/* motion — only when the visitor allows it */
+@media (prefers-reduced-motion:no-preference){
+  .room-h2 b,.heroline{animation:td-foil 8s linear infinite;}
+  .scenebg .td-sway{animation:td-sway 12s ease-in-out infinite;transform-box:fill-box;transform-origin:center;}
+  .scenebg .td-stampp{animation:td-stamp 9s ease-in-out infinite;transform-box:fill-box;transform-origin:center;}
+  .scenebg .td-steam{animation:td-steam 5.5s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%;}
+  .scenebg .td-tw{animation:td-tw 4s ease-in-out infinite;transform-box:fill-box;transform-origin:center;}
+  @keyframes td-foil{0%{background-position:120% 0}100%{background-position:-120% 0}}
+  @keyframes td-sway{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-9px) rotate(.6deg)}}
+  @keyframes td-stamp{0%,100%{transform:rotate(0deg) scale(1)}50%{transform:rotate(2.2deg) scale(1.035)}}
+  @keyframes td-steam{0%{transform:translateY(5px);opacity:0}30%{opacity:.75}100%{transform:translateY(-15px);opacity:0}}
+  @keyframes td-tw{0%,100%{opacity:.25;transform:scale(.85)}50%{opacity:.95;transform:scale(1.12)}}
+}
+@media (prefers-reduced-motion:reduce){
+  .scenebg g,.scenebg path,.scenebg circle,.room-h2 b,.heroline{animation:none !important;}
+}
+
   @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}
     .medal,h1,.world,.heroline,.cta,.rv{opacity:1!important;transform:none!important}}
 </style>
@@ -131,6 +189,55 @@
 </header>
 <div class="wrap">
   <section class="hero">
+    
+<svg class="scenebg" viewBox="0 0 1200 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<defs>
+<linearGradient id="tdG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8c268"/><stop offset=".5" stop-color="#c79a3a"/><stop offset="1" stop-color="#8a6a1f"/></linearGradient>
+<linearGradient id="tdK" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#efebe6"/><stop offset="1" stop-color="#f8f5f2"/></linearGradient>
+<radialGradient id="tdR" cx=".5" cy=".32" r=".8"><stop offset="0" stop-color="#936725" stop-opacity=".5"/><stop offset="1" stop-color="#5c431f" stop-opacity="0"/></radialGradient>
+<pattern id="tdS" width="26" height="26" patternUnits="userSpaceOnUse"><rect width="26" height="26" fill="#5c431f"/><polygon points="13,3 23,13 13,23 3,13" fill="#c79a3a" opacity=".6"/><polygon points="13,8 18,13 13,18 8,13" fill="#913b44" opacity=".8"/></pattern>
+</defs>
+<rect width="1200" height="640" fill="url(#tdR)" opacity=".65"/>
+<g transform="rotate(-6 600 330)"><g class="td-sway">
+<rect x="330" y="210" width="540" height="240" rx="18" fill="url(#tdK)" stroke="#cec0ab" stroke-width="2"/>
+<rect x="330" y="210" width="540" height="240" rx="18" fill="#c79a3a" opacity=".1"/>
+<circle cx="330" cy="330" r="16" fill="#fcfaf8"/><circle cx="870" cy="330" r="16" fill="#fcfaf8"/>
+<line x1="742" y1="222" x2="742" y2="438" stroke="#cec0ab" stroke-width="3" stroke-dasharray="2 12"/>
+<rect x="354" y="232" width="356" height="16" fill="url(#tdS)"/>
+<rect x="354" y="288" width="300" height="7" rx="3.5" fill="url(#tdG)"/>
+<rect x="354" y="316" width="252" height="5" rx="2.5" fill="#897d6c" opacity=".55"/>
+<rect x="354" y="336" width="212" height="5" rx="2.5" fill="#897d6c" opacity=".4"/>
+<rect x="354" y="386" width="140" height="30" rx="15" fill="none" stroke="#d0aa71" stroke-width="2.5" opacity=".85"/>
+<rect x="366" y="398" width="116" height="6" rx="3" fill="#936725" opacity=".8"/>
+<path d="M792 258 L806 244 L820 258 L806 272 Z" fill="#c79a3a" opacity=".85"/>
+<rect x="770" y="300" width="72" height="5" rx="2.5" fill="#897d6c" opacity=".5"/>
+<rect x="770" y="386" width="72" height="30" rx="6" fill="none" stroke="#8a6a1f" stroke-width="2" stroke-dasharray="5 5" opacity=".8"/>
+</g></g>
+<g transform="rotate(12 952 486)"><g class="td-stampp" opacity=".9">
+<circle cx="952" cy="486" r="58" fill="none" stroke="#d0aa71" stroke-width="3" stroke-dasharray="4 7"/>
+<circle cx="952" cy="486" r="44" fill="none" stroke="#d0aa71" stroke-width="2" opacity=".75"/>
+<g fill="#c79a3a" opacity=".85"><rect x="932" y="466" width="40" height="40"/><rect x="932" y="466" width="40" height="40" transform="rotate(45 952 486)"/></g>
+<circle cx="952" cy="486" r="9" fill="#5c431f"/><circle cx="952" cy="486" r="4.5" fill="#e8c268"/>
+</g></g>
+<g transform="translate(128 268) scale(1.35)" fill="#c79a3a" opacity=".8">
+<circle cx="50" cy="6" r="5"/>
+<path d="M38 34 L50 14 L62 34 L58 46 C78 56 84 92 72 120 L28 120 C16 92 22 56 42 46 Z"/>
+<path d="M24 120 L76 120 L82 136 L18 136 Z"/>
+<path d="M30 62 C12 56 4 40 12 24 L20 22 C14 38 22 50 36 55 Z"/>
+<path d="M70 62 C92 66 92 96 72 104" fill="none" stroke="#c79a3a" stroke-width="6" stroke-linecap="round"/>
+<path class="td-steam" d="M44 -6 C38 -16 50 -24 44 -34" fill="none" stroke="#e8c268" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+<path class="td-steam" d="M58 -10 C52 -20 64 -28 58 -38" fill="none" stroke="#e8c268" stroke-width="3" stroke-linecap="round" opacity=".55" style="animation-delay:1.4s"/>
+</g>
+<g fill="#e8c268">
+<path class="td-tw" d="M210 96 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3 Z"/>
+<path class="td-tw" d="M1050 150 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3 Z" style="animation-delay:.9s" fill="#849130"/>
+<path class="td-tw" d="M620 92 l2.5 7 7 2.5 -7 2.5 -2.5 7 -2.5 -7 -7 -2.5 7 -2.5 Z" style="animation-delay:1.8s"/>
+<path class="td-tw" d="M1104 336 l2.5 7 7 2.5 -7 2.5 -2.5 7 -2.5 -7 -7 -2.5 7 -2.5 Z" style="animation-delay:2.6s" fill="#4a7278"/>
+</g>
+<rect y="602" width="1200" height="24" fill="#5c431f" opacity=".9"/>
+<rect y="606" width="1200" height="16" fill="url(#tdS)" opacity=".85"/>
+</svg>
+
     <span class="mote" style="left:14%;top:10%;font-size:9px;animation-delay:0s">〜</span><span class="mote" style="left:78%;top:16%;font-size:9px;animation-delay:0.7s">〜</span><span class="mote" style="left:8%;top:46%;font-size:9px;animation-delay:1.4s">〜</span><span class="mote" style="left:86%;top:52%;font-size:12px;animation-delay:2.0999999999999996s">〜</span><span class="mote" style="left:24%;top:74%;font-size:10px;animation-delay:2.8s">〜</span><span class="mote" style="left:68%;top:80%;font-size:13px;animation-delay:3.5s">〜</span><span class="mote" style="left:46%;top:8%;font-size:14px;animation-delay:0.1999999999999993s">〜</span><span class="mote" style="left:90%;top:30%;font-size:15px;animation-delay:0.8999999999999995s">〜</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
     <div class="medal"><span><span class="ar">ل</span><span class="en">L</span></span></div>
@@ -168,15 +275,15 @@
     <div class="sub"><span class="ar">كل تفصيلة في المنيو جاية منكم</span><span class="en">Every detail in the menu comes from you</span></div>
     
     <div class="st rv">
-      <div class="ph"><span class="big-init">L</span><img src="../assets/photos/espresso.jpg" alt="" onerror="this.remove()" loading="lazy"><span class="tag"><span class="ar">تفصيلة 01</span><span class="en">Detail 01</span></span></div>
+      <div class="ph"><span class="big-init">L</span><span class="tag"><span class="ar">تفصيلة 01</span><span class="en">Detail 01</span></span></div>
       <div class="bd"><b><span class="ar">منيو مبني غرفة غرفة، <i>مو قائمة وبس.</i></span><span class="en">A menu built room by room, <i>not just a list.</i></span></b><p><span class="ar">كل قسم غرفة من عالمكم، بعنوان يحكي قصتكم.</span><span class="en">Every section is a room of your world, titled with your story.</span></p></div>
     </div>
     <div class="st rv">
-      <div class="ph"><span class="big-init">L</span><img src="../assets/photos/latte.jpg" alt="" onerror="this.remove()" loading="lazy"><span class="tag"><span class="ar">تفصيلة 02</span><span class="en">Detail 02</span></span></div>
+      <div class="ph"><span class="big-init">L</span><span class="tag"><span class="ar">تفصيلة 02</span><span class="en">Detail 02</span></span></div>
       <div class="bd"><b><span class="ar">عالمكم: <i>«المخبز اللي ما ينام، والفرن صاحي طول الليل»</i></span><span class="en">Your world: <i>"the bakehouse that never sleeps"</i></span></b><p><span class="ar">غرف المنيو: «طالعة حارّة من قلب الفرن»، «بين رغيفين حكاية»، «رفيقة الخبز من زمان» — والبقية داخل.</span><span class="en">The rooms: "pulled out while still warm", "a story between two slices", "the bread's oldest companion" — the rest is inside.</span></p></div>
     </div>
     <div class="st rv">
-      <div class="ph"><span class="big-init">L</span><img src="../assets/photos/dessert.jpg" alt="" onerror="this.remove()" loading="lazy"><span class="tag"><span class="ar">تفصيلة 03</span><span class="en">Detail 03</span></span></div>
+      <div class="ph"><span class="big-init">L</span><span class="tag"><span class="ar">تفصيلة 03</span><span class="en">Detail 03</span></span></div>
       <div class="bd"><b><span class="ar">الصفحة تعيش، <i>من الصبح لليل.</i></span><span class="en">The page is alive, <i>from morning to night.</i></span></b><p><span class="ar">ألوانها بألوانكم، وتغمق مع الليل وأنتم تقلبون فيها — عربي وإنجليزي بضغطة.</span><span class="en">It wears your colors and darkens into night as guests scroll — Arabic and English in one tap.</span></p></div>
     </div>
     <div style="text-align:center;margin-top:22px"><a class="cta gold" href="../lyrs-bakery/"><span class="ar">شوفوا منيوكم حيّاً ←</span><span class="en">See your menu live →</span></a></div>
@@ -193,6 +300,7 @@
       <span class="chip2"><span class="ar">ضغطة وحدة، بلا تطبيق</span><span class="en">One tap, no app</span></span>
       <span class="chip2"><span class="ar">متوافق مع هيئة الغذاء والدواء</span><span class="en">SFDA-ready</span></span>
       <span class="chip2"><span class="ar">تعديلات بلا حدود</span><span class="en">Unlimited edits</span></span>
+      <span class="chip2"><span class="ar">جاهز لعصر السعودية الرقمي</span><span class="en">Built for Saudi's digital era</span></span>
     </div>
   </div>
 
