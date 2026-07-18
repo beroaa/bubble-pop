@@ -63,7 +63,7 @@ body{
 `,
 
   heroHtml: `
-<svg class="scenebg" viewBox="0 0 1200 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false" role="presentation">
+<svg class="scenebg" viewBox="0 0 1200 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
 <defs>
 <linearGradient id="tdG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${G.goldBright}"/><stop offset=".5" stop-color="${G.gold}"/><stop offset="1" stop-color="${G.goldDeep}"/></linearGradient>
 <linearGradient id="tdK" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${P.bg2}"/><stop offset="1" stop-color="${P.bg1}"/></linearGradient>
@@ -75,7 +75,7 @@ body{
 <rect x="330" y="210" width="540" height="240" rx="18" fill="url(#tdK)" stroke="${P.border2}" stroke-width="2"/>
 <rect x="330" y="210" width="540" height="240" rx="18" fill="${G.gold}" opacity=".1"/>
 <circle cx="330" cy="330" r="16" fill="${P.bg0}"/><circle cx="870" cy="330" r="16" fill="${P.bg0}"/>
-<line x1="742" y1="222" x2="742" y2="438" stroke="${P.border2}" stroke-width="3" stroke-dasharray="2 12" stroke-linecap="round"/>
+<line x1="742" y1="222" x2="742" y2="438" stroke="${P.border2}" stroke-width="3" stroke-dasharray="2 12"/>
 <rect x="354" y="232" width="356" height="16" fill="url(#tdS)"/>
 <rect x="354" y="288" width="300" height="7" rx="3.5" fill="url(#tdG)"/>
 <rect x="354" y="316" width="252" height="5" rx="2.5" fill="${P.text3}" opacity=".55"/>
@@ -84,7 +84,6 @@ body{
 <rect x="366" y="398" width="116" height="6" rx="3" fill="${R[0]}" opacity=".8"/>
 <path d="M792 258 L806 244 L820 258 L806 272 Z" fill="${G.gold}" opacity=".85"/>
 <rect x="770" y="300" width="72" height="5" rx="2.5" fill="${P.text3}" opacity=".5"/>
-<rect x="770" y="320" width="56" height="5" rx="2.5" fill="${P.text3}" opacity=".38"/>
 <rect x="770" y="386" width="72" height="30" rx="6" fill="none" stroke="${G.goldDeep}" stroke-width="2" stroke-dasharray="5 5" opacity=".8"/>
 </g></g>
 <g transform="rotate(12 952 486)"><g class="td-stampp" opacity=".9">
@@ -107,7 +106,6 @@ body{
 <path class="td-tw" d="M1050 150 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3 Z" style="animation-delay:.9s" fill="${R[1]}"/>
 <path class="td-tw" d="M620 92 l2.5 7 7 2.5 -7 2.5 -2.5 7 -2.5 -7 -7 -2.5 7 -2.5 Z" style="animation-delay:1.8s"/>
 <path class="td-tw" d="M1104 336 l2.5 7 7 2.5 -7 2.5 -2.5 7 -2.5 -7 -7 -2.5 7 -2.5 Z" style="animation-delay:2.6s" fill="${R[3]}"/>
-<path class="td-tw" d="M96 520 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3 Z" style="animation-delay:.5s"/>
 </g>
 <rect y="602" width="1200" height="24" fill="${P.deep}" opacity=".9"/>
 <rect y="606" width="1200" height="16" fill="url(#tdS)" opacity=".85"/>
