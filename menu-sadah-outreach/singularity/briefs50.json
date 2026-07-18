@@ -1,0 +1,2017 @@
+{
+ "roof-coffee": {
+  "slug": "roof-coffee",
+  "personality": "rooftop sunrise ritual",
+  "world": {
+   "ar": "سطح البيت وقت شروق الشمس",
+   "en": "the rooftop at first light"
+  },
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "titleAr": "الشمس طلعت والبن جاهز",
+    "titleEn": "Where the morning warms up"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "titleAr": "على مهلك، السما ما تستعجل",
+    "titleEn": "Slow, like clouds crossing"
+   },
+   {
+    "catEn": "Cold Bar",
+    "titleAr": "نسمة باردة فوق السطوح",
+    "titleEn": "A cool breeze up here"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "titleAr": "دلة على ضو الصبح",
+    "titleEn": "The dallah greets the sunrise"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "titleAr": "لقمة حلوة والمنظر أحلى",
+    "titleEn": "Something sweet for the view"
+   }
+  ],
+  "heroAr": "هنا أقرب للسما بفنجال",
+  "heroEn": "One cup closer to the sky",
+  "archetype": "garden-fresh",
+  "motif": "clouds",
+  "diaryAr": [
+   "الصبح فوق غير عن الصبح تحت",
+   "فنجالي أول، والسوالف بعدين"
+  ]
+ },
+ "razeen-coffee": {
+  "slug": "razeen-coffee",
+  "personality": "composed evening majlis",
+  "world": {
+   "ar": "مجلس رزين يهدّي الخاطر",
+   "en": "a calm majlis where time slows"
+  },
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "titleAr": "صبّة حارة تفتح المجلس",
+    "titleEn": "The first pour opens the majlis"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "titleAr": "قطرة قطرة والمزاج رايق",
+    "titleEn": "Drop by drop, no hurry"
+   },
+   {
+    "catEn": "Cold Bar",
+    "titleAr": "برد يهدّي حرّ الرياض",
+    "titleEn": "Chilled, like the late talk"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "titleAr": "قهوتنا العربية على الأصول",
+    "titleEn": "The dallah sits at the center"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "titleAr": "الحلا يجي مع الفنجال الثاني",
+    "titleEn": "Sweetness for the second cup"
+   }
+  ],
+  "heroAr": "استرخِ، المجلس مجلسك",
+  "heroEn": "Sit long, sip slow",
+  "archetype": "majlis-heritage",
+  "motif": "steam",
+  "diaryAr": [
+   "الرزانة مزاج مو بس اسم",
+   "أحلى القهوة اللي ما تستعجلها"
+  ]
+ },
+ "qawam": {
+  "slug": "qawam",
+  "personality": "measured quiet craft",
+  "world": {
+   "ar": "دفتر بارستا مرتّب بخط أنيق",
+   "en": "a barista's neatly ruled notebook"
+  },
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "titleAr": "الضبط قبل الصبّ",
+    "titleEn": "Where the balance begins"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "titleAr": "خيط ماي نازل على مهل",
+    "titleEn": "A thin, patient stream"
+   },
+   {
+    "catEn": "Cold Bar",
+    "titleAr": "برودة موزونة لصيف الرياض",
+    "titleEn": "Cold, kept in balance"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "titleAr": "العادة الأولى لها مقامها",
+    "titleEn": "Tradition, measured by heart"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "titleAr": "لقمة تكمّل ميزان الفنجال",
+    "titleEn": "The sweet side of balance"
+   }
+  ],
+  "heroAr": "كل شي هنا بوزنه",
+  "heroEn": "Everything in its right measure",
+  "archetype": "editorial-mag",
+  "motif": "ink",
+  "diaryAr": [
+   "القهوة الزينة تبان من قوامها",
+   "مزاجي اليوم: فنجال مضبوط"
+  ]
+ },
+ "cafe-n": {
+  "slug": "cafe-n",
+  "personality": "late-night electric wink",
+  "world": {
+   "ar": "شارع سهران وأنواره تلعب",
+   "en": "a street sign winking at midnight"
+  },
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "titleAr": "شحنة تشغّل السهرة",
+    "titleEn": "Press start on the night"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "titleAr": "وضع هادي وسط الزحمة",
+    "titleEn": "Slow mode, still glowing"
+   },
+   {
+    "catEn": "Cold Bar",
+    "titleAr": "ثلج يلمع تحت النيون",
+    "titleEn": "Ice cold, neon bright"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "titleAr": "فنجال عربي بين الأضواء",
+    "titleEn": "The dallah under the neon"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "titleAr": "الحلا بونص السهرة",
+    "titleEn": "Bonus level: something sweet"
+   }
+  ],
+  "heroAr": "نوّرت! السهرة بدت",
+  "heroEn": "You're in — lights on",
+  "archetype": "neon-arcade",
+  "motif": "sparks",
+  "diaryAr": [
+   "السهرة ما تحلى بدون فنجال",
+   "جيت أشحن مزاجي وجلست"
+  ]
+ },
+ "public-cafe": {
+  "slug": "public-cafe",
+  "personality": "everyone's corner table",
+  "world": {
+   "ar": "قهوة الحي اللي تجمع الكل",
+   "en": "the corner that belongs to everyone"
+  },
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "titleAr": "تذكرتك الحارة جاهزة",
+    "titleEn": "Hot order, called out loud"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "titleAr": "خذ راحتك، الدور يمشي",
+    "titleEn": "Take a seat, it's brewing"
+   },
+   {
+    "catEn": "Cold Bar",
+    "titleAr": "بارد ومنعش لأهل الحي",
+    "titleEn": "Cold, straight off the counter"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "titleAr": "قهوة البيت للكل",
+    "titleEn": "Home coffee, open to all"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "titleAr": "الحلا على طاولة الكل",
+    "titleEn": "Sweets meant for sharing"
+   }
+  ],
+  "heroAr": "المكان مكانك، والفنجال قرب",
+  "heroEn": "Pull up a chair",
+  "archetype": "ticket-diner",
+  "motif": "tiles",
+  "diaryAr": [
+   "القهوة أحلى لما تكون للكل",
+   "طاولة وحدة تكفينا سوالف"
+  ]
+ },
+ "rewanted-cafe": {
+  "slug": "rewanted-cafe",
+  "personality": "late-night sweet escape",
+  "world": {
+   "ar": "ليل وردي بضو خافت وسكّر",
+   "en": "a berry-pink night, lit soft"
+  },
+  "rooms": [
+   {
+    "catEn": "House Desserts",
+    "titleAr": "الحلا اللي يجمعنا",
+    "titleEn": "the sweets that gather us"
+   },
+   {
+    "catEn": "Warm & Gooey",
+    "titleAr": "دافي يذوب بالقلب",
+    "titleEn": "warm enough to melt hearts"
+   },
+   {
+    "catEn": "Coffee",
+    "titleAr": "قهوة توازن الحلا",
+    "titleEn": "coffee to steady the sweetness"
+   },
+   {
+    "catEn": "Cold Drinks",
+    "titleAr": "برودة آخر الليل",
+    "titleEn": "a cool sip of night"
+   }
+  ],
+  "heroAr": "الليل هنا طعمه سكّر",
+  "heroEn": "where the night turns sweet",
+  "archetype": "neon-arcade",
+  "motif": "stars",
+  "diaryAr": [
+   "الحلا آخر الليل له طعم ثاني",
+   "جينا نمشي وقعدنا للحلا"
+  ]
+ },
+ "sei-coffee": {
+  "slug": "sei-coffee",
+  "personality": "dusk roast ritual",
+  "world": {
+   "ar": "غروب طويق ينسكب في فنجان",
+   "en": "Tuwaiq at sunset, poured in a cup"
+  },
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "titleAr": "حرارة أول فنجان",
+    "titleEn": "where the heat begins"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "titleAr": "قطرة قطرة على مهلك",
+    "titleEn": "drop by drop, no hurry"
+   },
+   {
+    "catEn": "Cold Bar",
+    "titleAr": "نسمة وسط العنبر",
+    "titleEn": "amber gone cool and calm"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "titleAr": "فنجال العز",
+    "titleEn": "poured the old way"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "titleAr": "لقمة توافق الفنجان",
+    "titleEn": "small bites that match the cup"
+   }
+  ],
+  "heroAr": "القهوة هنا لها مزاج الغروب",
+  "heroEn": "evening amber in every cup",
+  "archetype": "poster-dark",
+  "motif": "steam",
+  "diaryAr": [
+   "فنجان الغروب ما يتفوّت",
+   "القهوة على مهلها أطيب"
+  ]
+ },
+ "solio-cafe": {
+  "slug": "solio-cafe",
+  "personality": "sunlit slow morning",
+  "world": {
+   "ar": "شمس الصبح منسكبة على الطاولة",
+   "en": "morning sun spilled across the table"
+  },
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "titleAr": "شمسك الأولى",
+    "titleEn": "your first little sunrise"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "titleAr": "الصبح ما يستعجل",
+    "titleEn": "sunlight, filtered slowly"
+   },
+   {
+    "catEn": "Cold Bar",
+    "titleAr": "ظل بارد وقت الظهر",
+    "titleEn": "cold shade at noon"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "titleAr": "فنجال الضحى",
+    "titleEn": "the mid-morning fenjal"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "titleAr": "حلا يفتح النهار",
+    "titleEn": "a sweet start, gladly"
+   }
+  ],
+  "heroAr": "صباحك شمس وقهوة",
+  "heroEn": "sunlight first, coffee right after",
+  "archetype": "garden-fresh",
+  "motif": "clouds",
+  "diaryAr": [
+   "قهوة الصبح تعدّل اليوم كله",
+   "الشمس والقهوة أحلى ثنائي"
+  ]
+ },
+ "good-mate-cafe": {
+  "slug": "good-mate-cafe",
+  "personality": "old friends, easy laughter",
+  "world": {
+   "ar": "قعدة ربع تحت النخل",
+   "en": "a gathering of mates under the palms"
+  },
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "titleAr": "فنجان بين رفيقين",
+    "titleEn": "a shot between mates"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "titleAr": "سوالف على مهل",
+    "titleEn": "slow talk, slow pour"
+   },
+   {
+    "catEn": "Cold Bar",
+    "titleAr": "برد يجمع الربع",
+    "titleEn": "iced rounds for the table"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "titleAr": "فنجال حق خويّك",
+    "titleEn": "pour one for your mate"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "titleAr": "نقسمها نص ونص",
+    "titleEn": "better shared, always"
+   }
+  ],
+  "heroAr": "يا هلا بالرفيق ومن معه",
+  "heroEn": "come as you are, mate",
+  "archetype": "ticket-diner",
+  "motif": "sparks",
+  "diaryAr": [
+   "السوالف مع القهوة ما تخلص",
+   "خويّك اللي يحفظ طلبك"
+  ]
+ },
+ "laminam-cafe": {
+  "slug": "laminam-cafe",
+  "personality": "hushed stone calm",
+  "world": {
+   "ar": "مجلس هادي بضو خافت",
+   "en": "a quiet majlis carved in stone"
+  },
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "titleAr": "جمرة البار الهادية",
+    "titleEn": "the bar's quiet ember"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "titleAr": "المهل هنا له طعم",
+    "titleEn": "patience, poured gently"
+   },
+   {
+    "catEn": "Cold Bar",
+    "titleAr": "هدوء بارد",
+    "titleEn": "cool and unbothered"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "titleAr": "مجلسنا الصغير",
+    "titleEn": "the majlis within the majlis"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "titleAr": "حلا يكسر السكوت",
+    "titleEn": "a sweet to break the silence"
+   }
+  ],
+  "heroAr": "ادخل بهدوء واقعد براحتك",
+  "heroEn": "settle in, softly",
+  "archetype": "majlis-heritage",
+  "motif": "tiles",
+  "diaryAr": [
+   "بعض الأماكن تسمعك بدون كلام",
+   "جلست ساعة وما حسيت بالوقت"
+  ]
+ },
+ "salam-coffee": {
+  "slug": "salam-coffee",
+  "personality": "peace after dark",
+  "world": {
+   "ar": "حوش هادي وقت ما يسكن الليل",
+   "en": "a quiet courtyard where the night settles"
+  },
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "titleAr": "أول السلام فنجان حار",
+    "titleEn": "peace begins with a hot shot"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "titleAr": "هنا الوقت يمشي على كيفه",
+    "titleEn": "where time slows to a drip"
+   },
+   {
+    "catEn": "Cold Bar",
+    "titleAr": "برد يطفي حر النهار",
+    "titleEn": "cold that calms the day"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "titleAr": "الفنجال يبدأ بسلام",
+    "titleEn": "every dallah starts with salam"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "titleAr": "لقمة حلوة قبل الوداع",
+    "titleEn": "a sweet word before goodbye"
+   }
+  ],
+  "heroAr": "السلام هنا ينسكب قبل ما ينقال",
+  "heroEn": "the greeting here is poured, not said",
+  "archetype": "poster-dark",
+  "motif": "stars",
+  "diaryAr": [
+   "سهرة هادية وفنجان صاحي، ما نبي أكثر",
+   "أول رشفة والدنيا تهدأ"
+  ]
+ },
+ "matal-al-wadi": {
+  "slug": "matal-al-wadi",
+  "personality": "valley family hearth",
+  "world": {
+   "ar": "بيت المزرعة وقت لمّة العصر",
+   "en": "the farmhouse when the whole family arrives"
+  },
+  "rooms": [
+   {
+    "catEn": "Coffee & More",
+    "titleAr": "قهوة على هوا الوادي",
+    "titleEn": "coffee on the valley breeze"
+   },
+   {
+    "catEn": "Little Ones",
+    "titleAr": "شي يفرّح الصغار",
+    "titleEn": "little joys for little hands"
+   },
+   {
+    "catEn": "Family Bites",
+    "titleAr": "صحن يلمّ العايلة",
+    "titleEn": "a plate that gathers everyone"
+   },
+   {
+    "catEn": "Sweets",
+    "titleAr": "حلا تحت سما الوادي",
+    "titleEn": "sweetness under the evening sky"
+   }
+  ],
+  "heroAr": "الوادي جمعنا والقهوة كمّلت اللمة",
+  "heroEn": "the valley gathers, the cups follow",
+  "archetype": "majlis-heritage",
+  "motif": "leaves",
+  "diaryAr": [
+   "اللمة مع الأهل لها طعم ثاني",
+   "قهوة العصر مع العيال أحلى"
+  ]
+ },
+ "rakiyah-roastery": {
+  "slug": "rakiyah-roastery",
+  "personality": "wandering origin journal",
+  "world": {
+   "ar": "دفتر رحّالة يدور خلف البن",
+   "en": "a traveler's notebook chasing coffee lands"
+  },
+  "rooms": [
+   {
+    "catEn": "Today's Origins",
+    "titleAr": "وين وصلنا اليوم؟",
+    "titleEn": "where the beans took us today"
+   },
+   {
+    "catEn": "Espresso",
+    "titleAr": "خلاصة الرحلة بفنجان",
+    "titleEn": "the whole journey in one cup"
+   },
+   {
+    "catEn": "Beans To Go",
+    "titleAr": "خذ الحكاية معك للبيت",
+    "titleEn": "take the story home"
+   },
+   {
+    "catEn": "Bites",
+    "titleAr": "زاد الطريق",
+    "titleEn": "provisions for the road"
+   }
+  ],
+  "heroAr": "كل فنجان يحكي عن أرض بعيدة",
+  "heroEn": "every cup, a page from somewhere far",
+  "archetype": "editorial-mag",
+  "motif": "ink",
+  "diaryAr": [
+   "كل يوم بن جديد، كل يوم سالفة",
+   "ريحة التحميص تسبق الفنجان"
+  ]
+ },
+ "marthad-coffee": {
+  "slug": "marthad-coffee",
+  "personality": "late-shift ticket counter",
+  "world": {
+   "ar": "كاونتر الليل والطلبات تنادى",
+   "en": "the night counter, orders called out loud"
+  },
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "titleAr": "المكينة شغّالة وما تهدأ",
+    "titleEn": "the machine keeps the beat"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "titleAr": "قهوة تتقطر على مهلها",
+    "titleEn": "poured slow, no rush here"
+   },
+   {
+    "catEn": "Cold Bar",
+    "titleAr": "وردية البرد بدأت",
+    "titleEn": "the cold shift starts now"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "titleAr": "الفنجال ما يغيب عن الطاولة",
+    "titleEn": "the dallah holds its corner"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "titleAr": "لقمة تمسك السهرة",
+    "titleEn": "a bite to hold the night"
+   }
+  ],
+  "heroAr": "الليل طويل والمكينة ما تنام",
+  "heroEn": "the night is long, the counter's awake",
+  "archetype": "ticket-diner",
+  "motif": "steam",
+  "diaryAr": [
+   "قهوة الليل لها هيبة",
+   "السهر بدون فنجان ما يحلى"
+  ]
+ },
+ "haffa-coffee-roaster": {
+  "slug": "haffa-coffee-roaster",
+  "personality": "electric roasting edge",
+  "world": {
+   "ar": "وقفة على حافة التحميص",
+   "en": "standing at the glowing edge of the roast"
+  },
+  "rooms": [
+   {
+    "catEn": "Today's Origins",
+    "titleAr": "اللي طلع من النار اليوم",
+    "titleEn": "fresh off the fire today"
+   },
+   {
+    "catEn": "Espresso",
+    "titleAr": "قطرة من قلب الجمر",
+    "titleEn": "pulled from the ember's heart"
+   },
+   {
+    "catEn": "Beans To Go",
+    "titleAr": "وصّل الجمرة لبيتك",
+    "titleEn": "carry the ember home"
+   },
+   {
+    "catEn": "Bites",
+    "titleAr": "شي خفيف جنب الفنجان",
+    "titleEn": "something small beside the cup"
+   }
+  ],
+  "heroAr": "من حافة النار إلى فنجانك",
+  "heroEn": "from the fire's edge to your cup",
+  "archetype": "neon-arcade",
+  "motif": "sparks",
+  "diaryAr": [
+   "التحميص فن والصبر نصه",
+   "الرشفة الأولى تعرّفك على البن"
+  ]
+ },
+ "kazar-cafe": {
+  "slug": "kazar-cafe",
+  "personality": "midnight espresso stage",
+  "world": {
+   "ar": "مسرح ليلي والقهوة بطلته",
+   "en": "a night stage where coffee performs"
+  },
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "titleAr": "هنا النار تشتغل",
+    "titleEn": "where the heat takes the stage"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "titleAr": "على مهلك، قطرة قطرة",
+    "titleEn": "slow down, drop by drop"
+   },
+   {
+    "catEn": "Cold Bar",
+    "titleAr": "برد يوقّظ السهرة",
+    "titleEn": "a chill to wake the night"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "titleAr": "الدلة ما تنام",
+    "titleEn": "the dallah never sleeps"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "titleAr": "شي حلو مع السهرة",
+    "titleEn": "something sweet for the late hour"
+   }
+  ],
+  "heroAr": "الليل هنا له قهوته",
+  "heroEn": "the night keeps its own coffee",
+  "archetype": "poster-dark",
+  "motif": "steam",
+  "diaryAr": [
+   "سهرة بلا قهوة ما تحلى",
+   "آخر الليل أصفى وقت للفنجان"
+  ]
+ },
+ "cave-cafe": {
+  "slug": "cave-cafe",
+  "personality": "hidden ember den",
+  "world": {
+   "ar": "مغارة دافية بعيد عن الزحمة",
+   "en": "a warm hideout from the noise"
+  },
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "titleAr": "جمر المغارة",
+    "titleEn": "embers deep in the cave"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "titleAr": "قطرة قطرة بالعتمة الهادية",
+    "titleEn": "slow drops in the quiet dark"
+   },
+   {
+    "catEn": "Cold Bar",
+    "titleAr": "برد الكهف الطيب",
+    "titleEn": "the cave's cool side"
+   },
+   {
+    "catEn": "الركن السعودي",
+    "titleAr": "قهوتنا وهيلها",
+    "titleEn": "our dallah, our cardamom"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "titleAr": "لقمة حلوة بالمخبأ",
+    "titleEn": "a sweet bite in the hideout"
+   }
+  ],
+  "heroAr": "ادخل، الدفا جوّا",
+  "heroEn": "come in, the warmth is inside",
+  "archetype": "ticket-diner",
+  "motif": "ink",
+  "diaryAr": [
+   "أحلى القعدات اللي ما يلقونك فيها",
+   "الدفا قهوة وركن بعيد"
+  ]
+ },
+ "rym-coffee": {
+  "slug": "rym-coffee",
+  "personality": "gazelle dawn calm",
+  "world": {
+   "ar": "مورد الريم عند الفجر",
+   "en": "where the gazelle drinks at dawn"
+  },
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "titleAr": "نار الصباح الأولى",
+    "titleEn": "the first fire of morning"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "titleAr": "مهل الفجر، قطرة قطرة",
+    "titleEn": "dawn patience, drop by drop"
+   },
+   {
+    "catEn": "Cold Bar",
+    "titleAr": "نسيم النرجس البارد",
+    "titleEn": "a cool breeze off Al Narjis"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "titleAr": "الدلة على الجمر",
+    "titleEn": "the dallah on the coals"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "titleAr": "حلا يليق بالضيف",
+    "titleEn": "sweetness worthy of a guest"
+   }
+  ],
+  "heroAr": "صباحك غزال ورايق",
+  "heroEn": "a morning soft as a gazelle",
+  "archetype": "majlis-heritage",
+  "motif": "stars",
+  "diaryAr": [
+   "الفجر له ناسه وله قهوته",
+   "صباح الخير ما يحلى بلا فنجال"
+  ]
+ },
+ "sakaf-specialty-coffee": {
+  "slug": "sakaf-specialty-coffee",
+  "personality": "sunlit shaded porch",
+  "world": {
+   "ar": "سقيفة ظلها بارد وقت الضحى",
+   "en": "a shaded porch at mid-morning"
+  },
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "titleAr": "أول دفا الصباح",
+    "titleEn": "morning's first warmth"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "titleAr": "الضي يقطر على مهله",
+    "titleEn": "light, dripping slowly"
+   },
+   {
+    "catEn": "Cold Bar",
+    "titleAr": "برد الظل الحنون",
+    "titleEn": "the kind cool of shade"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "titleAr": "فنجال تحت السقيفة",
+    "titleEn": "a finjal under the roof"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "titleAr": "حلا الضحى الخفيف",
+    "titleEn": "a light mid-morning sweet"
+   }
+  ],
+  "heroAr": "خذ لك ظل وفنجال",
+  "heroEn": "take a seat in the shade",
+  "archetype": "storybook-light",
+  "motif": "clouds",
+  "diaryAr": [
+   "الظل والقهوة رفيجين من زمان",
+   "الضحى يطول لمن القعدة تحلى"
+  ]
+ },
+ "find-hai-roastery-and-cafe": {
+  "slug": "find-hai-roastery-and-cafe",
+  "personality": "living roaster pulse",
+  "world": {
+   "ar": "محمصة قلبها ينبض حي",
+   "en": "a roastery with a living pulse"
+  },
+  "rooms": [
+   {
+    "catEn": "Today's Origins",
+    "titleAr": "البن اللي صاحي اليوم",
+    "titleEn": "the beans awake today"
+   },
+   {
+    "catEn": "Espresso",
+    "titleAr": "شرارة الحمصة الأولى",
+    "titleEn": "the roast's first spark"
+   },
+   {
+    "catEn": "Beans To Go",
+    "titleAr": "خذ الجمر معك",
+    "titleEn": "take the ember home"
+   },
+   {
+    "catEn": "Bites",
+    "titleAr": "لقمة تسند القلب",
+    "titleEn": "a bite to hold you over"
+   }
+  ],
+  "heroAr": "البن هنا يتنفس",
+  "heroEn": "the beans here still breathe",
+  "archetype": "neon-arcade",
+  "motif": "sparks",
+  "diaryAr": [
+   "ريحة التحميص تسبق السلام",
+   "البن الطازج له طاري ثاني"
+  ]
+ },
+ "muhjah-cafe": {
+  "slug": "muhjah-cafe",
+  "personality": "hearth of the home",
+  "world": {
+   "ar": "قلب البيت أول ما يدفى",
+   "en": "the warmest room in the house"
+  },
+  "rooms": [
+   {
+    "catEn": "Coffee & More",
+    "titleAr": "الدلّة ما تبرد عندنا",
+    "titleEn": "the pot never goes cold"
+   },
+   {
+    "catEn": "Little Ones",
+    "titleAr": "ركن الصغار وضحكتهم",
+    "titleEn": "where the little laughs live"
+   },
+   {
+    "catEn": "Family Bites",
+    "titleAr": "لقمة تلمّنا حول الطاولة",
+    "titleEn": "one plate, everyone reaches in"
+   },
+   {
+    "catEn": "Sweets",
+    "titleAr": "الحلا آخر السوالف",
+    "titleEn": "sweetness before goodnight"
+   }
+  ],
+  "heroAr": "البيت بيتكم والقهوة حارة",
+  "heroEn": "our home is yours tonight",
+  "archetype": "majlis-heritage",
+  "motif": "steam",
+  "diaryAr": [
+   "ريحة القهوة تلمّ البيت كله",
+   "الضحكة مع الفنجان أحلى"
+  ]
+ },
+ "trov-cafe": {
+  "slug": "trov-cafe",
+  "personality": "sunlit slow craft",
+  "world": {
+   "ar": "ورشة ضوء وريحة تحميص",
+   "en": "a bright workshop of roast and light"
+  },
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "titleAr": "هنا صوت البن العالي",
+    "titleEn": "where the beans speak loudest"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "titleAr": "قطرة قطرة على مهلك",
+    "titleEn": "drop by drop, no hurry"
+   },
+   {
+    "catEn": "Cold Bar",
+    "titleAr": "نسمة باردة وسط الظهر",
+    "titleEn": "a cool breeze at noon"
+   },
+   {
+    "catEn": "الركن السعودي",
+    "titleAr": "قهوتنا وهيلنا وعوايدنا",
+    "titleEn": "our dallah, our old ways"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "titleAr": "شي حلو جنب الفنجان",
+    "titleEn": "something sweet beside the cup"
+   }
+  ],
+  "heroAr": "فنجانك ينسقى على مهل",
+  "heroEn": "your cup, poured slowly",
+  "archetype": "editorial-mag",
+  "motif": "ink",
+  "diaryAr": [
+   "الصبح أصفى مع فنجان مظبوط",
+   "جلست أتأمل الترشيح ونسيت الوقت"
+  ]
+ },
+ "ob-cafe": {
+  "slug": "ob-cafe",
+  "personality": "playful kitchen-table night",
+  "world": {
+   "ar": "طاولة المطبخ وسوالفها",
+   "en": "the kitchen table after dark"
+  },
+  "rooms": [
+   {
+    "catEn": "Coffee & More",
+    "titleAr": "أول شي، القهوة",
+    "titleEn": "first things first: coffee"
+   },
+   {
+    "catEn": "Little Ones",
+    "titleAr": "لصغارنا وشقاوتهم",
+    "titleEn": "for the smallest bosses"
+   },
+   {
+    "catEn": "Family Bites",
+    "titleAr": "صحون تنلمّ عليها الأيادي",
+    "titleEn": "made for sharing, barely"
+   },
+   {
+    "catEn": "Sweets",
+    "titleAr": "الختام دايم حلو",
+    "titleEn": "always end it sweet"
+   }
+  ],
+  "heroAr": "تعالوا، الطاولة تنتظركم",
+  "heroEn": "come in, the table's waiting",
+  "archetype": "ticket-diner",
+  "motif": "clouds",
+  "diaryAr": [
+   "السوالف طولت والقهوة ما خلصت",
+   "أحلى قعدة قعدة بلا عجلة"
+  ]
+ },
+ "yellow-rose": {
+  "slug": "yellow-rose",
+  "personality": "rose garden evening",
+  "world": {
+   "ar": "حديقة ورد تسهر معنا",
+   "en": "a rose garden that stays up late"
+  },
+  "rooms": [
+   {
+    "catEn": "Coffee & More",
+    "titleAr": "قهوة بين الورد",
+    "titleEn": "coffee among the roses"
+   },
+   {
+    "catEn": "Little Ones",
+    "titleAr": "لبراعم البيت الصغار",
+    "titleEn": "for the little buds"
+   },
+   {
+    "catEn": "Family Bites",
+    "titleAr": "صحون تدور على الكل",
+    "titleEn": "plates we pass around"
+   },
+   {
+    "catEn": "Sweets",
+    "titleAr": "حلا بلون الورد",
+    "titleEn": "sweet as the last rose"
+   }
+  ],
+  "heroAr": "أهلاً بكم بين الورد",
+  "heroEn": "welcome in, among the roses",
+  "archetype": "poster-dark",
+  "motif": "leaves",
+  "diaryAr": [
+   "الورد يحلّي حتى القهوة",
+   "سهرتنا الليلة بلون وردي"
+  ]
+ },
+ "noma-coffee": {
+  "slug": "noma-coffee",
+  "personality": "midnight brew glow",
+  "world": {
+   "ar": "مختبر قهوة يسهر معك",
+   "en": "a coffee lab glowing after midnight"
+  },
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "titleAr": "ضغط عالي وقلب حار",
+    "titleEn": "high pressure, warm heart"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "titleAr": "هدوء يقطر على مهله",
+    "titleEn": "slow drips, quiet minds"
+   },
+   {
+    "catEn": "Cold Bar",
+    "titleAr": "برد يوقّظ السهرة",
+    "titleEn": "cold that wakes the night"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "titleAr": "هيل ودلّة وسط السهرة",
+    "titleEn": "a dallah lit for the night"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "titleAr": "وقود صغير للسهر",
+    "titleEn": "small fuel for long nights"
+   }
+  ],
+  "heroAr": "اسهر معنا على فنجان",
+  "heroEn": "stay up with a good cup",
+  "archetype": "neon-arcade",
+  "motif": "stars",
+  "diaryAr": [
+   "الليل أطول من فنجان واحد",
+   "السهر أحلى بقهوة مظبوطة"
+  ]
+ },
+ "lihaf": {
+  "slug": "lihaf",
+  "personality": "wrapped-quilt slow morning",
+  "world": {
+   "ar": "لحاف دافي بصباح بارد في طويق",
+   "en": "a warm quilt on a cold Tuwaiq morning"
+  },
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "titleAr": "أول دفّة من اللحاف",
+    "titleEn": "the first warm fold"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "titleAr": "على مهلك، الصبح طويل",
+    "titleEn": "take your time, morning waits"
+   },
+   {
+    "catEn": "Cold Bar",
+    "titleAr": "نسمة باردة من الشباك",
+    "titleEn": "a cool breeze through the window"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "titleAr": "دلة أهل البيت",
+    "titleEn": "the dallah of the house"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "titleAr": "شي حلو تحت اللحاف",
+    "titleEn": "something sweet under the quilt"
+   }
+  ],
+  "heroAr": "تعال تدفّى، القهوة جاهزة",
+  "heroEn": "come get warm, the coffee's ready",
+  "archetype": "storybook-light",
+  "motif": "clouds",
+  "diaryAr": [
+   "الدفا مو بس من الشمس",
+   "فنجان وهدوء وكل شي تمام"
+  ]
+ },
+ "serb-coffee": {
+  "slug": "serb-coffee",
+  "personality": "night flock in flight",
+  "world": {
+   "ar": "سرب طيور يعبر سماء الليل",
+   "en": "a flock crossing the night sky"
+  },
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "titleAr": "أول رفّة جناح",
+    "titleEn": "the first wingbeat"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "titleAr": "تحليق بطيء فوق الرمال",
+    "titleEn": "a slow glide over the sands"
+   },
+   {
+    "catEn": "Cold Bar",
+    "titleAr": "نسيم تحت الجناح",
+    "titleEn": "cool wind under the wing"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "titleAr": "السرب يرجع للديرة",
+    "titleEn": "the flock comes home"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "titleAr": "لقمة قبل الطيران",
+    "titleEn": "a small bite before flight"
+   }
+  ],
+  "heroAr": "انضم للسرب، الليل طويل",
+  "heroEn": "join the flock, the night is long",
+  "archetype": "poster-dark",
+  "motif": "stars",
+  "diaryAr": [
+   "الليل أحلى مع ناسه",
+   "كل سرب له سالفة"
+  ]
+ },
+ "mat-cookies": {
+  "slug": "mat-cookies",
+  "personality": "midnight neon sugar rush",
+  "world": {
+   "ar": "صالة ألعاب سكّرية بعد نص الليل",
+   "en": "a neon sweet arcade after midnight"
+  },
+  "rooms": [
+   {
+    "catEn": "House Desserts",
+    "titleAr": "اضغط ستارت على الحلا",
+    "titleEn": "press start on sweet"
+   },
+   {
+    "catEn": "Warm & Gooey",
+    "titleAr": "لسّه ذايب، الحقّه دافي",
+    "titleEn": "still melting, catch it warm"
+   },
+   {
+    "catEn": "Coffee",
+    "titleAr": "بنزين السهرة",
+    "titleEn": "power-up in a cup"
+   },
+   {
+    "catEn": "Cold Drinks",
+    "titleAr": "وقت التبريد",
+    "titleEn": "system cooldown, sip slow"
+   }
+  ],
+  "heroAr": "السهرة تبدأ من هنا",
+  "heroEn": "the night level starts here",
+  "archetype": "neon-arcade",
+  "motif": "sparks",
+  "diaryAr": [
+   "الحلا بالليل له طعم ثاني",
+   "سهرة وكوكيز وضحك"
+  ]
+ },
+ "hacked": {
+  "slug": "hacked",
+  "personality": "sweet mischief workshop",
+  "world": {
+   "ar": "دفتر شخابيط مليان أسرار حلوة",
+   "en": "a doodled notebook of sweet mischief"
+  },
+  "rooms": [
+   {
+    "catEn": "House Desserts",
+    "titleAr": "الخطة أ: حلا",
+    "titleEn": "plan A: dessert"
+   },
+   {
+    "catEn": "Warm & Gooey",
+    "titleAr": "دافي وذايب، وكله مقصود",
+    "titleEn": "warm, gooey, totally on purpose"
+   },
+   {
+    "catEn": "Coffee",
+    "titleAr": "قهوة تفك الشفرة",
+    "titleEn": "coffee cracks the code"
+   },
+   {
+    "catEn": "Cold Drinks",
+    "titleAr": "خلّك بارد، كله محسوب",
+    "titleEn": "stay cool, it's all planned"
+   }
+  ],
+  "heroAr": "السر الحلو انكشف، تفضّل",
+  "heroEn": "the sweet secret is out",
+  "archetype": "playful-hand",
+  "motif": "ink",
+  "diaryAr": [
+   "الحلا مؤامرة نجحت",
+   "ضحكة وقطعة حلا تكفي"
+  ]
+ },
+ "secret-pot-bakery": {
+  "slug": "secret-pot-bakery",
+  "personality": "hidden oven at dusk",
+  "world": {
+   "ar": "قدر مخفي وراء باب الفرن",
+   "en": "a secret pot behind the bakery door"
+  },
+  "rooms": [
+   {
+    "catEn": "From the Oven",
+    "titleAr": "حار من قلب الفرن",
+    "titleEn": "straight from the oven's heart"
+   },
+   {
+    "catEn": "Toasts & Sandwiches",
+    "titleAr": "بين رغيفين سالفة",
+    "titleEn": "a story between two slices"
+   },
+   {
+    "catEn": "Coffee",
+    "titleAr": "تذكرتك: فنجان قهوة",
+    "titleEn": "your ticket: one warm cup"
+   },
+   {
+    "catEn": "Fresh",
+    "titleAr": "بارد وطازج، مختوم لك",
+    "titleEn": "cold and fresh, stamped for you"
+   }
+  ],
+  "heroAr": "السر يطلع من الفرن الليلة",
+  "heroEn": "tonight the secret leaves the oven",
+  "archetype": "ticket-diner",
+  "motif": "steam",
+  "diaryAr": [
+   "ريحة الخبز ما تنخبى",
+   "كل فرن له سر"
+  ]
+ },
+ "the-cake-corner": {
+  "slug": "the-cake-corner",
+  "personality": "midnight velvet craving",
+  "world": {
+   "ar": "ركن حلا هادي آخر الليل",
+   "en": "a velvet corner after midnight"
+  },
+  "rooms": [
+   {
+    "catEn": "House Desserts",
+    "titleAr": "الحلا اللي يفتح السوالف",
+    "titleEn": "the sweet heart of the house"
+   },
+   {
+    "catEn": "Warm & Gooey",
+    "titleAr": "دافي من الفرن لصحنك",
+    "titleEn": "still warm when it reaches you"
+   },
+   {
+    "catEn": "Coffee",
+    "titleAr": "فنجانك جنب الحلا",
+    "titleEn": "a cup to cut the sweetness"
+   },
+   {
+    "catEn": "Cold Drinks",
+    "titleAr": "برد يوازن الطاولة",
+    "titleEn": "cold and calm beside it"
+   }
+  ],
+  "heroAr": "للحلا ركن.. وأنت وصلته",
+  "heroEn": "every craving deserves its own corner",
+  "archetype": "poster-dark",
+  "motif": "stars",
+  "diaryAr": [
+   "الحلا بعد يوم طويل.. علاج",
+   "قطعة وحدة ما تكفي أحد"
+  ]
+ },
+ "kunafa-abul-haus": {
+  "slug": "kunafa-abul-haus",
+  "personality": "old-school sweet obsession",
+  "world": {
+   "ar": "صينية كنافة على نار هادية",
+   "en": "a kunafa tray fresh off the fire"
+  },
+  "rooms": [
+   {
+    "catEn": "House Desserts",
+    "titleAr": "الهوس يبدأ من هنا",
+    "titleEn": "where the obsession begins"
+   },
+   {
+    "catEn": "Warm & Gooey",
+    "titleAr": "حاميها أطيب.. لا تنطر",
+    "titleEn": "best eaten before it cools"
+   },
+   {
+    "catEn": "Coffee",
+    "titleAr": "قهوة تعدل مزاج الحلا",
+    "titleEn": "the bitter that balances sweet"
+   },
+   {
+    "catEn": "Cold Drinks",
+    "titleAr": "شي بارد يهدي الحماس",
+    "titleEn": "something cold to calm the craze"
+   }
+  ],
+  "heroAr": "الهوس حلال إذا كان كنافة",
+  "heroEn": "an honest obsession, served warm",
+  "archetype": "majlis-heritage",
+  "motif": "steam",
+  "diaryAr": [
+   "الكنافة ما تنأكل إلا حامية",
+   "ريحة الصينية تجمع البيت كله"
+  ]
+ },
+ "breddy": {
+  "slug": "breddy",
+  "personality": "before-dawn oven hustle",
+  "world": {
+   "ar": "فرن الحارة قبل الفجر",
+   "en": "the neighborhood oven before dawn"
+  },
+  "rooms": [
+   {
+    "catEn": "From the Oven",
+    "titleAr": "طالع حار.. الحق عليه",
+    "titleEn": "hot out, catch it quick"
+   },
+   {
+    "catEn": "Toasts & Sandwiches",
+    "titleAr": "بين شريحتين.. قصة",
+    "titleEn": "a story between two slices"
+   },
+   {
+    "catEn": "Coffee",
+    "titleAr": "قهوتك مع ريحة الخبز",
+    "titleEn": "coffee beside the baking smell"
+   },
+   {
+    "catEn": "Fresh",
+    "titleAr": "عصرة صباح على الماشي",
+    "titleEn": "a bright sip to go"
+   }
+  ],
+  "heroAr": "الخبز الطيب ما يحتاج كلام",
+  "heroEn": "good bread speaks softly",
+  "archetype": "ticket-diner",
+  "motif": "clouds",
+  "diaryAr": [
+   "ريحة الخبز أصدق منبه",
+   "الصبح يحلى بلقمة حارة"
+  ]
+ },
+ "chimney-cafe": {
+  "slug": "chimney-cafe",
+  "personality": "neon late-night sugar run",
+  "world": {
+   "ar": "سهرة حلا تحت الأضواء",
+   "en": "a dessert run under city lights"
+  },
+  "rooms": [
+   {
+    "catEn": "House Desserts",
+    "titleAr": "الحلا اللي يسوى المشوار",
+    "titleEn": "worth the whole drive"
+   },
+   {
+    "catEn": "Warm & Gooey",
+    "titleAr": "دافي يذوب على السهرة",
+    "titleEn": "warm, slow, and melting"
+   },
+   {
+    "catEn": "Coffee",
+    "titleAr": "وقود السهرة",
+    "titleEn": "fuel for the long night"
+   },
+   {
+    "catEn": "Cold Drinks",
+    "titleAr": "برودة وسط الزحمة",
+    "titleEn": "a cool pause in the rush"
+   }
+  ],
+  "heroAr": "سهرتك تبدأ من هنا",
+  "heroEn": "the night tastes sweeter here",
+  "archetype": "neon-arcade",
+  "motif": "sparks",
+  "diaryAr": [
+   "حلا آخر الليل له طعم ثاني",
+   "سولفنا لين برد الكوب"
+  ]
+ },
+ "croi-bakehouse": {
+  "slug": "croi-bakehouse",
+  "personality": "quiet baker's devotion",
+  "world": {
+   "ar": "بيت خبز يشتغل بقلبه",
+   "en": "a bakehouse that works by heart"
+  },
+  "rooms": [
+   {
+    "catEn": "From the Oven",
+    "titleAr": "من قلب الفرن.. لك",
+    "titleEn": "straight from the oven's heart"
+   },
+   {
+    "catEn": "Toasts & Sandwiches",
+    "titleAr": "خبز طيب يشيل كل شي",
+    "titleEn": "good bread holds it all"
+   },
+   {
+    "catEn": "Coffee",
+    "titleAr": "فنجان جنب رغيفك",
+    "titleEn": "the loaf's best companion"
+   },
+   {
+    "catEn": "Fresh",
+    "titleAr": "نفس بارد بعد الفرن",
+    "titleEn": "a fresh note to finish"
+   }
+  ],
+  "heroAr": "خبز معجون بمحبة",
+  "heroEn": "baked from the heart",
+  "archetype": "poster-dark",
+  "motif": "ink",
+  "diaryAr": [
+   "الخبز الحار ما يوصل البيت كامل",
+   "فنجان وخبزة.. وكمل يومك"
+  ]
+ },
+ "lyrs-bakery": {
+  "slug": "lyrs-bakery",
+  "personality": "midnight bakehouse glow",
+  "world": {
+   "ar": "المخبز اللي ما ينام، والفرن صاحي طول الليل",
+   "en": "the bakehouse that never sleeps"
+  },
+  "rooms": [
+   {
+    "catEn": "From the Oven",
+    "titleAr": "طالعة حارّة من قلب الفرن",
+    "titleEn": "pulled out while still warm"
+   },
+   {
+    "catEn": "Toasts & Sandwiches",
+    "titleAr": "بين رغيفين حكاية",
+    "titleEn": "a story between two slices"
+   },
+   {
+    "catEn": "Coffee",
+    "titleAr": "رفيقة الخبز من زمان",
+    "titleEn": "the bread's oldest companion"
+   },
+   {
+    "catEn": "Fresh",
+    "titleAr": "برودة تعدّل المزاج",
+    "titleEn": "something cold and bright"
+   }
+  ],
+  "heroAr": "ريحة الخبز توصل قبل السلام",
+  "heroEn": "follow the smell of warm bread",
+  "archetype": "ticket-diner",
+  "motif": "steam",
+  "diaryAr": [
+   "ريحة الفرن غيّرت مزاجي",
+   "الخبز الحار ما ينستنى"
+  ]
+ },
+ "sip-day-specialty-coffee": {
+  "slug": "sip-day-specialty-coffee",
+  "personality": "unhurried roast ritual",
+  "world": {
+   "ar": "مجلس قهوة يمشي على مهله",
+   "en": "a day measured in sips"
+  },
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "titleAr": "شوت يصحّي القلب",
+    "titleEn": "short, dark, and honest"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "titleAr": "قطرة قطرة، ولا نستعجل",
+    "titleEn": "drop by drop, no hurry"
+   },
+   {
+    "catEn": "Cold Bar",
+    "titleAr": "برد يهدّي حر الظهيرة",
+    "titleEn": "cool answers for hot afternoons"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "titleAr": "فنجال على نية الطيبين",
+    "titleEn": "coffee the way home makes it"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "titleAr": "لقمة حلوة تكمّل الفنجان",
+    "titleEn": "a small sweet sidekick"
+   }
+  ],
+  "heroAr": "اليوم يبدأ من أول رشفة",
+  "heroEn": "the day begins at first sip",
+  "archetype": "majlis-heritage",
+  "motif": "tiles",
+  "diaryAr": [
+   "الرشفة الأولى لها هيبة",
+   "القهوة على مهل أطيب"
+  ]
+ },
+ "nafas-cafe": {
+  "slug": "nafas-cafe",
+  "personality": "family breathing room",
+  "world": {
+   "ar": "حوش العيلة يوم الجمعة",
+   "en": "the family courtyard on a slow morning"
+  },
+  "rooms": [
+   {
+    "catEn": "Coffee & More",
+    "titleAr": "قهوتك، وخذ راحتك",
+    "titleEn": "your cup, your own pace"
+   },
+   {
+    "catEn": "Little Ones",
+    "titleAr": "لعيون أصغر ضيوفنا",
+    "titleEn": "for the smallest chairs"
+   },
+   {
+    "catEn": "Family Bites",
+    "titleAr": "صحن يتوسّط الطاولة",
+    "titleEn": "one plate, many hands"
+   },
+   {
+    "catEn": "Sweets",
+    "titleAr": "الحلا يجمع الكل",
+    "titleEn": "the sweetest part of gathering"
+   }
+  ],
+  "heroAr": "خذ نفس… أنت بين أهلك",
+  "heroEn": "breathe easy, you're with family",
+  "archetype": "storybook-light",
+  "motif": "clouds",
+  "diaryAr": [
+   "الضحكة مع القهوة أحلى",
+   "المكان يوسّع الخاطر"
+  ]
+ },
+ "matchafulll": {
+  "slug": "matchafulll",
+  "personality": "electric green midnight",
+  "world": {
+   "ar": "سهرة خضرا توهّج في الليل",
+   "en": "a green glow after dark"
+  },
+  "rooms": [
+   {
+    "catEn": "Matcha Bar",
+    "titleAr": "هنا الأخضر له كلمة",
+    "titleEn": "where green runs the show"
+   },
+   {
+    "catEn": "Coffee Too",
+    "titleAr": "ولا ننسى أهل البن",
+    "titleEn": "the coffee loyalists get theirs"
+   },
+   {
+    "catEn": "Sweets",
+    "titleAr": "حلا يوازن اللعبة",
+    "titleEn": "a sweet side quest"
+   }
+  ],
+  "heroAr": "جرعة خضرا تشغّل السهرة",
+  "heroEn": "your green charge for tonight",
+  "archetype": "neon-arcade",
+  "motif": "leaves",
+  "diaryAr": [
+   "الأخضر صار مودي المفضل",
+   "السهرة بدأت من هنا"
+  ]
+ },
+ "the-sweet-sip": {
+  "slug": "the-sweet-sip",
+  "personality": "velvet dessert hour",
+  "world": {
+   "ar": "سهرة حلا على مخمل الليل",
+   "en": "a velvet evening made for dessert"
+  },
+  "rooms": [
+   {
+    "catEn": "House Desserts",
+    "titleAr": "حلا يجيك من القلب",
+    "titleEn": "from the heart of the house"
+   },
+   {
+    "catEn": "Warm & Gooey",
+    "titleAr": "دافي يذوب على مهله",
+    "titleEn": "warm, melting, worth the wait"
+   },
+   {
+    "catEn": "Coffee",
+    "titleAr": "شريك الحلا الرسمي",
+    "titleEn": "dessert's dark companion"
+   },
+   {
+    "catEn": "Cold Drinks",
+    "titleAr": "برد حلو يختم السهرة",
+    "titleEn": "a cool sweet finale"
+   }
+  ],
+  "heroAr": "السهرة ما تكتمل بلا حلا",
+  "heroEn": "the night deserves something sweet",
+  "archetype": "poster-dark",
+  "motif": "stars",
+  "diaryAr": [
+   "الحلا بعد يوم طويل نعمة",
+   "السهرة الحلوة تبدأ بلقمة"
+  ]
+ },
+ "harf-cafe": {
+  "slug": "harf-cafe",
+  "personality": "a letter written slowly",
+  "world": {
+   "ar": "دفتر خطّاط مفتوح على الصبح",
+   "en": "a calligrapher's open notebook at morning"
+  },
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "titleAr": "أول حرف بالسطر",
+    "titleEn": "The first letter on the page"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "titleAr": "سطر ينكتب على مهل",
+    "titleEn": "A line written slowly"
+   },
+   {
+    "catEn": "Cold Bar",
+    "titleAr": "حبر بارد ويد هادية",
+    "titleEn": "Cool ink, steady hand"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "titleAr": "الديوان بخطّنا نحن",
+    "titleEn": "The diwan, in our own hand"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "titleAr": "نقطة حلوة آخر السطر",
+    "titleEn": "A sweet full stop"
+   }
+  ],
+  "heroAr": "قهوتك تنكتب هنا حرف حرف",
+  "heroEn": "Your coffee, written letter by letter",
+  "archetype": "editorial-mag",
+  "motif": "ink",
+  "diaryAr": [
+   "كل فنجان له سطره",
+   "المزاج يعتدل مع أول رشفة"
+  ]
+ },
+ "caia-coffee": {
+  "slug": "caia-coffee",
+  "personality": "midnight window seat",
+  "world": {
+   "ar": "المدينة بعد ما تهدى وأنوارها بعيدة",
+   "en": "the city after it quiets, lights far away"
+  },
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "titleAr": "جمرة أول الليل",
+    "titleEn": "The night's first ember"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "titleAr": "الليل ينقّط على مهل",
+    "titleEn": "The night drips slowly"
+   },
+   {
+    "catEn": "Cold Bar",
+    "titleAr": "نسمة آخر الليل",
+    "titleEn": "A late-night breeze"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "titleAr": "سوالف على ضو خافت",
+    "titleEn": "Stories under low light"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "titleAr": "حلا يطوّل السهرة",
+    "titleEn": "Sweetness that stretches the night"
+   }
+  ],
+  "heroAr": "المدينة نامت وفنجانك صاحي",
+  "heroEn": "The city sleeps, your cup doesn't",
+  "archetype": "poster-dark",
+  "motif": "stars",
+  "diaryAr": [
+   "بعض السوالف تبغى لها فنجان ثاني",
+   "السهرة ما تحلى إلا بقهوة"
+  ]
+ },
+ "shanab-cafe": {
+  "slug": "shanab-cafe",
+  "personality": "the family's funny uncle",
+  "world": {
+   "ar": "بيت العيلة يوم الجمعة والضحكة عالية",
+   "en": "the family house on a Friday, laughter loud"
+  },
+  "rooms": [
+   {
+    "catEn": "Coffee & More",
+    "titleAr": "قهوة أهل الشنب",
+    "titleEn": "For the mustache club"
+   },
+   {
+    "catEn": "Little Ones",
+    "titleAr": "للي ما طلع شنبهم بعد",
+    "titleEn": "For mustaches still growing"
+   },
+   {
+    "catEn": "Family Bites",
+    "titleAr": "صحن بالنص للكل",
+    "titleEn": "One plate, many hands"
+   },
+   {
+    "catEn": "Sweets",
+    "titleAr": "حلا يضحّك الشنب",
+    "titleEn": "Sweets that curl the mustache"
+   }
+  ],
+  "heroAr": "قعدة عيلة وضحكة من القلب",
+  "heroEn": "A family table and easy laughter",
+  "archetype": "playful-hand",
+  "motif": "steam",
+  "diaryAr": [
+   "ضحكة العيال ما تنعوض",
+   "أطيب قهوة يوم نجتمع"
+  ]
+ },
+ "hdn-coffee": {
+  "slug": "hdn-coffee",
+  "personality": "a quiet truce",
+  "world": {
+   "ar": "هدنة صغيرة من زحمة اليوم",
+   "en": "a small truce with the busy day"
+  },
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "titleAr": "هنا تبدأ الهدنة",
+    "titleEn": "Where the truce begins"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "titleAr": "الوقت هنا يمشي بكيفه",
+    "titleEn": "Time slows to a drip"
+   },
+   {
+    "catEn": "Cold Bar",
+    "titleAr": "برد يطفي زحمة اليوم",
+    "titleEn": "Cool calm for loud days"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "titleAr": "فنجان يصالحك مع يومك",
+    "titleEn": "A cup to make peace"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "titleAr": "حلا يمدّد الهدنة",
+    "titleEn": "Sweetness to extend the truce"
+   }
+  ],
+  "heroAr": "خذ لك هدنة من الدنيا",
+  "heroEn": "Take a small truce here",
+  "archetype": "storybook-light",
+  "motif": "clouds",
+  "diaryAr": [
+   "الهدوء نص الطعم",
+   "جيت مستعجل وقعدت ساعة"
+  ]
+ },
+ "sharq-coffee-and-roastery": {
+  "slug": "sharq-coffee-and-roastery",
+  "personality": "fire facing east",
+  "world": {
+   "ar": "محمصة تصحى قبل الشمس",
+   "en": "a roastery that wakes before the sun"
+  },
+  "rooms": [
+   {
+    "catEn": "Today's Origins",
+    "titleAr": "سالفة اليوم من المحمصة",
+    "titleEn": "Today's tale from the roaster"
+   },
+   {
+    "catEn": "Espresso",
+    "titleAr": "جمرة من قلب النار",
+    "titleEn": "A shot from the ember"
+   },
+   {
+    "catEn": "Beans To Go",
+    "titleAr": "خذ الجمرة معك للبيت",
+    "titleEn": "Take the fire home"
+   },
+   {
+    "catEn": "Bites",
+    "titleAr": "شي خفيف جنب الفنجان",
+    "titleEn": "Something small beside the cup"
+   }
+  ],
+  "heroAr": "من الشرق تطلع الشمس والقهوة",
+  "heroEn": "Where sun and roast both rise",
+  "archetype": "ticket-diner",
+  "motif": "sparks",
+  "diaryAr": [
+   "ريحة البن تسبق السلام",
+   "كل صباح له جمرته"
+  ]
+ },
+ "nakhati-gelato": {
+  "slug": "nakhati-gelato",
+  "personality": "late-night sweet marquee",
+  "world": {
+   "ar": "سهرة حلا تحت نجوم الرياض",
+   "en": "a dessert night under city stars"
+  },
+  "rooms": [
+   {
+    "catEn": "House Desserts",
+    "titleAr": "حلا يفتح السهرة",
+    "titleEn": "where the night begins sweet"
+   },
+   {
+    "catEn": "Warm & Gooey",
+    "titleAr": "دافي يذوب على مهله",
+    "titleEn": "warm, melting, unhurried"
+   },
+   {
+    "catEn": "Coffee",
+    "titleAr": "قهوة تسند السهرة",
+    "titleEn": "coffee to hold the night"
+   },
+   {
+    "catEn": "Cold Drinks",
+    "titleAr": "نسمة باردة وسط الليل",
+    "titleEn": "a cool breeze at midnight"
+   }
+  ],
+  "heroAr": "كل ليلة لها نكهة",
+  "heroEn": "every night has a flavor",
+  "archetype": "poster-dark",
+  "motif": "stars",
+  "diaryAr": [
+   "الحلا بعد نص الليل شي ثاني",
+   "جيت أشوف بس، وقعدت أسولف"
+  ]
+ },
+ "salve-artisan-gelato": {
+  "slug": "salve-artisan-gelato",
+  "personality": "sunny storybook stroll",
+  "world": {
+   "ar": "حكاية جيلاتو بصباح الملقا",
+   "en": "a gelato tale on a bright morning"
+  },
+  "rooms": [
+   {
+    "catEn": "House Desserts",
+    "titleAr": "أول صفحة من الحلا",
+    "titleEn": "the story opens sweetly"
+   },
+   {
+    "catEn": "Warm & Gooey",
+    "titleAr": "فصل دافي يذوب بالصحن",
+    "titleEn": "a warm little chapter"
+   },
+   {
+    "catEn": "Coffee",
+    "titleAr": "قهوة ترافق السالفة",
+    "titleEn": "coffee for the telling"
+   },
+   {
+    "catEn": "Cold Drinks",
+    "titleAr": "انتعاشة بين السطور",
+    "titleEn": "a cool page-turn"
+   }
+  ],
+  "heroAr": "قول سالفي وابدأ بسكوب",
+  "heroEn": "say salve, start with a scoop",
+  "archetype": "storybook-light",
+  "motif": "clouds",
+  "diaryAr": [
+   "سكوب مع الشمس ولا أحلى",
+   "الجيلاتو يروّق البال صدق"
+  ]
+ },
+ "duirrah": {
+  "slug": "duirrah",
+  "personality": "little house warmth",
+  "world": {
+   "ar": "بيت صغير بابه مفتوح للحلا",
+   "en": "a little house with an open door"
+  },
+  "rooms": [
+   {
+    "catEn": "House Desserts",
+    "titleAr": "حلا أهل الدويرة",
+    "titleEn": "sweets from the little house"
+   },
+   {
+    "catEn": "Warm & Gooey",
+    "titleAr": "دفا من قلب البيت",
+    "titleEn": "warmth from the hearth"
+   },
+   {
+    "catEn": "Coffee",
+    "titleAr": "قهوة المجلس تنسكب بالعافية",
+    "titleEn": "the majlis pour"
+   },
+   {
+    "catEn": "Cold Drinks",
+    "titleAr": "برد يطفي حر الظهيرة",
+    "titleEn": "cool for the noon heat"
+   }
+  ],
+  "heroAr": "دويرة صغيرة وقلبها كبير",
+  "heroEn": "a little house, a big welcome",
+  "archetype": "majlis-heritage",
+  "motif": "tiles",
+  "diaryAr": [
+   "ريحة القهوة توصل قبل الباب",
+   "قعدة البيت ما تتعوض"
+  ]
+ },
+ "cavida-cafe": {
+  "slug": "cavida-cafe",
+  "personality": "midnight glow lounge",
+  "world": {
+   "ar": "ركن يضوي وسط ليل المدينة",
+   "en": "a glowing corner in the sleeping city"
+  },
+  "rooms": [
+   {
+    "catEn": "House Desserts",
+    "titleAr": "حلا يضوي الليل",
+    "titleEn": "desserts on full glow"
+   },
+   {
+    "catEn": "Warm & Gooey",
+    "titleAr": "دافي ويلمع سكّر",
+    "titleEn": "warm sugar, full brightness"
+   },
+   {
+    "catEn": "Coffee",
+    "titleAr": "شحنة قهوة للسهرة",
+    "titleEn": "a power-up in a cup"
+   },
+   {
+    "catEn": "Cold Drinks",
+    "titleAr": "برد يشعل الانتعاش",
+    "titleEn": "neon-cold refresh"
+   }
+  ],
+  "heroAr": "المدينة نامت وضوّنا شغّال",
+  "heroEn": "the city sleeps, our glow doesn't",
+  "archetype": "neon-arcade",
+  "motif": "sparks",
+  "diaryAr": [
+   "السهرة بدون حلا ما تحلى",
+   "قلت أجلس شوي، وطوّلت"
+  ]
+ },
+ "ouia-cafe": {
+  "slug": "ouia-cafe",
+  "personality": "slow craft ritual",
+  "world": {
+   "ar": "محطة قهوة تمشي على مهلها",
+   "en": "a coffee station that never hurries"
+  },
+  "rooms": [
+   {
+    "catEn": "Espresso Bar",
+    "titleAr": "أول محطة، المكينة صاحية",
+    "titleEn": "first stop: the hot bar"
+   },
+   {
+    "catEn": "Filter & Slow Bar",
+    "titleAr": "قطرة قطرة على مهل",
+    "titleEn": "drop by patient drop"
+   },
+   {
+    "catEn": "Cold Bar",
+    "titleAr": "ثلج وقهوة على كيفك",
+    "titleEn": "ice, coffee, take your time"
+   },
+   {
+    "catEn": "Saudi Corner",
+    "titleAr": "ركن الدلة والهيل",
+    "titleEn": "the dallah keeps warm"
+   },
+   {
+    "catEn": "Bites & Sweets",
+    "titleAr": "لقمة تروّق القهوة",
+    "titleEn": "a bite beside the cup"
+   }
+  ],
+  "heroAr": "خذ راحتك، القهوة على مهلها",
+  "heroEn": "slow coffee, take a seat",
+  "archetype": "ticket-diner",
+  "motif": "steam",
+  "diaryAr": [
+   "الترشيح يعلمك الصبر",
+   "أول رشفة تعدل المزاج"
+  ]
+ }
+}
