@@ -1,5 +1,5 @@
 window.BUILDS_STATE = {
- "generatedAt": 1784385008560,
+ "generatedAt": 1784385306923,
  "builds": [
   {
    "id": "b1",
@@ -241,6 +241,21 @@ window.BUILDS_STATE = {
     {
      "at": 1784384796782,
      "msg": "Rank system in: ELITE/REAL/DEMO/FIX labels + best-first sorting law"
+    }
+   ]
+  },
+  {
+   "id": "b14",
+   "name": "PURPLE-FACTORY 🏭💜 — renderer v5: custom fonts+animations+motifs, first 50 elite-look demos",
+   "status": "running",
+   "pct": 15,
+   "etaAt": 1784388306922,
+   "note": "waiting on Beyt/RUSTIC recovery from the Mac",
+   "startedAt": 1784384406923,
+   "feed": [
+    {
+     "at": 1784385306923,
+     "msg": "Site emergency took priority — waiting on Beyt recovery to study the masters"
     }
    ]
   }
