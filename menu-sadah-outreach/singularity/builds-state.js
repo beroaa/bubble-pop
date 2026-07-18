@@ -1,5 +1,5 @@
 window.BUILDS_STATE = {
- "generatedAt": 1784373416376,
+ "generatedAt": 1784373526890,
  "builds": [
   {
    "id": "b1",
@@ -61,10 +61,6 @@ window.BUILDS_STATE = {
    "startedAt": 1784372322777,
    "feed": [
     {
-     "at": 1784372741867,
-     "msg": "12 designer agents thinking: layout, bubbles, XP, quests, coach, sounds, music"
-    },
-    {
      "at": 1784372741906,
      "msg": "waiting for their specs — then I build the app page myself"
     },
@@ -95,6 +91,14 @@ window.BUILDS_STATE = {
     {
      "at": 1784373416333,
      "msg": "Mission packaged for the Mac — his real app lives on the MacBook desktop"
+    },
+    {
+     "at": 1784373526850,
+     "msg": "🌍 menu-sadah.com IS LIVE — 1908 files, all links verified working"
+    },
+    {
+     "at": 1784373526890,
+     "msg": "Mac-Claude now fusing all 948 menus into the real ClientOS app"
     }
    ]
   }
