@@ -1207,7 +1207,9 @@ function load(){
            rules:{priceMin:5,priceMax:300}, settings:{wa:'',base:'https://menu-sadah.com'} };
 }
 let S = load();
-const save = () => localStorage.setItem(KEY, JSON.stringify(S));
+const save = () => { try {
+  localStorage.setItem(KEY, JSON.stringify({ ...S, queue: S.queue.map(({builtHtml, builtWelcome, ...rest}) => rest) }));
+} catch (e) { console.warn('save skipped:', e); } };
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const slugify = (n) => n.toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'') || 'cafe';
@@ -1336,7 +1338,7 @@ $('buildBtn').addEventListener('click', async ()=>{
   if(!all.length) return toast('Queue is empty');
   const list = targets.length ? targets : all;
   $('buildbar').classList.add('on');
-  const t0 = performance.now(); let done = 0; const perMenu = 45;
+  const t0 = performance.now(); let done = 0; const perMenu = list.length > 100 ? 8 : 45;
   const tick = setInterval(()=>{
     const remainMs = (list.length - done) * perMenu;
     $('bbEta').textContent = (Math.floor(remainMs/60000)+'').padStart(2,'0')+':'+ (Math.floor(remainMs/1000)%60+'').padStart(2,'0')+'.'+(Math.floor(remainMs/100)%10);
