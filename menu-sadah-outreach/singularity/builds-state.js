@@ -1,5 +1,5 @@
 window.BUILDS_STATE = {
- "generatedAt": 1784388996439,
+ "generatedAt": 1784389328592,
  "builds": [
   {
    "id": "b1",
@@ -248,7 +248,7 @@ window.BUILDS_STATE = {
    "id": "b14",
    "name": "PURPLE-FACTORY 🏭💜 — renderer v5: custom fonts+animations+motifs, first 50 elite-look demos",
    "status": "running",
-   "pct": 30,
+   "pct": 92,
    "etaAt": 1784388306922,
    "note": "waiting on Beyt/RUSTIC recovery from the Mac",
    "startedAt": 1784384406923,
@@ -264,6 +264,10 @@ window.BUILDS_STATE = {
     {
      "at": 1784388996439,
      "msg": "Building renderer v5: real fonts + light/dark moods + playful motion"
+    },
+    {
+     "at": 1784389328592,
+     "msg": "50 personal menus + campaign kit pushed — one deploy from live"
     }
    ]
   }
