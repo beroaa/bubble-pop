@@ -288,7 +288,7 @@ const FLAVOR = {
 export function luxeWelcomePage(cafe, extras = {}) {
   const a = cafe.accent;
   const flavor = FLAVOR[extras.type] || FLAVOR.specialty_coffee;
-  const sig = extras.signature && extras.signature.length ? extras.signature[0] : null;
+  const sig = (extras.signature && extras.signature.length ? extras.signature[0] : null) || extras.sigMention || null;
   const social = extras.social && /^@/.test(String(extras.social).trim()) ? String(extras.social).trim() : null;
   const waMsg = encodeURIComponent('مرحباً، معكم ' + cafe.name + ' — شفنا المنيو التجريبي وحابين نكمل');
   const wa = CONTACT.whatsapp && CONTACT.whatsapp !== '966500000000' ? `https://wa.me/${CONTACT.whatsapp}?text=${waMsg}` : null;

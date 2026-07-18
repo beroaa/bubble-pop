@@ -151,7 +151,7 @@ export function runBuild() {
       const cafe = makeCafe(entry);
       setStage('BUILD');
       const html = entry.tier === 'luxe' ? luxeMenuPage(cafe) : menuPage(cafe);
-      const welcomeHtml = entry.tier === 'luxe' ? luxeWelcomePage(cafe, { type: entry.type, signature: entry.signature, social: entry.social }) : welcomePage(cafe);
+      const welcomeHtml = entry.tier === 'luxe' ? luxeWelcomePage(cafe, { type: entry.type, signature: entry.signature, sigMention: entry.sigMention, social: entry.social }) : welcomePage(cafe);
       setStage('QA');
       const fails = qaCheck(cafe, html, welcomeHtml, learnings.qa);
       if (fails.length) {
