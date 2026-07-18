@@ -7,6 +7,7 @@ These orders apply to EVERY Claude session in this repo — cloud or MacBook. Re
 - Improve his rushed prompts to the max FIRST, then apply them. He expects this every time.
 - Only stop for things physically impossible from the current machine — and even then, don't ask questions: package the blocked step as a ready-to-run mission file (like singularity/PHOTO-MISSION.md) and tell him the one command to run.
 - Every build gets its own card on the build board (`node singularity/btrack.mjs`) with a live 0.1s ETA. Sync + push the board every time.
+- **Live activity feed (Ibrahim's standing demand — EVERY build, always):** at every meaningful step of any build, post a short easy-English bullet via `node singularity/btrack.mjs log <id> "<what is happening right now>"` (e.g. "4 agents researching cafes", "building pages", "taking screenshots"). Keep bullets under 12 words, no jargon. Then re-sync the artifact board (inline builds-state into scratchpad build-board.html and republish the same artifact URL) so he sees big ETA + live bullets on his phone. Token-cheap one-liners, but never skip them.
 - Always commit + push to the working branch when a chunk of work lands. Never leave work uncommitted.
 
 ## The business (context)

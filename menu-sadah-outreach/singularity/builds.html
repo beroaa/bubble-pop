@@ -29,6 +29,11 @@
   .fill{height:100%;width:0%;background:linear-gradient(90deg,var(--a),#f6d77e);border-radius:999px;box-shadow:0 0 12px #e3b23c59;transition:width .4s}
   .fill.done{background:var(--pos)}
   .note{margin-top:8px;font-size:12px;color:var(--t3);text-align:center}
+  .feed{margin-top:12px;border-top:1px dashed var(--b);padding-top:10px}
+  .feed div{display:flex;gap:8px;align-items:baseline;color:var(--t2);font-size:14px;padding:3px 0}
+  .feed div::before{content:"▸";color:var(--a);flex:0 0 auto}
+  .feed div:first-child{color:var(--t1);font-weight:600}
+  .feed div:first-child::before{content:"▶";animation:pu 1.2s infinite}
   footer{text-align:center;color:var(--t3);font-size:11px;margin-top:24px}
   footer b{color:var(--a)}
 </style>
@@ -77,6 +82,7 @@
         '<div class="esub">' + esc(sub) + '</div>' +
         '<div class="bar"><div class="fill' + (done ? ' done' : '') + '" style="width:' + (done ? 100 : (b.pct || 0)) + '%"></div></div>' +
         (b.note && !done ? '<div class="note">' + esc(b.note) + '</div>' : '') +
+        ((b.feed && b.feed.length && !done) ? '<div class="feed">' + b.feed.slice(-4).reverse().map(f => '<div>' + esc(f.msg) + '</div>').join('') + '</div>' : '') +
         '</div>';
     }).join('') || '<div class="build"><div class="esub">no builds yet</div></div>';
   }

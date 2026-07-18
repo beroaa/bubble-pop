@@ -2,6 +2,7 @@
 //   node btrack.mjs new "<name>" [etaMinutes] [note]   -> prints build id
 //   node btrack.mjs set <id> <pct> [etaMinutes] [note]
 //   node btrack.mjs done <id> "<result>"
+//   node btrack.mjs log <id> "<short activity line>"   -> shows live under the ETA
 //   node btrack.mjs list
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
@@ -24,6 +25,10 @@ if (cmd === 'new') {
 } else if (cmd === 'done') {
   const bl = st.builds.find(x => x.id === a); if (!bl) throw new Error('no build ' + a);
   bl.status = 'done'; bl.pct = 100; bl.etaAt = null; bl.result = b || 'complete'; save(st); console.log(a, 'DONE');
+} else if (cmd === 'log') {
+  const bl = st.builds.find(x => x.id === a); if (!bl) throw new Error('no build ' + a);
+  bl.feed = [...(bl.feed || []), { at: Date.now(), msg: b }].slice(-10);
+  save(st); console.log(a, '::', b);
 } else if (cmd === 'list') {
   st.builds.forEach(x => console.log(`${x.id} ${x.status.padEnd(8)} ${x.pct}% ${x.name}`));
 } else console.log('usage: new|set|done|list');
