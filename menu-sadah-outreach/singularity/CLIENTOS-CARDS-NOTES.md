@@ -45,3 +45,11 @@ one pass (b10 LINK-RESCUE, b11 CARD-DOPAMINE, b12 MENU-DETECTORS), plus a dedupe
 ## Design decision kept from before
 - DM copy uses the app's own `menuReveal()` generator (localised name + live link).
   His design wins; the static payload `dm` is not force-injected over it.
+
+## 5. Businessman DMs on the copy buttons (done 2026-07-18) — `clientos-dmswap.mjs`
+- Global `MDM` (slug→{a:dm, e:dmEn}) embedded from payload + `MDMfor(l)`.
+- `menuReveal()` now prefers the payload's `dm`/`dmEn` (Made-to-Stick businessman
+  voice, signature dish + gift link baked in) for the 948 cafes. Covers 📋AR / 📋EN
+  and the primary "Send the gift" button in one change at the source.
+- Non-payload curated leads (no MDM) still fall back to the built-in generator.
+- Sent-tab "Gift Package" uses its own full-package template (unchanged, exact URLs).
