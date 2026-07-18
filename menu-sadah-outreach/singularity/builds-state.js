@@ -1,5 +1,5 @@
 window.BUILDS_STATE = {
- "generatedAt": 1784382990567,
+ "generatedAt": 1784383094683,
  "builds": [
   {
    "id": "b1",
@@ -180,6 +180,15 @@ window.BUILDS_STATE = {
     }
    ],
    "result": "2844 redirect rules pushed — app link fix + redeploy handed to the Mac"
+  },
+  {
+   "id": "b11",
+   "name": "CARD-DOPAMINE 🫧 — MENUS cards: 3-per-row, bubbly, smart stage-buttons, juicy motion (spec here, surgery on Mac)",
+   "status": "running",
+   "pct": 0,
+   "etaAt": 1784383694683,
+   "note": "writing the card blueprint",
+   "startedAt": 1784383094683
   }
  ]
 };
