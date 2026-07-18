@@ -126,7 +126,7 @@ export function luxeMenuPage(cafe) {
     <div class="cat-head">
       <div class="cat-art">
         <div class="cat-svg">${ART[artKey](T)}</div>
-        <img src="../assets/photos/${photoKey}.jpg" alt="" loading="lazy" onload="this.parentElement.classList.add('hasimg')">
+        <img src="../assets/photos/${photoKey}.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
         <h2><span class="ar">${esc(c.catAr)}</span><span class="en">${esc(c.cat)}</span></h2>
