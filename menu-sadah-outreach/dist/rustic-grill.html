@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RUSTIC GRILL, رستك جريل, charcoal smokehouse, Makkah & Jeddah</title>
+<meta name="description" content="RUSTIC GRILL, رستك جريل. A grungy American charcoal smokehouse, open late in Makkah and Jeddah. Burgers off the griddle, chops off the coals, steaks off the fire.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Rakkas&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#B4232A; --red-deep:#8E1A20; --ember:#E4572E; --amber:#F2A03D;
+  --kraft:#C9A96A; --kraft-lt:#DBC4A0; --concrete:#A8A29A; --concrete-dk:#6E6A64;
+  --char:#1A1714; --coal:#2A2522; --bone:#F3ECE0;
+  --ink:#211b16; --sub:#5f554a;
+  --ticket:#e7d8b8; --ticket-edge:#cbb587;
+  --disp-en:'Anton',sans-serif; --disp-ar:'Rakkas',serif;
+  --body:'Oswald','Tajawal',sans-serif;
+  --acc:var(--ember);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{
+  font-family:var(--body); color:var(--bone); background:var(--char);
+  line-height:1.5; overflow-x:hidden; -webkit-font-smoothing:antialiased;
+}
+body.lite *, body.rm *{transition-duration:.001s !important;animation-duration:.001s !important;animation-delay:0s !important}
+img{max-width:100%;display:block}
+a{color:inherit}
+/* language swap */
+.ar{display:none}
+html[dir="rtl"] .ar{display:inline}
+html[dir="rtl"] .en{display:none}
+.ar{font-family:'Tajawal',sans-serif}
+html[dir="rtl"] body{font-family:'Tajawal',sans-serif}
+
+/* ================= the pit ground, day/night crossfade (opacity only) ================= */
+#pit{position:fixed;inset:0;z-index:0;pointer-events:none}
+#pit div{position:absolute;inset:0;transition:opacity 1.3s ease}
+#pit .day{
+  opacity:1;
+  background:
+    radial-gradient(120% 80% at 50% -8%, #3a302a 0%, #241d18 42%, #17120f 100%),
+    linear-gradient(#1c1611,#17120f);
+}
+#pit .night{
+  opacity:0;
+  background:
+    radial-gradient(130% 78% at 50% 108%, rgba(228,87,46,.20) 0%, rgba(180,35,42,.06) 30%, transparent 60%),
+    radial-gradient(120% 80% at 50% -6%, #241b16 0%, #140f0c 46%, #0d0908 100%),
+    linear-gradient(#120d0a,#0c0806);
+}
+body[data-phase="night"] #pit .day{opacity:0}
+body[data-phase="night"] #pit .night{opacity:1}
+/* faint drifting grain / soot */
+#pit .grain{
+  opacity:.5;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+/* motif watermark: branding-iron flame, ~7% */
+#watermark{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.06;
+  background-position:center 12%;background-repeat:no-repeat;background-size:min(560px,120vw) auto;color:var(--ember)}
+#watermark svg{width:min(560px,120vw);height:auto;display:block;margin:8vh auto 0}
+
+.wrap{position:relative;z-index:1}
+
+/* ================= header ================= */
+header.top{
+  position:sticky;top:0;z-index:50;
+  background:rgba(20,15,12,.92);backdrop-filter:blur(6px);
+  border-bottom:2px solid var(--coal);
+  padding:.5rem .8rem;display:flex;align-items:center;gap:.55rem;
+}
+.mark{width:34px;height:34px;flex:none;color:var(--ember)}
+.brand{font-family:var(--disp-en);font-size:1.32rem;letter-spacing:.05em;line-height:1;color:var(--bone)}
+html[dir="rtl"] .brand{font-family:var(--disp-ar);font-size:1.7rem}
+.brand b{color:var(--ember);font-weight:400}
+.tools{margin-inline-start:auto;display:flex;align-items:center;gap:.4rem}
+button.dial{
+  width:44px;height:44px;flex:none;background:none;border:none;padding:0;cursor:pointer;
+  position:relative;-webkit-tap-highlight-color:transparent;
+}
+.dial .coal,.dial .flame{position:absolute;inset:9px;transition:opacity 1s ease,transform 1s ease}
+.dial .flame{opacity:0;transform:scale(.6)}
+body[data-phase="night"] .dial .coal{opacity:0;transform:scale(.6)}
+body[data-phase="night"] .dial .flame{opacity:1;transform:none}
+button.dial:focus-visible{outline:2.5px dashed var(--ember);border-radius:50%;outline-offset:2px}
+.langbtn{
+  flex:none;font-family:var(--body);font-weight:700;font-size:.82rem;letter-spacing:.04em;
+  background:var(--red);color:#fff;border:2px solid var(--red-deep);border-radius:4px;
+  padding:.42rem .8rem;cursor:pointer;min-height:44px;min-width:44px;text-transform:uppercase;
+}
+html[dir="rtl"] .langbtn{font-family:'Tajawal',sans-serif;font-weight:700}
+
+/* station nav */
+nav.stations{
+  position:sticky;top:52px;z-index:49;display:flex;gap:.45rem;overflow-x:auto;
+  padding:.5rem .8rem;background:rgba(15,11,9,.94);backdrop-filter:blur(6px);
+  border-bottom:2px solid var(--coal);scrollbar-width:none;
+}
+nav.stations::-webkit-scrollbar{display:none}
+nav.stations a{
+  flex:none;text-decoration:none;font-weight:600;font-size:.78rem;letter-spacing:.03em;
+  text-transform:uppercase;color:var(--kraft-lt);
+  border:1.6px solid var(--coal);border-radius:3px;background:#1d1712;
+  padding:.34rem .7rem;display:flex;align-items:center;gap:.4rem;min-height:40px;white-space:nowrap;
+}
+html[dir="rtl"] nav.stations a{font-family:'Tajawal',sans-serif;text-transform:none;font-size:.82rem}
+nav.stations a .pip{width:9px;height:9px;flex:none;border-radius:1px;transform:rotate(45deg);background:var(--pipc,var(--ember))}
+
+/* ================= hero ================= */
+.hero{position:relative;text-align:center;padding:2.1rem 1.1rem 1.6rem;max-width:660px;margin:0 auto}
+.emblem-wrap{width:min(184px,50vw);margin:0 auto .3rem}
+.emblembtn{display:block;width:100%;background:none;border:none;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.emblembtn:focus-visible{outline:3px dashed var(--ember);outline-offset:8px;border-radius:50%}
+.emblembtn svg{width:100%;height:auto;color:var(--ember);transition:transform .18s cubic-bezier(.2,.8,.2,1)}
+.emblembtn:active svg{transform:scale(.955)}
+/* branding iron draw-in */
+.iron-ring{fill:none;stroke:currentColor;stroke-width:4;stroke-linecap:round;
+  stroke-dasharray:100;stroke-dashoffset:100;
+  animation:draw 1.5s cubic-bezier(.4,.9,.3,1) .2s forwards}
+.iron-flame{fill:var(--amber);opacity:0;transform-box:fill-box;transform-origin:50% 70%;
+  animation:flamepop 1s cubic-bezier(.2,1.5,.4,1) 1s forwards}
+.iron-txt{fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;
+  stroke-dasharray:100;stroke-dashoffset:100;
+  animation:draw 1.1s ease .7s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes flamepop{0%{opacity:0;transform:translateY(8px) scale(.5)}70%{opacity:1;transform:translateY(0) scale(1.08)}100%{opacity:1;transform:none}}
+/* coal glow behind emblem, brighter at night (static, no loop) */
+.emblem-wrap{position:relative}
+.emblem-wrap::after{content:"";position:absolute;inset:-16% -16% -6%;z-index:-1;border-radius:50%;
+  background:radial-gradient(circle,rgba(228,87,46,.30),transparent 62%);opacity:.35;transition:opacity 1.1s ease}
+body[data-phase="night"] .emblem-wrap::after{opacity:1}
+
+.hero h1{font-family:var(--disp-en);font-size:clamp(3.1rem,15vw,5.4rem);line-height:.92;letter-spacing:.01em;margin:.35rem 0 .1rem;color:var(--bone)}
+.hero h1 .en b{color:var(--ember);font-weight:400}
+.hero h1 .ar{font-family:var(--disp-ar);font-size:clamp(3rem,15vw,5.4rem);line-height:1.2}
+.hero h1 .ar b{color:var(--ember)}
+body[data-phase="night"] .hero h1{text-shadow:0 0 20px rgba(228,87,46,.35)}
+.stencilsub{font-family:var(--body);font-weight:600;letter-spacing:.34em;text-transform:uppercase;
+  font-size:.72rem;color:var(--kraft);margin:.15rem 0 .55rem}
+html[dir="rtl"] .stencilsub{letter-spacing:.12em;font-family:'Tajawal',sans-serif}
+.pitgreet{font-family:var(--disp-en);font-size:1.15rem;color:var(--amber);min-height:1.5em;margin:.1rem 0 .4rem;letter-spacing:.01em}
+html[dir="rtl"] .pitgreet,.pitgreet .ar{font-family:var(--disp-ar);font-size:1.35rem}
+.pitgreet .w{display:inline-block;opacity:0;transform:translateY(8px);transition:opacity .5s ease,transform .55s cubic-bezier(.2,.8,.2,1)}
+.pitgreet.on .w{opacity:1;transform:none}
+.hero .sub{color:var(--kraft-lt);font-size:1rem;max-width:34rem;margin:.2rem auto .1rem;line-height:1.55}
+html[dir="rtl"] .hero .sub{font-family:'Tajawal',sans-serif}
+
+/* neon open-late strip */
+.neon{display:inline-flex;align-items:center;gap:.5rem;margin:1rem auto .2rem;
+  font-family:var(--disp-en);font-size:.95rem;letter-spacing:.14em;text-transform:uppercase;
+  border:2px solid var(--concrete-dk);border-radius:5px;padding:.4rem .95rem;color:var(--concrete);
+  transition:color 1s ease,border-color 1s ease,text-shadow 1s ease}
+html[dir="rtl"] .neon{font-family:'Tajawal',sans-serif;letter-spacing:.02em;font-weight:700}
+.neon .bulb{width:9px;height:9px;border-radius:50%;background:var(--concrete-dk);transition:background 1s ease,box-shadow 1s ease}
+body[data-phase="night"] .neon{color:var(--ember);border-color:var(--ember);text-shadow:0 0 12px rgba(228,87,46,.7),0 0 24px rgba(228,87,46,.4)}
+body[data-phase="night"] .neon .bulb{background:var(--ember);box-shadow:0 0 8px var(--ember),0 0 16px var(--amber)}
+body[data-phase="night"] .neon.flick{animation:neonflick 1.4s steps(1,end) both}
+@keyframes neonflick{0%{opacity:.2}12%{opacity:1}18%{opacity:.3}26%{opacity:1}40%{opacity:.5}48%{opacity:1}100%{opacity:1}}
+
+.tap-hint{display:none}
+body.armed .tap-hint{display:block;font-family:var(--disp-en);font-size:.9rem;color:var(--concrete);margin:.4rem auto 0;letter-spacing:.06em}
+html[dir="rtl"] body.armed .tap-hint{font-family:'Tajawal',sans-serif;font-weight:500}
+.tap-hint .hn{display:none}
+body[data-phase="night"] .tap-hint .hd{display:none}
+body[data-phase="night"] .tap-hint .hn{display:inline}
+
+.cta{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin-top:1rem}
+.btn{display:inline-flex;align-items:center;gap:.45rem;text-decoration:none;
+  font-weight:700;font-size:.9rem;padding:.6rem 1.1rem;border-radius:5px;letter-spacing:.03em;
+  text-transform:uppercase;border:2px solid transparent}
+html[dir="rtl"] .btn{font-family:'Tajawal',sans-serif;text-transform:none}
+.btn.wa{background:#1f7a44;color:#fff;border-color:#155c32}
+.btn.map{background:transparent;color:var(--kraft-lt);border-color:var(--concrete-dk)}
+.btn svg{flex:none}
+
+/* smoke: the single ambient loop */
+.smoke{position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:150px;height:120px;pointer-events:none;z-index:-1;opacity:.5;color:var(--concrete)}
+.smoke path{fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;opacity:0}
+.smoke .s1{animation:wisp 5.2s ease-in-out infinite}
+.smoke .s2{animation:wisp 5.2s ease-in-out 1.7s infinite}
+.smoke .s3{animation:wisp 5.2s ease-in-out 3.3s infinite}
+@keyframes wisp{0%{opacity:0;transform:translateY(10px) scaleY(.85)}35%{opacity:.6}70%,100%{opacity:0;transform:translateY(-16px) scaleY(1.1)}}
+body.lite .smoke,body.rm .smoke{display:none}
+
+/* ================= stations / sections ================= */
+main{position:relative;z-index:1;max-width:1000px;margin:0 auto;padding:0 .9rem 1rem}
+section.station{padding:2rem 0 .5rem;scroll-margin-top:118px}
+/* per-station accents from the 5 sampled hexes */
+#signatures{--acc:#E4572E;--pipc:#E4572E}
+#griddle{--acc:#E4572E;--pipc:#E4572E}
+#stacks{--acc:#F2A03D;--pipc:#F2A03D}
+#coals{--acc:#C9A96A;--pipc:#C9A96A}
+#firepit{--acc:#B4232A;--pipc:#B4232A}
+#chopblock{--acc:#DBC4A0;--pipc:#DBC4A0}
+#siderail{--acc:#A8A29A;--pipc:#A8A29A}
+
+#icehouse{--acc:#C9A96A;--pipc:#C9A96A}
+#stoke{--acc:#E4572E;--pipc:#E4572E}
+
+.st-head{position:relative;margin-bottom:.3rem}
+.st-kicker{display:flex;align-items:center;gap:.5rem;font-family:var(--body);font-weight:600;
+  font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--acc);margin-bottom:.15rem}
+html[dir="rtl"] .st-kicker{letter-spacing:.04em;font-size:.82rem;font-family:'Tajawal',sans-serif}
+.st-kicker::before{content:"";height:2px;width:22px;flex:none;background:var(--acc)}
+.st-head h2{font-family:var(--disp-en);font-size:clamp(2.5rem,10vw,3.9rem);line-height:.94;letter-spacing:.01em;
+  color:var(--bone);
+  -webkit-text-stroke:.6px rgba(0,0,0,.35);
+  text-shadow:2px 3px 0 rgba(0,0,0,.4);}
+.st-head h2 .ar{font-family:var(--disp-ar);font-size:clamp(2.2rem,9vw,3.4rem);line-height:1.25;color:var(--acc)}
+.st-head h2 .en em{font-style:normal;color:var(--acc)}
+body[data-phase="night"] .st-head h2{text-shadow:2px 3px 0 rgba(0,0,0,.5),0 0 22px rgba(228,87,46,.18)}
+.st-underline{display:block;width:min(240px,60%);height:12px;margin-top:.25rem;overflow:visible}
+html[dir="rtl"] .st-underline{margin-inline-start:auto}
+.st-underline path{fill:none;stroke:var(--acc);stroke-width:5;stroke-linecap:round;
+  stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset .9s ease .3s}
+.station.seen .st-underline path{stroke-dashoffset:0}
+.st-sub{color:var(--kraft-lt);margin:.35rem 0 .2rem;font-size:1rem;line-height:1.55;max-width:44rem}
+html[dir="rtl"] .st-sub{font-family:'Tajawal',sans-serif}
+
+/* pitmaster's log strip */
+.log{display:flex;align-items:flex-start;gap:.55rem;margin:.55rem 0 1.1rem;
+  font-family:var(--body);font-size:.98rem;color:var(--kraft);line-height:1.4;font-style:italic;
+  opacity:0;transform:translateY(9px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.2,1)}
+.station.seen .log{opacity:1;transform:none}
+html[dir="rtl"] .log{font-family:'Tajawal',sans-serif;font-style:normal}
+.log .tag{flex:none;font-style:normal;font-weight:600;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--acc);border:1.6px dashed var(--acc);border-radius:3px;padding:.2rem .45rem;transform:rotate(-1.5deg)}
+html[dir="rtl"] .log .tag{letter-spacing:0;font-size:.74rem;text-transform:none;font-family:'Tajawal',sans-serif}
+
+/* ================= butcher ticket cards ================= */
+.cards{display:grid;gap:1.1rem;grid-template-columns:1fr}
+@media(min-width:720px){.cards{grid-template-columns:1fr 1fr}}
+.ticket{
+  position:relative;background:
+    linear-gradient(180deg,#ece0c5,#e0cfa9);
+  color:var(--ink);border-radius:3px;padding:1.5rem 1.05rem 1.15rem;
+  box-shadow:0 10px 22px rgba(0,0,0,.4),0 2px 0 rgba(0,0,0,.25);
+  border:1px solid var(--ticket-edge);
+}
+/* perforated torn top edge */
+.ticket::before{content:"";position:absolute;top:-7px;left:0;right:0;height:12px;
+  background:radial-gradient(circle at 7px 0, transparent 6px, #e6d6b4 6.5px) repeat-x;
+  background-size:14px 12px;filter:drop-shadow(0 -1px 0 var(--ticket-edge))}
+/* punch hole */
+.ticket::after{content:"";position:absolute;top:8px;inset-inline-start:14px;width:12px;height:12px;border-radius:50%;
+  background:radial-gradient(circle,#0d0908 60%,#3a2f1e);box-shadow:inset 0 1px 2px rgba(0,0,0,.6)}
+.ticket .stamp{position:absolute;top:6px;inset-inline-end:12px;font-family:var(--disp-en);font-size:.62rem;
+  letter-spacing:.12em;color:var(--red);border:1.6px solid var(--red);border-radius:3px;padding:.12rem .35rem;
+  transform:rotate(4deg);opacity:.6}
+html[dir="rtl"] .ticket .stamp{font-family:'Tajawal',sans-serif;font-weight:700;letter-spacing:0}
+.ticket h3{font-family:var(--disp-en);font-size:1.5rem;letter-spacing:.02em;color:var(--ink);
+  display:flex;align-items:center;gap:.45rem;margin-bottom:.15rem;line-height:1}
+.ticket h3 .ar{font-family:var(--disp-ar);font-size:1.55rem;color:var(--red-deep)}
+.ticket h3 .chip{width:9px;height:9px;flex:none;background:var(--acc);border-radius:1px;transform:rotate(45deg)}
+.ticket .serve{font-size:.85rem;color:var(--sub);font-style:italic;margin:.1rem 0 .3rem}
+html[dir="rtl"] .ticket .serve{font-family:'Tajawal',sans-serif}
+.ticket ul{list-style:none;margin-top:.35rem}
+
+.row{display:flex;align-items:baseline;gap:.5rem;padding:.4rem 0;border-top:1px dotted rgba(33,27,22,.25)}
+.row:first-child{border-top:none}
+.nm{font-weight:600;font-size:1.02rem;color:var(--ink)}
+.nm .ar{font-family:'Tajawal',sans-serif;font-weight:700}
+.nm .ds{display:block;font-weight:400;font-size:.83rem;color:var(--sub);line-height:1.4;margin-top:.05rem;max-width:30rem}
+.nm .ds .ar{font-weight:400}
+.lead{flex:1;border-bottom:2px dotted rgba(33,27,22,.32);transform:translateY(-4px);min-width:12px}
+.meta{display:flex;flex-direction:column;align-items:flex-end;line-height:1.05;flex:none;text-align:end}
+.price{font-family:var(--body);font-weight:700;font-size:1.12rem;color:var(--red-deep);
+  font-variant-numeric:tabular-nums;white-space:nowrap;direction:ltr;unicode-bidi:isolate}
+.price .u{font-size:.62rem;font-weight:600;color:var(--sub);margin-inline-start:.12rem}
+html[dir="rtl"] .price .u{font-family:'Tajawal',sans-serif}
+.price.ask{font-family:var(--disp-ar);font-weight:400;color:var(--concrete-dk);font-size:1rem}
+html:not([dir="rtl"]) .price.ask{font-family:var(--body);font-weight:600;font-style:italic}
+.cal{font-size:.66rem;color:var(--concrete-dk);letter-spacing:.02em;margin-top:.12rem;white-space:nowrap}
+html[dir="rtl"] .cal{font-family:'Tajawal',sans-serif}
+.note{margin-top:.5rem;padding-top:.45rem;border-top:1px dashed rgba(33,27,22,.3);
+  font-size:.82rem;color:var(--sub);line-height:1.45}
+html[dir="rtl"] .note{font-family:'Tajawal',sans-serif}
+
+/* staggered cascade on rows */
+.station.reveal .row{opacity:0}
+.station.reveal.seen .row{animation:rowin .5s cubic-bezier(.2,.9,.3,1) both;animation-delay:calc(var(--i,0)*65ms)}
+@keyframes rowin{0%{opacity:0;transform:translateY(12px)}100%{opacity:1;transform:none}}
+/* ticket drift in */
+.station.reveal .ticket{opacity:0;transform:translateY(18px)}
+.station.reveal.seen .ticket{animation:cardin .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--ci,0)*90ms)}
+@keyframes cardin{0%{opacity:0;transform:translateY(18px)}100%{opacity:1;transform:none}}
+
+/* ================= THE SIGNED CUT hero card + station signatures ================= */
+.signed{
+  position:relative;margin:0 0 1.3rem;
+  background:linear-gradient(180deg,#efe3c8,#ddc9a0);
+  border-radius:4px;padding:1.5rem 1.15rem 1.25rem;color:var(--ink);
+  box-shadow:0 14px 30px rgba(0,0,0,.46);border:1px solid var(--ticket-edge);
+}
+.signed::before{content:"";position:absolute;top:-7px;left:0;right:0;height:12px;
+  background:radial-gradient(circle at 7px 0, transparent 6px, #efe3c8 6.5px) repeat-x;background-size:14px 12px}
+/* char grain edge on the signed cut */
+.signed .brandtag{position:absolute;top:8px;inset-inline-end:12px;font-family:var(--disp-en);font-size:.6rem;
+  letter-spacing:.1em;color:var(--red);border:1.6px solid var(--red);border-radius:3px;padding:.15rem .4rem;transform:rotate(3deg)}
+html[dir="rtl"] .signed .brandtag{font-family:'Tajawal',sans-serif;font-weight:700;letter-spacing:0}
+.signed .eyebrow{font-family:var(--body);font-weight:600;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ember)}
+html[dir="rtl"] .signed .eyebrow{letter-spacing:.04em;font-size:.8rem;font-family:'Tajawal',sans-serif}
+.signed h3{font-family:var(--disp-en);font-size:clamp(1.9rem,7vw,2.6rem);line-height:.98;letter-spacing:.01em;margin:.3rem 0 .1rem;color:var(--ink)}
+.signed h3 .ar{font-family:var(--disp-ar);font-size:clamp(1.9rem,7vw,2.5rem);color:var(--red-deep);display:block;line-height:1.2;margin-top:.1rem}
+.signed .stand{font-size:.94rem;color:#4a3f31;line-height:1.5;max-width:34rem;margin-top:.3rem}
+html[dir="rtl"] .signed .stand{font-family:'Tajawal',sans-serif}
+.signed .cal-lg{display:inline-block;margin-top:.35rem;font-size:.72rem;color:var(--concrete-dk);letter-spacing:.06em}
+html[dir="rtl"] .signed .cal-lg{font-family:'Tajawal',sans-serif}
+.signrow{display:flex;align-items:center;gap:1.1rem;margin-top:.85rem;flex-wrap:wrap}
+.whisper{font-family:var(--disp-en);font-size:1rem;color:#6b5a3f;letter-spacing:.01em}
+html[dir="rtl"] .whisper{font-family:var(--disp-ar);font-size:1.15rem}
+
+/* ---- the branding-iron sear ring (the signature pricing moment) ---- */
+.sear{position:relative;display:inline-flex;align-items:baseline;justify-content:center;gap:.16rem;
+  padding:.5rem 1.15rem;min-width:96px;min-height:56px;box-sizing:border-box}
+.sear .amt{font-family:var(--disp-en);font-size:1.85rem;color:var(--red-deep);font-variant-numeric:tabular-nums;
+  direction:ltr;line-height:1}
+.sear .cur{font-family:var(--body);font-weight:600;font-size:.72rem;color:var(--red);letter-spacing:.04em}
+html[dir="rtl"] .sear .cur{font-family:'Tajawal',sans-serif}
+.sear .ring{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.sear .ring rect{fill:none;stroke:var(--ember);stroke-width:3.2;stroke-linecap:round;
+  stroke-dasharray:100;stroke-dashoffset:100}
+.seen .sear .ring rect{transition:stroke-dashoffset 1s cubic-bezier(.5,0,.3,1) .35s;stroke-dashoffset:0}
+/* faint scorch under the ring */
+.sear::before{content:"";position:absolute;inset:6px 10px;border-radius:40px;
+  background:radial-gradient(ellipse,rgba(228,87,46,.16),transparent 72%);opacity:0;transition:opacity .8s ease .5s}
+.seen .sear::before{opacity:1}
+/* ember sparks flick once as the iron lands */
+.sear .sparks{position:absolute;inset-inline-end:-4px;top:-6px;width:34px;height:34px;overflow:visible;pointer-events:none}
+.sear .sparks path{fill:none;stroke:var(--amber);stroke-width:2.4;stroke-linecap:round;opacity:0;transform-box:fill-box;transform-origin:center}
+.seen .sear .sparks .k1{animation:spark .7s ease-out 1s both}
+.seen .sear .sparks .k2{animation:spark .7s ease-out 1.12s both}
+.seen .sear .sparks .k3{animation:spark .7s ease-out 1.22s both}
+@keyframes spark{0%{opacity:0;transform:scale(.3)}45%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1.4) translateY(-4px)}}
+body[data-phase="night"] .sear .amt{text-shadow:0 0 12px rgba(228,87,46,.3)}
+/* signature reveal */
+.signed.reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.signed.reveal.seen{opacity:1;transform:none}
+
+/* ================= texture runner bands ================= */
+.runner{position:relative;height:42px;margin:1.9rem .1rem .2rem;border-radius:3px;overflow:hidden;
+  border-top:2px solid #0c0806;border-bottom:2px solid #0c0806}
+.runner.plate{background:
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect width='40' height='40' fill='%23241d18'/%3E%3Cg stroke='%233a2f26' stroke-width='2' fill='none'%3E%3Cpath d='M6 14 l8 12 M14 26 l8 -12'/%3E%3Cpath d='M26 14 l8 12 M34 26 l8 -12'/%3E%3C/g%3E%3C/svg%3E") repeat}
+.runner.tape{background:repeating-linear-gradient(45deg,#8E1A20 0 16px,#B4232A 16px 32px)}
+.runner .rmark{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:30px;height:30px;color:var(--kraft-lt);opacity:.7}
+.runner::after{content:"";position:absolute;inset:0;background:#0c0806;opacity:0;transition:opacity 1.2s ease}
+body[data-phase="night"] .runner::after{opacity:.35}
+
+/* kids coming soon note */
+.kidsnote{max-width:44rem;margin:1.4rem auto .2rem;text-align:center;
+  border:1.6px dashed var(--concrete-dk);border-radius:4px;padding:.8rem 1rem;color:var(--kraft-lt);font-size:.92rem}
+html[dir="rtl"] .kidsnote{font-family:'Tajawal',sans-serif}
+.kidsnote b{color:var(--amber);font-weight:600}
+
+/* ================= footer re-sear ================= */
+footer{position:relative;z-index:1;text-align:center;padding:2.6rem 1rem 3rem;max-width:680px;margin:0 auto}
+.finmark{width:120px;margin:0 auto .6rem;color:var(--ember)}
+.finmark svg{width:100%;height:auto}
+.finmark .iron-ring,.finmark .iron-txt{animation:none;stroke-dashoffset:100}
+.finwrap.seen .finmark .fr{transition:stroke-dashoffset 1.3s cubic-bezier(.4,.9,.3,1) .1s;stroke-dashoffset:0}
+.finwrap.seen .finmark .ft{transition:stroke-dashoffset 1s ease .5s;stroke-dashoffset:0}
+.finmark .fflame{fill:var(--amber);opacity:0;transform-box:fill-box;transform-origin:50% 70%;transition:opacity .8s ease .8s,transform .8s cubic-bezier(.2,1.4,.4,1) .8s;transform:scale(.5)}
+.finwrap.seen .finmark .fflame{opacity:1;transform:none}
+body[data-phase="night"] .finmark{filter:drop-shadow(0 0 12px rgba(228,87,46,.4))}
+.signoff{font-family:var(--disp-en);font-size:1.5rem;color:var(--bone);letter-spacing:.02em;margin:.3rem 0 .1rem}
+.signoff b{color:var(--ember);font-weight:400}
+html[dir="rtl"] .signoff{font-family:var(--disp-ar);font-size:1.8rem}
+.signoff-sub{color:var(--kraft);font-size:.92rem;margin-bottom:1.3rem}
+html[dir="rtl"] .signoff-sub{font-family:'Tajawal',sans-serif}
+.branches{display:grid;gap:.9rem;grid-template-columns:1fr;max-width:520px;margin:1.2rem auto 0}
+@media(min-width:560px){.branches{grid-template-columns:1fr 1fr}}
+.branch{border:1.6px solid var(--coal);border-radius:4px;padding:.9rem 1rem;background:#1a140f;text-align:start}
+.branch h4{font-family:var(--disp-en);font-size:1.2rem;color:var(--ember);letter-spacing:.03em}
+html[dir="rtl"] .branch h4{font-family:var(--disp-ar);font-size:1.5rem}
+.branch p{font-size:.86rem;color:var(--kraft-lt);line-height:1.5;margin-top:.2rem}
+html[dir="rtl"] .branch p{font-family:'Tajawal',sans-serif}
+.branch a{display:inline-flex;align-items:center;gap:.4rem;margin-top:.5rem;color:var(--bone);
+  font-weight:700;font-size:.9rem;text-decoration:none;direction:ltr}
+.branch a svg{color:#1f7a44}
+.foot-meta{margin-top:1.6rem;color:var(--concrete);font-size:.8rem;line-height:1.7;letter-spacing:.02em}
+html[dir="rtl"] .foot-meta{font-family:'Tajawal',sans-serif}
+.foot-meta .ig{color:var(--amber);font-weight:600;text-decoration:none}
+.vat{margin-top:.5rem;font-size:.76rem;color:var(--concrete-dk)}
+html[dir="rtl"] .vat{font-family:'Tajawal',sans-serif}
+
+/* ================= ink typography (EN letters / AR words) ================= */
+.lt{display:inline-block;will-change:transform}
+.wd{display:inline-block;will-change:transform}
+.type-on .station.reveal .st-head h2 .lt,.type-on .station.reveal .st-head h2 .wd{opacity:0}
+.type-on .station.reveal.seen .st-head h2 .lt{animation:inkin .55s cubic-bezier(.2,1.3,.4,1) both;animation-delay:calc(var(--i,0)*32ms)}
+.type-on .station.reveal.seen .st-head h2 .wd{animation:wordin .55s cubic-bezier(.2,1.2,.4,1) both;animation-delay:calc(var(--i,0)*70ms)}
+@keyframes inkin{0%{opacity:0;transform:translateY(.4em) scale(.7)}60%{opacity:1;transform:translateY(-.04em) scale(1.05)}100%{opacity:1;transform:none}}
+@keyframes wordin{0%{opacity:0;transform:translateY(.35em)}100%{opacity:1;transform:none}}
+
+/* ================= THE SIGNATURES station ================= */
+.sig .st-head{position:relative;padding-inline-end:78px}
+html[dir="rtl"] .sig .st-head{padding-inline-end:0;padding-inline-start:78px}
+.sig-bull{width:66px;height:66px;position:absolute;top:-4px;inset-inline-end:0;color:var(--ember);opacity:.92;
+  filter:drop-shadow(0 0 8px rgba(228,87,46,.45))}
+body[data-phase="night"] .sig-bull{filter:drop-shadow(0 0 15px rgba(228,87,46,.75))}
+.sig-bull svg{width:100%;height:auto;display:block}
+.sig-ctrls{display:flex;gap:.5rem;flex-wrap:wrap;margin:.7rem 0 .1rem}
+.sig-ctrls button{font-family:var(--body);font-weight:600;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;
+  background:#1d1712;color:var(--kraft-lt);border:1.6px solid var(--coal);border-radius:4px;padding:.5rem .82rem;min-height:40px;cursor:pointer;
+  display:inline-flex;align-items:center;gap:.42rem;-webkit-tap-highlight-color:transparent}
+.sig-ctrls button:hover{border-color:var(--ember);color:var(--bone)}
+.sig-ctrls button:focus-visible{outline:2.5px dashed var(--ember);outline-offset:2px}
+.sig-ctrls button svg{width:15px;height:15px;flex:none}
+html[dir="rtl"] .sig-ctrls button{font-family:'Tajawal',sans-serif;text-transform:none;font-weight:700}
+.js-mute .son{display:none}
+.js-mute[aria-pressed="true"] .son{display:inline-flex}
+.js-mute[aria-pressed="true"] .soff{display:none}
+.sigcards{display:grid;gap:1.1rem;grid-template-columns:1fr;margin-top:.4rem}
+@media(min-width:720px){.sigcards{grid-template-columns:1fr 1fr}}
+.sig-card{opacity:1}
+#signatures.playing .sig-card{opacity:0;transform:translateY(26px) scale(.98)}
+#signatures.fired .sig-card{animation:sigin .85s cubic-bezier(.2,.85,.25,1) both;animation-delay:calc(var(--si,0)*130ms)}
+@keyframes sigin{0%{opacity:0;transform:translateY(30px) scale(.965)}60%{opacity:1}100%{opacity:1;transform:none}}
+
+/* ================= CINEMATIC: the branding iron ================= */
+.cine{position:fixed;inset:0;z-index:200;pointer-events:none;visibility:hidden;opacity:0}
+.cine.run{visibility:visible;opacity:1}
+.cine .scrim{position:absolute;inset:0;opacity:0;transition:opacity .35s ease;
+  background:radial-gradient(circle at 50% 45%,rgba(26,18,14,.60),rgba(7,4,3,.975))}
+.cine.run .scrim{opacity:1}
+.cine.fade .scrim,.cine.fade canvas,.cine.fade .cine-title{opacity:0;transition:opacity .6s ease}
+.cine canvas{position:absolute;inset:0;width:100%;height:100%}
+.cine .stage{position:absolute;inset:0;will-change:transform}
+.cine .flash{position:absolute;inset:0;opacity:0;pointer-events:none;mix-blend-mode:screen;
+  background:radial-gradient(circle at 50% 50%,#fff,#ffd9a0 38%,transparent 72%)}
+.cine .bloom{position:absolute;top:50%;left:50%;width:44px;height:44px;transform:translate(-50%,-50%) scale(0);border-radius:50%;opacity:0;pointer-events:none;
+  background:radial-gradient(circle,rgba(228,87,46,.55),rgba(180,35,42,.18) 45%,transparent 70%)}
+.cine .searmark{position:absolute;top:50%;left:50%;width:min(232px,56vw);transform:translate(-50%,-50%) scale(.86);opacity:0;color:#7a1d15;pointer-events:none}
+.cine .searmark svg{width:100%;height:auto;display:block}
+.cine .iron{position:absolute;top:50%;left:50%;width:min(150px,40vw);transform:translate(-50%,calc(-50% - 66vh));will-change:transform,opacity}
+.cine .iron .rod{width:14px;height:52vh;margin:0 auto;border-radius:7px;
+  background:linear-gradient(90deg,#211d19,#7d7167 40%,#d3ccc1 50%,#6e655c 60%,#1b1815);
+  box-shadow:0 0 0 1px rgba(0,0,0,.55),0 4px 12px rgba(0,0,0,.5)}
+.cine .iron .head{position:relative;margin-top:-1px}
+.cine .iron .head::before{content:"";position:absolute;top:-9px;left:50%;transform:translateX(-50%);width:36px;height:15px;border-radius:4px;
+  background:linear-gradient(90deg,#1b1815,#8a7d71,#1b1815)}
+.cine .iron .head svg{width:100%;height:auto;display:block;color:#39322c;filter:drop-shadow(0 4px 5px rgba(0,0,0,.65))}
+.cine .iron.impact .head svg{color:#ffb14f;filter:drop-shadow(0 0 10px #ffce8a) drop-shadow(0 0 22px #e4572e)}
+.cine-title{position:absolute;left:0;right:0;bottom:15%;text-align:center;opacity:0;transform:translateY(16px);
+  font-family:var(--disp-en);font-size:clamp(2rem,9vw,3.6rem);letter-spacing:.06em;line-height:1;color:var(--bone);
+  text-shadow:0 0 26px rgba(228,87,46,.6)}
+.cine-title .ar{font-family:var(--disp-ar)}
+.cine-title.show{opacity:1;transform:none;transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.cine-controls{position:absolute;bottom:20px;inset-inline-end:16px;display:flex;gap:.5rem;pointer-events:auto}
+.cine-controls button{font-family:var(--body);font-weight:600;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;
+  background:rgba(18,13,10,.72);color:var(--kraft-lt);border:1.6px solid var(--concrete-dk);border-radius:4px;padding:.5rem .85rem;min-height:42px;cursor:pointer;
+  display:inline-flex;align-items:center;gap:.35rem;-webkit-tap-highlight-color:transparent}
+.cine-controls button:focus-visible{outline:2.5px dashed var(--ember);outline-offset:2px}
+.cine-controls button svg{width:15px;height:15px;flex:none}
+html[dir="rtl"] .cine-controls button{font-family:'Tajawal',sans-serif;text-transform:none;font-weight:700}
+
+/* ================= reduced motion + lite: snap to final ================= */
+@media (prefers-reduced-motion:reduce){
+  .cine{display:none !important}
+  html{scroll-behavior:auto}
+  *{animation:none !important;transition:none !important}
+  .iron-ring,.iron-txt,.st-underline path,.sear .ring rect,.finmark .fr,.finmark .ft{stroke-dashoffset:0 !important}
+  .iron-flame,.fflame{opacity:1 !important;transform:none !important}
+  .station.reveal .row,.station.reveal .ticket,.signed.reveal,
+  .type-on .station.reveal .st-head h2 .lt,.type-on .station.reveal .st-head h2 .wd{opacity:1 !important;transform:none !important}
+  .sear::before{opacity:1 !important}
+  .pitgreet .w{opacity:1 !important;transform:none !important}
+  .log{opacity:1 !important;transform:none !important}
+  #pit div{transition:none}
+}
+body.lite .cine,body.rm .cine{display:none !important}
+body.lite .iron-ring,body.lite .iron-txt,body.lite .st-underline path,
+body.lite .sear .ring rect,body.lite .finmark .fr,body.lite .finmark .ft{animation:none !important;stroke-dashoffset:0 !important}
+body.lite .iron-flame,body.lite .fflame{animation:none !important;opacity:1 !important;transform:none !important}
+body.lite .station.reveal .row,body.lite .station.reveal .ticket,body.lite .signed.reveal,
+body.lite .type-on .station.reveal .st-head h2 .lt,body.lite .type-on .station.reveal .st-head h2 .wd{animation:none !important;opacity:1 !important;transform:none !important}
+body.lite .sear::before{opacity:1 !important}
+body.lite .pitgreet .w,body.lite .log{opacity:1 !important;transform:none !important}
+body.lite .sear .sparks path{opacity:0 !important}
+
+/*__WOL_CSS__*/
+#wall .wol-branch-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;max-width:1000px;margin:22px auto 12px;padding:0 4px;border-bottom:1px dashed rgba(201,169,106,.35)}
+#wall .wol-branch-head .en{font-family:'Anton',sans-serif;font-size:clamp(18px,4.4vw,26px);letter-spacing:.02em;color:#F3ECE0;text-transform:uppercase}
+#wall .wol-rate{font-family:'Oswald',sans-serif;font-weight:600;font-size:13px;color:#E4572E;white-space:nowrap}
+#wall .wol-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;max-width:1000px;margin:0 auto 8px}
+#wall .wol-card{position:relative;background:linear-gradient(180deg,#241d19,#191310);border:1.5px solid rgba(201,169,106,.4);border-radius:14px;padding:18px 16px 16px;transform:rotate(var(--rot));opacity:1;box-shadow:0 12px 30px -16px rgba(0,0,0,.7);animation:wolPop .5s cubic-bezier(.34,1.5,.5,1) both}
+#wall .wol-card::after{content:"";position:absolute;left:26px;bottom:-9px;width:16px;height:16px;background:#191310;border-right:1.5px solid rgba(201,169,106,.4);border-bottom:1.5px solid rgba(201,169,106,.4);transform:rotate(45deg)}
+#wall .wol-card:hover{transform:rotate(0) translateY(-3px);transition:transform .18s;border-color:var(--vc)}
+#wall .wol-badge{position:absolute;top:-12px;right:-8px;min-width:26px;height:26px;padding:0 7px;border-radius:13px;display:grid;place-items:center;font-family:'Anton',sans-serif;font-size:13px;color:#1A1714;transform:rotate(8deg);box-shadow:0 4px 10px -3px rgba(0,0,0,.6)}
+#wall .wol-stars{color:#E4572E;font-size:15px;letter-spacing:2px}
+#wall .wol-dim{color:rgba(201,169,106,.28)}
+#wall .wol-q{font-family:'Oswald',sans-serif;font-weight:400;font-size:15px;line-height:1.5;color:#EDE4D6;margin:9px 0 12px}
+#wall .wol-q::before{content:"\201C";color:#E4572E;font-family:'Anton';font-size:22px;margin-right:2px;vertical-align:-6px}
+#wall .wol-by{font-family:'Anton',sans-serif;font-size:14px;letter-spacing:.03em;color:#F3ECE0;text-transform:uppercase}
+#wall .wol-branch{display:block;font-family:'Oswald';font-weight:400;font-size:11px;letter-spacing:.08em;color:#9a8a72;text-transform:none;margin-top:2px}
+#wall .wol-sub{font-family:'Oswald';font-size:13px;color:#b7a888;margin-top:6px}
+#wall .wol-card:nth-child(2){animation-delay:.06s}#wall .wol-card:nth-child(3){animation-delay:.12s}#wall .wol-card:nth-child(4){animation-delay:.18s}#wall .wol-card:nth-child(5){animation-delay:.24s}
+@keyframes wolPop{from{transform:rotate(var(--rot)) scale(.9) translateY(14px)}to{transform:rotate(var(--rot)) scale(1) translateY(0)}}
+@media(prefers-reduced-motion:reduce){#wall .wol-card{animation:none}}
+/*__WOL_CSS_END__*/
+
+/* --- product photos (v3) --- */
+.row.has-photo{align-items:center;gap:.7rem}
+.thumb{flex:none;width:58px;height:58px;padding:0;border:none;border-radius:14px;overflow:hidden;
+ background:#2a221c;cursor:zoom-in;box-shadow:0 3px 10px rgba(20,12,8,.28),0 0 0 1px rgba(201,169,106,.35) inset;
+ -webkit-tap-highlight-color:transparent;transition:transform .25s cubic-bezier(.2,.9,.3,1),box-shadow .25s}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb:active{transform:scale(.94)}
+@media(hover:hover){.thumb:hover{transform:translateY(-2px) scale(1.04);box-shadow:0 8px 22px rgba(20,12,8,.4),0 0 0 1.5px rgba(228,87,46,.6) inset}}
+html[dir="rtl"] .thumb{order:-1}
+/* lightbox */
+#lb{position:fixed;inset:0;z-index:9999;display:none;place-items:center;padding:22px;
+ background:rgba(12,8,6,.92);backdrop-filter:blur(6px);cursor:zoom-out}
+#lb.on{display:grid;animation:lbin .28s ease both}
+@keyframes lbin{from{opacity:0}to{opacity:1}}
+#lb img{max-width:100%;max-height:88vh;border-radius:18px;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px rgba(201,169,106,.4);
+ animation:lbpop .34s cubic-bezier(.2,.9,.3,1) both}
+@keyframes lbpop{from{transform:scale(.9);opacity:0}to{transform:scale(1);opacity:1}}
+#lb .lbx{position:absolute;top:16px;right:18px;font:700 30px/1 system-ui;color:#f3ece0;background:none;border:none;cursor:pointer;opacity:.8}
+
+
+/* --- Wall fan-favourite feature card --- */
+#wall .wol-feat{position:relative;max-width:1000px;margin:24px auto 16px;padding:22px 20px 20px;overflow:hidden;
+ background:radial-gradient(130% 150% at 12% -10%,rgba(228,87,46,.18),rgba(20,15,12,.92) 58%),linear-gradient(180deg,#241d19,#17110e);
+ border:1.5px solid rgba(228,87,46,.5);border-radius:18px;
+ box-shadow:0 22px 54px -24px rgba(0,0,0,.85),0 0 0 1px rgba(201,169,106,.16) inset,0 0 44px -20px rgba(228,87,46,.75)}
+#wall .wol-ribbon{display:inline-flex;align-items:center;gap:6px;padding:5px 13px;border-radius:999px;
+ background:linear-gradient(90deg,#E4572E,#B4232A);color:#F7F1E7;font-family:'Anton',sans-serif;
+ font-size:12px;letter-spacing:.14em;text-transform:uppercase;box-shadow:0 7px 18px -7px rgba(228,87,46,.85)}
+#wall .wol-ribbon .ar{font-family:'Tajawal',sans-serif;font-weight:700;letter-spacing:0}
+#wall .wol-fstars{display:block;color:#E4572E;font-size:20px;letter-spacing:4px;margin:13px 0 7px;text-shadow:0 0 14px rgba(228,87,46,.55)}
+#wall .wol-fq{margin:0;font-family:'Oswald',sans-serif;font-weight:500;font-size:clamp(19px,4.8vw,27px);line-height:1.34;color:#F7F1E7}
+html[dir="rtl"] #wall .wol-fq{font-family:'Tajawal',sans-serif}
+#wall .wol-fby{display:block;margin-top:14px;font-family:'Anton',sans-serif;letter-spacing:.04em;color:#C9A96A;font-size:15px}
+#wall .wol-fby small{font-family:'Oswald',sans-serif;font-weight:300;color:#9a8a76;letter-spacing:.02em;font-size:12.5px;margin-inline-start:6px}
+
+</style>
+</head>
+<body data-phase="day">
+
+<div id="pit" aria-hidden="true"><div class="day"></div><div class="night"></div><div class="grain"></div></div>
+<div id="watermark" aria-hidden="true">
+  <svg viewBox="0 0 100 100"><path fill="currentColor" d="M50 20c10 12 2 18 7 27c4-2 6-8 5-13c6 7 9 17 3 26c-3 5-9 7-15 7s-15-5-15-14c0-7 5-11 7-16c1 4 3 7 7 7c-4-7-3-16 4-24z"/></svg>
+</div>
+
+<div class="wrap">
+
+<header class="top">
+  <svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
+    <circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="5"/>
+    <path fill="var(--amber)" d="M50 26c8 10 2 15 6 22c3-2 4-6 4-10c5 6 7 14 2 21c-2 4-7 5-12 5s-12-4-12-11c0-6 4-9 5-13c1 3 3 5 6 5c-3-5-3-13 3-19z"/>
+  </svg>
+  <span class="brand"><span class="en">RUSTIC <b>GRILL</b></span><span class="ar" lang="ar">رستك <b>جريل</b></span></span>
+  <div class="tools">
+    <button class="dial" id="dial" type="button" aria-pressed="false" aria-label="Switch the page between day char and night ember">
+      <svg class="coal" viewBox="0 0 26 26"><circle cx="13" cy="13" r="6.5" fill="#C9A96A" stroke="#6E6A64" stroke-width="1.6"/><g stroke="#C9A96A" stroke-width="2" stroke-linecap="round"><path d="M13 1.5v3M13 21.5v3M1.5 13h3M21.5 13h3M4.6 4.6l2 2M19.4 19.4l2 2M21.4 4.6l-2 2M4.6 21.4l2-2"/></g></svg>
+      <svg class="flame" viewBox="0 0 26 26"><path fill="#E4572E" d="M13 2c3 4 .5 6 2 9c1-1 1.5-2.5 1-4c2 2.5 3 6 1 8.6c-1 1.6-2.8 2.4-5 2.4s-5-1.6-5-4.6c0-2.4 1.6-3.6 2.2-5.4c.4 1.4 1 2 2 2c-1.2-2-1-5.4 1.6-8z"/></svg>
+    </button>
+    <button class="langbtn" id="langbtn" type="button" aria-label="Switch language">
+      <span class="ar" lang="ar">EN</span><span class="en">عربي</span>
+    </button>
+  </div>
+</header>
+
+<nav class="stations" aria-label="Stations of the pit">
+  <a href="#signatures" class="signav"><span class="pip" style="background:#B4232A"></span><span class="en">The Signatures</span><span class="ar" lang="ar">التواقيع</span></a>
+  <a href="#griddle"><span class="pip" style="background:#E4572E"></span><span class="en">The Griddle</span><span class="ar" lang="ar">البرجر</span></a>
+  <a href="#stacks"><span class="pip" style="background:#F2A03D"></span><span class="en">The Stacks</span><span class="ar" lang="ar">السندويتشات</span></a>
+  <a href="#coals"><span class="pip" style="background:#C9A96A"></span><span class="en">Off the Coals</span><span class="ar" lang="ar">المقبلات</span></a>
+  <a href="#firepit"><span class="pip" style="background:#B4232A"></span><span class="en">The Fire Pit</span><span class="ar" lang="ar">الأطباق الرئيسية</span></a>
+  <a href="#chopblock"><span class="pip" style="background:#DBC4A0"></span><span class="en">The Chop Block</span><span class="ar" lang="ar">السلطات</span></a>
+  <a href="#siderail"><span class="pip" style="background:#A8A29A"></span><span class="en">The Side Rail</span><span class="ar" lang="ar">الجانبية</span></a>
+  <a href="#icehouse"><span class="pip" style="background:#C9A96A"></span><span class="en">The Ice House</span><span class="ar" lang="ar">المشروبات</span></a>
+  <a href="#stoke"><span class="pip" style="background:#E4572E"></span><span class="en">Stoke It</span><span class="ar" lang="ar">الإضافات</span></a>
+<a href="#wall" class="signav"><span class="pip" style="background:#E4572E"></span><span class="en">The Wall</span><span class="ar" lang="ar">جدار المحبة</span></a></nav>
+
+<section class="hero">
+  <div class="emblem-wrap">
+    <button class="emblembtn" id="emblembtn" type="button" aria-pressed="false" aria-label="Tap the brand to stoke the coals and turn the page to night, tap again for day">
+      <svg viewBox="0 0 100 100" aria-label="Rustic Grill branding iron">
+        <circle class="iron-ring" pathLength="100" cx="50" cy="50" r="43"/>
+        <path class="iron-flame" d="M50 24c9 11 2 17 6 25c4-2 5-7 4-11c5 6 8 15 3 23c-3 5-8 6-13 6s-14-4-14-13c0-6 4-10 6-15c1 4 3 6 6 6c-3-6-3-15 4-23z"/>
+        <path class="iron-txt" pathLength="100" d="M22 74 h56"/>
+      </svg>
+    </button>
+  </div>
+  <p class="tap-hint">
+    <span class="hd"><span class="en">psst, tap the iron to stoke the coals</span><span class="ar" lang="ar">دق على الختم وشعّل الجمر</span></span>
+    <span class="hn"><span class="en">tap again, bring the daylight back</span><span class="ar" lang="ar">دق مرة ثانية، يرجع النهار</span></span>
+  </p>
+  <h1><span class="en">RUSTIC <b>GRILL</b></span><span class="ar" lang="ar">رستك <b>جريل</b></span></h1>
+  <p class="stencilsub"><span class="en">Charcoal Smokehouse, Open Late</span><span class="ar" lang="ar">مشاوي فحم، سهرة لآخر الليل</span></p>
+  <p class="pitgreet" id="pitgreet"><span class="en" id="greet-en"></span><span class="ar" lang="ar" id="greet-ar"></span></p>
+  <p class="sub"><span class="en">A grungy American pit with Saudi late night swagger. We fire the coals before the street wakes up, brand the burgers on the griddle, and keep the fire roaring till two in the morning. Calories on the ticket, honesty on the plate.</span><span class="ar" lang="ar">بيت مشاوي أمريكي على طريقتنا، بروح السهرة السعودية. نشعّل الفحم قبل ما يصحى الشارع، نختم البرجر على الصاج، ونخلّي النار ولّعانة لين ساعة اثنتين بالليل. السعرات مكتوبة على التذكرة، والصدق في الصحن.</span></p>
+  <div class="neon flick"><span class="bulb"></span><span class="en">Open 1PM till 2AM</span><span class="ar" lang="ar">مفتوحين من ١ الظهر لين ٢ الليل</span></div>
+  <div class="cta">
+    <a class="btn wa" href="https://instagram.com/rustic.grill">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2s-1 .3-3.4-.7c-2.9-1.2-4.7-4.1-4.9-4.3s-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.7 1.8.8 1.9c.1.2.1.3 0 .5c-.1.2-.2.4-.4.6l-.4.5c-.2.2-.3.4-.1.7c.2.3.8 1.3 1.7 2.1c1.2 1.1 2.2 1.4 2.5 1.5c.3.2.5.1.7-.1s.8-.9 1-1.2c.2-.3.4-.3.7-.2s1.9.9 2.2 1c.3.2.5.3.6.4c0 .2 0 .7-.3 1.1z"/></svg>
+      <span class="en">Message us</span><span class="ar" lang="ar">راسلونا</span>
+    </a>
+    <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Rustic%20Grill" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+      <span class="en">Find the pit</span><span class="ar" lang="ar">وين الفرع</span>
+    </a>
+  </div>
+  <svg class="smoke" viewBox="0 0 150 120" aria-hidden="true">
+    <path class="s1" d="M60 108 q-8 -18 2 -30 q9 -12 1 -26"/>
+    <path class="s2" d="M78 104 q7 -16 -2 -28 q-8 -12 0 -24"/>
+    <path class="s3" d="M92 108 q-6 -14 3 -24 q7 -10 1 -20"/>
+  </svg>
+</section>
+
+<main>
+
+<!-- ================= THE SIGNATURES (cinematic station) ================= -->
+<section class="station sig" id="signatures">
+  <div class="st-head">
+    <div class="sig-bull" aria-hidden="true">
+      <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="3.5"/><path fill="currentColor" fill-rule="evenodd" d="M50 37 C45 34 41 35 38 38 C34 36 30 38 29 43 C30 47 33 48 35 49 C33 54 34 60 38 65 C41 70 45 72 50 73 C55 72 59 70 62 65 C66 60 67 54 65 49 C67 48 70 47 71 43 C70 38 66 36 62 38 C59 35 55 34 50 37 Z M43 47 C41 47 41 50 43 50 C45 50 45 47 43 47 Z M57 47 C55 47 55 50 57 50 C59 50 59 47 57 47 Z"/><path fill="currentColor" d="M39 39 C33 33 25 30 17 28 C23 34 30 38 37 42 Z M61 39 C67 33 75 30 83 28 C77 34 70 38 63 42 Z"/></svg>
+    </div>
+    <p class="st-kicker"><span class="en">Branded by the house</span><span class="ar" lang="ar">مختوم بختم البيت</span></p>
+    <h2><span class="en">THE <em>SIGNATURES</em></span><span class="ar" lang="ar">التواقيع</span></h2>
+    <svg class="st-underline" viewBox="0 0 240 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M3 8 Q60 3 120 6 T237 7"/></svg>
+  </div>
+  <p class="st-sub"><span class="en">The cuts the whole pit is known for. If it carries the brand, it earned it on the coals. Watch the iron come down.</span><span class="ar" lang="ar">القطع اللي البيت معروف فيها. أي وحدة تحمل الختم، كسبته على الفحم. شوف الختم ينزل.</span></p>
+  <p class="log"><span class="tag"><span class="en">Pitmaster's Log</span><span class="ar" lang="ar">دفتر البيتماستر</span></span><span class="en">"These are the ones we put our name on. We do not brand anything we would not order ourselves."</span><span class="ar" lang="ar">«هذي اللي نحط اسمنا عليها. ما نختم شي ما نطلبه بأنفسنا.»</span></p>
+  <div class="sig-ctrls">
+    <button type="button" id="sigreplay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v5h-5"/></svg><span class="en">Replay the brand</span><span class="ar" lang="ar">أعد الختم</span></button>
+    <button type="button" class="js-mute" aria-pressed="false" aria-label="Toggle cinematic sound">
+      <span class="soff" style="display:inline-flex;align-items:center;gap:.35rem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg><span class="en">Sound on</span><span class="ar" lang="ar">الصوت شغّال</span></span>
+      <span class="son" style="display:none;align-items:center;gap:.35rem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M22 9l-6 6M16 9l6 6"/></svg><span class="en">Muted</span><span class="ar" lang="ar">مكتوم</span></span>
+    </button>
+  </div>
+  <div class="sigcards">
+
+    <article class="signed sig-card" style="--si:0">
+      <span class="brandtag"><span class="en">The Signed Cut</span><span class="ar" lang="ar">القطعة المختومة</span></span>
+      <span class="eyebrow"><span class="en">The one the table goes quiet for</span><span class="ar" lang="ar">اللي تسكت الطاولة عشانه</span></span>
+      <h3><span class="en">Rustic BBQ Burger</span><span class="ar" lang="ar">رستك باربيكيو برجر</span></h3>
+      <p class="stand"><span class="en">Charcoal grilled Angus, our BBQ sauce and a fistful of fried onion. If you order one thing off this ticket, brand it into your memory here.</span><span class="ar" lang="ar">أنجوس مشوي على الفحم، صوص الباربيكيو حقنا وحفنة بصل مقلي. لو ما تطلب إلا وحدة من التذكرة، خلها هذي.</span></p>
+      <span class="cal-lg"><span class="en">650 cal</span><span class="ar" lang="ar">٦٥٠ سعرة حرارية</span></span>
+      <div class="signrow">
+        <span class="sear">
+          <span class="amt">39</span><span class="cur"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span>
+          <svg class="ring" viewBox="0 0 116 60" preserveAspectRatio="none" aria-hidden="true"><rect x="4" y="4" width="108" height="52" rx="26" pathLength="100"/></svg>
+          <svg class="sparks" viewBox="0 0 34 34" aria-hidden="true"><path class="k1" d="M17 3v6M14 6h6"/><path class="k2" d="M6 8l4 4M10 8l-4 4"/><path class="k3" d="M27 6v5M24.5 8.5h5"/></svg>
+        </span>
+        <span class="whisper"><span class="en">order it messy, that's the point</span><span class="ar" lang="ar">اطلبه ملخبط، هذا الأصل</span></span>
+      </div>
+    </article>
+
+    <article class="signed sig-card" style="--si:1">
+      <span class="brandtag"><span class="en">House Stack</span><span class="ar" lang="ar">توقيع الستاك</span></span>
+      <span class="eyebrow"><span class="en">The stack that started it</span><span class="ar" lang="ar">الستاك اللي بدأ كل شي</span></span>
+      <h3><span class="en">Taste of Philly</span><span class="ar" lang="ar">تيست اوف فيلي</span></h3>
+      <p class="stand"><span class="en">Thinly sliced ribs, cheese and onions on the griddle till it all melts into one thing. Loud, generous, and impossible to eat quietly.</span><span class="ar" lang="ar">شرائح لحم رفيعة، جبن وبصل على الصاج لين يصيرون شي واحد. دسم، كريم، ومستحيل تاكله بهدوء.</span></p>
+      <div class="signrow">
+        <span class="sear">
+          <span class="amt">49</span><span class="cur"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span>
+          <svg class="ring" viewBox="0 0 116 60" preserveAspectRatio="none" aria-hidden="true"><rect x="4" y="4" width="108" height="52" rx="26" pathLength="100"/></svg>
+          <svg class="sparks" viewBox="0 0 34 34" aria-hidden="true"><path class="k1" d="M17 3v6M14 6h6"/><path class="k2" d="M6 8l4 4M10 8l-4 4"/><path class="k3" d="M27 6v5M24.5 8.5h5"/></svg>
+        </span>
+        <span class="whisper"><span class="en">grab a stack of napkins first</span><span class="ar" lang="ar">جهّز المحارم قبل</span></span>
+      </div>
+    </article>
+
+    <article class="signed sig-card" style="--si:2">
+      <span class="brandtag"><span class="en">Off the Coals</span><span class="ar" lang="ar">على الفحم</span></span>
+      <span class="eyebrow"><span class="en">Low, slow, and lacquered</span><span class="ar" lang="ar">نار هادية وصوص لامع</span></span>
+      <h3><span class="en">Lamb Chops</span><span class="ar" lang="ar">ريش</span></h3>
+      <p class="stand"><span class="en">Three rib pieces with BBQ sauce, the rustic way. Charred at the edges, blushing in the middle, sticky all over.</span><span class="ar" lang="ar">ثلاث قطع ريش مع صوص الباربيكيو على طريقة رستك. محروقة الأطراف، وردية النص، ولزجة من كل مكان.</span></p>
+      <div class="signrow">
+        <span class="sear">
+          <span class="amt">56</span><span class="cur"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span>
+          <svg class="ring" viewBox="0 0 116 60" preserveAspectRatio="none" aria-hidden="true"><rect x="4" y="4" width="108" height="52" rx="26" pathLength="100"/></svg>
+          <svg class="sparks" viewBox="0 0 34 34" aria-hidden="true"><path class="k1" d="M17 3v6M14 6h6"/><path class="k2" d="M6 8l4 4M10 8l-4 4"/><path class="k3" d="M27 6v5M24.5 8.5h5"/></svg>
+        </span>
+        <span class="whisper"><span class="en">eat these with your hands</span><span class="ar" lang="ar">كلها بيدك، لا تستحي</span></span>
+      </div>
+    </article>
+
+    <article class="signed sig-card" style="--si:3">
+      <span class="brandtag"><span class="en">The Big One</span><span class="ar" lang="ar">القطعة الكبيرة</span></span>
+      <span class="eyebrow"><span class="en">The cut we set the coals for</span><span class="ar" lang="ar">القطعة اللي نشعّل الفحم عشانها</span></span>
+      <h3><span class="en">Rib Eye Steak</span><span class="ar" lang="ar">ريب آي ستيك</span></h3>
+      <p class="stand"><span class="en">Eight ounces of grilled ribeye, marbled and seared hard so the crust cracks and the middle stays tender. The centerpiece of the pit.</span><span class="ar" lang="ar">ثماني أونصات ريب آي مشوي، مرمّر ومختوم على نار قوية، القشرة تفرقع والنص يبقى طري. نجمة البيت.</span></p>
+      <div class="signrow">
+        <span class="sear">
+          <span class="amt">130</span><span class="cur"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span>
+          <svg class="ring" viewBox="0 0 132 60" preserveAspectRatio="none" aria-hidden="true"><rect x="4" y="4" width="124" height="52" rx="26" pathLength="100"/></svg>
+          <svg class="sparks" viewBox="0 0 34 34" aria-hidden="true"><path class="k1" d="M17 3v6M14 6h6"/><path class="k2" d="M6 8l4 4M10 8l-4 4"/><path class="k3" d="M27 6v5M24.5 8.5h5"/></svg>
+        </span>
+        <span class="whisper"><span class="en">tell us how you want it charred</span><span class="ar" lang="ar">قل لنا كيف تبيه مستوي</span></span>
+      </div>
+    </article>
+
+    <article class="signed sig-card" style="--si:4">
+      <span class="brandtag"><span class="en">Sweet End</span><span class="ar" lang="ar">ختمة حلوة</span></span>
+      <span class="eyebrow"><span class="en">Crispy outside, molten in</span><span class="ar" lang="ar">مقرمش من برّا، ذايب من جوّا</span></span>
+      <h3><span class="en">Mac &amp; Cheese Balls</span><span class="ar" lang="ar">ماك اند تشيز بولز</span></h3>
+      <p class="stand"><span class="en">Mac and cheese rolled into balls and fried crispy on the outside. The way a night at the pit is supposed to end.</span><span class="ar" lang="ar">مكرونة بالجبن ملفوفة كرات ومقلية مقرمشة من الخارج. الطريقة اللي المفروض تنتهي فيها سهرة المشوى.</span></p>
+      <div class="signrow">
+        <span class="sear">
+          <span class="amt">34</span><span class="cur"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span>
+          <svg class="ring" viewBox="0 0 116 60" preserveAspectRatio="none" aria-hidden="true"><rect x="4" y="4" width="108" height="52" rx="26" pathLength="100"/></svg>
+          <svg class="sparks" viewBox="0 0 34 34" aria-hidden="true"><path class="k1" d="M17 3v6M14 6h6"/><path class="k2" d="M6 8l4 4M10 8l-4 4"/><path class="k3" d="M27 6v5M24.5 8.5h5"/></svg>
+        </span>
+        <span class="whisper"><span class="en">split them, or don't</span><span class="ar" lang="ar">قسّمها، أو لا</span></span>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<div class="runner tape" aria-hidden="true"><svg class="rmark" viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="6"/><path fill="currentColor" d="M50 30c7 8 1 13 5 19c3-2 3-5 3-8c4 5 6 11 2 17c-2 3-6 4-10 4s-10-3-10-9c0-5 3-7 4-11c1 3 2 4 5 4c-3-4-2-11 1-15z"/></svg></div>
+
+<!-- ================= THE GRIDDLE ================= -->
+<section class="station reveal" id="griddle">
+  <div class="st-head">
+    <p class="st-kicker"><span class="en">Smashed and branded</span><span class="ar" lang="ar">مسحوق ومختوم على الصاج</span></p>
+    <h2><span class="en">THE <em>GRIDDLE</em></span><span class="ar" lang="ar">البرجر</span></h2>
+    <svg class="st-underline" viewBox="0 0 240 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M3 8 Q60 3 120 6 T237 7"/></svg>
+  </div>
+  <p class="st-sub"><span class="en">Charcoal grilled black Angus, smashed thin and seared hard on a screaming flat top. This is where most of the branding happens.</span><span class="ar" lang="ar">لحم أنجوس أسود مشوي على الفحم، مسحوق رفيع ومختوم على صاج حامي. هنا يصير أغلب الشغل.</span></p>
+  <p class="log"><span class="tag"><span class="en">Pitmaster's Log</span><span class="ar" lang="ar">دفتر البيتماستر</span></span><span class="en">"Griddle's been screaming hot since we opened the door. Order it messy, that's the point."</span><span class="ar" lang="ar">«الصاج حامي من أول ما فتحنا الباب. اطلبه ملخبط، هذا هو الأصل.»</span></p>
+
+  <div class="signed reveal" id="signedcut">
+    <span class="brandtag"><span class="en">The Signed Cut</span><span class="ar" lang="ar">القطعة المختومة</span></span>
+    <span class="eyebrow"><span class="en">The house is branded on this one</span><span class="ar" lang="ar">توقيع رستك على هالوحدة</span></span>
+    <h3><span class="en">Rustic BBQ Burger</span><span class="ar" lang="ar">رستك باربيكيو برجر</span></h3>
+    <p class="stand"><span class="en">Charcoal grilled Angus, our BBQ sauce and a fistful of fried onion. The one the whole table goes quiet for. If you order one thing off this ticket, brand it into your memory here.</span><span class="ar" lang="ar">أنجوس مشوي على الفحم، صوص الباربيكيو حقنا وحفنة بصل مقلي. اللي تسكت الطاولة عشانه. لو ما تطلب إلا وحدة من التذكرة، خلها هذي.</span></p>
+    <span class="cal-lg"><span class="en">650 cal</span><span class="ar" lang="ar">٦٥٠ سعرة حرارية</span></span>
+    <div class="signrow">
+      <span class="sear">
+        <span class="amt">39</span><span class="cur"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span>
+        <svg class="ring" viewBox="0 0 116 60" preserveAspectRatio="none" aria-hidden="true"><rect x="4" y="4" width="108" height="52" rx="26" pathLength="100"/></svg>
+        <svg class="sparks" viewBox="0 0 34 34" aria-hidden="true"><path class="k1" d="M17 3v6M14 6h6"/><path class="k2" d="M6 8l4 4M10 8l-4 4"/><path class="k3" d="M27 6v5M24.5 8.5h5"/></svg>
+      </span>
+      <span class="whisper"><span class="en">order it messy, that's the point</span><span class="ar" lang="ar">اطلبه ملخبط، هذا الأصل</span></span>
+    </div>
+  </div>
+
+  <div class="cards">
+    <article class="ticket" style="--ci:0">
+      <span class="stamp"><span class="en">Off the Coals</span><span class="ar" lang="ar">على الفحم</span></span>
+      <h3><span class="chip"></span><span class="en">Beef Burgers</span><span class="ar" lang="ar">برجر لحم</span></h3>
+      <ul>
+        <li class="row has-photo" style="--i:0"><button class="thumb" aria-label="View photo" data-full="assets/rustic-grill/1302636.jpg"><img loading="lazy" decoding="async" src="assets/rustic-grill/1302636.jpg" alt="Rustic"></button><span class="nm"><span class="en">Rustic</span><span class="ar" lang="ar">رستك</span><small class="ds"><span class="en">Charcoal grilled black Angus, lettuce, cheese and burger sauce</span><span class="ar" lang="ar">أنجوس أسود مشوي على الفحم، خس، جبن وصوص البرجر الخاص</span></small></span><span class="lead"></span><span class="meta"><span class="price">29<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span><span class="cal"><span class="en">578 cal</span><span class="ar" lang="ar">٥٧٨ سعرة</span></span></span></li>
+        <li class="row has-photo" style="--i:1"><button class="thumb" aria-label="View photo" data-full="assets/rustic-grill/1302664.jpg"><img loading="lazy" decoding="async" src="assets/rustic-grill/1302664.jpg" alt="Juicy Lucy"></button><span class="nm"><span class="en">Juicy Lucy</span><span class="ar" lang="ar">جوسي لوسي</span><small class="ds"><span class="en">Two black Angus patties stuffed with cheese, lettuce, pickles and special sauce</span><span class="ar" lang="ar">قطعتان من لحم الأنجوس الأسود محشوة بالجبن، خس، مخلل وصوص خاص</span></small></span><span class="lead"></span><span class="meta"><span class="price">42<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span><span class="cal"><span class="en">698 cal</span><span class="ar" lang="ar">٦٩٨ سعرة</span></span></span></li>
+        <li class="row" style="--i:2"><span class="nm"><span class="en">Rustic Wagyu</span><span class="ar" lang="ar">رستك واجيو</span><small class="ds"><span class="en">150g Wagyu beef patty</span><span class="ar" lang="ar">قطعة لحم واجيو ١٥٠ جرام</span></small></span><span class="lead"></span><span class="meta"><span class="price">48<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span><span class="cal"><span class="en">630 cal</span><span class="ar" lang="ar">٦٣٠ سعرة</span></span></span></li>
+        <li class="row" style="--i:3"><span class="nm"><span class="en">Double Truffle</span><span class="ar" lang="ar">دبل ترافل</span><small class="ds"><span class="en">Double Angus patty with truffle sauce</span><span class="ar" lang="ar">قطعتان أنجوس مع صوص الترفل</span></small></span><span class="lead"></span><span class="meta"><span class="price">43<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span><span class="cal"><span class="en">675 cal</span><span class="ar" lang="ar">٦٧٥ سعرة</span></span></span></li>
+        <li class="row" style="--i:4"><span class="nm"><span class="en">Rustic BBQ Burger</span><span class="ar" lang="ar">رستك باربيكيو برجر</span><small class="ds"><span class="en">Charcoal grilled Angus, BBQ sauce and fried onion</span><span class="ar" lang="ar">أنجوس مشوي على الفحم، صوص باربيكيو وبصل مقلي</span></small></span><span class="lead"></span><span class="meta"><span class="price">39<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span><span class="cal"><span class="en">650 cal</span><span class="ar" lang="ar">٦٥٠ سعرة</span></span></span></li>
+      </ul>
+    </article>
+
+    <article class="ticket" style="--ci:1">
+      <span class="stamp"><span class="en">Bird &amp; Blade</span><span class="ar" lang="ar">دجاج</span></span>
+      <h3><span class="chip"></span><span class="en">Chicken Burgers</span><span class="ar" lang="ar">برجر دجاج</span></h3>
+      <ul>
+        <li class="row has-photo" style="--i:0"><button class="thumb" aria-label="View photo" data-full="assets/rustic-grill/1302643.jpg"><img loading="lazy" decoding="async" src="assets/rustic-grill/1302643.jpg" alt="Crunchy"></button><span class="nm"><span class="en">Crunchy</span><span class="ar" lang="ar">كرنشي</span><small class="ds"><span class="en">Fried chicken breast, red cabbage and crunchy sauce</span><span class="ar" lang="ar">صدر دجاج مقلي، ملفوف أحمر وصوص كرنشي</span></small></span><span class="lead"></span><span class="meta"><span class="price">27<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span><span class="cal"><span class="en">620 cal</span><span class="ar" lang="ar">٦٢٠ سعرة</span></span></span></li>
+        <li class="row" style="--i:1"><span class="nm"><span class="en">Grilled Chicken</span><span class="ar" lang="ar">دجاج مشوي</span><small class="ds"><span class="en">Grilled chicken, swiss cheese, lettuce and tomato</span><span class="ar" lang="ar">دجاج مشوي، جبن سويسري، خس وطماطم</span></small></span><span class="lead"></span><span class="meta"><span class="price">27<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span><span class="cal"><span class="en">533 cal</span><span class="ar" lang="ar">٥٣٣ سعرة</span></span></span></li>
+      </ul>
+      <p class="note"><span class="en">Every burger can carry more. Stack extras from the Stoke It ticket below.</span><span class="ar" lang="ar">كل برجر يتحمّل زيادة. كدّس الإضافات من تذكرة «الإضافات» تحت.</span></p>
+    </article>
+  </div>
+</section>
+
+<div class="runner plate" aria-hidden="true"><svg class="rmark" viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="6"/><path fill="currentColor" d="M50 30c7 8 1 13 5 19c3-2 3-5 3-8c4 5 6 11 2 17c-2 3-6 4-10 4s-10-3-10-9c0-5 3-7 4-11c1 3 2 4 5 4c-3-4-2-11 1-15z"/></svg></div>
+
+<!-- ================= THE STACKS ================= -->
+<section class="station reveal" id="stacks">
+  <div class="st-head">
+    <p class="st-kicker"><span class="en">Sliced thin, pressed hot</span><span class="ar" lang="ar">مقطّع رفيع، مضغوط حامي</span></p>
+    <h2><span class="en">THE <em>STACKS</em></span><span class="ar" lang="ar">السندويتشات</span></h2>
+    <svg class="st-underline" viewBox="0 0 240 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M3 8 Q60 3 120 6 T237 7"/></svg>
+  </div>
+  <p class="st-sub"><span class="en">Philly the way it should be, thin ribbons of meat caramelized with cheese and onion, packed into a roll that fights back.</span><span class="ar" lang="ar">فيلي على أصوله، شرائح لحم رفيعة مكرملة مع الجبن والبصل، محشوة في خبز يشبعك.</span></p>
+  <p class="log"><span class="tag"><span class="en">Pitmaster's Log</span><span class="ar" lang="ar">دفتر البيتماستر</span></span><span class="en">"We slice the Philly thin and let it caramelize slow. No shortcuts on the flat top."</span><span class="ar" lang="ar">«نقطّع الفيلي رفيع ونخليه يتكرمل على مهله. ما في اختصارات على الصاج.»</span></p>
+
+  <div class="signed reveal">
+    <span class="brandtag"><span class="en">House Stack</span><span class="ar" lang="ar">توقيع الستاك</span></span>
+    <span class="eyebrow"><span class="en">The stack that started it</span><span class="ar" lang="ar">الستاك اللي بدأ كل شي</span></span>
+    <h3><span class="en">Taste of Philly</span><span class="ar" lang="ar">تيست اوف فيلي</span></h3>
+    <p class="stand"><span class="en">Thinly sliced ribs, cheese and onions on the griddle till it all melts into one thing. Loud, generous, and impossible to eat quietly.</span><span class="ar" lang="ar">شرائح لحم رفيعة، جبن وبصل على الصاج لين يصيرون شي واحد. دسم، كريم، ومستحيل تاكله بهدوء.</span></p>
+    <div class="signrow">
+      <span class="sear">
+        <span class="amt">49</span><span class="cur"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span>
+        <svg class="ring" viewBox="0 0 116 60" preserveAspectRatio="none" aria-hidden="true"><rect x="4" y="4" width="108" height="52" rx="26" pathLength="100"/></svg>
+        <svg class="sparks" viewBox="0 0 34 34" aria-hidden="true"><path class="k1" d="M17 3v6M14 6h6"/><path class="k2" d="M6 8l4 4M10 8l-4 4"/><path class="k3" d="M27 6v5M24.5 8.5h5"/></svg>
+      </span>
+      <span class="whisper"><span class="en">grab a stack of napkins first</span><span class="ar" lang="ar">جهّز المحارم قبل</span></span>
+    </div>
+  </div>
+
+  <div class="cards">
+    <article class="ticket" style="--ci:0">
+      <span class="stamp"><span class="en">Handhelds</span><span class="ar" lang="ar">ساندويتش</span></span>
+      <h3><span class="chip"></span><span class="en">Sandwiches</span><span class="ar" lang="ar">السندويتشات</span></h3>
+      <ul>
+        <li class="row has-photo" style="--i:0"><button class="thumb" aria-label="View photo" data-full="assets/rustic-grill/1302594.jpg"><img loading="lazy" decoding="async" src="assets/rustic-grill/1302594.jpg" alt="Taste of Philly"></button><span class="nm"><span class="en">Taste of Philly</span><span class="ar" lang="ar">تيست اوف فيلي</span><small class="ds"><span class="en">Thinly sliced ribs, cheese and onions</span><span class="ar" lang="ar">شرائح لحم رفيعة، جبن وبصل</span></small></span><span class="lead"></span><span class="meta"><span class="price">49<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span></span></li>
+        <li class="row has-photo" style="--i:1"><button class="thumb" aria-label="View photo" data-full="assets/rustic-grill/1864645.jpg"><img loading="lazy" decoding="async" src="assets/rustic-grill/1864645.jpg" alt="Chicken Philly"></button><span class="nm"><span class="en">Chicken Philly</span><span class="ar" lang="ar">تيست اوف فيلي دجاج</span><small class="ds"><span class="en">Chicken philly sandwich with rich and distinctive flavor</span><span class="ar" lang="ar">ساندويتش فيلي بالدجاج بنكهة غنية ومميزة</span></small></span><span class="lead"></span><span class="meta"><span class="price">34<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span></span></li>
+        <li class="row has-photo" style="--i:2"><button class="thumb" aria-label="View photo" data-full="assets/rustic-grill/1302598.jpg"><img loading="lazy" decoding="async" src="assets/rustic-grill/1302598.jpg" alt="Rustic Hot Dog"></button><span class="nm"><span class="en">Rustic Hot Dog</span><span class="ar" lang="ar">رستك هوت دوق</span><small class="ds"><span class="en">Rustic special grilled hot dog sandwich</span><span class="ar" lang="ar">ساندويتش هوت دوق مشوي على طريقة رستك الخاصة</span></small></span><span class="lead"></span><span class="meta"><span class="price">39<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span></span></li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- ================= OFF THE COALS ================= -->
+<section class="station reveal" id="coals">
+  <div class="st-head">
+    <p class="st-kicker"><span class="en">First off the fire</span><span class="ar" lang="ar">أول ما يطلع من النار</span></p>
+    <h2><span class="en">OFF THE <em>COALS</em></span><span class="ar" lang="ar">المقبلات</span></h2>
+    <svg class="st-underline" viewBox="0 0 240 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M3 8 Q60 3 120 6 T237 7"/></svg>
+  </div>
+  <p class="st-sub"><span class="en">The openers. Crispy, saucy, made to be shared before the mains land, or hoarded, we do not judge.</span><span class="ar" lang="ar">البدايات. مقرمشة ومغموسة بالصوص، تنقسم بين الطاولة قبل ما تجي الرئيسية، أو تخصّها لنفسك، ما نحاسبك.</span></p>
+  <p class="log"><span class="tag"><span class="en">Pitmaster's Log</span><span class="ar" lang="ar">دفتر البيتماستر</span></span><span class="en">"Coals went to embers before sunset. The chops take their time and they are worth it."</span><span class="ar" lang="ar">«الفحم صار جمر قبل المغرب. الريش تاخذ وقتها وتستاهل.»</span></p>
+
+  <div class="signed reveal">
+    <span class="brandtag"><span class="en">Off the Coals</span><span class="ar" lang="ar">على الفحم</span></span>
+    <span class="eyebrow"><span class="en">Low, slow, and lacquered</span><span class="ar" lang="ar">نار هادية وصوص لامع</span></span>
+    <h3><span class="en">Lamb Chops</span><span class="ar" lang="ar">ريش</span></h3>
+    <p class="stand"><span class="en">Three rib pieces with BBQ sauce, the rustic way. Charred at the edges, blushing in the middle, sticky all over.</span><span class="ar" lang="ar">ثلاث قطع ريش مع صوص الباربيكيو على طريقة رستك. محروقة الأطراف، وردية النص، ولزجة من كل مكان.</span></p>
+    <div class="signrow">
+      <span class="sear">
+        <span class="amt">56</span><span class="cur"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span>
+        <svg class="ring" viewBox="0 0 116 60" preserveAspectRatio="none" aria-hidden="true"><rect x="4" y="4" width="108" height="52" rx="26" pathLength="100"/></svg>
+        <svg class="sparks" viewBox="0 0 34 34" aria-hidden="true"><path class="k1" d="M17 3v6M14 6h6"/><path class="k2" d="M6 8l4 4M10 8l-4 4"/><path class="k3" d="M27 6v5M24.5 8.5h5"/></svg>
+      </span>
+      <span class="whisper"><span class="en">eat these with your hands</span><span class="ar" lang="ar">كلها بيدك، لا تستحي</span></span>
+    </div>
+  </div>
+
+  <div class="cards">
+    <article class="ticket" style="--ci:0">
+      <span class="stamp"><span class="en">Sharers</span><span class="ar" lang="ar">للمشاركة</span></span>
+      <h3><span class="chip"></span><span class="en">Appetizers</span><span class="ar" lang="ar">المقبلات</span></h3>
+      <ul>
+        <li class="row has-photo" style="--i:0"><button class="thumb" aria-label="View photo" data-full="assets/rustic-grill/1302403.jpg"><img loading="lazy" decoding="async" src="assets/rustic-grill/1302403.jpg" alt="Chicken Tenders"></button><span class="nm"><span class="en">Chicken Tenders</span><span class="ar" lang="ar">تشكن تندرز</span><small class="ds"><span class="en">5 pieces of seasoned crispy chicken tenders</span><span class="ar" lang="ar">٥ قطع من أصابع الدجاج المتبلة المقرمشة</span></small></span><span class="lead"></span><span class="meta"><span class="price">32<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span></span></li>
+        <li class="row has-photo" style="--i:1"><button class="thumb" aria-label="View photo" data-full="assets/rustic-grill/1302441.jpg"><img loading="lazy" decoding="async" src="assets/rustic-grill/1302441.jpg" alt="Lamb Chops"></button><span class="nm"><span class="en">Lamb Chops</span><span class="ar" lang="ar">ريش</span><small class="ds"><span class="en">3 rib pieces with BBQ sauce, the rustic way</span><span class="ar" lang="ar">٣ قطع ريش مع صوص الباربيكيو على طريقة رستك</span></small></span><span class="lead"></span><span class="meta"><span class="price">56<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span></span></li>
+        <li class="row has-photo" style="--i:2"><button class="thumb" aria-label="View photo" data-full="assets/rustic-grill/1302472.jpg"><img loading="lazy" decoding="async" src="assets/rustic-grill/1302472.jpg" alt="Ranchy Sliders"></button><span class="nm"><span class="en">Ranchy Sliders</span><span class="ar" lang="ar">رانشي سلايدرز</span><small class="ds"><span class="en">2 fried chicken sliders with ranch (buffalo sriracha option to make it spicy)</span><span class="ar" lang="ar">قطعتان سلايدر دجاج مقلي مع صوص الرانش (خيار بافلو سيراتشا للحار)</span></small></span><span class="lead"></span><span class="meta"><span class="price">30<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span></span></li>
+        <li class="row has-photo" style="--i:3"><button class="thumb" aria-label="View photo" data-full="assets/rustic-grill/1302498.jpg"><img loading="lazy" decoding="async" src="assets/rustic-grill/1302498.jpg" alt="Rustic Fries"></button><span class="nm"><span class="en">Rustic Fries</span><span class="ar" lang="ar">رستك فرايز</span><small class="ds"><span class="en">Fries with melted cheese, jalapeno and bacon or fried chicken</span><span class="ar" lang="ar">بطاطس مع جبن ذائب، هالبينو وبيكون أو دجاج مقلي</span></small></span><span class="lead"></span><span class="meta"><span class="price">31<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span></span></li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<div class="runner tape" aria-hidden="true"><svg class="rmark" viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="6"/><path fill="currentColor" d="M50 30c7 8 1 13 5 19c3-2 3-5 3-8c4 5 6 11 2 17c-2 3-6 4-10 4s-10-3-10-9c0-5 3-7 4-11c1 3 2 4 5 4c-3-4-2-11 1-15z"/></svg></div>
+
+<!-- ================= THE FIRE PIT ================= -->
+<section class="station reveal" id="firepit">
+  <div class="st-head">
+    <p class="st-kicker"><span class="en">Low fire, long patience</span><span class="ar" lang="ar">نار هادية وصبر طويل</span></p>
+    <h2><span class="en">THE <em>FIRE PIT</em></span><span class="ar" lang="ar">الأطباق الرئيسية</span></h2>
+    <svg class="st-underline" viewBox="0 0 240 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M3 8 Q60 3 120 6 T237 7"/></svg>
+  </div>
+  <p class="st-sub"><span class="en">The big cuts. Ribeye and strip loin straight off the coals, platters built to be fought over. Come hungry.</span><span class="ar" lang="ar">القطع الكبيرة. ريب آي وسترب لوين على طول من الفحم، صحون كبيرة تتقاتلون عليها. تعال جوعان.</span></p>
+  <p class="log"><span class="tag"><span class="en">Pitmaster's Log</span><span class="ar" lang="ar">دفتر البيتماستر</span></span><span class="en">"Low fire, long patience, that is the whole secret to the steak. Do not rush the pitmaster."</span><span class="ar" lang="ar">«نار هادية وصبر طويل، هذا كل سر الستيك. لا تستعجل البيتماستر.»</span></p>
+
+  <div class="signed reveal">
+    <span class="brandtag"><span class="en">The Big One</span><span class="ar" lang="ar">القطعة الكبيرة</span></span>
+    <span class="eyebrow"><span class="en">The cut we set the coals for</span><span class="ar" lang="ar">القطعة اللي نشعّل الفحم عشانها</span></span>
+    <h3><span class="en">Rib Eye Steak</span><span class="ar" lang="ar">ريب آي ستيك</span></h3>
+    <p class="stand"><span class="en">Eight ounces of grilled ribeye, marbled and seared hard so the crust cracks and the middle stays tender. The centerpiece of the pit.</span><span class="ar" lang="ar">ثماني أونصات ريب آي مشوي، مرمّر ومختوم على نار قوية، القشرة تفرقع والنص يبقى طري. نجمة البيت.</span></p>
+    <div class="signrow">
+      <span class="sear">
+        <span class="amt">130</span><span class="cur"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span>
+        <svg class="ring" viewBox="0 0 132 60" preserveAspectRatio="none" aria-hidden="true"><rect x="4" y="4" width="124" height="52" rx="26" pathLength="100"/></svg>
+        <svg class="sparks" viewBox="0 0 34 34" aria-hidden="true"><path class="k1" d="M17 3v6M14 6h6"/><path class="k2" d="M6 8l4 4M10 8l-4 4"/><path class="k3" d="M27 6v5M24.5 8.5h5"/></svg>
+      </span>
+      <span class="whisper"><span class="en">tell us how you want it charred</span><span class="ar" lang="ar">قل لنا كيف تبيه مستوي</span></span>
+    </div>
+  </div>
+
+  <div class="cards">
+    <article class="ticket" style="--ci:0">
+      <span class="stamp"><span class="en">Off the Grill</span><span class="ar" lang="ar">من الشواية</span></span>
+      <h3><span class="chip"></span><span class="en">Mains</span><span class="ar" lang="ar">الرئيسية</span></h3>
+      <ul>
+        <li class="row has-photo" style="--i:0"><button class="thumb" aria-label="View photo" data-full="assets/rustic-grill/1305816.jpg"><img loading="lazy" decoding="async" src="assets/rustic-grill/1305816.jpg" alt="Off the Grill"></button><span class="nm"><span class="en">Off the Grill</span><span class="ar" lang="ar">اوف ذا جريل</span><small class="ds"><span class="en">2 grilled chicken breasts with honey and lemon sauce</span><span class="ar" lang="ar">قطعتان صدر دجاج مشوي مع صوص العسل والليمون</span></small></span><span class="lead"></span><span class="meta"><span class="price">63<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span></span></li>
+        <li class="row has-photo" style="--i:1"><button class="thumb" aria-label="View photo" data-full="assets/rustic-grill/1303116.jpg"><img loading="lazy" decoding="async" src="assets/rustic-grill/1303116.jpg" alt="Chopper Platter"></button><span class="nm"><span class="en">Chopper Platter</span><span class="ar" lang="ar">تشوبر بلاتر</span><small class="ds"><span class="en">5 pieces of lamb chops with green salad</span><span class="ar" lang="ar">٥ قطع ريش لحم مع سلطة خضراء</span></small></span><span class="lead"></span><span class="meta"><span class="price">108<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span></span></li>
+        <li class="row has-photo" style="--i:2"><button class="thumb" aria-label="View photo" data-full="assets/rustic-grill/1303119.jpg"><img loading="lazy" decoding="async" src="assets/rustic-grill/1303119.jpg" alt="Rib Eye Steak"></button><span class="nm"><span class="en">Rib Eye Steak</span><span class="ar" lang="ar">ريب آي ستيك</span><small class="ds"><span class="en">8 ounces of grilled ribeye steak</span><span class="ar" lang="ar">٨ أونصة من ستيك الريب آي المشوي</span></small></span><span class="lead"></span><span class="meta"><span class="price">130<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span></span></li>
+        <li class="row" style="--i:3"><span class="nm"><span class="en">Strip Loin Steak</span><span class="ar" lang="ar">سترب لوين ستيك</span><small class="ds"><span class="en">Grilled strip loin steak</span><span class="ar" lang="ar">ستيك سترب لوين مشوي</span></small></span><span class="lead"></span><span class="meta"><span class="price">114<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span></span></li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- ================= THE CHOP BLOCK ================= -->
+<section class="station reveal" id="chopblock">
+  <div class="st-head">
+    <p class="st-kicker"><span class="en">Cut fresh, not this morning</span><span class="ar" lang="ar">يتقطّع الحين، مو من الصبح</span></p>
+    <h2><span class="en">THE <em>CHOP BLOCK</em></span><span class="ar" lang="ar">السلطات</span></h2>
+    <svg class="st-underline" viewBox="0 0 240 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M3 8 Q60 3 120 6 T237 7"/></svg>
+  </div>
+  <p class="st-sub"><span class="en">Green things with something grilled on top. Yes, a smokehouse does salads, and it does them properly.</span><span class="ar" lang="ar">أشياء خضراء وفوقها شي مشوي. إيه، بيت المشاوي يسوي سلطات، ويسويها صح.</span></p>
+  <p class="log"><span class="tag"><span class="en">Pitmaster's Log</span><span class="ar" lang="ar">دفتر البيتماستر</span></span><span class="en">"Everything on the block is cut fresh when you order, not sitting since the morning."</span><span class="ar" lang="ar">«كل شي على اللوح يتقطّع طازج لما تطلب، مو قاعد من الصبح.»</span></p>
+  <div class="cards">
+    <article class="ticket" style="--ci:0">
+      <span class="stamp"><span class="en">The Greens</span><span class="ar" lang="ar">خضار</span></span>
+      <h3><span class="chip"></span><span class="en">Salads</span><span class="ar" lang="ar">السلطات</span></h3>
+      <ul>
+        <li class="row has-photo" style="--i:0"><button class="thumb" aria-label="View photo" data-full="assets/rustic-grill/1333958.jpg"><img loading="lazy" decoding="async" src="assets/rustic-grill/1333958.jpg" alt="Grill Honey Grill"></button><span class="nm"><span class="en">Grill Honey Grill</span><span class="ar" lang="ar">جريل هوني جريل</span><small class="ds"><span class="en">Grilled chicken salad with lemon and honey sauce</span><span class="ar" lang="ar">سلطة دجاج مشوي مع صوص الليمون والعسل</span></small></span><span class="lead"></span><span class="meta"><span class="price">29<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span><span class="cal"><span class="en">343 cal</span><span class="ar" lang="ar">٣٤٣ سعرة</span></span></span></li>
+        <li class="row has-photo" style="--i:1"><button class="thumb" aria-label="View photo" data-full="assets/rustic-grill/1302583.jpg"><img loading="lazy" decoding="async" src="assets/rustic-grill/1302583.jpg" alt="Rocca Salad"></button><span class="nm"><span class="en">Rocca Salad</span><span class="ar" lang="ar">سلطة روكا</span><small class="ds"><span class="en">Rocca, pomegranate, pecan and special sauce</span><span class="ar" lang="ar">روكا، رمان، جوز البقان وصوص خاص</span></small></span><span class="lead"></span><span class="meta"><span class="price">24<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span><span class="cal"><span class="en">240 cal</span><span class="ar" lang="ar">٢٤٠ سعرة</span></span></span></li>
+        <li class="row" style="--i:2"><span class="nm"><span class="en">Ribeye Steak Salad</span><span class="ar" lang="ar">سلطة ريب آي ستيك</span><small class="ds"><span class="en">Salad topped with grilled ribeye steak</span><span class="ar" lang="ar">سلطة مع شرائح ريب آي ستيك المشوي</span></small></span><span class="lead"></span><span class="meta"><span class="price">49<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span><span class="cal"><span class="en">490 cal</span><span class="ar" lang="ar">٤٩٠ سعرة</span></span></span></li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- ================= THE SIDE RAIL ================= -->
+<section class="station reveal" id="siderail">
+  <div class="st-head">
+    <p class="st-kicker"><span class="en">Nothing plays solo</span><span class="ar" lang="ar">ما في شي ياكل وحده</span></p>
+    <h2><span class="en">THE <em>SIDE RAIL</em></span><span class="ar" lang="ar">الأطباق الجانبية</span></h2>
+    <svg class="st-underline" viewBox="0 0 240 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M3 8 Q60 3 120 6 T237 7"/></svg>
+  </div>
+  <p class="st-sub"><span class="en">The supporting cast that steals the scene. Fries hit the oil the minute you order.</span><span class="ar" lang="ar">الفريق الجانبي اللي يسرق المشهد. البطاطس تنزل الزيت أول ما تطلبها.</span></p>
+  <p class="log"><span class="tag"><span class="en">Pitmaster's Log</span><span class="ar" lang="ar">دفتر البيتماستر</span></span><span class="en">"Fries hit the oil when you order, so they reach you crunchy every single time."</span><span class="ar" lang="ar">«البطاطس تنزل الزيت لما تطلب، عشان توصلك مقرمشة كل مرة.»</span></p>
+  <div class="cards">
+    <article class="ticket" style="--ci:0">
+      <span class="stamp"><span class="en">On the Side</span><span class="ar" lang="ar">جانبي</span></span>
+      <h3><span class="chip"></span><span class="en">Sides</span><span class="ar" lang="ar">الجانبية</span></h3>
+      <ul>
+        <li class="row has-photo" style="--i:0"><button class="thumb" aria-label="View photo" data-full="assets/rustic-grill/1302603.jpg"><img loading="lazy" decoding="async" src="assets/rustic-grill/1302603.jpg" alt="Green Salad"></button><span class="nm"><span class="en">Green Salad</span><span class="ar" lang="ar">سلطة خضراء</span><small class="ds"><span class="en">Salad of fresh vegetables</span><span class="ar" lang="ar">سلطة من الخضار الطازجة</span></small></span><span class="lead"></span><span class="meta"><span class="price">12<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span><span class="cal"><span class="en">79 cal</span><span class="ar" lang="ar">٧٩ سعرة</span></span></span></li>
+        <li class="row has-photo" style="--i:1"><button class="thumb" aria-label="View photo" data-full="assets/rustic-grill/1302606.jpg"><img loading="lazy" decoding="async" src="assets/rustic-grill/1302606.jpg" alt="Fries"></button><span class="nm"><span class="en">Fries</span><span class="ar" lang="ar">فرايز</span><small class="ds"><span class="en">Crispy french fries</span><span class="ar" lang="ar">بطاطس مقلية مقرمشة</span></small></span><span class="lead"></span><span class="meta"><span class="price">9<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span><span class="cal"><span class="en">312 cal</span><span class="ar" lang="ar">٣١٢ سعرة</span></span></span></li>
+        <li class="row has-photo" style="--i:2"><button class="thumb" aria-label="View photo" data-full="assets/rustic-grill/1302617.jpg"><img loading="lazy" decoding="async" src="assets/rustic-grill/1302617.jpg" alt="Sweet Potato"></button><span class="nm"><span class="en">Sweet Potato</span><span class="ar" lang="ar">بطاطا حلوة</span><small class="ds"><span class="en">Oven-roasted sweet potato with special spices</span><span class="ar" lang="ar">بطاطا حلوة محمّرة بالفرن مع بهارات خاصة</span></small></span><span class="lead"></span><span class="meta"><span class="price">14<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span><span class="cal"><span class="en">233 cal</span><span class="ar" lang="ar">٢٣٣ سعرة</span></span></span></li>
+        <li class="row has-photo" style="--i:3"><button class="thumb" aria-label="View photo" data-full="assets/rustic-grill/1302618.jpg"><img loading="lazy" decoding="async" src="assets/rustic-grill/1302618.jpg" alt="Grilled Street Corn"></button><span class="nm"><span class="en">Grilled Street Corn</span><span class="ar" lang="ar">ذرة مشوية</span><small class="ds"><span class="en">Charcoal-grilled sweet corn</span><span class="ar" lang="ar">ذرة حلوة مشوية على الفحم</span></small></span><span class="lead"></span><span class="meta"><span class="price">13<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span><span class="cal"><span class="en">290 cal</span><span class="ar" lang="ar">٢٩٠ سعرة</span></span></span></li>
+        <li class="row has-photo" style="--i:4"><button class="thumb" aria-label="View photo" data-full="assets/rustic-grill/1333962.jpg"><img loading="lazy" decoding="async" src="assets/rustic-grill/1333962.jpg" alt="Mashed Potato"></button><span class="nm"><span class="en">Mashed Potato</span><span class="ar" lang="ar">بطاطس مهروسة</span><small class="ds"><span class="en">Cooked and mashed potatoes with salt</span><span class="ar" lang="ar">بطاطس مطبوخة ومهروسة مع الملح</span></small></span><span class="lead"></span><span class="meta"><span class="price">11<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span><span class="cal"><span class="en">720 cal</span><span class="ar" lang="ar">٧٢٠ سعرة</span></span></span></li>
+        <li class="row has-photo" style="--i:5"><button class="thumb" aria-label="View photo" data-full="assets/rustic-grill/1435515.jpg"><img loading="lazy" decoding="async" src="assets/rustic-grill/1435515.jpg" alt="Bread"></button><span class="nm"><span class="en">Bread</span><span class="ar" lang="ar">خبز</span><small class="ds"><span class="en">Oven-baked white flour bread</span><span class="ar" lang="ar">خبز أبيض مخبوز بالفرن</span></small></span><span class="lead"></span><span class="meta"><span class="price">4.5<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span></span></li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<div class="runner plate" aria-hidden="true"><svg class="rmark" viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="6"/><path fill="currentColor" d="M50 30c7 8 1 13 5 19c3-2 3-5 3-8c4 5 6 11 2 17c-2 3-6 4-10 4s-10-3-10-9c0-5 3-7 4-11c1 3 2 4 5 4c-3-4-2-11 1-15z"/></svg></div>
+
+
+<!-- ================= THE ICE HOUSE ================= -->
+<section class="station reveal" id="icehouse">
+  <div class="st-head">
+    <p class="st-kicker"><span class="en">Ice fresh, glasses cold</span><span class="ar" lang="ar">تلج طازة وكاسات باردة</span></p>
+    <h2><span class="en">THE <em>ICE HOUSE</em></span><span class="ar" lang="ar">المشروبات</span></h2>
+    <svg class="st-underline" viewBox="0 0 240 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M3 8 Q60 3 120 6 T237 7"/></svg>
+  </div>
+  <p class="st-sub"><span class="en">Cold things to cut through the smoke. Squeezed, brewed, or straight over ice.</span><span class="ar" lang="ar">بارد يقطع الدخان. معصور، مغلي، أو على طول على التلج.</span></p>
+  <p class="log"><span class="tag"><span class="en">Pitmaster's Log</span><span class="ar" lang="ar">دفتر البيتماستر</span></span><span class="en">"Ice fresh, glasses cold, orange squeezed the same day. Simple things done right."</span><span class="ar" lang="ar">«تلج طازة، كاسات باردة، والبرتقال معصور نفس اليوم. أشياء بسيطة نسويها صح.»</span></p>
+  <div class="cards">
+    <article class="ticket" style="--ci:0">
+      <span class="stamp"><span class="en">Cold Line</span><span class="ar" lang="ar">بارد</span></span>
+      <h3><span class="chip"></span><span class="en">Drinks</span><span class="ar" lang="ar">المشروبات</span></h3>
+      <ul>
+        <li class="row" style="--i:0"><span class="nm"><span class="en">Fresh Orange Juice</span><span class="ar" lang="ar">عصير برتقال طازج</span><small class="ds"><span class="en">Freshly squeezed orange juice</span><span class="ar" lang="ar">عصير برتقال طازج معصور</span></small></span><span class="lead"></span><span class="meta"><span class="price">15<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span><span class="cal"><span class="en">122 cal</span><span class="ar" lang="ar">١٢٢ سعرة</span></span></span></li>
+        <li class="row" style="--i:1"><span class="nm"><span class="en">Homemade Iced Tea</span><span class="ar" lang="ar">شاي مثلج</span><small class="ds"><span class="en">Refreshing homemade iced tea</span><span class="ar" lang="ar">شاي مثلج منعش محضّر بالمطعم</span></small></span><span class="lead"></span><span class="meta"><span class="price">14<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span><span class="cal"><span class="en">120 cal</span><span class="ar" lang="ar">١٢٠ سعرة</span></span></span></li>
+        <li class="row" style="--i:2"><span class="nm"><span class="en">Budweiser 0.0</span><span class="ar" lang="ar">بيرة بدوايزر 0.0</span><small class="ds"><span class="en">Non-alcoholic malt beverage</span><span class="ar" lang="ar">مشروب شعير خالٍ من الكحول</span></small></span><span class="lead"></span><span class="meta"><span class="price">13<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span><span class="cal"><span class="en">77 cal</span><span class="ar" lang="ar">٧٧ سعرة</span></span></span></li>
+        <li class="row" style="--i:3"><span class="nm"><span class="en">Soft Drinks</span><span class="ar" lang="ar">مشروبات غازية</span><small class="ds"><span class="en">Pepsi, Diet Pepsi, 7up, Diet 7up, chilled</span><span class="ar" lang="ar">بيبسي، دايت بيبسي، سفن أب، دايت سفن أب، مثلجة</span></small></span><span class="lead"></span><span class="meta"><span class="price">6.5<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span><span class="cal"><span class="en">140 cal</span><span class="ar" lang="ar">١٤٠ سعرة</span></span></span></li>
+        <li class="row" style="--i:4"><span class="nm"><span class="en">Sparkling Water 500ml</span><span class="ar" lang="ar">مياه غازية 500 مل</span><small class="ds"><span class="en">Sparkling mineral water</span><span class="ar" lang="ar">مياه معدنية فوارة</span></small></span><span class="lead"></span><span class="meta"><span class="price">11<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span><span class="cal"><span class="en">0 cal</span><span class="ar" lang="ar">٠ سعرة</span></span></span></li>
+        <li class="row" style="--i:5"><span class="nm"><span class="en">Water</span><span class="ar" lang="ar">ماء</span><small class="ds"><span class="en">Pure natural water</span><span class="ar" lang="ar">ماء نقي طبيعي</span></small></span><span class="lead"></span><span class="meta"><span class="price">4<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span><span class="cal"><span class="en">0 cal</span><span class="ar" lang="ar">٠ سعرة</span></span></span></li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- ================= STOKE IT ================= -->
+<section class="station reveal" id="stoke">
+  <div class="st-head">
+    <p class="st-kicker"><span class="en">Stack whatever you like</span><span class="ar" lang="ar">كدّس اللي يعجبك</span></p>
+    <h2><span class="en">STOKE <em>IT</em></span><span class="ar" lang="ar">الإضافات</span></h2>
+    <svg class="st-underline" viewBox="0 0 240 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M3 8 Q60 3 120 6 T237 7"/></svg>
+  </div>
+  <p class="st-sub"><span class="en">Build it your way. Pile extras onto any burger or plate and turn the fire up.</span><span class="ar" lang="ar">سوّه على كيفك. زد إضافات على أي برجر أو صحن وطلّع النار.</span></p>
+  <p class="log"><span class="tag"><span class="en">Pitmaster's Log</span><span class="ar" lang="ar">دفتر البيتماستر</span></span><span class="en">"Stack whatever you like on top. It is your ticket, we just hold the fire."</span><span class="ar" lang="ar">«كدّس اللي يعجبك فوق. التذكرة تذكرتك، إحنا بس نمسك النار.»</span></p>
+  <div class="cards">
+    <article class="ticket" style="--ci:0">
+      <span class="stamp"><span class="en">Add-ons</span><span class="ar" lang="ar">إضافات</span></span>
+      <h3><span class="chip"></span><span class="en">Add-ons</span><span class="ar" lang="ar">الإضافات</span></h3>
+      <ul>
+        <li class="row" style="--i:0"><span class="nm"><span class="en">Beef Slice</span><span class="ar" lang="ar">شريحة لحم</span><small class="ds"><span class="en">Extra beef slice add-on</span><span class="ar" lang="ar">إضافة شريحة لحم</span></small></span><span class="lead"></span><span class="meta"><span class="price">11<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span><span class="cal"><span class="en">332 cal</span><span class="ar" lang="ar">٣٣٢ سعرة</span></span></span></li>
+        <li class="row" style="--i:1"><span class="nm"><span class="en">Bacon</span><span class="ar" lang="ar">بيكون</span><small class="ds"><span class="en">Beef bacon add-on</span><span class="ar" lang="ar">إضافة بيكون بقري</span></small></span><span class="lead"></span><span class="meta"><span class="price">8<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span><span class="cal"><span class="en">165 cal</span><span class="ar" lang="ar">١٦٥ سعرة</span></span></span></li>
+        <li class="row" style="--i:2"><span class="nm"><span class="en">Eggs</span><span class="ar" lang="ar">بيض</span><small class="ds"><span class="en">Extra egg add-on</span><span class="ar" lang="ar">إضافة بيضة</span></small></span><span class="lead"></span><span class="meta"><span class="price">3<span class="u"><span class="en">SAR</span><span class="ar" lang="ar">ر.س</span></span></span><span class="cal"><span class="en">70 cal</span><span class="ar" lang="ar">٧٠ سعرة</span></span></span></li>
+        <li class="row" style="--i:3"><span class="nm"><span class="en">Chicken Patty</span><span class="ar" lang="ar">قطعة دجاج</span><small class="ds"><span class="en">Extra chicken patty add-on</span><span class="ar" lang="ar">إضافة قطعة دجاج</span></small></span><span class="lead"></span><span class="meta"><span class="price ask"><span class="en">ask</span><span class="ar" lang="ar">اسأل</span></span><span class="cal"><span class="en">300 cal</span><span class="ar" lang="ar">٣٠٠ سعرة</span></span></span></li>
+        <li class="row" style="--i:4"><span class="nm"><span class="en">Extra Cheese</span><span class="ar" lang="ar">جبن إضافي</span><small class="ds"><span class="en">Extra cheese add-on</span><span class="ar" lang="ar">إضافة جبن</span></small></span><span class="lead"></span><span class="meta"><span class="price ask"><span class="en">ask</span><span class="ar" lang="ar">اسأل</span></span><span class="cal"><span class="en">113 cal</span><span class="ar" lang="ar">١١٣ سعرة</span></span></span></li>
+      </ul>
+    </article>
+  </div>
+
+  <div class="kidsnote">
+    <span class="en"><b>Little pitmasters,</b> a kids ticket is being fired up and will land on the pass soon. Ask your server what we can grill up small tonight.</span>
+    <span class="ar" lang="ar"><b>للصغار،</b> تذكرة الأطفال على النار وراح تنزل قريب. اسأل الكابتن وش نقدر نشوي لكم صغير الليلة.</span>
+  </div>
+</section>
+
+</main>
+
+
+<section class="station reveal" id="wall">
+  <div class="st-head">
+    <p class="st-kicker"><span class="en">Real people, real plates</span><span class="ar" lang="ar">كلام الناس، من ذوق الناس</span></p>
+    <h2><span class="en">THE <em>WALL</em></span><span class="ar" lang="ar">جدار المحبة</span></h2>
+    <svg class="st-underline" viewBox="0 0 240 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M3 8 Q60 3 120 6 T237 7" fill="none" stroke="#E4572E" stroke-width="4"/></svg>
+    <p class="wol-sub"><span class="en">Straight off Google, word for word.</span> <span class="ar" lang="ar">من قوقل، كلمة بكلمة.</span></p>
+  </div>
+<div class="wol-branch-head"><span class="en">Makkah (Iwan Al Awali)</span><span class="wol-rate">4.1 ★ · 1067 reviews</span></div><div class="wol-feat"><span class="wol-ribbon">★ <span class="en">Fan favourite</span><span class="ar" lang="ar"> · الأكثر حبًّا</span></span><span class="wol-fstars">★★★★★</span><blockquote class="wol-fq">“Best Philly cheese steak I've had outside of the US. The sweet potato fries and chicken tenders were also top notch.”</blockquote><span class="wol-fby">Mohammad <small>Makkah (Iwan Al Awali)</small></span></div><div class="wol-grid"><figure class="wol-card" style="--rot:-1.4deg;--vc:#C9A96A"><span class="wol-badge" style="background:#C9A96A">★</span><span class="wol-stars">★★★★★<span class="wol-dim"></span></span><blockquote class="wol-q">I am a regular customer here and this time was one of my most wonderful experiences. I ordered a well done tenderloin steak and it was juicy and easy to cut with great flavour.</blockquote><figcaption class="wol-by">Yasameen <span class="wol-branch">Makkah (Iwan Al Awali)</span></figcaption></figure><figure class="wol-card" style="--rot:1.1deg;--vc:#C9A96A"><span class="wol-badge" style="background:#C9A96A">★</span><span class="wol-stars">★★★★★<span class="wol-dim"></span></span><blockquote class="wol-q">Rustic hotdog, this is a masterpiece, everything is perfect in it even the sauce was balanced. Mac and cheese ball was fantastic.</blockquote><figcaption class="wol-by">Mhmed <span class="wol-branch">Makkah (Iwan Al Awali)</span></figcaption></figure><figure class="wol-card" style="--rot:-0.8deg;--vc:#E4572E"><span class="wol-badge" style="background:#E4572E">HA!</span><span class="wol-stars">★★★★★<span class="wol-dim"></span></span><blockquote class="wol-q">The vibes is the best. I did not like the American coffee but I do like the pastries.</blockquote><figcaption class="wol-by">Sarah <span class="wol-branch">Makkah (Iwan Al Awali)</span></figcaption></figure><figure class="wol-card" style="--rot:1.5deg;--vc:#B4232A"><span class="wol-badge" style="background:#B4232A">♥</span><span class="wol-stars">★★★★★<span class="wol-dim"></span></span><blockquote class="wol-q">Great food with amazing flavors, friendly service, and a cozy atmosphere. Loved the sandwiches and fries, will definitely come back.</blockquote><figcaption class="wol-by">Ahmad <span class="wol-branch">Makkah (Iwan Al Awali)</span></figcaption></figure></div><div class="wol-branch-head"><span class="en">Madinah</span><span class="wol-rate">3.9 ★ · 552 reviews</span></div><div class="wol-feat"><span class="wol-ribbon">★ <span class="en">Fan favourite</span><span class="ar" lang="ar"> · الأكثر حبًّا</span></span><span class="wol-fstars">★★★★★</span><blockquote class="wol-fq">“The food is amazing and the presentation is great.”</blockquote><span class="wol-fby">Mousa <small>Madinah</small></span></div>
+</section>
+<footer class="finwrap">
+  <div class="finmark" aria-hidden="true">
+    <svg viewBox="0 0 100 100">
+      <circle class="iron-ring fr" pathLength="100" cx="50" cy="50" r="43"/>
+      <path class="fflame" d="M50 24c9 11 2 17 6 25c4-2 5-7 4-11c5 6 8 15 3 23c-3 5-8 6-13 6s-14-4-14-13c0-6 4-10 6-15c1 4 3 6 6 6c-3-6-3-15 4-23z"/>
+      <path class="iron-txt ft" pathLength="100" d="M22 74 h56"/>
+    </svg>
+  </div>
+  <p class="signoff"><span class="en">Come hungry, <b>leave branded.</b></span><span class="ar" lang="ar">تعال جوعان، <b>وطلعتك علينا وعليك ختم رستك.</b></span></p>
+  <p class="signoff-sub"><span class="en">The same iron that opened the page, stamping you goodbye.</span><span class="ar" lang="ar">نفس الختم اللي فتح الصفحة، يودّعك بالنار.</span></p>
+
+  <div class="branches">
+    <div class="branch">
+      <h4><span class="en">Makkah</span><span class="ar" lang="ar">مكة</span></h4>
+      <p><span class="en">Jabal Thawr Rd area, Prince Sultan bin Abdulaziz Rd, Makkah 24372</span><span class="ar" lang="ar">طريق جبل ثور، طريق الأمير سلطان بن عبدالعزيز، مكة ٢٤٣٧٢</span></p>
+      <a href="https://instagram.com/rustic.grill"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2s-1 .3-3.4-.7c-2.9-1.2-4.7-4.1-4.9-4.3s-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.7 1.8.8 1.9c.1.2.1.3 0 .5c-.1.2-.2.4-.4.6l-.4.5c-.2.2-.3.4-.1.7c.2.3.8 1.3 1.7 2.1c1.2 1.1 2.2 1.4 2.5 1.5c.3.2.5.1.7-.1s.8-.9 1-1.2c.2-.3.4-.3.7-.2s1.9.9 2.2 1c.3.2.5.3.6.4c0 .2 0 .7-.3 1.1z"/></svg>@rustic.grill</a>
+    </div>
+    <div class="branch">
+      <h4><span class="en">Jeddah</span><span class="ar" lang="ar">جدة</span></h4>
+      <p><span class="en">Ar Rawdah, Qasim Zinah St, Jeddah 23434</span><span class="ar" lang="ar">الروضة، شارع قاسم زينة، جدة ٢٣٤٣٤</span></p>
+      <a href="https://instagram.com/rustic.grill"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2s-1 .3-3.4-.7c-2.9-1.2-4.7-4.1-4.9-4.3s-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.7 1.8.8 1.9c.1.2.1.3 0 .5c-.1.2-.2.4-.4.6l-.4.5c-.2.2-.3.4-.1.7c.2.3.8 1.3 1.7 2.1c1.2 1.1 2.2 1.4 2.5 1.5c.3.2.5.1.7-.1s.8-.9 1-1.2c.2-.3.4-.3.7-.2s1.9.9 2.2 1c.3.2.5.3.6.4c0 .2 0 .7-.3 1.1z"/></svg>@rustic.grill</a>
+    </div>
+  </div>
+
+  <p class="foot-meta">
+    <span class="en">Open daily 1PM till 2AM. Find us on Instagram <a class="ig" href="https://instagram.com/rustic.grill" target="_blank" rel="noopener">@rustic.grill</a></span>
+    <span class="ar" lang="ar">مفتوحين يوميًا من ١ الظهر لين ٢ الليل. تابعونا على إنستغرام <a class="ig" href="https://instagram.com/rustic.grill" target="_blank" rel="noopener">rustic.grill@</a></span>
+  </p>
+  <p class="vat"><span class="en">All prices in Saudi Riyals, VAT included. Calories shown where listed.</span><span class="ar" lang="ar">جميع الأسعار بالريال السعودي، شاملة ضريبة القيمة المضافة. السعرات مذكورة حيث توفّرت.</span></p>
+</footer>
+
+</div><!-- /wrap -->
+
+<!-- ================= CINEMATIC OVERLAY: the branding iron sear ================= -->
+<div id="cine" class="cine" aria-hidden="true">
+  <div class="scrim"></div>
+  <canvas id="cinecanvas"></canvas>
+  <div class="stage">
+    <div class="bloom"></div>
+    <div class="searmark">
+      <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="3.5"/><path fill="currentColor" fill-rule="evenodd" d="M50 37 C45 34 41 35 38 38 C34 36 30 38 29 43 C30 47 33 48 35 49 C33 54 34 60 38 65 C41 70 45 72 50 73 C55 72 59 70 62 65 C66 60 67 54 65 49 C67 48 70 47 71 43 C70 38 66 36 62 38 C59 35 55 34 50 37 Z M43 47 C41 47 41 50 43 50 C45 50 45 47 43 47 Z M57 47 C55 47 55 50 57 50 C59 50 59 47 57 47 Z"/><path fill="currentColor" d="M39 39 C33 33 25 30 17 28 C23 34 30 38 37 42 Z M61 39 C67 33 75 30 83 28 C77 34 70 38 63 42 Z"/></svg>
+    </div>
+    <div class="iron">
+      <div class="rod"></div>
+      <div class="head">
+        <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="3.5"/><path fill="currentColor" fill-rule="evenodd" d="M50 37 C45 34 41 35 38 38 C34 36 30 38 29 43 C30 47 33 48 35 49 C33 54 34 60 38 65 C41 70 45 72 50 73 C55 72 59 70 62 65 C66 60 67 54 65 49 C67 48 70 47 71 43 C70 38 66 36 62 38 C59 35 55 34 50 37 Z M43 47 C41 47 41 50 43 50 C45 50 45 47 43 47 Z M57 47 C55 47 55 50 57 50 C59 50 59 47 57 47 Z"/><path fill="currentColor" d="M39 39 C33 33 25 30 17 28 C23 34 30 38 37 42 Z M61 39 C67 33 75 30 83 28 C77 34 70 38 63 42 Z"/></svg>
+      </div>
+    </div>
+    <div class="flash"></div>
+    <p class="cine-title"><span class="en">THE SIGNATURES</span><span class="ar" lang="ar">التواقيع</span></p>
+  </div>
+  <div class="cine-controls">
+    <button type="button" class="js-mute" aria-pressed="false" aria-label="Toggle cinematic sound">
+      <span class="soff" style="display:inline-flex;align-items:center;gap:.35rem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg><span class="en">Sound</span><span class="ar" lang="ar">صوت</span></span>
+      <span class="son" style="display:none;align-items:center;gap:.35rem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M22 9l-6 6M16 9l6 6"/></svg><span class="en">Muted</span><span class="ar" lang="ar">مكتوم</span></span>
+    </button>
+    <button type="button" id="cineskip"><span class="en">Skip</span><span class="ar" lang="ar">تخطّي</span></button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var d=document, b=d.body, root=d.documentElement;
+
+  /* lite mode: in-app webviews, weak devices, ?lite=1 (override ?full=1) */
+  var q=new URLSearchParams(location.search);
+  var ua=navigator.userAgent||'';
+  var inApp=/Instagram|FBAN|FBAV|FB_IAB|Line\/|Twitter/i.test(ua);
+  var weak=(navigator.deviceMemory&&navigator.deviceMemory<=3)||(navigator.hardwareConcurrency&&navigator.hardwareConcurrency<=3);
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var lite=q.get('lite')==='1'||inApp||weak;
+  if(q.get('full')==='1')lite=false;
+  if(lite)b.classList.add('lite');
+  if(reduced)b.classList.add('rm');
+
+  /* language toggle */
+  var lb=d.getElementById('langbtn');
+  function setLang(ar){
+    root.setAttribute('lang',ar?'ar':'en');
+    root.setAttribute('dir',ar?'rtl':'ltr');
+    try{localStorage.setItem('rustic-lang',ar?'ar':'en')}catch(e){}
+  }
+  lb.addEventListener('click',function(){ setLang(root.getAttribute('dir')!=='rtl'); });
+  try{ if(localStorage.getItem('rustic-lang')==='ar')setLang(true); }catch(e){}
+
+  /* ---- day-char / night-ember phase ---- */
+  var hr=new Date().getHours();
+  var current='day';
+  function setPhase(p){ if(p!==current){current=p;b.setAttribute('data-phase',p);syncFlipUI();} }
+  /* they live after dark: default to night in the evening and small hours */
+  setPhase((hr>=18||hr<5)?'night':'day');
+  function syncFlipUI(){
+    var pressed=(current==='night')?'true':'false';
+    [d.getElementById('emblembtn'),d.getElementById('dial')].forEach(function(el){ if(el)el.setAttribute('aria-pressed',pressed); });
+  }
+  function flip(){
+    setPhase(current==='night'?'day':'night');
+    if(navigator.vibrate)try{navigator.vibrate(10)}catch(e){}
+  }
+  ['emblembtn','dial'].forEach(function(id){ var el=d.getElementById(id); if(el)el.addEventListener('click',flip); });
+  b.classList.add('armed'); /* arms the tap hint */
+  syncFlipUI();
+
+  /* ---- time-aware pit greeting, inks in word by word ---- */
+  var slot=(hr>=5&&hr<13)?'open':(hr>=13&&hr<17)?'aft':(hr>=17&&hr<21)?'eve':(hr>=21||hr<2)?'night':'late';
+  var GREET={
+    open: {en:"Coals are just catching, give us a minute.", ar:"الفحم لسه يمسك، عطنا دقيقة"},
+    aft:  {en:"Grill's warming up, pull up a stool.",       ar:"الشواية دافّت، اقعد على الطاولة"},
+    eve:  {en:"Embers are ready, the pit's yours.",         ar:"الجمر جاهز، البيت بيتك"},
+    night:{en:"Pit's roaring, come get branded.",           ar:"النار ولّعانة، تعال نختمك"},
+    late: {en:"Still up? So are we, the fire's on.",        ar:"لسه صاحي؟ إحنا كمان، والنار شغّالة"}
+  };
+  function inkWords(el,txt){
+    if(!el)return; el.textContent='';
+    txt.split(' ').forEach(function(w,i){
+      var s=d.createElement('span'); s.className='w'; s.textContent=w;
+      s.style.transitionDelay=(0.15+i*0.08)+'s';
+      el.appendChild(s); el.appendChild(d.createTextNode(' '));
+    });
+  }
+  var pg=d.getElementById('pitgreet');
+  if(pg){
+    inkWords(d.getElementById('greet-en'),GREET[slot].en);
+    inkWords(d.getElementById('greet-ar'),GREET[slot].ar);
+    requestAnimationFrame(function(){requestAnimationFrame(function(){pg.classList.add('on');});});
+  }
+
+  /* ---- ink typography: EN letters, AR words (never below word level) ---- */
+  if(!lite&&!reduced){
+    var seedN=0;
+    function splitEN(el){
+      var i=0;
+      (function walk(node){
+        [].slice.call(node.childNodes).forEach(function(n){
+          if(n.nodeType===3){
+            var frag=d.createDocumentFragment();
+            n.textContent.split(/(\s+)/).forEach(function(part){
+              if(!part)return;
+              if(/^\s+$/.test(part)){frag.appendChild(d.createTextNode(part));return;}
+              part.split('').forEach(function(ch){
+                var s=d.createElement('span');s.className='lt';s.textContent=ch;
+                s.style.setProperty('--i',Math.min(i++,18));
+                frag.appendChild(s);
+              });
+            });
+            node.replaceChild(frag,n);
+          }else if(n.nodeType===1){walk(n);}
+        });
+      })(el);
+    }
+    function splitAR(el){
+      var i=0;
+      (function walk(node){
+        [].slice.call(node.childNodes).forEach(function(n){
+          if(n.nodeType===3){
+            var frag=d.createDocumentFragment();
+            n.textContent.split(/(\s+)/).forEach(function(part){
+              if(!part)return;
+              if(/^\s+$/.test(part)){frag.appendChild(d.createTextNode(part));return;}
+              var w=d.createElement('span');w.className='wd';w.textContent=part;
+              w.style.setProperty('--i',Math.min(i++,14));
+              frag.appendChild(w);
+            });
+            node.replaceChild(frag,n);
+          }else if(n.nodeType===1){walk(n);}
+        });
+      })(el);
+    }
+    [].forEach.call(d.querySelectorAll('.st-head h2'),function(h2){
+      [].forEach.call(h2.children,function(c){
+        if(c.classList.contains('en'))splitEN(c);
+        else if(c.classList.contains('ar'))splitAR(c);
+      });
+    });
+    b.classList.add('type-on');
+  }
+
+  /* ============================================================
+     THE CINEMATIC SIGNATURE MOMENT: the branding iron sear
+     one-shot, transform/opacity/canvas only, capped DPR,
+     synthesized Web Audio (lazy, gesture-unlocked, mute-safe),
+     never blocks scroll, rm/lite => static + silent
+     ============================================================ */
+  var sigSection=d.getElementById('signatures');
+  var cine=d.getElementById('cine');
+  var canvas=d.getElementById('cinecanvas');
+  var cctx=canvas?canvas.getContext('2d'):null;
+  var iron=cine&&cine.querySelector('.iron');
+  var stage=cine&&cine.querySelector('.stage');
+  var searmark=cine&&cine.querySelector('.searmark');
+  var flash=cine&&cine.querySelector('.flash');
+  var bloom=cine&&cine.querySelector('.bloom');
+  var cineTitle=cine&&cine.querySelector('.cine-title');
+
+  var IMPACT=1350, RECOIL_END=1950, END=3350;
+  var played=false, cineDone=true, impacted=false, faded=false, titleShown=false;
+  var t0=0, last=0, rafId=null, dpr=1;
+  var sparks=[], steam=[];
+  var raf2=window.requestAnimationFrame||function(f){return setTimeout(function(){f(performance.now());},16);};
+  var caf=window.cancelAnimationFrame||clearTimeout;
+
+  /* ---------- synthesized audio ---------- */
+  var actx=null, masterGain=null, noiseBuf=null, muted=false;
+  try{ muted=localStorage.getItem('rustic-mute')==='1'; }catch(e){}
+  function ensureAudio(){
+    if(!actx){ try{ var C=window.AudioContext||window.webkitAudioContext; if(C)actx=new C(); }catch(e){ actx=null; } }
+    if(!actx) return null;
+    if(!masterGain){ masterGain=actx.createGain(); masterGain.gain.value=muted?0:1; masterGain.connect(actx.destination); }
+    if(!noiseBuf){ var n=Math.floor(actx.sampleRate*1.4), b=actx.createBuffer(1,n,actx.sampleRate), da=b.getChannelData(0); for(var i=0;i<n;i++)da[i]=Math.random()*2-1; noiseBuf=b; }
+    if(actx.state==='suspended'){ try{ actx.resume(); }catch(e){} }
+    return actx;
+  }
+  function sound(){ return !!(actx&&masterGain&&!muted&&actx.state==='running'); }
+  function metalGroan(dur){ var t=actx.currentTime;
+    var o=actx.createOscillator(); o.type='sawtooth';
+    var o2=actx.createOscillator(); o2.type='square'; o2.detune.value=-9;
+    var f=actx.createBiquadFilter(); f.type='lowpass'; f.frequency.setValueAtTime(430,t); f.frequency.exponentialRampToValueAtTime(120,t+dur);
+    var g=actx.createGain(); g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(0.14,t+dur*0.62); g.gain.exponentialRampToValueAtTime(0.04,t+dur);
+    o.frequency.setValueAtTime(168,t); o.frequency.exponentialRampToValueAtTime(46,t+dur);
+    o2.frequency.setValueAtTime(120,t); o2.frequency.exponentialRampToValueAtTime(38,t+dur);
+    o.connect(f); o2.connect(f); f.connect(g); g.connect(masterGain);
+    o.start(t); o2.start(t); o.stop(t+dur+0.05); o2.stop(t+dur+0.05);
+  }
+  function subBoom(){ var t=actx.currentTime; var o=actx.createOscillator(); o.type='sine';
+    o.frequency.setValueAtTime(82,t); o.frequency.exponentialRampToValueAtTime(30,t+0.5);
+    var g=actx.createGain(); g.gain.setValueAtTime(0.0001,t); g.gain.linearRampToValueAtTime(0.72,t+0.02); g.gain.exponentialRampToValueAtTime(0.001,t+0.72);
+    o.connect(g); g.connect(masterGain); o.start(t); o.stop(t+0.75);
+  }
+  function clang(){ var t=actx.currentTime; var freqs=[523,796,1140,1560,2060];
+    var g=actx.createGain(); g.gain.setValueAtTime(0.0001,t); g.gain.linearRampToValueAtTime(0.42,t+0.004); g.gain.exponentialRampToValueAtTime(0.0006,t+0.9); g.connect(masterGain);
+    freqs.forEach(function(fr,i){ var o=actx.createOscillator(); o.type=i%2?'triangle':'square'; o.frequency.value=fr*(1+Math.random()*0.012);
+      var og=actx.createGain(); og.gain.value=0.85/(i+1); o.connect(og); og.connect(g); o.start(t); o.stop(t+0.92); });
+    var nz=actx.createBufferSource(); nz.buffer=noiseBuf; var nf=actx.createBiquadFilter(); nf.type='highpass'; nf.frequency.value=2200;
+    var ng=actx.createGain(); ng.gain.setValueAtTime(0.5,t); ng.gain.exponentialRampToValueAtTime(0.001,t+0.13);
+    nz.connect(nf); nf.connect(ng); ng.connect(masterGain); nz.start(t); nz.stop(t+0.14);
+  }
+  function hiss(dur){ var t=actx.currentTime; var nz=actx.createBufferSource(); nz.buffer=noiseBuf; nz.loop=true;
+    var f=actx.createBiquadFilter(); f.type='bandpass'; f.frequency.setValueAtTime(3200,t); f.frequency.exponentialRampToValueAtTime(6200,t+dur*0.5); f.Q.value=0.8;
+    var g=actx.createGain(); g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(0.30,t+0.06); g.gain.exponentialRampToValueAtTime(0.02,t+dur);
+    nz.connect(f); f.connect(g); g.connect(masterGain); nz.start(t); nz.stop(t+dur+0.05);
+  }
+  function sparkCrackle(dur){ var t0a=actx.currentTime, n=Math.floor(dur*38);
+    for(var i=0;i<n;i++){ if(Math.random()<0.5)continue; var t=t0a+Math.random()*dur;
+      var o=actx.createOscillator(); o.type='square'; o.frequency.value=1800+Math.random()*3200;
+      var g=actx.createGain(); g.gain.setValueAtTime(0.0001,t); g.gain.linearRampToValueAtTime(0.045+Math.random()*0.05,t+0.002); g.gain.exponentialRampToValueAtTime(0.0005,t+0.03);
+      o.connect(g); g.connect(masterGain); o.start(t); o.stop(t+0.04); }
+  }
+
+  /* unlock audio on first real gesture so a scroll-triggered play can sing */
+  function unlock(){ ensureAudio(); }
+  ['pointerdown','touchstart','keydown','click'].forEach(function(ev){ window.addEventListener(ev,unlock,{passive:true}); });
+
+  /* ---------- mute buttons ---------- */
+  function syncMute(){ [].forEach.call(d.querySelectorAll('.js-mute'),function(btn){ btn.setAttribute('aria-pressed',muted?'true':'false'); }); }
+  [].forEach.call(d.querySelectorAll('.js-mute'),function(btn){
+    btn.addEventListener('click',function(){ muted=!muted; if(masterGain)masterGain.gain.value=muted?0:1; try{localStorage.setItem('rustic-mute',muted?'1':'0');}catch(e){} syncMute(); });
+  });
+  syncMute();
+
+  /* ---------- canvas + particles ---------- */
+  function sizeCanvas(){ if(!canvas)return; dpr=Math.min(window.devicePixelRatio||1,2);
+    canvas.width=Math.round(window.innerWidth*dpr); canvas.height=Math.round(window.innerHeight*dpr);
+    if(cctx)cctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  function burstSparks(cx,cy){ for(var i=0;i<64;i++){ var a=(-Math.PI/2)+(Math.random()-0.5)*Math.PI*1.15, sp=2+Math.random()*8;
+    sparks.push({x:cx+(Math.random()-0.5)*46,y:cy+(Math.random()-0.5)*8,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,life:0,max:480+Math.random()*620,size:1+Math.random()*2.3,hot:Math.random()}); } }
+  function updateParticles(t,dt,cx,cy){
+    if(impacted&&t<IMPACT+1000&&steam.length<26&&Math.random()<0.6){
+      steam.push({x:cx+(Math.random()-0.5)*66,y:cy+8,vx:(Math.random()-0.5)*0.35,vy:-(0.3+Math.random()*0.55),r:8+Math.random()*10,life:0,max:1100+Math.random()*700});
+    }
+    var k=dt/16, i;
+    for(i=sparks.length-1;i>=0;i--){ var s=sparks[i]; s.vy+=0.32*k; s.x+=s.vx*k; s.y+=s.vy*k; s.vx*=Math.pow(0.985,k); s.life+=dt; if(s.life>s.max)sparks.splice(i,1); }
+    for(i=steam.length-1;i>=0;i--){ var p=steam[i]; p.y+=p.vy*k; p.x+=p.vx*k; p.r+=0.28*k; p.life+=dt; if(p.life>p.max)steam.splice(i,1); }
+  }
+  function drawParticles(){ if(!cctx)return; var W=window.innerWidth,H=window.innerHeight,i;
+    cctx.clearRect(0,0,W,H);
+    for(i=0;i<steam.length;i++){ var p=steam[i], a=(1-p.life/p.max)*0.13; if(a<=0)continue;
+      var gr=cctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r); gr.addColorStop(0,'rgba(122,112,102,'+a+')'); gr.addColorStop(1,'rgba(122,112,102,0)');
+      cctx.fillStyle=gr; cctx.beginPath(); cctx.arc(p.x,p.y,p.r,0,6.283); cctx.fill(); }
+    cctx.globalCompositeOperation='lighter';
+    for(i=0;i<sparks.length;i++){ var s=sparks[i], lf=1-s.life/s.max; if(lf<=0)continue;
+      var col=s.hot>0.6?'255,'+(200+Math.round(40*lf))+',150':'255,'+Math.round(120+80*lf)+',60';
+      cctx.fillStyle='rgba('+col+','+lf+')'; cctx.beginPath(); cctx.arc(s.x,s.y,s.size*(0.4+lf),0,6.283); cctx.fill(); }
+    cctx.globalCompositeOperation='source-over';
+  }
+
+  /* ---------- element reset ---------- */
+  function resetCineEls(){
+    if(iron){ iron.classList.remove('impact'); iron.style.opacity='1'; iron.style.transform='translate(-50%,calc(-50% - 66vh))'; }
+    if(searmark){ searmark.style.opacity='0'; searmark.style.transform='translate(-50%,-50%) scale(.86)'; searmark.style.filter=''; searmark.style.color='#7a1d15'; }
+    if(flash)flash.style.opacity='0';
+    if(bloom){ bloom.style.opacity='0'; bloom.style.transform='translate(-50%,-50%) scale(0)'; }
+    if(stage)stage.style.transform='none';
+    if(cineTitle)cineTitle.classList.remove('show');
+  }
+
+  function doImpact(cx,cy){ impacted=true;
+    if(iron)iron.classList.add('impact');
+    if(flash)flash.style.opacity='1';
+    burstSparks(cx,cy);
+    if(navigator.vibrate){ try{navigator.vibrate([0,30,25,45]);}catch(e){} }
+    if(sound()){ subBoom(); clang(); hiss(1.45); sparkCrackle(1.15); }
+  }
+  function updateSear(st){ if(!searmark)return;
+    var op=Math.min(1,st/120), fadeStart=END-IMPACT-600;
+    if(st>fadeStart)op=Math.max(0,1-(st-fadeStart)/600);
+    var sc=st<120?(0.72+(1.12-0.72)*(st/120)):st<600?(1.12+(1-1.12)*((st-120)/480)):1;
+    searmark.style.opacity=String(op);
+    searmark.style.transform='translate(-50%,-50%) scale('+sc.toFixed(3)+')';
+    var cph=Math.min(1,st/900);
+    var col=cph<0.3?'#ffffff':cph<0.6?'#ffd27a':cph<0.85?'#f2833d':'#e4572e';
+    searmark.style.color=col;
+    var glow=Math.max(6,34*(1-cph)+12);
+    searmark.style.filter='drop-shadow(0 0 '+glow.toFixed(0)+'px '+(cph<0.4?'#fff':'#e4572e')+') drop-shadow(0 0 '+(glow*1.6).toFixed(0)+'px #b4232a)';
+    if(bloom){ var bu=Math.min(1,st/900); bloom.style.transform='translate(-50%,-50%) scale('+(bu*22).toFixed(2)+')'; bloom.style.opacity=String((1-bu)*0.9); }
+    if(flash)flash.style.opacity=String(Math.max(0,1-st/300));
+  }
+
+  function frame(now){ if(cineDone)return;
+    var t=now-t0, dt=Math.min(50,now-last); last=now;
+    var vh=window.innerHeight, cx=window.innerWidth/2, cy=vh/2;
+    if(t<IMPACT){
+      var p=t/IMPACT, e=p*p*(0.55+0.45*p), y=-0.66*vh*(1-e);
+      if(iron){ iron.style.transform='translate(-50%,calc(-50% + '+y.toFixed(1)+'px))'; iron.style.opacity='1'; }
+    }else{
+      if(!impacted)doImpact(cx,cy);
+      var q=Math.min(1,(t-IMPACT)/(RECOIL_END-IMPACT)), yy=-0.12*vh*q*q;
+      if(iron){ iron.style.transform='translate(-50%,calc(-50% + '+yy.toFixed(1)+'px)) rotate('+(-2*q).toFixed(2)+'deg)'; iron.style.opacity=String(Math.max(0,1-q*1.05)); }
+    }
+    var shake=(t>IMPACT&&t<IMPACT+420)?(1-(t-IMPACT)/420):0;
+    if(stage)stage.style.transform='translate('+((Math.random()*2-1)*15*shake).toFixed(1)+'px,'+((Math.random()*2-1)*15*shake).toFixed(1)+'px)';
+    if(t>=IMPACT)updateSear(t-IMPACT);
+    if(t>=IMPACT+300&&!titleShown){ titleShown=true; if(cineTitle)cineTitle.classList.add('show'); }
+    if(t>END-650&&!faded){ faded=true; cine.classList.add('fade'); }
+    updateParticles(t,dt,cx,cy); drawParticles();
+    if(t>=END){ endCine(); return; }
+    rafId=raf2(frame);
+  }
+
+  function endCine(){ if(cineDone)return; cineDone=true; if(rafId)caf(rafId); rafId=null;
+    cine.classList.remove('run','fade');
+    if(cctx)cctx.clearRect(0,0,window.innerWidth,window.innerHeight);
+    sparks.length=0; steam.length=0; resetCineEls();
+    if(sigSection){ sigSection.classList.remove('playing'); sigSection.classList.add('seen','fired'); }
+  }
+
+  function staticSig(){ played=true; if(sigSection)sigSection.classList.add('seen','fired'); }
+
+  function startCine(force){
+    if(reduced||lite||!cine||!sigSection){ staticSig(); return; }
+    if(played&&!force)return;
+    played=true; cineDone=false; impacted=false; faded=false; titleShown=false;
+    sparks.length=0; steam.length=0;
+    sigSection.classList.remove('fired','seen'); sigSection.classList.add('playing');
+    resetCineEls(); sizeCanvas();
+    cine.classList.add('run');
+    ensureAudio();
+    if(sound())metalGroan(IMPACT/1000);
+    t0=performance.now(); last=t0;
+    rafId=raf2(frame);
+  }
+
+  /* the ONE trigger, evaluated by the single reveal driver below */
+  function sigCheck(){ if(played||!sigSection)return; var r=sigSection.getBoundingClientRect();
+    if(r.top<window.innerHeight*0.6&&r.bottom>window.innerHeight*0.12)startCine(false); }
+
+  var skipBtn=d.getElementById('cineskip'); if(skipBtn)skipBtn.addEventListener('click',function(){ endCine(); });
+  var replayBtn=d.getElementById('sigreplay'); if(replayBtn)replayBtn.addEventListener('click',function(){
+    if(reduced||lite){ if(sigSection)sigSection.classList.add('seen','fired'); return; }
+    if(!cineDone)endCine(); startCine(true);
+    sigSection.scrollIntoView({behavior:(reduced?'auto':'smooth'),block:'start'});
+  });
+  window.addEventListener('resize',function(){ if(!cineDone)sizeCanvas(); },{passive:true});
+
+  /* ---- one reveal engine: rAF scroll driver + heartbeat ---- */
+  var revs=[].slice.call(d.querySelectorAll('.reveal'));
+  if(reduced){
+    revs.forEach(function(el){el.classList.add('seen');});
+    staticSig();
+  }else{
+    var rTick=false;
+    function checkReveals(){
+      rTick=false;
+      sigCheck();
+      if(!revs.length)return;
+      var line=window.innerHeight*0.86;
+      revs=revs.filter(function(el){
+        if(el.getBoundingClientRect().top<=line){el.classList.add('seen');return false;}
+        return true;
+      });
+    }
+    var raf=window.requestAnimationFrame||function(f){setTimeout(f,80)};
+    function onReveal(){ if(!rTick){rTick=true;raf(checkReveals);} }
+    window.addEventListener('scroll',onReveal,{passive:true});
+    window.addEventListener('resize',onReveal,{passive:true});
+    d.addEventListener('scroll',onReveal,{passive:true,capture:true});
+    setInterval(function(){ if(revs.length&&!rTick)checkReveals(); },900);
+    checkReveals();
+  }
+})();
+</script>
+
+<div id="lb" role="dialog" aria-modal="true"><button class="lbx" aria-label="Close">×</button><img alt="" src=""></div>
+<script>(function(){var lb=document.getElementById('lb'),im=lb.querySelector('img');
+function open(src){im.src=src;lb.classList.add('on');document.body.style.overflow='hidden';}
+function close(){lb.classList.remove('on');document.body.style.overflow='';im.src='';}
+document.addEventListener('click',function(e){var t=e.target.closest('.thumb');if(t){e.preventDefault();open(t.getAttribute('data-full'));}});
+lb.addEventListener('click',close);
+document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});})();</script>
+</body>
+</html>

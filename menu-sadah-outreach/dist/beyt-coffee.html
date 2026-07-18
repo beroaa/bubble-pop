@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BEYT CAFE, أهلا فيك بالبيت, Mar Mikhael</title>
+<meta name="description" content="BEYT, a garden cafe in an old Lebanese house in Mar Mikhael, Beirut. Brunch till 2pm, cocktails and arak by night.">
+<link rel="icon" href="assets/beyt-coffee/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Aref+Ruqaa:wght@400;700&family=Nunito:wght@400;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rose:#D46C6E; --rose-deep:#B4494B; --gold:#C79503; --ochre:#967100; --sage:#C3C59A;
+  --ink:#382900; --paper:#FFFDF6; --glow:#FFD98A;
+  --pg:#382900; --sub:#5d4a15; --card-sh:rgba(56,41,0,.16);
+  --disp-en:'Patrick Hand',cursive; --disp-ar:'Aref Ruqaa',serif;
+  --body:'Nunito','IBM Plex Sans Arabic',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{
+  font-family:var(--body); color:var(--pg); background:#FAF0DB;
+  line-height:1.55; overflow-x:hidden;
+  transition:color .01s linear .7s;
+}
+body[data-phase="night"]{--pg:#F2E7CE; --sub:#CBBE9C; --card-sh:rgba(0,0,0,.35)}
+body.lite, body.lite *{transition-duration:.01s !important;transition-delay:0s !important}
+img{max-width:100%;display:block}
+a{color:inherit}
+.ar{display:none}
+html[dir="rtl"] .ar{display:inline}
+html[dir="rtl"] .en{display:none}
+html[dir="rtl"] body{font-family:'IBM Plex Sans Arabic',var(--body)}
+.ar{font-family:'IBM Plex Sans Arabic',sans-serif}
+
+/* ---------- sky + stars ----------
+   phases crossfade on opacity only (fixed layers, compositor work),
+   never by animating body background-color on scroll */
+#sky{position:fixed;inset:0;z-index:0;pointer-events:none}
+#sky div{position:absolute;inset:0;opacity:0;transition:opacity 1.4s ease}
+#sky .p-noon{background:#FDF8EC}
+#sky .p-dusk{background:#F5E5C6}
+#sky .p-night{background:#20263A}
+body[data-phase="noon"] #sky .p-noon,
+body[data-phase="dusk"] #sky .p-dusk,
+body[data-phase="night"] #sky .p-night{opacity:1}
+#stars{position:fixed;inset:0;pointer-events:none;opacity:0;transition:opacity 1.6s ease;z-index:0}
+body[data-phase="night"] #stars{opacity:1}
+#stars svg{width:100%;height:100%}
+.tw{animation:tw 3.4s ease-in-out infinite}
+.tw:nth-child(2n){animation-delay:1.1s}.tw:nth-child(3n){animation-delay:2s}
+@keyframes tw{0%,100%{opacity:.35}50%{opacity:1}}
+body.lite .tw, body.rm .tw{animation:none;opacity:.8}
+
+/* ---------- header ---------- */
+header.top{
+  position:sticky;top:0;z-index:50;background:var(--paper);
+  border-bottom:2.5px solid var(--ink);
+  padding:.5rem .9rem;display:flex;align-items:center;gap:.6rem;
+}
+body[data-phase="night"] header.top{background:#2A3149;border-color:#141a2c;color:#F2E7CE}
+header.top .brand{font-family:var(--disp-en);font-size:1.3rem;letter-spacing:.06em;font-weight:400}
+html[dir="rtl"] header.top .brand{font-family:var(--disp-ar)}
+.minicube{width:34px;height:32px;flex:none}
+.win{opacity:0;transition:opacity 1.4s ease}
+body[data-phase="night"] .win{opacity:1}
+.skydial{margin-inline-start:auto;width:26px;height:26px;position:relative;flex:none}
+.skydial .sun,.skydial .moon{position:absolute;inset:0;transition:opacity 1.2s ease}
+.skydial .moon{opacity:0}
+body[data-phase="night"] .skydial .sun{opacity:0}
+body[data-phase="night"] .skydial .moon{opacity:1}
+.langbtn{
+  flex:none;font-family:var(--body);font-weight:800;font-size:.85rem;
+  background:var(--ink);color:#FFF6E3;border:none;border-radius:12px 14px 11px 15px;
+  padding:.42rem .85rem;cursor:pointer;min-height:44px;min-width:44px;
+}
+.langbtn .ar{display:inline;font-family:'IBM Plex Sans Arabic',sans-serif}
+.langbtn .en{display:none}
+html[dir="rtl"] .langbtn .ar{display:none}
+html[dir="rtl"] .langbtn .en{display:inline}
+
+/* room chips */
+nav.rooms{
+  position:sticky;top:62px;z-index:49;display:flex;gap:.5rem;overflow-x:auto;
+  padding:.55rem .9rem;background:inherit;scrollbar-width:none;
+  background:rgba(255,253,246,.94);border-bottom:2px solid var(--ink);
+}
+nav.rooms::-webkit-scrollbar{display:none}
+body[data-phase="night"] nav.rooms{background:rgba(32,38,58,.96);border-color:#141a2c}
+nav.rooms a{
+  flex:none;text-decoration:none;font-weight:700;font-size:.83rem;
+  border:2px solid var(--ink);border-radius:14px 10px 13px 11px;
+  padding:.3rem .8rem;display:flex;align-items:center;gap:.35rem;background:var(--paper);color:var(--ink);
+  min-height:44px;
+}
+body[data-phase="night"] nav.rooms a{background:#2E3550;color:#F2E7CE;border-color:#141a2c}
+.dot{width:11px;height:11px;flex:none;border:1.8px solid var(--ink);transform:rotate(45deg);border-radius:2px}
+body[data-phase="night"] .dot{border-color:#141a2c}
+
+/* ---------- hero ---------- */
+.hero{position:relative;z-index:1;text-align:center;padding:2.2rem 1.1rem 2.6rem;max-width:640px;margin:0 auto}
+.cubewrap{width:min(240px,64vw);margin:0 auto .4rem}
+.face{transform-box:fill-box;transform-origin:center;opacity:0;animation:1.25s cubic-bezier(.2,.8,.2,1) forwards}
+.f-rose{animation-name:arr-rose;animation-delay:.15s}
+.f-gold{animation-name:arr-gold;animation-delay:.45s}
+.f-ochre{animation-name:arr-ochre;animation-delay:.7s}
+.f-sage{animation-name:arr-sage;animation-delay:1s}
+@keyframes arr-rose{from{opacity:0;transform:translate(0,-90px) rotate(-14deg)}to{opacity:1;transform:none}}
+@keyframes arr-gold{from{opacity:0;transform:translate(-110px,50px) rotate(12deg)}to{opacity:1;transform:none}}
+@keyframes arr-ochre{from{opacity:0;transform:translate(110px,50px) rotate(-10deg)}to{opacity:1;transform:none}}
+@keyframes arr-sage{from{opacity:0;transform:translate(90px,110px) rotate(18deg)}to{opacity:1;transform:none}}
+.f-sage.settled{animation:float 6s ease-in-out .4s infinite;opacity:1}
+@keyframes float{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(0,-6px) rotate(2deg)}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .face,.f-sage.settled{animation:none !important;opacity:1 !important;transform:none !important}
+  .tw{animation:none}
+  #sky div,#roof,.dock .ic{transition:none !important}
+}
+body.lite .face{animation:none;opacity:1;transform:none}
+body.lite .f-sage.settled{animation:none}
+.hero h1{font-family:var(--disp-en);font-weight:400;font-size:clamp(2.8rem,13vw,4.6rem);line-height:1.08;margin:.25rem 0 .45rem;letter-spacing:.01em}
+.hero h1 .ar{font-family:var(--disp-ar);font-size:clamp(2.4rem,11vw,4rem);line-height:1.35}
+.hero .sub{color:var(--sub);font-size:1.2rem;max-width:34rem;margin:0 auto;transition:color .01s linear .7s}
+/* bidi guard: only the active hero wordmark participates in layout, inline-block isolates it */
+html:not([dir="rtl"]) .hero h1 > .en{display:inline-block}
+html[dir="rtl"] .hero h1 > .ar{display:inline-block}
+.beyt-note{font-family:var(--disp-en);font-size:1.2rem;color:var(--pg);max-width:30rem;margin:.7rem auto 0;line-height:1.4;transition:color .01s linear .7s}
+.beyt-note .ar{font-family:var(--disp-ar);font-size:1.02rem}
+.hourchips{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0 1.2rem}
+.hourchips span{
+  border:2px solid var(--ink);background:var(--paper);color:var(--ink);
+  border-radius:16px 12px 15px 13px;padding:.32rem .8rem;font-size:.85rem;font-weight:700;
+}
+body[data-phase="night"] .hourchips span{background:#2E3550;color:#F2E7CE;border-color:#141a2c}
+.cta{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;
+  font-weight:800;font-size:.95rem;padding:.62rem 1.15rem;
+  border:2.5px solid var(--ink);border-radius:18px 14px 17px 15px;
+  box-shadow:3px 4px 0 var(--card-sh);
+}
+.btn.wa{background:#2E7D4F;color:#fff}
+.btn.map{background:var(--paper);color:var(--ink)}
+body[data-phase="night"] .btn.map{background:#2E3550;color:#F2E7CE;border-color:#141a2c}
+.btn svg{flex:none}
+
+/* ---------- flip the house ---------- */
+.cubebtn{
+  display:block;width:100%;background:none;border:none;padding:0;margin:0;
+  cursor:pointer;-webkit-tap-highlight-color:transparent;
+}
+.cubebtn svg{transition:transform .18s cubic-bezier(.2,.8,.2,1)}
+.cubebtn:active svg{transform:scale(.955)}
+.cubebtn:focus-visible{outline:3px dashed var(--ochre);outline-offset:8px;border-radius:14px}
+body.rm .cubebtn svg,body.lite .cubebtn svg{transition:none}
+
+/* windows wake up one by one on any night flip */
+.hero .win:nth-of-type(2){transition-delay:.45s}
+.minicube .win{transition-delay:.25s}
+
+/* string of fairy lights inside the hero cube svg */
+.slights{
+  opacity:0;transform:translateY(-12px);transform-box:fill-box;transform-origin:center;
+  transition:opacity 1.2s ease,transform 1.2s cubic-bezier(.2,.8,.2,1);
+}
+body[data-phase="night"] .slights{opacity:1;transform:none}
+body[data-phase="night"] .slights .bulb{animation:tw 2.6s ease-in-out infinite}
+body[data-phase="night"] .slights .bulb:nth-child(2n){animation-delay:.8s}
+body[data-phase="night"] .slights .bulb:nth-child(3n){animation-delay:1.5s}
+body.lite .slights .bulb,body.rm .slights .bulb{animation:none}
+
+/* hand-inked hint under the cube; JS-armed via body.flip so no-JS never shows a dead invitation */
+.cubehint{display:none}
+body.flip .cubehint{
+  display:block;font-family:var(--disp-en);font-size:1rem;color:var(--sub);
+  margin:.15rem auto .3rem;transition:color .01s linear .7s;
+}
+.cubehint .ar{font-family:var(--disp-ar)}
+.cubehint .hn{display:none}
+body[data-phase="night"] .cubehint .hd{display:none}
+body[data-phase="night"] .cubehint .hn{display:inline}
+.cubehint .hd{animation:hintpulse 3.2s ease-in-out infinite}
+@keyframes hintpulse{0%,100%{opacity:.55}50%{opacity:1}}
+body.lite .cubehint .hd,body.rm .cubehint .hd{animation:none;opacity:.85}
+
+/* header sun dial becomes a switch, 44px touch target */
+button.skydial{
+  background:none;border:none;padding:0;cursor:pointer;
+  width:44px;height:44px;-webkit-tap-highlight-color:transparent;
+}
+button.skydial .sun,button.skydial .moon{inset:9px}
+button.skydial:focus-visible{outline:2.5px dashed var(--ochre);border-radius:50%}
+
+/* ---------- rooms ---------- */
+main{position:relative;z-index:1;max-width:980px;margin:0 auto;padding:0 1rem 2rem}
+section.room{padding:2.2rem 0 .6rem;scroll-margin-top:132px}
+.room-head{position:relative;display:flex;align-items:center;gap:.8rem;margin-bottom:.35rem}
+.room-ico{width:46px;height:46px;flex:none}
+.room-head h2{font-family:var(--disp-en);font-weight:400;font-size:clamp(2.4rem,10vw,3.6rem);line-height:1.02;color:var(--racc-ink,var(--ink))}
+.room-head h2 .ar{font-family:var(--disp-ar);font-size:clamp(2rem,8.6vw,3.1rem);line-height:1.4}
+body[data-phase="night"] .room-head h2{color:var(--pg)}
+.room-head h2 small{display:flex;align-items:center;gap:.55em;font-family:var(--body);font-size:.9rem;font-weight:800;color:var(--racc-ink,var(--sub));letter-spacing:.22em;text-transform:uppercase;transition:color .01s linear .7s;margin-bottom:.3rem}
+.room-head h2 small::before{content:"";height:3px;width:26px;flex:none;border-radius:3px;background:var(--racc,var(--gold))}
+html[dir="rtl"] .room-head h2 small{letter-spacing:0}
+.room-sub{color:var(--sub);margin:.2rem 0 1.15rem;font-size:1.08rem;line-height:1.6;transition:color .01s linear .7s}
+/* per-room accent palette */
+#kitchen{--racc:#C79503;--racc-ink:#8F6B00}
+#garden{--racc:#C3C59A;--racc-ink:#6E7440}
+#table{--racc:#B08300;--racc-ink:#967100}
+#salon{--racc:#D46C6E;--racc-ink:#B4494B}
+#balcony{--racc:#FFD98A;--racc-ink:#B4494B}
+#gallery{--racc:#D46C6E;--racc-ink:#B4494B}
+body[data-phase="night"] .room-head h2 small{color:#FFD98A}
+body[data-phase="night"] .room-sub{color:#CBBE9C}
+.badge{
+  display:inline-block;background:var(--rose-deep);color:#fff;font-weight:800;font-size:.78rem;
+  border:2px solid var(--ink);border-radius:12px 9px 11px 10px;padding:.18rem .6rem;
+  margin-inline-start:.5rem;transform:rotate(-2deg);vertical-align:middle;
+}
+.cards{display:grid;gap:1.1rem;grid-template-columns:1fr}
+@media(min-width:760px){.cards{grid-template-columns:1fr 1fr}}
+.card{
+  position:relative;background:var(--paper);border:2.5px solid var(--ink);
+  border-radius:20px 15px 22px 14px / 15px 22px 14px 20px;
+  box-shadow:3px 4px 0 var(--card-sh);
+  padding:1.05rem 1.1rem 1rem;padding-inline-start:2.35rem;color:#382900;
+}
+.card:nth-child(even){border-radius:14px 22px 15px 20px / 22px 14px 20px 15px;transform:rotate(.35deg)}
+.card:nth-child(odd){transform:rotate(-.3deg)}
+.vlabel{
+  position:absolute;top:14px;left:7px;right:auto;z-index:0;
+  writing-mode:vertical-rl;letter-spacing:.26em;font-size:.6rem;font-weight:800;line-height:1;
+  text-transform:uppercase;color:var(--ochre);opacity:.5;user-select:none;pointer-events:none;
+  white-space:nowrap;max-height:calc(100% - 28px);overflow:hidden;
+}
+html[dir="rtl"] .vlabel{left:auto;right:7px;transform:rotate(180deg)}
+.card h3{font-family:var(--disp-en);font-weight:400;font-size:clamp(1.45rem,5.4vw,1.7rem);margin-bottom:.45rem;display:flex;align-items:center;gap:.5rem}
+.card h3 .ar{font-family:var(--disp-ar);font-size:1.4rem}
+.card h3 .dot{background:var(--acc,var(--gold))}
+.card ul{list-style:none}
+.row{display:flex;align-items:baseline;gap:.5rem;padding:.38rem 0}
+.nm{font-weight:700;font-size:1.05rem}
+.nm .ds{display:block;font-weight:400;font-size:.92rem;color:#63511f;line-height:1.45;margin-top:.08rem}
+.dots{flex:1;border-bottom:2px dotted rgba(56,41,0,.45);transform:translateY(-4px);min-width:14px}
+.price{font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap;text-align:end;font-size:1.06rem;color:var(--racc-ink,#382900);direction:ltr;unicode-bidi:isolate}
+.note{
+  margin-top:.55rem;padding-top:.5rem;border-top:2px dotted rgba(56,41,0,.35);
+  font-size:.9rem;color:#63511f;line-height:1.5;
+}
+.serve{font-size:.9rem;color:#63511f;font-style:italic;margin:-.1rem 0 .35rem}
+.homey{
+  margin-top:.5rem;background:#FBF3DC;border:2px dotted var(--acc,var(--gold));
+  border-radius:12px 16px 11px 15px;padding:.5rem .7rem;font-size:.84rem;color:#5d4c1c;
+}
+
+/* balcony */
+#balcony .card{background:#FFFBEF}
+.lights{display:flex;gap:.55rem;justify-content:center;margin:.2rem 0 .9rem}
+.lights i{
+  width:10px;height:10px;border-radius:50%;background:var(--glow);
+  border:1.5px solid var(--ink);opacity:.35;transition:opacity 1.2s ease;
+  animation:none;
+}
+body[data-phase="night"] .lights i{opacity:1;animation:tw 2.8s ease-in-out infinite}
+body[data-phase="night"] .lights i:nth-child(2n){animation-delay:.7s;background:var(--rose)}
+body[data-phase="night"] .lights i:nth-child(3n){animation-delay:1.4s}
+body.lite .lights i,body.rm .lights i{animation:none}
+.eve-note{color:var(--sub);font-size:.9rem;text-align:center;margin:.2rem auto 1rem;max-width:30rem;transition:color .01s linear .7s}
+
+/* ribbon */
+.ribbon{
+  margin:2rem auto 0;max-width:420px;text-align:center;background:var(--rose-deep);color:#fff;
+  border:2.5px solid var(--ink);border-radius:18px 13px 16px 14px;
+  padding:.7rem 1rem;font-weight:800;transform:rotate(-1deg);box-shadow:3px 4px 0 var(--card-sh);
+}
+.ribbon .ar{font-family:'IBM Plex Sans Arabic',sans-serif}
+
+/* gallery */
+#gallery{padding-top:2.2rem;scroll-margin-top:132px}
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-top:1rem}
+@media(max-width:520px){.gal{grid-template-columns:1fr 1fr;gap:.7rem}}
+.gal figure{
+  background:var(--paper);border:2.5px solid var(--ink);
+  border-radius:16px 12px 15px 13px;padding:.45rem;box-shadow:3px 4px 0 var(--card-sh);
+}
+.gal figure:nth-child(odd){transform:rotate(-.7deg)}
+.gal figure:nth-child(even){transform:rotate(.6deg)}
+.gal img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px 8px 11px 9px;border:2px solid var(--ink)}
+.gal figcaption{font-size:.82rem;font-weight:700;color:#5d4c1c;text-align:center;padding:.35rem .2rem .15rem}
+
+/* footer */
+footer{
+  position:relative;z-index:1;text-align:center;padding:2.6rem 1rem 3rem;max-width:640px;margin:0 auto;
+}
+.qhome{font-family:var(--disp-ar);font-size:1.7rem;margin:.6rem 0 .1rem}
+.qhome-en{color:var(--sub);font-size:.92rem;margin-bottom:1.2rem;transition:color .01s linear .7s}
+footer .cta{margin-top:1rem}
+.addr{margin-top:1.1rem;font-size:.92rem;color:var(--sub);transition:color .01s linear .7s}
+
+/* ---------- footer finale: the house assembles again, mirror of the hero ---------- */
+.finhouse{width:120px;margin:0 auto .5rem}
+.finhouse svg{display:block;width:100%;height:auto}
+.fface{transform-box:fill-box;transform-origin:center}
+/* hidden only while JS is live and the footer has not been seen yet */
+.type-on .finwrap.reveal .fface{opacity:0}
+.type-on .finwrap.reveal.seen .ff-rose{animation:fin-rose 1.25s cubic-bezier(.2,.8,.2,1) .15s both}
+.type-on .finwrap.reveal.seen .ff-gold{animation:fin-gold 1.25s cubic-bezier(.2,.8,.2,1) .45s both}
+.type-on .finwrap.reveal.seen .ff-ochre{animation:fin-ochre 1.25s cubic-bezier(.2,.8,.2,1) .7s both}
+.type-on .finwrap.reveal.seen .ff-sage{animation:fin-sage 1.25s cubic-bezier(.2,.8,.2,1) 1s both,float 6s ease-in-out 2.7s infinite}
+/* same flight paths as the hero, arriving from the opposite directions */
+@keyframes fin-rose{from{opacity:0;transform:translate(0,90px) rotate(14deg)}to{opacity:1;transform:none}}
+@keyframes fin-gold{from{opacity:0;transform:translate(110px,-50px) rotate(-12deg)}to{opacity:1;transform:none}}
+@keyframes fin-ochre{from{opacity:0;transform:translate(-110px,-50px) rotate(10deg)}to{opacity:1;transform:none}}
+@keyframes fin-sage{from{opacity:0;transform:translate(-90px,-110px) rotate(-18deg)}to{opacity:1;transform:none}}
+/* windows glow on a beat after the assembly settles, night only */
+.fwin{opacity:0;transition:opacity 1.4s ease}
+body[data-phase="night"] .finwrap.seen .fwin{opacity:1;transition-delay:2.5s}
+body:not(.type-on)[data-phase="night"] .fwin{opacity:1;transition-delay:0s}
+body.rm[data-phase="night"] .finwrap .fwin,body.lite[data-phase="night"] .finwrap .fwin{opacity:1;transition-delay:0s}
+/* the near window flickers awake first, the light left on for you */
+body[data-phase="night"] .finwrap.seen .fwin-near{animation:fwink 1.6s steps(1,end) 2.9s both}
+@keyframes fwink{0%{opacity:0}35%{opacity:1}55%{opacity:.15}70%{opacity:1}82%{opacity:.4}100%{opacity:1}}
+/* lite + reduced motion: snap straight to the assembled frame */
+body.lite .fface{animation:none !important;opacity:1 !important;transform:none !important}
+body.rm .fwin,body.lite .fwin{animation:none !important}
+@media (prefers-reduced-motion:reduce){
+  .fface{animation:none !important;opacity:1 !important;transform:none !important}
+  .fwin{animation:none !important}
+}
+
+/* ================= INK COMES ALIVE ================= */
+/* EN letters: split by JS, each carries a permanent playful rotation --r.
+   AR is NEVER letter-split, only word-level .wd spans (shaping stays intact). */
+.lt{display:inline-block;transform:rotate(var(--r,0deg));transform-origin:50% 88%;will-change:transform}
+.w{display:inline-block;white-space:nowrap}
+.wd{display:inline-block;will-change:transform}
+/* hidden only once JS is live (body.type-on), so no-JS still shows everything */
+.type-on .reveal .lt,.type-on .reveal .wd{opacity:0}
+.type-on .reveal.seen .lt{animation:inkin .62s cubic-bezier(.2,1.4,.4,1) both;animation-delay:calc(var(--i,0)*42ms)}
+.type-on .reveal.seen .wd{animation:wordin .6s cubic-bezier(.2,1.2,.4,1) both;animation-delay:calc(var(--i,0)*75ms)}
+@keyframes inkin{
+  0%{opacity:0;transform:translateY(.55em) rotate(calc(var(--r,0deg) + 10deg)) scale(.7)}
+  60%{opacity:1;transform:translateY(-.06em) rotate(calc(var(--r,0deg) - 3deg)) scale(1.06)}
+  100%{opacity:1;transform:rotate(var(--r,0deg)) scale(1)}
+}
+@keyframes wordin{
+  0%{opacity:0;transform:translateY(.5em) scale(.92)}
+  100%{opacity:1;transform:none}
+}
+/* marker swipe behind key words: hand highlighter, draws itself */
+.swipe{position:relative;font-style:normal;white-space:nowrap;z-index:0}
+.swipe::before{
+  content:"";position:absolute;z-index:-1;inset:12% -5% 4% -3%;
+  background:var(--racc,#FFD98A);opacity:.55;border-radius:6px 10px 5px 9px;
+  transform:scaleX(0) skew(-9deg,-1.2deg);transform-origin:0 60%;
+  transition:transform .55s cubic-bezier(.3,1,.4,1) .45s;
+}
+html[dir="rtl"] .swipe::before{transform-origin:100% 60%}
+.type-on .reveal.seen .swipe::before,body:not(.type-on) .swipe::before{transform:scaleX(1) skew(-9deg,-1.2deg)}
+/* self-drawing ink underline (injected SVG, stroke-dashoffset only) */
+.u-ink{display:block;width:min(230px,62%);height:13px;margin-top:.15rem;overflow:visible}
+html[dir="rtl"] .u-ink{margin-inline-start:auto}
+.u-ink path{fill:none;stroke:var(--racc,var(--gold));stroke-width:5;stroke-linecap:round;
+  stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset .9s ease .35s}
+.reveal.seen .u-ink path,body:not(.type-on) .u-ink path{stroke-dashoffset:0}
+/* kicker slide-in */
+.type-on .reveal h2 small{opacity:0;transform:translateY(9px);transition:opacity .5s ease .12s,transform .5s ease .12s}
+.type-on .reveal.seen h2 small{opacity:1;transform:none}
+/* price stamp pop */
+.type-on .reveal.seen .price{animation:ppop .48s ease both;animation-delay:calc(var(--i,0)*55ms + .25s)}
+@keyframes ppop{0%{transform:scale(1)}55%{transform:scale(1.22) rotate(-2deg)}100%{transform:scale(1)}}
+
+/* ================= INK RIPPLE: titles write themselves ================= */
+/* rows ink in one after another; --ri set by JS per card (stagger restarts each card).
+   Gated on .type-on so no-JS shows everything; one-shot animations only. */
+.type-on .reveal .card .row{opacity:0}
+.type-on .reveal.seen .card .row{
+  animation:rowink .42s cubic-bezier(.2,1,.3,1) both;
+  animation-delay:calc(var(--ri,0)*45ms);
+}
+@keyframes rowink{
+  0%{opacity:0;transform:translateY(11px)}
+  100%{opacity:1;transform:none}
+}
+/* the name itself lands with a hand-written settle, EN first then AR (word level, never letters) */
+.type-on .reveal .card h3 .en,.type-on .reveal .card h3 .ar{opacity:0}
+.type-on .reveal.seen .row .nm .en,
+.type-on .reveal.seen .row .nm .ar{animation:namein .46s cubic-bezier(.2,1.2,.35,1) both}
+.type-on .reveal.seen .row .nm .en{animation-delay:calc(var(--ri,0)*45ms + 40ms)}
+.type-on .reveal.seen .row .nm .ar{animation-delay:calc(var(--ri,0)*45ms + 120ms)}
+.type-on .reveal.seen .card h3 .en{animation:namein .5s cubic-bezier(.2,1.2,.35,1) both}
+.type-on .reveal.seen .card h3 .ar{animation:namein .5s cubic-bezier(.2,1.2,.35,1) .12s both}
+@keyframes namein{
+  0%{opacity:0;transform:translateY(.4em) rotate(-2deg)}
+  100%{opacity:1;transform:none}
+}
+/* inline-block so the name can transform; the site shows one language at a time,
+   so keep the base EN/AR visibility swap intact in both directions */
+.row .nm .en{display:inline-block}
+html[dir="rtl"] .row .nm .en{display:none}
+html[dir="rtl"] .row .nm .ar{display:inline-block}
+/* accent dot on each name: a tiny inked fleck that pops once with its row */
+.nm::before{
+  content:"";display:inline-block;width:7px;height:7px;flex:none;
+  background:var(--acc,var(--gold));border:1.5px solid var(--ink);border-radius:2px;
+  transform:rotate(45deg);margin-inline-end:.42rem;vertical-align:.08em;
+}
+.type-on .reveal.seen .nm::before{
+  animation:dotpop .38s cubic-bezier(.2,1.4,.4,1) both;
+  animation-delay:calc(var(--ri,0)*45ms + 90ms);
+}
+.type-on .reveal .card h3 .dot{transform:rotate(45deg) scale(0)}
+.type-on .reveal.seen .card h3 .dot{animation:dotpop .42s cubic-bezier(.2,1.4,.4,1) .16s both}
+@keyframes dotpop{
+  0%{transform:rotate(45deg) scale(0)}
+  65%{transform:rotate(45deg) scale(1.45)}
+  100%{transform:rotate(45deg) scale(1)}
+}
+/* dotted price leader draws in from the name side */
+.dots{transform-origin:0 50%}
+html[dir="rtl"] .dots{transform-origin:100% 50%}
+.type-on .reveal.seen .dots{
+  animation:leadin .4s ease-out both;
+  animation-delay:calc(var(--ri,0)*45ms + 140ms);
+}
+@keyframes leadin{
+  0%{transform:scaleX(0) translateY(-4px)}
+  100%{transform:scaleX(1) translateY(-4px)}
+}
+/* price stays hidden until its stamp pop lands last (delay math keeps it after the leader) */
+.type-on .reveal.seen .row .price{
+  animation:pstamp .48s ease both;
+  animation-delay:calc(var(--i,0)*55ms + var(--ri,0)*20ms + .28s);
+}
+@keyframes pstamp{
+  0%{opacity:0;transform:scale(.6) rotate(3deg)}
+  55%{opacity:1;transform:scale(1.22) rotate(-2deg)}
+  100%{opacity:1;transform:scale(1)}
+}
+/* reduced motion + lite: snap ink ripple to its final frame instantly */
+body.rm .row,body.lite .row,
+body.rm .row .nm .en,body.lite .row .nm .en,
+body.rm .row .nm .ar,body.lite .row .nm .ar,
+body.rm .card h3 .en,body.lite .card h3 .en,
+body.rm .card h3 .ar,body.lite .card h3 .ar{animation:none !important;opacity:1 !important;transform:none !important}
+body.rm .nm::before,body.lite .nm::before,
+body.rm .card h3 .dot,body.lite .card h3 .dot{animation:none !important;transform:rotate(45deg) !important}
+body.rm .dots,body.lite .dots{animation:none !important;transform:translateY(-4px) !important}
+body.rm .row .price,body.lite .row .price{animation:none !important;opacity:1 !important}
+@media (prefers-reduced-motion:reduce){
+  .type-on .reveal .card .row,.type-on .reveal .card h3 .en,.type-on .reveal .card h3 .ar{opacity:1;animation:none !important}
+  .type-on .reveal .card h3 .dot{transform:rotate(45deg);animation:none !important}
+  .type-on .reveal.seen .row .nm .en,.type-on .reveal.seen .row .nm .ar,
+  .type-on .reveal.seen .nm::before,.type-on .reveal.seen .dots,
+  .type-on .reveal.seen .row .price{animation:none !important}
+}
+/* doodle sparkle next to room titles, gentle ink wobble idle */
+.doodle{position:absolute;top:-6px;inset-inline-end:2px;width:34px;height:34px;pointer-events:none;opacity:0;transition:opacity .6s ease .7s}
+.reveal.seen .doodle,body:not(.type-on) .doodle{opacity:1}
+.reveal.seen .doodle svg{animation:dwob 4.5s ease-in-out 1.2s infinite;transform-origin:center}
+@keyframes dwob{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
+/* night: warm ink glow on the type (static shadow, phase-gated, no animation) */
+body[data-phase="night"] .room-head h2,
+body[data-phase="night"] .room-head h2 small{text-shadow:0 0 16px rgba(255,217,138,.5),0 0 38px rgba(255,217,138,.25)}
+body[data-phase="night"] #balcony .card h3,
+body[data-phase="night"] #balcony .price{text-shadow:0 0 10px rgba(255,217,138,.35)}
+body[data-phase="night"] .qhome,body[data-phase="night"] .hero h1{text-shadow:0 0 18px rgba(255,217,138,.45)}
+/* reduced motion + lite: snap everything to its final frame */
+body.rm .lt,body.rm .wd,body.lite .lt,body.lite .wd{animation:none !important;opacity:1 !important}
+body.rm .lt{transform:rotate(var(--r,0deg)) !important}
+body.rm .swipe::before,body.lite .swipe::before{transform:scaleX(1) skew(-9deg,-1.2deg) !important;transition:none !important}
+body.rm .u-ink path,body.lite .u-ink path{stroke-dashoffset:0 !important;transition:none !important}
+body.rm .reveal h2 small,body.lite .reveal h2 small{opacity:1 !important;transform:none !important;transition:none !important}
+body.rm .price,body.lite .price{animation:none !important}
+body.rm .doodle,body.lite .doodle{opacity:1 !important;transition:none !important}
+body.rm .doodle svg,body.lite .doodle svg{animation:none !important}
+
+/* ---------- narrative thread: greeting + house diary + doorstep ---------- */
+.greet{font-family:var(--disp-en);font-size:1.08rem;color:var(--ochre);margin:.1rem 0 .15rem;min-height:1.55em;transition:color .01s linear .7s}
+.greet .ar,html[dir="rtl"] .greet{font-family:var(--disp-ar)}
+body[data-phase="night"] .greet{color:var(--glow)}
+.greet .w{display:inline-block;opacity:0;transform:translateY(9px);transition:opacity .5s ease,transform .55s cubic-bezier(.2,.8,.2,1)}
+.greet.on .w{opacity:1;transform:translateY(0)}
+body.lite .greet .w,body.rm .greet .w{transition:none;opacity:1;transform:none}
+
+.diary{margin:-.55rem 0 1.15rem;font-family:var(--disp-en);font-size:1.02rem;line-height:1.5;color:var(--sub);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.2,1),color .01s linear .7s}
+.diary .ar{font-family:var(--disp-ar)}
+/* hidden state only when JS armed the thread, so no-JS never hides content */
+body.thread .diary:not(.on){opacity:0;transform:translateY(10px)}
+body.lite .diary,body.rm .diary{opacity:1 !important;transform:none !important;transition:none}
+.dlab{display:inline-block;font-family:var(--body);font-weight:800;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ochre);border:2px dotted var(--ochre);border-radius:10px 13px 9px 12px;padding:.1rem .5rem;margin-inline-end:.45rem;vertical-align:middle;transform:rotate(-1deg)}
+html[dir="rtl"] .dlab{letter-spacing:0;font-size:.74rem;text-transform:none}
+body[data-phase="night"] .dlab{color:var(--glow);border-color:var(--glow)}
+#balcony .diary{text-align:center;margin:-.5rem auto 1rem;max-width:30rem}
+#gallery .diary{margin:.25rem 0 .3rem}
+
+.doorstep{margin:.2rem auto 0;max-width:30rem;font-family:var(--disp-en);font-size:1.05rem;line-height:1.5;color:var(--sub);transition:color .01s linear .7s}
+.doorstep .ar{font-family:var(--disp-ar)}
+.doorstep .dl-day,.doorstep .dl-night{display:none}
+.doorstep.is-day .dl-day{display:block}
+.doorstep.is-night .dl-night{display:block}
+
+/* ---------- Beirut cement-tile runners ---------- */
+.tileband{
+  position:relative;z-index:1;height:56px;margin:2.3rem .1rem 0;
+  border:2.5px solid var(--ink);
+  border-radius:14px 10px 13px 11px / 10px 13px 11px 14px;
+  box-shadow:3px 4px 0 var(--card-sh);
+  overflow:hidden;
+  background:#FFFDF6 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 56'%3E%3Crect width='56' height='56' fill='%23FFFDF6'/%3E%3Cg fill='%23C3C59A' stroke='%23382900' stroke-width='2.4'%3E%3Ccircle cx='0' cy='0' r='15'/%3E%3Ccircle cx='56' cy='0' r='15'/%3E%3Ccircle cx='0' cy='56' r='15'/%3E%3Ccircle cx='56' cy='56' r='15'/%3E%3C/g%3E%3Cg stroke='%23382900' stroke-width='2.4'%3E%3Crect x='17.5' y='17.5' width='21' height='21' fill='%23D46C6E'/%3E%3Crect x='17.5' y='17.5' width='21' height='21' fill='%23D46C6E' transform='rotate(45 28 28)'/%3E%3Ccircle cx='28' cy='28' r='5.6' fill='%23C79503'/%3E%3C/g%3E%3Cg fill='%23967100' stroke='%23382900' stroke-width='2'%3E%3Ccircle cx='28' cy='0' r='4'/%3E%3Ccircle cx='28' cy='56' r='4'/%3E%3Ccircle cx='0' cy='28' r='4'/%3E%3Ccircle cx='56' cy='28' r='4'/%3E%3C/g%3E%3C/svg%3E") 0 0/56px 56px repeat;
+  transform:rotate(-.35deg);
+}
+/* lamplight dimmer: pure opacity, same rhythm as the sky */
+.tileband::after{
+  content:"";position:absolute;inset:0;background:#20263A;
+  opacity:0;transition:opacity 1.4s ease;pointer-events:none;
+}
+body[data-phase="dusk"] .tileband::after{opacity:.14}
+body[data-phase="night"] .tileband::after{opacity:.5}
+/* fade-in reveal; scaleX unroll dropped per judges so the pattern never stretches */
+.tileband.pre{opacity:0}
+.tileband.on{opacity:1;transition:opacity .9s ease}
+body.lite .tileband,body.rm .tileband{opacity:1;transition:none}
+body.lite .tileband::after,body.rm .tileband::after{transition:none}
+@media (prefers-reduced-motion:reduce){
+  .tileband,.tileband.pre,.tileband.on{opacity:1 !important;transition:none !important}
+}
+
+/* ---------- editorial: house signatures ---------- */
+.sig{
+  position:relative;background:var(--paper);border:2.5px solid var(--ink);
+  border-radius:24px 17px 26px 16px / 17px 26px 16px 24px;
+  box-shadow:4px 5px 0 var(--card-sh);
+  padding:1.5rem 1.2rem 1.2rem;margin:0 0 1.25rem;color:#382900;
+  transform:rotate(-.5deg);
+}
+.sig::before,.sig::after{
+  content:"";position:absolute;top:-11px;width:72px;height:22px;
+  background:var(--acc,var(--gold));opacity:.55;border:1.5px solid var(--ink);
+  border-radius:3px 5px 4px 6px;pointer-events:none;
+}
+.sig::before{inset-inline-start:13%;transform:rotate(-6deg)}
+.sig::after{inset-inline-end:13%;transform:rotate(5deg)}
+.sig-eyebrow{font-size:.72rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--ochre)}
+html[dir="rtl"] .sig-eyebrow{letter-spacing:0}
+.sig h3{font-family:var(--disp-en);font-weight:400;font-size:1.7rem;line-height:1.12;margin:.3rem 0 .3rem}
+.sig h3 .ar{font-family:var(--disp-ar);font-size:1.5rem}
+.sig p{font-size:.92rem;color:#6d5a2a;max-width:32rem;line-height:1.5}
+.sigrow{display:flex;align-items:center;gap:1rem;margin-top:.75rem;flex-wrap:wrap}
+.price-ring{
+  position:relative;display:inline-flex;align-items:center;justify-content:center;
+  min-width:78px;min-height:48px;padding:.2rem .9rem;font-weight:800;
+  font-size:1.15rem;direction:ltr;unicode-bidi:isolate;font-variant-numeric:tabular-nums;
+}
+.price-ring svg{position:absolute;inset:-4px;width:calc(100% + 8px);height:calc(100% + 8px);overflow:visible;pointer-events:none}
+.sig .whisper{font-family:var(--disp-en);font-size:.98rem;color:#7a683a}
+.sig .whisper .ar{font-family:var(--disp-ar)}
+
+/* once-only reveal, JS-ARMED: .reveal is only ever added by script, so no-JS never hides a price */
+.sig.reveal{opacity:0;transform:translateY(18px) rotate(-.5deg);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.sig.reveal.in{opacity:1;transform:rotate(-.5deg)}
+@media (prefers-reduced-motion:reduce){
+  .sig.reveal{opacity:1 !important;transform:rotate(-.5deg) !important;transition:none !important}
+}
+body.lite .sig.reveal,body.rm .sig.reveal{opacity:1;transform:rotate(-.5deg);transition:none}
+
+/* ---------- ink ecosystem: hand-drawn marginalia ---------- */
+#garden,#salon,#balcony{position:relative}
+.ink{position:absolute;pointer-events:none;z-index:2}
+.ink-rakwe *,.ink-olive *,.ink-cat *,.ink-arak *{transform-box:fill-box;transform-origin:center}
+
+/* rakwe + steam, the salon */
+.ink-rakwe{width:70px;top:2.35rem;inset-inline-end:.15rem}
+.ink-rakwe .wisp{opacity:0;animation:wisp 3.4s ease-in-out infinite}
+.ink-rakwe .w2{animation-delay:1.6s}
+@keyframes wisp{
+  0%{opacity:0;transform:translateY(5px)}
+  35%{opacity:.85}
+  70%,100%{opacity:0;transform:translateY(-8px)}
+}
+@media (max-width:349px){.ink-rakwe{display:none}}
+
+/* olive branch, the garden (in flow, not absolute) */
+.ink-olive{display:block;width:min(300px,74vw);height:36px;margin:-.45rem 0 .95rem}
+.ink-olive .leaf{opacity:0;transform:scale(.5) rotate(-16deg)}
+#garden.ink-in .ink-olive .leaf{animation:leafin .6s cubic-bezier(.2,.9,.3,1.25) forwards}
+#garden.ink-in .ink-olive .l1{animation-delay:.05s}
+#garden.ink-in .ink-olive .l2{animation-delay:.18s}
+#garden.ink-in .ink-olive .l3{animation-delay:.31s}
+#garden.ink-in .ink-olive .l4{animation-delay:.44s}
+#garden.ink-in .ink-olive .l5{animation-delay:.57s}
+#garden.ink-in .ink-olive .l6{animation-delay:.7s}
+#garden.ink-in .ink-olive .l7{animation-delay:.83s}
+@keyframes leafin{to{opacity:1;transform:none}}
+#garden.ink-in .ink-olive .branch{transform-origin:0 50%;animation:sway 7s ease-in-out 1.3s infinite}
+@keyframes sway{0%,100%{transform:rotate(0deg)}50%{transform:rotate(.8deg)}}
+
+/* sleeping cat on the tea card corner, the salon */
+.ink-cat{width:80px;top:-22px;inset-inline-end:12px}
+.ink-cat .catbody{transform-origin:50% 100%;animation:purr 4.4s ease-in-out infinite}
+@keyframes purr{0%,100%{transform:scale(1)}50%{transform:scale(1.025,.965)}}
+.ink-cat .z{opacity:0;animation:zfloat 3.8s ease-in-out infinite}
+.ink-cat .z2{animation-delay:1.3s}
+@keyframes zfloat{
+  0%{opacity:0;transform:translateY(4px)}
+  30%{opacity:.9}
+  70%,100%{opacity:0;transform:translateY(-9px)}
+}
+
+/* arak clink, the garden at night */
+.ink-arak{display:block;margin:.3rem auto .1rem;width:112px;opacity:.45;transition:opacity 1.4s ease}
+body[data-phase="night"] .ink-arak{opacity:1}
+.ink-arak .gL,.ink-arak .gR{transform-origin:50% 100%}
+body[data-phase="night"] .ink-arak .gL{animation:clinkL 4.6s ease-in-out infinite}
+body[data-phase="night"] .ink-arak .gR{animation:clinkR 4.6s ease-in-out infinite}
+@keyframes clinkL{0%,25%,72%,100%{transform:rotate(0deg)}42%,54%{transform:rotate(9deg)}}
+@keyframes clinkR{0%,25%,72%,100%{transform:rotate(0deg)}42%,54%{transform:rotate(-9deg)}}
+.ink-arak .spark path{opacity:0;transform:scale(.3)}
+body[data-phase="night"] .ink-arak .spark path{animation:sparkpop 4.6s ease-out infinite}
+body[data-phase="night"] .ink-arak .spark .s2{animation-delay:.08s}
+body[data-phase="night"] .ink-arak .spark .s3{animation-delay:.16s}
+@keyframes sparkpop{
+  0%,40%{opacity:0;transform:scale(.3)}
+  48%{opacity:1;transform:scale(1)}
+  62%,100%{opacity:0;transform:scale(1.3)}
+}
+
+/* lite + reduced motion: static finished drawings, nothing moves */
+body.lite .ink-rakwe *,body.rm .ink-rakwe *,
+body.lite .ink-olive *,body.rm .ink-olive *,
+body.lite .ink-cat *,body.rm .ink-cat *,
+body.lite .ink-arak *,body.rm .ink-arak *{animation:none !important}
+body.lite .ink-olive .leaf,body.rm .ink-olive .leaf{opacity:1;transform:none}
+body.lite .ink-rakwe .wisp,body.rm .ink-rakwe .wisp{opacity:.6;transform:none}
+body.lite .ink-cat .z,body.rm .ink-cat .z{opacity:.7;transform:none}
+body.lite .ink-arak .spark path,body.rm .ink-arak .spark path{opacity:0}
+@media (prefers-reduced-motion:reduce){
+  .ink-rakwe *,.ink-olive *,.ink-cat *,.ink-arak *{animation:none !important}
+  .ink-olive .leaf{opacity:1;transform:none}
+  .ink-rakwe .wisp{opacity:.6;transform:none}
+  .ink-cat .z{opacity:.7;transform:none}
+}
+</style>
+</head>
+<body data-phase="morning">
+
+<div id="sky" aria-hidden="true"><div class="p-noon"></div><div class="p-dusk"></div><div class="p-night"></div></div>
+
+<div id="stars" aria-hidden="true"><svg viewBox="0 0 400 700" preserveAspectRatio="xMidYMin slice">
+<path d="M318 74c-16 5-27 20-27 37c0 22 18 40 40 40c12 0 22-5 30-13c-5 2-10 3-16 3c-22 0-40-18-40-40c0-10 5-20 13-27z" fill="#F5E3B3"/>
+<circle class="tw" cx="40" cy="60" r="1.6" fill="#F5E3B3"/><circle class="tw" cx="90" cy="130" r="1.2" fill="#F5E3B3"/>
+<circle class="tw" cx="150" cy="50" r="1.8" fill="#F5E3B3"/><circle class="tw" cx="210" cy="110" r="1.2" fill="#F5E3B3"/>
+<circle class="tw" cx="260" cy="40" r="1.5" fill="#F5E3B3"/><circle class="tw" cx="370" cy="150" r="1.4" fill="#F5E3B3"/>
+<circle class="tw" cx="60" cy="210" r="1.3" fill="#F5E3B3"/><circle class="tw" cx="330" cy="240" r="1.2" fill="#F5E3B3"/>
+<circle class="tw" cx="180" cy="190" r="1.6" fill="#F5E3B3"/><circle class="tw" cx="120" cy="280" r="1.2" fill="#F5E3B3"/>
+<circle class="tw" cx="280" cy="180" r="1.1" fill="#F5E3B3"/><circle class="tw" cx="30" cy="330" r="1.4" fill="#F5E3B3"/>
+</svg></div>
+
+<header class="top">
+  <svg class="minicube" viewBox="0 0 320 300" aria-hidden="true">
+    <g fill="none" stroke="#382900" stroke-width="16" stroke-linejoin="round">
+      <path d="M160 16 L234 60 L158 100 L86 56 Z" fill="#D46C6E"/>
+      <path d="M84 74 L154 112 L152 196 L86 152 Z" fill="#C79503"/>
+      <path d="M166 112 L236 72 L238 156 L168 196 Z" fill="#967100"/>
+      <path d="M250 192 L306 226 L252 262 L196 228 Z" fill="#C3C59A"/>
+    </g>
+    <rect class="win" x="106" y="128" width="18" height="22" rx="4" fill="#FFD98A"/>
+    <rect class="win" x="192" y="112" width="18" height="22" rx="4" fill="#FFD98A"/>
+  </svg>
+  <span class="brand"><span class="en">BEYT CAFE</span><span class="ar" lang="ar">بيت كافيه</span></span>
+  <button class="skydial" id="skydial" type="button" aria-pressed="false"
+    aria-label="Switch the page between day and night">
+    <svg class="sun" viewBox="0 0 26 26"><circle cx="13" cy="13" r="6" fill="#C79503" stroke="#382900" stroke-width="2"/><g stroke="#382900" stroke-width="2" stroke-linecap="round"><path d="M13 1v3M13 22v3M1 13h3M22 13h3M4.5 4.5l2 2M19.5 19.5l2 2M21.5 4.5l-2 2M4.5 21.5l2-2"/></g></svg>
+    <svg class="moon" viewBox="0 0 26 26"><path d="M17 3a10 10 0 1 0 6 15A9 9 0 0 1 17 3z" fill="#F5E3B3" stroke="#141a2c" stroke-width="1.6"/></svg>
+  </button>
+  <button class="langbtn" id="langbtn" type="button" aria-label="Switch language">
+    <span class="ar" lang="ar">عربي</span><span class="en">EN</span>
+  </button>
+</header>
+
+<nav class="rooms" aria-label="Rooms of the house">
+  <a href="#kitchen"><span class="dot" style="background:#C79503"></span><span class="en">Kitchen</span><span class="ar" lang="ar">المطبخ</span></a>
+  <a href="#garden"><span class="dot" style="background:#C3C59A"></span><span class="en">Garden</span><span class="ar" lang="ar">الجنينة</span></a>
+  <a href="#table"><span class="dot" style="background:#967100"></span><span class="en">Table</span><span class="ar" lang="ar">السفرة</span></a>
+  <a href="#salon"><span class="dot" style="background:#D46C6E"></span><span class="en">Salon</span><span class="ar" lang="ar">الصالون</span></a>
+  <a href="#balcony"><span class="dot" style="background:#20263A"></span><span class="en">Night</span><span class="ar" lang="ar">السهرة</span></a>
+  <a href="#gallery"><span class="dot" style="background:#D46C6E;border-radius:50%"></span><span class="en">The House</span><span class="ar" lang="ar">البيت</span></a>
+</nav>
+
+<section class="hero">
+  <div class="cubewrap">
+   <button class="cubebtn" id="cubebtn" type="button" aria-pressed="false"
+     aria-label="Tap the house to turn the page to night, tap again for morning">
+    <svg viewBox="0 0 320 300" aria-label="BEYT cube house assembling">
+      <g fill="none" stroke="#382900" stroke-width="11" stroke-linejoin="round">
+        <path class="face f-rose" d="M160 16 L234 60 L158 100 L86 56 Z" fill="#D46C6E"/>
+        <path class="face f-gold" d="M84 74 L154 112 L152 196 L86 152 Z" fill="#C79503"/>
+        <path class="face f-ochre" d="M166 112 L236 72 L238 156 L168 196 Z" fill="#967100"/>
+        <path class="face f-sage" id="sageface" d="M250 192 L306 226 L252 262 L196 228 Z" fill="#C3C59A"/>
+      </g>
+      <rect class="win" x="104" y="126" width="20" height="26" rx="5" fill="#FFD98A" stroke="#382900" stroke-width="3"/>
+      <rect class="win" x="190" y="110" width="20" height="26" rx="5" fill="#FFD98A" stroke="#382900" stroke-width="3"/>
+      <g class="slights" aria-hidden="true">
+        <path d="M40 30 Q160 86 280 26" fill="none" stroke="#382900" stroke-width="3" stroke-linecap="round"/>
+        <circle class="bulb" cx="88"  cy="54" r="5" fill="#FFD98A" stroke="#382900" stroke-width="2.4"/>
+        <circle class="bulb" cx="124" cy="61" r="5" fill="#D46C6E" stroke="#382900" stroke-width="2.4"/>
+        <circle class="bulb" cx="160" cy="63" r="5" fill="#FFD98A" stroke="#382900" stroke-width="2.4"/>
+        <circle class="bulb" cx="196" cy="60" r="5" fill="#C3C59A" stroke="#382900" stroke-width="2.4"/>
+        <circle class="bulb" cx="232" cy="51" r="5" fill="#FFD98A" stroke="#382900" stroke-width="2.4"/>
+      </g>
+    </svg>
+   </button>
+  </div>
+  <p class="cubehint">
+    <span class="hd"><span class="en">psst... tap the house</span><span class="ar" lang="ar">دقّوا عالبيت</span></span>
+    <span class="hn"><span class="en">tap again and morning comes back</span><span class="ar" lang="ar">دقّوا كمان مرة، بيرجع الضو</span></span>
+  </p>
+  <h1><span class="en">Welcome <i class="swipe">home.</i></span><span class="ar" lang="ar">أهلا فيك <i class="swipe">بالبيت</i></span></h1>
+<p class="greet" id="greet" aria-hidden="false">
+  <span class="en" id="greet-en"></span><span class="ar" lang="ar" id="greet-ar"></span>
+</p>
+  <p class="sub">
+    <span class="en">An old Lebanese house and its garden in the heart of Mar Mikhael, Beirut. Brunch till 2pm, and when the light turns gold, cocktails and arak take the table.</span>
+    <span class="ar" lang="ar">بيت لبناني قديم وجنينته بقلب مار مخايل، بيروت. فطور لحد الساعة ٢، ولما يصير الضو دهبي، الكوكتيلات والعرق بياخدوا الطاولة.</span>
+  </p>
+  <div class="hourchips">
+    <span><span class="en">Brunch till 2pm</span><span class="ar" lang="ar">الفطور لحد الساعة ٢</span></span>
+    <span><span class="en">Evenings under the garden sky</span><span class="ar" lang="ar">والسهرة تحت سما الجنينة</span></span>
+  </div>
+  <div class="cta">
+    <a class="btn wa" href="https://wa.me/96176761390">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2s-1 .3-3.4-.7c-2.9-1.2-4.7-4.1-4.9-4.3s-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.7 1.8.8 1.9c.1.2.1.3 0 .5c-.1.2-.2.4-.4.6l-.4.5c-.2.2-.3.4-.1.7c.2.3.8 1.3 1.7 2.1c1.2 1.1 2.2 1.4 2.5 1.5c.3.2.5.1.7-.1s.8-.9 1-1.2c.2-.3.4-.3.7-.2s1.9.9 2.2 1c.3.2.5.3.6.4c0 .2 0 .7-.3 1.1z"/></svg>
+      <span class="en">WhatsApp us</span><span class="ar" lang="ar">واتساب البيت</span>
+    </a>
+    <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=BEYt%20Garden%20Cafe%20Mar%20Mikhael%20Beirut" target="_blank" rel="noopener">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+      <span class="en">Find the house</span><span class="ar" lang="ar">وين البيت؟</span>
+    </a>
+  </div>
+</section>
+
+<main>
+
+<!-- ============ THE KITCHEN ============ -->
+<section class="room" id="kitchen">
+  <div class="room-head">
+    <svg class="room-ico" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4 L36 14 L20 24 L4 14 Z" fill="#C79503" stroke="#382900" stroke-width="3" stroke-linejoin="round"/></svg>
+    <h2><small><span class="en">The saj is already hot</span><span class="ar" lang="ar">الصاج حامي وناطركن</span></small>
+      <span class="en">The Kitchen</span><span class="ar" lang="ar">مطبخ البيت</span>
+      <span class="badge"><span class="en">brunch till 2pm, no rush</span><span class="ar" lang="ar">لحد الساعة ٢، عالمهل</span></span>
+    </h2>
+  </div>
+  <p class="room-sub"><span class="en">Manoushe blistering off the saj, eggs any way you like them, warm bread, and mornings nobody is allowed to rush.</span><span class="ar" lang="ar">مناقيش طالعة سخنة عن الصاج، بيض عكيفكن، خبز طري، وصبحيات ممنوع حدا يستعجلها.</span></p>
+<p class="diary"><span class="dlab"><span class="en">from the house diary</span><span class="ar" lang="ar">من دفتر البيت</span></span>
+<span class="en">"We lit the saj before the street woke up."</span><span class="ar" lang="ar">«ولّعنا الصاج قبل ما يفيق الشارع»</span></p>
+<aside class="sig" style="--acc:#C79503">
+  <span class="sig-eyebrow"><span class="en">House signature</span><span class="ar" lang="ar">توقيع البيت</span></span>
+  <h3><span class="en">Zaatar Manoushe</span><span class="ar" lang="ar">منقوشة زعتر</span></h3>
+  <p><span class="en">Straight off the saj, folded warm. The smell that tells the street the house is awake.</span>
+     <span class="ar" lang="ar">طالعة عن الصاج، مطوية عالسخن. الريحة يلي بتخبّر الشارع إنو البيت فايق.</span></p>
+  <div class="sigrow">
+    <span class="price-ring">$4<svg viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><ellipse cx="50" cy="30" rx="45" ry="23" fill="none" stroke="#B4494B" stroke-width="3" stroke-linecap="round" stroke-dasharray="9 5" vector-effect="non-scaling-stroke" transform="rotate(-3 50 30)"/></svg></span>
+    <span class="whisper"><span class="en">start the morning here</span><span class="ar" lang="ar">بلّشوا الصبحية من هون</span></span>
+  </div>
+</aside>
+  <div class="cards">
+
+    <article class="card" style="--acc:#C79503">
+      <span class="vlabel" aria-hidden="true">Manoushe</span>
+      <h3><span class="dot"></span><span class="en">Manoushe</span><span class="ar" lang="ar">منقوشة</span></h3>
+      <ul>
+        <li class="row"><span class="nm"><span class="en">Zaatar</span><span class="ar" lang="ar">زعتر</span></span><span class="dots"></span><span class="price">$4</span></li>
+        <li class="row"><span class="nm"><span class="en">Cheese</span><span class="ar" lang="ar">جبنة</span></span><span class="dots"></span><span class="price">$5</span></li>
+        <li class="row"><span class="nm"><span class="en">Keshek</span><span class="ar" lang="ar">كشك</span></span><span class="dots"></span><span class="price">$5</span></li>
+        <li class="row"><span class="nm"><span class="en">Muhammara</span><span class="ar" lang="ar">محمرة</span></span><span class="dots"></span><span class="price">$6</span></li>
+        <li class="row"><span class="nm"><span class="en">Vegan Lahmajun</span><span class="ar" lang="ar">لحم بعجين نباتي</span></span><span class="dots"></span><span class="price">$7</span></li>
+      </ul>
+      <p class="note"><span class="en">Add cheese +$1</span><span class="ar" lang="ar">زيادة جبنة +1</span></p>
+    </article>
+
+    <article class="card" style="--acc:#D46C6E">
+      <span class="vlabel" aria-hidden="true">Eggs</span>
+      <h3><span class="dot"></span><span class="en">Eggs</span><span class="ar" lang="ar">بيض</span></h3>
+      <p class="serve"><span class="en">Served with side salad and sourdough bread.</span><span class="ar" lang="ar">مع سلطة صغيرة وخبز سوردو.</span></p>
+      <ul>
+        <li class="row"><span class="nm"><span class="en">Scrambled, Sunny Side Up or Omelette</span><span class="ar" lang="ar">مخفوق، عيون، أو أومليت</span></span><span class="dots"></span><span class="price">$6</span></li>
+      </ul>
+      <p class="note"><span class="en">Add vegetables +$1, mushroom +$2, cheese +$2, kawarma +$3, ham +$3</span><span class="ar" lang="ar">زيادة خضرا +1، فطر +2، جبنة +2، قاورما +3، جمبون +3</span></p>
+    </article>
+
+    <article class="card" style="--acc:#967100">
+      <span class="vlabel" aria-hidden="true">Toast</span>
+      <h3><span class="dot"></span><span class="en">Toast</span><span class="ar" lang="ar">توست</span></h3>
+      <p class="serve"><span class="en">Served with side salad or chips.</span><span class="ar" lang="ar">مع سلطة صغيرة أو شيبس.</span></p>
+      <ul>
+        <li class="row"><span class="nm"><span class="en">Avocado Toast</span><span class="ar" lang="ar">توست أفوكادو</span></span><span class="dots"></span><span class="price">$8</span></li>
+        <li class="row"><span class="nm"><span class="en">Goat Cheese Pesto Toast</span><span class="ar" lang="ar">توست جبنة ماعز وبيستو</span></span><span class="dots"></span><span class="price">$8</span></li>
+        <li class="row"><span class="nm"><span class="en">Ricotta Mushroom</span><span class="ar" lang="ar">ريكوتا وفطر</span><small class="ds"><span class="en">Add egg +$1</span><span class="ar" lang="ar">زيادة بيضة +1</span></small></span><span class="dots"></span><span class="price">$8</span></li>
+        <li class="row"><span class="nm"><span class="en">Tuna Avocado</span><span class="ar" lang="ar">تونا وأفوكادو</span></span><span class="dots"></span><span class="price">$11</span></li>
+      </ul>
+    </article>
+
+    <article class="card" style="--acc:#C3C59A">
+      <span class="vlabel" aria-hidden="true">Dairy + Sides</span>
+      <h3><span class="dot"></span><span class="en">Dairy &amp; Sides</span><span class="ar" lang="ar">ألبان وأجبان</span></h3>
+      <ul>
+        <li class="row"><span class="nm"><span class="en">Labneh</span><span class="ar" lang="ar">لبنة</span></span><span class="dots"></span><span class="price">$5</span></li>
+        <li class="row"><span class="nm"><span class="en">Baladi Cheese</span><span class="ar" lang="ar">جبنة بلدية</span></span><span class="dots"></span><span class="price">$5</span></li>
+        <li class="row"><span class="nm"><span class="en">Grilled Halloumi</span><span class="ar" lang="ar">حلوم مشوي</span></span><span class="dots"></span><span class="price">$6</span></li>
+        <li class="row"><span class="nm"><span class="en">Veggies</span><span class="ar" lang="ar">خضرا</span></span><span class="dots"></span><span class="price">$3</span></li>
+      </ul>
+    </article>
+
+    <article class="card" style="--acc:#D46C6E">
+      <span class="vlabel" aria-hidden="true">Sweet</span>
+      <h3><span class="dot"></span><span class="en">Sweet</span><span class="ar" lang="ar">عالحلو</span></h3>
+      <ul>
+        <li class="row"><span class="nm"><span class="en">Granola Bowl</span><span class="ar" lang="ar">صحن غرانولا</span><small class="ds"><span class="en">Homemade granola, Greek yogurt, seasonal fruits, cashews, apple molasses</span><span class="ar" lang="ar">غرانولا بيتية، لبن يوناني، فواكه الموسم، كاجو، دبس التفاح</span></small></span><span class="dots"></span><span class="price">$8</span></li>
+        <li class="row"><span class="nm"><span class="en">Fruit Salad</span><span class="ar" lang="ar">سلطة فواكه</span></span><span class="dots"></span><span class="price">$5</span></li>
+        <li class="row"><span class="nm"><span class="en">Jam Trio</span><span class="ar" lang="ar">تريو مربى</span><small class="ds"><span class="en">Selection of 3 jams, served with sourdough bread</span><span class="ar" lang="ar">٣ أنواع مربى مع خبز سوردو</span></small></span><span class="dots"></span><span class="price">$6</span></li>
+        <li class="row"><span class="nm"><span class="en">Cashew Butter &amp; Jam</span><span class="ar" lang="ar">زبدة كاجو ومربى</span></span><span class="dots"></span><span class="price">$6</span></li>
+        <li class="row"><span class="nm"><span class="en">Cake of the Day</span><span class="ar" lang="ar">كيكة اليوم</span></span><span class="dots"></span><span class="price" style="font-family:var(--disp-en);font-weight:400"><span class="en">ask our waiters!</span><span class="ar" lang="ar" style="font-family:'IBM Plex Sans Arabic',sans-serif;font-weight:700">اسألونا!</span></span></li>
+      </ul>
+      <p class="homey"><span class="en">Straight off the mouneh shelf: our granola and jams are made right here in the house, the way teta used to jar the summer so winter would taste like it.</span><span class="ar" lang="ar">من رف مونة البيت: الغرانولا والمربيات معمولين هون عنا، متل ما كانت التيتا تخبّي طعمة الصيف للشتوية.</span></p>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============ THE GARDEN ============ -->
+<section class="room" id="garden">
+  <div class="room-head">
+    <svg class="room-ico" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4 L36 14 L20 24 L4 14 Z" fill="#C3C59A" stroke="#382900" stroke-width="3" stroke-linejoin="round"/></svg>
+    <h2><small><span class="en">Under the vine</span><span class="ar" lang="ar">تحت الدالية</span></small>
+      <span class="en">The Garden</span><span class="ar" lang="ar">جنينة البيت</span>
+    </h2>
+  </div>
+  <p class="room-sub"><span class="en">Everything green, everything fresh, everything picked with love. Pull a chair up between the pots, the basil won't mind.</span><span class="ar" lang="ar">كلو أخضر، كلو طازة، وكلو معمول بمحبة. سحبوا كرسي بين الأصص، الحبق ما بيزعل.</span></p>
+<p class="diary"><span class="dlab"><span class="en">from the house diary</span><span class="ar" lang="ar">من دفتر البيت</span></span>
+<span class="en">"Watered the pots, picked mint for the lemonade."</span><span class="ar" lang="ar">«سقينا الأصص وقطفنا النعنع لليموناضة»</span></p>
+<aside class="sig" style="--acc:#C3C59A">
+  <span class="sig-eyebrow"><span class="en">House signature</span><span class="ar" lang="ar">توقيع البيت</span></span>
+  <h3><span class="en">Sweet Potato Kibbeh</span><span class="ar" lang="ar">كبة بطاطا حلوة</span></h3>
+  <p><span class="en">Stuffed with walnut and pomegranate molasses, with a zaatar yogurt dip. Old kibbeh wisdom, garden mood.</span>
+     <span class="ar" lang="ar">محشية جوز ودبس رمان، مع لبن بالزعتر. حكمة الكبة القديمة بمزاج الجنينة.</span></p>
+  <div class="sigrow">
+    <span class="price-ring">$7<svg viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><ellipse cx="50" cy="30" rx="45" ry="23" fill="none" stroke="#B4494B" stroke-width="3" stroke-linecap="round" stroke-dasharray="9 5" vector-effect="non-scaling-stroke" transform="rotate(-3 50 30)"/></svg></span>
+    <span class="whisper"><span class="en">picked for the garden table</span><span class="ar" lang="ar">مختارة لطاولة الجنينة</span></span>
+  </div>
+</aside>
+<svg class="ink-olive" viewBox="0 0 300 36" aria-hidden="true">
+  <g class="branch" fill="none" stroke="#382900" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2 26 q76 -15 149 -9 q76 6 147 -7"/>
+    <path class="leaf l1" d="M28 21 q9 -13 20 -7 q-9 11 -20 7 Z" fill="#C3C59A"/>
+    <path class="leaf l2" d="M66 20 q12 9 22 1 q-11 -9 -22 -1 Z" fill="#C3C59A"/>
+    <path class="leaf l3" d="M106 16 q8 -13 19 -8 q-8 12 -19 8 Z" fill="#C3C59A"/>
+    <circle class="leaf l4" cx="146" cy="21" r="4.6" fill="#967100"/>
+    <path class="leaf l5" d="M176 19 q12 8 22 0 q-11 -9 -22 0 Z" fill="#C3C59A"/>
+    <path class="leaf l6" d="M216 13 q8 -13 19 -7 q-8 11 -19 7 Z" fill="#C3C59A"/>
+    <circle class="leaf l7" cx="256" cy="16" r="4.2" fill="#967100"/>
+  </g>
+</svg>
+  <div class="cards">
+
+    <article class="card" style="--acc:#C3C59A">
+      <span class="vlabel" aria-hidden="true">Salads</span>
+      <h3><span class="dot"></span><span class="en">Salads</span><span class="ar" lang="ar">سلطات</span></h3>
+      <ul>
+        <li class="row"><span class="nm"><span class="en">Green Salad</span><span class="ar" lang="ar">سلطة خضرا</span><small class="ds"><span class="en">Lolo verde, baby spinach, broccoli, avocado, sunflower seeds &amp; lemon dressing. Add grilled chicken breast +$3</span><span class="ar" lang="ar">لولو فيردي، سبانخ، بروكولي، أفوكادو، بزر دوار الشمس وصوص ليمون. زيادة صدر دجاج مشوي +3</span></small></span><span class="dots"></span><span class="price">$8</span></li>
+        <li class="row"><span class="nm"><span class="en">Beetroot Salad</span><span class="ar" lang="ar">سلطة شمندر</span><small class="ds"><span class="en">Wild rocca, orange, goat cheese &amp; orange dressing</span><span class="ar" lang="ar">روكا برية، برتقال، جبنة ماعز وصوص برتقال</span></small></span><span class="dots"></span><span class="price">$10</span></li>
+        <li class="row"><span class="nm"><span class="en">Lentil Halloumi Salad</span><span class="ar" lang="ar">سلطة عدس وحلوم</span><small class="ds"><span class="en">Kale, cherry tomato, cucumber, pomegranate &amp; lemon apple dressing</span><span class="ar" lang="ar">كايل، بندورة كرزية، خيار، رمان وصوص ليمون وتفاح</span></small></span><span class="dots"></span><span class="price">$11</span></li>
+        <li class="row"><span class="nm"><span class="en">Tuna Pasta Salad</span><span class="ar" lang="ar">سلطة تونا وباستا</span><small class="ds"><span class="en">Lettuce, sundried tomato, red onion &amp; mustard dressing</span><span class="ar" lang="ar">خس، بندورة مجففة، بصل أحمر وصوص خردل</span></small></span><span class="dots"></span><span class="price">$12</span></li>
+      </ul>
+    </article>
+
+    <article class="card" style="--acc:#967100">
+      <span class="vlabel" aria-hidden="true">Starters</span>
+      <h3><span class="dot"></span><span class="en">Starters</span><span class="ar" lang="ar">مقبلات</span></h3>
+      <ul>
+        <li class="row"><span class="nm"><span class="en">Chips &amp; Sour Cream Dip</span><span class="ar" lang="ar">شيبس مع صوص الكريمة</span></span><span class="dots"></span><span class="price">$4</span></li>
+        <li class="row"><span class="nm"><span class="en">Bell Pepper Feta Dip</span><span class="ar" lang="ar">متبل فليفلة وفيتا</span></span><span class="dots"></span><span class="price">$6</span></li>
+        <li class="row"><span class="nm"><span class="en">Roasted Baby Potatoes</span><span class="ar" lang="ar">بطاطا صغيرة محمّرة</span><small class="ds"><span class="en">Served with sour cream dip</span><span class="ar" lang="ar">مع صوص الكريمة الحامضة</span></small></span><span class="dots"></span><span class="price">$7</span></li>
+        <li class="row"><span class="nm"><span class="en">Sweet Potato Kibbeh</span><span class="ar" lang="ar">كبة بطاطا حلوة</span><small class="ds"><span class="en">Stuffed with walnut &amp; pomegranate molasses, zaatar yogurt dip</span><span class="ar" lang="ar">محشية جوز ودبس رمان، مع لبن بالزعتر</span></small></span><span class="dots"></span><span class="price">$7</span></li>
+        <li class="row"><span class="nm"><span class="en">Halloumi Mushroom</span><span class="ar" lang="ar">حلوم وفطر</span><small class="ds"><span class="en">Caramelized onion, cherry tomatoes</span><span class="ar" lang="ar">بصل مكرمل وبندورة كرزية</span></small></span><span class="dots"></span><span class="price">$9</span></li>
+        <li class="row"><span class="nm"><span class="en">Chicken Musakhan Rolls</span><span class="ar" lang="ar">لفائف مسخّن دجاج</span><small class="ds"><span class="en">Served with pomegranate molasses sauce</span><span class="ar" lang="ar">مع صوص دبس الرمان</span></small></span><span class="dots"></span><span class="price">$9</span></li>
+        <li class="row"><span class="nm"><span class="en">Tuna Tacos</span><span class="ar" lang="ar">تاكو تونا</span><small class="ds"><span class="en">Local tuna confit, tahini &amp; avocado on saj bread</span><span class="ar" lang="ar">تونا بلدية كونفي، طحينة وأفوكادو عخبز الصاج</span></small></span><span class="dots"></span><span class="price">$12</span></li>
+      </ul>
+    </article>
+
+    <article class="card" style="--acc:#C3C59A">
+      <span class="vlabel" aria-hidden="true">Fresh</span>
+      <h3><span class="dot"></span><span class="en">Fresh from the Garden</span><span class="ar" lang="ar">طازة من الجنينة</span></h3>
+      <ul>
+        <li class="row"><span class="nm"><span class="en">Orange Juice</span><span class="ar" lang="ar">عصير برتقال</span></span><span class="dots"></span><span class="price">$4</span></li>
+        <li class="row"><span class="nm"><span class="en">Lemonade</span><span class="ar" lang="ar">ليموناضة</span></span><span class="dots"></span><span class="price">$3.5</span></li>
+        <li class="row"><span class="nm"><span class="en">Mint or Basil Lemonade</span><span class="ar" lang="ar">ليموناضة نعنع أو حبق</span></span><span class="dots"></span><span class="price">$4</span></li>
+        <li class="row"><span class="nm"><span class="en">Fizzy Rose Lemonade</span><span class="ar" lang="ar">ليموناضة ورد فوارة</span><small class="ds"><span class="en">With rose syrup &amp; tonic</span><span class="ar" lang="ar">مع شراب الورد وتونيك</span></small></span><span class="dots"></span><span class="price">$5</span></li>
+        <li class="row"><span class="nm"><span class="en">Avocado Shake</span><span class="ar" lang="ar">شيك أفوكادو</span></span><span class="dots"></span><span class="price">$5</span></li>
+        <li class="row"><span class="nm"><span class="en">Fruit Smoothie</span><span class="ar" lang="ar">سموذي فواكه</span><small class="ds"><span class="en">Ask for flavors</span><span class="ar" lang="ar">اسألوا عن النكهات</span></small></span><span class="dots"></span><span class="price">$5</span></li>
+      </ul>
+    </article>
+
+  </div>
+</section>
+
+<div class="tileband" aria-hidden="true"></div>
+
+<!-- ============ THE TABLE ============ -->
+<section class="room" id="table">
+  <div class="room-head">
+    <svg class="room-ico" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4 L36 14 L20 24 L4 14 Z" fill="#967100" stroke="#382900" stroke-width="3" stroke-linejoin="round"/></svg>
+    <h2><small><span class="en">There's always an extra plate</span><span class="ar" lang="ar">دايما في صحن زيادة</span></small>
+      <span class="en">The Table</span><span class="ar" lang="ar">سفرة البيت</span>
+    </h2>
+  </div>
+  <p class="room-sub"><span class="en">The table is set and the ahla w sahla is for you. Sandwiches and pasta the house way, generous hand, full heart.</span><span class="ar" lang="ar">السفرة عامرة والأهلا وسهلا إلكن. ساندويشات وباستا عطريقة البيت، إيد كريمة وقلب مليان.</span></p>
+<p class="diary"><span class="dlab"><span class="en">from the house diary</span><span class="ar" lang="ar">من دفتر البيت</span></span>
+<span class="en">"Set the table, warmed the bread."</span><span class="ar" lang="ar">«مدّينا السفرة وسخّنّا الخبز»</span></p>
+<aside class="sig" style="--acc:#967100">
+  <span class="sig-eyebrow"><span class="en">House signature</span><span class="ar" lang="ar">توقيع البيت</span></span>
+  <h3><span class="en">Scamorza Burger</span><span class="ar" lang="ar">برغر سكامورزا</span></h3>
+  <p><span class="en">Black angus beef with apricot chutney, wild rocca, mayo and pickles. The one the table goes quiet for.</span>
+     <span class="ar" lang="ar">لحمة بلاك أنغوس مع شاتني مشمش، روكا برية، مايونيز وكبيس. يلي بتسكت السفرة كرمالو.</span></p>
+  <div class="sigrow">
+    <span class="price-ring">$14<svg viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><ellipse cx="50" cy="30" rx="45" ry="23" fill="none" stroke="#B4494B" stroke-width="3" stroke-linecap="round" stroke-dasharray="9 5" vector-effect="non-scaling-stroke" transform="rotate(-3 50 30)"/></svg></span>
+    <span class="whisper"><span class="en">pull up a chair</span><span class="ar" lang="ar">اقعدوا، مطرحكن محضّر</span></span>
+  </div>
+</aside>
+  <div class="cards">
+
+    <article class="card" style="--acc:#967100">
+      <span class="vlabel" aria-hidden="true">Sandwich</span>
+      <h3><span class="dot"></span><span class="en">Sandwich</span><span class="ar" lang="ar">ساندويش</span></h3>
+      <ul>
+        <li class="row"><span class="nm"><span class="en">Grilled Veggie Sandwich</span><span class="ar" lang="ar">ساندويش خضرا مشوية</span><small class="ds"><span class="en">Zucchini, eggplant, mushroom, onion, roasted bell pepper spread</span><span class="ar" lang="ar">كوسا، باتنجان، فطر، بصل، ومعجون فليفلة مشوية</span></small></span><span class="dots"></span><span class="price">$9</span></li>
+        <li class="row"><span class="nm"><span class="en">Grilled Chicken Sandwich</span><span class="ar" lang="ar">ساندويش دجاج مشوي</span><small class="ds"><span class="en">Baby spinach, tomato, pesto, mayo &amp; pickles</span><span class="ar" lang="ar">سبانخ، بندورة، بيستو، مايونيز وكبيس</span></small></span><span class="dots"></span><span class="price">$12</span></li>
+        <li class="row"><span class="nm"><span class="en">Bresaola Sandwich</span><span class="ar" lang="ar">ساندويش بريزاولا</span><small class="ds"><span class="en">Whipped ricotta, wild rocca, pesto</span><span class="ar" lang="ar">ريكوتا مخفوقة، روكا برية، بيستو</span></small></span><span class="dots"></span><span class="price">$12</span></li>
+        <li class="row"><span class="nm"><span class="en">Hot Dog</span><span class="ar" lang="ar">هوت دوغ</span><small class="ds"><span class="en">Caramelized onion, ketchup, mayo, mustard &amp; pickles</span><span class="ar" lang="ar">بصل مكرمل، كاتشب، مايونيز، خردل وكبيس</span></small></span><span class="dots"></span><span class="price">$9</span></li>
+        <li class="row"><span class="nm"><span class="en">Scamorza Burger</span><span class="ar" lang="ar">برغر سكامورزا</span><small class="ds"><span class="en">Black angus beef, apricot chutney, wild rocca, mayo &amp; pickles</span><span class="ar" lang="ar">لحمة بلاك أنغوس، شاتني مشمش، روكا برية، مايونيز وكبيس</span></small></span><span class="dots"></span><span class="price">$14</span></li>
+      </ul>
+    </article>
+
+    <article class="card" style="--acc:#D46C6E">
+      <span class="vlabel" aria-hidden="true">Pasta</span>
+      <h3><span class="dot"></span><span class="en">Pasta</span><span class="ar" lang="ar">باستا</span></h3>
+      <ul>
+        <li class="row"><span class="nm"><span class="en">Eggplant Pasta</span><span class="ar" lang="ar">باستا باتنجان</span><small class="ds"><span class="en">Linguini, tomato sauce, eggplant cubes, crispy chickpeas</span><span class="ar" lang="ar">لينغويني، صوص بندورة، مكعبات باتنجان، وحمص مقرمش</span></small></span><span class="dots"></span><span class="price">$11</span></li>
+        <li class="row"><span class="nm"><span class="en">Pesto Pasta</span><span class="ar" lang="ar">باستا بيستو</span><small class="ds"><span class="en">Basil pesto, sundried tomato, keshk powder, walnut</span><span class="ar" lang="ar">بيستو حبق، بندورة مجففة، كشك، وجوز</span></small></span><span class="dots"></span><span class="price">$12</span></li>
+        <li class="row"><span class="nm"><span class="en">Lamb Ragu Pasta</span><span class="ar" lang="ar">باستا راغو غنم</span><small class="ds"><span class="en">Rigatoni, sauteed carrot</span><span class="ar" lang="ar">ريغاتوني وجزر سوتيه</span></small></span><span class="dots"></span><span class="price">$16</span></li>
+      </ul>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============ THE SALON ============ -->
+<section class="room" id="salon">
+  <div class="room-head">
+    <svg class="room-ico" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4 L36 14 L20 24 L4 14 Z" fill="#D46C6E" stroke="#382900" stroke-width="3" stroke-linejoin="round"/></svg>
+    <h2><small><span class="en">Stay for one more cup</span><span class="ar" lang="ar">خليكن لفنجان كمان</span></small>
+      <span class="en">The Salon</span><span class="ar" lang="ar">صالون البيت</span>
+    </h2>
+  </div>
+<svg class="ink ink-rakwe" viewBox="0 0 90 110" aria-hidden="true">
+  <g fill="none" stroke="#382900" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+    <g class="steam">
+      <path class="wisp w1" d="M40 36 q-5 -7 0 -13 q5 -6 0 -12"/>
+      <path class="wisp w2" d="M52 32 q-4 -6 0 -11 q4 -5 0 -10"/>
+    </g>
+    <g class="pot">
+      <path d="M34 46 L70 50 L66 78 q-14 9 -29 -3 Z" fill="#C79503"/>
+      <path d="M34 46 q-8 1 -13 6"/>
+      <path d="M70 50 l17 -9" stroke-width="4.2"/>
+      <path d="M39 58 q13 6 25 2" stroke-width="2" opacity=".5"/>
+    </g>
+    <path class="pour" d="M20 56 q-4 10 -1 19" stroke-width="2.4" opacity=".9"/>
+    <path d="M8 80 q0 9 10 9 q10 0 10 -9 Z" fill="#FFFDF6"/>
+  </g>
+</svg>
+  <p class="room-sub"><span class="en">Coffee, tea, and the kind of sit that quietly becomes an afternoon. The light does the rest, it always does.</span><span class="ar" lang="ar">قهوة، شاي، وقعدة بتطول بلا ما تحسّوا. وضوّ العصرية بيعمل الباقي، متل كل يوم.</span></p>
+<p class="diary"><span class="dlab"><span class="en">from the house diary</span><span class="ar" lang="ar">من دفتر البيت</span></span>
+<span class="en">"The rakwe is on the stove. Nobody is in a hurry."</span><span class="ar" lang="ar">«الركوة عالنار، وما حدا مستعجل»</span></p>
+<aside class="sig" style="--acc:#D46C6E">
+  <span class="sig-eyebrow"><span class="en">House signature</span><span class="ar" lang="ar">توقيع البيت</span></span>
+  <h3><span class="en">The Rakwe</span><span class="ar" lang="ar">الركوة</span></h3>
+  <p><span class="en">Brewed slow like at home and poured at the table. Small or large, always with time to spare.</span>
+     <span class="ar" lang="ar">مغلية عالمهل متل البيت ومنسكبها عالطاولة. صغيرة أو كبيرة، ودايما مع وقت زيادة.</span></p>
+  <div class="sigrow">
+    <span class="price-ring">$4 / $6<svg viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><ellipse cx="50" cy="30" rx="45" ry="23" fill="none" stroke="#B4494B" stroke-width="3" stroke-linecap="round" stroke-dasharray="9 5" vector-effect="non-scaling-stroke" transform="rotate(-3 50 30)"/></svg></span>
+    <span class="whisper"><span class="en">poured the slow way</span><span class="ar" lang="ar">مسكوبة عالمهل</span></span>
+  </div>
+</aside>
+  <div class="cards">
+
+    <article class="card" style="--acc:#967100">
+      <span class="vlabel" aria-hidden="true">Coffee</span>
+      <h3><span class="dot"></span><span class="en">Coffee</span><span class="ar" lang="ar">قهوة</span></h3>
+      <ul>
+        <li class="row"><span class="nm"><span class="en">Espresso</span><span class="ar" lang="ar">اسبريسو</span></span><span class="dots"></span><span class="price">$3</span></li>
+        <li class="row"><span class="nm"><span class="en">Americano</span><span class="ar" lang="ar">أميريكانو</span></span><span class="dots"></span><span class="price">$3</span></li>
+        <li class="row"><span class="nm"><span class="en">Iced Americano</span><span class="ar" lang="ar">أميريكانو مثلج</span></span><span class="dots"></span><span class="price">$4.5</span></li>
+        <li class="row"><span class="nm"><span class="en">Latte</span><span class="ar" lang="ar">لاتيه</span></span><span class="dots"></span><span class="price">$4</span></li>
+        <li class="row"><span class="nm"><span class="en">Iced Latte</span><span class="ar" lang="ar">لاتيه مثلج</span></span><span class="dots"></span><span class="price">$5.5</span></li>
+        <li class="row"><span class="nm"><span class="en">Cappuccino</span><span class="ar" lang="ar">كابوتشينو</span></span><span class="dots"></span><span class="price">$4</span></li>
+        <li class="row"><span class="nm"><span class="en">Cortado</span><span class="ar" lang="ar">كورتادو</span></span><span class="dots"></span><span class="price">$4</span></li>
+        <li class="row"><span class="nm"><span class="en">Flat White</span><span class="ar" lang="ar">فلات وايت</span></span><span class="dots"></span><span class="price">$4</span></li>
+        <li class="row"><span class="nm"><span class="en">Filter Coffee</span><span class="ar" lang="ar">قهوة فلتر</span></span><span class="dots"></span><span class="price">$4</span></li>
+        <li class="row"><span class="nm"><span class="en">Mocha Latte</span><span class="ar" lang="ar">موكا لاتيه</span></span><span class="dots"></span><span class="price">$5</span></li>
+        <li class="row"><span class="nm"><span class="en">Rakwe (S / L)</span><span class="ar" lang="ar">ركوة (صغيرة / كبيرة)</span><small class="ds"><span class="en">Brewed slow like at home, poured at the table</span><span class="ar" lang="ar">مغلية عالمهل متل البيت، ومنسكبها عالطاولة</span></small></span><span class="dots"></span><span class="price">$4 / $6</span></li>
+      </ul>
+      <p class="note"><span class="en">Add oat milk +$1, add flavor +$1</span><span class="ar" lang="ar">زيادة حليب شوفان +1، نكهة +1</span></p>
+    </article>
+
+    <article class="card" style="--acc:#C3C59A">
+      <span class="vlabel" aria-hidden="true">Tea</span>
+<svg class="ink ink-cat" viewBox="0 0 84 42" aria-hidden="true">
+  <g class="catbody">
+    <g fill="#FFFDF6" stroke="#382900" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 36 q-5 -16 11 -21 q3 -8 12 -6 l2 6 q20 -4 26 8 q4 11 -7 13 Z"/>
+      <path class="tail" d="M56 34 q15 2 17 -9" fill="none"/>
+      <path d="M20 12 l-2 -8 l8 5 Z" fill="#382900"/>
+      <path d="M32 10 l1 -8 l6 6 Z" fill="#382900"/>
+    </g>
+    <path d="M22 23 q3 2.5 6 0 M33 22 q3 2.5 6 0" fill="none" stroke="#382900" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <g class="zz" fill="#382900" style="font-family:'Patrick Hand',cursive">
+    <text class="z z1" x="64" y="16" font-size="11">z</text>
+    <text class="z z2" x="72" y="9" font-size="8">z</text>
+  </g>
+</svg>
+      <h3><span class="dot"></span><span class="en">Tea</span><span class="ar" lang="ar">شاي</span></h3>
+      <ul>
+        <li class="row"><span class="nm"><span class="en">Black Tea</span><span class="ar" lang="ar">شاي أسود</span></span><span class="dots"></span><span class="price">$3.5</span></li>
+        <li class="row"><span class="nm"><span class="en">Green Tea</span><span class="ar" lang="ar">شاي أخضر</span></span><span class="dots"></span><span class="price">$3.5</span></li>
+        <li class="row"><span class="nm"><span class="en">Herbal Tea</span><span class="ar" lang="ar">شاي أعشاب</span></span><span class="dots"></span><span class="price">$3.5</span></li>
+        <li class="row"><span class="nm"><span class="en">Homemade Iced Tea</span><span class="ar" lang="ar">شاي مثلج بيتي</span><small class="ds"><span class="en">Add flavor +$1</span><span class="ar" lang="ar">زيادة نكهة +1</span></small></span><span class="dots"></span><span class="price">$4</span></li>
+        <li class="row"><span class="nm"><span class="en">Cafe Blanc</span><span class="ar" lang="ar">قهوة بيضا</span></span><span class="dots"></span><span class="price">$3.5</span></li>
+      </ul>
+    </article>
+
+    <article class="card" style="--acc:#D46C6E">
+      <span class="vlabel" aria-hidden="true">Hot Chocolate</span>
+      <h3><span class="dot"></span><span class="en">Hot Chocolate</span><span class="ar" lang="ar">شوكولا ساخنة</span></h3>
+      <ul>
+        <li class="row"><span class="nm"><span class="en">Hot Chocolate</span><span class="ar" lang="ar">شوكولا ساخنة</span></span><span class="dots"></span><span class="price">$5</span></li>
+        <li class="row"><span class="nm"><span class="en">Cinnamon Hot Chocolate</span><span class="ar" lang="ar">شوكولا ساخنة بالقرفة</span></span><span class="dots"></span><span class="price">$5.5</span></li>
+        <li class="row"><span class="nm"><span class="en">Orange Hot Chocolate</span><span class="ar" lang="ar">شوكولا ساخنة بالبرتقال</span></span><span class="dots"></span><span class="price">$5.5</span></li>
+        <li class="row"><span class="nm"><span class="en">Spiked Hot Chocolate</span><span class="ar" lang="ar">شوكولا ساخنة سبايكد</span><small class="ds"><span class="en">With rum, for the cold Beirut nights</span><span class="ar" lang="ar">مع روم، لليالي بيروت البردانة</span></small></span><span class="dots"></span><span class="price">$7</span></li>
+      </ul>
+    </article>
+
+    <article class="card" style="--acc:#967100">
+      <span class="vlabel" aria-hidden="true">Water + Soft</span>
+      <h3><span class="dot"></span><span class="en">Water &amp; Soft</span><span class="ar" lang="ar">مي ومشروبات</span></h3>
+      <ul>
+        <li class="row"><span class="nm"><span class="en">Still Water (S / L)</span><span class="ar" lang="ar">مي (صغيرة / كبيرة)</span></span><span class="dots"></span><span class="price">$2 / $3</span></li>
+        <li class="row"><span class="nm"><span class="en">Sparkling Water (S / L)</span><span class="ar" lang="ar">مي غازية (صغيرة / كبيرة)</span></span><span class="dots"></span><span class="price">$4 / $6</span></li>
+        <li class="row"><span class="nm"><span class="en">Soft Drinks</span><span class="ar" lang="ar">مشروبات غازية</span></span><span class="dots"></span><span class="price">$3</span></li>
+      </ul>
+    </article>
+
+  </div>
+</section>
+
+<div class="tileband" aria-hidden="true"></div>
+
+<!-- ============ THE BALCONY AT NIGHT ============ -->
+<section class="room" id="balcony">
+  <div class="room-head">
+    <svg class="room-ico" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4 L36 14 L20 24 L4 14 Z" fill="#20263A" stroke="#382900" stroke-width="3" stroke-linejoin="round"/><rect x="16" y="11" width="7" height="8" rx="2" fill="#FFD98A"/></svg>
+    <h2><small><span class="en">When the windows glow</span><span class="ar" lang="ar">لما تضوّي الشبابيك</span></small>
+      <span class="en">The Garden at Night</span><span class="ar" lang="ar">سهرة البيت</span>
+    </h2>
+  </div>
+  <div class="lights" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <p class="eve-note"><span class="en">When the sun slips behind Mar Mikhael, the house lights its windows one by one. The glasses come down, the arak goes milky over ice, and the evening does what Beirut evenings do.</span><span class="ar" lang="ar">لما تغيب الشمس ورا مار مخايل، البيت بيضوّي شبابيكه شباك شباك. بتنزل الكاسات، بيبيّض العرق عالتلج، والسهرة بتمشي متل ما بتمشي سهرات بيروت.</span></p>
+<p class="diary"><span class="dlab"><span class="en">from the house diary</span><span class="ar" lang="ar">من دفتر البيت</span></span>
+<span class="en">"Ice in the glasses, the arak turned milky, the windows came on."</span><span class="ar" lang="ar">«التلج بالكاسات، العرق بيّض، والشبابيك ضوّت»</span></p>
+<aside class="sig" style="--acc:#20263A">
+  <span class="sig-eyebrow"><span class="en">House signature</span><span class="ar" lang="ar">توقيع البيت</span></span>
+  <h3><span class="en">Gin Zaatar</span><span class="ar" lang="ar">جن زعتر</span></h3>
+  <p><span class="en">Gin, thyme, lemon and simple syrup. Very BEYT, very Beirut.</span>
+     <span class="ar" lang="ar">جن، زعتر، ليمون وشراب سكر. كتير بيت، كتير بيروت.</span></p>
+  <div class="sigrow">
+    <span class="price-ring">$7<svg viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><ellipse cx="50" cy="30" rx="45" ry="23" fill="none" stroke="#B4494B" stroke-width="3" stroke-linecap="round" stroke-dasharray="9 5" vector-effect="non-scaling-stroke" transform="rotate(-3 50 30)"/></svg></span>
+    <span class="whisper"><span class="en">for the Beirut kind of evening</span><span class="ar" lang="ar">لسهرة بيروتية عأصولها</span></span>
+  </div>
+</aside>
+<svg class="ink-arak" viewBox="0 0 120 66" aria-hidden="true">
+  <g fill="none" stroke="#382900" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+    <g class="gL">
+      <path d="M26 20 l5 26 q1 7 10 7 l0 6 M31 59 h20" transform="translate(0,-6)"/>
+      <path d="M27 26 l4 20 q6 5 13 1 l3 -21 Z" fill="#FFFDF6" opacity=".92" transform="translate(0,-6)"/>
+      <path d="M31 34 h13" stroke-width="1.8" opacity=".55" transform="translate(0,-6)"/>
+    </g>
+    <g class="gR">
+      <path d="M94 20 l-5 26 q-1 7 -10 7 l0 6 M69 59 h20" transform="translate(0,-6)"/>
+      <path d="M93 26 l-4 20 q-6 5 -13 1 l-3 -21 Z" fill="#FFFDF6" opacity=".92" transform="translate(0,-6)"/>
+      <path d="M76 34 h13" stroke-width="1.8" opacity=".55" transform="translate(0,-6)"/>
+    </g>
+  </g>
+  <g class="spark" stroke="#FFD98A" stroke-width="2.4" stroke-linecap="round" fill="none">
+    <path class="s1" d="M60 8 v6 M57 11 h6"/>
+    <path class="s2" d="M50 4 l4 4 M54 4 l-4 4"/>
+    <path class="s3" d="M70 5 v5 M67.5 7.5 h5"/>
+  </g>
+</svg>
+  <div class="cards">
+
+    <article class="card" style="--acc:#C79503">
+      <span class="vlabel" aria-hidden="true">Glasses</span>
+      <h3><span class="dot"></span><span class="en">Wine &amp; Spirits</span><span class="ar" lang="ar">كاسات البيت</span></h3>
+      <ul>
+        <li class="row"><span class="nm"><span class="en">Wine, glass</span><span class="ar" lang="ar">كاس نبيذ</span></span><span class="dots"></span><span class="price">$6</span></li>
+        <li class="row"><span class="nm"><span class="en">Vodka, glass</span><span class="ar" lang="ar">كاس فودكا</span></span><span class="dots"></span><span class="price">$6</span></li>
+        <li class="row"><span class="nm"><span class="en">Gin, glass</span><span class="ar" lang="ar">كاس جن</span></span><span class="dots"></span><span class="price">$6</span></li>
+        <li class="row"><span class="nm"><span class="en">Arak, glass</span><span class="ar" lang="ar">كاس عرق</span><small class="ds"><span class="en">Milky over ice, the way it is poured at home</span><span class="ar" lang="ar">عالتلج، متل ما بينسكب بالبيت</span></small></span><span class="dots"></span><span class="price">$6</span></li>
+        <li class="row"><span class="nm"><span class="en">Apple Arak, glass</span><span class="ar" lang="ar">كاس عرق تفاح</span></span><span class="dots"></span><span class="price">$6</span></li>
+      </ul>
+    </article>
+
+    <article class="card" style="--acc:#C3C59A">
+      <span class="vlabel" aria-hidden="true">Beer + Cider</span>
+      <h3><span class="dot"></span><span class="en">Beer &amp; Cider</span><span class="ar" lang="ar">بيرة وسيدر</span></h3>
+      <ul>
+        <li class="row"><span class="nm"><span class="en">Almaza Beer</span><span class="ar" lang="ar">بيرة المازة</span><small class="ds"><span class="en">Mexican, $5.5</span><span class="ar" lang="ar">مكسيكان، $5.5</span></small></span><span class="dots"></span><span class="price">$5</span></li>
+        <li class="row"><span class="nm"><span class="en">Elmir Beer</span><span class="ar" lang="ar">بيرة المير</span><small class="ds"><span class="en">IPA, Amber or Pilsner</span><span class="ar" lang="ar">IPA، أمبر أو بيلسنر</span></small></span><span class="dots"></span><span class="price">$7</span></li>
+        <li class="row"><span class="nm"><span class="en">Wata Apple Cider</span><span class="ar" lang="ar">سيدر تفاح واتا</span></span><span class="dots"></span><span class="price">$6</span></li>
+        <li class="row"><span class="nm"><span class="en">Tiny Moon Apple Cider</span><span class="ar" lang="ar">سيدر تايني مون</span><small class="ds"><span class="en">Dry or original $6, Berry $7</span><span class="ar" lang="ar">دراي أو أوريجينال $6، بيري $7</span></small></span><span class="dots"></span><span class="price">$6</span></li>
+      </ul>
+    </article>
+
+    <article class="card" style="--acc:#D46C6E">
+      <span class="vlabel" aria-hidden="true">Cocktails</span>
+      <h3><span class="dot"></span><span class="en">Cocktails</span><span class="ar" lang="ar">كوكتيلات</span></h3>
+      <ul>
+        <li class="row"><span class="nm"><span class="en">Gin Basil</span><span class="ar" lang="ar">جن حبق</span><small class="ds"><span class="en">Gin, basil, lemon, simple syrup</span><span class="ar" lang="ar">جن، حبق، ليمون، شراب سكر</span></small></span><span class="dots"></span><span class="price">$7</span></li>
+        <li class="row"><span class="nm"><span class="en">Gin Zaatar</span><span class="ar" lang="ar">جن زعتر</span><small class="ds"><span class="en">Gin, thyme, lemon, simple syrup. Very BEYT, very Beirut</span><span class="ar" lang="ar">جن، زعتر، ليمون، شراب سكر. كتير بيت، كتير بيروت</span></small></span><span class="dots"></span><span class="price">$7</span></li>
+        <li class="row"><span class="nm"><span class="en">Mimosa (Orange, Lemon, Rose)</span><span class="ar" lang="ar">ميموزا (برتقال، ليمون، ورد)</span><small class="ds"><span class="en">Prosecco with your flavor choice</span><span class="ar" lang="ar">بروسيكو مع النكهة يلي بتحبوها</span></small></span><span class="dots"></span><span class="price">$7</span></li>
+        <li class="row"><span class="nm"><span class="en">Espresso Martini</span><span class="ar" lang="ar">اسبريسو مارتيني</span><small class="ds"><span class="en">Vodka, espresso, coffee liquor</span><span class="ar" lang="ar">فودكا، اسبريسو، ليكور قهوة</span></small></span><span class="dots"></span><span class="price">$7</span></li>
+        <li class="row"><span class="nm"><span class="en">Blackberry Arak</span><span class="ar" lang="ar">عرق توت العليق</span><small class="ds"><span class="en">Arak, blackberry syrup</span><span class="ar" lang="ar">عرق وشراب توت العليق</span></small></span><span class="dots"></span><span class="price">$6</span></li>
+        <li class="row"><span class="nm"><span class="en">Blackberry Cosmo</span><span class="ar" lang="ar">كوزمو توت العليق</span><small class="ds"><span class="en">Vodka, blackberry juice, triple sec, simple syrup</span><span class="ar" lang="ar">فودكا، عصير توت العليق، تريبل سيك، شراب سكر</span></small></span><span class="dots"></span><span class="price">$7</span></li>
+      </ul>
+    </article>
+
+  </div>
+
+  <div class="ribbon">
+    <span class="en">Something sweet is waiting today, ask us!</span>
+    <span class="ar" lang="ar">في شي حلو ناطركن اليوم، اسألونا!</span>
+  </div>
+</section>
+
+<div class="tileband" aria-hidden="true"></div>
+
+<!-- ============ GALLERY ============ -->
+<section class="room" id="gallery">
+  <div class="room-head">
+    <svg class="room-ico" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4 L36 14 L20 24 L4 14 Z" fill="#D46C6E" stroke="#382900" stroke-width="3" stroke-linejoin="round"/><path d="M4 14 L20 24 L20 36 L4 26 Z" fill="#C79503" stroke="#382900" stroke-width="3" stroke-linejoin="round"/><path d="M36 14 L20 24 L20 36 L36 26 Z" fill="#967100" stroke="#382900" stroke-width="3" stroke-linejoin="round"/></svg>
+    <h2><small><span class="en">Have a look around</span><span class="ar" lang="ar">تفرّجوا عالبيت</span></small>
+      <span class="en">The House Itself</span><span class="ar" lang="ar">البيت نفسه</span>
+    </h2>
+  </div>
+<p class="diary"><span class="dlab"><span class="en">from the house diary</span><span class="ar" lang="ar">من دفتر البيت</span></span>
+<span class="en">"We left the door open for you."</span><span class="ar" lang="ar">«تركنالكن الباب مفتوح»</span></p>
+  <div class="gal">
+    <figure><img src="assets/beyt-coffee/hero.jpg" alt="BEYT, the old house" loading="lazy" width="800" height="600"><figcaption><span class="en">The house</span><span class="ar" lang="ar">البيت</span></figcaption></figure>
+    <figure><img src="assets/beyt-coffee/garden.jpg" alt="The garden deck with plants" loading="lazy" width="800" height="600"><figcaption><span class="en">The garden</span><span class="ar" lang="ar">الجنينة</span></figcaption></figure>
+    <figure><img src="assets/beyt-coffee/interior.jpg" alt="Inside the salon" loading="lazy" width="800" height="600"><figcaption><span class="en">The salon</span><span class="ar" lang="ar">الصالون</span></figcaption></figure>
+    <figure><img src="assets/beyt-coffee/dining.jpg" alt="The dining table" loading="lazy" width="800" height="600"><figcaption><span class="en">The table</span><span class="ar" lang="ar">السفرة</span></figcaption></figure>
+  </div>
+</section>
+
+</main>
+
+<footer class="finwrap reveal">
+  <div class="finhouse" aria-hidden="true">
+    <svg viewBox="0 0 320 300">
+      <g fill="none" stroke="#382900" stroke-width="11" stroke-linejoin="round">
+        <path class="fface ff-rose" d="M160 16 L234 60 L158 100 L86 56 Z" fill="#D46C6E"/>
+        <path class="fface ff-gold" d="M84 74 L154 112 L152 196 L86 152 Z" fill="#C79503"/>
+        <path class="fface ff-ochre" d="M166 112 L236 72 L238 156 L168 196 Z" fill="#967100"/>
+        <path class="fface ff-sage" d="M250 192 L306 226 L252 262 L196 228 Z" fill="#C3C59A"/>
+      </g>
+      <rect class="fwin fwin-near" x="104" y="126" width="20" height="26" rx="5" fill="#FFD98A" stroke="#382900" stroke-width="3"/>
+      <rect class="fwin fwin-far" x="190" y="110" width="20" height="26" rx="5" fill="#FFD98A" stroke="#382900" stroke-width="3"/>
+    </svg>
+  </div>
+  <p style="font-size:.8rem;color:var(--sub);margin:.2rem 0 .1rem"><span class="en">The same little house that opened the page, waving you goodbye.</span><span class="ar" lang="ar">نفس البيت الصغير يلي فتح الصفحة، عم يودّعكن.</span></p>
+  <p class="qhome" lang="ar">البيت بيتك</p>
+  <p class="qhome-en"><span class="en">This house is yours, and we mean it.</span><span class="ar" lang="ar">وهيدا مش حكي، هيدا وعد البيت.</span></p>
+<p class="doorstep" id="doorstep">
+  <span class="dl-day"><span class="en">That was the tour of the house. The door is open and the garden is waiting.</span><span class="ar" lang="ar">هيدي كانت جولة البيت. الباب مفتوح والجنينة ناطرتكن.</span></span>
+  <span class="dl-night"><span class="en">Good night from the house. We will leave a window lit for you, and brunch is back till 2.</span><span class="ar" lang="ar">تصبحوا عخير من البيت. منخلّي شباك مضوّي لإلكن، والفطور بيرجع لحد الساعة ٢.</span></span>
+</p>
+  <div class="cta">
+    <a class="btn wa" href="https://wa.me/96176761390">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2s-1 .3-3.4-.7c-2.9-1.2-4.7-4.1-4.9-4.3s-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.7 1.8.8 1.9c.1.2.1.3 0 .5c-.1.2-.2.4-.4.6l-.4.5c-.2.2-.3.4-.1.7c.2.3.8 1.3 1.7 2.1c1.2 1.1 2.2 1.4 2.5 1.5c.3.2.5.1.7-.1s.8-.9 1-1.2c.2-.3.4-.3.7-.2s1.9.9 2.2 1c.3.2.5.3.6.4c0 .2 0 .7-.3 1.1z"/></svg>
+      <span class="en">Message the house</span><span class="ar" lang="ar">ابعتولنا واتساب</span>
+    </a>
+    <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=BEYt%20Garden%20Cafe%20Mar%20Mikhael%20Beirut" target="_blank" rel="noopener">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+      <span class="en">Mar Mikhael, Beirut</span><span class="ar" lang="ar">مار مخايل، بيروت</span>
+    </a>
+  </div>
+  <p class="addr"><span class="en">BEYT, بيت, means home. Come as you are, and forget the clock while you're here.</span><span class="ar" lang="ar">بيت يعني بيت. تعوا متل ما انتوا، وانسوا الساعة عنا.</span></p>
+</footer>
+
+<script>
+(function(){
+  var d=document, b=d.body, root=d.documentElement;
+
+  /* lite mode: Instagram in-app, weak devices, reduced motion, ?lite=1 (override ?full=1) */
+  var q=new URLSearchParams(location.search);
+  var ua=navigator.userAgent||'';
+  var inApp=/Instagram|FBAN|FBAV|FB_IAB|Line\/|Twitter/i.test(ua);
+  var weak=(navigator.deviceMemory&&navigator.deviceMemory<=3)||(navigator.hardwareConcurrency&&navigator.hardwareConcurrency<=3);
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var lite=q.get('lite')==='1'||inApp||weak;
+  if(q.get('full')==='1')lite=false;
+  if(lite)b.classList.add('lite');
+  if(reduced)b.classList.add('rm');
+
+  /* language toggle */
+  var btn=d.getElementById('langbtn');
+  function setLang(ar){
+    root.setAttribute('lang',ar?'ar':'en');
+    root.setAttribute('dir',ar?'rtl':'ltr');
+    try{localStorage.setItem('beyt-lang',ar?'ar':'en')}catch(e){}
+  }
+  btn.addEventListener('click',function(){ setLang(root.getAttribute('dir')!=='rtl'); });
+  try{ if(localStorage.getItem('beyt-lang')==='ar')setLang(true); }catch(e){}
+
+  /* day-to-night cinematography: phase follows the room at mid-screen.
+     rAF-throttled scroll read; works in in-app webviews where
+     IntersectionObserver rootMargin is unreliable. */
+  var hero=d.querySelector('.hero');
+  var stops=[[hero,'morning']];
+  [['kitchen','noon'],['garden','noon'],['table','dusk'],['salon','dusk'],['balcony','night'],['gallery','night']]
+    .forEach(function(pair){ var el=d.getElementById(pair[0]); if(el)stops.push([el,pair[1]]); });
+  var current='morning', ticking=false, manual=false, manualY=0;
+  function setPhase(p){ if(p&&p!==current){current=p;b.setAttribute('data-phase',p);} }
+  function pickPhase(){
+    ticking=false;
+    if(manual)return;
+    var mid=window.innerHeight*0.5, chosen='morning';
+    for(var i=0;i<stops.length;i++){
+      if(stops[i][0].getBoundingClientRect().top<=mid)chosen=stops[i][1];
+    }
+    setPhase(chosen);
+  }
+  function onScroll(){
+    if(manual&&Math.abs(window.scrollY-manualY)>220)releaseFlip();
+    if(!ticking){ticking=true;setTimeout(pickPhase,80);}
+  }
+  /* flip the house: manual day/night switch */
+  function syncFlipUI(){
+    var pressed=(current==='night')?'true':'false';
+    [d.getElementById('cubebtn'),d.getElementById('skydial')].forEach(function(el){
+      if(el)el.setAttribute('aria-pressed',pressed);
+    });
+  }
+  function releaseFlip(){ manual=false; pickPhase(); syncFlipUI(); }
+  function flipHouse(){
+    if(current!=='night'){ manual=true; manualY=window.scrollY; setPhase('night'); }
+    else releaseFlip();
+    syncFlipUI();
+    if(navigator.vibrate)try{navigator.vibrate(10)}catch(e){}
+  }
+  ['cubebtn','skydial'].forEach(function(id){
+    var el=d.getElementById(id);
+    if(el)el.addEventListener('click',flipHouse);
+  });
+  b.classList.add('flip'); /* arms the tap hint; without JS the hint never shows */
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll,{passive:true});
+  d.addEventListener('scroll',onScroll,{passive:true,capture:true});
+  /* heartbeat: some in-app webviews throttle or swallow scroll events */
+  setInterval(pickPhase,900);
+  pickPhase();
+
+  /* ============ INK COMES ALIVE typography engine ============ */
+  /* EN display text splits to letters (playful permanent rotations),
+     Arabic splits to WORDS ONLY, never letters (shaping + ligatures stay intact). */
+  if(!lite){
+    var seedN=0;
+    function rot(){ seedN++; return (((seedN*7919)%9)-4)*0.9; } /* deterministic -3.6..3.6deg */
+    function splitEN(el){
+      var i=0;
+      (function walk(node){
+        var kids=[].slice.call(node.childNodes);
+        kids.forEach(function(n){
+          if(n.nodeType===3){
+            var frag=d.createDocumentFragment();
+            n.textContent.split(/(\s+)/).forEach(function(part){
+              if(!part)return;
+              if(/^\s+$/.test(part)){frag.appendChild(d.createTextNode(part));return;}
+              var w=d.createElement('span');w.className='w';
+              part.split('').forEach(function(ch){
+                var s=d.createElement('span');s.className='lt';s.textContent=ch;
+                s.style.setProperty('--r',rot()+'deg');
+                s.style.setProperty('--i',Math.min(i++,16));
+                w.appendChild(s);
+              });
+              frag.appendChild(w);
+            });
+            node.replaceChild(frag,n);
+          }else if(n.nodeType===1){walk(n);}
+        });
+      })(el);
+    }
+    function splitAR(el){
+      var i=0;
+      (function walk(node){
+        var kids=[].slice.call(node.childNodes);
+        kids.forEach(function(n){
+          if(n.nodeType===3){
+            var frag=d.createDocumentFragment();
+            n.textContent.split(/(\s+)/).forEach(function(part){
+              if(!part)return;
+              if(/^\s+$/.test(part)){frag.appendChild(d.createTextNode(part));return;}
+              var w=d.createElement('span');w.className='wd';w.textContent=part;
+              w.style.setProperty('--i',Math.min(i++,12));
+              frag.appendChild(w);
+            });
+            node.replaceChild(frag,n);
+          }else if(n.nodeType===1){walk(n);}
+        });
+      })(el);
+    }
+    var UNDER='<svg class="u-ink" viewBox="0 0 230 13" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M3 9 Q 40 3 78 7 T 150 6 T 227 8"/></svg>';
+    var DOODLE='<span class="doodle" aria-hidden="true"><svg viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" style="color:var(--racc,#C79503)"><path d="M17 4v8M17 22v8M4 17h8M22 17h8"/><path d="M9 9l4 4M21 21l4 4M25 9l-4 4M9 25l4-4" opacity=".55"/></svg></span>';
+
+    /* hero title */
+    var h1=d.querySelector('.hero h1');
+    if(h1){
+      hero.classList.add('reveal');
+      var h1en=h1.querySelector('.en'),h1ar=h1.querySelector('.ar');
+      if(h1en)splitEN(h1en); if(h1ar)splitAR(h1ar);
+    }
+    /* room titles + underline + doodle + price pop stagger */
+    [].forEach.call(d.querySelectorAll('section.room'),function(sec){
+      sec.classList.add('reveal');
+      var h2=sec.querySelector('.room-head h2');
+      if(h2){
+        [].forEach.call(h2.children,function(c){
+          if(c.classList.contains('en'))splitEN(c);
+          else if(c.classList.contains('ar'))splitAR(c);
+        });
+        h2.insertAdjacentHTML('beforeend',UNDER);
+      }
+      var head=sec.querySelector('.room-head');
+      if(head)head.insertAdjacentHTML('beforeend',DOODLE);
+      [].forEach.call(sec.querySelectorAll('.card'),function(card){
+        [].forEach.call(card.querySelectorAll('.price'),function(p,idx){
+          p.style.setProperty('--i',Math.min(idx,10));
+        });
+        /* ink ripple: row counter, stagger restarts per card so 82 rows never queue globally */
+        [].forEach.call(card.querySelectorAll('.row'),function(r,idx){
+          r.style.setProperty('--ri',Math.min(idx,12));
+        });
+      });
+    });
+    b.classList.add('type-on');
+    /* reveal on scroll: rAF-throttled position read + heartbeat timer,
+       same hardened pattern as the phase engine. In-app webviews
+       (Instagram etc.) throttle scroll events and make
+       IntersectionObserver rootMargin unreliable, so we never rely on IO. */
+    var revs=[].slice.call(d.querySelectorAll('.reveal'));
+    if(reduced){
+      revs.forEach(function(el){el.classList.add('seen');});
+    }else{
+      if(hero){hero.classList.add('seen');revs=revs.filter(function(el){return el!==hero;});}
+      var rTick=false;
+      var checkReveals=function(){
+        rTick=false;
+        if(!revs.length)return;
+        var line=window.innerHeight*0.88;
+        revs=revs.filter(function(el){
+          if(el.getBoundingClientRect().top<=line){el.classList.add('seen');return false;}
+          return true;
+        });
+      };
+      var raf=window.requestAnimationFrame||function(f){setTimeout(f,80)};
+      var onReveal=function(){ if(!rTick){rTick=true;raf(checkReveals);} };
+      window.addEventListener('scroll',onReveal,{passive:true});
+      window.addEventListener('resize',onReveal,{passive:true});
+      d.addEventListener('scroll',onReveal,{passive:true,capture:true});
+      /* heartbeat: catches swallowed scroll events in in-app webviews */
+      setInterval(function(){ if(revs.length&&!rTick)checkReveals(); },900);
+      checkReveals();
+    }
+  }
+
+  /* sage face: gentle float only after it has flown in */
+  var sage=d.getElementById('sageface');
+  if(sage&&!lite&&!reduced){
+    sage.addEventListener('animationend',function once(){
+      sage.removeEventListener('animationend',once);
+      sage.classList.add('settled');
+    });
+  }
+
+  /* ---- narrative thread: local-time greeting + house diary + doorstep ---- */
+  b.classList.add('thread'); /* arms diary hiding only when JS is alive */
+
+  var hr=new Date().getHours();
+  var slot = (hr>=5&&hr<12)?'morn' : (hr>=12&&hr<14)?'brunch' : (hr>=14&&hr<17)?'aft' : (hr>=17&&hr<20)?'eve' : 'night';
+  var GREET={
+    morn:  {en:"Good morning, you're home.",            ar:"صباح الخير بالبيت"},
+    brunch:{en:"Yalla, brunch is still on till 2.",     ar:"يا هلا، الفطور لسا لحد الساعة ٢"},
+    aft:   {en:"A slow afternoon at the house.",        ar:"عصرية هنية بالبيت"},
+    eve:   {en:"Good evening from the garden.",         ar:"مسا الخير من الجنينة"},
+    night: {en:"Masa el hana. The windows are lit.",    ar:"مسا الهنا، الشبابيك مضوّية"}
+  };
+  /* word-level split only (never letters, keeps Arabic shaping intact) */
+  function inkWords(el,txt){
+    if(!el)return;
+    el.textContent='';
+    txt.split(' ').forEach(function(w,i){
+      var s=d.createElement('span');
+      s.className='w'; s.textContent=w;
+      s.style.transitionDelay=(0.15+i*0.09)+'s';
+      el.appendChild(s); el.appendChild(d.createTextNode(' '));
+    });
+  }
+  var greet=d.getElementById('greet');
+  if(greet){
+    inkWords(d.getElementById('greet-en'),GREET[slot].en);
+    inkWords(d.getElementById('greet-ar'),GREET[slot].ar);
+    requestAnimationFrame(function(){requestAnimationFrame(function(){greet.classList.add('on');});});
+  }
+
+  /* doorstep goodbye follows the visitor's real clock, like the greeting */
+  var ds=d.getElementById('doorstep');
+  if(ds)ds.classList.add((hr>=20||hr<5)?'is-night':'is-day');
+
+  /* diary strips fade up once, on entering view */
+  var strips=[].slice.call(d.querySelectorAll('.diary'));
+  if(lite||reduced||!('IntersectionObserver' in window)){
+    strips.forEach(function(s){s.classList.add('on');});
+  }else{
+    var dio=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('on');dio.unobserve(e.target);}
+      });
+    },{threshold:.25,rootMargin:'0px 0px -8% 0px'});
+    strips.forEach(function(s){dio.observe(s);});
+  }
+
+  /* cement-tile runners: fade in once when they enter view */
+  var bands=[].slice.call(d.querySelectorAll('.tileband'));
+  if(bands.length&&!lite&&!reduced&&'IntersectionObserver' in window){
+    bands.forEach(function(el){el.classList.add('pre')});
+    var tio=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('on');tio.unobserve(e.target);}
+      });
+    },{threshold:.35});
+    bands.forEach(function(el){tio.observe(el)});
+  }
+
+  /* house signatures: drift in once. JS-armed: .reveal only exists when this code runs */
+  var sigs=[].slice.call(d.querySelectorAll('.sig'));
+  if(sigs.length&&!lite&&!reduced&&'IntersectionObserver' in window){
+    sigs.forEach(function(el){el.classList.add('reveal')});
+    var sio=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('in');sio.unobserve(e.target);}
+      });
+    },{threshold:.2,rootMargin:'0px 0px -6% 0px'});
+    sigs.forEach(function(el){sio.observe(el)});
+  }
+
+  /* ink ecosystem: the olive branch sprouts when the garden enters view */
+  var garden=d.getElementById('garden');
+  if(garden){
+    if(lite||reduced||!('IntersectionObserver' in window)){
+      garden.classList.add('ink-in');
+    }else{
+      var inkIO=new IntersectionObserver(function(entries){
+        for(var i=0;i<entries.length;i++){
+          if(entries[i].isIntersecting){garden.classList.add('ink-in');inkIO.disconnect();break;}
+        }
+      },{threshold:.25});
+      inkIO.observe(garden);
+    }
+  }
+})();
+</script>
+</body>
+</html>

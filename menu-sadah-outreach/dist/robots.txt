@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Disallow: /os-b7k2m9.html

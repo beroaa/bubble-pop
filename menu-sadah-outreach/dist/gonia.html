@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F8F3EB">
+<title>GONIA · Menu</title>
+<meta name="description" content="GONIA · Join us to make the most memorable moments.">
+<meta property="og:title" content="GONIA">
+<meta property="og:description" content="Join us to make the most memorable moments. · انضمّ إلينا لنصنع أجمل اللحظات.">
+<meta property="og:image" content="https://menu-sadah.com/assets/gonia/hero-poster.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,500;1,600&family=Cairo:wght@400;500;600;700;800;900&family=Michroma:wght@400&family=Cormorant+Garamond:wght@400;700&family=Jost:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0E0C0B; --bg2:#171210; --card:#161110;
+    --cop-1:#F8E8BB; --cop-lite:#F1D37E; --cop:#ECC24C; --cop-2:#ECC24C; --cop-deep:#8E742E;
+    --cream:#F5EFE6; --cream-2:#EDE3D3; --mut:#B29C86; --mut-2:#8A7862;
+    --line:rgba(236,194,76,.22); --line-2:rgba(236,194,76,.12);
+    --metal:linear-gradient(105deg,#826B2A 0%,#EFCD6C 34%,#F9EDC9 50%,#EFCD6C 66%,#826B2A 100%);
+    --serif:'Fraunces',Georgia,serif; --body:'Fraunces',Georgia,serif; --ar:'Cairo','Geeza Pro',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  @media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+  body{background:var(--bg);color:var(--cream);font-family:var(--body);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;-webkit-tap-highlight-color:transparent}
+  .wrap{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:0 22px}
+  .rings circle{fill:none;stroke:url(#cop);stroke-width:5}
+  .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 22px;overflow:hidden;background:#0E0C0B}
+  .hero-media{position:absolute;inset:0;z-index:0}
+  .hero-media img{width:100%;height:100%;object-fit:cover;object-position:center}
+  .hero-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(14,12,11,.66) 0%,rgba(14,12,11,.52) 42%,rgba(14,12,11,.88) 80%,var(--bg) 100%)}
+  .hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(46% 28% at 50% 40%,rgba(241,211,126,.20),transparent 72%);animation:breathe 9s ease-in-out infinite}
+  @keyframes breathe{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:.95;transform:scale(1.06)}}
+  .hero-inner{position:relative;z-index:3}
+  .hero .rings{margin-bottom:16px;filter:drop-shadow(0 0 20px rgba(241,211,126,.5))}
+  .ar-top{font-family:var(--ar);font-weight:300;font-size:21px;color:var(--cop-1);opacity:.95;margin-bottom:6px}
+  .word{font-family:var(--serif);font-weight:600;letter-spacing:.14em;font-size:clamp(42px,12vw,92px);line-height:.92;max-width:100%;
+    background:var(--metal);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+    filter:drop-shadow(0 0 34px rgba(241,211,126,.5)) drop-shadow(0 2px 2px rgba(0,0,0,.55));margin:2px 0 8px;padding-left:.14em}
+  .tag{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(17px,4.4vw,24px);color:var(--cream);letter-spacing:.14em;opacity:.9;text-transform:uppercase}
+  .rule{width:56px;height:1px;background:linear-gradient(90deg,transparent,var(--cop-2),transparent);margin:24px auto}
+  .hero .sub{font-family:var(--serif);font-weight:300;font-size:clamp(20px,5vw,30px);line-height:1.35;color:var(--cream);max-width:16ch;text-wrap:balance;margin:0 auto}
+  .hero .sub .g{color:var(--cop-1);font-style:italic}
+  .hero .sub-ar{font-family:var(--ar);font-weight:500;font-size:clamp(17px,4.2vw,21px);color:var(--cream);opacity:.9;margin-top:13px;direction:rtl}
+  .cue{margin-top:40px;color:var(--cop-1);font-family:var(--ar);font-size:11px;letter-spacing:.24em;text-transform:uppercase;opacity:.85;animation:bob 2.6s ease-in-out infinite}
+  .cue-ar{letter-spacing:normal;text-transform:none}
+  .cue span{display:block;font-size:18px;color:var(--cop-1);margin-top:6px}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+  nav{position:sticky;top:0;z-index:20;background:rgba(14,12,11,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-2)}
+  .navrow{max-width:780px;margin:0 auto;display:flex;gap:8px;overflow-x:auto;padding:13px 18px;scrollbar-width:none}
+  .navrow::-webkit-scrollbar{display:none}
+  .nav-pill{flex:0 0 auto;border:1px solid var(--line);background:transparent;color:var(--mut);border-radius:22px;padding:9px 16px;font-family:var(--serif);font-size:16px;font-weight:600;letter-spacing:.03em;cursor:pointer;white-space:nowrap;transition:.2s;text-decoration:none}
+  .nav-pill .a{font-family:var(--ar);font-weight:700;font-size:16px;color:var(--mut-2);margin-left:8px}
+  .nav-pill.on,.nav-pill:hover{color:#241206;background:linear-gradient(180deg,var(--cop-1),var(--cop));border-color:var(--cop)}
+  .nav-pill.on .a,.nav-pill:hover .a{color:#5a3410}
+  .gallery{padding:34px 22px 2px}
+  .g-row{display:flex;gap:13px;overflow-x:auto;padding:4px 2px 12px;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .g-row::-webkit-scrollbar{display:none}
+  .g-row figure{flex:0 0 76%;max-width:300px;scroll-snap-align:center;margin:0}
+  .g-row img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:15px;border:1px solid var(--line);box-shadow:0 20px 44px -22px rgba(0,0,0,.7)}
+  .g-row figcaption{font-family:var(--serif);font-style:italic;color:var(--mut);font-size:14.5px;margin-top:9px;text-align:center}
+  @media(min-width:640px){ .gallery{max-width:780px;margin:0 auto} .g-row figure{flex:1} .g-row{overflow:visible} }
+  main{padding:20px 0 30px}
+  section{padding:34px 0 10px;scroll-margin-top:74px}
+  .sec-head{text-align:center;margin-bottom:22px}
+  .sec-kicker{font-family:var(--ar);font-size:20px;color:var(--cop-2);font-weight:600}
+  .sec-title{font-family:var(--serif);font-weight:700;font-size:clamp(31px,7.4vw,50px);letter-spacing:.1em;color:var(--cream);text-transform:uppercase;margin-top:3px}
+  .sec-note{font-family:var(--serif);font-style:italic;color:var(--cop-deep);font-size:15px;letter-spacing:.04em;margin-top:8px}
+  .sec-rule{width:44px;height:1px;background:var(--cop-2);opacity:.55;margin:15px auto 0}
+  .banner{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line);margin:2px 0 22px;box-shadow:0 22px 48px -24px rgba(0,0,0,.7)}
+  .banner img{width:100%;height:210px;object-fit:cover;display:block}
+  .banner .bcap{position:absolute;left:0;right:0;bottom:0;padding:16px;font-family:var(--serif);font-style:italic;color:var(--cream);font-size:15.5px;background:linear-gradient(0deg,rgba(14,12,11,.9),transparent)}
+  .item{padding:15px 4px;border-bottom:1px solid var(--line-2);opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  .item.in{opacity:1;transform:none}
+  .item:last-child{border-bottom:none}
+  .it-top{display:flex;align-items:baseline;gap:10px}
+  .it-ico{width:34px;height:34px;flex:0 0 auto;box-sizing:border-box;padding:7px;border-radius:11px;color:var(--cop);background:color-mix(in srgb,var(--cop) 12%,transparent);opacity:1;align-self:flex-start;margin-top:1px;box-shadow:0 5px 13px -7px color-mix(in srgb,var(--cop) 30%,transparent),inset 0 0 0 1px color-mix(in srgb,var(--cop) 24%,transparent)}
+  .it-en{font-family:var(--serif);font-weight:600;font-size:22px;letter-spacing:.01em;color:var(--cream);line-height:1.18}
+  .lead{flex:1;border-bottom:1px dotted rgba(236,194,76,.36);transform:translateY(-.3em);min-width:16px}
+  .it-price{font-family:var(--serif);font-weight:700;font-size:24px;color:var(--cop-1);white-space:nowrap;font-variant-numeric:tabular-nums;letter-spacing:.01em}
+  .it-price .cur{font-family:var(--ar);font-size:12px;color:var(--cop-deep);margin-left:2px}
+  .it-price.ask{font-size:14px;font-style:italic;color:var(--mut);font-family:var(--body)}
+  .it-ar{font-family:var(--ar);font-weight:500;font-size:17.5px;color:var(--cop-2);direction:rtl;text-align:right;margin-top:4px}
+  .it-desc{margin-top:5px}
+  .it-desc .en{display:block;font-family:var(--body);font-style:italic;font-size:14.5px;color:var(--mut);line-height:1.4}
+  .it-desc .ar{display:block;font-family:var(--ar);font-weight:400;font-size:14.5px;color:var(--mut-2);direction:rtl;text-align:right;margin-top:3px;line-height:1.6}
+  .feat{display:flex;gap:16px;align-items:center;border:1px solid var(--line);border-radius:16px;padding:14px;margin:6px 0 14px;background:linear-gradient(180deg,var(--card),#0D0B09);box-shadow:0 22px 52px -26px rgba(0,0,0,.8);opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .feat.in{opacity:1;transform:none}
+  .feat img{width:132px;height:132px;flex:0 0 132px;object-fit:cover;border-radius:12px;border:1px solid var(--line)}
+  .feat .fx{flex:1;min-width:0}
+  .feat .fx-top{display:flex;align-items:baseline;gap:8px}
+  .feat .fx-en{font-family:var(--serif);font-weight:600;font-size:22px;color:var(--cream);line-height:1.14}
+  .feat .fx-price{font-family:var(--serif);font-weight:700;font-size:23px;color:var(--cop-1);white-space:nowrap;margin-left:auto}
+  .feat .fx-price .cur{font-family:var(--ar);font-size:11px;color:var(--cop-deep);margin-left:2px}
+  .feat .fx-ar{font-family:var(--ar);font-weight:500;font-size:16px;color:var(--cop-2);direction:rtl;text-align:right;margin-top:3px}
+  .feat .fx-d{font-family:var(--body);font-style:italic;font-size:13.5px;color:var(--mut);margin-top:5px;line-height:1.4}
+  @media(max-width:430px){ .feat img{width:104px;height:104px;flex-basis:104px} }
+  footer{text-align:center;padding:52px 22px 74px;border-top:1px solid var(--line-2);margin-top:40px}
+  footer .fw{font-family:var(--serif);font-weight:600;font-size:34px;letter-spacing:.14em;background:var(--metal);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+  footer .fa{font-family:var(--ar);color:var(--cop-2);font-size:16px;margin-top:4px}
+  footer .fl{font-family:var(--serif);font-style:italic;color:var(--mut);margin-top:16px;font-size:15.5px}
+  .share{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:26px auto 0}
+  .sh{font-family:var(--ar);font-size:14px;border:1px solid var(--line);background:transparent;color:var(--cop-2);border-radius:26px;padding:11px 20px;cursor:pointer;transition:.2s}
+  .sh.main{background:linear-gradient(180deg,var(--cop-1),var(--cop));color:#241206;border-color:var(--cop);font-weight:500}
+  .credit{margin-top:28px;font-family:var(--ar);font-size:12px;color:var(--mut-2)}
+  .credit b{color:var(--cop-deep);font-weight:500}
+  .badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .tag-badge{display:inline-flex;align-items:center;gap:5px;font-family:var(--body);font-size:11.5px;line-height:1;letter-spacing:.01em;padding:5px 10px;border-radius:20px;border:1px solid color-mix(in srgb,var(--cop) 40%,transparent);color:var(--cop-deep);background:color-mix(in srgb,var(--cop) 11%,transparent);white-space:nowrap}
+  .tag-badge svg{width:12px;height:12px;flex:0 0 auto}
+  .it-price.pc,.fx-price.pc{display:inline-flex;align-items:center;justify-content:center}
+  .sprig{width:22px;height:22px;color:var(--cop);opacity:.9}
+  .menu-note{max-width:640px;margin:6px auto 0;padding:0 26px;text-align:center}
+  .menu-note .mn-en{font-family:var(--serif);font-style:italic;font-size:15.5px;color:var(--mut);letter-spacing:.02em}
+  .menu-note .mn-ar{display:block;font-family:var(--ar);font-size:14.5px;color:var(--cop-2);direction:rtl;margin-top:4px}
+  .toast{position:fixed;bottom:calc(26px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%) translateY(20px);opacity:0;background:linear-gradient(180deg,var(--cop-1),var(--cop));color:#241206;font-family:var(--ar);font-weight:500;padding:11px 20px;border-radius:24px;font-size:14px;transition:.25s;pointer-events:none;z-index:60}
+  .nav-pill:focus-visible,.sh:focus-visible{outline:2px solid var(--cop-deep);outline-offset:2px}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  @media(prefers-reduced-motion:reduce){ .hero::before,.cue{animation:none} .item,.feat{opacity:1;transform:none} }
+body{background:#F8F3EB;color:#2A211A}.hero{background:#F8F3EB}.hero-scrim{background:rgba(248,243,235,.9)}.hero::before{background:radial-gradient(46% 28% at 50% 40%,#ECC24C22,transparent 72%)}.hero-inner{background:radial-gradient(66% 60% at 50% 50%,rgba(248,243,235,.72),transparent 78%);padding:18px;border-radius:22px}.word{background:none!important;-webkit-text-fill-color:#ECC24C!important;color:#ECC24C!important;filter:none}.ar-top{color:#ECC24C}.tag{color:#5A4A3A}.rule{background:linear-gradient(90deg,transparent,#ECC24C,transparent)}.hero .sub{color:#2A211A}.hero .sub .g{color:#ECC24C}.hero .sub-ar{color:#5A4A3A;opacity:1}.cue,.cue span{color:#ECC24C}nav{background:rgba(248,243,235,.93);border-bottom:1px solid rgba(40,30,20,.12)}.nav-pill{border-color:rgba(40,30,20,.18);color:#6A5A48}.sec-kicker{color:#ECC24C}.sec-title{color:#2A211A}.sec-note{color:#9A6A44}.sec-rule{background:#ECC24C}.item{border-bottom:1px solid rgba(40,30,20,.1)}.it-en{color:#2A211A}.it-ar{color:#ECC24C}.it-desc .en{color:#6A5A48}.it-desc .ar{color:#6E5B45}.lead{border-bottom:1px dotted #ECC24C66}.it-price{color:#ECC24C}.it-price .cur{color:#8E742E}.it-price.ask{color:#9A8A78}.feat{background:#fff;border:1px solid rgba(40,30,20,.1);box-shadow:0 18px 40px -24px rgba(0,0,0,.28)}.feat .fx-en{color:#2A211A}.feat .fx-price{color:#ECC24C}.feat .fx-ar{color:#ECC24C}.feat .fx-d{color:#6A5A48}.g-row img{border:1px solid rgba(40,30,20,.12);box-shadow:0 18px 40px -24px rgba(0,0,0,.22)}.g-row figcaption{color:#7A6A58}footer{border-top:1px solid rgba(40,30,20,.1)}.fw{background:none!important;-webkit-text-fill-color:#ECC24C!important;color:#ECC24C!important;filter:none}.fa{color:#ECC24C}.fl{color:#6A5A48}.credit{color:#6E5B45}.credit b{color:#8E742E}.sh{color:#ECC24C;border-color:#ECC24C66}.sh.main{background:#ECC24C;color:#fff;border-color:#ECC24C}.word,footer .fw{font-family:'Michroma',var(--serif);font-weight:400;letter-spacing:.12em}.word{padding-left:.12em}:root{--serif:'Cormorant Garamond',Georgia,serif}:root{--body:'Jost',Georgia,sans-serif}.gon-base{position:absolute;inset:0;z-index:0;background:radial-gradient(140% 108% at var(--sun-x,60%) 4%,#FCEFC6 0%,#F6D46E 27%,#EABF48 58%,#D7A62C 100%);transition:background .12s linear}.gon-rays{position:absolute;left:var(--sun-x,60%);top:var(--sun-y,15%);width:210%;height:210%;transform:translate(-50%,-50%);z-index:0;opacity:.7;will-change:transform;background:conic-gradient(from 0deg,rgba(255,244,208,.22),transparent 6%,rgba(255,244,208,.11),transparent 12%,rgba(255,244,208,.22),transparent 18%,rgba(255,244,208,.11),transparent 24%,rgba(255,244,208,.22),transparent 30%,rgba(255,244,208,.11),transparent 36%,rgba(255,244,208,.22),transparent 42%,rgba(255,244,208,.11),transparent 48%,rgba(255,244,208,.22),transparent 54%,rgba(255,244,208,.11),transparent 60%,rgba(255,244,208,.22),transparent 66%,rgba(255,244,208,.11),transparent 72%,rgba(255,244,208,.22),transparent 78%,rgba(255,244,208,.11),transparent 84%,rgba(255,244,208,.22),transparent 90%,rgba(255,244,208,.11),transparent 96%,rgba(255,244,208,.22));-webkit-mask:radial-gradient(circle,#000 4%,transparent 58%);mask:radial-gradient(circle,#000 4%,transparent 58%);animation:gonRays 150s linear infinite}@keyframes gonRays{to{transform:translate(-50%,-50%) rotate(360deg)}}.gon-glow{position:absolute;inset:0;z-index:1;opacity:var(--warm,.5);mix-blend-mode:screen;background:radial-gradient(44% 36% at var(--sun-x,60%) var(--sun-y,15%),rgba(255,240,190,.95),rgba(255,222,148,.4) 36%,transparent 68%);transition:background .12s linear,opacity .2s linear}.gon-motes,.gon-angles{position:absolute;inset:0;overflow:hidden}.gon-motes{z-index:2}.gon-angles{z-index:2}.gon-mote{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(255,236,180,.9),transparent 70%);animation:gonRise linear infinite}@keyframes gonRise{0%{transform:translateY(18px) scale(.6);opacity:0}12%{opacity:.85}100%{transform:translateY(-104vh) scale(1.15);opacity:0}}.gon-angle{position:absolute;border:1.5px solid rgba(255,240,205,.72);transform:rotate(45deg);animation:gonDrift linear infinite}@keyframes gonDrift{0%{transform:translateY(20px) rotate(45deg);opacity:0}14%{opacity:.6}100%{transform:translateY(-102vh) rotate(225deg);opacity:0}}.gon-temple{position:absolute;left:0;right:0;bottom:0;height:46%;z-index:2;display:flex;align-items:flex-end;pointer-events:none}.gon-temple svg{width:100%;height:auto;display:block;filter:drop-shadow(0 8px 13px rgba(120,86,16,.2));animation:gonBuild 1.6s cubic-bezier(.4,0,.2,1) both}@keyframes gonBuild{from{clip-path:inset(100% 0 0 0);opacity:.25}to{clip-path:inset(0 0 0 0);opacity:1}}.gon-tshadow{position:absolute;left:50%;bottom:5.5%;width:62%;height:20px;z-index:2;border-radius:50%;pointer-events:none;background:radial-gradient(50% 50% at 50% 50%,rgba(120,86,16,.3),transparent 72%);transform:translateX(calc(-50% + var(--shdx,0px))) scaleX(var(--shsl,1));transition:transform .12s linear}.gon-meander{position:absolute;left:0;right:0;bottom:0;height:20px;z-index:3;opacity:.5;pointer-events:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2740%27%20height%3D%2720%27%20viewBox%3D%270%200%2040%2020%27%3E%3Cpath%20d%3D%27M0%2015%20H40%20M6%2015%20V5%20H24%20V13%20H15%20V9%27%20fill%3D%27none%27%20stroke%3D%27%23B8892E%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27square%27%2F%3E%3C%2Fsvg%3E") repeat-x center/40px 20px}.gon-sun{position:absolute;left:var(--sun-x,60%);top:var(--sun-y,15%);width:clamp(56px,13vw,88px);height:clamp(56px,13vw,88px);transform:translate(-50%,-50%);z-index:7;cursor:grab;touch-action:none;border:0;background:none;padding:0;filter:drop-shadow(0 0 24px rgba(255,206,110,.85));transition:left .12s linear,top .12s linear}.gon-sun:active{cursor:grabbing}.gon-sun svg{width:100%;height:100%;display:block}.gon-sun .gon-sun-rays{transform-origin:50px 50px;animation:gonSpin 55s linear infinite}@keyframes gonSpin{to{transform:rotate(360deg)}}.gon-sun:focus-visible{outline:3px solid #7A560F;outline-offset:5px;border-radius:50%}.gon-hint{position:absolute;left:50%;bottom:15%;transform:translateX(-50%);z-index:7;white-space:nowrap;font-family:var(--ar);font-size:12.5px;letter-spacing:.01em;color:#7A560F;background:rgba(251,244,220,.85);border:1px solid rgba(184,137,46,.42);border-radius:22px;padding:7px 16px;transition:opacity .5s ease;animation:gonHintBob 2.6s ease-in-out infinite}.gon-hint.gone{opacity:0;pointer-events:none}.gon-hint b{font-size:14px;font-style:normal}@keyframes gonHintBob{50%{transform:translateX(-50%) translateY(-4px)}}.gon-steam{fill:none;stroke:rgba(120,86,16,.55);stroke-width:2.4;stroke-linecap:round;opacity:0;animation:gonSteam 4.2s ease-in-out infinite}.gon-steam.b{animation-delay:1.7s}@keyframes gonSteam{0%{opacity:0;transform:translateY(4px)}35%{opacity:.6}70%{opacity:.35}100%{opacity:0;transform:translateY(-16px)}}.hero-scrim{background:linear-gradient(180deg,rgba(251,244,220,.04) 0%,rgba(251,244,220,.20) 46%,rgba(248,243,235,.82) 100%)!important}.hero::before{display:none!important}.hero-inner{background:radial-gradient(70% 62% at 50% 48%,rgba(250,244,228,.82),rgba(250,244,228,.3) 68%,transparent 84%)!important;padding:20px 18px!important;border-radius:26px!important}.word{-webkit-text-fill-color:#7A560F!important;color:#7A560F!important;filter:drop-shadow(0 1px 0 rgba(255,250,236,.65))}.ar-top{color:#8A6410!important}.gon-greek{font-family:var(--serif);letter-spacing:.42em;font-size:14px;font-weight:600;color:#9A7517;opacity:.82;margin-top:16px;padding-left:.42em;text-transform:none}.hero .sub{color:#3A2C12!important}.hero .sub .g{color:#9A6A12!important;font-style:italic}.hero .sub-ar{color:#5A4A24!important;opacity:1}.cue,.cue span{color:#9A7517!important}.sec-kicker{color:#9A7517!important}.it-ar{color:#9A7517!important}.it-price{color:#8A6410!important}.it-price .cur{color:#6B4E12!important}.it-price.ask{color:#9A8A66!important}.sec-rule{width:190px;height:16px;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2740%27%20height%3D%2720%27%20viewBox%3D%270%200%2040%2020%27%3E%3Cpath%20d%3D%27M0%2015%20H40%20M6%2015%20V5%20H24%20V13%20H15%20V9%27%20fill%3D%27none%27%20stroke%3D%27%23B8892E%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27square%27%2F%3E%3C%2Fsvg%3E") repeat-x center/40px 16px;opacity:.85}.gon-paused .gon-rays,.gon-paused .gon-sun-rays,.gon-paused .gon-mote,.gon-paused .gon-angle,.gon-paused .gon-steam{animation-play-state:paused}@media(prefers-reduced-motion:reduce){.gon-rays,.gon-sun-rays,.gon-mote,.gon-angle,.gon-hint,.gon-temple svg,.gon-steam{animation:none!important}.gon-temple svg{clip-path:none;opacity:1}}</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="cop" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8E742E"/><stop offset=".5" stop-color="#F8E8BB"/><stop offset="1" stop-color="#8E742E"/></linearGradient>
+</defs></svg>
+<header class="hero">
+  <div class="hero-media"><div class="gon-base"></div><div class="gon-rays" aria-hidden="true"></div><div class="gon-glow" aria-hidden="true"></div><div class="gon-motes" id="gonMotes" aria-hidden="true"></div><div class="gon-angles" id="gonAngles" aria-hidden="true"></div></div>
+  <div class="hero-scrim"></div>
+  <div class="hero-inner">
+    <h1 class="sr-only">GONIA · Menu</h1>
+    <div class="ar-top" lang="ar" dir="rtl">قونيا</div>
+    <div class="word">GONIA</div>
+    <div class="tag">Al Nakheel · Al Takhassousi · Riyadh</div>
+    <div class="rule"></div>
+    <div class="sub">Join us to make the <span class="g">most memorable moments.</span></div>
+    <div class="sub-ar" lang="ar" dir="rtl">انضمّ إلينا لنصنع أجمل اللحظات.</div>
+    <div class="gon-greek">ΓΩΝΙΑ</div><div class="cue"><span class="cue-ar" lang="ar">اكتشف</span> · scroll<span>↓</span></div>
+  </div>
+<div class="gon-tshadow" aria-hidden="true"></div><div class="gon-temple"><svg viewBox="0 0 400 190" width="100%" height="100%" preserveAspectRatio="xMidYMax meet" aria-hidden="true"><rect x="26" y="161" width="348" height="13" fill="#FBF7EA" stroke="#B8892E" stroke-width="2"/><rect x="12" y="174" width="376" height="16" fill="#FBF7EA" stroke="#B8892E" stroke-width="2"/><rect x="77" y="150" width="30" height="11" rx="1" fill="#FBF7EA" stroke="#B8892E" stroke-width="2"/><rect x="80" y="140" width="24" height="10" rx="1" fill="#FBF7EA" stroke="#B8892E" stroke-width="2"/><path d="M83 140 Q80 100 85 58 L99 58 Q104 100 101 140 Z" fill="#FBF7EA" stroke="#B8892E" stroke-width="2"/><line x1="88" y1="136" x2="88" y2="64" stroke="#C8962C" stroke-width="1.3" stroke-opacity=".55"/><line x1="92" y1="136" x2="92" y2="62" stroke="#C8962C" stroke-width="1.3" stroke-opacity=".55"/><line x1="96" y1="136" x2="96" y2="64" stroke="#C8962C" stroke-width="1.3" stroke-opacity=".55"/><rect x="77" y="48" width="30" height="10" rx="1" fill="#FBF7EA" stroke="#B8892E" stroke-width="2"/><path d="M80 48 Q92 40 104 48" fill="#FBF7EA" stroke="#B8892E" stroke-width="2"/><circle cx="82" cy="44" r="7.5" fill="#FBF7EA" stroke="#B8892E" stroke-width="2"/><circle cx="102" cy="44" r="7.5" fill="#FBF7EA" stroke="#B8892E" stroke-width="2"/><circle cx="82" cy="44" r="2.6" fill="#C8962C"/><circle cx="102" cy="44" r="2.6" fill="#C8962C"/><path d="M82 37 Q92 32 102 37" stroke="#B8892E" stroke-width="1.8" fill="none"/><rect x="293" y="150" width="30" height="11" rx="1" fill="#FBF7EA" stroke="#B8892E" stroke-width="2"/><rect x="296" y="140" width="24" height="10" rx="1" fill="#FBF7EA" stroke="#B8892E" stroke-width="2"/><path d="M299 140 Q296 100 301 58 L315 58 Q320 100 317 140 Z" fill="#FBF7EA" stroke="#B8892E" stroke-width="2"/><line x1="304" y1="136" x2="304" y2="64" stroke="#C8962C" stroke-width="1.3" stroke-opacity=".55"/><line x1="308" y1="136" x2="308" y2="62" stroke="#C8962C" stroke-width="1.3" stroke-opacity=".55"/><line x1="312" y1="136" x2="312" y2="64" stroke="#C8962C" stroke-width="1.3" stroke-opacity=".55"/><rect x="293" y="48" width="30" height="10" rx="1" fill="#FBF7EA" stroke="#B8892E" stroke-width="2"/><path d="M296 48 Q308 40 320 48" fill="#FBF7EA" stroke="#B8892E" stroke-width="2"/><circle cx="298" cy="44" r="7.5" fill="#FBF7EA" stroke="#B8892E" stroke-width="2"/><circle cx="318" cy="44" r="7.5" fill="#FBF7EA" stroke="#B8892E" stroke-width="2"/><circle cx="298" cy="44" r="2.6" fill="#C8962C"/><circle cx="318" cy="44" r="2.6" fill="#C8962C"/><path d="M298 37 Q308 32 318 37" stroke="#B8892E" stroke-width="1.8" fill="none"/><ellipse cx="200" cy="159" rx="25" ry="5" fill="#B8892E" fill-opacity=".22"/><path d="M185 133 Q187 157 200 157 Q213 157 215 133 Z" fill="#FBF7EA" stroke="#B8892E" stroke-width="2"/><ellipse cx="200" cy="133" rx="15" ry="4" fill="#7A560F"/><ellipse cx="200" cy="133" rx="15" ry="4" fill="none" stroke="#B8892E" stroke-width="1.6"/><path d="M215 137 q11 1 8 12 q-2 6 -10 4" fill="none" stroke="#B8892E" stroke-width="2.2"/><path class="gon-steam" d="M194 129 q-5 -11 0 -20"/><path class="gon-steam b" d="M206 129 q5 -11 0 -20"/></svg></div><div class="gon-meander" aria-hidden="true"></div><button class="gon-sun" id="gonSun" type="button" aria-label="Move the sun to relight the room"><svg viewBox="0 0 100 100" aria-hidden="true"><g class="gon-sun-rays"><line x1="77.0" y1="50.0" x2="89.0" y2="50.0" stroke="#F4C74C" stroke-width="3" stroke-linecap="round"/><line x1="73.4" y1="63.5" x2="83.8" y2="69.5" stroke="#F4C74C" stroke-width="3" stroke-linecap="round"/><line x1="63.5" y1="73.4" x2="69.5" y2="83.8" stroke="#F4C74C" stroke-width="3" stroke-linecap="round"/><line x1="50.0" y1="77.0" x2="50.0" y2="89.0" stroke="#F4C74C" stroke-width="3" stroke-linecap="round"/><line x1="36.5" y1="73.4" x2="30.5" y2="83.8" stroke="#F4C74C" stroke-width="3" stroke-linecap="round"/><line x1="26.6" y1="63.5" x2="16.2" y2="69.5" stroke="#F4C74C" stroke-width="3" stroke-linecap="round"/><line x1="23.0" y1="50.0" x2="11.0" y2="50.0" stroke="#F4C74C" stroke-width="3" stroke-linecap="round"/><line x1="26.6" y1="36.5" x2="16.2" y2="30.5" stroke="#F4C74C" stroke-width="3" stroke-linecap="round"/><line x1="36.5" y1="26.6" x2="30.5" y2="16.2" stroke="#F4C74C" stroke-width="3" stroke-linecap="round"/><line x1="50.0" y1="23.0" x2="50.0" y2="11.0" stroke="#F4C74C" stroke-width="3" stroke-linecap="round"/><line x1="63.5" y1="26.6" x2="69.5" y2="16.2" stroke="#F4C74C" stroke-width="3" stroke-linecap="round"/><line x1="73.4" y1="36.5" x2="83.8" y2="30.5" stroke="#F4C74C" stroke-width="3" stroke-linecap="round"/></g><circle cx="50" cy="50" r="21" fill="#FFE79E"/><circle cx="50" cy="50" r="21" fill="none" stroke="#F3C043" stroke-width="3.5"/><circle cx="50" cy="50" r="13" fill="#FFF3CE" fill-opacity=".7"/></svg></button><div class="gon-hint" id="gonHint"><b aria-hidden="true">☀</b> اسحب الشمس · drag the sun</div></header>
+<nav><div class="navrow" id="navrow"></div></nav>
+<section class="gallery"><div class="g-row" id="grow"></div></section>
+
+<main class="wrap" id="menu"></main>
+<footer>
+  <div class="fw">GONIA</div>
+  <div class="fa" lang="ar" dir="rtl">قونيا · القائمة</div>
+  <div class="fl">Al Nakheel · Al Takhassousi · Riyadh</div>
+  <div class="share">
+    <button class="sh main" id="shareBtn"><span lang="ar">شارك</span> · Share</button>
+    <button class="sh" id="copyBtn"><span lang="ar">نسخ الرابط</span> · Copy link</button>
+  </div>
+  <div class="credit"><span lang="ar">صُنعت بحب</span> · crafted by <b>Menu Sadah</b> · <span lang="ar">منيو سادة</span></div>
+</footer>
+<div class="toast" id="toast" lang="ar" dir="rtl" role="status" aria-live="polite">تم نسخ الرابط</div>
+<script>
+const MENU = [{"id": "coffee", "en": "Coffee & Espresso", "ar": "قهوة واسبريسو", "note": "حيث يبدأ كل شيء · where it all begins", "items": [{"en": "Flat White", "ar": "فلات وايت", "d": "Double espresso, steamed milk, a clean rosetta poured slow.", "dar": "اسبريسو مزدوج وحليب مبخّر، وريشة لاتيه تُسكب على مهل.", "p": ""}, {"en": "Cappuccino", "ar": "كابتشينو", "d": "Espresso under a soft dome of foam, enjoyed on the terrace.", "dar": "اسبريسو تحت قبة رغوة ناعمة، يُحتسى في الجلسة الخارجية.", "p": ""}, {"en": "White Mocha", "ar": "وايت موكا", "d": "White chocolate folded into espresso and milk, sweet and golden.", "dar": "شوكولاتة بيضاء تذوب في الاسبريسو والحليب، حلوة وذهبية.", "p": "", "img": "assets/gonia/illo-white-mocha.svg"}, {"en": "Drip · Filter Coffee", "ar": "قهوة مقطّرة", "d": "A single origin, brewed by hand for the quiet hours.", "dar": "أحادية الأصل، تُقطّر باليد لساعات الهدوء.", "p": ""}]}, {"id": "cold", "en": "Cold & Signature", "ar": "باردة ومميّزة", "note": "الأكثر طلباً · what Riyadh comes back for", "items": [{"en": "Cold Brew", "ar": "كولد برو", "d": "Steeped slow overnight. The cup reviewers call one of the city's best.", "dar": "منقوعة على مهل طوال الليل. الكوب الذي يصفه الزوّار بأحد الأفضل في المدينة.", "p": "", "img": "assets/gonia/illo-cold-brew.svg"}, {"en": "Iced Spanish Latte", "ar": "آيس سبانيش لاتيه", "d": "Sweetened, iced, and impossibly smooth.", "dar": "محلّاة، مثلّجة، وناعمة إلى حدٍّ بعيد.", "p": ""}, {"en": "Coconut Latte", "ar": "كوكونت لاتيه", "d": "Espresso meets coconut, light and a little tropical.", "dar": "اسبريسو مع جوز الهند، خفيف وبلمسة استوائية.", "p": ""}]}, {"id": "breakfast", "en": "Breakfast", "ar": "الفطور", "note": "تُفتح على مهل · opened slowly", "items": [{"en": "Light Breakfast Plates", "ar": "أطباق فطور خفيفة", "d": "Small, beautiful plates to open the morning without hurry.", "dar": "أطباق صغيرة وجميلة تفتح الصباح دون عجلة.", "p": ""}]}, {"id": "sweets", "en": "Desserts & Pastries", "ar": "حلا ومعجنات", "note": "تُصوَّر قبل أن تُؤكل · plated to be photographed first", "banner": "assets/gonia/pastry-date.jpg", "bannerCap": "معجنات التمر والسمسم، على الرخام · sesame and date, on marble", "items": [{"en": "Loaded Waffle", "ar": "وافل محمّل", "d": "Golden waffle, chocolate, ice cream, and berries. Their signature moment.", "dar": "وافل ذهبي وشوكولاتة وآيس كريم وتوت. لحظتهم المميّزة.", "p": "", "img": "assets/gonia/illo-waffle.svg"}, {"en": "Crepe Dulcey Chocolate", "ar": "كريب دولسيه", "d": "Folded around blond Dulcey chocolate, warm and buttery.", "dar": "مطويّ حول شوكولاتة الدولسيه الشقراء، دافئ وزبدي.", "p": "", "img": "assets/gonia/illo-crepe.svg"}, {"en": "Chocolate Cake & Brownie", "ar": "كيك شوكولاتة وبراوني", "d": "Dense, dark, and made for sharing over long talks.", "dar": "غنيّ وداكن، صُنع لتتقاسمه على سواليف طويلة.", "p": ""}, {"en": "Sesame Date Pastries", "ar": "معجنات التمر بالسمسم", "d": "Sesame over sweet dates, our little piece of home.", "dar": "سمسم فوق تمرٍ حلو، قطعتنا الصغيرة من البيت.", "p": ""}]}, {"id": "savory", "en": "Savory & Pizza", "ar": "مالح وبيتزا", "note": "لمّة الطاولة · for the whole table", "items": [{"en": "Polo Chicken Pizza", "ar": "بيتزا دجاج", "d": "Thin, blistered crust under seasoned chicken. A table favourite.", "dar": "عجينة رقيقة مقرمشة تحت دجاج متبّل. المفضّلة على الطاولة.", "p": "", "img": "assets/gonia/illo-pizza.svg"}]}];
+const GALLERY = [{"src": "assets/gonia/medallion-column.svg", "cap": "قونيا تعني الزاوية · gonia means corner"}, {"src": "assets/gonia/medallion-bust.svg", "cap": "وجهٌ من رخام · a face in marble"}, {"src": "assets/gonia/medallion-laurel.svg", "cap": "لحظة تستحق التتويج · a moment worth crowning"}, {"src": "assets/gonia/medallion-amphora.svg", "cap": "قهوة تُروى كحكاية · coffee poured like a story"}];
+function esc(t){return (t==null?"":String(t)).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+const PC=false;
+const SPRIG='<svg class="sprig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21V10"/><path d="M12 13C12 9 9 6.5 4.5 6.8 4.2 11 7 13.4 12 13Z"/><path d="M12 11.4C12 8 14.4 5.6 18.4 5.9 18.6 9.4 16 11.7 12 11.4Z"/></svg>';
+function price(p){if(p==null||p===""){return PC?'<span class="it-price pc" role="img" aria-label="price at the counter · السعر عند الكاشير">'+SPRIG+'</span>':'<span class="it-price ask" lang="ar" dir="rtl">اسأل الباريستا</span>';}return '<span class="it-price">'+p+'<span class="cur" lang="ar">ر.س</span></span>'}
+function fprice(p){if(p==null||p===""){return PC?'<span class="fx-price pc" role="img" aria-label="price at the counter · السعر عند الكاشير">'+SPRIG+'</span>':'';}return '<span class="fx-price">'+p+'<span class="cur" lang="ar">ر.س</span></span>'}
+function badges(it){var b='';if(it.sig){b+='<span class="tag-badge sig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3z"/></svg>signature · مميز</span>';}if(it.veg){b+='<span class="tag-badge veg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.9-5.4 5.1-6"/></svg><span lang="ar">نباتي</span> · vegan</span>';}if(it.gf){b+='<span class="tag-badge gf"><span lang="ar">خالٍ من الجلوتين</span> · GF</span>';}if(it.cal){b+='<span class="tag-badge cal">'+esc(it.cal)+' <span lang="ar">سعرة</span> · kcal</span>';}return b?'<span class="badges">'+b+'</span>':'';}
+const ICO={
+ coffee:'<path d="M17 8h1a4 4 0 0 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><path d="M6 2v2M10 2v2M14 2v2"/>',
+ glass:'<path d="m6 8 1.7 12.3a2 2 0 0 0 2 1.7h4.6a2 2 0 0 0 2-1.7L18 8"/><path d="M5 8h14"/><path d="M7 15a6.5 6.5 0 0 1 5 0 6.5 6.5 0 0 0 5 0"/>',
+ leaf:'<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.9-5.4 5.1-6C9.5 14.5 12 13 13 12"/>',
+ water:'<path d="M5.1 4.1A1 1 0 0 1 6.1 3h11.8a1 1 0 0 1 1 1.1L17.2 20.2A2 2 0 0 1 15.2 22H8.8a2 2 0 0 1-2-1.8z"/><path d="M6 12a5 5 0 0 1 6 0 5 5 0 0 0 6 0"/>',
+ fizz:'<path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3z"/>',
+ cake:'<path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"/><path d="M2 21h20"/><path d="M7 8v3M12 8v3M17 8v3"/>',
+ cream:'<path d="m7 11 4.1 10.4a1 1 0 0 0 1.8 0L17 11"/><path d="M17 7A5 5 0 0 0 7 7"/><path d="M17 7a2 2 0 0 1 0 4H7a2 2 0 0 1 0-4"/>',
+ food:'<path d="M3 11h18v2a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3z"/><path d="m4 11 8-6 8 6"/><path d="M7 19h10"/>',
+ cup:'<path d="M8 2h8"/><path d="M9 2v3a5 5 0 0 0 6 0V2"/><path d="M7 8h10l-1 11a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2z"/>'};
+function iconKey(it){var s=((it.en||"")+" "+(it.ar||"")).toLowerCase();
+ if(/kombucha|كمبوتشا/.test(s))return "fizz";
+ if(/matcha|ماتشا|green|أخضر/.test(s))return "leaf";
+ if(/espresso|latte|cappuccino|americano|cortado|macchiato|mocha|flat white|coffee|قهوة|اسبريسو|إسبريسو|لاتيه|كابتشينو|أمريكانو|كورتادو|موكا|مقطر|v60|في ٦٠|drip/.test(s))return "coffee";
+ if(/karkadeh|كركديه|\btea\b|شاي|كرك|hibiscus/.test(s))return "leaf";
+ if(/sparkling|غازية|فوار|soda/.test(s))return "fizz";
+ if(/water|ماء|مياه/.test(s))return "water";
+ if(/lemonade|lemon|ليمون|لمون|juice|عصير|mojito|موهيتو|peach|خوخ|berry|توت|mango|مانجو|orange|برتقال/.test(s))return "glass";
+ if(/gelato|ice.?cream|جيلاتو|كريم/.test(s))return "cream";
+ if(/cake|dessert|حلا|حلوي|كيك|pudding|بودنق|brownie|براوني|cheesecake|تشيز|tiramisu|تيراميسو|caramel|كراميل|bundt|بندت|croissant|كرواسان|danish|دانش|pastry|فطير|toffee|توفي|cookie|كوكي|choco|شوكو|رطب|تمر/.test(s))return "cake";
+ if(/sandwich|سندوي|focaccia|فوكاتشا|burger|برجر|wrap|توست|toast|bagel/.test(s))return "food";
+ if(/iced|ice|آيس|بارد|cold|مثلج/.test(s))return "glass";
+ return "coffee";}
+function ico(it){return '<svg class="it-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+ICO[iconKey(it)]+'</svg>';}
+const nav=document.getElementById("navrow"), menu=document.getElementById("menu"), grow=document.getElementById("grow");
+grow.innerHTML=GALLERY.map(g=>`<figure><img src="${g.src}" alt="" loading="lazy" decoding="async"><figcaption>${esc(g.cap)}</figcaption></figure>`).join("");
+nav.innerHTML=MENU.map(s=>`<a class="nav-pill" href="#${s.id}" data-id="${s.id}">${esc(s.en)}<span class="a">${esc(s.ar)}</span></a>`).join("");
+function row(it){
+  if(it.img){return `<div class="feat"><img src="${it.img}" alt="${esc(it.en)}" loading="lazy" decoding="async"><div class="fx"><div class="fx-top"><span class="fx-en">${esc(it.en)}</span>${fprice(it.p)}</div><div class="fx-ar" lang="ar" dir="rtl">${esc(it.ar)}</div>${it.d?`<div class="fx-d">${esc(it.d)}</div>`:""}${badges(it)}</div></div>`;}
+  return `<div class="item"><div class="it-top">${ico(it)}<span class="it-en">${esc(it.en)}</span><span class="lead"></span>${price(it.p)}</div><div class="it-ar" lang="ar" dir="rtl">${esc(it.ar)}</div>${it.d?`<div class="it-desc"><span class="en">${esc(it.d)}</span>${it.dar?`<span class="ar" lang="ar" dir="rtl">${esc(it.dar)}</span>`:""}</div>`:""}${badges(it)}</div>`;
+}
+menu.innerHTML=MENU.map(s=>`<section id="${s.id}"><div class="sec-head"><div class="sec-kicker" lang="ar" dir="rtl">${esc(s.ar)}</div><h2 class="sec-title">${esc(s.en)}</h2>${s.note?`<div class="sec-note">${esc(s.note)}</div>`:""}<div class="sec-rule"></div></div>${s.banner?`<div class="banner"><img src="${s.banner}" alt="" loading="lazy" decoding="async"><span class="bcap">${esc(s.bannerCap||"")}</span></div>`:""}${s.items.map(row).join("")}</section>`).join("");
+const rev=[...document.querySelectorAll('.item,.feat')];
+if('IntersectionObserver' in window){const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -6% 0px'});rev.forEach(el=>io.observe(el));}else{rev.forEach(el=>el.classList.add('in'));}
+setTimeout(()=>rev.forEach(el=>el.classList.add('in')),1800);
+const pills=[...document.querySelectorAll('.nav-pill')];
+if('IntersectionObserver' in window){const spy=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){pills.forEach(p=>p.classList.toggle('on',p.dataset.id===e.target.id));const on=nav.querySelector('.nav-pill.on');if(on)on.scrollIntoView({inline:'center',block:'nearest',behavior:(matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth')});}})},{rootMargin:'-45% 0px -50% 0px'});
+MENU.forEach(s=>spy.observe(document.getElementById(s.id)));}
+const shareText="GONIA 🤍 انضمّ إلينا لنصنع أجمل اللحظات.";
+function toast(m){const t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),1500)}
+document.getElementById("shareBtn").onclick=()=>{const url=location.href;if(navigator.share){navigator.share({title:"GONIA",text:shareText,url}).catch(()=>{});}else{window.open("https://wa.me/?text="+encodeURIComponent(shareText+" "+url),"_blank");}};
+document.getElementById("copyBtn").onclick=()=>{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(location.href).then(()=>toast("تم نسخ الرابط ✓")).catch(()=>toast(location.href))}else{toast(location.href)}};
+</script>
+<script>(function(){
+var hero=document.querySelector('.hero'),sun=document.getElementById('gonSun'),hint=document.getElementById('gonHint');
+if(!hero||!sun)return;
+var reduce=matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+var t=0.62,drag=false,touched=false,raf=0;
+function set(){var s=Math.sin(t*Math.PI),low=1-s,dir=t-0.5;
+hero.style.setProperty('--sun-x',(8+t*84).toFixed(2)+'%');
+hero.style.setProperty('--sun-y',(34-s*26).toFixed(2)+'%');
+hero.style.setProperty('--warm',(0.32+low*0.5).toFixed(3));
+hero.style.setProperty('--shdx',(-dir*74).toFixed(1)+'px');
+hero.style.setProperty('--shsl',(0.68+low*1.7).toFixed(2));}
+set();
+function fromX(cx){var r=hero.getBoundingClientRect();t=Math.max(0,Math.min(1,(cx-r.left)/r.width));set();}
+function stop(){if(raf){cancelAnimationFrame(raf);raf=0;}}
+function engage(){touched=true;stop();if(hint)hint.classList.add('gone');}
+sun.addEventListener('pointerdown',function(e){drag=true;engage();try{sun.setPointerCapture(e.pointerId);}catch(_){}e.preventDefault();});
+addEventListener('pointermove',function(e){if(drag)fromX(e.clientX);});
+addEventListener('pointerup',function(){drag=false;});
+sun.addEventListener('keydown',function(e){if(e.key==='ArrowLeft'||e.key==='ArrowDown'){t=Math.max(0,t-0.06);set();engage();e.preventDefault();}else if(e.key==='ArrowRight'||e.key==='ArrowUp'){t=Math.min(1,t+0.06);set();engage();e.preventDefault();}});
+if(!reduce){var t0=null;(function drift(ts){if(touched)return;if(t0==null)t0=ts;t=0.5+Math.sin((ts-t0)/11000*Math.PI)*0.24;set();raf=requestAnimationFrame(drift);})();}
+if(hint){setTimeout(function(){if(!touched&&hint)hint.classList.add('gone');},9000);}
+var mo=document.getElementById('gonMotes');
+if(mo&&!reduce){for(var i=0;i<9;i++){var d=document.createElement('div');d.className='gon-mote';var z=5+Math.random()*15;d.style.width=z+'px';d.style.height=z+'px';d.style.left=(Math.random()*100)+'%';d.style.bottom='-4vh';d.style.animationDuration=(9+Math.random()*9)+'s';d.style.animationDelay=(-Math.random()*12)+'s';mo.appendChild(d);}}
+var an=document.getElementById('gonAngles');
+if(an&&!reduce){for(var j=0;j<5;j++){var a=document.createElement('div');a.className='gon-angle';var s2=10+Math.random()*12;a.style.width=s2+'px';a.style.height=s2+'px';a.style.left=(6+Math.random()*88)+'%';a.style.bottom='-6vh';a.style.animationDuration=(13+Math.random()*10)+'s';a.style.animationDelay=(-Math.random()*16)+'s';an.appendChild(a);}}
+if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){hero.classList.toggle('gon-paused',!e.isIntersecting);if(!e.isIntersecting)stop();});},{threshold:0}).observe(hero);}
+})();</script></body></html>
