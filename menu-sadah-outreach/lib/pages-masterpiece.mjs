@@ -4,9 +4,30 @@
 // price stamps, motif particles, 4-accent rotation, ink/word/row animations.
 // Evidence rule holds: briefs carry mood words only — dishes/prices come from
 // the same vetted menu data as the luxe tier.
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import { CONTACT } from '../cafes.mjs';
 import { ART, artFor } from './pages-luxe.mjs';
 import { SCENES } from './scenes/index.mjs';
+
+/* ---------- VISUALS-FIRST law: per-cafe photo mode ----------
+   When dist/assets/photos/<slug>/ exists (photos land via MacBook PHOTO-MISSION),
+   pages switch to the cafe's OWN shots; when the folder is absent the shared-art
+   fallback renders exactly as before. meta.json format: [{file, shows, src}]. */
+const PHOTOS_DIR = fileURLToPath(new URL('../dist/assets/photos', import.meta.url));
+function cafePhotos(slug) {
+  if (!slug) return [];
+  const dir = PHOTOS_DIR + '/' + slug;
+  try {
+    if (!existsSync(dir)) return [];
+    const metaFile = dir + '/meta.json';
+    if (existsSync(metaFile)) {
+      const meta = JSON.parse(readFileSync(metaFile, 'utf8'));
+      if (Array.isArray(meta)) return meta.filter((m) => m && m.file);
+    }
+    return readdirSync(dir).filter((f) => /\.(jpe?g|png|webp|avif)$/i.test(f)).sort().map((file) => ({ file, shows: '', src: '' }));
+  } catch { return []; }
+}
 
 /* shared gold trio handed to every scene pack */
 const SCENE_GOLD = { gold: '#c79a3a', goldBright: '#e8c268', goldDeep: '#8a6a1f' };
@@ -215,6 +236,8 @@ export function masterpieceMenuPage(cafe, brief) {
   const sd = seedOf(cafe.slug || cafe.name);
   const M = MOTIFS[brief.motif] || MOTIFS.stars;
   const a = P.accent, a2 = P.accent2;
+  const shots = cafePhotos(cafe.slug); // per-cafe photo mode (VISUALS-FIRST law)
+  const shotSrc = (i) => esc('../assets/photos/' + cafe.slug + '/' + shots[i % shots.length].file);
 
   const roomFor = (cat) => (brief.rooms || []).find((r) => r.catEn && r.catEn.toLowerCase() === String(cat.cat).toLowerCase());
   const sigCat = cafe.menu.find((c) => /signature|توقيع/i.test(c.cat + c.catAr));
@@ -253,7 +276,7 @@ export function masterpieceMenuPage(cafe, brief) {
     <div class="cat-head">
       <div class="cat-art">
         <div class="cat-svg">${ART[artKey](P)}</div>
-        <img src="../assets/photos/${photoKey}.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
+        <img src="${shots.length ? shotSrc(ci) : `../assets/photos/${photoKey}.jpg`}" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
         ${r ? `<div class="room-eyebrow"><span class="ar">${esc(c.catAr)}</span><span class="en">${esc(c.cat)}</span></div>` : ''}
@@ -451,6 +474,20 @@ export function masterpieceMenuPage(cafe, brief) {
 
   /* ---- immersive scene pack: ${arch} ---- */
   ${SC ? SC.css : ''}
+${shots.length ? `
+  /* ---- brandshots: the cafe's OWN photos, pinned like polaroids ---- */
+  .brandshots{display:flex;justify-content:center;align-items:flex-start;gap:14px;margin-top:22px;position:relative;z-index:1;
+    opacity:0;animation:up .8s 1.15s forwards}
+  .bshot{position:relative;width:96px;margin:0;background:${P.bg1};border:1px solid var(--border-2);padding:6px 6px 16px;
+    box-shadow:4px 5px 0 ${P.deep}30}
+  .bshot img{display:block;width:100%;height:84px;object-fit:cover}
+  .bshot::before{content:"";position:absolute;top:-9px;left:50%;width:44px;height:16px;background:${R[1]}40;border-radius:2px;
+    transform:translateX(-50%) rotate(-3deg);backdrop-filter:blur(1px);z-index:2}
+  .bshot:nth-child(1){transform:rotate(-4deg)}
+  .bshot:nth-child(2){transform:rotate(2.5deg) translateY(7px)}
+  .bshot:nth-child(3){transform:rotate(-1.5deg) translateY(2px)}
+  @media(min-width:900px){.bshot{width:132px}.bshot img{height:116px}}
+  @media (prefers-reduced-motion: reduce){.brandshots{opacity:1!important;animation:none!important}}` : ''}
 
   @media (prefers-reduced-motion: reduce){
     *{animation:none!important;transition:none!important}
@@ -473,6 +510,7 @@ export function masterpieceMenuPage(cafe, brief) {
     <h1><span class="ar">${esc(cafe.nameAr)}</span><span class="en">${esc(cafe.name)}</span></h1>
     <div class="world"><span class="ar">✦ <b>${esc(brief.world?.ar || '')}</b> ✦</span><span class="en">✦ <b>${esc(brief.world?.en || '')}</b> ✦</span></div>
     <div class="heroline"><span class="ar">${esc(brief.heroAr || cafe.taglineAr)}</span><span class="en">${esc(brief.heroEn || cafe.tagline)}</span></div>
+    ${shots.length ? `<div class="brandshots" aria-hidden="true">${shots.slice(0, 3).map((s, i) => `<figure class="bshot"><img src="${shotSrc(i)}" alt="" loading="lazy" onerror="this.parentElement.remove()"></figure>`).join('')}</div>` : ''}
     <div class="meta">
       <span class="badge"><span class="ar">${esc(cafe.areaAr === 'الرياض' ? 'الرياض' : cafe.areaAr + ' · الرياض')}</span><span class="en">${esc(cafe.area === 'Riyadh' ? 'Riyadh' : cafe.area + ' · Riyadh')}</span></span>
       <span class="badge"><span class="ar">متوافق مع اشتراطات هيئة الغذاء والدواء</span><span class="en">SFDA-ready</span></span>
@@ -550,8 +588,9 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
   const SC = SCENES[brief.archetype] ? SCENES[brief.archetype](P, accentRotation(P), SCENE_GOLD) : null;
   const flavor = FLAVOR2[extras.type] || FLAVOR2.specialty_coffee;
   const sig = (extras.signature && extras.signature.length ? extras.signature[0] : null) || extras.sigMention || null;
-  // generic drink photos only fit coffee/tea-centric brands — others keep the .big-init + gradient look
-  const usePhotos = ['specialty_coffee', 'roastery', 'matcha_bar', 'tea_house'].includes(extras.type);
+  // per-cafe shots (VISUALS-FIRST law) always show; generic drink photos only fit coffee/tea-centric brands
+  const shots = cafePhotos(cafe.slug);
+  const usePhotos = shots.length > 0 || ['specialty_coffee', 'roastery', 'matcha_bar', 'tea_house'].includes(extras.type);
   const social = extras.social && /^@/.test(String(extras.social).trim()) ? String(extras.social).trim() : null;
   const rooms = (brief.rooms || []).slice(0, 3);
   const diary = (brief.diaryAr || [])[0];
