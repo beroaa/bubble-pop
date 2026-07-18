@@ -1,243 +1,250 @@
 {
- "formulaVersion": "2.11",
- "lessons": [
-  {
-   "id": 1,
-   "desc": "QA guard: price out of range",
-   "source": "test-bad",
-   "addedAt": 1784326089419
+  "formulaVersion": "2.11",
+  "lessons": [
+    {
+      "id": 1,
+      "desc": "QA guard: price out of range",
+      "source": "test-bad",
+      "addedAt": 1784326089419
+    },
+    {
+      "id": 2,
+      "desc": "Harvest filter miss: multi-branch chains (Namq, Wooden) slipped through — signature research now double-checks branch count",
+      "source": "overnight-signatures",
+      "addedAt": 1784329758917
+    },
+    {
+      "id": 3,
+      "desc": "Signature rule: only sourced items with real prices go on demo pages; price-unknown items stay off (never invent)",
+      "source": "overnight-signatures",
+      "addedAt": 1784329758917
+    },
+    {
+      "id": 4,
+      "desc": "Dedup upgrade: accent/containment fuzzy matching (Salam Café vs Salam Cafe, Breehant vs Breehant Roastery)",
+      "source": "wave3-merge",
+      "addedAt": 1784337349225
+    },
+    {
+      "id": 5,
+      "desc": "Fleet guard: workflow args may arrive as JSON string — parse both forms and refuse to run with an empty target list (silent no-op caught twice)",
+      "source": "top100-fleet-launch",
+      "addedAt": 1784365987956
+    },
+    {
+      "id": 6,
+      "desc": "Session web-search budget is finite (200/session) — size research fleets within budget; agents must return found:false when starved, never invent",
+      "source": "squadron3-budget",
+      "addedAt": 1784366975567
+    },
+    {
+      "at": 1784368803842,
+      "lesson": "Delivery apps (HungerStation/Jahez) 403 direct fetches — harvest dishes/prices from search SNIPPETS + fetchable aggregators (ksamenus.com, cafesriyadh.com, menus-sa, tayarmedia, restaurant guru, sao.sa). Collect photo-lead URLs for Mac-side download instead of fetching images here.",
+      "from": "swarm-10k"
+    },
+    {
+      "at": 1784370680516,
+      "lesson": "MacBook photo pipeline (verified): cafes’ own sites (Zid stores, WordPress, S3) + delivery/social og:image covers ARE fetchable on Mac; Instagram/TikTok are login/JS-walled (no yt-dlp = no video frames). Menus use 11 SHARED category keys at dist/assets/photos/<key>.jpg via <img onload->hasimg>; ONE real photo per key upgrades ALL luxe menus (no per-cafe slot in current template). Harvested 127 real photos from 52 cafes -> filled 10/11 keys; tea had no clean source so it stays illustrated (never fake it).",
+      "from": "photo-mission-mac"
+    },
+    {
+      "at": 1784371485175,
+      "lesson": "loading=lazy on a display:none img never loads (no box, never intersects) so onload/hasimg never fires — photo slots must load eagerly; hidden state via display toggle is fine only without lazy.",
+      "from": "photo-slot-bug"
+    },
+    {
+      "at": 1784383851113,
+      "lesson": "Detective panel verdict: data-elite is not visual-elite — emoji/SVG icons in signature cards read as placeholders and shared archetype items are recognizable across sibling menus. True purple needs per-cafe dish photos (Mac photo mission priority = the 16 purple cafes). Also caught: standard-tier medallion showed Latin initial in AR mode (fixed).",
+      "from": "menu-detectors"
+    },
+    {
+      "at": 1784389308379,
+      "lesson": "Renderer v5 (from recovered Beyt+RUSTIC masters): real Google Fonts work on the LIVE site (visitor browser loads them). Per-cafe font pairs, light-paper vs dark-world moods, motifs, entrance flavors, greetings, real-handle footers — personality per cafe, deterministic, zero invented facts.",
+      "from": "purple-factory-v5"
+    }
+  ],
+  "qa": {
+    "priceMin": 5,
+    "priceMax": 300,
+    "minHtmlBytes": 4000,
+    "requireArabic": true,
+    "requireDisclaimer": true
   },
-  {
-   "id": 2,
-   "desc": "Harvest filter miss: multi-branch chains (Namq, Wooden) slipped through — signature research now double-checks branch count",
-   "source": "overnight-signatures",
-   "addedAt": 1784329758917
-  },
-  {
-   "id": 3,
-   "desc": "Signature rule: only sourced items with real prices go on demo pages; price-unknown items stay off (never invent)",
-   "source": "overnight-signatures",
-   "addedAt": 1784329758917
-  },
-  {
-   "id": 4,
-   "desc": "Dedup upgrade: accent/containment fuzzy matching (Salam Café vs Salam Cafe, Breehant vs Breehant Roastery)",
-   "source": "wave3-merge",
-   "addedAt": 1784337349225
-  },
-  {
-   "id": 5,
-   "desc": "Fleet guard: workflow args may arrive as JSON string — parse both forms and refuse to run with an empty target list (silent no-op caught twice)",
-   "source": "top100-fleet-launch",
-   "addedAt": 1784365987956
-  },
-  {
-   "id": 6,
-   "desc": "Session web-search budget is finite (200/session) — size research fleets within budget; agents must return found:false when starved, never invent",
-   "source": "squadron3-budget",
-   "addedAt": 1784366975567
-  },
-  {
-   "at": 1784368803842,
-   "lesson": "Delivery apps (HungerStation/Jahez) 403 direct fetches — harvest dishes/prices from search SNIPPETS + fetchable aggregators (ksamenus.com, cafesriyadh.com, menus-sa, tayarmedia, restaurant guru, sao.sa). Collect photo-lead URLs for Mac-side download instead of fetching images here.",
-   "from": "swarm-10k"
-  },
-  {
-   "at": 1784370680516,
-   "lesson": "MacBook photo pipeline (verified): cafes’ own sites (Zid stores, WordPress, S3) + delivery/social og:image covers ARE fetchable on Mac; Instagram/TikTok are login/JS-walled (no yt-dlp = no video frames). Menus use 11 SHARED category keys at dist/assets/photos/<key>.jpg via <img onload->hasimg>; ONE real photo per key upgrades ALL luxe menus (no per-cafe slot in current template). Harvested 127 real photos from 52 cafes -> filled 10/11 keys; tea had no clean source so it stays illustrated (never fake it).",
-   "from": "photo-mission-mac"
-  },
-  {
-   "at": 1784371485175,
-   "lesson": "loading=lazy on a display:none img never loads (no box, never intersects) so onload/hasimg never fires — photo slots must load eagerly; hidden state via display toggle is fine only without lazy.",
-   "from": "photo-slot-bug"
-  },
-  {
-   "at": 1784383851113,
-   "lesson": "Detective panel verdict: data-elite is not visual-elite — emoji/SVG icons in signature cards read as placeholders and shared archetype items are recognizable across sibling menus. True purple needs per-cafe dish photos (Mac photo mission priority = the 16 purple cafes). Also caught: standard-tier medallion showed Latin initial in AR mode (fixed).",
-   "from": "menu-detectors"
-  },
-  {
-   "at": 1784389308379,
-   "lesson": "Renderer v5 (from recovered Beyt+RUSTIC masters): real Google Fonts work on the LIVE site (visitor browser loads them). Per-cafe font pairs, light-paper vs dark-world moods, motifs, entrance flavors, greetings, real-handle footers — personality per cafe, deterministic, zero invented facts.",
-   "from": "purple-factory-v5"
-  }
- ],
- "qa": {
-  "priceMin": 5,
-  "priceMax": 300,
-  "minHtmlBytes": 4000,
-  "requireArabic": true,
-  "requireDisclaimer": true
- },
- "runs": [
-  {
-   "at": 1784326089415,
-   "ms": 4,
-   "built": 1,
-   "failed": 1,
-   "total": 2
-  },
-  {
-   "at": 1784328276431,
-   "ms": 19,
-   "built": 31,
-   "failed": 0,
-   "total": 31
-  },
-  {
-   "at": 1784329222136,
-   "ms": 56,
-   "built": 98,
-   "failed": 0,
-   "total": 98
-  },
-  {
-   "at": 1784329759032,
-   "ms": 13,
-   "built": 11,
-   "failed": 0,
-   "total": 11
-  },
-  {
-   "at": 1784332949578,
-   "ms": 178,
-   "built": 323,
-   "failed": 0,
-   "total": 323
-  },
-  {
-   "at": 1784335110461,
-   "ms": 110,
-   "built": 205,
-   "failed": 0,
-   "total": 205
-  },
-  {
-   "at": 1784337349351,
-   "ms": 85,
-   "built": 173,
-   "failed": 0,
-   "total": 173
-  },
-  {
-   "at": 1784338901063,
-   "ms": 49,
-   "built": 108,
-   "failed": 0,
-   "total": 108
-  },
-  {
-   "at": 1784365988248,
-   "ms": 256,
-   "built": 100,
-   "failed": 0,
-   "total": 100
-  },
-  {
-   "at": 1784366087103,
-   "ms": 53,
-   "built": 100,
-   "failed": 0,
-   "total": 100
-  },
-  {
-   "at": 1784366275728,
-   "ms": 1021,
-   "built": 100,
-   "failed": 0,
-   "total": 100
-  },
-  {
-   "at": 1784366459085,
-   "ms": 1,
-   "built": 0,
-   "failed": 0,
-   "total": 0
-  },
-  {
-   "at": 1784366904717,
-   "ms": 52,
-   "built": 23,
-   "failed": 0,
-   "total": 23
-  },
-  {
-   "at": 1784366975663,
-   "ms": 28,
-   "built": 12,
-   "failed": 0,
-   "total": 12
-  },
-  {
-   "at": 1784367827290,
-   "ms": 442,
-   "built": 948,
-   "failed": 0,
-   "total": 948
-  },
-  {
-   "at": 1784367861503,
-   "ms": 279,
-   "built": 948,
-   "failed": 0,
-   "total": 948
-  },
-  {
-   "at": 1784368786091,
-   "ms": 86,
-   "built": 53,
-   "failed": 0,
-   "total": 53
-  },
-  {
-   "at": 1784371485306,
-   "ms": 172,
-   "built": 948,
-   "failed": 0,
-   "total": 948
-  },
-  {
-   "at": 1784375135998,
-   "ms": 764,
-   "built": 948,
-   "failed": 0,
-   "total": 948
-  },
-  {
-   "at": 1784378936782,
-   "ms": 1068,
-   "built": 948,
-   "failed": 0,
-   "total": 948
-  },
-  {
-   "at": 1784378978128,
-   "ms": 188,
-   "built": 948,
-   "failed": 0,
-   "total": 948
-  },
-  {
-   "at": 1784380227342,
-   "ms": 11,
-   "built": 10,
-   "failed": 0,
-   "total": 10
-  },
-  {
-   "at": 1784383850821,
-   "ms": 249,
-   "built": 948,
-   "failed": 0,
-   "total": 948
-  },
-  {
-   "at": 1784389150075,
-   "ms": 222,
-   "built": 948,
-   "failed": 0,
-   "total": 948
-  }
- ]
+  "runs": [
+    {
+      "at": 1784326089415,
+      "ms": 4,
+      "built": 1,
+      "failed": 1,
+      "total": 2
+    },
+    {
+      "at": 1784328276431,
+      "ms": 19,
+      "built": 31,
+      "failed": 0,
+      "total": 31
+    },
+    {
+      "at": 1784329222136,
+      "ms": 56,
+      "built": 98,
+      "failed": 0,
+      "total": 98
+    },
+    {
+      "at": 1784329759032,
+      "ms": 13,
+      "built": 11,
+      "failed": 0,
+      "total": 11
+    },
+    {
+      "at": 1784332949578,
+      "ms": 178,
+      "built": 323,
+      "failed": 0,
+      "total": 323
+    },
+    {
+      "at": 1784335110461,
+      "ms": 110,
+      "built": 205,
+      "failed": 0,
+      "total": 205
+    },
+    {
+      "at": 1784337349351,
+      "ms": 85,
+      "built": 173,
+      "failed": 0,
+      "total": 173
+    },
+    {
+      "at": 1784338901063,
+      "ms": 49,
+      "built": 108,
+      "failed": 0,
+      "total": 108
+    },
+    {
+      "at": 1784365988248,
+      "ms": 256,
+      "built": 100,
+      "failed": 0,
+      "total": 100
+    },
+    {
+      "at": 1784366087103,
+      "ms": 53,
+      "built": 100,
+      "failed": 0,
+      "total": 100
+    },
+    {
+      "at": 1784366275728,
+      "ms": 1021,
+      "built": 100,
+      "failed": 0,
+      "total": 100
+    },
+    {
+      "at": 1784366459085,
+      "ms": 1,
+      "built": 0,
+      "failed": 0,
+      "total": 0
+    },
+    {
+      "at": 1784366904717,
+      "ms": 52,
+      "built": 23,
+      "failed": 0,
+      "total": 23
+    },
+    {
+      "at": 1784366975663,
+      "ms": 28,
+      "built": 12,
+      "failed": 0,
+      "total": 12
+    },
+    {
+      "at": 1784367827290,
+      "ms": 442,
+      "built": 948,
+      "failed": 0,
+      "total": 948
+    },
+    {
+      "at": 1784367861503,
+      "ms": 279,
+      "built": 948,
+      "failed": 0,
+      "total": 948
+    },
+    {
+      "at": 1784368786091,
+      "ms": 86,
+      "built": 53,
+      "failed": 0,
+      "total": 53
+    },
+    {
+      "at": 1784371485306,
+      "ms": 172,
+      "built": 948,
+      "failed": 0,
+      "total": 948
+    },
+    {
+      "at": 1784375135998,
+      "ms": 764,
+      "built": 948,
+      "failed": 0,
+      "total": 948
+    },
+    {
+      "at": 1784378936782,
+      "ms": 1068,
+      "built": 948,
+      "failed": 0,
+      "total": 948
+    },
+    {
+      "at": 1784378978128,
+      "ms": 188,
+      "built": 948,
+      "failed": 0,
+      "total": 948
+    },
+    {
+      "at": 1784380227342,
+      "ms": 11,
+      "built": 10,
+      "failed": 0,
+      "total": 10
+    },
+    {
+      "at": 1784383850821,
+      "ms": 249,
+      "built": 948,
+      "failed": 0,
+      "total": 948
+    },
+    {
+      "at": 1784389150075,
+      "ms": 222,
+      "built": 948,
+      "failed": 0,
+      "total": 948
+    },
+    {
+      "at": 1784389449743,
+      "ms": 250,
+      "built": 948,
+      "failed": 0,
+      "total": 948
+    }
+  ]
 }
