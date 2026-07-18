@@ -1,5 +1,5 @@
 window.BUILDS_STATE = {
- "generatedAt": 1784370680566,
+ "generatedAt": 1784372509777,
  "builds": [
   {
    "id": "b1",
@@ -50,6 +50,15 @@ window.BUILDS_STATE = {
    "note": "harvested 147 leads -> 10/11 shared category keys filled",
    "startedAt": 1784369697014,
    "result": "10/11 shared photo keys filled from 127 real cafe photos (52 cafes); tea stays illustrated; 3 before/after screenshots captured"
+  },
+  {
+   "id": "b6",
+   "name": "GAME-OS STUDIO-30 🎮 — 30-agent build: all 948 menus fused into ClientOS as a game",
+   "status": "running",
+   "pct": 10,
+   "etaAt": 1784375209777,
+   "note": "Wave 1: 12 design specialists deployed",
+   "startedAt": 1784372322777
   }
  ]
 };
