@@ -1,5 +1,5 @@
 window.BUILDS_STATE = {
- "generatedAt": 1784379896606,
+ "generatedAt": 1784379933465,
  "builds": [
   {
    "id": "b1",
@@ -149,7 +149,7 @@ window.BUILDS_STATE = {
    "id": "b9",
    "name": "NIGHT-OPS 🌙 — last 21 bare cafes researched + objection scripts + follow-up buttons in cockpit",
    "status": "running",
-   "pct": 40,
+   "pct": 60,
    "etaAt": 1784381510992,
    "note": "deploying final recon squad",
    "startedAt": 1784379830993,
@@ -157,6 +157,10 @@ window.BUILDS_STATE = {
     {
      "at": 1784379896543,
      "msg": "Cockpit upgraded: Day-2 nudge + Day-5 goodbye buttons per cafe"
+    },
+    {
+     "at": 1784379933418,
+     "msg": "Objection war-room + voice-note script written"
     }
    ]
   }
