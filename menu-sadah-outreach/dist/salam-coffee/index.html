@@ -10,11 +10,11 @@
 <style>
   :root{--bg-0:#16100e;--bg-1:#211917;--bg-2:#2c2321;--border-1:#3a2b27;--border-2:#593e36;
     --text-1:#f2eeed;--text-2:#cabeba;--text-3:#94847f;--accent:#c17c67;--accent-2:#d9b38c;--accent-soft:#c17c6722;
-    --radius:16px;--shadow:0 6px 16px #00000080, 0 16px 40px #00000059}
+    --sa:#c17c67;--sa2:#cab87d;--radius:16px;--shadow:0 6px 16px #00000080, 0 16px 40px #00000059}
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{font-family:'Mada','Nunito',sans-serif,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;
-    background:var(--bg-0) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Ccircle cx='24' cy='24' r='1.2' fill='%23c17c67' fill-opacity='.13'/%3E%3C/svg%3E");color:var(--text-1);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100svh}
+    background:var(--bg-0);color:var(--text-1);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100svh;overflow-x:hidden}
   body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
     background:radial-gradient(620px 420px at 50% -120px,#c17c6717,transparent 70%)}
   .wrap{max-width:560px;margin:0 auto;padding:0 18px 110px;position:relative;z-index:1}
@@ -22,71 +22,113 @@
   .lang-toggle{position:fixed;top:14px;inset-inline-end:14px;z-index:30;background:#211917d9;backdrop-filter:blur(10px);
     border:1px solid var(--border-2);color:var(--text-1);border-radius:999px;padding:8px 16px;font-size:13.5px;cursor:pointer}
 
-  .hero{position:relative;text-align:center;padding:76px 0 30px;overflow:hidden}
+  /* ---- hero: the doorway into the world ---- */
+  .hero{position:relative;text-align:center;padding:76px 0 26px;overflow:visible}
   .orb{position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:340px;height:340px;border-radius:50%;
     background:radial-gradient(circle,#c17c6730,transparent 65%);pointer-events:none}
-  .orb2{position:absolute;top:30px;left:12%;width:180px;height:180px;border-radius:50%;
-    background:radial-gradient(circle,#d9b38c1f,transparent 65%);pointer-events:none}
-  .medal{position:relative;width:104px;height:104px;margin:0 auto 18px;border-radius:50%;
+  .mote{position:absolute;pointer-events:none;z-index:0}
+  .mote{color:#d9b38c;animation:mtw 3.4s ease-in-out infinite}@keyframes mtw{0%,100%{opacity:.12;transform:scale(.7)}50%{opacity:.95;transform:scale(1.2)}}
+  .greet{color:var(--accent);font-size:13px;letter-spacing:.14em;margin-bottom:10px;opacity:0;animation:up .7s .1s forwards}
+  .medal{position:relative;width:104px;height:104px;margin:0 auto 16px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;
     background:radial-gradient(circle at 32% 24%,#ffffff2b,transparent 42%),radial-gradient(circle at 32% 28%,#c17c6742,#c17c6714 62%,transparent);
-    border:2px solid var(--accent);box-shadow:0 0 0 7px #c17c6714,0 0 34px #c17c6740,inset 0 1px 0 #ffffff33}
-  .medal::after{content:"";position:absolute;inset:6px;border-radius:50%;border:1px solid #c17c6755}
+    border:2px solid var(--accent);box-shadow:0 0 0 7px #c17c6714,0 0 34px #c17c6740,inset 0 1px 0 #ffffff33;
+    animation:mfloat 5s ease-in-out infinite}
+  .medal::after{content:"";position:absolute;inset:6px;border-radius:inherit;border:1px solid #c17c6755}
+  .medal span{font-size:44px;font-weight:700;color:var(--accent);text-shadow:0 2px 12px #c17c6766}
   .medal span .ar{font-family:'Mada',sans-serif}
   .medal span .en{font-family:'Comfortaa',cursive}
-  .medal span{font-size:44px;font-weight:700;color:var(--accent);text-shadow:0 2px 12px #c17c6766}
-  .medal{animation:mfloat 5s ease-in-out infinite}
   @keyframes mfloat{50%{transform:translateY(-6px)}}
-  h1{font-size:34px;letter-spacing:-.01em;line-height:1.2}
+  h1{font-size:36px;letter-spacing:-.01em;line-height:1.2}
   h1 .ar{font-family:'Mada',sans-serif}
   h1 .en{font-family:'Comfortaa',cursive}
-  .tagline{color:var(--text-2);margin-top:8px;font-size:15.5px}
-  .meta{margin-top:12px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+  /* gradient-clip only AFTER word entrance — transformed child spans break background-clip:text in Chrome */
+  h1.shimmer{background:linear-gradient(90deg,var(--text-1) 30%,#c17c67 48%,#d9b38c 52%,var(--text-1) 70%);background-size:240% 100%;
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:sh 5s .3s infinite}
+  @keyframes sh{0%{background-position:130% 0}100%{background-position:-130% 0}}
+  h1 .w{display:inline-block;opacity:0;animation:wordin .55s cubic-bezier(.2,1.2,.4,1) forwards}
+  @keyframes wordin{0%{opacity:0;transform:translateY(14px) scale(.94)}100%{opacity:1;transform:none}}
+  .world{margin-top:10px;color:var(--text-3);font-size:13px;letter-spacing:.08em;opacity:0;animation:up .7s .7s forwards}
+  .world b{color:#cab87d;font-weight:600}
+  .heroline{margin-top:8px;color:var(--text-2);font-size:19px;line-height:1.5;opacity:0;animation:up .8s 1s forwards}
+  .heroline .ar{font-family:'Mada',sans-serif}
+  .heroline .en{font-family:'Comfortaa',cursive}
+  .meta{margin-top:14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;opacity:0;animation:up .7s 1.25s forwards}
   .badge{background:var(--accent-soft);border:1px solid #c17c6766;color:var(--accent);border-radius:999px;padding:4px 14px;font-size:12px;letter-spacing:.05em}
-  .hrule{display:flex;align-items:center;gap:12px;margin:26px auto 0;max-width:280px;color:var(--accent)}
-  .hrule::before,.hrule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,#c17c6788)}
-  .hrule::after{background:linear-gradient(90deg,#c17c6788,transparent)}
+  @keyframes up{0%{opacity:0;transform:translateY(12px)}100%{opacity:1;transform:none}}
 
   .chips{display:flex;gap:8px;overflow-x:auto;padding:14px 2px;position:sticky;top:0;z-index:20;
     background:linear-gradient(#16100ef2 78%,transparent);backdrop-filter:blur(8px);scrollbar-width:none}
   .chips::-webkit-scrollbar{display:none}
   .chip{flex:0 0 auto;text-decoration:none;color:var(--text-2);background:#211917cc;border:1px solid var(--border-1);
-    border-radius:999px;padding:9px 18px;font-size:14px;transition:all .2s}
-  .chip:hover{color:var(--accent);border-color:var(--accent);box-shadow:0 0 14px #c17c6733}
+    border-radius:999px;padding:9px 16px;font-size:13.5px;transition:all .2s,transform .18s}
+  .chip:hover{color:var(--accent);border-color:var(--accent);box-shadow:0 0 14px #c17c6733;transform:translateY(-2px)}
 
+  /* ---- signatures with price STAMPS ---- */
   .sig{margin-top:26px;background:linear-gradient(180deg,#c17c6714,transparent 90%);border:1px solid #c17c6744;
     border-radius:22px;padding:20px 16px 18px;position:relative}
-  .sig-ribbon{text-align:center;color:var(--accent);letter-spacing:.14em;font-size:13px;margin-bottom:16px;font-weight:700}
+  .sig-ribbon{text-align:center;color:var(--sa);letter-spacing:.14em;font-size:13px;margin-bottom:16px;font-weight:700}
   .sig-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
-  .sig-card{background:var(--bg-1);border:1px solid var(--border-2);border-radius:var(--radius);padding:14px 12px;text-align:center;box-shadow:var(--shadow)}
+  .sig-card{background:var(--bg-1);border:1px solid var(--border-2);border-radius:var(--radius);padding:14px 12px 16px;text-align:center;
+    box-shadow:var(--shadow);animation:sfloat 4.6s ease-in-out infinite;position:relative}
+  .sig-card:nth-child(2){animation-delay:1.1s}.sig-card:nth-child(3){animation-delay:2.2s}
+  @keyframes sfloat{50%{transform:translateY(-5px)}}
   .sig-art{width:74px;height:74px;margin:0 auto 8px}
   .sig-art svg{width:100%;height:100%;filter:drop-shadow(0 6px 14px #c17c6759)}
   .sig-name{font-size:14.5px;font-weight:600;line-height:1.35}
-  .sig-price{margin-top:6px;color:var(--accent);font-weight:800;font-size:17px}
+  .stamp{display:inline-flex;align-items:baseline;gap:3px;margin-top:8px;padding:3px 12px;border:1.7px solid var(--sa);
+    border-radius:999px;color:var(--sa);font-weight:800;font-size:16px;transform:rotate(-4deg);
+    box-shadow:0 0 0 3px #c17c670f}
+  .reveal.in .stamp{animation:pstamp .5s cubic-bezier(.2,1.5,.4,1) both .35s}
+  @keyframes pstamp{0%{opacity:0;transform:rotate(-14deg) scale(1.6)}100%{opacity:1;transform:rotate(-4deg) scale(1)}}
   .sar{font-size:11px}
 
+  /* ---- rooms ---- */
   .cat{margin-top:34px}
   .cat-head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
   .cat-art{position:relative;width:76px;height:76px;flex:0 0 auto;border-radius:18px;overflow:hidden;
-    border:1px solid var(--border-2);background:var(--bg-1);box-shadow:var(--shadow)}
+    border:1px solid var(--border-2);background:var(--bg-1);box-shadow:var(--shadow);transition:transform .25s}
+  .cat-art:hover{transform:rotate(-3deg) scale(1.05)}
   .cat-art .cat-svg{position:absolute;inset:8px}
   .cat-art .cat-svg svg{filter:drop-shadow(0 5px 12px #c17c674d)}
   .cat-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
   .cat-art.hasimg img{display:block}
-  .cat-title{flex:1}
-  .cat-title h2{color:var(--accent);font-size:19px;letter-spacing:.04em}
-  .cat-title h2 .ar{font-family:'Mada',sans-serif}
-  .cat-title h2 .en{font-family:'Comfortaa',cursive}
-  .rule{display:flex;align-items:center;gap:10px;color:#c17c6788;font-size:10px;margin-top:6px}
-  .rule::before{content:"";width:46px;height:1px;background:#c17c6766}
-  .rule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,#c17c6744,transparent)}
+  .cat-title{flex:1;min-width:0}
+  .room-eyebrow{color:var(--text-3);font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:3px}
+  .room-h2{color:var(--sa);font-size:22px;line-height:1.3}
+  .room-h2 .ar{font-family:'Mada',sans-serif}
+  .room-h2 .en{font-family:'Comfortaa',cursive}
+  .inkline{height:2px;margin-top:7px;border-radius:2px;background:linear-gradient(90deg,var(--sa),var(--sa2),transparent);
+    transform:scaleX(0);transform-origin:0 0;transition:transform .8s cubic-bezier(.2,.8,.2,1) .15s}
+  [dir="rtl"] .inkline{transform-origin:100% 0}
+  .reveal.in .inkline{transform:scaleX(1)}
 
   .items{background:#211917d9;border:1px solid var(--border-1);border-radius:20px;padding:6px 18px;box-shadow:var(--shadow)}
   .item{display:flex;align-items:baseline;gap:10px;padding:15px 0;border-bottom:1px solid #2c232199}
   .item:last-child{border-bottom:none}
   .item-name{font-size:16px}
   .dots{flex:1;border-bottom:1px dotted var(--border-2);transform:translateY(-4px)}
-  .price{color:var(--accent);font-weight:800;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .price{color:var(--sa);font-weight:800;white-space:nowrap;font-variant-numeric:tabular-nums;display:flex;align-items:baseline;gap:6px}
+  .pdot{width:6px;height:6px;border-radius:50%;background:var(--sa);opacity:0;transform:scale(0)}
+  .reveal.in .pdot{animation:dotpop .45s cubic-bezier(.2,1.6,.4,1) forwards}
+  @keyframes dotpop{0%{opacity:0;transform:scale(0)}70%{opacity:1;transform:scale(1.5)}100%{opacity:.9;transform:scale(1)}}
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.in .item{opacity:0;animation:itemin .45s forwards}
+  .reveal.in .item:nth-child(1){animation-delay:.05s}.reveal.in .item:nth-child(2){animation-delay:.12s}
+  .reveal.in .item:nth-child(3){animation-delay:.19s}.reveal.in .item:nth-child(4){animation-delay:.26s}
+  .reveal.in .item:nth-child(5){animation-delay:.33s}.reveal.in .item:nth-child(6){animation-delay:.4s}
+  .reveal.in .item:nth-child(n+7){animation-delay:.47s}
+  @keyframes itemin{0%{opacity:0;transform:translateX(-8px)}100%{opacity:1;transform:none}}
+  .reveal.in .pdot{animation-delay:.55s}
+
+  /* ---- diary notes (the human hand) ---- */
+  .diary{position:relative;margin:26px auto 0;max-width:420px;background:#211917;border:1px solid var(--border-1);
+    border-radius:4px;padding:16px 20px 14px;color:var(--text-2);font-size:15.5px;text-align:center;
+    font-family:'Mada',sans-serif;transform:rotate(-1.6deg);box-shadow:var(--shadow)}
+  .diary:nth-of-type(odd){transform:rotate(1.4deg)}
+  .diary .tape{position:absolute;top:-9px;left:50%;transform:translateX(-50%) rotate(-2deg);width:88px;height:20px;
+    border-radius:2px;backdrop-filter:blur(1px)}
 
   .demo-note{margin-top:34px;background:var(--accent-soft);border:1px dashed #c17c6788;border-radius:14px;
     padding:13px 16px;font-size:13.5px;color:var(--text-2);text-align:center}
@@ -94,32 +136,25 @@
   .footer a{color:var(--accent);text-decoration:none}
   
 
-  .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}.reveal.in{opacity:1;transform:none}
-  .greet{color:var(--accent);font-size:13px;letter-spacing:.14em;margin-bottom:10px;opacity:0;animation:up .7s .1s forwards}
-  @keyframes up{0%{opacity:0;transform:translateY(12px)}100%{opacity:1;transform:none}}
-  /* ALIVE pack: shimmer name, word-stagger, sparkles, floating sig cards, item pops */
-  h1{background:linear-gradient(90deg,var(--text-1) 30%,#c17c67 48%,#d9b38c 52%,var(--text-1) 70%);background-size:240% 100%;
-    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:sh 5s 1.2s infinite}
-  @keyframes sh{0%{background-position:130% 0}100%{background-position:-130% 0}}
-  h1 .w{display:inline-block;opacity:0;animation:wordin .55s cubic-bezier(.2,1.2,.4,1) forwards}
-  @keyframes wordin{0%{opacity:0;transform:translateY(14px) scale(.94)}100%{opacity:1;transform:none}}
-  .tagline{opacity:0;animation:up .7s .8s forwards}
-  .spark{position:absolute;color:#d9b38c;animation:tw 3.4s ease-in-out infinite;pointer-events:none;z-index:0}
-  @keyframes tw{0%,100%{opacity:.15;transform:scale(.7)}50%{opacity:.9;transform:scale(1.15)}}
-  .sig-card{animation:sfloat 4.6s ease-in-out infinite}
-  .sig-card:nth-child(2){animation-delay:1.1s}.sig-card:nth-child(3){animation-delay:2.2s}
-  @keyframes sfloat{50%{transform:translateY(-5px)}}
-  .sig-price{animation:pricepulse 3s ease-in-out infinite}
-  @keyframes pricepulse{50%{text-shadow:0 0 14px #c17c6788}}
-  .reveal.in .item{opacity:0;animation:itemin .45s forwards}
-  .reveal.in .item:nth-child(1){animation-delay:.05s}.reveal.in .item:nth-child(2){animation-delay:.12s}
-  .reveal.in .item:nth-child(3){animation-delay:.19s}.reveal.in .item:nth-child(4){animation-delay:.26s}
-  .reveal.in .item:nth-child(5){animation-delay:.33s}.reveal.in .item:nth-child(6){animation-delay:.4s}
-  .reveal.in .item:nth-child(n+7){animation-delay:.47s}
-  @keyframes itemin{0%{opacity:0;transform:translateX(-8px)}100%{opacity:1;transform:none}}
-  .chip{transition:all .2s,transform .18s}.chip:hover{transform:translateY(-2px) scale(1.04)}
-  .cat-art{transition:transform .25s}.cat-art:hover{transform:rotate(-3deg) scale(1.05)}
-  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}.medal{animation:none}}
+  /* ---- architecture pack: poster-dark ---- */
+  
+  h1{font-size:42px;letter-spacing:.02em}
+  h1 .en{text-transform:uppercase;letter-spacing:.1em}
+  .room-h2{font-size:26px;letter-spacing:.03em}
+  .room-h2 .en{text-transform:uppercase;letter-spacing:.12em;font-size:.82em}
+  .items{border-radius:10px;border-width:1px}
+  .sig-card,.cat-art{border-radius:10px}
+  .sep-poster{display:flex;align-items:center;gap:12px;margin:32px 0 -8px;color:#cab87d}
+  .sep-poster::before,.sep-poster::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,#cab87d66,transparent)}
+  .heroline{font-size:21px}
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(900px 500px at 50% 110%,#c17c6712,transparent 70%)}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none!important;transition:none!important}
+    .reveal,.reveal.in .item,.heroline,.world,.meta,.greet,h1 .w{opacity:1!important;transform:none!important}
+    .pdot{opacity:.9!important;transform:scale(1)!important}
+    .inkline{transform:scaleX(1)!important}
+  }
 </style>
 </head>
 <body>
@@ -127,34 +162,30 @@
 <div class="wrap">
   <header class="hero">
     <div class="orb"></div>
-    <div class="orb2"></div>
-    <span class="spark" style="top:18%;left:12%;font-size:11px">✦</span>
-    <span class="spark" style="top:30%;right:10%;font-size:14px;animation-delay:1.1s">✦</span>
-    <span class="spark" style="top:64%;left:8%;font-size:9px;animation-delay:2s">✦</span>
-    <span class="spark" style="top:12%;right:24%;font-size:8px;animation-delay:.6s">✦</span>
-    <span class="spark" style="top:70%;right:16%;font-size:12px;animation-delay:2.7s">✦</span>
-    <div class="greet"><span class="ar">يسعدنا وجودكم ✦</span><span class="en">So glad you are here ✦</span></div>
+    <span class="mote" style="left:14%;top:10%;font-size:4px;animation-delay:0s">✦</span><span class="mote" style="left:78%;top:16%;font-size:3px;animation-delay:0.7s">✧</span><span class="mote" style="left:8%;top:46%;font-size:6px;animation-delay:1.4s">⋆</span><span class="mote" style="left:86%;top:52%;font-size:7px;animation-delay:2.0999999999999996s">☾</span><span class="mote" style="left:24%;top:74%;font-size:8px;animation-delay:2.8s">✦</span><span class="mote" style="left:68%;top:80%;font-size:8px;animation-delay:3.5s">✧</span><span class="mote" style="left:46%;top:8%;font-size:8px;animation-delay:0.1999999999999993s">⋆</span><span class="mote" style="left:90%;top:30%;font-size:8px;animation-delay:0.8999999999999995s">☾</span>
+    <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
     <div class="medal"><span><span class="ar">ك</span><span class="en">S</span></span></div>
     <h1><span class="ar">كوفي سلام</span><span class="en">Salam Coffee</span></h1>
-    <div class="tagline"><span class="ar">قهوة مختصة تُحضّر بعناية</span><span class="en">Specialty coffee, brewed with care</span></div>
+    <div class="world"><span class="ar">✦ <b>حوش هادي وقت ما يسكن الليل</b> ✦</span><span class="en">✦ <b>a quiet courtyard where the night settles</b> ✦</span></div>
+    <div class="heroline"><span class="ar">السلام هنا ينسكب قبل ما ينقال</span><span class="en">the greeting here is poured, not said</span></div>
     <div class="meta">
       <span class="badge"><span class="ar">الرياض</span><span class="en">Al Malqa · Riyadh</span></span>
       <span class="badge"><span class="ar">متوافق مع اشتراطات هيئة الغذاء والدواء</span><span class="en">SFDA-ready</span></span>
     </div>
-    <div class="hrule"><span>✦</span></div>
   </header>
-  <nav class="chips"><a class="chip" href="#cat-0"><span class="ar">البار الحار</span><span class="en">Espresso Bar</span></a><a class="chip" href="#cat-1"><span class="ar">بار الترشيح</span><span class="en">Filter &amp; Slow Bar</span></a><a class="chip" href="#cat-2"><span class="ar">البار البارد</span><span class="en">Cold Bar</span></a><a class="chip" href="#cat-3"><span class="ar">الركن السعودي</span><span class="en">Saudi Corner</span></a><a class="chip" href="#cat-4"><span class="ar">اللقيمات والحلا</span><span class="en">Bites &amp; Sweets</span></a></nav>
+  <nav class="chips"><a class="chip" href="#cat-0"><span class="ar">أول السلام فنجان حار</span><span class="en">peace begins with a hot shot</span></a><a class="chip" href="#cat-1"><span class="ar">هنا الوقت يمشي على كيفه</span><span class="en">where time slows to a drip</span></a><a class="chip" href="#cat-2"><span class="ar">برد يطفي حر النهار</span><span class="en">cold that calms the day</span></a><a class="chip" href="#cat-3"><span class="ar">الفنجال يبدأ بسلام</span><span class="en">every dallah starts with salam</span></a><a class="chip" href="#cat-4"><span class="ar">لقمة حلوة قبل الوداع</span><span class="en">a sweet word before goodbye</span></a></nav>
   
   
-  <section class="cat reveal" id="cat-0">
+  <section class="cat reveal" id="cat-0" style="--sa:#c17c67;--sa2:#cab87d">
     <div class="cat-head">
       <div class="cat-art">
         <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ge" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c17c67"/><stop offset="1" stop-color="#744334"/></linearGradient></defs><path d="M30 55h52v28a14 14 0 0 1-14 14H44a14 14 0 0 1-14-14z" fill="url(#ge)"/><path d="M82 58h10a10 10 0 0 1 0 20h-8" fill="none" stroke="#c17c67" stroke-width="5"/><ellipse cx="56" cy="55" rx="26" ry="5" fill="#d9b38c"/><path d="M46 20c-4 8 4 10 0 18M60 16c-4 8 4 10 0 18M74 20c-4 8 4 10 0 18" stroke="#cabeba" stroke-width="4" fill="none" stroke-linecap="round" opacity=".8"/><ellipse cx="56" cy="104" rx="30" ry="4" fill="#000" opacity=".3"/></svg></div>
         <img src="../assets/photos/espresso.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <h2><span class="ar">البار الحار</span><span class="en">Espresso Bar</span></h2>
-        <div class="rule"><span>✦</span></div>
+        <div class="room-eyebrow"><span class="ar">البار الحار</span><span class="en">Espresso Bar</span></div>
+        <h2 class="room-h2"><span class="ar">أول السلام فنجان حار</span><span class="en">peace begins with a hot shot</span></h2>
+        <div class="inkline"></div>
       </div>
     </div>
     <div class="items">
@@ -162,54 +193,55 @@
       <div class="item">
         <div class="item-name"><span class="ar">إسبريسو</span><span class="en">Espresso</span></div>
         <div class="dots"></div>
-        <div class="price">12<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span>12<span class="sar"> ﷼</span></div>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">ماكياتو</span><span class="en">Macchiato</span></div>
         <div class="dots"></div>
-        <div class="price">13<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span>13<span class="sar"> ﷼</span></div>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كورتادو</span><span class="en">Cortado</span></div>
         <div class="dots"></div>
-        <div class="price">15<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span>15<span class="sar"> ﷼</span></div>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">فلات وايت</span><span class="en">Flat White</span></div>
         <div class="dots"></div>
-        <div class="price">17<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span>17<span class="sar"> ﷼</span></div>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كابتشينو</span><span class="en">Cappuccino</span></div>
         <div class="dots"></div>
-        <div class="price">17<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span>17<span class="sar"> ﷼</span></div>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">لاتيه</span><span class="en">Latte</span></div>
         <div class="dots"></div>
-        <div class="price">18<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span>18<span class="sar"> ﷼</span></div>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">سبانيش لاتيه</span><span class="en">Spanish Latte</span></div>
         <div class="dots"></div>
-        <div class="price">20<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span>20<span class="sar"> ﷼</span></div>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">لاتيه فستق</span><span class="en">Pistachio Latte</span></div>
         <div class="dots"></div>
-        <div class="price">23<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span>23<span class="sar"> ﷼</span></div>
       </div>
     </div>
-  </section>
-  <section class="cat reveal" id="cat-1">
+  </section><div class="sep sep-poster" aria-hidden="true"><span>◆</span></div>
+  <section class="cat reveal" id="cat-1" style="--sa:#cab87d;--sa2:#bf7d9c">
     <div class="cat-head">
       <div class="cat-art">
         <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><path d="M28 30h64l-22 34h-20z" fill="none" stroke="#c17c67" stroke-width="5"/><path d="M40 36h40l-15 23h-10z" fill="#c17c67" opacity=".35"/><path d="M60 66v12" stroke="#cabeba" stroke-width="4" stroke-dasharray="2 6" stroke-linecap="round"/><path d="M36 84h48v6a16 16 0 0 1-16 16H52a16 16 0 0 1-16-16z" fill="#c17c67"/><path d="M84 86h8a8 8 0 0 1 0 16h-6" fill="none" stroke="#c17c67" stroke-width="4"/><ellipse cx="60" cy="108" rx="28" ry="4" fill="#000" opacity=".3"/></svg></div>
         <img src="../assets/photos/v60.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <h2><span class="ar">بار الترشيح</span><span class="en">Filter &amp; Slow Bar</span></h2>
-        <div class="rule"><span>✦</span></div>
+        <div class="room-eyebrow"><span class="ar">بار الترشيح</span><span class="en">Filter &amp; Slow Bar</span></div>
+        <h2 class="room-h2"><span class="ar">هنا الوقت يمشي على كيفه</span><span class="en">where time slows to a drip</span></h2>
+        <div class="inkline"></div>
       </div>
     </div>
     <div class="items">
@@ -217,39 +249,41 @@
       <div class="item">
         <div class="item-name"><span class="ar">في60 — محصول فردي</span><span class="en">V60 — Single Origin</span></div>
         <div class="dots"></div>
-        <div class="price">24<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span>24<span class="sar"> ﷼</span></div>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كيمكس</span><span class="en">Chemex</span></div>
         <div class="dots"></div>
-        <div class="price">24<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span>24<span class="sar"> ﷼</span></div>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">إيروبرس</span><span class="en">Aeropress</span></div>
         <div class="dots"></div>
-        <div class="price">22<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span>22<span class="sar"> ﷼</span></div>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">قهوة اليوم</span><span class="en">Coffee of the Day</span></div>
         <div class="dots"></div>
-        <div class="price">16<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span>16<span class="sar"> ﷼</span></div>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">مقطّرة باردة</span><span class="en">Iced Drip</span></div>
         <div class="dots"></div>
-        <div class="price">22<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span>22<span class="sar"> ﷼</span></div>
       </div>
     </div>
   </section>
-  <section class="cat reveal" id="cat-2">
+  <div class="diary reveal" dir="rtl"><span class="tape" style="background:#cab87d33"></span>سهرة هادية وفنجان صاحي، ما نبي أكثر</div><div class="sep sep-poster" aria-hidden="true"><span>◆</span></div>
+  <section class="cat reveal" id="cat-2" style="--sa:#bf7d9c;--sa2:#93b4ac">
     <div class="cat-head">
       <div class="cat-art">
         <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9b38c" stop-opacity=".5"/><stop offset="1" stop-color="#c17c67"/></linearGradient></defs><path d="M40 22h40l-4 78a8 8 0 0 1-8 8H52a8 8 0 0 1-8-8z" fill="url(#gc)" opacity=".9"/><rect x="46" y="34" width="13" height="13" rx="3" fill="#fff" opacity=".7" transform="rotate(12 52 40)"/><rect x="60" y="52" width="13" height="13" rx="3" fill="#fff" opacity=".55" transform="rotate(-14 66 58)"/><rect x="48" y="70" width="12" height="12" rx="3" fill="#fff" opacity=".45" transform="rotate(8 54 76)"/><path d="M74 14 60 46" stroke="#cabeba" stroke-width="4" stroke-linecap="round"/><ellipse cx="60" cy="112" rx="24" ry="4" fill="#000" opacity=".3"/></svg></div>
         <img src="../assets/photos/cold.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <h2><span class="ar">البار البارد</span><span class="en">Cold Bar</span></h2>
-        <div class="rule"><span>✦</span></div>
+        <div class="room-eyebrow"><span class="ar">البار البارد</span><span class="en">Cold Bar</span></div>
+        <h2 class="room-h2"><span class="ar">برد يطفي حر النهار</span><span class="en">cold that calms the day</span></h2>
+        <div class="inkline"></div>
       </div>
     </div>
     <div class="items">
@@ -257,39 +291,40 @@
       <div class="item">
         <div class="item-name"><span class="ar">لاتيه بارد</span><span class="en">Iced Latte</span></div>
         <div class="dots"></div>
-        <div class="price">18<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span>18<span class="sar"> ﷼</span></div>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">سبانيش لاتيه بارد</span><span class="en">Iced Spanish Latte</span></div>
         <div class="dots"></div>
-        <div class="price">21<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span>21<span class="sar"> ﷼</span></div>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كولد برو</span><span class="en">Cold Brew</span></div>
         <div class="dots"></div>
-        <div class="price">19<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span>19<span class="sar"> ﷼</span></div>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كولد برو تونيك</span><span class="en">Cold Brew Tonic</span></div>
         <div class="dots"></div>
-        <div class="price">24<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span>24<span class="sar"> ﷼</span></div>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">موكا باردة</span><span class="en">Iced Mocha</span></div>
         <div class="dots"></div>
-        <div class="price">20<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span>20<span class="sar"> ﷼</span></div>
       </div>
     </div>
-  </section>
-  <section class="cat reveal" id="cat-3">
+  </section><div class="sep sep-poster" aria-hidden="true"><span>◆</span></div>
+  <section class="cat reveal" id="cat-3" style="--sa:#93b4ac;--sa2:#c17c67">
     <div class="cat-head">
       <div class="cat-art">
         <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gs" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9b38c"/><stop offset="1" stop-color="#c17c67"/></linearGradient></defs><path d="M46 34h28l6 34a20 14 0 0 1-40 0z" fill="url(#gs)"/><path d="M50 30h20l3 6H47z" fill="#c17c67"/><path d="M58 22h4v8h-4z" fill="#c17c67"/><circle cx="60" cy="18" r="4" fill="#d9b38c"/><path d="M46 40c-9 2-13 10-9 17 3 5 8 6 11 5" fill="none" stroke="#c17c67" stroke-width="5" stroke-linecap="round"/><path d="M74 38l6-10 5 3-6 10" fill="#c17c67"/><ellipse cx="60" cy="96" rx="28" ry="4" fill="#000" opacity=".3"/></svg></div>
         <img src="../assets/photos/saudi.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <h2><span class="ar">الركن السعودي</span><span class="en">Saudi Corner</span></h2>
-        <div class="rule"><span>✦</span></div>
+        <div class="room-eyebrow"><span class="ar">الركن السعودي</span><span class="en">Saudi Corner</span></div>
+        <h2 class="room-h2"><span class="ar">الفنجال يبدأ بسلام</span><span class="en">every dallah starts with salam</span></h2>
+        <div class="inkline"></div>
       </div>
     </div>
     <div class="items">
@@ -297,24 +332,26 @@
       <div class="item">
         <div class="item-name"><span class="ar">قهوة سعودية (دلة)</span><span class="en">Saudi Coffee (dallah)</span></div>
         <div class="dots"></div>
-        <div class="price">25<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span>25<span class="sar"> ﷼</span></div>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">طبق تمر</span><span class="en">Dates Plate</span></div>
         <div class="dots"></div>
-        <div class="price">12<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span>12<span class="sar"> ﷼</span></div>
       </div>
     </div>
   </section>
-  <section class="cat reveal" id="cat-4">
+  <div class="diary reveal" dir="rtl"><span class="tape" style="background:#93b4ac33"></span>أول رشفة والدنيا تهدأ</div><div class="sep sep-poster" aria-hidden="true"><span>◆</span></div>
+  <section class="cat reveal" id="cat-4" style="--sa:#c17c67;--sa2:#cab87d">
     <div class="cat-head">
       <div class="cat-art">
         <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gcr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0cf8f"/><stop offset="1" stop-color="#c17c67"/></linearGradient></defs><path d="M20 74c4-18 20-32 40-32s36 14 40 32c-6 8-16 8-22 2-4-10-12-16-18-16s-14 6-18 16c-6 6-16 6-22-2z" fill="url(#gcr)"/><path d="M45 46 38 70M60 42v26M75 46l7 24" stroke="#744334" stroke-width="3" opacity=".5" stroke-linecap="round"/><ellipse cx="60" cy="88" rx="34" ry="4" fill="#000" opacity=".3"/></svg></div>
         <img src="../assets/photos/bakery.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <h2><span class="ar">اللقيمات والحلا</span><span class="en">Bites &amp; Sweets</span></h2>
-        <div class="rule"><span>✦</span></div>
+        <div class="room-eyebrow"><span class="ar">اللقيمات والحلا</span><span class="en">Bites &amp; Sweets</span></div>
+        <h2 class="room-h2"><span class="ar">لقمة حلوة قبل الوداع</span><span class="en">a sweet word before goodbye</span></h2>
+        <div class="inkline"></div>
       </div>
     </div>
     <div class="items">
@@ -322,27 +359,27 @@
       <div class="item">
         <div class="item-name"><span class="ar">كرواسون زبدة</span><span class="en">Butter Croissant</span></div>
         <div class="dots"></div>
-        <div class="price">12<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span>12<span class="sar"> ﷼</span></div>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كرواسون زعتر</span><span class="en">Zaatar Croissant</span></div>
         <div class="dots"></div>
-        <div class="price">13<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span>13<span class="sar"> ﷼</span></div>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كوكيز شوكولاتة</span><span class="en">Chocolate Cookie</span></div>
         <div class="dots"></div>
-        <div class="price">10<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span>10<span class="sar"> ﷼</span></div>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">تشيز كيك سان سباستيان</span><span class="en">San Sebastián Cheesecake</span></div>
         <div class="dots"></div>
-        <div class="price">26<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span>26<span class="sar"> ﷼</span></div>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كيكة التمر</span><span class="en">Date Cake</span></div>
         <div class="dots"></div>
-        <div class="price">15<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span>15<span class="sar"> ﷼</span></div>
       </div>
     </div>
   </section>
@@ -372,6 +409,10 @@
       const words=el.textContent.trim().split(/s+/);
       el.innerHTML=words.map((w,i)=>'<span class="w" style="animation-delay:'+(0.35+i*0.12)+'s">'+w+'</span>').join(' ');
     });
+    setTimeout(()=>{
+      document.querySelectorAll('h1 .ar, h1 .en').forEach(el=>{el.textContent=el.textContent;});
+      document.querySelector('h1').classList.add('shimmer');
+    },2400);
   }
 </script>
 </body>

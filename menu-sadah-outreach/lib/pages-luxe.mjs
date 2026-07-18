@@ -9,7 +9,7 @@ import { brandTheme } from './brand-theme.mjs';
 const SAR = '﷼';
 
 /* ---------- illustrated art (inline SVG, keyed, theme-tinted) ---------- */
-const ART = {
+export const ART = {
   espresso: (T) => `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ge" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${T.accent}"/><stop offset="1" stop-color="${T.deep}"/></linearGradient></defs><path d="M30 55h52v28a14 14 0 0 1-14 14H44a14 14 0 0 1-14-14z" fill="url(#ge)"/><path d="M82 58h10a10 10 0 0 1 0 20h-8" fill="none" stroke="${T.accent}" stroke-width="5"/><ellipse cx="56" cy="55" rx="26" ry="5" fill="${T.accent2}"/><path d="M46 20c-4 8 4 10 0 18M60 16c-4 8 4 10 0 18M74 20c-4 8 4 10 0 18" stroke="${T.text2}" stroke-width="4" fill="none" stroke-linecap="round" opacity=".8"/><ellipse cx="56" cy="104" rx="30" ry="4" fill="#000" opacity=".3"/></svg>`,
   latte: (T) => `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f5efe6"/><stop offset=".45" stop-color="${T.accent2}"/><stop offset="1" stop-color="${T.accent}"/></linearGradient></defs><path d="M38 24h44l-5 74a10 10 0 0 1-10 9H53a10 10 0 0 1-10-9z" fill="url(#gl)"/><path d="M38 24h44l-1.2 18H39.2z" fill="#fff" opacity=".85"/><path d="M52 42c4-6 12-6 16 0-6 4-10 4-16 0z" fill="${T.accent}" opacity=".7"/><ellipse cx="60" cy="24" rx="22" ry="4.5" fill="#fff"/><ellipse cx="60" cy="111" rx="26" ry="4" fill="#000" opacity=".3"/></svg>`,
   v60: (T) => `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><path d="M28 30h64l-22 34h-20z" fill="none" stroke="${T.accent}" stroke-width="5"/><path d="M40 36h40l-15 23h-10z" fill="${T.accent}" opacity=".35"/><path d="M60 66v12" stroke="${T.text2}" stroke-width="4" stroke-dasharray="2 6" stroke-linecap="round"/><path d="M36 84h48v6a16 16 0 0 1-16 16H52a16 16 0 0 1-16-16z" fill="${T.accent}"/><path d="M84 86h8a8 8 0 0 1 0 16h-6" fill="none" stroke="${T.accent}" stroke-width="4"/><ellipse cx="60" cy="108" rx="28" ry="4" fill="#000" opacity=".3"/></svg>`,
@@ -23,7 +23,7 @@ const ART = {
   saudi: (T) => `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gs" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${T.accent2}"/><stop offset="1" stop-color="${T.accent}"/></linearGradient></defs><path d="M46 34h28l6 34a20 14 0 0 1-40 0z" fill="url(#gs)"/><path d="M50 30h20l3 6H47z" fill="${T.accent}"/><path d="M58 22h4v8h-4z" fill="${T.accent}"/><circle cx="60" cy="18" r="4" fill="${T.accent2}"/><path d="M46 40c-9 2-13 10-9 17 3 5 8 6 11 5" fill="none" stroke="${T.accent}" stroke-width="5" stroke-linecap="round"/><path d="M74 38l6-10 5 3-6 10" fill="${T.accent}"/><ellipse cx="60" cy="96" rx="28" ry="4" fill="#000" opacity=".3"/></svg>`,
 };
 
-function artFor(catEn, catAr) {
+export function artFor(catEn, catAr) {
   const s = (catEn + ' ' + catAr).toLowerCase();
   if (/espresso|إسبريسو|حار/.test(s)) return ['espresso', 'espresso'];
   if (/filter|مقطر|v60|origins|محاصيل|brew bar|ترشيح/.test(s)) return ['v60', 'v60'];
@@ -270,9 +270,10 @@ export function luxeMenuPage(cafe) {
   ${REVEALS[(sd >>> 6) % REVEALS.length]}
   .greet{color:var(--accent);font-size:13px;letter-spacing:.14em;margin-bottom:10px;opacity:0;animation:up .7s .1s forwards}
   @keyframes up{0%{opacity:0;transform:translateY(12px)}100%{opacity:1;transform:none}}
-  /* ALIVE pack: shimmer name, word-stagger, sparkles, floating sig cards, item pops */
-  h1{background:linear-gradient(90deg,var(--text-1) 30%,${a} 48%,${a2} 52%,var(--text-1) 70%);background-size:240% 100%;
-    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:sh 5s 1.2s infinite}
+  /* ALIVE pack: shimmer name, word-stagger, sparkles, floating sig cards, item pops
+     gradient-clip only AFTER word entrance — transformed child spans break background-clip:text in Chrome */
+  h1.shimmer{background:linear-gradient(90deg,var(--text-1) 30%,${a} 48%,${a2} 52%,var(--text-1) 70%);background-size:240% 100%;
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:sh 5s .3s infinite}
   @keyframes sh{0%{background-position:130% 0}100%{background-position:-130% 0}}
   h1 .w{display:inline-block;opacity:0;animation:wordin .55s cubic-bezier(.2,1.2,.4,1) forwards}
   @keyframes wordin{0%{opacity:0;transform:translateY(14px) scale(.94)}100%{opacity:1;transform:none}}
@@ -345,6 +346,10 @@ ${wa ? `<a class="wa" href="${wa}"><span class="ar">💬 اطلب منيو مث�
       const words=el.textContent.trim().split(/\s+/);
       el.innerHTML=words.map((w,i)=>'<span class="w" style="animation-delay:'+(0.35+i*0.12)+'s">'+w+'</span>').join(' ');
     });
+    setTimeout(()=>{
+      document.querySelectorAll('h1 .ar, h1 .en').forEach(el=>{el.textContent=el.textContent;});
+      document.querySelector('h1').classList.add('shimmer');
+    },2400);
   }
 </script>
 </body>
@@ -465,6 +470,7 @@ export function luxeWelcomePage(cafe, extras = {}) {
       <span class="ar">إلى بيت <b class="shimmer">${esc(cafe.nameAr)}</b></span>
       <span class="en">To the house of <b class="shimmer">${esc(cafe.name)}</b></span>
     </h1>
+    ${extras.world ? `<div style="margin-top:10px;color:var(--text-3);font-size:13px;letter-spacing:.06em;opacity:0;animation:up .8s 1.1s forwards"><span class="ar">✦ ${esc(extras.world.ar)} ✦</span><span class="en">✦ ${esc(extras.world.en)} ✦</span></div>` : ''}
   </header>
 
   <div class="letter">

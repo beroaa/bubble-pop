@@ -14,12 +14,15 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { menuPage, welcomePage } from '../lib/pages.mjs';
 import { luxeMenuPage, luxeWelcomePage, FULL_MENUS } from '../lib/pages-luxe.mjs';
+import { masterpieceMenuPage } from '../lib/pages-masterpiece.mjs';
 import { brandTheme } from '../lib/brand-theme.mjs';
 import { ARCHETYPES, DEFAULT_TYPE } from './archetypes.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..');
 const DIST = join(ROOT, 'dist');
+const BRIEFS_FILE = join(HERE, 'briefs50.json');
+const BRIEFS = existsSync(BRIEFS_FILE) ? JSON.parse(readFileSync(BRIEFS_FILE, 'utf8')) : {};
 const QUEUE_FILE = join(HERE, 'queue.json');
 const STATE_FILE = join(HERE, 'state.js');
 const LEARN_FILE = join(HERE, 'learnings.json');
@@ -154,8 +157,11 @@ export function runBuild() {
       setStage('DATA');
       const cafe = makeCafe(entry);
       setStage('BUILD');
-      const html = entry.tier === 'luxe' ? luxeMenuPage(cafe) : menuPage(cafe);
-      const welcomeHtml = luxeWelcomePage(cafe, { type: entry.type, signature: entry.signature, sigMention: entry.sigMention, social: entry.social });
+      const brief = BRIEFS[entry.slug];
+      const html = entry.tier === 'luxe'
+        ? (brief ? masterpieceMenuPage(cafe, brief) : luxeMenuPage(cafe))
+        : menuPage(cafe);
+      const welcomeHtml = luxeWelcomePage(cafe, { type: entry.type, signature: entry.signature, sigMention: entry.sigMention, social: entry.social, world: brief?.world });
       setStage('QA');
       const fails = qaCheck(cafe, html, welcomeHtml, learnings.qa);
       if (fails.length) {

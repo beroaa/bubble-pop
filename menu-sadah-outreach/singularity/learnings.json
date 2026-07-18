@@ -1,5 +1,5 @@
 {
-  "formulaVersion": "2.11",
+  "formulaVersion": "2.12",
   "lessons": [
     {
       "id": 1,
@@ -61,6 +61,11 @@
       "at": 1784389308379,
       "lesson": "Renderer v5 (from recovered Beyt+RUSTIC masters): real Google Fonts work on the LIVE site (visitor browser loads them). Per-cafe font pairs, light-paper vs dark-world moods, motifs, entrance flavors, greetings, real-handle footers — personality per cafe, deterministic, zero invented facts.",
       "from": "purple-factory-v5"
+    },
+    {
+      "at": 1784392848971,
+      "lesson": "Chrome breaks background-clip:text when transformed child spans animate inside — apply gradient class only after word entrance ends, then unwrap spans",
+      "from": "masterpiece-50 hero bug"
     }
   ],
   "qa": {
@@ -245,6 +250,48 @@
       "built": 948,
       "failed": 0,
       "total": 948
+    },
+    {
+      "at": 1784392974385,
+      "ms": 28,
+      "built": 10,
+      "failed": 0,
+      "total": 10
+    },
+    {
+      "at": 1784392976248,
+      "ms": 22,
+      "built": 10,
+      "failed": 0,
+      "total": 10
+    },
+    {
+      "at": 1784392978020,
+      "ms": 23,
+      "built": 10,
+      "failed": 0,
+      "total": 10
+    },
+    {
+      "at": 1784392979893,
+      "ms": 22,
+      "built": 10,
+      "failed": 0,
+      "total": 10
+    },
+    {
+      "at": 1784392981740,
+      "ms": 20,
+      "built": 10,
+      "failed": 0,
+      "total": 10
+    },
+    {
+      "at": 1784392996491,
+      "ms": 71,
+      "built": 82,
+      "failed": 0,
+      "total": 82
     }
   ]
 }
