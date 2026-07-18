@@ -1,5 +1,5 @@
 window.BUILDS_STATE = {
- "generatedAt": 1784368877130,
+ "generatedAt": 1784369697014,
  "builds": [
   {
    "id": "b1",
@@ -40,6 +40,15 @@ window.BUILDS_STATE = {
    "note": "ALPHA + CHARLIE home — waiting on BRAVO, then merge + rebuild",
    "startedAt": 1784368290622,
    "result": "53/54 cafes: +12 priced signatures (39 total), +21 dish mentions, 147 photo leads, formula v2.7"
+  },
+  {
+   "id": "b5",
+   "name": "PHOTO-MISSION 📸 — running on YOUR MACBOOK: real food photos for 53 cafes (147 leads)",
+   "status": "running",
+   "pct": 0,
+   "etaAt": 1784371197014,
+   "note": "Mac-Claude hunting — this card counts the estimate; live detail is in your Mac terminal",
+   "startedAt": 1784369697014
   }
  ]
 };
