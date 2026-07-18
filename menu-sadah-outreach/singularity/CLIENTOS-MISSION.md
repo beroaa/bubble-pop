@@ -39,3 +39,17 @@ That app is Ibrahim's MAIN WORKSTATION. This mission fuses all 948 menus into it
 - Never invent data — the payload is the single source of truth.
 - If the app source is minified/unreadable, DO NOT hack it blindly: find its
   data/import layer (it has a backup import) and inject through that instead.
+
+## MISSION: CROWN-50 (2026-07-18)
+The 50 campaign cafes are now 👑 MASTERPIECE tier (live on menu-sadah.com).
+`singularity/clientos-menus-payload.json` is updated: those 50 entries carry
+`masterpiece: true` and `gradeLabel: "👑 MASTERPIECE · تحفة"`.
+
+Do in /Users/bero/Desktop/ClientOS/ (back up index.html first):
+1. Re-import the updated payload into the MENUS tab data (same fuse path as before).
+2. Cards with `masterpiece: true` get a purple-gold crown treatment: 👑 badge,
+   purple glow border (match the existing .card--elite conic-rim style but gold-tipped),
+   and sort them ABOVE everything except the 16 💜 elite.
+3. Add filter chip "👑 50" next to the grade filter buttons.
+4. Keep all existing URLs untouched — they already point to the new live pages.
+5. Screenshot MENUS tab after, save next to the app.
