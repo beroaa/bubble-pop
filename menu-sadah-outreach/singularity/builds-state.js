@@ -1,5 +1,5 @@
 window.BUILDS_STATE = {
- "generatedAt": 1784367926658,
+ "generatedAt": 1784368415353,
  "builds": [
   {
    "id": "b1",
@@ -30,6 +30,15 @@ window.BUILDS_STATE = {
    "note": "948 rebuilt themed — visual verification next",
    "startedAt": 1784367452068,
    "result": "100 luxe menus re-skinned: 100 unique brand palettes (name-DNA + type-DNA), Pixar glow, gifts re-themed to match"
+  },
+  {
+   "id": "b4",
+   "name": "SWARM-10K — CIA/FBI squads hunt real menus on delivery apps + photo leads, all bare luxe cafes",
+   "status": "running",
+   "pct": 30,
+   "etaAt": 1784369495353,
+   "note": "12 field agents hunting delivery apps — merge machinery ready",
+   "startedAt": 1784368290622
   }
  ]
 };
