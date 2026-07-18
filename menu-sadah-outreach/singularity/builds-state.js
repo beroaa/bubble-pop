@@ -1,5 +1,5 @@
 window.BUILDS_STATE = {
- "generatedAt": 1784391282803,
+ "generatedAt": 1784391589346,
  "builds": [
   {
    "id": "b1",
@@ -276,10 +276,16 @@ window.BUILDS_STATE = {
    "id": "b15",
    "name": "MASTERPIECE-50 👑 — Beyt-level craft: 8 page architectures × 50 personality briefs, detective-verified",
    "status": "running",
-   "pct": 0,
+   "pct": 20,
    "etaAt": 1784400282803,
    "note": "studying the masters line by line",
-   "startedAt": 1784391282803
+   "startedAt": 1784391282803,
+   "feed": [
+    {
+     "at": 1784391589284,
+     "msg": "Craft code extracted + 10 brief-writers deployed"
+    }
+   ]
   }
  ]
 };
