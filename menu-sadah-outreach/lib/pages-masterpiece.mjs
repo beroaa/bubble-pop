@@ -523,6 +523,7 @@ const FLAVOR2 = {
   family_cafe: { ar: 'مكانكم يجمع العائلة — والمنيو لازم يسهل عليهم الطلب', en: 'Your place brings families together — ordering should be effortless' },
   tea_house: { ar: 'شاهيكم له عشاق — وعشاقه يستاهلون منيو يليق', en: 'Your chai has devoted fans — they deserve a proper menu' },
   gaming_cafe: { ar: 'القيمرز عندكم ما يحبون يرفعون عيونهم عن الشاشة — منيو QR يحل المشكلة', en: 'Your gamers never look up from the screen — a QR menu fixes that' },
+  grill_house: { ar: 'ناركم لها هيبة وبرجراتكم لها سمعة — والمنيو لازم يكون بنفس المستوى', en: 'Your fire commands respect and your burgers have a reputation — the menu should match' },
 };
 
 export function masterpieceWelcomePage(cafe, brief, extras = {}) {
