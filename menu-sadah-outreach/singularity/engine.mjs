@@ -13,6 +13,7 @@ import { mkdirSync, writeFileSync, readFileSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { menuPage, welcomePage } from '../lib/pages.mjs';
+import { luxeMenuPage, FULL_MENUS } from '../lib/pages-luxe.mjs';
 import { ARCHETYPES, DEFAULT_TYPE } from './archetypes.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -87,9 +88,10 @@ function writeState(queue, learnings, { running = false, etaMs = null, startedAt
 // ---------- data stage: queue entry -> full cafe object ----------
 export function makeCafe(entry) {
   const arch = ARCHETYPES[entry.type] || ARCHETYPES[DEFAULT_TYPE];
+  const base = entry.tier === 'luxe' ? (FULL_MENUS[entry.type] || arch.menu) : arch.menu;
   const menu = entry.signature?.length
-    ? [{ cat: 'Signatures', catAr: 'أطباق التوقيع', items: entry.signature }, ...arch.menu]
-    : arch.menu;
+    ? [{ cat: 'House Signatures', catAr: 'توقيع البيت', items: entry.signature }, ...base]
+    : base;
   return {
     slug: entry.slug,
     name: entry.name,
@@ -148,7 +150,7 @@ export function runBuild() {
       setStage('DATA');
       const cafe = makeCafe(entry);
       setStage('BUILD');
-      const html = menuPage(cafe);
+      const html = entry.tier === 'luxe' ? luxeMenuPage(cafe) : menuPage(cafe);
       const welcomeHtml = welcomePage(cafe);
       setStage('QA');
       const fails = qaCheck(cafe, html, welcomeHtml, learnings.qa);

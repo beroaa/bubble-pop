@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#161210">
+<title>BUILDS — MENU SADAH</title>
+<style>
+  :root{--bg:#161210;--bg1:#1f1915;--bg2:#2a221b;--b:#35291f;--t1:#f5efe6;--t2:#c6b9a6;--t3:#8b7d6a;
+    --a:#e3b23c;--pos:#57b380;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--t1);font:15px/1.5 -apple-system,"Segoe UI",Tahoma,Arial,sans-serif;min-height:100vh;padding:24px 16px 60px}
+  .wrap{max-width:720px;margin:0 auto}
+  h1{font-size:17px;letter-spacing:.14em;text-align:center;margin-bottom:4px}
+  h1 b{color:var(--a)}
+  .sub{text-align:center;color:var(--t3);font-size:12px;margin-bottom:22px}
+  .build{background:var(--bg1);border:1px solid var(--b);border-radius:18px;padding:20px;margin-bottom:14px;box-shadow:0 4px 12px #00000073}
+  .head{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .led{width:9px;height:9px;border-radius:50%;background:var(--t3);flex:0 0 auto}
+  .led.on{background:var(--pos);box-shadow:0 0 8px var(--pos);animation:pu 1.2s infinite}
+  .led.done{background:var(--a);box-shadow:0 0 8px var(--a)}
+  @keyframes pu{50%{opacity:.4}}
+  .bname{font-weight:700;font-size:15px;flex:1}
+  .bstat{font-size:11px;color:var(--t3);font-family:var(--mono);letter-spacing:.06em}
+  .eta{font-family:var(--mono);font-size:clamp(44px,11vw,76px);font-weight:700;color:var(--a);font-variant-numeric:tabular-nums;text-align:center;line-height:1.1;margin:10px 0 2px}
+  .eta.done{color:var(--pos);font-size:clamp(30px,7vw,44px)}
+  .esub{text-align:center;color:var(--t3);font-size:12px}
+  .bar{margin-top:12px;height:10px;background:var(--bg2);border-radius:999px;overflow:hidden}
+  .fill{height:100%;width:0%;background:linear-gradient(90deg,var(--a),#f6d77e);border-radius:999px;box-shadow:0 0 12px #e3b23c59;transition:width .4s}
+  .fill.done{background:var(--pos)}
+  .note{margin-top:8px;font-size:12px;color:var(--t3);text-align:center}
+  footer{text-align:center;color:var(--t3);font-size:11px;margin-top:24px}
+  footer b{color:var(--a)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🏗 BUILD <b>BOARD</b></h1>
+  <div class="sub">every build gets its own card, its own live ETA (0.1s) — no mixing · offline</div>
+  <div id="board"></div>
+  <footer>reads <b>builds-state.js</b> · SINGULARITY family · MENU SADAH</footer>
+</div>
+<script src="./builds-state.js"></script>
+<script>
+(function () {
+  'use strict';
+  let state = window.BUILDS_STATE || { builds: [] };
+  let n = 0, lastStamp = 0;
+  setInterval(() => {
+    const s = document.createElement('script');
+    s.src = './builds-state.js?b=' + (++n);
+    s.onload = () => { state = window.BUILDS_STATE || state; s.remove(); };
+    s.onerror = () => s.remove();
+    document.body.appendChild(s);
+  }, 2000);
+
+  const esc = (x) => String(x ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  function fmt(ms) {
+    if (ms == null || !isFinite(ms)) return '--:--.-';
+    ms = Math.max(0, ms);
+    const h = Math.floor(ms / 3600000), m = Math.floor(ms / 60000) % 60,
+          s = Math.floor(ms / 1000) % 60, d = Math.floor(ms / 100) % 10;
+    return (h ? String(h).padStart(2, '0') + ':' : '') + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0') + '.' + d;
+  }
+
+  function render() {
+    const now = Date.now();
+    document.getElementById('board').innerHTML = (state.builds || []).slice().reverse().map((b, ix) => {
+      const done = b.status === 'done';
+      const eta = done ? 'DONE ✓' : fmt(b.etaAt != null ? b.etaAt - now : null);
+      const sub = done ? (b.result || 'complete') :
+        b.etaAt != null ? 'finishes ≈ ' + new Date(b.etaAt).toLocaleTimeString() : (b.note || 'estimating…');
+      return '<div class="build">' +
+        '<div class="head"><span class="led ' + (done ? 'done' : b.status === 'running' ? 'on' : '') + '"></span>' +
+        '<span class="bname">' + esc(b.name) + '</span><span class="bstat">' + esc((b.status || '').toUpperCase()) + '</span></div>' +
+        '<div class="eta' + (done ? ' done' : '') + '" id="e' + ix + '">' + eta + '</div>' +
+        '<div class="esub">' + esc(sub) + '</div>' +
+        '<div class="bar"><div class="fill' + (done ? ' done' : '') + '" style="width:' + (done ? 100 : (b.pct || 0)) + '%"></div></div>' +
+        (b.note && !done ? '<div class="note">' + esc(b.note) + '</div>' : '') +
+        '</div>';
+    }).join('') || '<div class="build"><div class="esub">no builds yet</div></div>';
+  }
+
+  setInterval(() => {
+    if (state.generatedAt !== lastStamp) { lastStamp = state.generatedAt; render(); return; }
+    const now = Date.now();
+    (state.builds || []).slice().reverse().forEach((b, ix) => {
+      if (b.status !== 'done' && b.etaAt != null) {
+        const el = document.getElementById('e' + ix);
+        if (el) el.textContent = fmt(b.etaAt - now);
+      }
+    });
+  }, 100);
+  render();
+})();
+</script>
+</body>
+</html>

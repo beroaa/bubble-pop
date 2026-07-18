@@ -1,5 +1,5 @@
 {
-  "formulaVersion": "2.4",
+  "formulaVersion": "2.5",
   "lessons": [
     {
       "id": 1,
@@ -24,6 +24,12 @@
       "desc": "Dedup upgrade: accent/containment fuzzy matching (Salam Café vs Salam Cafe, Breehant vs Breehant Roastery)",
       "source": "wave3-merge",
       "addedAt": 1784337349225
+    },
+    {
+      "id": 5,
+      "desc": "Fleet guard: workflow args may arrive as JSON string — parse both forms and refuse to run with an empty target list (silent no-op caught twice)",
+      "source": "top100-fleet-launch",
+      "addedAt": 1784365987956
     }
   ],
   "qa": {
@@ -89,6 +95,20 @@
       "built": 108,
       "failed": 0,
       "total": 108
+    },
+    {
+      "at": 1784365988248,
+      "ms": 256,
+      "built": 100,
+      "failed": 0,
+      "total": 100
+    },
+    {
+      "at": 1784366087103,
+      "ms": 53,
+      "built": 100,
+      "failed": 0,
+      "total": 100
     }
   ]
 }
