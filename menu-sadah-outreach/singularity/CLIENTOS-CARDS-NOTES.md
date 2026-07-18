@@ -53,3 +53,13 @@ one pass (b10 LINK-RESCUE, b11 CARD-DOPAMINE, b12 MENU-DETECTORS), plus a dedupe
   and the primary "Send the gift" button in one change at the source.
 - Non-payload curated leads (no MDM) still fall back to the built-in generator.
 - Sent-tab "Gift Package" uses its own full-package template (unchanged, exact URLs).
+
+## 6. CROWN-50 masterpiece tier (done 2026-07-18) — `clientos-crown50.mjs`
+- Payload now flags 50 campaign cafes `masterpiece:true` (all currently orange grade).
+  Re-import was data-clean: URLs/DMs/grades already matched — only the flag is new.
+- Global `MMASTER` (slug→1) + `masterFor(l)` + `srank(l)` (elite 0 · masterpiece 0.5 · grade).
+- Crown treatment on masterpiece cards: gold-tipped violet bubble, "👑 MASTERPIECE"
+  badge + grade chip, gold+purple glow border with a 3.2s breathe (reduced-motion safe).
+- Sorted directly BELOW the 16 💜 elite, above green/orange/red. New "👑 50" filter chip.
+- Verified: rail 16/50/61/865/6, sort [16 elite][50 crown][rest], filter = 50, no JS errors.
+- Screenshots saved next to the app: MENUS-crown50-after.png / -filtered.png.
