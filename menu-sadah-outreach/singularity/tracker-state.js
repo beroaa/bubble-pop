@@ -1,36 +1,23 @@
 window.TRACKER_STATE = {
- "generatedAt": 1784330638570,
- "note": "NONSTOP MODE 🔥 — mega-harvest waves running",
- "doneNote": "morning summary in chat",
+ "generatedAt": 1784338932090,
+ "note": "NIGHT SHIFT COMPLETE ✅",
+ "doneNote": "grand morning report in chat",
  "tasks": [
   {
-   "id": "fleet1",
-   "name": "Night shift 1 — 139 menus, signatures, medics (pushed)",
+   "id": "night",
+   "name": "Overnight campaign — 7 batches, 4 harvest fleets, signatures, medics",
    "status": "done",
    "pct": 100,
-   "etaAt": null
+   "etaAt": null,
+   "note": "948 real Riyadh cafes, 0 QA failures, formula v2.4"
   },
   {
-   "id": "cockpit",
-   "name": "DM Cockpit — 139 ranked Arabic DMs ready to copy",
-   "status": "done",
-   "pct": 100,
-   "etaAt": null
-  },
-  {
-   "id": "mega",
-   "name": "MEGA-HARVEST — rotating agent waves until Riyadh runs dry",
+   "id": "morning",
+   "name": "YOUR TURN: WhatsApp number → upload zip → send DMs",
    "status": "running",
-   "pct": 5,
-   "etaAt": 1784336038570,
-   "note": "district sweeps, karak & tea, desserts, drive-thru, blogs, delivery apps"
-  },
-  {
-   "id": "cook2",
-   "name": "Build + push every new wave automatically",
-   "status": "pending",
    "pct": 0,
-   "etaAt": 1784336638570
+   "etaAt": null,
+   "note": "~15 minutes when you wake up"
   }
  ]
 };
