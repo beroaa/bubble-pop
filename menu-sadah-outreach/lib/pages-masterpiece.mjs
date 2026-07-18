@@ -32,6 +32,21 @@ function cafePhotos(slug) {
 /* shared gold trio handed to every scene pack */
 const SCENE_GOLD = { gold: '#c79a3a', goldBright: '#e8c268', goldDeep: '#8a6a1f' };
 
+/* ---------- polish50: per-cafe bespoke hero touches (pre-validated file, trusted verbatim) ---------- */
+const POLISH_FILE = fileURLToPath(new URL('../singularity/polish50.json', import.meta.url));
+const POLISH = (() => {
+  try {
+    if (existsSync(POLISH_FILE)) return JSON.parse(readFileSync(POLISH_FILE, 'utf8'));
+  } catch { /* malformed file → no polish, menus still build */ }
+  return {};
+})();
+function polishFor(slug) {
+  const p = slug && POLISH[slug];
+  if (!p || typeof p.css !== 'string' || typeof p.html !== 'string') return null;
+  if (p.css.length > 2000 || p.html.length > 800) return null; // size guard
+  return p;
+}
+
 const SAR = '﷼';
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const seedOf = (str) => { let h = 2166136261; for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619) >>> 0; } return h >>> 0; };
@@ -238,6 +253,7 @@ export function masterpieceMenuPage(cafe, brief) {
   const a = P.accent, a2 = P.accent2;
   const shots = cafePhotos(cafe.slug); // per-cafe photo mode (VISUALS-FIRST law)
   const shotSrc = (i) => esc('../assets/photos/' + cafe.slug + '/' + shots[i % shots.length].file);
+  const polish = polishFor(cafe.slug); // bespoke per-cafe touch (polish50)
 
   const roomFor = (cat) => (brief.rooms || []).find((r) => r.catEn && r.catEn.toLowerCase() === String(cat.cat).toLowerCase());
   const sigCat = cafe.menu.find((c) => /signature|توقيع/i.test(c.cat + c.catAr));
@@ -281,10 +297,11 @@ export function masterpieceMenuPage(cafe, brief) {
       <div class="cat-title">
         ${r ? `<div class="room-eyebrow"><span class="ar">${esc(c.catAr)}</span><span class="en">${esc(c.cat)}</span></div>` : ''}
         <h2 class="room-h2"><span class="ar">${esc(r ? r.titleAr : c.catAr)}</span><span class="en">${esc(r ? r.titleEn : c.cat)}</span></h2>
-        <div class="inkline"></div>
+        <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
       </div>
     </div>
     <div class="items">
+      <span class="spine" aria-hidden="true">${esc(String(r ? r.titleEn : c.cat).toUpperCase())}</span>
       ${c.items.map(([en, ar, price]) => `
       <div class="item">
         <div class="item-name"><span class="ar">${esc(ar)}</span><span class="en">${esc(en)}</span></div>
@@ -350,6 +367,12 @@ export function masterpieceMenuPage(cafe, brief) {
   @keyframes sh{0%{background-position:130% 0}100%{background-position:-130% 0}}
   h1 .w{display:inline-block;opacity:0;animation:wordin .55s cubic-bezier(.2,1.2,.4,1) forwards}
   @keyframes wordin{0%{opacity:0;transform:translateY(14px) scale(.94)}100%{opacity:1;transform:none}}
+  /* EN letters land one by one like ink strokes (AR stays word-level for letter joining) */
+  h1 .lw{white-space:nowrap;display:inline-block}
+  h1 .lt{display:inline-block;opacity:0;animation:inkin .6s cubic-bezier(.2,1.5,.35,1) forwards}
+  @keyframes inkin{0%{opacity:0;transform:translateY(16px) rotate(var(--r,0deg)) scale(.6)}
+    60%{opacity:1;transform:translateY(-2px) rotate(calc(var(--r,0deg)*-.4)) scale(1.07)}
+    100%{opacity:1;transform:none}}
   .world{margin-top:10px;color:var(--text-3);font-size:13px;letter-spacing:.08em;opacity:0;animation:up .7s .7s forwards}
   .world b{color:${R[1]};font-weight:600}
   .heroline{margin-top:8px;color:var(--text-2);font-size:19px;line-height:1.5;opacity:0;animation:up .8s 1s forwards}
@@ -403,12 +426,19 @@ export function masterpieceMenuPage(cafe, brief) {
   .room-h2{color:var(--sa);font-size:22px;line-height:1.3}
   .room-h2 .ar{font-family:${T.fonts.ar}}
   .room-h2 .en{font-family:${T.fonts.en}}
-  .inkline{height:2px;margin-top:7px;border-radius:2px;background:linear-gradient(90deg,var(--sa),var(--sa2),transparent);
-    transform:scaleX(0);transform-origin:0 0;transition:transform .8s cubic-bezier(.2,.8,.2,1) .15s}
-  [dir="rtl"] .inkline{transform-origin:100% 0}
-  .reveal.in .inkline{transform:scaleX(1)}
+  /* self-drawing ink underline: a hand-wavy SVG stroke that draws itself on reveal */
+  .inkline{display:block;width:min(150px,72%);height:9px;margin-top:7px;overflow:visible}
+  [dir="rtl"] .inkline{transform:scaleX(-1)} /* the hand draws from the right in Arabic */
+  .inkline path{stroke:var(--sa);stroke-dasharray:101;stroke-dashoffset:101;
+    transition:stroke-dashoffset .9s cubic-bezier(.2,.8,.2,1) .15s}
+  .reveal.in .inkline path{stroke-dashoffset:0}
 
-  .items{background:${P.bg1}d9;border:1px solid var(--border-1);border-radius:20px;padding:6px 18px;box-shadow:var(--shadow)}
+  .items{position:relative;background:${P.bg1}d9;border:1px solid var(--border-1);border-radius:20px;padding:6px 18px;box-shadow:var(--shadow)}
+  /* vertical spine: the room's name whispered down the card's edge */
+  .spine{position:absolute;top:16px;inset-inline-start:-17px;writing-mode:vertical-rl;font-size:10px;
+    letter-spacing:.34em;text-transform:uppercase;color:var(--sa);opacity:.35;font-weight:600;
+    pointer-events:none;user-select:none;max-height:calc(100% - 32px);overflow:hidden}
+  @media(max-width:700px){.spine{display:none}}
   .item{display:flex;align-items:baseline;gap:10px;padding:15px 0;border-bottom:1px solid ${P.bg2}99}
   .item:last-child{border-bottom:none}
   .item-name{font-size:16px}
@@ -442,6 +472,14 @@ export function masterpieceMenuPage(cafe, brief) {
   ${wa ? `.wa{position:fixed;bottom:18px;inset-inline-start:18px;z-index:30;background:#1faa53;color:#fff;border-radius:999px;
     padding:12px 20px;text-decoration:none;font-weight:700;font-size:14px;box-shadow:0 8px 22px #1faa5366}` : ''}
 
+  /* sky-dial: a small sun/moon that lets the guest set the sky by hand */
+  .skydial{position:fixed;bottom:18px;inset-inline-end:16px;z-index:30;width:40px;height:40px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:17px;line-height:1;
+    background:${P.bg1}d9;backdrop-filter:blur(10px);border:1px solid var(--border-2);color:var(--accent);
+    box-shadow:0 0 0 4px ${a}12,0 6px 16px ${a}33;transition:transform .18s,box-shadow .18s}
+  .skydial:hover{transform:translateY(-2px) rotate(12deg);box-shadow:0 0 0 5px ${a}1a,0 8px 20px ${a}44}
+  .skydial[aria-pressed="true"]{color:var(--accent-2);border-color:var(--accent)}
+
   /* ---- big-screen stage (Beyt is designed wide — so are we) ---- */
   .bigmark{display:none;position:fixed;top:4vh;inset-inline-end:-3vw;z-index:0;font-size:48vh;line-height:1;
     color:var(--accent);opacity:.055;pointer-events:none;user-select:none}
@@ -457,7 +495,8 @@ export function masterpieceMenuPage(cafe, brief) {
     .world{font-size:15px;margin-top:16px}
     .heroline{font-size:27px;margin-top:12px}
     .room-h2{font-size:34px}
-    .inkline{height:3px}
+    .inkline{width:min(190px,72%)}
+    .inkline path{stroke-width:2.6}
     .cat-art{width:96px;height:96px}
     .items{padding:10px 30px}
     .item{padding:18px 0}
@@ -474,6 +513,9 @@ export function masterpieceMenuPage(cafe, brief) {
 
   /* ---- immersive scene pack: ${arch} ---- */
   ${SC ? SC.css : ''}
+${polish ? `
+  /* ---- polish50 bespoke touch: ${polish.name} ---- */
+  ${polish.css}` : ''}
 ${shots.length ? `
   /* ---- brandshots: the cafe's OWN photos, pinned like polaroids ---- */
   .brandshots{display:flex;justify-content:center;align-items:flex-start;gap:14px;margin-top:22px;position:relative;z-index:1;
@@ -491,9 +533,11 @@ ${shots.length ? `
 
   @media (prefers-reduced-motion: reduce){
     *{animation:none!important;transition:none!important}
-    .reveal,.reveal.in .item,.heroline,.world,.meta,.greet,h1 .w{opacity:1!important;transform:none!important}
+    .reveal,.reveal.in .item,.heroline,.world,.meta,.greet,h1 .w,h1 .lt{opacity:1!important;transform:none!important}
     .pdot{opacity:.9!important;transform:scale(1)!important}
-    .inkline{transform:scaleX(1)!important}
+    .inkline path{stroke-dashoffset:0!important}
+    [dir="rtl"] .inkline{transform:scaleX(-1)!important}
+    .skydial:hover{transform:none!important}
   }
 </style>
 </head>
@@ -515,6 +559,7 @@ ${shots.length ? `
       <span class="badge"><span class="ar">${esc(cafe.areaAr === 'الرياض' ? 'الرياض' : cafe.areaAr + ' · الرياض')}</span><span class="en">${esc(cafe.area === 'Riyadh' ? 'Riyadh' : cafe.area + ' · Riyadh')}</span></span>
       <span class="badge"><span class="ar">متوافق مع اشتراطات هيئة الغذاء والدواء</span><span class="en">SFDA-ready</span></span>
     </div>
+    ${polish ? polish.html : ''}
   </header>
   <nav class="chips">${navChips}</nav>
   ${sigHtml}
@@ -530,6 +575,7 @@ ${shots.length ? `
   </div>
 </div>
 ${wa ? `<a class="wa" href="${wa}"><span class="ar">💬 اطلب منيو مثله</span><span class="en">💬 Get a menu like this</span></a>` : ''}
+<button class="skydial" id="skyDial" aria-label="تبديل السماء: نهار / ليل — Toggle sky: day / night" aria-pressed="false">☀</button>
 <script>
   const root=document.documentElement;
   const saved=localStorage.getItem('ms-lang')||'ar';
@@ -539,24 +585,56 @@ ${wa ? `<a class="wa" href="${wa}"><span class="ar">💬 اطلب منيو مث�
   document.getElementById('langToggle').addEventListener('click',()=>{setLang(root.getAttribute('data-lang')==='ar'?'en':'ar');});
   const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-  // word-by-word hero entrance (word-level keeps Arabic letter joining intact)
+  // local-clock greeting: the doorway greets by the visitor's own hour (static text stays without JS)
+  (function(){
+    const h=new Date().getHours();
+    const g=(h>=5&&h<=11)?['صباح الخير يا أهل الذوق','Good morning']
+          :(h>=12&&h<=16)?['مساء النور','Good afternoon']
+          :(h>=17&&h<=21)?['سهرة طيبة','Good evening']
+          :['ليلكم عسل','Sweet night'];
+    const el=document.querySelector('.greet');if(!el)return;
+    const ar=el.querySelector('.ar'),en=el.querySelector('.en');
+    if(ar)ar.textContent=g[0]+' ✦';if(en)en.textContent=g[1]+' ✦';
+  })();
+  // hero entrance: AR words glide in whole (letter joining stays intact),
+  // EN letters land one by one with a tiny deterministic ink-tilt each
   if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
-    document.querySelectorAll('h1 .ar, h1 .en').forEach(el=>{
+    document.querySelectorAll('h1 .ar').forEach(el=>{
       const words=el.textContent.trim().split(/\\s+/);
       el.innerHTML=words.map((w,i)=>'<span class="w" style="animation-delay:'+(0.35+i*0.12)+'s">'+w+'</span>').join(' ');
+    });
+    document.querySelectorAll('h1 .en').forEach(el=>{
+      let k=0;
+      const words=el.textContent.trim().split(/\\s+/);
+      el.innerHTML=words.map(w=>'<span class="lw">'+Array.from(w).map(ch=>{
+        const r=((((k*13)%9)-4)*0.9).toFixed(1); // deterministic tiny tilt per letter
+        const s='<span class="lt" style="--r:'+r+'deg;animation-delay:'+(0.35+k*0.045).toFixed(3)+'s">'+
+          ch.replace(/&/g,'&amp;').replace(/</g,'&lt;')+'</span>';
+        k++;return s;
+      }).join('')+'</span>').join(' ');
     });
     setTimeout(()=>{
       document.querySelectorAll('h1 .ar, h1 .en').forEach(el=>{el.textContent=el.textContent;});
       document.querySelector('h1').classList.add('shimmer');
     },2400);
   }
-  // day -> night: the page's sky shifts as you walk deeper into the house
+  // day -> night: the sky shifts as you walk deeper — or by hand via the sky-dial
   (function(){
     const A=${JSON.stringify(rgbOf(P.bg0))},B=${JSON.stringify(rgbOf(nightHex))};
-    const lerp=()=>{const m=document.documentElement.scrollHeight-innerHeight;
+    let forcedNight=false; // sky-dial override: true = full night, false = scroll-driven
+    const lerp=()=>{
+      if(forcedNight){document.body.style.backgroundColor='rgb('+B.join(',')+')';return;}
+      const m=document.documentElement.scrollHeight-innerHeight;
       const f=m>60?Math.min(1,scrollY/m):0;
       document.body.style.backgroundColor='rgb('+A.map((v,i)=>Math.round(v+(B[i]-v)*f)).join(',')+')';};
     addEventListener('scroll',lerp,{passive:true});lerp();
+    const dial=document.getElementById('skyDial');
+    if(dial)dial.addEventListener('click',()=>{
+      forcedNight=!forcedNight;
+      dial.textContent=forcedNight?'☾':'☀';
+      dial.setAttribute('aria-pressed',String(forcedNight));
+      lerp();
+    });
   })();
 </script>
 </body>

@@ -48,6 +48,12 @@
   @keyframes sh{0%{background-position:130% 0}100%{background-position:-130% 0}}
   h1 .w{display:inline-block;opacity:0;animation:wordin .55s cubic-bezier(.2,1.2,.4,1) forwards}
   @keyframes wordin{0%{opacity:0;transform:translateY(14px) scale(.94)}100%{opacity:1;transform:none}}
+  /* EN letters land one by one like ink strokes (AR stays word-level for letter joining) */
+  h1 .lw{white-space:nowrap;display:inline-block}
+  h1 .lt{display:inline-block;opacity:0;animation:inkin .6s cubic-bezier(.2,1.5,.35,1) forwards}
+  @keyframes inkin{0%{opacity:0;transform:translateY(16px) rotate(var(--r,0deg)) scale(.6)}
+    60%{opacity:1;transform:translateY(-2px) rotate(calc(var(--r,0deg)*-.4)) scale(1.07)}
+    100%{opacity:1;transform:none}}
   .world{margin-top:10px;color:var(--text-3);font-size:13px;letter-spacing:.08em;opacity:0;animation:up .7s .7s forwards}
   .world b{color:#857e3d;font-weight:600}
   .heroline{margin-top:8px;color:var(--text-2);font-size:19px;line-height:1.5;opacity:0;animation:up .8s 1s forwards}
@@ -101,12 +107,19 @@
   .room-h2{color:var(--sa);font-size:22px;line-height:1.3}
   .room-h2 .ar{font-family:'Reem Kufi',sans-serif}
   .room-h2 .en{font-family:'DM Serif Display',serif}
-  .inkline{height:2px;margin-top:7px;border-radius:2px;background:linear-gradient(90deg,var(--sa),var(--sa2),transparent);
-    transform:scaleX(0);transform-origin:0 0;transition:transform .8s cubic-bezier(.2,.8,.2,1) .15s}
-  [dir="rtl"] .inkline{transform-origin:100% 0}
-  .reveal.in .inkline{transform:scaleX(1)}
+  /* self-drawing ink underline: a hand-wavy SVG stroke that draws itself on reveal */
+  .inkline{display:block;width:min(150px,72%);height:9px;margin-top:7px;overflow:visible}
+  [dir="rtl"] .inkline{transform:scaleX(-1)} /* the hand draws from the right in Arabic */
+  .inkline path{stroke:var(--sa);stroke-dasharray:101;stroke-dashoffset:101;
+    transition:stroke-dashoffset .9s cubic-bezier(.2,.8,.2,1) .15s}
+  .reveal.in .inkline path{stroke-dashoffset:0}
 
-  .items{background:#f8f4f2d9;border:1px solid var(--border-1);border-radius:20px;padding:6px 18px;box-shadow:var(--shadow)}
+  .items{position:relative;background:#f8f4f2d9;border:1px solid var(--border-1);border-radius:20px;padding:6px 18px;box-shadow:var(--shadow)}
+  /* vertical spine: the room's name whispered down the card's edge */
+  .spine{position:absolute;top:16px;inset-inline-start:-17px;writing-mode:vertical-rl;font-size:10px;
+    letter-spacing:.34em;text-transform:uppercase;color:var(--sa);opacity:.35;font-weight:600;
+    pointer-events:none;user-select:none;max-height:calc(100% - 32px);overflow:hidden}
+  @media(max-width:700px){.spine{display:none}}
   .item{display:flex;align-items:baseline;gap:10px;padding:15px 0;border-bottom:1px solid #efe9e699}
   .item:last-child{border-bottom:none}
   .item-name{font-size:16px}
@@ -139,6 +152,14 @@
   .footer a{color:var(--accent);text-decoration:none}
   
 
+  /* sky-dial: a small sun/moon that lets the guest set the sky by hand */
+  .skydial{position:fixed;bottom:18px;inset-inline-end:16px;z-index:30;width:40px;height:40px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:17px;line-height:1;
+    background:#f8f4f2d9;backdrop-filter:blur(10px);border:1px solid var(--border-2);color:var(--accent);
+    box-shadow:0 0 0 4px #87503112,0 6px 16px #87503133;transition:transform .18s,box-shadow .18s}
+  .skydial:hover{transform:translateY(-2px) rotate(12deg);box-shadow:0 0 0 5px #8750311a,0 8px 20px #87503144}
+  .skydial[aria-pressed="true"]{color:var(--accent-2);border-color:var(--accent)}
+
   /* ---- big-screen stage (Beyt is designed wide — so are we) ---- */
   .bigmark{display:none;position:fixed;top:4vh;inset-inline-end:-3vw;z-index:0;font-size:48vh;line-height:1;
     color:var(--accent);opacity:.055;pointer-events:none;user-select:none}
@@ -154,7 +175,8 @@
     .world{font-size:15px;margin-top:16px}
     .heroline{font-size:27px;margin-top:12px}
     .room-h2{font-size:34px}
-    .inkline{height:3px}
+    .inkline{width:min(190px,72%)}
+    .inkline path{stroke-width:2.6}
     .cat-art{width:96px;height:96px}
     .items{padding:10px 30px}
     .item{padding:18px 0}
@@ -256,11 +278,17 @@ body{
 }
 
 
+  /* ---- polish50 bespoke touch: Mustache Curl Wink ---- */
+  .bx-must{width:120px;margin:.6em auto 0;cursor:pointer}.bx-must svg{display:block;overflow:visible;width:100%}.bx-must path{fill:var(--accent)}.bx-mL{transform-origin:60px 22px}.bx-mR{transform-origin:80px 22px}.bx-must:hover .bx-mL{transform:rotate(10deg)}.bx-must:hover .bx-mR{transform:rotate(-10deg)}@media (prefers-reduced-motion:no-preference){.bx-mL,.bx-mR{transition:transform .5s cubic-bezier(.34,1.56,.64,1)}}
+
+
   @media (prefers-reduced-motion: reduce){
     *{animation:none!important;transition:none!important}
-    .reveal,.reveal.in .item,.heroline,.world,.meta,.greet,h1 .w{opacity:1!important;transform:none!important}
+    .reveal,.reveal.in .item,.heroline,.world,.meta,.greet,h1 .w,h1 .lt{opacity:1!important;transform:none!important}
     .pdot{opacity:.9!important;transform:scale(1)!important}
-    .inkline{transform:scaleX(1)!important}
+    .inkline path{stroke-dashoffset:0!important}
+    [dir="rtl"] .inkline{transform:scaleX(-1)!important}
+    .skydial:hover{transform:none!important}
   }
 </style>
 </head>
@@ -323,10 +351,12 @@ body{
     <h1><span class="ar">شنب كافيه</span><span class="en">Shanab Cafe</span></h1>
     <div class="world"><span class="ar">✦ <b>بيت العيلة يوم الجمعة والضحكة عالية</b> ✦</span><span class="en">✦ <b>the family house on a Friday, laughter loud</b> ✦</span></div>
     <div class="heroline"><span class="ar">قعدة عيلة وضحكة من القلب</span><span class="en">A family table and easy laughter</span></div>
+    
     <div class="meta">
       <span class="badge"><span class="ar">الرياض</span><span class="en">Al Khaleej · Riyadh</span></span>
       <span class="badge"><span class="ar">متوافق مع اشتراطات هيئة الغذاء والدواء</span><span class="en">SFDA-ready</span></span>
     </div>
+    <div class="bx-must" aria-hidden="true"><svg viewBox="0 0 140 40"><g class="bx-mL"><path d="M70 22 C58 6 38 8 28 18 C21 25 12 26 7 20 C10 30 24 32 33 26 C44 19 58 20 70 22"/></g><g class="bx-mR"><path d="M70 22 C82 6 102 8 112 18 C119 25 128 26 133 20 C130 30 116 32 107 26 C96 19 82 20 70 22"/></g></svg></div>
   </header>
   <nav class="chips"><a class="chip" href="#cat-0"><span class="ar">قهوة أهل الشنب</span><span class="en">For the mustache club</span></a><a class="chip" href="#cat-1"><span class="ar">للي ما طلع شنبهم بعد</span><span class="en">For mustaches still growing</span></a><a class="chip" href="#cat-2"><span class="ar">صحن بالنص للكل</span><span class="en">One plate, many hands</span></a><a class="chip" href="#cat-3"><span class="ar">حلا يضحّك الشنب</span><span class="en">Sweets that curl the mustache</span></a></nav>
   
@@ -340,10 +370,11 @@ body{
       <div class="cat-title">
         <div class="room-eyebrow"><span class="ar">القهوة وأكثر</span><span class="en">Coffee &amp; More</span></div>
         <h2 class="room-h2"><span class="ar">قهوة أهل الشنب</span><span class="en">For the mustache club</span></h2>
-        <div class="inkline"></div>
+        <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
       </div>
     </div>
     <div class="items">
+      <span class="spine" aria-hidden="true">FOR THE MUSTACHE CLUB</span>
       
       <div class="item">
         <div class="item-name"><span class="ar">كابتشينو</span><span class="en">Cappuccino</span></div>
@@ -381,10 +412,11 @@ body{
       <div class="cat-title">
         <div class="room-eyebrow"><span class="ar">لصغار البيت</span><span class="en">Little Ones</span></div>
         <h2 class="room-h2"><span class="ar">للي ما طلع شنبهم بعد</span><span class="en">For mustaches still growing</span></h2>
-        <div class="inkline"></div>
+        <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
       </div>
     </div>
     <div class="items">
+      <span class="spine" aria-hidden="true">FOR MUSTACHES STILL GROWING</span>
       
       <div class="item">
         <div class="item-name"><span class="ar">بيبيتشينو</span><span class="en">Babyccino</span></div>
@@ -418,10 +450,11 @@ body{
       <div class="cat-title">
         <div class="room-eyebrow"><span class="ar">لقيمات العائلة</span><span class="en">Family Bites</span></div>
         <h2 class="room-h2"><span class="ar">صحن بالنص للكل</span><span class="en">One plate, many hands</span></h2>
-        <div class="inkline"></div>
+        <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
       </div>
     </div>
     <div class="items">
+      <span class="spine" aria-hidden="true">ONE PLATE, MANY HANDS</span>
       
       <div class="item">
         <div class="item-name"><span class="ar">فطائر البيت المالحة</span><span class="en">House Savoury Pastries</span></div>
@@ -454,10 +487,11 @@ body{
       <div class="cat-title">
         <div class="room-eyebrow"><span class="ar">الحلويات</span><span class="en">Sweets</span></div>
         <h2 class="room-h2"><span class="ar">حلا يضحّك الشنب</span><span class="en">Sweets that curl the mustache</span></h2>
-        <div class="inkline"></div>
+        <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
       </div>
     </div>
     <div class="items">
+      <span class="spine" aria-hidden="true">SWEETS THAT CURL THE MUSTACHE</span>
       
       <div class="item">
         <div class="item-name"><span class="ar">كيكة التمر</span><span class="en">Date Cake</span></div>
@@ -488,6 +522,7 @@ body{
   </div>
 </div>
 
+<button class="skydial" id="skyDial" aria-label="تبديل السماء: نهار / ليل — Toggle sky: day / night" aria-pressed="false">☀</button>
 <script>
   const root=document.documentElement;
   const saved=localStorage.getItem('ms-lang')||'ar';
@@ -497,24 +532,56 @@ body{
   document.getElementById('langToggle').addEventListener('click',()=>{setLang(root.getAttribute('data-lang')==='ar'?'en':'ar');});
   const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-  // word-by-word hero entrance (word-level keeps Arabic letter joining intact)
+  // local-clock greeting: the doorway greets by the visitor's own hour (static text stays without JS)
+  (function(){
+    const h=new Date().getHours();
+    const g=(h>=5&&h<=11)?['صباح الخير يا أهل الذوق','Good morning']
+          :(h>=12&&h<=16)?['مساء النور','Good afternoon']
+          :(h>=17&&h<=21)?['سهرة طيبة','Good evening']
+          :['ليلكم عسل','Sweet night'];
+    const el=document.querySelector('.greet');if(!el)return;
+    const ar=el.querySelector('.ar'),en=el.querySelector('.en');
+    if(ar)ar.textContent=g[0]+' ✦';if(en)en.textContent=g[1]+' ✦';
+  })();
+  // hero entrance: AR words glide in whole (letter joining stays intact),
+  // EN letters land one by one with a tiny deterministic ink-tilt each
   if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
-    document.querySelectorAll('h1 .ar, h1 .en').forEach(el=>{
+    document.querySelectorAll('h1 .ar').forEach(el=>{
       const words=el.textContent.trim().split(/\s+/);
       el.innerHTML=words.map((w,i)=>'<span class="w" style="animation-delay:'+(0.35+i*0.12)+'s">'+w+'</span>').join(' ');
+    });
+    document.querySelectorAll('h1 .en').forEach(el=>{
+      let k=0;
+      const words=el.textContent.trim().split(/\s+/);
+      el.innerHTML=words.map(w=>'<span class="lw">'+Array.from(w).map(ch=>{
+        const r=((((k*13)%9)-4)*0.9).toFixed(1); // deterministic tiny tilt per letter
+        const s='<span class="lt" style="--r:'+r+'deg;animation-delay:'+(0.35+k*0.045).toFixed(3)+'s">'+
+          ch.replace(/&/g,'&amp;').replace(/</g,'&lt;')+'</span>';
+        k++;return s;
+      }).join('')+'</span>').join(' ');
     });
     setTimeout(()=>{
       document.querySelectorAll('h1 .ar, h1 .en').forEach(el=>{el.textContent=el.textContent;});
       document.querySelector('h1').classList.add('shimmer');
     },2400);
   }
-  // day -> night: the page's sky shifts as you walk deeper into the house
+  // day -> night: the sky shifts as you walk deeper — or by hand via the sky-dial
   (function(){
     const A=[252,249,248],B=[226,211,202];
-    const lerp=()=>{const m=document.documentElement.scrollHeight-innerHeight;
+    let forcedNight=false; // sky-dial override: true = full night, false = scroll-driven
+    const lerp=()=>{
+      if(forcedNight){document.body.style.backgroundColor='rgb('+B.join(',')+')';return;}
+      const m=document.documentElement.scrollHeight-innerHeight;
       const f=m>60?Math.min(1,scrollY/m):0;
       document.body.style.backgroundColor='rgb('+A.map((v,i)=>Math.round(v+(B[i]-v)*f)).join(',')+')';};
     addEventListener('scroll',lerp,{passive:true});lerp();
+    const dial=document.getElementById('skyDial');
+    if(dial)dial.addEventListener('click',()=>{
+      forcedNight=!forcedNight;
+      dial.textContent=forcedNight?'☾':'☀';
+      dial.setAttribute('aria-pressed',String(forcedNight));
+      lerp();
+    });
   })();
 </script>
 </body>
