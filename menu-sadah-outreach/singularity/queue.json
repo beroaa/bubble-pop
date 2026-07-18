@@ -653,7 +653,7 @@
     "stage": "READY",
     "source": "batch2-harvest",
     "why": "An independent roaster praised for specialty coffee, healthy food and single-origin organic beans — a combined food-plus-beans menu is complex enough that a searchable digital menu clearly beats print",
-    "stageAt": 1784378978146,
+    "stageAt": 1784380227345,
     "social": "@9thstcoffee",
     "priority": 3,
     "tier": "luxe",
@@ -661,8 +661,18 @@
     "photoLeads": [
       "https://www.tripadvisor.com/Restaurant_Review-g293995-d19484792-Reviews-9th_Street_Coffee_Roasters-Riyadh_Riyadh_Province.html",
       "https://hungerstation.com/sa-en/restaurant/riyadh/boulevard/159695",
-      "https://www.facebook.com/9thstcoffee/"
-    ]
+      "https://www.facebook.com/9thstcoffee/",
+      "https://www.instagram.com/9thstcoffee/",
+      "https://9thstroasters.com/en/"
+    ],
+    "signature": [
+      [
+        "Iced Caramel Latte",
+        "آيس لاتيه بالكراميل",
+        16
+      ]
+    ],
+    "sigSource": "https://sa.arabplaces.com/riyadh/9th-street-coffee-roasters-499355"
   },
   {
     "slug": "roof-coffee",
@@ -5383,14 +5393,20 @@
     "why": "New specialty coffee spot on Olaya St near Sulaiman Al Habib metro; menu only lives on IG/TikTok posts",
     "social": "@dmcafe_1",
     "priority": 3,
-    "stageAt": 1784378978210,
+    "stageAt": 1784380227347,
     "tier": "luxe",
     "themeLabel": "roast amber",
     "photoLeads": [
       "https://hungerstation.com/sa-en/qc/98938/DM-Cafe/branch/riyadh~hateen~176840",
       "https://www.tiktok.com/@dmcafe_1",
-      "https://linktr.ee/dmcafe_1"
-    ]
+      "https://linktr.ee/dmcafe_1",
+      "https://www.instagram.com/dmcafe_1/"
+    ],
+    "sigMention": [
+      "Hot Chocolate",
+      "هوت تشوكلت"
+    ],
+    "sigSource": "https://www.tiktok.com/@cazzarr/video/7582260616644119829"
   },
   {
     "slug": "kabi-cafe",
@@ -9080,14 +9096,20 @@
     "why": "New small specialty coffee in Hittin taking orders via Instagram DMs — no proper e-menu.",
     "social": "@vov.cafe (Instagram)",
     "priority": 3,
-    "stageAt": 1784378978255,
+    "stageAt": 1784380227348,
     "tier": "luxe",
     "themeLabel": "roast amber",
     "photoLeads": [
       "https://hungerstation.com/sa-en/qc/99112/Vov/branch/riyadh~masiaf~177117",
       "https://www.instagram.com/p/DRrJRgHDNeY/",
-      "https://www.instagram.com/reel/DO1MIO3jLG2/"
-    ]
+      "https://www.instagram.com/reel/DO1MIO3jLG2/",
+      "https://www.instagram.com/vov.cafe/"
+    ],
+    "sigMention": [
+      "White Pecan",
+      "وايت بيكان"
+    ],
+    "sigSource": "https://x.com/DHDH9933/status/1968007821632700913"
   },
   {
     "slug": "olen-coffee-and-bakery",
@@ -10493,9 +10515,13 @@
     "why": "New cafe inside a farm overlooking the wadi — pure istiraha-garden format discovered via Instagram only.",
     "social": "https://www.instagram.com/p/CYAL-KsoBe4/",
     "priority": 3,
-    "stageAt": 1784378978271,
+    "stageAt": 1784380227348,
     "tier": "luxe",
-    "themeLabel": "warm hearth"
+    "themeLabel": "warm hearth",
+    "photoLeads": [
+      "https://www.instagram.com/the.valleyview",
+      "https://www.instagram.com/p/CYAP0qgomMl/"
+    ]
   },
   {
     "slug": "the-b-lounge",
@@ -11801,7 +11827,7 @@
     "why": "Trial opening Feb 2026, indoor/outdoor seating, announced only via X — no proper digital menu.",
     "social": "@rukayaa.sa",
     "priority": 3,
-    "stageAt": 1784378978286,
+    "stageAt": 1784380227349,
     "tier": "luxe",
     "themeLabel": "copper ember",
     "photoLeads": [
@@ -13244,13 +13270,14 @@
     "why": "Brand-new neighborhood specialty spot (opened recently in Al-Rawdah, second corner near Jawazat metro) hyped only via IG/TikTok reels — no proper digital menu.",
     "social": "TikTok/IG coverage: instagram.com/reel/DZ7mMigqr5I",
     "priority": 3,
-    "stageAt": 1784378978302,
+    "stageAt": 1784380227350,
     "tier": "luxe",
     "themeLabel": "roast amber",
     "photoLeads": [
       "https://x.com/DHDH9933/status/2068412966655938744",
       "https://www.instagram.com/reel/DZ7mMigqr5I/",
-      "https://www.tiktok.com/content/%D9%83%D9%88%D9%81%D9%8A-%D9%85%D8%B1%D8%AB%D8%AF-%D8%A7%D9%84%D8%B1%D9%88%D8%B6%D9%87"
+      "https://www.tiktok.com/content/%D9%83%D9%88%D9%81%D9%8A-%D9%85%D8%B1%D8%AB%D8%AF-%D8%A7%D9%84%D8%B1%D9%88%D8%B6%D9%87",
+      "https://www.instagram.com/reel/DZN6VnJM7p-/"
     ]
   },
   {
@@ -13599,12 +13626,13 @@
     "why": "New neighborhood specialty roastery covered by Riyadh coffee Snap/X reviewers during its soft opening — small in-district concept, no digital menu found.",
     "social": "Instagram @haffa.sa",
     "priority": 3,
-    "stageAt": 1784378978306,
+    "stageAt": 1784380227350,
     "tier": "luxe",
     "themeLabel": "copper ember",
     "photoLeads": [
       "https://www.instagram.com/haffa.sa/",
-      "https://www.instagram.com/p/DKUmJ5mIOmA/"
+      "https://www.instagram.com/p/DKUmJ5mIOmA/",
+      "https://www.instagram.com/p/DP1BeVQiKo9/"
     ]
   },
   {
@@ -13832,12 +13860,13 @@
     "why": "Independent cafe in the new student-facing strip mall opposite Imam University, surfaced only via an Instagram post.",
     "social": "Instagram",
     "priority": 3,
-    "stageAt": 1784378978309,
+    "stageAt": 1784380227351,
     "tier": "luxe",
     "themeLabel": "roast amber",
     "photoLeads": [
       "https://www.instagram.com/cazarcafe/",
-      "https://cafesriyadh.com/2021/%D9%83%D8%A7%D8%B2%D8%A7%D8%B1-%D9%83%D8%A7%D9%81%D9%8A%D9%87/"
+      "https://cafesriyadh.com/2021/%D9%83%D8%A7%D8%B2%D8%A7%D8%B1-%D9%83%D8%A7%D9%81%D9%8A%D9%87/",
+      "https://www.tiktok.com/@cazzarr"
     ]
   },
   {
@@ -13949,13 +13978,15 @@
     "why": "Brand-new cafe inside the residential fabric of Al Nafal, marketing purely via Instagram/X",
     "social": "instagram.com/cave.coffe1",
     "priority": 3,
-    "stageAt": 1784378978310,
+    "stageAt": 1784380227352,
     "tier": "luxe",
     "themeLabel": "roast amber",
     "photoLeads": [
       "https://www.instagram.com/p/DOpufLAjNZp/",
       "https://www.instagram.com/p/DMeyag0of4N/",
-      "https://www.tiktok.com/@d7ad7/video/7561143196340768007"
+      "https://www.tiktok.com/@d7ad7/video/7561143196340768007",
+      "https://www.instagram.com/cave.coffe1",
+      "https://www.tiktok.com/@cazzarr/video/7554048447951736071"
     ]
   },
   {
@@ -14417,13 +14448,14 @@
     "why": "Announced as opening soon in Al Narjis via TikTok teaser — pre-opening, no menu infrastructure yet.",
     "social": "@RYM.RUH",
     "priority": 3,
-    "stageAt": 1784378978315,
+    "stageAt": 1784380227353,
     "tier": "luxe",
     "themeLabel": "roast amber",
     "photoLeads": [
       "https://www.instagram.com/rym.ruh/",
       "https://www.instagram.com/p/DXv3hQ1jNhQ/",
-      "https://x.com/DHDH9933/status/2022039118663082484"
+      "https://x.com/DHDH9933/status/2022039118663082484",
+      "https://www.tiktok.com/@riyadhreviews/video/7607423125067812116"
     ]
   },
   {

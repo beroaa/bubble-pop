@@ -1,5 +1,5 @@
 window.BUILDS_STATE = {
- "generatedAt": 1784379933465,
+ "generatedAt": 1784380240875,
  "builds": [
   {
    "id": "b1",
@@ -148,9 +148,9 @@ window.BUILDS_STATE = {
   {
    "id": "b9",
    "name": "NIGHT-OPS 🌙 — last 21 bare cafes researched + objection scripts + follow-up buttons in cockpit",
-   "status": "running",
-   "pct": 60,
-   "etaAt": 1784381510992,
+   "status": "done",
+   "pct": 100,
+   "etaAt": null,
    "note": "deploying final recon squad",
    "startedAt": 1784379830993,
    "feed": [
@@ -162,7 +162,8 @@ window.BUILDS_STATE = {
      "at": 1784379933418,
      "msg": "Objection war-room + voice-note script written"
     }
-   ]
+   ],
+   "result": "Recon merged: +1 priced sig (40 total), +2 dish mentions, +10 photo-lead sets; 18 cafes stay honestly dark; war-room + follow-up buttons shipped"
   }
  ]
 };
