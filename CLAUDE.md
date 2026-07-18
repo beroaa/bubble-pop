@@ -10,6 +10,11 @@ These orders apply to EVERY Claude session in this repo — cloud or MacBook. Re
 - **Live activity feed (Ibrahim's standing demand — EVERY build, always):** at every meaningful step of any build, post a short easy-English bullet via `node singularity/btrack.mjs log <id> "<what is happening right now>"` (e.g. "4 agents researching cafes", "building pages", "taking screenshots"). Keep bullets under 12 words, no jargon. Then re-sync the artifact board (inline builds-state into scratchpad build-board.html and republish the same artifact URL) so he sees big ETA + live bullets on his phone. Token-cheap one-liners, but never skip them.
 - Always commit + push to the working branch when a chunk of work lands. Never leave work uncommitted.
 
+## ClientOS = THE main workstation (Ibrahim's standing order)
+- ClientOS (the space-theme "G2" app: ATLAS/TONIGHT/PIPELINE/MENUS/SENT/MONEY/LAB/OPS tabs, LV/XP, SILVER ranks) is Ibrahim's MAIN WORKSTATION. Every new operator feature, menu list, or dashboard fuses INTO it — never a separate standalone page, never the old brown "hq" skin.
+- The REAL app lives ONLY on his MacBook at `/Users/bero/Desktop/ClientOS/` — the .app zips he uploads contain just the launcher script, NOT the app. Upgrading ClientOS is therefore MacBook-session work: keep `singularity/CLIENTOS-MISSION.md` + `singularity/clientos-menus-payload.json` current, and hand him the one paste-line.
+- His design language always wins. Cloud box prepares payloads + mission files; Mac-Claude performs the surgery on the app itself.
+
 ## The business (context)
 - MENU SADAH (منيو سادة) — QR e-menu agency for Riyadh cafes. Site: menu-sadah.com. Reference pages he loves: /beyt-coffee and /beyt-coffee-welcome ("gift links" = the sales weapon).
 - Goal: land first paying cafe clients. The DM cockpit (`singularity/dms.html` — PRIVATE, never upload with menus) ranks all cafes best-first with copy-paste Arabic DMs.
