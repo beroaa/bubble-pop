@@ -1,5 +1,5 @@
 window.BUILDS_STATE = {
- "generatedAt": 1784372754871,
+ "generatedAt": 1784373197461,
  "builds": [
   {
    "id": "b1",
@@ -55,7 +55,7 @@ window.BUILDS_STATE = {
    "id": "b6",
    "name": "GAME-OS STUDIO-30 🎮 — 30-agent build: all 948 menus fused into ClientOS as a game",
    "status": "running",
-   "pct": 30,
+   "pct": 85,
    "etaAt": 1784375209777,
    "note": "Wave 1: 12 design specialists deployed",
    "startedAt": 1784372322777,
@@ -71,6 +71,22 @@ window.BUILDS_STATE = {
     {
      "at": 1784372754827,
      "msg": "Design squad done: layout + bubbles + filters + motion specs are in"
+    },
+    {
+     "at": 1784372805089,
+     "msg": "Coach script + all sounds + lobby music composed"
+    },
+    {
+     "at": 1784372871243,
+     "msg": "All 12 specs in — now building the game page itself"
+    },
+    {
+     "at": 1784373084948,
+     "msg": "Game page built — testing it in a real browser now"
+    },
+    {
+     "at": 1784373197421,
+     "msg": "Fused into ClientOS app — QA raid squad attacking the file now"
     }
    ]
   }

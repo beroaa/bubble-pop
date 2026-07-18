@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="en" data-theme="hq">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#161210">
+<title>MENUS — ClientOS · MENU SADAH</title>
+<style>
+:root{--bg-0:#161210;--bg-1:#1f1915;--bg-2:#2a221b;--bg-3:#372c22;--border-1:#35291f;--border-2:#55422f;
+--text-1:#f5efe6;--text-2:#c6b9a6;--text-3:#8b7d6a;--accent:#e3b23c;--accent-hover:#f0c45c;--on-accent:#1d1610;
+--accent-soft:#e3b23c24;--positive:#57b380;--positive-soft:#57b38029;--negative:#e25c5c;--negative-soft:#e25c5c29;
+--warning:#e8883c;--warning-soft:#e8883c29;--info:#5ca8e8;--r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:24px;
+--font:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,Arial,sans-serif;
+--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;--ease:cubic-bezier(.16,1,.3,1)}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;overflow:hidden}
+body{background:var(--bg-0);color:var(--text-1);font-family:var(--font);font-size:15px;display:flex;flex-direction:column}
+button{font-family:var(--font);border:none;background:none;color:inherit;cursor:pointer}
+/* ---------- header ---------- */
+#hdr{flex:0 0 auto;background:var(--bg-1);border-bottom:1px solid var(--border-1);padding:10px 14px 8px;z-index:30}
+#hdrRow1{display:flex;align-items:center;gap:8px;height:28px}
+#hdrRow1 .t{font-size:17px;font-weight:800;letter-spacing:.08em}
+#hdrRow1 .tAr{font-size:12px;color:var(--text-3)}
+#hdrRow1 .sp{flex:1}
+#signedPill{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--positive);background:var(--positive-soft);
+border:1px solid #57b38040;border-radius:var(--r-sm);padding:3px 8px}
+#xpStrip{display:flex;align-items:center;gap:8px;margin-top:6px;height:22px}
+#rankBadge{font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.05em;white-space:nowrap}
+#lvlTag{font-family:var(--mono);font-size:11px;color:var(--text-2)}
+#xpBar{flex:1;height:6px;background:var(--bg-2);border-radius:99px;overflow:hidden}
+#xpFill{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),#f6d77e);border-radius:99px;
+box-shadow:0 0 12px #e3b23c59;transition:width .32s var(--ease)}
+#streakFlame{font-size:12px;color:var(--warning);font-weight:700;white-space:nowrap}
+#stats{display:flex;gap:6px;margin-top:8px}
+.pill{flex:1;height:44px;background:var(--bg-2);border:1px solid var(--border-1);border-radius:var(--r-md);
+display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;transition:all .12s}
+.pill b{font-family:var(--mono);font-size:15px}
+.pill span{font-size:8.5px;font-weight:600;letter-spacing:.06em;color:var(--text-3);text-transform:uppercase}
+.pill.g b{color:var(--positive)} .pill.o b{color:var(--warning)} .pill.r b{color:var(--negative)} .pill.s b{color:var(--info)}
+.pill.on{background:var(--bg-3)} .pill.g.on{border-color:var(--positive)} .pill.o.on{border-color:var(--warning)}
+.pill.r.on{border-color:var(--negative)} .pill.s.on{border-color:var(--info)}
+/* ---------- filters ---------- */
+#filters{flex:0 0 auto;background:var(--bg-1);border-bottom:1px solid var(--border-1);padding:8px 0 6px;z-index:25}
+#searchWrap{margin:0 12px;position:relative}
+#search{width:100%;height:42px;background:var(--bg-0);border:1px solid var(--border-2);border-radius:var(--r-md);
+color:var(--text-1);font-size:15px;padding:0 36px 0 12px;outline:none;transition:all .12s}
+#search:focus{border-color:var(--accent);box-shadow:0 0 12px #e3b23c59}
+#search::placeholder{color:var(--text-3)}
+#clearBtn{position:absolute;right:4px;top:7px;width:28px;height:28px;color:var(--text-3);display:none;font-size:14px}
+#chips{display:flex;gap:6px;overflow-x:auto;padding:8px 12px 2px;scrollbar-width:none}
+#chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;height:30px;padding:0 12px;border-radius:var(--r-xl);background:var(--bg-2);
+border:1px solid var(--border-1);font-size:12px;font-weight:600;color:var(--text-2);display:flex;align-items:center;gap:5px;transition:all .12s}
+.chip .dot{width:8px;height:8px;border-radius:50%}
+.chip.on{background:var(--accent);color:var(--on-accent);border-color:var(--accent);font-weight:700}
+.chip.on .dot{outline:1.5px solid var(--on-accent)}
+/* ---------- list ---------- */
+#list{flex:1;overflow-y:auto;overscroll-behavior:contain;position:relative}
+#resultLine{position:sticky;top:0;z-index:5;height:26px;line-height:26px;padding:0 14px;background:var(--bg-0);
+font-family:var(--mono);font-size:11px;color:var(--text-3)}
+#spacer{position:relative}
+.row{position:absolute;left:0;width:100%;height:76px;display:flex;align-items:center;gap:10px;
+padding:0 12px;border-bottom:1px solid var(--border-1);background:transparent;transition:background 80ms}
+.row:active{background:var(--bg-2)}
+.bub{flex:0 0 40px;width:40px;height:40px;border-radius:50%;position:relative}
+.bub.G{background:radial-gradient(circle at 30% 30%,#7ed9a573,#57b3808c 45%,#3d8a5fd9 100%);border:1px solid #57b38066;box-shadow:0 0 12px #57b38059}
+.bub.O{background:radial-gradient(circle at 30% 30%,#f2a96473,#e8883c8c 45%,#b5641fd9 100%);border:1px solid #e8883c66}
+.bub.R{background:radial-gradient(circle at 30% 30%,#ef8a8a73,#e25c5c8c 45%,#b03a3ad9 100%);border:1px solid #e25c5c66}
+.bub .ck{position:absolute;right:-4px;bottom:-2px;width:16px;height:16px;border-radius:50%;background:var(--accent);
+color:var(--on-accent);font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.txt{flex:1;min-width:0}
+.l1{font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.l1 .star{color:var(--accent);font-size:12px}
+.l2{font-size:12px;color:var(--text-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:1px}
+.l3{font-size:11px;color:var(--text-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:1px}
+.l3 .st{font-family:var(--mono);font-size:10px;text-transform:uppercase;font-weight:700}
+.st.READY{color:var(--positive)}.st.SENT{color:var(--info)}.st.REPLIED{color:var(--warning)}.st.SIGNED{color:var(--accent)}
+.l3 .chain{color:var(--negative)}
+.acts{flex:0 0 auto;display:flex;gap:5px}
+.ab{width:36px;height:36px;border-radius:var(--r-sm);background:var(--bg-2);border:1px solid var(--border-1);
+font-size:15px;display:flex;align-items:center;justify-content:center;color:var(--text-2);transition:transform 80ms}
+.ab:active{transform:scale(.92)}
+.ab.gift{color:var(--accent)}
+.ab.ok{background:var(--positive);border-color:var(--positive);color:var(--on-accent)}
+#empty{display:none;text-align:center;padding:60px 20px;color:var(--text-3)}
+#empty .ghost{width:44px;height:44px;border:2px dashed var(--border-2);border-radius:50%;margin:0 auto 12px}
+#empty button{color:var(--accent);font-size:13px;margin-top:8px}
+#fab{position:fixed;right:12px;bottom:80px;width:38px;height:38px;border-radius:50%;background:var(--accent);
+color:var(--on-accent);font-size:15px;box-shadow:0 0 12px #e3b23c59;display:none;z-index:20}
+/* ---------- footer nav ---------- */
+#nav{flex:0 0 auto;height:60px;background:#1f1915eb;border-top:1px solid var(--border-1);display:flex;z-index:30}
+#nav button{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+font-size:17px;color:var(--text-3)}
+#nav button span{font-size:9px;font-weight:600;letter-spacing:.04em}
+#nav button.on{color:var(--accent)}
+#nav button.pulse{animation:coachpulse 1.2s infinite}
+@keyframes coachpulse{50%{opacity:.35}}
+/* ---------- sheets ---------- */
+.sheet{position:fixed;inset:0;background:#0c0907b8;backdrop-filter:blur(8px);z-index:40;display:none;align-items:flex-end}
+.sheet.open{display:flex}
+.card{width:100%;max-height:78%;overflow-y:auto;background:var(--bg-1);border-top:1px solid var(--border-2);
+border-radius:var(--r-xl) var(--r-xl) 0 0;padding:18px 16px 26px;animation:up .24s var(--ease)}
+@keyframes up{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+.card h2{font-size:15px;letter-spacing:.08em;margin-bottom:12px;color:var(--accent)}
+.card h2 small{color:var(--text-3);font-weight:400;letter-spacing:0}
+.qi{display:flex;gap:10px;align-items:center;background:var(--bg-2);border:1px solid var(--border-1);
+border-radius:var(--r-md);padding:12px;margin-bottom:8px}
+.qi .qc{width:26px;height:26px;border-radius:50%;border:2px solid var(--border-2);flex:0 0 auto;
+display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--on-accent)}
+.qi.done .qc{background:var(--positive);border-color:var(--positive)}
+.qi .qt{flex:1;font-size:13.5px}
+.qi .qt small{display:block;color:var(--text-3);font-size:11px;margin-top:1px}
+.qi .qx{font-family:var(--mono);font-size:12px;color:var(--accent);font-weight:700}
+.rk{display:flex;gap:10px;align-items:center;padding:10px 4px;border-bottom:1px solid var(--border-1)}
+.rk .em{width:30px;height:30px;border-radius:50%;background:var(--bg-3);display:flex;align-items:center;justify-content:center;font-size:14px}
+.rk.cur .em{background:var(--accent);color:var(--on-accent);box-shadow:0 0 12px #e3b23c59}
+.rk .rn{flex:1;font-size:13.5px;font-weight:600}
+.rk .rn small{display:block;color:var(--text-3);font-weight:400;font-size:11px}
+.rk .rx{font-family:var(--mono);font-size:11px;color:var(--text-3)}
+.rk.lock{opacity:.55}
+.statrow{display:flex;gap:8px;margin:12px 0}
+.statrow div{flex:1;text-align:center;background:var(--bg-2);border-radius:var(--r-md);padding:8px 4px}
+.statrow b{font-family:var(--mono);font-size:15px;display:block}
+.statrow span{font-size:9px;color:var(--text-3);text-transform:uppercase;letter-spacing:.05em}
+.ghostBtn{width:100%;margin-top:10px;height:40px;border:1px solid var(--border-2);border-radius:var(--r-md);
+color:var(--text-2);font-size:13px}
+/* ---------- coach ---------- */
+#coach{position:fixed;inset:0;z-index:50;display:none}
+#coach.open{display:block}
+#coachScrim{position:absolute;inset:0}
+#spot{position:absolute;border-radius:12px;box-shadow:0 0 0 9999px #0c0907d2;transition:all .25s var(--ease);pointer-events:none}
+#coachCard{position:absolute;left:16px;right:16px;background:var(--bg-1);border:1px solid var(--border-2);
+border-radius:var(--r-lg);padding:14px;box-shadow:0 12px 32px #00000059}
+#coachCard .cn{font-size:13px;font-weight:700;color:var(--accent);letter-spacing:.05em}
+#coachCard .ce{font-size:14px;margin-top:6px}
+#coachCard .ca{font-size:13px;margin-top:4px;color:var(--text-2);direction:rtl;text-align:right}
+#coachCard .cf{display:flex;align-items:center;margin-top:12px;gap:8px}
+#coachCard .cf .num{font-family:var(--mono);font-size:11px;color:var(--text-3);flex:1}
+#coachCard .cf button{height:34px;padding:0 16px;border-radius:var(--r-sm);font-size:13px;font-weight:700}
+#coachCard .back{border:1px solid var(--border-2);color:var(--text-2)}
+#coachCard .next{background:var(--accent);color:var(--on-accent)}
+/* ---------- toast + xp chips ---------- */
+#toasts{position:fixed;left:12px;right:12px;bottom:72px;z-index:60;display:flex;flex-direction:column;gap:6px;pointer-events:none}
+.toast{background:var(--bg-3);border:1px solid var(--positive);border-radius:var(--r-md);padding:10px 14px;
+font-size:13px;animation:up .16s var(--ease)}
+.toast.warn{border-color:var(--warning)}
+.xpchip{position:fixed;z-index:60;font-family:var(--mono);font-size:13px;font-weight:800;color:var(--accent);
+pointer-events:none;animation:rise .8s var(--ease) forwards}
+.xpchip.big{color:var(--positive)}
+@keyframes rise{from{opacity:1;transform:none}to{opacity:0;transform:translateY(-24px)}}
+/* ---------- signed flash ---------- */
+#flash{position:fixed;inset:0;z-index:70;display:none;align-items:center;justify-content:center;flex-direction:column;
+background:radial-gradient(circle,#e3b23c33,#0c0907e6 70%)}
+#flash.open{display:flex}
+#flash h1{font-size:34px;color:var(--accent);text-shadow:0 0 24px #e3b23c88}
+#flash p{color:var(--text-1);margin-top:8px;font-size:16px}
+#flash .fx{font-family:var(--mono);font-size:26px;color:var(--positive);margin-top:14px;font-weight:800}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header id="hdr">
+  <div id="hdrRow1">
+    <span class="t">MENUS</span><span class="tAr">المنيوهات</span><span class="sp"></span>
+    <span id="streakFlame" title="streak">🔥 0</span>
+    <span id="signedPill">0 SIGNED</span>
+  </div>
+  <div id="xpStrip">
+    <span id="rankBadge">BEAN SCOUT</span><span id="lvlTag">Lv 1</span>
+    <div id="xpBar"><div id="xpFill"></div></div>
+  </div>
+  <div id="stats">
+    <button class="pill g" data-color="G"><b id="cG">0</b><span>ready 10/10</span></button>
+    <button class="pill o" data-color="O"><b id="cO">0</b><span>missing data</span></button>
+    <button class="pill r" data-color="R"><b id="cR">0</b><span>needs work</span></button>
+    <button class="pill s" data-stage="SENT"><b id="cS">0</b><span>dms sent</span></button>
+  </div>
+</header>
+
+<div id="filters">
+  <div id="searchWrap">
+    <input id="search" placeholder="Search name / area / type…  ابحث" autocomplete="off">
+    <button id="clearBtn">✕</button>
+  </div>
+  <div id="chips"></div>
+</div>
+
+<div id="list">
+  <div id="resultLine">948 cafes</div>
+  <div id="spacer"></div>
+  <div id="empty"><div class="ghost"></div>No cafes match<br><button id="resetBtn">Clear filters</button></div>
+</div>
+<button id="fab">▲</button>
+
+<nav id="nav">
+  <button id="navHome">🏠<span>ClientOS</span></button>
+  <button id="navRank">🏆<span>Rank</span></button>
+  <button id="navQuest">🎯<span>Quests</span></button>
+  <button id="navCoach">❓<span>Coach</span></button>
+  <button id="navMute">🔊<span>Sound</span></button>
+  <button id="navMusic">🎵<span>Music</span></button>
+</nav>
+
+<div class="sheet" id="rankSheet"><div class="card">
+  <h2>🏆 RANK LADDER <small>· سلم الرتب</small></h2>
+  <div class="statrow">
+    <div><b id="stSent">0</b><span>sent</span></div>
+    <div><b id="stRep">0</b><span>replied</span></div>
+    <div><b id="stSign">0</b><span>signed</span></div>
+    <div><b id="stXp">0</b><span>total xp</span></div>
+  </div>
+  <div id="ladder"></div>
+  <button class="ghostBtn" id="exportBtn">⬇ Export progress (backup)</button>
+</div></div>
+
+<div class="sheet" id="questSheet"><div class="card">
+  <h2>🎯 DAILY QUESTS <small>· مهام اليوم — resets 4 AM</small></h2>
+  <div id="questList"></div>
+  <div id="sweepLine" style="font-size:12px;color:var(--text-3);margin-top:6px"></div>
+</div></div>
+
+<div id="coach">
+  <div id="coachScrim"></div>
+  <div id="spot"></div>
+  <div id="coachCard">
+    <div class="cn"></div><div class="ce"></div><div class="ca"></div>
+    <div class="cf"><span class="num"></span><button class="back">‹ Back</button><button class="next">Next ›</button></div>
+  </div>
+</div>
+
+<div id="flash"><h1>SIGNED! ✍</h1><p>توقيع! عميل جديد لمنيو سادة</p><div class="fx">+1000 XP</div><p style="font-size:12px;color:var(--text-3);margin-top:18px">tap anywhere</p></div>
+<div id="toasts"></div>
+
+<script>
+'use strict';
+/* ================= DATA ================= */
+const DATA = __DATA__;
+const SITE = 'https://menu-sadah.com';
+/* ================= STATUS ================= */
+function statusOf(c){
+  if (c.chainFlag) return 'R';
+  const hasReal = (c.signature && c.signature.length) || c.sigMention;
+  if (c.tier === 'luxe' && hasReal) return 'G';
+  return 'O';
+}
+const TYPE_GLYPH = {specialty_coffee:'☕', dessert_cafe:'◆', bakery_cafe:'▲', matcha_bar:'❋', roastery:'●', family_cafe:'⌂', tea_house:'◠', gaming_cafe:'▣'};
+const TYPE_NAME = {specialty_coffee:'Coffee', dessert_cafe:'Dessert', bakery_cafe:'Bakery', matcha_bar:'Matcha', roastery:'Roastery', family_cafe:'Family', tea_house:'Tea', gaming_cafe:'Gaming'};
+/* ================= STORAGE ================= */
+const store = {
+  get(k, d){ try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch(e){ return d; } },
+  set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} },
+};
+let stages = store.get('gameos_stages', {});
+let ledger = store.get('gameos_ledger', {});
+let xpTotal = store.get('gameos_xp', 0);
+let daily = store.get('gameos_daily', null);
+let streak = store.get('gameos_streak', {current:0, best:0, lastDay:null});
+let rankSeen = store.get('gameos_rank_seen', 1);
+let muted = store.get('gameos_mute', false);
+let musicOn = store.get('gameos_music', true);
+DATA.forEach(c => { if (stages[c.slug]) c.stage = stages[c.slug]; });
+/* day boundary: 4 AM Riyadh (UTC+3) */
+function dayKey(){ const t = new Date(Date.now() + 3*3600000 - 4*3600000); return t.toISOString().slice(0,10); }
+function dayNumber(){ return Math.floor((Date.now() + 3*3600000 - 4*3600000)/86400000); }
+if (!daily || daily.date !== dayKey()) { daily = {date: dayKey(), sent:0, copies:0, gifts:0, firstSentBonus:false, areas:[], greens:0, advanced:0, replied:0, signed:0, quests:null, sweep:false}; store.set('gameos_daily', daily); }
+/* ================= AUDIO ================= */
+let AC = null, musicNodes = null;
+function ac(){ if (!AC) { try { AC = new (window.AudioContext||window.webkitAudioContext)(); } catch(e){} } return AC; }
+function tone(notes, type, gain, dur, gap){
+  if (muted) return; const c = ac(); if (!c) return;
+  let t = c.currentTime;
+  notes.forEach((f) => {
+    const o = c.createOscillator(), g = c.createGain(), lp = c.createBiquadFilter();
+    lp.type = 'lowpass'; lp.frequency.value = 2600;
+    o.type = type; o.frequency.value = f;
+    g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(gain*0.15, t+0.01);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur/1000);
+    o.connect(lp); lp.connect(g); g.connect(c.destination);
+    o.start(t); o.stop(t + dur/1000 + 0.02); t += (gap||dur)/1000;
+  });
+}
+const SFX = {
+  click: () => tone([520], 'square', .55, 50),
+  copy: () => tone([660, 880], 'sine', .8, 120, 70),
+  advance: () => tone([700, 900], 'sine', .8, 90, 80),
+  quest: () => tone([523, 659, 784], 'triangle', 1, 90, 90),
+  level: () => tone([523, 659, 784, 1046], 'triangle', 1.1, 90, 90),
+  rank: () => tone([440, 554, 659], 'sawtooth', 1, 350, 60),
+  error: () => tone([160], 'sine', .8, 150),
+};
+/* seeded generative lobby music: warm A, pad + drone + sparse pentatonic pluck */
+function lcg(seed){ let s = seed>>>0; return () => (s = (1664525*s + 1013904223)>>>0) / 4294967296; }
+function startMusic(){
+  if (!musicOn || musicNodes || muted) return; const c = ac(); if (!c) return;
+  const master = c.createGain(); master.gain.setValueAtTime(0.0001, c.currentTime);
+  master.gain.linearRampToValueAtTime(0.055, c.currentTime + 3); master.connect(c.destination);
+  const mk = (f, type, g, det) => { const o=c.createOscillator(), gn=c.createGain(), lp=c.createBiquadFilter();
+    o.type=type; o.frequency.value=f; if(det) o.detune.value=det; lp.type='lowpass'; lp.frequency.value=800;
+    gn.gain.value=g; o.connect(lp); lp.connect(gn); gn.connect(master); o.start(); return o; };
+  const drone = mk(110, 'sine', .22);
+  const pads = [mk(220,'triangle',.16), mk(220,'triangle',.16,6), mk(329.6,'triangle',.12,-5)];
+  const scale = [220, 246.9, 277.2, 329.6, 370, 440, 493.9];
+  const rand = lcg(20260718); let stop = false;
+  (function pluck(){ if (stop) return;
+    const f = scale[Math.floor(rand()*scale.length)];
+    const o=c.createOscillator(), g=c.createGain(), lp=c.createBiquadFilter();
+    o.type='triangle'; o.frequency.value=f*2; lp.type='lowpass'; lp.frequency.value=1200;
+    const t=c.currentTime; g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(.28,t+.02);
+    g.gain.exponentialRampToValueAtTime(.0001,t+.9);
+    o.connect(lp); lp.connect(g); g.connect(master); o.start(t); o.stop(t+1);
+    setTimeout(pluck, 2400 + rand()*2400);
+  })();
+  musicNodes = { stop(){ stop = true; try{ master.gain.linearRampToValueAtTime(0.0001, c.currentTime+0.8); }catch(e){}
+    setTimeout(()=>{ [drone,...pads].forEach(o=>{try{o.stop()}catch(e){}}); }, 900); } };
+}
+function stopMusic(){ if (musicNodes){ musicNodes.stop(); musicNodes = null; } }
+let armed = false;
+document.addEventListener('pointerdown', () => { if (!armed){ armed = true; ac(); startMusic(); } }, {capture:true});
+/* ================= XP / RANK ================= */
+const AWARD = { copy:[5,8], sent:[25,38], replied:[100,150], signed:[1000,1500] };
+const RANKS = [
+  {i:1, en:'Bean Scout', ar:'كشّاف البن', xp:0, gate:null},
+  {i:2, en:'Cup Runner', ar:'ساعي الفناجين', xp:250, gate:null},
+  {i:3, en:'Dallah Hustler', ar:'صاحب الدلة', xp:750, gate:null},
+  {i:4, en:'Roast Captain', ar:'قبطان التحميص', xp:1750, gate:{sent:25}},
+  {i:5, en:'Brew Baron', ar:'بارون القهوة', xp:3500, gate:{replied:1}},
+  {i:6, en:'Roastmaster', ar:'معلّم المحمصة', xp:7000, gate:{replied:5}},
+  {i:7, en:'Cafe Tycoon', ar:'قيصر الكافيهات', xp:12000, gate:{signed:1}},
+  {i:8, en:'Sadah Legend', ar:'أسطورة سادة', xp:20000, gate:{signed:3}},
+];
+function ledgerCounts(){ let sent=0, replied=0, signed=0;
+  for (const k in ledger){ if (ledger[k].sent) sent++; if (ledger[k].replied) replied++; if (ledger[k].signed) signed++; }
+  return {sent, replied, signed}; }
+function gateOk(g, lc){ if (!g) return true; return Object.keys(g).every(k => lc[k] >= g[k]); }
+function currentRank(){ const lc = ledgerCounts(); let r = RANKS[0];
+  for (const rk of RANKS){ if (xpTotal >= rk.xp && gateOk(rk.gate, lc)) r = rk; } return r; }
+function levelFromXp(xp){ let L=1, x=xp; while (x >= 50 + 25*(L-1) && L < 99){ x -= 50 + 25*(L-1); L++; } return {level:L, into:x, need:50+25*(L-1)}; }
+function grant(kind, cafe, x, y){
+  const isG = statusOf(cafe) === 'G';
+  let xp = AWARD[kind][isG ? 1 : 0];
+  const led = ledger[cafe.slug] = ledger[cafe.slug] || {};
+  if (led[kind]) return 0;                                  // once per cafe per action, forever
+  if (kind === 'sent'){
+    if (daily.sent >= 40){ led[kind] = Date.now(); persist(); toast('Daily send cap — XP resumes tomorrow (spam = ban risk)', true); return 0; }
+    daily.sent++;
+    if (!daily.firstSentBonus){ daily.firstSentBonus = true; xp += 10; }
+    if (streak.lastDay !== dayKey()){
+      streak.current = (streak.lastDay === prevDayKey()) ? streak.current + 1 : 1;
+      streak.best = Math.max(streak.best, streak.current); streak.lastDay = dayKey();
+    }
+    if (isG) daily.greens++;
+    if (cafe.area && !daily.areas.includes(cafe.area)) daily.areas.push(cafe.area);
+  }
+  if (kind === 'copy'){ if (daily.copies >= 60) { led[kind] = Date.now(); persist(); return 0; } daily.copies++; }
+  if (kind === 'replied') daily.replied++;
+  if (kind === 'signed') daily.signed++;
+  led[kind] = Date.now();
+  const before = levelFromXp(xpTotal).level, beforeRank = currentRank().i;
+  xpTotal += xp; persist();
+  xpChip(xp, isG, x, y);
+  const after = levelFromXp(xpTotal).level;
+  if (after > before) { SFX.level(); toast('LEVEL UP — Lv ' + after + ' 🆙'); }
+  const nowRank = currentRank();
+  if (nowRank.i > beforeRank && nowRank.i > rankSeen){ rankSeen = nowRank.i; store.set('gameos_rank_seen', rankSeen);
+    SFX.rank(); toast('RANK UP — ' + nowRank.en + ' · ' + nowRank.ar + ' 🏆'); }
+  checkQuests(); paintHUD();
+  return xp;
+}
+function prevDayKey(){ const t = new Date(Date.now() + 3*3600000 - 4*3600000 - 86400000); return t.toISOString().slice(0,10); }
+function persist(){ store.set('gameos_ledger', ledger); store.set('gameos_xp', xpTotal);
+  store.set('gameos_daily', daily); store.set('gameos_streak', streak); store.set('gameos_stages', stages); }
+/* ================= QUESTS ================= */
+const POOL_A = [
+  {id:'a1', en:'Send 5 DMs', ar:'أرسل ٥ رسائل', xp:50, check:()=>daily.sent>=5, prog:()=>Math.min(daily.sent,5)+'/5'},
+  {id:'a2', en:'Send 3 DMs to GREEN cafes', ar:'٣ رسائل لكافيهات خضراء', xp:60, check:()=>daily.greens>=3, prog:()=>Math.min(daily.greens,3)+'/3'},
+  {id:'a3', en:'Send 8 DMs', ar:'أرسل ٨ رسائل', xp:80, check:()=>daily.sent>=8, prog:()=>Math.min(daily.sent,8)+'/8'},
+];
+const POOL_B = [
+  {id:'b1', en:'Open 3 gift pages', ar:'افتح ٣ صفحات هدايا', xp:30, check:()=>daily.gifts>=3, prog:()=>Math.min(daily.gifts,3)+'/3'},
+  {id:'b2', en:'Copy 5 DMs', ar:'انسخ ٥ رسائل', xp:30, check:()=>daily.copies>=5, prog:()=>Math.min(daily.copies,5)+'/5'},
+  {id:'b3', en:'Send DMs in 2 different areas', ar:'رسائل في حيّين مختلفين', xp:40, check:()=>daily.areas.length>=2, prog:()=>Math.min(daily.areas.length,2)+'/2'},
+  {id:'b4', en:'Advance any 3 cafes a stage', ar:'قدّم ٣ كافيهات مرحلة', xp:40, check:()=>daily.advanced>=3, prog:()=>Math.min(daily.advanced,3)+'/3'},
+];
+const POOL_C = [
+  {id:'c0', en:'Advance any cafe 1 stage', ar:'قدّم أي كافيه مرحلة', xp:30, check:()=>daily.advanced>=1, prog:()=>Math.min(daily.advanced,1)+'/1'},
+  {id:'c1', en:'First blood: get 1 REPLIED today', ar:'أول دم: رد واحد اليوم', xp:120, check:()=>daily.replied>=1, prog:()=>Math.min(daily.replied,1)+'/1'},
+  {id:'c2', en:'Close 1 SIGNED — pentakill', ar:'وقّع عميل — بنتاكيل', xp:300, check:()=>daily.signed>=1, prog:()=>Math.min(daily.signed,1)+'/1'},
+];
+function todaysQuests(){
+  if (daily.quests) return daily.quests;
+  const lc = ledgerCounts(); const n = dayNumber();
+  const elig = [POOL_C[0]]; if (lc.sent >= 10) elig.push(POOL_C[1]); if (lc.replied >= 1) elig.push(POOL_C[2]);
+  daily.quests = [POOL_A[n % POOL_A.length].id, POOL_B[n % POOL_B.length].id, elig[n % elig.length].id];
+  daily.qdone = daily.qdone || {}; persist(); return daily.quests;
+}
+function questById(id){ return [...POOL_A, ...POOL_B, ...POOL_C].find(q => q.id === id); }
+function checkQuests(){
+  const qs = todaysQuests(); daily.qdone = daily.qdone || {};
+  let allDone = true;
+  qs.forEach(id => { const q = questById(id);
+    if (!daily.qdone[id] && q.check()){ daily.qdone[id] = Date.now(); xpTotal += q.xp;
+      SFX.quest(); toast('QUEST CLEAR — ' + q.en + '  +' + q.xp + ' XP 🎯'); }
+    if (!daily.qdone[id]) allDone = false; });
+  if (allDone && !daily.sweep){ daily.sweep = true; xpTotal += 100; SFX.level(); toast('DAILY SWEEP — all quests done, +100 XP 🧹'); }
+  persist();
+}
+/* ================= DM text ================= */
+function dmFor(c){
+  const nm = c.nameAr || c.name;
+  const dish = (c.signature && c.signature.length) ? c.signature[0][1] : (c.sigMention ? c.sigMention[1] : null);
+  const opener = c.social ? ('السلام عليكم 🌟 تابعنا حساب ' + nm + ' وأعجبنا شغلكم!') : ('السلام عليكم 🌟 شفنا ' + nm + ' وأعجبنا شغلكم!');
+  const dishLine = dish ? (' حتى «' + dish + '» موجود 😉') : '';
+  return opener + '\nجهّزنا لكم منيو إلكتروني تجريبي خاص فيكم — بالعربي والإنجليزي ومتوافق مع اشتراطات هيئة الغذاء والدواء.' + dishLine + '\nشوفوه هنا: ' + SITE + '/' + c.slug + '-welcome\nإذا عجبكم، نفعّله لكم بنفس اليوم 🤝';
+}
+/* ================= FILTER + VIRTUAL LIST ================= */
+const ROW_H = 76, BUFFER = 7;
+let filter = { q:'', color:null, stage:null, type:null };
+let view = [];
+const norm = (s) => String(s||'').toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g,'');
+const ORDER = { G:0, O:1, R:2 };
+const STAGE_ORDER = { READY:0, SENT:1, REPLIED:2, SIGNED:3 };
+function applyFilter(){
+  const q = norm(filter.q);
+  view = DATA.filter(c => {
+    if (filter.color && statusOf(c) !== filter.color) return false;
+    if (filter.stage && c.stage !== filter.stage) return false;
+    if (filter.type && c.type !== filter.type) return false;
+    if (q && !(norm(c.name).includes(q) || norm(c.nameAr).includes(q) || norm(c.area).includes(q) || norm(c.slug).includes(q) || norm(TYPE_NAME[c.type]).includes(q))) return false;
+    return true;
+  });
+  view.sort((a,b) => (STAGE_ORDER[a.stage]===3) - (STAGE_ORDER[b.stage]===3) || ORDER[statusOf(a)] - ORDER[statusOf(b)] || a.name.localeCompare(b.name));
+  const el = document.getElementById('resultLine');
+  const bits = [];
+  if (filter.color) bits.push({G:'GREEN',O:'ORANGE',R:'RED'}[filter.color]);
+  if (filter.stage) bits.push(filter.stage); if (filter.type) bits.push(TYPE_NAME[filter.type].toUpperCase());
+  el.textContent = view.length + (view.length === DATA.length ? ' cafes' : ' match' + (bits.length ? ' · ' + bits.join(' + ') : ''));
+  document.getElementById('empty').style.display = view.length ? 'none' : 'block';
+  document.getElementById('spacer').style.height = (view.length * ROW_H) + 'px';
+  list.scrollTop = 0; renderWindow(true);
+}
+const list = document.getElementById('list');
+const spacer = document.getElementById('spacer');
+const nodes = [];
+function makeRow(){
+  const r = document.createElement('div'); r.className = 'row';
+  r.innerHTML = '<div class="bub"></div><div class="txt"><div class="l1"></div><div class="l2"></div><div class="l3"></div></div>' +
+    '<div class="acts"><button class="ab menu" title="Open menu">▤</button><button class="ab gift" title="Open gift">🎁</button>' +
+    '<button class="ab dm" title="Copy DM">⧉</button><button class="ab up" title="Advance stage">⬆</button></div>';
+  spacer.appendChild(r); return r;
+}
+for (let i = 0; i < 26; i++) nodes.push(makeRow());
+let lastStart = -1;
+function renderWindow(force){
+  const start = Math.max(0, Math.floor(list.scrollTop / ROW_H) - BUFFER);
+  if (!force && start === lastStart) return; lastStart = start;
+  nodes.forEach((n, i) => {
+    const ix = start + i, c = view[ix];
+    if (!c){ n.style.display = 'none'; return; }
+    n.style.display = 'flex'; n.style.transform = 'translateY(' + (ix * ROW_H) + 'px)'; n.dataset.slug = c.slug;
+    const st = statusOf(c);
+    n.children[0].className = 'bub ' + st;
+    n.children[0].innerHTML = c.stage === 'SIGNED' ? '<span class="ck">✓</span>' : '';
+    const t = n.children[1];
+    t.children[0].innerHTML = (c.tier === 'luxe' ? '<span class="star">★</span> ' : '') + '<span dir="rtl">' + esc(c.nameAr || c.name) + '</span>';
+    t.children[1].textContent = c.name;
+    t.children[2].innerHTML = (TYPE_GLYPH[c.type]||'☕') + ' ' + esc(c.area || 'Riyadh') + ' · <span class="st ' + c.stage + '">' + c.stage + '</span>' + (c.chainFlag ? ' · <span class="chain">CHAIN</span>' : '');
+  });
+}
+list.addEventListener('scroll', () => { requestAnimationFrame(() => { renderWindow();
+  document.getElementById('fab').style.display = list.scrollTop > 800 ? 'block' : 'none'; }); }, {passive:true});
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+/* row actions (event delegation) */
+spacer.addEventListener('click', (e) => {
+  const btn = e.target.closest('.ab'); const row = e.target.closest('.row');
+  if (!row) return; const c = DATA.find(x => x.slug === row.dataset.slug); if (!c) return;
+  if (!btn) { SFX.click(); return; }
+  if (btn.classList.contains('menu')){ SFX.click(); window.open(SITE + '/' + c.slug + '/', '_blank'); }
+  else if (btn.classList.contains('gift')){ SFX.click(); daily.gifts++; persist(); checkQuests(); window.open(SITE + '/' + c.slug + '-welcome/', '_blank'); }
+  else if (btn.classList.contains('dm')){
+    copyText(dmFor(c)); SFX.copy();
+    const got = grant('copy', c, e.clientX, e.clientY);
+    toast('DM copied — ' + (c.nameAr || c.name) + (got ? '' : ' (already banked)'));
+    btn.classList.add('ok'); btn.textContent = '✓'; setTimeout(() => { btn.classList.remove('ok'); btn.textContent = '⧉'; }, 900);
+  }
+  else if (btn.classList.contains('up')){
+    const order = ['READY','SENT','REPLIED','SIGNED'];
+    const ix = order.indexOf(c.stage);
+    if (ix < 0 || ix === order.length - 1){ SFX.error(); toast(c.stage === 'SIGNED' ? 'Already SIGNED — GG 🏆' : 'Stage: ' + c.stage, true); return; }
+    const next = order[ix + 1];
+    if (next === 'SIGNED' && !confirm('Confirm: ' + c.name + ' SIGNED as a paying client? 💰 هذا التوقيع الحقيقي')) return;
+    c.stage = next; stages[c.slug] = next; daily.advanced++;
+    if (next === 'SENT') grant('sent', c, e.clientX, e.clientY);
+    if (next === 'REPLIED') grant('replied', c, e.clientX, e.clientY);
+    if (next === 'SIGNED'){ grant('signed', c, e.clientX, e.clientY); document.getElementById('flash').classList.add('open'); }
+    else SFX.advance();
+    persist(); checkQuests(); paintHUD(); renderWindow(true); paintCounts();
+  }
+});
+document.getElementById('flash').addEventListener('click', () => document.getElementById('flash').classList.remove('open'));
+function copyText(t){
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).catch(() => fallbackCopy(t));
+  else fallbackCopy(t);
+}
+function fallbackCopy(t){ const ta = document.createElement('textarea'); ta.value = t; ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch(e){} ta.remove(); }
+/* ================= CHIPS ================= */
+const CHIP_DEFS = [
+  {id:'all', label:'ALL', group:null},
+  {id:'G', label:'GREEN', group:'color', dot:'#57b380'},
+  {id:'O', label:'ORANGE', group:'color', dot:'#e8883c'},
+  {id:'R', label:'RED', group:'color', dot:'#e25c5c'},
+  {id:'READY', label:'READY', group:'stage'},
+  {id:'SENT', label:'SENT', group:'stage'},
+  {id:'REPLIED', label:'REPLIED', group:'stage'},
+  {id:'SIGNED', label:'SIGNED', group:'stage'},
+  ...Object.keys(TYPE_NAME).map(t => ({id:t, label:TYPE_GLYPH[t] + ' ' + TYPE_NAME[t], group:'type'})),
+];
+const chipsEl = document.getElementById('chips');
+CHIP_DEFS.forEach(d => {
+  const b = document.createElement('button'); b.className = 'chip'; b.dataset.id = d.id; b.dataset.group = d.group || '';
+  b.innerHTML = (d.dot ? '<span class="dot" style="background:' + d.dot + '"></span>' : '') + d.label;
+  b.addEventListener('click', () => { SFX.click();
+    if (d.id === 'all'){ filter.color = filter.stage = filter.type = null; }
+    else if (d.group === 'color') filter.color = filter.color === d.id ? null : d.id;
+    else if (d.group === 'stage') filter.stage = filter.stage === d.id ? null : d.id;
+    else if (d.group === 'type') filter.type = filter.type === d.id ? null : d.id;
+    paintChips(); applyFilter(); });
+  chipsEl.appendChild(b);
+});
+function paintChips(){
+  chipsEl.querySelectorAll('.chip').forEach(b => {
+    const g = b.dataset.group, id = b.dataset.id;
+    b.classList.toggle('on', (id === 'all' && !filter.color && !filter.stage && !filter.type) ||
+      (g === 'color' && filter.color === id) || (g === 'stage' && filter.stage === id) || (g === 'type' && filter.type === id));
+  });
+  document.querySelectorAll('.pill').forEach(p => {
+    p.classList.toggle('on', (p.dataset.color && filter.color === p.dataset.color) || (p.dataset.stage && filter.stage === p.dataset.stage));
+  });
+}
+document.querySelectorAll('.pill').forEach(p => p.addEventListener('click', () => { SFX.click();
+  if (p.dataset.color) filter.color = filter.color === p.dataset.color ? null : p.dataset.color;
+  if (p.dataset.stage) filter.stage = filter.stage === p.dataset.stage ? null : p.dataset.stage;
+  paintChips(); applyFilter(); }));
+/* search */
+const searchEl = document.getElementById('search');
+let debounce = null;
+searchEl.addEventListener('input', () => { document.getElementById('clearBtn').style.display = searchEl.value ? 'block' : 'none';
+  clearTimeout(debounce); debounce = setTimeout(() => { filter.q = searchEl.value; applyFilter(); }, 120); });
+document.getElementById('clearBtn').addEventListener('click', () => { searchEl.value = ''; filter.q = ''; document.getElementById('clearBtn').style.display = 'none'; applyFilter(); });
+document.getElementById('resetBtn').addEventListener('click', () => { filter = {q:'', color:null, stage:null, type:null}; searchEl.value = ''; paintChips(); applyFilter(); });
+document.getElementById('fab').addEventListener('click', () => { list.scrollTop = 0; });
+/* ================= HUD ================= */
+function paintCounts(){
+  let g=0,o=0,r=0,s=0,signed=0;
+  DATA.forEach(c => { const st = statusOf(c); if (st==='G') g++; else if (st==='O') o++; else r++;
+    if (c.stage==='SENT') s++; if (c.stage==='SIGNED') signed++; });
+  cG.textContent=g; cO.textContent=o; cR.textContent=r; cS.textContent=s;
+  document.getElementById('signedPill').textContent = signed + ' SIGNED';
+}
+function paintHUD(){
+  const lv = levelFromXp(xpTotal), rk = currentRank();
+  document.getElementById('rankBadge').textContent = rk.en.toUpperCase();
+  document.getElementById('lvlTag').textContent = 'Lv ' + lv.level;
+  document.getElementById('xpFill').style.width = Math.min(100, 100*lv.into/lv.need) + '%';
+  document.getElementById('streakFlame').textContent = '🔥 ' + streak.current;
+}
+function toast(msg, warn){
+  const t = document.createElement('div'); t.className = 'toast' + (warn ? ' warn' : ''); t.textContent = msg;
+  document.getElementById('toasts').appendChild(t); setTimeout(() => t.remove(), 2200);
+}
+function xpChip(xp, big, x, y){
+  const c = document.createElement('div'); c.className = 'xpchip' + (big ? ' big' : '');
+  c.textContent = '+' + xp + ' XP' + (big ? ' ★' : '');
+  c.style.left = ((x || 300) - 20) + 'px'; c.style.top = ((y || 400) - 30) + 'px';
+  document.body.appendChild(c); setTimeout(() => c.remove(), 850);
+}
+/* ================= SHEETS ================= */
+function openSheet(id){ document.getElementById(id).classList.add('open'); }
+document.querySelectorAll('.sheet').forEach(s => s.addEventListener('click', (e) => { if (e.target === s) s.classList.remove('open'); }));
+document.getElementById('navHome').addEventListener('click', () => { SFX.click(); location.href = './index.html'; });
+document.getElementById('navRank').addEventListener('click', () => { SFX.click(); paintLadder(); openSheet('rankSheet'); });
+document.getElementById('navQuest').addEventListener('click', () => { SFX.click(); paintQuests(); openSheet('questSheet'); });
+document.getElementById('navMute').addEventListener('click', function(){ muted = !muted; store.set('gameos_mute', muted);
+  this.firstChild.textContent = muted ? '🔇' : '🔊'; if (muted) stopMusic(); else if (musicOn) startMusic(); });
+document.getElementById('navMusic').addEventListener('click', function(){ musicOn = !musicOn; store.set('gameos_music', musicOn);
+  this.classList.toggle('on', musicOn); if (musicOn && !muted) startMusic(); else stopMusic(); SFX.click(); });
+function paintLadder(){
+  const lc = ledgerCounts(), rk = currentRank();
+  stSent.textContent = lc.sent; stRep.textContent = lc.replied; stSign.textContent = lc.signed; stXp.textContent = xpTotal;
+  document.getElementById('ladder').innerHTML = RANKS.slice().reverse().map(r => {
+    const locked = xpTotal >= r.xp && !gateOk(r.gate, lc);
+    const gateTxt = r.gate ? Object.entries(r.gate).map(([k,v]) => v + ' ' + k.toUpperCase()).join(', ') : null;
+    return '<div class="rk' + (r.i === rk.i ? ' cur' : '') + (locked ? ' lock' : '') + '">' +
+      '<div class="em">' + (r.i === rk.i ? '★' : r.i) + '</div>' +
+      '<div class="rn">' + r.en + (locked ? ' 🔒' : '') + '<small>' + r.ar + (gateTxt ? ' · needs ' + gateTxt : '') + '</small></div>' +
+      '<div class="rx">' + r.xp + ' XP</div></div>';
+  }).join('');
+}
+document.getElementById('exportBtn').addEventListener('click', () => {
+  const blob = new Blob([JSON.stringify({stages, ledger, xp: xpTotal, streak, exportedAt: new Date().toISOString()}, null, 1)], {type:'application/json'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'gameos-progress.json'; a.click();
+});
+function paintQuests(){
+  const qs = todaysQuests(); daily.qdone = daily.qdone || {};
+  document.getElementById('questList').innerHTML = qs.map(id => { const q = questById(id); const done = !!daily.qdone[id];
+    return '<div class="qi' + (done ? ' done' : '') + '"><div class="qc">' + (done ? '✓' : '') + '</div>' +
+      '<div class="qt">' + q.en + ' <small dir="rtl">' + q.ar + ' · ' + q.prog() + '</small></div>' +
+      '<div class="qx">+' + q.xp + '</div></div>'; }).join('');
+  document.getElementById('sweepLine').textContent = daily.sweep ? 'Daily sweep claimed +100 XP 🧹' : 'Clear all 3 → +100 XP sweep bonus';
+}
+/* ================= COACH ================= */
+const COACH = [
+  {sel:'.bub.G', name:'GREEN BUBBLE — READY 10/10', en:'Green = full menu, real dishes, gift page loaded. Your hottest leads — fire first.', ar:'الأخضر جاهز ١٠/١٠ — ارمِ عليه أول'},
+  {sel:'.bub.O', name:'ORANGE — MISSING DATA', en:'Built, but missing their real dishes or photos. Still sendable, less personal.', ar:'البرتقالي جاهز بس ناقصه بيانات حقيقية'},
+  {sel:'.bub.R', name:'RED — NEEDS WORK', en:'Chain brands or broken builds. Save these for eco rounds.', ar:'الأحمر يحتاج شغل — آخر أولوية'},
+  {sel:'#search', name:'SEARCH', en:'Type any cafe name, Arabic or English — the list filters instantly.', ar:'اكتب اسم الكافيه ويطلع فورًا'},
+  {sel:'#stats', name:'SCOREBOARD PILLS', en:'Live counts of the whole war. Tap a pill to filter by it.', ar:'أرقام حية — اضغط للفلترة'},
+  {sel:'#chips', name:'FILTER CHIPS', en:'Your map pool: color, deal stage, cafe type. One tap each, they combine.', ar:'فلاتر تجمع بعضها بضغطة'},
+  {sel:'.ab.menu', name:'OPEN MENU ▤', en:'Opens that cafe’s live menu — check your lineup before you push.', ar:'يفتح المنيو الجاهز'},
+  {sel:'.ab.gift', name:'OPEN GIFT 🎁', en:'The gift page — your flashbang. This link makes owners reply.', ar:'صفحة الهدية — سلاح البيع'},
+  {sel:'.ab.dm', name:'COPY DM ⧉', en:'Copies the ready Arabic DM. Paste in Instagram or WhatsApp and fire.', ar:'ينسخ الرسالة الجاهزة — أرسلها'},
+  {sel:'.ab.up', name:'ADVANCE STAGE ⬆', en:'Tap after real progress: SENT, REPLIED, SIGNED. Each pays XP — SIGNED is the pentakill.', ar:'قدّم الصفقة واكسب XP'},
+  {sel:'#xpStrip', name:'XP + RANK', en:'Real actions fill the bar. Ranks climb on closed deals, never on spam.', ar:'كل خطوة حقيقية ترفع رتبتك'},
+  {sel:'#navQuest', name:'DAILY QUESTS 🎯', en:'Three missions a day, reset 4 AM. Clear all three for the sweep bonus.', ar:'٣ مهام يومية — نظّفها كلها'},
+  {sel:'#streakFlame', name:'STREAK FLAME 🔥', en:'Days in a row with at least one DM sent. Keep it alive.', ar:'سلسلة أيامك — لا تكسرها'},
+  {sel:'#navMute', name:'SOUND + MUSIC', en:'Mute kills all audio. Music toggles the lobby track. Saved forever. GG, coach out.', ar:'تحكم بالصوت والموسيقى — بالتوفيق'},
+];
+let coachStep = 0;
+const coachEl = document.getElementById('coach');
+function coachShow(i){
+  coachStep = Math.max(0, Math.min(COACH.length - 1, i));
+  const c = COACH[coachStep];
+  let el = document.querySelector(c.sel);
+  if (!el) { el = document.getElementById('hdr'); }
+  el.scrollIntoView && el.scrollIntoView({block:'center'});
+  setTimeout(() => {
+    const r = el.getBoundingClientRect();
+    const spot = document.getElementById('spot');
+    spot.style.left = (r.left - 6) + 'px'; spot.style.top = (r.top - 6) + 'px';
+    spot.style.width = (r.width + 12) + 'px'; spot.style.height = (r.height + 12) + 'px';
+    const card = document.getElementById('coachCard');
+    card.querySelector('.cn').textContent = c.name;
+    card.querySelector('.ce').textContent = c.en;
+    card.querySelector('.ca').textContent = c.ar;
+    card.querySelector('.num').textContent = (coachStep + 1) + ' / ' + COACH.length;
+    card.querySelector('.next').textContent = coachStep === COACH.length - 1 ? 'GG ✓' : 'Next ›';
+    const below = r.top < window.innerHeight / 2;
+    card.style.top = below ? Math.min(window.innerHeight - 220, r.bottom + 14) + 'px' : '';
+    card.style.bottom = below ? '' : (window.innerHeight - r.top + 14) + 'px';
+    if (!below) card.style.top = 'auto';
+  }, 60);
+}
+document.getElementById('navCoach').addEventListener('click', () => { SFX.click(); coachEl.classList.add('open'); coachShow(0); });
+document.querySelector('#coachCard .next').addEventListener('click', () => { SFX.click();
+  if (coachStep === COACH.length - 1){ coachEl.classList.remove('open'); store.set('gameos_coach_done', true); }
+  else coachShow(coachStep + 1); });
+document.querySelector('#coachCard .back').addEventListener('click', () => { SFX.click(); coachShow(coachStep - 1); });
+document.getElementById('coachScrim').addEventListener('click', () => { coachEl.classList.remove('open');
+  if (coachStep >= 2) store.set('gameos_coach_done', true); });
+/* first launch: pulse the coach */
+if (!store.get('gameos_coach_done', false)) document.getElementById('navCoach').classList.add('pulse');
+document.getElementById('navCoach').addEventListener('click', function(){ this.classList.remove('pulse'); });
+/* music nav initial state */
+document.getElementById('navMusic').classList.toggle('on', musicOn);
+document.getElementById('navMute').firstChild.textContent = muted ? '🔇' : '🔊';
+/* ================= BOOT ================= */
+paintCounts(); paintHUD(); applyFilter(); checkQuests();
+</script>
+</body>
+</html>
