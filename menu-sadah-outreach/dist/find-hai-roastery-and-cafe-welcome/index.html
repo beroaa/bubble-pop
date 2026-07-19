@@ -37,6 +37,9 @@
     opacity:0;animation:pop .8s .3s cubic-bezier(.2,1.4,.4,1) forwards}
   .medal span{font-size:50px;font-weight:800;color:var(--rose)}
   .medal span .ar{font-family:'Aref Ruqaa',serif}.medal span .en{font-family:'Patrick Hand',cursive}
+  /* real brand logo inside the medallions (logo.png in the cafe's photo folder) — inked border stays */
+  .medal .logo,.medal-s .logo{width:84%;height:84%;object-fit:contain;border-radius:50%}
+  .medal.haslogo>span,.medal-s.haslogo>span{display:none}
   @keyframes pop{0%{opacity:0;transform:scale(.4) rotate(-8deg)}70%{transform:scale(1.06)}100%{opacity:1;transform:scale(1)}}
   @keyframes up{0%{opacity:0;transform:translateY(14px)}100%{opacity:1;transform:none}}
   h1{font-size:clamp(34px,9vw,54px);line-height:1.18;margin-top:8px;opacity:0;animation:up .8s .7s forwards}
@@ -217,7 +220,7 @@ body::after{
 <body>
 <div class="bigmark" aria-hidden="true"><span class="ar">م</span><span class="en">F</span></div>
 <header class="top">
-  <div class="bx"><div class="medal-s"><span class="ar">م</span><span class="en">F</span></div>
+  <div class="bx"><div class="medal-s"><span><span class="ar">م</span><span class="en">F</span></span></div>
     <div><div class="bn"><span class="ar">محمصة ومقهى حي</span><span class="en">Find Hai Roastery &amp; Cafe</span></div><div class="loc"><span class="ar">الرياض · الرياض</span><span class="en">Al Salam · Riyadh</span></div></div></div>
   <button class="lang" id="langToggle">English</button>
 </header>
@@ -305,11 +308,11 @@ body::after{
     <div class="sub"><span class="ar">كل تفصيلة في المنيو جاية منكم</span><span class="en">Every detail in the menu comes from you</span></div>
     
     <div class="st rv">
-      <div class="ph"><span class="big-init">F</span><img src="../assets/photos/espresso.jpg" alt="" onload="this.parentElement.classList.add('hasimg')" onerror="this.remove()" loading="lazy"><span class="tag"><span class="ar">تفصيلة 01</span><span class="en">Detail 01</span></span></div>
+      <div class="ph"><span class="big-init">F</span><span class="tag"><span class="ar">تفصيلة 01</span><span class="en">Detail 01</span></span></div>
       <div class="bd"><b><span class="ar">منيو مبني غرفة غرفة، <i>مو قائمة وبس.</i></span><span class="en">A menu built room by room, <i>not just a list.</i></span></b><p><span class="ar">كل قسم غرفة من عالمكم، بعنوان يحكي قصتكم.</span><span class="en">Every section is a room of your world, titled with your story.</span></p></div>
     </div>
     <div class="st rv">
-      <div class="ph"><span class="big-init">F</span><img src="../assets/photos/latte.jpg" alt="" onload="this.parentElement.classList.add('hasimg')" onerror="this.remove()" loading="lazy"><span class="tag"><span class="ar">تفصيلة 02</span><span class="en">Detail 02</span></span></div>
+      <div class="ph"><span class="big-init">F</span><span class="tag"><span class="ar">تفصيلة 02</span><span class="en">Detail 02</span></span></div>
       <div class="bd"><b><span class="ar">عالمكم: <i>«محمصة قلبها ينبض حي»</i></span><span class="en">Your world: <i>"a roastery with a living pulse"</i></span></b><p><span class="ar">غرف المنيو: «البن اللي صاحي اليوم»، «شرارة الحمصة الأولى»، «خذ الجمر معك» — والبقية داخل.</span><span class="en">The rooms: "the beans awake today", "the roast's first spark", "take the ember home" — the rest is inside.</span></p></div>
     </div>
     <div class="st rv">

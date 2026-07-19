@@ -25,9 +25,17 @@ function cafePhotos(slug) {
       const meta = JSON.parse(readFileSync(metaFile, 'utf8'));
       if (Array.isArray(meta)) return meta.filter((m) => m && m.file);
     }
-    return readdirSync(dir).filter((f) => /\.(jpe?g|png|webp|avif)$/i.test(f)).sort().map((file) => ({ file, shows: '', src: '' }));
+    return readdirSync(dir).filter((f) => /\.(jpe?g|png|webp|avif)$/i.test(f) && !/^logo\./i.test(f)).sort().map((file) => ({ file, shows: '', src: '' }));
   } catch { return []; }
 }
+
+/* REAL LOGO slot: dist/assets/photos/<slug>/logo.png (lands via MacBook PHOTO-MISSION)
+   → rendered inside the medallion, replacing the bilingual initial; absent → initial stays. */
+function cafeLogo(slug) {
+  if (!slug) return null;
+  try { return existsSync(PHOTOS_DIR + '/' + slug + '/logo.png') ? '../assets/photos/' + slug + '/logo.png' : null; } catch { return null; }
+}
+const logoImg = (logo) => `<img class="logo" src="${esc(logo)}" alt="" onerror="this.parentElement.classList.remove('haslogo');this.remove()">`;
 
 /* shared gold trio handed to every scene pack */
 const SCENE_GOLD = { gold: '#c79a3a', goldBright: '#e8c268', goldDeep: '#8a6a1f' };
@@ -56,37 +64,9 @@ const ROOMVOICE = (() => {
   return {};
 })();
 
-/* ---------- IMAGE SANITY: shared category photos only render where the key fits the cafe type.
-   matcha.jpg is matcha-bar-only; coffee keys stay with coffee-ish houses; bakery/dessert keys
-   with sweet houses; saudi.jpg is welcome everywhere. A key that doesn't fit → tinted SVG art
-   only. Per-cafe folder photos (dist/assets/photos/<slug>/) always win over this gate. */
-const QUEUE_TYPES_FILE = fileURLToPath(new URL('../singularity/queue.json', import.meta.url));
-const TYPE_BY_SLUG = (() => {
-  try {
-    if (existsSync(QUEUE_TYPES_FILE)) {
-      const q = JSON.parse(readFileSync(QUEUE_TYPES_FILE, 'utf8'));
-      if (Array.isArray(q)) return Object.fromEntries(q.filter((c) => c && c.slug && c.type).map((c) => [c.slug, c.type]));
-    }
-  } catch { /* no queue → type unknown → strictest gate (SVG art only, saudi excepted) */ }
-  return {};
-})();
-const COFFEEISH = ['specialty_coffee', 'roastery', 'family_cafe', 'tea_house'];
-const PHOTO_KEY_TYPES = {
-  matcha: ['matcha_bar'],
-  espresso: [...COFFEEISH, 'dessert_cafe'],
-  latte: [...COFFEEISH, 'dessert_cafe'],
-  v60: COFFEEISH, cold: COFFEEISH, beans: COFFEEISH, tea: COFFEEISH,
-  bakery: ['bakery_cafe', 'dessert_cafe', 'family_cafe'],
-  dessert: ['bakery_cafe', 'dessert_cafe', 'family_cafe'],
-  snacks: ['gaming_cafe', 'family_cafe'],
-  saudi: '*',
-};
-function photoKeyFits(key, type) {
-  const allowed = PHOTO_KEY_TYPES[key];
-  if (allowed === '*') return true; // saudi: every house pours it
-  return Array.isArray(allowed) && allowed.includes(type);
-}
-const cafeTypeOf = (cafe, extras) => (extras && extras.type) || cafe.type || TYPE_BY_SLUG[cafe.slug] || '';
+/* ---------- BRAND TRUTH (locked): shared category photos are BANNED on masterpiece
+   pages — they showed OTHER cafes' branded products. Only per-cafe folder photos
+   (dist/assets/photos/<slug>/) ever render; absent folder → tinted SVG art. */
 
 const SAR = '﷼';
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -293,9 +273,9 @@ export function masterpieceMenuPage(cafe, brief) {
   const M = MOTIFS[brief.motif] || MOTIFS.stars;
   const a = P.accent, a2 = P.accent2;
   const shots = cafePhotos(cafe.slug); // per-cafe photo mode (VISUALS-FIRST law)
+  const logo = cafeLogo(cafe.slug); // real brand logo → medallion (fallback: bilingual initial)
   const shotSrc = (i) => esc('../assets/photos/' + cafe.slug + '/' + shots[i % shots.length].file);
   const polish = polishFor(cafe.slug); // bespoke per-cafe touch (polish50)
-  const cafeType = cafeTypeOf(cafe); // IMAGE SANITY: gate shared category photos by type
   const voice = ROOMVOICE[cafe.slug] || null; // roomvoice50: spoken room asides + third diary
 
   /* SELLABLE PASS 1 — TAP-TO-ORDER: real phone → wa.me deep link per item;
@@ -341,19 +321,18 @@ export function masterpieceMenuPage(cafe, brief) {
     const i = cafe.menu.indexOf(c);
     const r = roomFor(c);
     const v = voiceFor(c);
-    const [artKey, photoKey] = artFor(c.cat, c.catAr);
+    const [artKey] = artFor(c.cat, c.catAr);
     const acc = R[ci % 4], acc2 = R[(ci + 1) % 4];
     const diaryNote = (ci === 1 && diary[0]) ? `
   <div class="diary reveal" dir="rtl"><span class="tape" style="background:${R[1]}33"></span>${esc(diary[0])}</div>` :
       (ci === 3 && diary[1]) ? `
   <div class="diary reveal" dir="rtl"><span class="tape" style="background:${R[3]}33"></span>${esc(diary[1])}</div>` :
       (ci === 4 && diary3) ? diary3 : '';
-    // IMAGE SANITY: per-cafe shots always win; shared key renders only when it fits the type, else SVG art alone
+    // BRAND TRUTH: only the cafe's OWN shots ever render — shared category photos are
+    // banned here (they show other cafes' branded products); no shots → tinted SVG art.
     const catImg = shots.length
       ? `<img src="${shotSrc(ci)}" alt="" onload="this.parentElement.classList.add('hasimg')">`
-      : photoKeyFits(photoKey, cafeType)
-        ? `<img src="../assets/photos/${photoKey}.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">`
-        : '';
+      : '';
     return `${ci > 0 ? (SC ? SC.sepHtml : sepHtml(arch, R)) : ''}
   <section class="cat reveal${ci % 2 === 0 ? ' cat--flip' : ''}" id="cat-${i}" style="--sa:${acc};--sa2:${acc2}">
     <div class="cat-head">
@@ -369,11 +348,10 @@ export function masterpieceMenuPage(cafe, brief) {
       </div>
     </div>
     <div class="items">
-      <span class="spine" aria-hidden="true">${esc(String(r ? r.titleEn : c.cat).toUpperCase())}</span>
-      ${c.items.map(([en, ar, price]) => `
+      ${c.items.map(([en, ar, price, sfda]) => `
       <div class="item">
         <div class="item-name"><span class="ar">${esc(ar)}</span><span class="en">${esc(en)}</span>
-          <span class="sfda"><span class="ar">— سعرة · — كافيين</span><span class="en">— kcal · — caffeine</span></span></div>
+          ${sfda && (sfda.kcal || sfda.caffeine) ? `<span class="sfda"><span class="ar">${sfda.kcal ? esc(String(sfda.kcal)) + ' سعرة' : ''}${sfda.kcal && sfda.caffeine ? ' · ' : ''}${sfda.caffeine ? esc(String(sfda.caffeine)) + ' كافيين' : ''}</span><span class="en">${sfda.kcal ? esc(String(sfda.kcal)) + ' kcal' : ''}${sfda.kcal && sfda.caffeine ? ' · ' : ''}${sfda.caffeine ? esc(String(sfda.caffeine)) + ' caffeine' : ''}</span></span>` : ''}</div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>${price}<span class="sar"> ${SAR}</span></div>
         ${orderChip(en, ar)}
@@ -427,6 +405,9 @@ export function masterpieceMenuPage(cafe, brief) {
   .medal span{font-size:44px;font-weight:700;color:var(--accent);text-shadow:0 2px 12px ${a}66}
   .medal span .ar{font-family:${T.fonts.ar}}
   .medal span .en{font-family:${T.fonts.en}}
+  /* real brand logo inside the medallion (logo.png in the cafe's photo folder) — border+glow stay */
+  .medal .logo{width:84%;height:84%;object-fit:contain;border-radius:50%;position:relative;z-index:1}
+  .medal.haslogo>span{display:none}
   @keyframes mfloat{50%{transform:translateY(-6px)}}
   h1{font-size:36px;letter-spacing:-.01em;line-height:1.2}
   h1 .ar{font-family:${T.fonts.ar}}
@@ -520,11 +501,6 @@ export function masterpieceMenuPage(cafe, brief) {
   @keyframes sepidle{0%,100%{transform:translateX(0);opacity:.82}50%{transform:translateX(6px);opacity:1}}
 
   .items{position:relative;background:${P.bg1}d9;border:1px solid var(--border-1);border-radius:20px;padding:6px 18px;box-shadow:var(--shadow)}
-  /* vertical spine: the room's name whispered down the card's edge */
-  .spine{position:absolute;top:16px;inset-inline-start:-17px;writing-mode:vertical-rl;font-size:10px;
-    letter-spacing:.34em;text-transform:uppercase;color:var(--sa);opacity:.35;font-weight:600;
-    pointer-events:none;user-select:none;max-height:calc(100% - 32px);overflow:hidden}
-  @media(max-width:700px){.spine{display:none}}
   .item{display:flex;align-items:baseline;gap:10px;padding:15px 0;border-bottom:1px solid ${P.bg2}99}
   .item:last-child{border-bottom:none}
   .item-name{font-size:16px}
@@ -599,7 +575,7 @@ export function masterpieceMenuPage(cafe, brief) {
   @media(min-width:900px){
     .bigmark{display:block}
     .wrap{max-width:780px}
-    .hero{min-height:86vh;display:flex;flex-direction:column;justify-content:center;padding:60px 0 40px}
+    .hero{min-height:62vh;display:flex;flex-direction:column;justify-content:center;padding:40px 0 14px}
     .medal{width:136px;height:136px}
     .medal span{font-size:58px}
     h1{font-size:66px}
@@ -617,7 +593,7 @@ export function masterpieceMenuPage(cafe, brief) {
     .sig{padding:26px 22px 24px}
     .diary{max-width:480px;font-size:17px}
     .mote{font-size:22px!important}
-    .chips{justify-content:center}
+    .chips{justify-content:center;padding:10px 2px}
   }
 
   /* ---- architecture pack: ${arch} ---- */
@@ -666,7 +642,7 @@ ${shots.length ? `
     html,body{background:#fff!important;background-image:none!important;color:#000!important}
     body::before,body::after{display:none!important}
     .mote,.orb,.scenebg,.skydial,.order-chip,.waiter-btn,.lang-toggle,.wa,.bigmark,.chips,.acttip,.sep,
-    .cat-art,.sig-art,.brandshots,.diary,.spine,.pdot{display:none!important}
+    .cat-art,.sig-art,.brandshots,.diary,.pdot{display:none!important}
     .wrap{max-width:100%;padding:0}
     .hero{min-height:0!important;padding:0 0 8px!important;display:block!important}
     .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
@@ -703,7 +679,7 @@ ${shots.length ? `
     ${motesHtml(brief.motif, sd)}
     ${SC ? SC.heroHtml : ''}
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal"><span><span class="ar">${esc((cafe.nameAr || cafe.name).trim()[0])}</span><span class="en">${esc(cafe.name.trim()[0].toUpperCase())}</span></span></div>
+    <div class="medal${logo ? ' haslogo' : ''}">${logo ? logoImg(logo) : ''}<span><span class="ar">${esc((cafe.nameAr || cafe.name).trim()[0])}</span><span class="en">${esc(cafe.name.trim()[0].toUpperCase())}</span></span></div>
     <h1><span class="ar">${esc(cafe.nameAr)}</span><span class="en">${esc(cafe.name)}</span></h1>
     <div class="world"><span class="ar">✦ <b>${esc(brief.world?.ar || '')}</b> ✦</span><span class="en">✦ <b>${esc(brief.world?.en || '')}</b> ✦</span></div>
     <div class="heroline"><span class="ar">${esc(brief.heroAr || cafe.taglineAr)}</span><span class="en">${esc(brief.heroEn || cafe.tagline)}</span></div>
@@ -861,9 +837,9 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
   const SC = SCENES[brief.archetype] ? SCENES[brief.archetype](P, accentRotation(P), SCENE_GOLD) : null;
   const flavor = FLAVOR2[extras.type] || FLAVOR2.specialty_coffee;
   const sig = (extras.signature && extras.signature.length ? extras.signature[0] : null) || extras.sigMention || null;
-  // per-cafe shots (VISUALS-FIRST law) always show; shared category photos pass the IMAGE SANITY gate per key
+  // per-cafe shots (VISUALS-FIRST law) are the ONLY photos allowed — shared category photos are banned
   const shots = cafePhotos(cafe.slug);
-  const wType = cafeTypeOf(cafe, extras);
+  const logo = cafeLogo(cafe.slug); // real brand logo → medallions (fallback: bilingual initial)
   const social = extras.social && /^@/.test(String(extras.social).trim()) ? String(extras.social).trim() : null;
   const rooms = (brief.rooms || []).slice(0, 3);
   const diary = (brief.diaryAr || [])[0];
@@ -914,6 +890,9 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
     opacity:0;animation:pop .8s .3s cubic-bezier(.2,1.4,.4,1) forwards}
   .medal span{font-size:50px;font-weight:800;color:var(--rose)}
   .medal span .ar{font-family:${T.fonts.ar}}.medal span .en{font-family:${T.fonts.en}}
+  /* real brand logo inside the medallions (logo.png in the cafe's photo folder) — inked border stays */
+  .medal .logo,.medal-s .logo{width:84%;height:84%;object-fit:contain;border-radius:50%}
+  .medal.haslogo>span,.medal-s.haslogo>span{display:none}
   @keyframes pop{0%{opacity:0;transform:scale(.4) rotate(-8deg)}70%{transform:scale(1.06)}100%{opacity:1;transform:scale(1)}}
   @keyframes up{0%{opacity:0;transform:translateY(14px)}100%{opacity:1;transform:none}}
   h1{font-size:clamp(34px,9vw,54px);line-height:1.18;margin-top:8px;opacity:0;animation:up .8s .7s forwards}
@@ -1024,7 +1003,7 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
 <body>
 <div class="bigmark" aria-hidden="true"><span class="ar">${initAr}</span><span class="en">${initEn}</span></div>
 <header class="top">
-  <div class="bx"><div class="medal-s"><span class="ar">${initAr}</span><span class="en">${initEn}</span></div>
+  <div class="bx"><div class="medal-s${logo ? ' haslogo' : ''}">${logo ? logoImg(logo) : ''}<span><span class="ar">${initAr}</span><span class="en">${initEn}</span></span></div>
     <div><div class="bn">${B(esc(cafe.nameAr), esc(cafe.name))}</div><div class="loc">${B(esc(cafe.areaAr) + ' · الرياض', esc(cafe.area) + ' · Riyadh')}</div></div></div>
   <button class="lang" id="langToggle">English</button>
 </header>
@@ -1033,7 +1012,7 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
     ${SC ? SC.heroHtml : ''}
     ${motesHtml(brief.motif, sd)}
     <div class="kick">${B('🎁 هدية من منيو سادة · ليست إعلاناً', '🎁 A gift from Menu Sadah · not an ad')}</div>
-    <div class="medal"><span><span class="ar">${initAr}</span><span class="en">${initEn}</span></span></div>
+    <div class="medal${logo ? ' haslogo' : ''}">${logo ? logoImg(logo) : ''}<span><span class="ar">${initAr}</span><span class="en">${initEn}</span></span></div>
     <h1>${B('أهلاً ببيت <b>' + esc(cafe.nameAr) + '</b>', 'Welcome home, <b>' + esc(cafe.name) + '</b>.')}</h1>
     <div class="world">${B('✦ ' + esc(brief.world?.ar || '') + ' ✦', '✦ ' + esc(brief.world?.en || '') + ' ✦')}</div>
     <div class="heroline hand">${B(esc(brief.heroAr || ''), esc(brief.heroEn || ''))}</div>
@@ -1089,12 +1068,12 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
     <div class="h2">${B('درسنا بيتكم', 'We studied your house')}</div>
     <div class="sub">${B('كل تفصيلة في المنيو جاية منكم', 'Every detail in the menu comes from you')}</div>
     ${[
-      sig ? { t: '01', bAr: 'توقيعكم يفتتح المنيو، <i>مثل ما يستاهل.</i>', bEn: 'Your signature opens the menu, <i>as it should.</i>', pAr: '«' + esc(sig[1]) + '» أول ما يشوفه الضيف — بختم سعر مرسوم باليد.', pEn: '«' + esc(sig[0]) + '» is the first thing a guest sees — with a hand-drawn price stamp.', img: 'espresso' } : { t: '01', bAr: 'منيو مبني غرفة غرفة، <i>مو قائمة وبس.</i>', bEn: 'A menu built room by room, <i>not just a list.</i>', pAr: 'كل قسم غرفة من عالمكم، بعنوان يحكي قصتكم.', pEn: 'Every section is a room of your world, titled with your story.', img: 'espresso' },
-      { t: '02', bAr: 'عالمكم: <i>«' + esc(brief.world?.ar || '') + '»</i>', bEn: 'Your world: <i>"' + esc(brief.world?.en || '') + '"</i>', pAr: rooms.length ? 'غرف المنيو: ' + rooms.map((r) => '«' + esc(r.titleAr) + '»').join('، ') + ' — والبقية داخل.' : 'كل صفحة تتنفس هالعالم — ألوان وخطوط وحركة.', pEn: rooms.length ? 'The rooms: ' + rooms.map((r) => '"' + esc(r.titleEn) + '"').join(', ') + ' — the rest is inside.' : 'Every page breathes this world — color, type and motion.', img: 'latte' },
-      { t: '03', bAr: 'الصفحة تعيش، <i>من الصبح لليل.</i>', bEn: 'The page is alive, <i>from morning to night.</i>', pAr: 'ألوانها بألوانكم، وتغمق مع الليل وأنتم تقلبون فيها — عربي وإنجليزي بضغطة.', pEn: 'It wears your colors and darkens into night as guests scroll — Arabic and English in one tap.', img: 'dessert' },
+      sig ? { t: '01', bAr: 'توقيعكم يفتتح المنيو، <i>مثل ما يستاهل.</i>', bEn: 'Your signature opens the menu, <i>as it should.</i>', pAr: '«' + esc(sig[1]) + '» أول ما يشوفه الضيف — بختم سعر مرسوم باليد.', pEn: '«' + esc(sig[0]) + '» is the first thing a guest sees — with a hand-drawn price stamp.' } : { t: '01', bAr: 'منيو مبني غرفة غرفة، <i>مو قائمة وبس.</i>', bEn: 'A menu built room by room, <i>not just a list.</i>', pAr: 'كل قسم غرفة من عالمكم، بعنوان يحكي قصتكم.', pEn: 'Every section is a room of your world, titled with your story.' },
+      { t: '02', bAr: 'عالمكم: <i>«' + esc(brief.world?.ar || '') + '»</i>', bEn: 'Your world: <i>"' + esc(brief.world?.en || '') + '"</i>', pAr: rooms.length ? 'غرف المنيو: ' + rooms.map((r) => '«' + esc(r.titleAr) + '»').join('، ') + ' — والبقية داخل.' : 'كل صفحة تتنفس هالعالم — ألوان وخطوط وحركة.', pEn: rooms.length ? 'The rooms: ' + rooms.map((r) => '"' + esc(r.titleEn) + '"').join(', ') + ' — the rest is inside.' : 'Every page breathes this world — color, type and motion.' },
+      { t: '03', bAr: 'الصفحة تعيش، <i>من الصبح لليل.</i>', bEn: 'The page is alive, <i>from morning to night.</i>', pAr: 'ألوانها بألوانكم، وتغمق مع الليل وأنتم تقلبون فيها — عربي وإنجليزي بضغطة.', pEn: 'It wears your colors and darkens into night as guests scroll — Arabic and English in one tap.' },
     ].map((d, di) => `
     <div class="st rv">
-      <div class="ph"><span class="big-init">${initEn}</span>${shots.length || photoKeyFits(d.img, wType) ? `<img src="${shots.length ? esc('../assets/photos/' + cafe.slug + '/' + shots[di % shots.length].file) : `../assets/photos/${d.img}.jpg`}" alt="" onload="this.parentElement.classList.add('hasimg')" onerror="this.remove()" loading="lazy">` : ''}<span class="tag">${B('تفصيلة ' + d.t, 'Detail ' + d.t)}</span></div>
+      <div class="ph"><span class="big-init">${initEn}</span>${shots.length ? `<img src="${esc('../assets/photos/' + cafe.slug + '/' + shots[di % shots.length].file)}" alt="" onload="this.parentElement.classList.add('hasimg')" onerror="this.remove()" loading="lazy">` : ''}<span class="tag">${B('تفصيلة ' + d.t, 'Detail ' + d.t)}</span></div>
       <div class="bd"><b>${B(d.bAr, d.bEn)}</b><p>${B(d.pAr, d.pEn)}</p></div>
     </div>`).join('')}
     <div style="text-align:center;margin-top:22px"><a class="cta gold" href="../${cafe.slug}/">${B('شوفوا منيوكم حيّاً ←', 'See your menu live →')}</a></div>

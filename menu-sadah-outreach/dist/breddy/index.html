@@ -38,6 +38,9 @@
   .medal span{font-size:44px;font-weight:700;color:var(--accent);text-shadow:0 2px 12px #94782466}
   .medal span .ar{font-family:'Lalezar',cursive}
   .medal span .en{font-family:'Lobster',cursive}
+  /* real brand logo inside the medallion (logo.png in the cafe's photo folder) — border+glow stay */
+  .medal .logo{width:84%;height:84%;object-fit:contain;border-radius:50%;position:relative;z-index:1}
+  .medal.haslogo>span{display:none}
   @keyframes mfloat{50%{transform:translateY(-6px)}}
   h1{font-size:36px;letter-spacing:-.01em;line-height:1.2}
   h1 .ar{font-family:'Lalezar',cursive}
@@ -131,11 +134,6 @@
   @keyframes sepidle{0%,100%{transform:translateX(0);opacity:.82}50%{transform:translateX(6px);opacity:1}}
 
   .items{position:relative;background:#f8f6f2d9;border:1px solid var(--border-1);border-radius:20px;padding:6px 18px;box-shadow:var(--shadow)}
-  /* vertical spine: the room's name whispered down the card's edge */
-  .spine{position:absolute;top:16px;inset-inline-start:-17px;writing-mode:vertical-rl;font-size:10px;
-    letter-spacing:.34em;text-transform:uppercase;color:var(--sa);opacity:.35;font-weight:600;
-    pointer-events:none;user-select:none;max-height:calc(100% - 32px);overflow:hidden}
-  @media(max-width:700px){.spine{display:none}}
   .item{display:flex;align-items:baseline;gap:10px;padding:15px 0;border-bottom:1px solid #efede699}
   .item:last-child{border-bottom:none}
   .item-name{font-size:16px}
@@ -209,7 +207,7 @@
   @media(min-width:900px){
     .bigmark{display:block}
     .wrap{max-width:780px}
-    .hero{min-height:86vh;display:flex;flex-direction:column;justify-content:center;padding:60px 0 40px}
+    .hero{min-height:62vh;display:flex;flex-direction:column;justify-content:center;padding:40px 0 14px}
     .medal{width:136px;height:136px}
     .medal span{font-size:58px}
     h1{font-size:66px}
@@ -227,7 +225,7 @@
     .sig{padding:26px 22px 24px}
     .diary{max-width:480px;font-size:17px}
     .mote{font-size:22px!important}
-    .chips{justify-content:center}
+    .chips{justify-content:center;padding:10px 2px}
   }
 
   /* ---- architecture pack: ticket-diner ---- */
@@ -325,7 +323,7 @@ body{
     html,body{background:#fff!important;background-image:none!important;color:#000!important}
     body::before,body::after{display:none!important}
     .mote,.orb,.scenebg,.skydial,.order-chip,.waiter-btn,.lang-toggle,.wa,.bigmark,.chips,.acttip,.sep,
-    .cat-art,.sig-art,.brandshots,.diary,.spine,.pdot{display:none!important}
+    .cat-art,.sig-art,.brandshots,.diary,.pdot{display:none!important}
     .wrap{max-width:100%;padding:0}
     .hero{min-height:0!important;padding:0 0 8px!important;display:block!important}
     .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
@@ -438,46 +436,45 @@ body{
       </div>
     </div>
     <div class="items">
-      <span class="spine" aria-hidden="true">HOT OUT, CATCH IT QUICK</span>
       
       <div class="item">
         <div class="item-name"><span class="ar">سينابون</span><span class="en">Cinnamon Bun</span>
-          <span class="sfda"><span class="ar">— سعرة · — كافيين</span><span class="en">— kcal · — caffeine</span></span></div>
+          </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>16<span class="sar"> ﷼</span></div>
         <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كرواسون لوز</span><span class="en">Almond Croissant</span>
-          <span class="sfda"><span class="ar">— سعرة · — كافيين</span><span class="en">— kcal · — caffeine</span></span></div>
+          </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>15<span class="sar"> ﷼</span></div>
         <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كرواسون زبدة</span><span class="en">Butter Croissant</span>
-          <span class="sfda"><span class="ar">— سعرة · — كافيين</span><span class="en">— kcal · — caffeine</span></span></div>
+          </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>12<span class="sar"> ﷼</span></div>
         <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كرواسون زعتر</span><span class="en">Zaatar Croissant</span>
-          <span class="sfda"><span class="ar">— سعرة · — كافيين</span><span class="en">— kcal · — caffeine</span></span></div>
+          </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>13<span class="sar"> ﷼</span></div>
         <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">بان أو شوكولا</span><span class="en">Pain au Chocolat</span>
-          <span class="sfda"><span class="ar">— سعرة · — كافيين</span><span class="en">— kcal · — caffeine</span></span></div>
+          </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>14<span class="sar"> ﷼</span></div>
         <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">رغيف ساوردو</span><span class="en">Sourdough Loaf</span>
-          <span class="sfda"><span class="ar">— سعرة · — كافيين</span><span class="en">— kcal · — caffeine</span></span></div>
+          </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>18<span class="sar"> ﷼</span></div>
         <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
@@ -498,7 +495,7 @@ body{
     <div class="cat-head">
       <div class="cat-art">
         <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gcr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0cf8f"/><stop offset="1" stop-color="#947824"/></linearGradient></defs><path d="M20 74c4-18 20-32 40-32s36 14 40 32c-6 8-16 8-22 2-4-10-12-16-18-16s-14 6-18 16c-6 6-16 6-22-2z" fill="url(#gcr)"/><path d="M45 46 38 70M60 42v26M75 46l7 24" stroke="#5c4d1e" stroke-width="3" opacity=".5" stroke-linecap="round"/><ellipse cx="60" cy="88" rx="34" ry="4" fill="#000" opacity=".3"/></svg></div>
-        <img src="../assets/photos/bakery.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
+        
       </div>
       <div class="cat-title">
         <div class="room-eyebrow"><span class="ar">التوست والساندويتش</span><span class="en">Toasts &amp; Sandwiches</span></div>
@@ -508,25 +505,24 @@ body{
       </div>
     </div>
     <div class="items">
-      <span class="spine" aria-hidden="true">A STORY BETWEEN TWO SLICES</span>
       
       <div class="item">
         <div class="item-name"><span class="ar">توست أفوكادو</span><span class="en">Avocado Sourdough Toast</span>
-          <span class="sfda"><span class="ar">— سعرة · — كافيين</span><span class="en">— kcal · — caffeine</span></span></div>
+          </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>24<span class="sar"> ﷼</span></div>
         <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">توست حلومي وعسل</span><span class="en">Halloumi &amp; Honey Toast</span>
-          <span class="sfda"><span class="ar">— سعرة · — كافيين</span><span class="en">— kcal · — caffeine</span></span></div>
+          </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>22<span class="sar"> ﷼</span></div>
         <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كرواسون تيركي وجبن</span><span class="en">Turkey &amp; Cheese Croissant</span>
-          <span class="sfda"><span class="ar">— سعرة · — كافيين</span><span class="en">— kcal · — caffeine</span></span></div>
+          </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>21<span class="sar"> ﷼</span></div>
         <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
@@ -558,32 +554,31 @@ body{
       </div>
     </div>
     <div class="items">
-      <span class="spine" aria-hidden="true">COFFEE BESIDE THE BAKING SMELL</span>
       
       <div class="item">
         <div class="item-name"><span class="ar">فلات وايت</span><span class="en">Flat White</span>
-          <span class="sfda"><span class="ar">— سعرة · — كافيين</span><span class="en">— kcal · — caffeine</span></span></div>
+          </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>17<span class="sar"> ﷼</span></div>
         <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">لاتيه</span><span class="en">Latte</span>
-          <span class="sfda"><span class="ar">— سعرة · — كافيين</span><span class="en">— kcal · — caffeine</span></span></div>
+          </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>18<span class="sar"> ﷼</span></div>
         <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">لاتيه بارد</span><span class="en">Iced Latte</span>
-          <span class="sfda"><span class="ar">— سعرة · — كافيين</span><span class="en">— kcal · — caffeine</span></span></div>
+          </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>18<span class="sar"> ﷼</span></div>
         <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">في60</span><span class="en">V60</span>
-          <span class="sfda"><span class="ar">— سعرة · — كافيين</span><span class="en">— kcal · — caffeine</span></span></div>
+          </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>22<span class="sar"> ﷼</span></div>
         <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
@@ -614,18 +609,17 @@ body{
       </div>
     </div>
     <div class="items">
-      <span class="spine" aria-hidden="true">A BRIGHT SIP TO GO</span>
       
       <div class="item">
         <div class="item-name"><span class="ar">عصير برتقال</span><span class="en">Orange Juice</span>
-          <span class="sfda"><span class="ar">— سعرة · — كافيين</span><span class="en">— kcal · — caffeine</span></span></div>
+          </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>15<span class="sar"> ﷼</span></div>
         <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">ليمون بالنعناع</span><span class="en">Lemon Mint</span>
-          <span class="sfda"><span class="ar">— سعرة · — كافيين</span><span class="en">— kcal · — caffeine</span></span></div>
+          </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>15<span class="sar"> ﷼</span></div>
         <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>

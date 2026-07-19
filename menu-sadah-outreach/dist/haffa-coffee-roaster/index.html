@@ -38,6 +38,9 @@
   .medal span{font-size:44px;font-weight:700;color:var(--accent);text-shadow:0 2px 12px #d5a96266}
   .medal span .ar{font-family:'Baloo Bhaijaan 2',cursive}
   .medal span .en{font-family:'Fredoka',sans-serif}
+  /* real brand logo inside the medallion (logo.png in the cafe's photo folder) — border+glow stay */
+  .medal .logo{width:84%;height:84%;object-fit:contain;border-radius:50%;position:relative;z-index:1}
+  .medal.haslogo>span{display:none}
   @keyframes mfloat{50%{transform:translateY(-6px)}}
   h1{font-size:36px;letter-spacing:-.01em;line-height:1.2}
   h1 .ar{font-family:'Baloo Bhaijaan 2',cursive}
@@ -131,11 +134,6 @@
   @keyframes sepidle{0%,100%{transform:translateX(0);opacity:.82}50%{transform:translateX(6px);opacity:1}}
 
   .items{position:relative;background:#231e15d9;border:1px solid var(--border-1);border-radius:20px;padding:6px 18px;box-shadow:var(--shadow)}
-  /* vertical spine: the room's name whispered down the card's edge */
-  .spine{position:absolute;top:16px;inset-inline-start:-17px;writing-mode:vertical-rl;font-size:10px;
-    letter-spacing:.34em;text-transform:uppercase;color:var(--sa);opacity:.35;font-weight:600;
-    pointer-events:none;user-select:none;max-height:calc(100% - 32px);overflow:hidden}
-  @media(max-width:700px){.spine{display:none}}
   .item{display:flex;align-items:baseline;gap:10px;padding:15px 0;border-bottom:1px solid #2f281e99}
   .item:last-child{border-bottom:none}
   .item-name{font-size:16px}
@@ -209,7 +207,7 @@
   @media(min-width:900px){
     .bigmark{display:block}
     .wrap{max-width:780px}
-    .hero{min-height:86vh;display:flex;flex-direction:column;justify-content:center;padding:60px 0 40px}
+    .hero{min-height:62vh;display:flex;flex-direction:column;justify-content:center;padding:40px 0 14px}
     .medal{width:136px;height:136px}
     .medal span{font-size:58px}
     h1{font-size:66px}
@@ -227,7 +225,7 @@
     .sig{padding:26px 22px 24px}
     .diary{max-width:480px;font-size:17px}
     .mote{font-size:22px!important}
-    .chips{justify-content:center}
+    .chips{justify-content:center;padding:10px 2px}
   }
 
   /* ---- architecture pack: neon-arcade ---- */
@@ -338,7 +336,7 @@ body::after{
     html,body{background:#fff!important;background-image:none!important;color:#000!important}
     body::before,body::after{display:none!important}
     .mote,.orb,.scenebg,.skydial,.order-chip,.waiter-btn,.lang-toggle,.wa,.bigmark,.chips,.acttip,.sep,
-    .cat-art,.sig-art,.brandshots,.diary,.spine,.pdot{display:none!important}
+    .cat-art,.sig-art,.brandshots,.diary,.pdot{display:none!important}
     .wrap{max-width:100%;padding:0}
     .hero{min-height:0!important;padding:0 0 8px!important;display:block!important}
     .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
@@ -419,7 +417,7 @@ body::after{
     <div class="cat-head">
       <div class="cat-art">
         <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><path d="M28 30h64l-22 34h-20z" fill="none" stroke="#d5a962" stroke-width="5"/><path d="M40 36h40l-15 23h-10z" fill="#d5a962" opacity=".35"/><path d="M60 66v12" stroke="#cac4ba" stroke-width="4" stroke-dasharray="2 6" stroke-linecap="round"/><path d="M36 84h48v6a16 16 0 0 1-16 16H52a16 16 0 0 1-16-16z" fill="#d5a962"/><path d="M84 86h8a8 8 0 0 1 0 16h-6" fill="none" stroke="#d5a962" stroke-width="4"/><ellipse cx="60" cy="108" rx="28" ry="4" fill="#000" opacity=".3"/></svg></div>
-        <img src="../assets/photos/v60.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
+        
       </div>
       <div class="cat-title">
         <div class="room-eyebrow"><span class="ar">محاصيل اليوم</span><span class="en">Today's Origins</span></div>
@@ -429,39 +427,38 @@ body::after{
       </div>
     </div>
     <div class="items">
-      <span class="spine" aria-hidden="true">FRESH OFF THE FIRE TODAY</span>
       
       <div class="item">
         <div class="item-name"><span class="ar">في60 — إثيوبيا</span><span class="en">V60 — Ethiopia</span>
-          <span class="sfda"><span class="ar">— سعرة · — كافيين</span><span class="en">— kcal · — caffeine</span></span></div>
+          </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>24<span class="sar"> ﷼</span></div>
         <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">في60 — كولومبيا</span><span class="en">V60 — Colombia</span>
-          <span class="sfda"><span class="ar">— سعرة · — كافيين</span><span class="en">— kcal · — caffeine</span></span></div>
+          </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>24<span class="sar"> ﷼</span></div>
         <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">في60 — جيشا بنما</span><span class="en">V60 — Panama Geisha</span>
-          <span class="sfda"><span class="ar">— سعرة · — كافيين</span><span class="en">— kcal · — caffeine</span></span></div>
+          </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>38<span class="sar"> ﷼</span></div>
         <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كيمكس</span><span class="en">Chemex</span>
-          <span class="sfda"><span class="ar">— سعرة · — كافيين</span><span class="en">— kcal · — caffeine</span></span></div>
+          </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>24<span class="sar"> ﷼</span></div>
         <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">مقطّرة باردة</span><span class="en">Iced Filter</span>
-          <span class="sfda"><span class="ar">— سعرة · — كافيين</span><span class="en">— kcal · — caffeine</span></span></div>
+          </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>22<span class="sar"> ﷼</span></div>
         <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
@@ -472,7 +469,7 @@ body::after{
     <div class="cat-head">
       <div class="cat-art">
         <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ge" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d5a962"/><stop offset="1" stop-color="#825f27"/></linearGradient></defs><path d="M30 55h52v28a14 14 0 0 1-14 14H44a14 14 0 0 1-14-14z" fill="url(#ge)"/><path d="M82 58h10a10 10 0 0 1 0 20h-8" fill="none" stroke="#d5a962" stroke-width="5"/><ellipse cx="56" cy="55" rx="26" ry="5" fill="#e8dd8d"/><path d="M46 20c-4 8 4 10 0 18M60 16c-4 8 4 10 0 18M74 20c-4 8 4 10 0 18" stroke="#cac4ba" stroke-width="4" fill="none" stroke-linecap="round" opacity=".8"/><ellipse cx="56" cy="104" rx="30" ry="4" fill="#000" opacity=".3"/></svg></div>
-        <img src="../assets/photos/espresso.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
+        
       </div>
       <div class="cat-title">
         <div class="room-eyebrow"><span class="ar">الإسبريسو</span><span class="en">Espresso</span></div>
@@ -482,32 +479,31 @@ body::after{
       </div>
     </div>
     <div class="items">
-      <span class="spine" aria-hidden="true">PULLED FROM THE EMBER'S HEART</span>
       
       <div class="item">
         <div class="item-name"><span class="ar">إسبريسو محصول فردي</span><span class="en">Single-Origin Espresso</span>
-          <span class="sfda"><span class="ar">— سعرة · — كافيين</span><span class="en">— kcal · — caffeine</span></span></div>
+          </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>14<span class="sar"> ﷼</span></div>
         <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كورتادو</span><span class="en">Cortado</span>
-          <span class="sfda"><span class="ar">— سعرة · — كافيين</span><span class="en">— kcal · — caffeine</span></span></div>
+          </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>15<span class="sar"> ﷼</span></div>
         <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">سبانيش لاتيه</span><span class="en">Spanish Latte</span>
-          <span class="sfda"><span class="ar">— سعرة · — كافيين</span><span class="en">— kcal · — caffeine</span></span></div>
+          </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>20<span class="sar"> ﷼</span></div>
         <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">سبانيش لاتيه بارد</span><span class="en">Iced Spanish Latte</span>
-          <span class="sfda"><span class="ar">— سعرة · — كافيين</span><span class="en">— kcal · — caffeine</span></span></div>
+          </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>21<span class="sar"> ﷼</span></div>
         <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
@@ -519,7 +515,7 @@ body::after{
     <div class="cat-head">
       <div class="cat-art">
         <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><path d="M34 44h52l-6 56H40z" fill="#d5a962" opacity=".85"/><path d="M34 44h52l-2 12H36z" fill="#825f27"/><path d="M46 30c0-8 28-8 28 0v14H46z" fill="none" stroke="#d5a962" stroke-width="5"/><g fill="#5a3d1e"><ellipse cx="52" cy="74" rx="7" ry="10" transform="rotate(-20 52 74)"/><ellipse cx="68" cy="80" rx="7" ry="10" transform="rotate(15 68 80)"/></g><path d="M49 70c2 3 4 6 3 9M66 76c2 3 3 6 2 9" stroke="#e8dd8d" stroke-width="2" fill="none"/><ellipse cx="60" cy="104" rx="30" ry="4" fill="#000" opacity=".3"/></svg></div>
-        <img src="../assets/photos/beans.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
+        
       </div>
       <div class="cat-title">
         <div class="room-eyebrow"><span class="ar">بن للبيت</span><span class="en">Beans To Go</span></div>
@@ -529,32 +525,31 @@ body::after{
       </div>
     </div>
     <div class="items">
-      <span class="spine" aria-hidden="true">CARRY THE EMBER HOME</span>
       
       <div class="item">
         <div class="item-name"><span class="ar">٢٥٠ جم — محصول متغيّر</span><span class="en">250g — Rotating Origin</span>
-          <span class="sfda"><span class="ar">— سعرة · — كافيين</span><span class="en">— kcal · — caffeine</span></span></div>
+          </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>55<span class="sar"> ﷼</span></div>
         <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">٢٥٠ جم — خلطة إسبريسو</span><span class="en">250g — Espresso Blend</span>
-          <span class="sfda"><span class="ar">— سعرة · — كافيين</span><span class="en">— kcal · — caffeine</span></span></div>
+          </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>48<span class="sar"> ﷼</span></div>
         <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كيلو — خلطة المحمصة</span><span class="en">1kg — House Blend</span>
-          <span class="sfda"><span class="ar">— سعرة · — كافيين</span><span class="en">— kcal · — caffeine</span></span></div>
+          </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>160<span class="sar"> ﷼</span></div>
         <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">أظرف تقطير (٥)</span><span class="en">Drip Bags (5)</span>
-          <span class="sfda"><span class="ar">— سعرة · — كافيين</span><span class="en">— kcal · — caffeine</span></span></div>
+          </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>35<span class="sar"> ﷼</span></div>
         <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
@@ -575,18 +570,17 @@ body::after{
       </div>
     </div>
     <div class="items">
-      <span class="spine" aria-hidden="true">SOMETHING SMALL BESIDE THE CUP</span>
       
       <div class="item">
         <div class="item-name"><span class="ar">براوني</span><span class="en">Brownie</span>
-          <span class="sfda"><span class="ar">— سعرة · — كافيين</span><span class="en">— kcal · — caffeine</span></span></div>
+          </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>16<span class="sar"> ﷼</span></div>
         <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">معمول تمر</span><span class="en">Date Maamoul</span>
-          <span class="sfda"><span class="ar">— سعرة · — كافيين</span><span class="en">— kcal · — caffeine</span></span></div>
+          </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>9<span class="sar"> ﷼</span></div>
         <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>

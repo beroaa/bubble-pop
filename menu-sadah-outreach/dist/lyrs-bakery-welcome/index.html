@@ -37,6 +37,9 @@
     opacity:0;animation:pop .8s .3s cubic-bezier(.2,1.4,.4,1) forwards}
   .medal span{font-size:50px;font-weight:800;color:var(--rose)}
   .medal span .ar{font-family:'Rakkas',serif}.medal span .en{font-family:'Anton',sans-serif}
+  /* real brand logo inside the medallions (logo.png in the cafe's photo folder) — inked border stays */
+  .medal .logo,.medal-s .logo{width:84%;height:84%;object-fit:contain;border-radius:50%}
+  .medal.haslogo>span,.medal-s.haslogo>span{display:none}
   @keyframes pop{0%{opacity:0;transform:scale(.4) rotate(-8deg)}70%{transform:scale(1.06)}100%{opacity:1;transform:scale(1)}}
   @keyframes up{0%{opacity:0;transform:translateY(14px)}100%{opacity:1;transform:none}}
   h1{font-size:clamp(34px,9vw,54px);line-height:1.18;margin-top:8px;opacity:0;animation:up .8s .7s forwards}
@@ -203,7 +206,7 @@ body{
 <body>
 <div class="bigmark" aria-hidden="true"><span class="ar">ل</span><span class="en">L</span></div>
 <header class="top">
-  <div class="bx"><div class="medal-s"><span class="ar">ل</span><span class="en">L</span></div>
+  <div class="bx"><div class="medal-s"><span><span class="ar">ل</span><span class="en">L</span></span></div>
     <div><div class="bn"><span class="ar">ليرز بيكري</span><span class="en">Lyrs Bakery</span></div><div class="loc"><span class="ar">الرياض · الرياض</span><span class="en">Al Olaya · Riyadh</span></div></div></div>
   <button class="lang" id="langToggle">English</button>
 </header>
@@ -321,7 +324,7 @@ body{
       <div class="bd"><b><span class="ar">عالمكم: <i>«المخبز اللي ما ينام، والفرن صاحي طول الليل»</i></span><span class="en">Your world: <i>"the bakehouse that never sleeps"</i></span></b><p><span class="ar">غرف المنيو: «طالعة حارّة من قلب الفرن»، «بين رغيفين حكاية»، «رفيقة الخبز من زمان» — والبقية داخل.</span><span class="en">The rooms: "pulled out while still warm", "a story between two slices", "the bread's oldest companion" — the rest is inside.</span></p></div>
     </div>
     <div class="st rv">
-      <div class="ph"><span class="big-init">L</span><img src="../assets/photos/dessert.jpg" alt="" onload="this.parentElement.classList.add('hasimg')" onerror="this.remove()" loading="lazy"><span class="tag"><span class="ar">تفصيلة 03</span><span class="en">Detail 03</span></span></div>
+      <div class="ph"><span class="big-init">L</span><span class="tag"><span class="ar">تفصيلة 03</span><span class="en">Detail 03</span></span></div>
       <div class="bd"><b><span class="ar">الصفحة تعيش، <i>من الصبح لليل.</i></span><span class="en">The page is alive, <i>from morning to night.</i></span></b><p><span class="ar">ألوانها بألوانكم، وتغمق مع الليل وأنتم تقلبون فيها — عربي وإنجليزي بضغطة.</span><span class="en">It wears your colors and darkens into night as guests scroll — Arabic and English in one tap.</span></p></div>
     </div>
     <div style="text-align:center;margin-top:22px"><a class="cta gold" href="../lyrs-bakery/"><span class="ar">شوفوا منيوكم حيّاً ←</span><span class="en">See your menu live →</span></a></div>
