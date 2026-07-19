@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-lang="ar">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#17130c">
+<title>🎁 The Coffeeholics Roastery × MENU SADAH</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Mada:wght@400;600;800&display=swap">
+<style>
+  :root{--bg-0:#17130c;--bg-1:#231e15;--border-1:#3a3327;--border-2:#594b36;
+    --text-1:#f2f0ed;--text-2:#cac4ba;--text-3:#948c7f;--accent:#d9ac63;--accent-soft:#d9ac6322}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Mada','Nunito',sans-serif,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;
+    background:var(--bg-0) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M24 19v10M19 24h10' stroke='%23d9ac63' stroke-opacity='.13'/%3E%3C/svg%3E");color:var(--text-1);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+    min-height:100svh;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background:radial-gradient(620px 460px at 50% -120px,#d9ac631c,transparent 70%)}
+  .wrap{max-width:560px;margin:0 auto;padding:0 20px 90px;position:relative}
+  [data-lang="ar"] .en,[data-lang="en"] .ar{display:none}
+  .lang-toggle{position:fixed;top:14px;inset-inline-end:14px;z-index:40;background:#231e15d9;backdrop-filter:blur(10px);
+    border:1px solid var(--border-2);color:var(--text-1);border-radius:999px;padding:8px 16px;font-size:13.5px;cursor:pointer}
+
+  .stars{position:fixed;inset:0;pointer-events:none;z-index:1}
+  .stars span{position:absolute;color:#d9ac63;opacity:0;animation:tw 3.2s infinite}
+  @keyframes tw{0%,100%{opacity:0;transform:scale(.5)}50%{opacity:.85;transform:scale(1.15)}}
+
+  .hero{position:relative;text-align:center;padding:84px 0 20px;z-index:2}
+  .orb{position:absolute;top:-70px;left:50%;transform:translateX(-50%);width:380px;height:380px;border-radius:50%;
+    background:radial-gradient(circle,#d9ac6338,transparent 64%);pointer-events:none;animation:breathe 5s ease-in-out infinite}
+  .orb2{position:absolute;top:40px;left:8%;width:200px;height:200px;border-radius:50%;
+    background:radial-gradient(circle,#eae08f24,transparent 65%);pointer-events:none;animation:breathe2 6.5s 1s ease-in-out infinite}
+  @keyframes breathe{50%{transform:translateX(-50%) scale(1.08)}}
+  @keyframes breathe2{50%{transform:scale(1.1)}}
+  .gift-tag{display:inline-block;background:var(--accent-soft);border:1px solid #d9ac6388;color:var(--accent);
+    border-radius:999px;padding:6px 20px;font-size:13px;letter-spacing:.14em;
+    opacity:0;animation:up .8s .15s forwards}
+  .medal{position:relative;width:118px;height:118px;margin:22px auto 6px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:radial-gradient(circle at 32% 24%,#ffffff30,transparent 42%),radial-gradient(circle at 32% 28%,#d9ac6348,#d9ac6316 62%,transparent);
+    border:2px solid var(--accent);box-shadow:0 0 0 8px #d9ac6314,0 0 46px #d9ac6355,inset 0 1px 0 #ffffff33;
+    opacity:0;animation:pop .9s .5s cubic-bezier(.2,1.4,.4,1) forwards}
+  .medal::after{content:"";position:absolute;inset:7px;border-radius:50%;border:1px solid #d9ac6355}
+  .medal span{font-family:'Comfortaa',cursive;font-size:52px;font-weight:700;color:var(--accent);
+    text-shadow:0 2px 14px #d9ac6373}
+  @keyframes pop{0%{opacity:0;transform:scale(.4)}70%{transform:scale(1.06)}100%{opacity:1;transform:scale(1)}}
+  @keyframes up{0%{opacity:0;transform:translateY(14px)}100%{opacity:1;transform:none}}
+  h1{font-size:32px;line-height:1.25;margin-top:12px;opacity:0;animation:up .8s .9s forwards}
+  h1 b{color:var(--accent)}
+  h1 .ar{font-family:'Mada',sans-serif}
+  h1 .en{font-family:'Comfortaa',cursive}
+  .shimmer{background:linear-gradient(90deg,var(--text-1) 40%,#d9ac63 50%,var(--text-1) 60%);background-size:220% 100%;
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:sh 3.4s 1.8s infinite}
+  @keyframes sh{0%{background-position:120% 0}100%{background-position:-120% 0}}
+
+  .letter{position:relative;z-index:2;margin-top:26px;background:linear-gradient(180deg,#231e15f0,#231e15d0);
+    border:1px solid #d9ac6344;border-radius:24px;padding:24px 22px;box-shadow:0 10px 34px #00000080;
+    opacity:0;animation:up .9s 1.25s forwards}
+  .letter .to{color:var(--accent);font-size:13px;letter-spacing:.12em;margin-bottom:10px}
+  .letter p{color:var(--text-2);font-size:15.5px;margin-bottom:12px}
+  .letter p b{color:var(--text-1)}
+  .letter .sigline{color:var(--accent);font-weight:700}
+  .benefits{list-style:none;margin-top:6px}
+  .benefits li{display:flex;gap:11px;align-items:flex-start;padding:8px 0;color:var(--text-2);font-size:14.5px}
+  .benefits .tick{color:var(--accent);font-weight:800;flex:0 0 auto}
+
+  .cta-stack{position:relative;z-index:2;display:grid;gap:12px;margin-top:26px;opacity:0;animation:up .9s 1.6s forwards}
+  .btn{display:block;text-align:center;text-decoration:none;background:linear-gradient(135deg,#d9ac63,#eae08f);
+    color:#1f190f;font-weight:800;font-size:18px;border-radius:18px;padding:18px 20px;
+    box-shadow:0 10px 30px #d9ac6355;transition:transform .15s}
+  .btn:active{transform:scale(.98)}
+  .btn.pulse{animation:pl 2.2s 2.4s infinite}
+  @keyframes pl{0%,100%{box-shadow:0 10px 30px #d9ac6355}50%{box-shadow:0 10px 44px #d9ac6390}}
+  .btn.ghost{background:transparent;color:var(--accent);border:1px solid #d9ac6388;box-shadow:none;font-weight:600;font-size:15px}
+  .small{margin-top:14px;text-align:center;color:var(--text-3);font-size:12.5px;position:relative;z-index:2}
+  .small a{color:var(--accent);text-decoration:none}
+  .footer{margin-top:30px;text-align:center;color:var(--text-3);font-size:12.5px;position:relative;z-index:2}
+  .footer a{color:var(--accent);text-decoration:none}
+  .fineline{font-size:12.5px!important;color:var(--text-3)!important;border-top:1px dashed var(--border-1);padding-top:11px;margin-top:4px;text-align:center}
+  @media(min-width:900px){
+    .wrap{max-width:720px}
+    .hero{min-height:60vh;display:flex;flex-direction:column;justify-content:center;padding:60px 0 10px}
+    .medal{width:140px;height:140px}
+    .medal span{font-size:60px}
+    h1{font-size:52px}
+    .letter{padding:34px 36px;border-radius:28px}
+    .letter p{font-size:17px}
+    .btn{font-size:20px;padding:22px}
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;opacity:1!important}}
+</style>
+</head>
+<body>
+<button class="lang-toggle" id="langToggle">English</button>
+<div class="stars" id="stars"></div>
+<div class="wrap">
+  <header class="hero">
+    <div class="orb"></div>
+    <div class="orb2"></div>
+    <span class="gift-tag"><span class="ar">🎁 هدية خاصة · ليست إعلاناً</span><span class="en">🎁 A personal gift · not an ad</span></span>
+    <div class="medal"><span><span class="ar">ذ</span><span class="en">T</span></span></div>
+    <h1>
+      <span class="ar">إلى بيت <b class="shimmer">ذا كوفي هوليكس</b></span>
+      <span class="en">To the house of <b class="shimmer">The Coffeeholics Roastery</b></span>
+    </h1>
+    
+  </header>
+
+  <div class="letter">
+    <div class="to"><span class="ar">🏡 مرحباً يا بيت ذا كوفي هوليكس</span><span class="en">🏡 Hello, house of The Coffeeholics Roastery</span></div>
+    <p>
+      <span class="ar">أنا إبراهيم من «منيو سادة». تابعت <b>@the.coffeeholics</b> — ومحاصيلكم تتغير كل أسبوع — منيو ورقي ما يلحق عليكم، وسط <b>بوليفارد رياض سيتي</b>. صراحةً، وقّفني.</span>
+      <span class="en">I'm Ibrahim from MENU SADAH. I've been following <b>@the.coffeeholics</b> — and Your origins rotate weekly — paper menus can never keep up. Honestly, it stopped me.</span>
+    </p>
+    <p>
+      <span class="ar">بين فترة وفترة نختار مكاناً واحداً يستاهل شغلاً خاصاً — وهالمرة اخترناكم.</span>
+      <span class="en">Every so often we pick one place that deserves special work — and this time we picked you.</span>
+    </p>
+    
+    <p>
+      <span class="ar">بنينا لكم منيو رقمياً بهويتكم وألوانكم، عربي وإنجليزي. <b>كله هدية. لكم. جاهز الآن.</b> إن نال إعجابكم فعّلناه بنفس اليوم — وإن لم يناسبكم يكفينا شرف اطلاعكم.</span>
+      <span class="en">We built you a digital menu in your identity and colors, Arabic and English. <b>All of it is a gift. Yours. Ready now.</b> Love it? Live the same day — if not, we're honored you looked.</span>
+    </p>
+    <p class="fineline">
+      <span class="ar">عربي/إنجليزي بضغطة · متوافق مع هيئة الغذاء والدواء (السعرات والكافيين) · تعديل الأسعار خلال دقائق</span>
+      <span class="en">AR/EN toggle · SFDA-ready (calories & caffeine) · prices update in minutes</span>
+    </p>
+  </div>
+
+  <div class="cta-stack">
+    <a class="btn pulse" href="../the-coffeeholics-roastery/">
+      <span class="ar">🎁 افتحوا هديتكم — منيو ذا كوفي هوليكس</span>
+      <span class="en">🎁 Open your gift — the The Coffeeholics Roastery menu</span>
+    </a>
+    
+  </div>
+  <p class="small">
+    <span class="ar">شاهدوا عميلنا الحي: <a href="https://menu-sadah.com/beyt-coffee">بيت كوفي ↗</a></span>
+    <span class="en">See a live client: <a href="https://menu-sadah.com/beyt-coffee">Beyt Coffee ↗</a></span>
+  </p>
+  <div class="footer">
+    <span class="ar">صُنعت بحب في الرياض — <a href="https://menu-sadah.com">منيو سادة MENU SADAH</a></span>
+    <span class="en">Crafted with love in Riyadh — <a href="https://menu-sadah.com">MENU SADAH</a></span>
+  </div>
+</div>
+<script>
+  const root=document.documentElement;
+  const saved=localStorage.getItem('ms-lang')||'ar';
+  setLang(saved);
+  function setLang(l){root.setAttribute('data-lang',l);root.setAttribute('lang',l);root.setAttribute('dir',l==='ar'?'rtl':'ltr');
+    const t=document.getElementById('langToggle');if(t)t.textContent=l==='ar'?'English':'العربية';localStorage.setItem('ms-lang',l);}
+  document.getElementById('langToggle').addEventListener('click',()=>{setLang(root.getAttribute('data-lang')==='ar'?'en':'ar');});
+  // brand star field
+  const stars=document.getElementById('stars');
+  for(let i=0;i<26;i++){const s=document.createElement('span');s.textContent='✦';
+    s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';
+    s.style.fontSize=(6+Math.random()*10)+'px';s.style.animationDelay=(Math.random()*3.2)+'s';stars.appendChild(s);}
+</script>
+</body>
+</html>
