@@ -64,6 +64,35 @@ const ROOMVOICE = (() => {
   return {};
 })();
 
+/* ---------- photodirection50: per-cafe ART DIRECTION for the photo slots ----------
+   {slug: {hero, strip:[...], rooms:[{file,hint}], exclude:[...], grade}} — pre-vetted.
+   hero + strip drive the brandshots polaroids IN THAT ORDER; rooms drive the room
+   cat-art images (cycled, hint → object-position); excluded files NEVER render
+   anywhere (menu or gift detail cards). No entry → auto behavior stays untouched. */
+const DIRECTION_FILE = fileURLToPath(new URL('../singularity/photodirection50.json', import.meta.url));
+const DIRECTION = (() => {
+  try {
+    if (existsSync(DIRECTION_FILE)) return JSON.parse(readFileSync(DIRECTION_FILE, 'utf8'));
+  } catch { /* malformed file → no direction, menus still build */ }
+  return {};
+})();
+function directPhotos(slug, shots, giftMode = false) {
+  const d = slug && DIRECTION[slug];
+  if (!d || !d.hero || !shots.length) return { shots, rooms: null };
+  const exclude = Array.isArray(d.exclude) ? d.exclude : [];
+  const kept = shots.filter((s) => !exclude.includes(s.file)); // excluded files never render
+  const have = (f) => kept.some((s) => s.file === f);
+  const strip = Array.isArray(d.strip) ? d.strip : [];
+  // gift detail cards lead with hero + FIRST strip file; menu polaroids take hero + full strip
+  const lead = [d.hero, ...(giftMode ? strip.slice(0, 1) : strip)].filter((f, i, a) => have(f) && a.indexOf(f) === i);
+  const ordered = [
+    ...lead.map((f) => kept.find((s) => s.file === f)),
+    ...kept.filter((s) => !lead.includes(s.file)),
+  ];
+  const rooms = (Array.isArray(d.rooms) ? d.rooms : []).filter((r) => r && r.file && have(r.file));
+  return { shots: ordered, rooms: rooms.length ? rooms : null };
+}
+
 /* ---------- BRAND TRUTH (locked): shared category photos are BANNED on masterpiece
    pages — they showed OTHER cafes' branded products. Only per-cafe folder photos
    (dist/assets/photos/<slug>/) ever render; absent folder → tinted SVG art. */
@@ -272,7 +301,9 @@ export function masterpieceMenuPage(cafe, brief) {
   const sd = seedOf(cafe.slug || cafe.name);
   const M = MOTIFS[brief.motif] || MOTIFS.stars;
   const a = P.accent, a2 = P.accent2;
-  const shots = cafePhotos(cafe.slug); // per-cafe photo mode (VISUALS-FIRST law)
+  const direction = directPhotos(cafe.slug, cafePhotos(cafe.slug)); // photodirection50: directed order + excludes
+  const shots = direction.shots; // directed → hero first, then strip: the polaroids read in art-directed order
+  const roomShots = direction.rooms; // directed room list (cycled, hint → object-position); null → auto cycle
   const logo = cafeLogo(cafe.slug); // real brand logo → medallion (fallback: bilingual initial)
   const shotSrc = (i) => esc('../assets/photos/' + cafe.slug + '/' + shots[i % shots.length].file);
   const polish = polishFor(cafe.slug); // bespoke per-cafe touch (polish50)
@@ -330,9 +361,12 @@ export function masterpieceMenuPage(cafe, brief) {
       (ci === 4 && diary3) ? diary3 : '';
     // BRAND TRUTH: only the cafe's OWN shots ever render — shared category photos are
     // banned here (they show other cafes' branded products); no shots → tinted SVG art.
-    const catImg = shots.length
-      ? `<img src="${shotSrc(ci)}" alt="" onload="this.parentElement.classList.add('hasimg')">`
-      : '';
+    const roomShot = roomShots ? roomShots[ci % roomShots.length] : null;
+    const catImg = roomShot
+      ? `<img src="${esc('../assets/photos/' + cafe.slug + '/' + roomShot.file)}"${roomShot.hint ? ` style="object-position:${esc(roomShot.hint)}"` : ''} alt="" onload="this.parentElement.classList.add('hasimg')">`
+      : shots.length
+        ? `<img src="${shotSrc(ci)}" alt="" onload="this.parentElement.classList.add('hasimg')">`
+        : '';
     return `${ci > 0 ? (SC ? SC.sepHtml : sepHtml(arch, R)) : ''}
   <section class="cat reveal${ci % 2 === 0 ? ' cat--flip' : ''}" id="cat-${i}" style="--sa:${acc};--sa2:${acc2}">
     <div class="cat-head">
@@ -838,7 +872,8 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
   const flavor = FLAVOR2[extras.type] || FLAVOR2.specialty_coffee;
   const sig = (extras.signature && extras.signature.length ? extras.signature[0] : null) || extras.sigMention || null;
   // per-cafe shots (VISUALS-FIRST law) are the ONLY photos allowed — shared category photos are banned
-  const shots = cafePhotos(cafe.slug);
+  // photodirection50: detail cards lead with hero + first strip file; excluded files never render
+  const shots = directPhotos(cafe.slug, cafePhotos(cafe.slug), true).shots;
   const logo = cafeLogo(cafe.slug); // real brand logo → medallions (fallback: bilingual initial)
   const social = extras.social && /^@/.test(String(extras.social).trim()) ? String(extras.social).trim() : null;
   const rooms = (brief.rooms || []).slice(0, 3);

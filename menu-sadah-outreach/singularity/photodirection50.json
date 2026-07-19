@@ -1,0 +1,1059 @@
+{
+  "breddy": {
+    "hero": "1.jpg",
+    "strip": [
+      "2.jpg",
+      "4.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "3.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "4.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "2.jpg",
+        "hint": "center 40%"
+      }
+    ],
+    "exclude": [
+      "5.jpg",
+      "6.jpg"
+    ],
+    "grade": 4
+  },
+  "cafe-n": {
+    "hero": "3.jpg",
+    "strip": [
+      "2.jpg",
+      "4.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "5.jpg",
+        "hint": "center 70%"
+      },
+      {
+        "file": "1.jpg",
+        "hint": "center 45%"
+      }
+    ],
+    "exclude": [
+      "6.jpg"
+    ],
+    "grade": 3
+  },
+  "caia-coffee": {
+    "hero": "6.jpg",
+    "strip": [
+      "3.jpg",
+      "5.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "3.jpg",
+        "hint": "center 60%"
+      }
+    ],
+    "exclude": [
+      "2.jpg"
+    ],
+    "grade": 3
+  },
+  "cave-cafe": {
+    "hero": "1.jpg",
+    "strip": [
+      "2.jpg",
+      "3.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "5.jpg",
+        "hint": "center 60%"
+      },
+      {
+        "file": "6.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "2.jpg",
+        "hint": "center 55%"
+      }
+    ],
+    "exclude": [
+      "4.jpg"
+    ],
+    "grade": 4
+  },
+  "cavida-cafe": {
+    "hero": "4.jpg",
+    "strip": [
+      "3.jpg",
+      "6.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "2.jpg",
+        "hint": "center 60%"
+      },
+      {
+        "file": "6.jpg",
+        "hint": "center 45%"
+      },
+      {
+        "file": "3.jpg",
+        "hint": "center 55%"
+      }
+    ],
+    "exclude": [],
+    "grade": 4
+  },
+  "croi-bakehouse": {
+    "hero": "1.jpg",
+    "strip": [
+      "6.jpg",
+      "4.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "4.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "6.jpg",
+        "hint": "center 60%"
+      },
+      {
+        "file": "3.jpg",
+        "hint": "center 60%"
+      },
+      {
+        "file": "2.jpg",
+        "hint": "center"
+      }
+    ],
+    "exclude": [
+      "5.jpg"
+    ],
+    "grade": 4
+  },
+  "duirrah": {
+    "hero": "3.jpg",
+    "strip": [
+      "2.jpg",
+      "4.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "2.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "4.jpg",
+        "hint": "center 65%"
+      }
+    ],
+    "exclude": [
+      "1.jpg",
+      "5.jpg"
+    ],
+    "grade": 3
+  },
+  "find-hai-roastery-and-cafe": {
+    "hero": "1.jpg",
+    "strip": [
+      "2.jpg",
+      "4.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "3.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "2.jpg",
+        "hint": "center 60%"
+      },
+      {
+        "file": "4.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "6.jpg",
+        "hint": "center"
+      }
+    ],
+    "exclude": [],
+    "grade": 5
+  },
+  "good-mate-cafe": {
+    "hero": "3.jpg",
+    "strip": [
+      "2.jpg",
+      "6.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "6.jpg",
+        "hint": "center 70%"
+      },
+      {
+        "file": "2.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "5.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "4.jpg",
+        "hint": "center 40%"
+      }
+    ],
+    "exclude": [],
+    "grade": 4
+  },
+  "hacked": {
+    "hero": "1.jpg",
+    "strip": [
+      "3.jpg",
+      "6.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "3.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "2.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "4.jpg",
+        "hint": "center 60%"
+      },
+      {
+        "file": "6.jpg",
+        "hint": "center"
+      }
+    ],
+    "exclude": [
+      "5.jpg"
+    ],
+    "grade": 4
+  },
+  "haffa-coffee-roaster": {
+    "hero": "1.jpg",
+    "strip": [
+      "3.jpg",
+      "2.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "3.jpg",
+        "hint": "center 40%"
+      },
+      {
+        "file": "2.jpg",
+        "hint": "center 60%"
+      },
+      {
+        "file": "5.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "6.jpg",
+        "hint": "center 40%"
+      }
+    ],
+    "exclude": [
+      "4.jpg"
+    ],
+    "grade": 4
+  },
+  "harf-cafe": {
+    "hero": "4.jpg",
+    "strip": [
+      "6.jpg",
+      "2.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "3.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "5.jpg",
+        "hint": "center 60%"
+      },
+      {
+        "file": "6.jpg",
+        "hint": "center 70%"
+      },
+      {
+        "file": "1.jpg",
+        "hint": "center 35%"
+      }
+    ],
+    "exclude": [],
+    "grade": 4
+  },
+  "hdn-coffee": {
+    "hero": "6.jpg",
+    "strip": [
+      "2.jpg",
+      "4.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "2.jpg",
+        "hint": "center 60%"
+      },
+      {
+        "file": "4.jpg",
+        "hint": "center 55%"
+      },
+      {
+        "file": "1.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "5.jpg",
+        "hint": "center 35%"
+      }
+    ],
+    "exclude": [
+      "3.jpg"
+    ],
+    "grade": 4
+  },
+  "kazar-cafe": {
+    "hero": "1.jpg",
+    "strip": [
+      "2.jpg",
+      "3.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "3.jpg",
+        "hint": "center 40%"
+      },
+      {
+        "file": "5.jpg",
+        "hint": "center 55%"
+      },
+      {
+        "file": "6.jpg",
+        "hint": "center 60%"
+      },
+      {
+        "file": "4.jpg",
+        "hint": "center"
+      }
+    ],
+    "exclude": [],
+    "grade": 4
+  },
+  "kunafa-abul-haus": {
+    "hero": "1.jpg",
+    "strip": [
+      "6.jpg",
+      "2.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "6.jpg",
+        "hint": "center 55%"
+      },
+      {
+        "file": "2.jpg",
+        "hint": "center 65%"
+      },
+      {
+        "file": "5.jpg",
+        "hint": "center"
+      }
+    ],
+    "exclude": [
+      "3.jpg",
+      "4.jpg"
+    ],
+    "grade": 2
+  },
+  "laminam-cafe": {
+    "hero": "1.jpg",
+    "strip": [
+      "3.jpg",
+      "5.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "2.jpg",
+        "hint": "center 65%"
+      },
+      {
+        "file": "5.jpg",
+        "hint": "center 55%"
+      }
+    ],
+    "exclude": [
+      "4.jpg",
+      "6.jpg"
+    ],
+    "grade": 4
+  },
+  "lihaf": {
+    "hero": "3.jpg",
+    "strip": [
+      "4.jpg",
+      "2.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "5.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "6.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "2.jpg",
+        "hint": "center 55%"
+      }
+    ],
+    "exclude": [
+      "1.jpg"
+    ],
+    "grade": 4
+  },
+  "lyrs-bakery": {
+    "hero": "4.jpg",
+    "strip": [
+      "2.jpg",
+      "6.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "3.jpg",
+        "hint": "center 55%"
+      },
+      {
+        "file": "6.jpg",
+        "hint": "center 40%"
+      }
+    ],
+    "exclude": [
+      "1.jpg",
+      "5.jpg"
+    ],
+    "grade": 3.5
+  },
+  "marthad-coffee": {
+    "hero": "5.jpg",
+    "strip": [
+      "6.jpg",
+      "2.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "4.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "1.jpg",
+        "hint": "center 40%"
+      },
+      {
+        "file": "2.jpg",
+        "hint": "center 60%"
+      }
+    ],
+    "exclude": [
+      "3.jpg"
+    ],
+    "grade": 3.5
+  },
+  "mat-cookies": {
+    "hero": "1.jpg",
+    "strip": [
+      "2.jpg",
+      "3.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "5.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "4.jpg",
+        "hint": "center 55%"
+      }
+    ],
+    "exclude": [
+      "6.jpg"
+    ],
+    "grade": 4
+  },
+  "muhjah-cafe": {
+    "hero": "1.jpg",
+    "strip": [
+      "3.jpg",
+      "2.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "4.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "5.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "6.jpg",
+        "hint": "center 25%"
+      }
+    ],
+    "exclude": [],
+    "grade": 4
+  },
+  "nafas-cafe": {
+    "hero": "1.jpg",
+    "strip": [
+      "2.jpg",
+      "5.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "3.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "6.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "4.jpg",
+        "hint": "center 30%"
+      }
+    ],
+    "exclude": [],
+    "grade": 4
+  },
+  "nakhati-gelato": {
+    "hero": "3.jpg",
+    "strip": [
+      "2.jpg",
+      "5.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "1.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "6.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "4.jpg",
+        "hint": "center 70%"
+      }
+    ],
+    "exclude": [],
+    "grade": 5
+  },
+  "noma-coffee": {
+    "hero": "1.jpg",
+    "strip": [
+      "6.jpg",
+      "2.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "3.jpg",
+        "hint": "center 60%"
+      },
+      {
+        "file": "5.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "4.jpg",
+        "hint": "center 35%"
+      }
+    ],
+    "exclude": [],
+    "grade": 4
+  },
+  "ouia-cafe": {
+    "hero": "1.jpg",
+    "strip": [
+      "5.jpg",
+      "6.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "4.jpg",
+        "hint": "center 65%"
+      },
+      {
+        "file": "3.jpg",
+        "hint": "center"
+      }
+    ],
+    "exclude": [
+      "2.jpg"
+    ],
+    "grade": 4
+  },
+  "public-cafe": {
+    "hero": "4.jpg",
+    "strip": [
+      "3.jpg",
+      "6.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "1.jpg",
+        "hint": "center 60%"
+      },
+      {
+        "file": "2.jpg",
+        "hint": "center 65%"
+      },
+      {
+        "file": "5.jpg",
+        "hint": "center"
+      }
+    ],
+    "exclude": [],
+    "grade": 4
+  },
+  "qawam": {
+    "hero": "1.jpg",
+    "strip": [
+      "6.jpg",
+      "4.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "5.jpg",
+        "hint": "center 45%"
+      },
+      {
+        "file": "3.jpg",
+        "hint": "center"
+      }
+    ],
+    "exclude": [
+      "2.jpg"
+    ],
+    "grade": 4
+  },
+  "rakiyah-roastery": {
+    "hero": "1.jpg",
+    "strip": [
+      "4.jpg",
+      "2.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "5.jpg",
+        "hint": "center 40%"
+      },
+      {
+        "file": "3.jpg",
+        "hint": "center 40%"
+      },
+      {
+        "file": "6.jpg",
+        "hint": "center 55%"
+      }
+    ],
+    "exclude": [],
+    "grade": 4
+  },
+  "razeen-coffee": {
+    "hero": "4.jpg",
+    "strip": [
+      "2.jpg",
+      "1.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "5.jpg",
+        "hint": "center 45%"
+      },
+      {
+        "file": "6.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "3.jpg",
+        "hint": "center 40%"
+      }
+    ],
+    "exclude": [],
+    "grade": 4
+  },
+  "rewanted-cafe": {
+    "hero": "6.jpg",
+    "strip": [
+      "1.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "7.jpg",
+        "hint": "center 75%"
+      }
+    ],
+    "exclude": [
+      "2.jpg",
+      "3.jpg",
+      "4.jpg",
+      "5.jpg",
+      "8.jpg"
+    ],
+    "grade": 2
+  },
+  "roof-coffee": {
+    "hero": "4.jpg",
+    "strip": [
+      "3.jpg",
+      "6.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "6.jpg",
+        "hint": "center 45%"
+      },
+      {
+        "file": "3.jpg",
+        "hint": "center 40%"
+      },
+      {
+        "file": "1.jpg",
+        "hint": "center 40%"
+      },
+      {
+        "file": "2.jpg",
+        "hint": "center 30%"
+      }
+    ],
+    "exclude": [
+      "5.jpg"
+    ],
+    "grade": 3
+  },
+  "rym-coffee": {
+    "hero": "4.jpg",
+    "strip": [
+      "3.jpg",
+      "2.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "6.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "5.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "1.jpg",
+        "hint": "center 40%"
+      }
+    ],
+    "exclude": [],
+    "grade": 4
+  },
+  "sakaf-specialty-coffee": {
+    "hero": "3.jpg",
+    "strip": [
+      "2.jpg",
+      "6.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "1.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "4.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "5.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "2.jpg",
+        "hint": "center 55%"
+      }
+    ],
+    "exclude": [],
+    "grade": 4
+  },
+  "salam-coffee": {
+    "hero": "6.jpg",
+    "strip": [
+      "3.jpg",
+      "5.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "4.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "2.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "5.jpg",
+        "hint": "center 60%"
+      }
+    ],
+    "exclude": [
+      "1.jpg"
+    ],
+    "grade": 4
+  },
+  "salve-artisan-gelato": {
+    "hero": "1.jpg",
+    "strip": [
+      "2.jpg",
+      "5.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "4.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "6.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "2.jpg",
+        "hint": "center 60%"
+      }
+    ],
+    "exclude": [
+      "3.jpg"
+    ],
+    "grade": 4
+  },
+  "secret-pot-bakery": {
+    "hero": "4.jpg",
+    "strip": [
+      "3.jpg",
+      "6.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "6.jpg",
+        "hint": "center 60%"
+      },
+      {
+        "file": "3.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "5.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "2.jpg",
+        "hint": "center"
+      }
+    ],
+    "exclude": [],
+    "grade": 5
+  },
+  "sei-coffee": {
+    "hero": "1.jpg",
+    "strip": [
+      "3.jpg",
+      "6.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "3.jpg",
+        "hint": "center 70%"
+      },
+      {
+        "file": "6.jpg",
+        "hint": "center 60%"
+      },
+      {
+        "file": "4.jpg",
+        "hint": "center 70%"
+      },
+      {
+        "file": "2.jpg",
+        "hint": "center"
+      }
+    ],
+    "exclude": [
+      "5.jpg"
+    ],
+    "grade": 4
+  },
+  "serb-coffee": {
+    "hero": "1.jpg",
+    "strip": [
+      "2.jpg",
+      "4.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "2.jpg",
+        "hint": "center 70%"
+      },
+      {
+        "file": "4.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "3.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "5.jpg",
+        "hint": "center"
+      }
+    ],
+    "exclude": [],
+    "grade": 5
+  },
+  "shanab-cafe": {
+    "hero": "1.jpg",
+    "strip": [
+      "2.jpg",
+      "3.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "2.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "6.jpg",
+        "hint": "center"
+      }
+    ],
+    "exclude": [
+      "4.jpg",
+      "5.jpg"
+    ],
+    "grade": 3
+  },
+  "solio-cafe": {
+    "hero": "4.jpg",
+    "strip": [
+      "5.jpg",
+      "2.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "5.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "6.jpg",
+        "hint": "center 40%"
+      },
+      {
+        "file": "3.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "1.jpg",
+        "hint": "center 40%"
+      }
+    ],
+    "exclude": [],
+    "grade": 4
+  },
+  "the-sweet-sip": {
+    "hero": "1.jpg",
+    "strip": [
+      "6.jpg",
+      "2.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "3.jpg",
+        "hint": "center 60%"
+      },
+      {
+        "file": "5.jpg",
+        "hint": "center 40%"
+      },
+      {
+        "file": "2.jpg",
+        "hint": "center 45%"
+      }
+    ],
+    "exclude": [
+      "4.jpg"
+    ],
+    "grade": 4
+  },
+  "trov-cafe": {
+    "hero": "2.jpg",
+    "strip": [
+      "1.jpg",
+      "6.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "3.jpg",
+        "hint": "center"
+      },
+      {
+        "file": "6.jpg",
+        "hint": "center 55%"
+      },
+      {
+        "file": "5.jpg",
+        "hint": "center 60%"
+      },
+      {
+        "file": "4.jpg",
+        "hint": "center 35%"
+      }
+    ],
+    "exclude": [],
+    "grade": 4
+  },
+  "yellow-rose": {
+    "hero": "3.jpg",
+    "strip": [
+      "4.jpg",
+      "1.jpg"
+    ],
+    "rooms": [
+      {
+        "file": "6.jpg",
+        "hint": "center 60%"
+      },
+      {
+        "file": "4.jpg",
+        "hint": "center 55%"
+      }
+    ],
+    "exclude": [
+      "2.jpg",
+      "5.jpg"
+    ],
+    "grade": 3
+  }
+}
