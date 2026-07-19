@@ -1,5 +1,5 @@
 window.BUILDS_STATE = {
- "generatedAt": 1784393501257,
+ "generatedAt": 1784464154835,
  "builds": [
   {
    "id": "b1",
@@ -291,6 +291,33 @@ window.BUILDS_STATE = {
     }
    ],
    "result": "50 masterpiece menus + 50 theatrical gifts, 8 architectures, 0 QA fails"
+  },
+  {
+   "id": "b16",
+   "name": "PHOTO-50 real photo harvest (Google Places)",
+   "status": "running",
+   "pct": 30,
+   "etaAt": 1784464634835,
+   "note": "harvesting + auto-pushing",
+   "startedAt": 1784464052680,
+   "feed": [
+    {
+     "at": 1784464052708,
+     "msg": "Key tested green on Roof Coffee"
+    },
+    {
+     "at": 1784464052732,
+     "msg": "Starting harvest — 50 cafes, batches of 10"
+    },
+    {
+     "at": 1784464081728,
+     "msg": "Downloading real photos — 2/50 done, 10 each"
+    },
+    {
+     "at": 1784464154811,
+     "msg": "Batch 1 pushed — 15/50 cafes, 10 photos each"
+    }
+   ]
   }
  ]
 };
