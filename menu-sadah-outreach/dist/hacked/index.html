@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cairo:wght@400;700;900&display=swap">
 <style>
   :root{--bg-0:#fcf8f9;--bg-1:#f8f2f3;--bg-2:#efe6e8;--border-1:#e3d3d7;--border-2:#ceabb4;
-    --text-1:#31161c;--text-2:#624149;--text-3:#896c73;--accent:#8d2a41;--accent-2:#bf4e4a;--accent-soft:#8d2a4122;
+    --text-1:#31161c;--text-2:#624149;--text-3:#896c73;--ink:#31161c;--accent:#8d2a41;--accent-2:#bf4e4a;--accent-soft:#8d2a4122;
     --sa:#8d2a41;--sa2:#8c5036;--radius:16px;--shadow:0 6px 16px #6b2e3c22, 0 16px 40px #6b2e3c14;
     --m-ease:cubic-bezier(.34,1.56,.64,1);--m-dir:start;--tx:1}
   /* RTL MIRROR LAW: --tx flips direction-signed decorative transforms in Arabic */
@@ -354,6 +354,31 @@ body{
 .bx-ink::before{content:"✎";position:absolute;top:-.9em;inset-inline-start:-.6em;color:var(--sa);font-size:.9em;transform:rotate(12deg)}
 @media (prefers-reduced-motion:no-preference){.bx-ink-loop path{transition:stroke-dashoffset 1.2s ease}}
 
+  /* ---- INK-CRAFT FINISH: confident brand-INK display type (never foil-transparent) ----
+     GODZILLA law #1: ink carries the words; accent only decorates (underline/dots/prices/borders).
+     Placed after the scene pack so the gold-foil background-clip:text on headings is neutralised. */
+  h1,h1 .ar,h1 .en{background:none!important;background-image:none!important;-webkit-text-fill-color:#31161c!important;color:#31161c!important}
+  h1.shimmer{background:none!important;animation:none!important}
+  .heroline,.heroline .ar,.heroline .en{background:none!important;background-image:none!important;-webkit-text-fill-color:#624149!important;color:#624149!important;animation:none!important;filter:none!important}
+  /* the animated brand mark sits inside the medallion; the plain initial is hidden when it (or a real logo) is present */
+  .medal .mark{display:block;width:82%;height:82%}
+  .medal.hasmark>span{display:none}
+
+  /* light mode only (dark archetypes stay poster-intact): room titles to INK, ink craft on chrome */
+  .room-h2,.room-h2 .ar,.room-h2 .en{color:#31161c;-webkit-text-fill-color:#31161c}
+  .room-eyebrow{color:#896c73}
+  .chip{border:2px solid var(--ink);border-radius:16px 12px 15px 13px;box-shadow:3px 3px 0 var(--ink);color:#31161c}
+  .chip:hover{color:var(--accent);border-color:var(--ink);box-shadow:4px 5px 0 var(--ink);transform:translateY(-2px)}
+  .order-chip{border:2px solid var(--ink);box-shadow:2px 2px 0 var(--ink);color:#31161c}
+  .order-chip.demo{border-style:dashed}
+  .order-chip:hover{box-shadow:3px 3px 0 var(--ink);transform:translateY(-1px)}
+  .medal{border:2.5px solid var(--ink);box-shadow:4px 4px 0 var(--ink),inset 0 1px 0 #ffffff55}
+  .medal::after{border-color:#31161c}
+  .items{border:2px solid var(--ink);border-radius:20px 16px 22px 15px;box-shadow:4px 4px 0 var(--ink)}
+  .sig{border:2px solid var(--ink);box-shadow:5px 5px 0 var(--ink)}
+  .sig-card{border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink)}
+  .stamp{border-color:var(--sa);color:var(--sa)}
+
   /* ---- brandshots: the cafe's OWN photos, pinned like polaroids ---- */
   .brandshots{display:flex;justify-content:center;align-items:flex-start;gap:14px;margin-top:22px;position:relative;z-index:1}
   .bshot{position:relative;width:96px;margin:0;background:#f8f2f3;border:1px solid var(--border-2);padding:6px 6px 16px;
@@ -396,6 +421,8 @@ body{
     .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
     h1{color:#000!important;background:none!important;-webkit-text-fill-color:#000!important;font-size:30px!important}
     .medal{width:70px!important;height:70px!important;margin-bottom:8px;border-color:#000!important;background:#fff!important}
+    .medal .mark{display:none!important}
+    .medal.hasmark>span{display:inline!important}
     .medal span{color:#000!important;font-size:32px!important}
     .medal::after{border-color:#00000055!important}
     .greet,.world,.world b,.heroline{color:#000!important}
@@ -473,7 +500,7 @@ body{
 <rect width="1440" height="900" fill="url(#phdVig)"/>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal"><span><span class="ar">ه</span><span class="en">H</span></span></div>
+    <div class="medal hasmark"><svg class="mark bmvaeqd1m" viewBox="0 0 100 100" fill="none" role="img" aria-label="Hacked"><style>.bmvaeqd1m{overflow:visible}.bmvaeqd1m *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bmvaeqd1m .mk{animation:bmvaeqd1mbob 5s ease-in-out 1.7s infinite}@keyframes bmvaeqd1mbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bmvaeqd1mfl{0%{opacity:0;transform:translateX(-40px) rotate(-12deg)}100%{transform:none}}@keyframes bmvaeqd1mfr{0%{opacity:0;transform:translateX(40px) rotate(12deg)}100%{transform:none}}@keyframes bmvaeqd1mdrop{0%{opacity:0;transform:translateY(-30px) scale(.4)}70%{transform:translateY(2px) scale(1.1)}100%{transform:none}}.bmvaeqd1m .p1{animation:bmvaeqd1mfl .8s cubic-bezier(.2,1.2,.3,1) both}.bmvaeqd1m .p2{animation:bmvaeqd1mfr .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bmvaeqd1m .p3{animation:bmvaeqd1mdrop .7s cubic-bezier(.2,1.5,.3,1) .55s both}.bmvaeqd1m .p4{opacity:0;animation:bmvaeqd1mfd .4s ease .95s forwards}@keyframes bmvaeqd1mfd{to{opacity:1}}}</style><g class="mk"><g class="p1"><rect x="22" y="54" width="56" height="24" rx="7" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="32" y="34" width="36" height="22" rx="7" fill="var(--sa)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><circle cx="50" cy="26" r="6" fill="var(--accent-2)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g><path class="p4" d="M50 20 q3 -6 8 -7" stroke="var(--ink)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ه</span><span class="en">H</span></span></div>
     <h1><span class="ar">هاكد</span><span class="en">Hacked</span></h1>
     <div class="world"><span class="ar">✦ <b>دفتر شخابيط مليان أسرار حلوة</b> ✦</span><span class="en">✦ <b>a doodled notebook of sweet mischief</b> ✦</span></div>
     <div class="heroline"><span class="ar">السر الحلو انكشف، تفضّل</span><span class="en">the sweet secret is out</span></div>
@@ -764,7 +791,6 @@ body{
     });
     setTimeout(()=>{
       document.querySelectorAll('h1 .ar, h1 .en').forEach(el=>{el.textContent=el.textContent;});
-      document.querySelector('h1').classList.add('shimmer');
     },2400);
   }
   // day -> night: the sky shifts as you walk deeper — or by hand via the sky-dial

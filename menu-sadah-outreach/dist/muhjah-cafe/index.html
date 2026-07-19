@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Aref+Ruqaa:wght@400;700&family=Nunito:wght@400;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap">
 <style>
   :root{--bg-0:#0f1510;--bg-1:#18201a;--bg-2:#222b23;--border-1:#273a2b;--border-2:#36593d;
-    --text-1:#edf2ee;--text-2:#bacabd;--text-3:#7f9483;--accent:#6eb97d;--accent-2:#92d3b0;--accent-soft:#6eb97d22;
+    --text-1:#edf2ee;--text-2:#bacabd;--text-3:#7f9483;--ink:#edf2ee;--accent:#6eb97d;--accent-2:#92d3b0;--accent-soft:#6eb97d22;
     --sa:#6eb97d;--sa2:#83c3b2;--radius:16px;--shadow:0 6px 16px #00000080, 0 16px 40px #00000059;
     --m-ease:cubic-bezier(.34,1.56,.64,1);--m-dir:up;--tx:1}
   /* RTL MIRROR LAW: --tx flips direction-signed decorative transforms in Arabic */
@@ -362,6 +362,17 @@ body{
   /* ---- polish50 bespoke touch: Hearth Steam Breath ---- */
   .bx-hearth{position:relative;display:inline-flex;gap:7px;align-items:flex-end;height:46px;margin:8px auto}.bx-wisp{width:2px;height:26px;border-radius:2px;background:linear-gradient(to top,var(--sa),transparent);opacity:.5;transform-origin:bottom}.bx-wisp:nth-child(2){height:34px}.bx-hearth-note{position:absolute;bottom:100%;inset-inline-start:calc(100% + 12px);font-size:.72rem;font-weight:400;color:var(--text-2);white-space:nowrap}@media (prefers-reduced-motion:no-preference){.bx-wisp{animation:bx-rise 3.4s ease-in-out infinite}.bx-wisp:nth-child(2){animation-delay:.9s}.bx-wisp:nth-child(3){animation-delay:1.7s}.bx-hearth:hover .bx-wisp{animation-duration:1.8s;opacity:.85}@keyframes bx-rise{0%{transform:scaleY(.5) translateY(0);opacity:0}35%{opacity:.6}100%{transform:scaleY(1.15) translateY(-8px);opacity:0}}}
 
+  /* ---- INK-CRAFT FINISH: confident brand-INK display type (never foil-transparent) ----
+     GODZILLA law #1: ink carries the words; accent only decorates (underline/dots/prices/borders).
+     Placed after the scene pack so the gold-foil background-clip:text on headings is neutralised. */
+  h1,h1 .ar,h1 .en{background:none!important;background-image:none!important;-webkit-text-fill-color:#edf2ee!important;color:#edf2ee!important}
+  h1.shimmer{background:none!important;animation:none!important}
+  .heroline,.heroline .ar,.heroline .en{background:none!important;background-image:none!important;-webkit-text-fill-color:#bacabd!important;color:#bacabd!important;animation:none!important;filter:none!important}
+  /* the animated brand mark sits inside the medallion; the plain initial is hidden when it (or a real logo) is present */
+  .medal .mark{display:block;width:82%;height:82%}
+  .medal.hasmark>span{display:none}
+
+
   /* ---- brandshots: the cafe's OWN photos, pinned like polaroids ---- */
   .brandshots{display:flex;justify-content:center;align-items:flex-start;gap:14px;margin-top:22px;position:relative;z-index:1}
   .bshot{position:relative;width:96px;margin:0;background:#18201a;border:1px solid var(--border-2);padding:6px 6px 16px;
@@ -404,6 +415,8 @@ body{
     .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
     h1{color:#000!important;background:none!important;-webkit-text-fill-color:#000!important;font-size:30px!important}
     .medal{width:70px!important;height:70px!important;margin-bottom:8px;border-color:#000!important;background:#fff!important}
+    .medal .mark{display:none!important}
+    .medal.hasmark>span{display:inline!important}
     .medal span{color:#000!important;font-size:32px!important}
     .medal::after{border-color:#00000055!important}
     .greet,.world,.world b,.heroline{color:#000!important}
@@ -495,7 +508,7 @@ body{
 <rect x="0" y="779" width="1440" height="2" fill="rgba(232,194,104,0.55)"/>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal"><span><span class="ar">م</span><span class="en">M</span></span></div>
+    <div class="medal hasmark"><svg class="mark bm1j57axam" viewBox="0 0 100 100" fill="none" role="img" aria-label="Muhjah Cafe"><style>.bm1j57axam{overflow:visible}.bm1j57axam *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm1j57axam .mk{animation:bm1j57axambob 5s ease-in-out 1.7s infinite}@keyframes bm1j57axambob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm1j57axamtop{0%{opacity:0;transform:translateY(-30px) rotate(-10deg)}100%{transform:none}}@keyframes bm1j57axambot{0%{opacity:0;transform:translateY(30px)}100%{transform:none}}@keyframes bm1j57axampop{0%{opacity:0;transform:scale(.3)}100%{opacity:1;transform:none}}.bm1j57axam .p1{animation:bm1j57axamtop .8s cubic-bezier(.2,1.3,.3,1) both}.bm1j57axam .p2{animation:bm1j57axambot .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bm1j57axam .p3{animation:bm1j57axampop .5s ease .7s both}}</style><g class="mk"><g class="p1"><path d="M26 48 L50 28 L74 48 Z" fill="var(--sa)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="30" y="48" width="40" height="30" rx="4" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><path d="M44 78 L44 60 Q50 55 56 60 L56 78 Z" fill="var(--sa2)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g></g></svg><span><span class="ar">م</span><span class="en">M</span></span></div>
     <h1><span class="ar">مهجة كافيه</span><span class="en">Muhjah Cafe</span></h1>
     <div class="world"><span class="ar">✦ <b>قلب البيت أول ما يدفى</b> ✦</span><span class="en">✦ <b>the warmest room in the house</b> ✦</span></div>
     <div class="heroline"><span class="ar">البيت بيتكم والقهوة حارة</span><span class="en">our home is yours tonight</span></div>
@@ -861,7 +874,6 @@ body{
     });
     setTimeout(()=>{
       document.querySelectorAll('h1 .ar, h1 .en').forEach(el=>{el.textContent=el.textContent;});
-      document.querySelector('h1').classList.add('shimmer');
     },2400);
   }
   // day -> night: the sky shifts as you walk deeper — or by hand via the sky-dial

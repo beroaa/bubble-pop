@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Baloo+Bhaijaan+2:wght@500;700&family=Nunito:wght@400;700&family=Caveat:wght@600;700&family=Patrick+Hand&family=Aref+Ruqaa:wght@400;700&display=swap">
 <style>
-  :root{--ink:#382014;--rose:#904a27;--gold:#968c36;--ochre:#853d53;--sage:#8eafa9;--paper:#fcf9f8;--paper2:#f5eeea;--card:#fefcfb;
+  :root{--ink:#382014;--rose:#9e4d24;--gold:#968c36;--ochre:#853d53;--sage:#8eafa9;--paper:#fcf9f8;--paper2:#f5eeea;--card:#fefcfb;
     --m-ease:cubic-bezier(.34,1.56,.64,1);--m-dir:up;--tx:1}
   /* RTL MIRROR LAW: --tx flips direction-signed decorative transforms in Arabic */
   [dir="rtl"]{--tx:-1}
@@ -16,7 +16,7 @@
   body{font-family:'Nunito','Baloo Bhaijaan 2',sans-serif,"Work Sans",-apple-system,Tahoma,sans-serif;background:var(--paper);color:var(--ink);
     font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
-    background:radial-gradient(700px 500px at 80% -10%,#904a270d,transparent 60%),
+    background:radial-gradient(700px 500px at 80% -10%,#9e4d240d,transparent 60%),
     repeating-linear-gradient(0deg,#38201405 0 2px,transparent 2px 5px)}
   [data-lang="ar"] .en,[data-lang="en"] .ar{display:none}
   .hand{font-family:Caveat,"Aref Ruqaa",cursive}
@@ -91,11 +91,11 @@
   .hl::before{content:"";position:absolute;inset:-.1em -.3em;background:#8eafa988;z-index:-1;
     border-radius:.35em .5em .4em .55em/.5em .4em .55em .35em;transform:rotate(-1.5deg)}
   .st{background:var(--card);border:2px solid var(--ink);border-radius:22px 10px 22px 10px;overflow:hidden;margin-top:16px;box-shadow:4px 4px 0 #38201422}
-  .st .ph{position:relative;height:150px;background:linear-gradient(135deg,#904a2722,#968c3622);display:flex;align-items:center;justify-content:center}
+  .st .ph{position:relative;height:150px;background:linear-gradient(135deg,#9e4d2422,#968c3622);display:flex;align-items:center;justify-content:center}
   .st .ph img{width:100%;height:100%;object-fit:cover;filter:sepia(.12) saturate(1.08) contrast(1.04)}
   /* designed photo treatment: brand-tint wash (multiply where supported, plain elsewhere) + 1px inner border */
   .st .ph.hasimg::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-    background:linear-gradient(160deg,#904a27,transparent 55%);opacity:.28;mix-blend-mode:multiply}
+    background:linear-gradient(160deg,#9e4d24,transparent 55%);opacity:.28;mix-blend-mode:multiply}
   .st .ph.hasimg::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;box-shadow:inset 0 0 0 1px #38201440}
   .st .ph .big-init{font-size:64px;font-weight:800;color:#38201433}
   .st .tag{position:absolute;top:10px;inset-inline-start:12px;background:var(--card);border:2px solid var(--ink);border-radius:999px;
@@ -151,9 +151,9 @@ body{
   background-color:#fcf9f8;
   background-image:
     radial-gradient(1100px 700px at 78% -8%, rgba(199,154,58,0.16), transparent 60%),
-    radial-gradient(900px 640px at 6% 10%, rgba(144,74,39,0.3), transparent 62%),
-    radial-gradient(1400px 900px at 50% 118%, rgba(90,52,32,0.55), transparent 72%),
-    conic-gradient(from 210deg at 82% 16%, rgba(195,145,70,0.1), transparent 30%, rgba(138,106,31,0.13) 52%, transparent 74%, rgba(144,74,39,0.08));
+    radial-gradient(900px 640px at 6% 10%, rgba(158,77,36,0.3), transparent 62%),
+    radial-gradient(1400px 900px at 50% 118%, rgba(86,46,26,0.55), transparent 72%),
+    conic-gradient(from 210deg at 82% 16%, rgba(200,147,55,0.1), transparent 30%, rgba(138,106,31,0.13) 52%, transparent 74%, rgba(158,77,36,0.08));
   background-attachment:fixed;
 }
 
@@ -191,9 +191,9 @@ body{
 .gold-band{
   height:14px; width:100%;
   background:repeating-linear-gradient(90deg,
-    rgba(199,154,58,0.92) 0 8px, #5a3420 8px 10px,
-    rgba(232,194,104,0.85) 10px 14px, #5a3420 14px 16px,
-    rgba(138,106,31,0.92) 16px 24px, #5a3420 24px 26px);
+    rgba(199,154,58,0.92) 0 8px, #562e1a 8px 10px,
+    rgba(232,194,104,0.85) 10px 14px, #562e1a 14px 16px,
+    rgba(138,106,31,0.92) 16px 24px, #562e1a 24px 26px);
   border-top:1px solid rgba(232,194,104,0.55);
   border-bottom:1px solid rgba(138,106,31,0.7);
   box-shadow:0 0 22px rgba(199,154,58,0.25);
@@ -221,6 +221,13 @@ body{
   .room-h2 b, .heroline{ animation:none !important; background-position:0% 0%; }
 }
 
+
+  /* ---- INK-CRAFT FINISH (gift page): heroline never foil-transparent; medallion holds the mark ----
+     the gift page is already ink-crafted (2px ink borders + hard offset shadows on every card/pill),
+     so this only neutralises the scene's gold-foil background-clip:text on .heroline + sizes the mark. */
+  .heroline,.heroline .ar,.heroline .en{background:none!important;background-image:none!important;-webkit-text-fill-color:var(--rose)!important;color:var(--rose)!important;animation:none!important;filter:none!important}
+  .medal .mark,.medal-s .mark{display:block;width:82%;height:82%}
+  .medal.hasmark>span,.medal-s.hasmark>span{display:none}
 
   /* ---- BRAND MOTION DNA: press physics — scale .96 in, overshoot release ---- */
   @media (prefers-reduced-motion: no-preference){
@@ -265,7 +272,7 @@ body{
 <div class="curtain" id="msCurtain" aria-hidden="true"></div>
 <div class="bigmark" aria-hidden="true"><span class="ar">ذ</span><span class="en">T</span></div>
 <header class="top">
-  <div class="bx"><div class="medal-s"><span><span class="ar">ذ</span><span class="en">T</span></span></div>
+  <div class="bx"><div class="medal-s hasmark"><svg class="mark bm79g1g3s" viewBox="0 0 100 100" fill="none" role="img" aria-label="The Cake Corner"><style>.bm79g1g3s{overflow:visible}.bm79g1g3s *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm79g1g3s .mk{animation:bm79g1g3sbob 5s ease-in-out 1.7s infinite}@keyframes bm79g1g3sbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm79g1g3sfl{0%{opacity:0;transform:translateX(-40px) rotate(-12deg)}100%{transform:none}}@keyframes bm79g1g3sfr{0%{opacity:0;transform:translateX(40px) rotate(12deg)}100%{transform:none}}@keyframes bm79g1g3sdrop{0%{opacity:0;transform:translateY(-30px) scale(.4)}70%{transform:translateY(2px) scale(1.1)}100%{transform:none}}.bm79g1g3s .p1{animation:bm79g1g3sfl .8s cubic-bezier(.2,1.2,.3,1) both}.bm79g1g3s .p2{animation:bm79g1g3sfr .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bm79g1g3s .p3{animation:bm79g1g3sdrop .7s cubic-bezier(.2,1.5,.3,1) .55s both}.bm79g1g3s .p4{opacity:0;animation:bm79g1g3sfd .4s ease .95s forwards}@keyframes bm79g1g3sfd{to{opacity:1}}}</style><g class="mk"><g class="p1"><rect x="22" y="54" width="56" height="24" rx="7" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="32" y="34" width="36" height="22" rx="7" fill="var(--gold)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><circle cx="50" cy="26" r="6" fill="var(--ochre)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g><path class="p4" d="M50 20 q3 -6 8 -7" stroke="var(--ink)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ذ</span><span class="en">T</span></span></div>
     <div><div class="bn"><span class="ar">ذا كيك كورنر</span><span class="en">The Cake Corner</span></div><div class="loc"><span class="ar">الرياض · الرياض</span><span class="en">Riyadh · Riyadh</span></div></div></div>
   <button class="lang touchable" id="langToggle">English</button>
 </header>
@@ -284,7 +291,7 @@ body{
 <stop offset="1" stop-color="#8a6a1f"/>
 </linearGradient>
 <pattern id="pdSadu" width="24" height="24" patternUnits="userSpaceOnUse">
-<rect width="24" height="24" fill="rgba(90,52,32,0.6)"/>
+<rect width="24" height="24" fill="rgba(86,46,26,0.6)"/>
 <path d="M12 3 21 12 12 21 3 12Z" fill="rgba(199,154,58,0.85)"/>
 <path d="M12 8 16 12 12 16 8 12Z" fill="#8e8233"/>
 </pattern>
@@ -315,7 +322,7 @@ body{
 </svg>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:12px;animation-delay:0s">✦</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:10px;animation-delay:0.7s">✧</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:9px;animation-delay:1.4s">⋆</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:12px;animation-delay:2.0999999999999996s">☾</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:14px;animation-delay:2.8s">✦</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:11px;animation-delay:3.5s">✧</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:13px;animation-delay:0.1999999999999993s">⋆</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:14px;animation-delay:0.8999999999999995s">☾</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="medal"><span><span class="ar">ذ</span><span class="en">T</span></span></div>
+    <div class="medal hasmark"><svg class="mark bm79g1g3w" viewBox="0 0 100 100" fill="none" role="img" aria-label="The Cake Corner"><style>.bm79g1g3w{overflow:visible}.bm79g1g3w *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm79g1g3w .mk{animation:bm79g1g3wbob 5s ease-in-out 1.7s infinite}@keyframes bm79g1g3wbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm79g1g3wfl{0%{opacity:0;transform:translateX(-40px) rotate(-12deg)}100%{transform:none}}@keyframes bm79g1g3wfr{0%{opacity:0;transform:translateX(40px) rotate(12deg)}100%{transform:none}}@keyframes bm79g1g3wdrop{0%{opacity:0;transform:translateY(-30px) scale(.4)}70%{transform:translateY(2px) scale(1.1)}100%{transform:none}}.bm79g1g3w .p1{animation:bm79g1g3wfl .8s cubic-bezier(.2,1.2,.3,1) both}.bm79g1g3w .p2{animation:bm79g1g3wfr .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bm79g1g3w .p3{animation:bm79g1g3wdrop .7s cubic-bezier(.2,1.5,.3,1) .55s both}.bm79g1g3w .p4{opacity:0;animation:bm79g1g3wfd .4s ease .95s forwards}@keyframes bm79g1g3wfd{to{opacity:1}}}</style><g class="mk"><g class="p1"><rect x="22" y="54" width="56" height="24" rx="7" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="32" y="34" width="36" height="22" rx="7" fill="var(--gold)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><circle cx="50" cy="26" r="6" fill="var(--ochre)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g><path class="p4" d="M50 20 q3 -6 8 -7" stroke="var(--ink)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ذ</span><span class="en">T</span></span></div>
     <h1><span class="ar">أهلاً ببيت <b>ذا كيك كورنر</b></span><span class="en">Welcome home, <b>The Cake Corner</b>.</span></h1>
     <div class="world"><span class="ar">✦ ركن حلا هادي آخر الليل ✦</span><span class="en">✦ a velvet corner after midnight ✦</span></div>
     <div class="heroline hand"><span class="ar">للحلا ركن.. وأنت وصلته</span><span class="en">every craving deserves its own corner</span></div>

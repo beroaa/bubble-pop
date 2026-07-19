@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Baloo+Bhaijaan+2:wght@500;700&family=Nunito:wght@400;700&family=Caveat:wght@600;700&family=Patrick+Hand&family=Aref+Ruqaa:wght@400;700&display=swap">
 <style>
-  :root{--ink:#3a2a12;--rose:#956523;--gold:#8b9b31;--ochre:#8a383c;--sage:#89b0b3;--paper:#fcfaf8;--paper2:#f5f1ea;--card:#fefdfb;
+  :root{--ink:#3a2a12;--rose:#a36c1f;--gold:#8b9b31;--ochre:#8a383c;--sage:#89b0b3;--paper:#fcfaf8;--paper2:#f5f1ea;--card:#fefdfb;
     --m-ease:cubic-bezier(.16,1,.3,1);--m-dir:scale;--tx:1}
   /* RTL MIRROR LAW: --tx flips direction-signed decorative transforms in Arabic */
   [dir="rtl"]{--tx:-1}
@@ -16,7 +16,7 @@
   body{font-family:'Nunito','Baloo Bhaijaan 2',sans-serif,"Work Sans",-apple-system,Tahoma,sans-serif;background:var(--paper);color:var(--ink);
     font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
-    background:radial-gradient(700px 500px at 80% -10%,#9565230d,transparent 60%),
+    background:radial-gradient(700px 500px at 80% -10%,#a36c1f0d,transparent 60%),
     repeating-linear-gradient(0deg,#3a2a1205 0 2px,transparent 2px 5px)}
   [data-lang="ar"] .en,[data-lang="en"] .ar{display:none}
   .hand{font-family:Caveat,"Aref Ruqaa",cursive}
@@ -91,11 +91,11 @@
   .hl::before{content:"";position:absolute;inset:-.1em -.3em;background:#89b0b388;z-index:-1;
     border-radius:.35em .5em .4em .55em/.5em .4em .55em .35em;transform:rotate(-1.5deg)}
   .st{background:var(--card);border:2px solid var(--ink);border-radius:22px 10px 22px 10px;overflow:hidden;margin-top:16px;box-shadow:4px 4px 0 #3a2a1222}
-  .st .ph{position:relative;height:150px;background:linear-gradient(135deg,#95652322,#8b9b3122);display:flex;align-items:center;justify-content:center}
+  .st .ph{position:relative;height:150px;background:linear-gradient(135deg,#a36c1f22,#8b9b3122);display:flex;align-items:center;justify-content:center}
   .st .ph img{width:100%;height:100%;object-fit:cover;filter:sepia(.12) saturate(1.08) contrast(1.04)}
   /* designed photo treatment: brand-tint wash (multiply where supported, plain elsewhere) + 1px inner border */
   .st .ph.hasimg::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-    background:linear-gradient(160deg,#956523,transparent 55%);opacity:.28;mix-blend-mode:multiply}
+    background:linear-gradient(160deg,#a36c1f,transparent 55%);opacity:.28;mix-blend-mode:multiply}
   .st .ph.hasimg::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;box-shadow:inset 0 0 0 1px #3a2a1240}
   .st .ph .big-init{font-size:64px;font-weight:800;color:#3a2a1233}
   .st .tag{position:absolute;top:10px;inset-inline-start:12px;background:var(--card);border:2px solid var(--ink);border-radius:999px;
@@ -150,10 +150,10 @@
 body{
   background-color:#fcfaf8;
   background-image:
-    radial-gradient(1100px 640px at 84% -12%, color-mix(in srgb, #956523 26%, transparent), transparent 62%),
+    radial-gradient(1100px 640px at 84% -12%, color-mix(in srgb, #a36c1f 26%, transparent), transparent 62%),
     radial-gradient(840px 540px at -8% 32%, color-mix(in srgb, #c79a3a 18%, transparent), transparent 58%),
-    radial-gradient(920px 720px at 50% 118%, color-mix(in srgb, #5d431d 52%, transparent), transparent 72%),
-    conic-gradient(from 210deg at 50% 132%, #fcfaf8, color-mix(in srgb, #5d431d 38%, #fcfaf8), color-mix(in srgb, #956523 12%, #fcfaf8), #fcfaf8);
+    radial-gradient(920px 720px at 50% 118%, color-mix(in srgb, #593e18 52%, transparent), transparent 72%),
+    conic-gradient(from 210deg at 50% 132%, #fcfaf8, color-mix(in srgb, #593e18 38%, #fcfaf8), color-mix(in srgb, #a36c1f 12%, #fcfaf8), #fcfaf8);
   background-attachment:fixed;
 }
 /* big fixed scene canvas (SVG supplied by heroHtml) */
@@ -175,7 +175,7 @@ body{
 /* sadu-inspired accent band (pure CSS diamond weave) */
 .gold-band{
   height:16px;border-top:1px solid #8a6a1f;border-bottom:1px solid #8a6a1f;
-  background-color:#5d431d;
+  background-color:#593e18;
   background-image:
     repeating-linear-gradient(45deg, #c79a3a 0 25%, transparent 0 50%),
     repeating-linear-gradient(-45deg, color-mix(in srgb, #88932f 70%, #c79a3a) 0 25%, transparent 0 50%);
@@ -202,6 +202,13 @@ body{
   .scenebg g,.scenebg path,.scenebg circle,.room-h2 b,.heroline{animation:none !important;}
 }
 
+
+  /* ---- INK-CRAFT FINISH (gift page): heroline never foil-transparent; medallion holds the mark ----
+     the gift page is already ink-crafted (2px ink borders + hard offset shadows on every card/pill),
+     so this only neutralises the scene's gold-foil background-clip:text on .heroline + sizes the mark. */
+  .heroline,.heroline .ar,.heroline .en{background:none!important;background-image:none!important;-webkit-text-fill-color:var(--rose)!important;color:var(--rose)!important;animation:none!important;filter:none!important}
+  .medal .mark,.medal-s .mark{display:block;width:82%;height:82%}
+  .medal.hasmark>span,.medal-s.hasmark>span{display:none}
 
   /* ---- BRAND MOTION DNA: press physics — scale .96 in, overshoot release ---- */
   @media (prefers-reduced-motion: no-preference){
@@ -246,7 +253,7 @@ body{
 <div class="curtain" id="msCurtain" aria-hidden="true"></div>
 <div class="bigmark" aria-hidden="true"><span class="ar">م</span><span class="en">S</span></div>
 <header class="top">
-  <div class="bx"><div class="medal-s"><span><span class="ar">م</span><span class="en">S</span></span></div>
+  <div class="bx"><div class="medal-s hasmark"><svg class="mark bm1hnbjfls" viewBox="0 0 100 100" fill="none" role="img" aria-label="Sharq Coffee &amp; Roastery"><style>.bm1hnbjfls{overflow:visible}.bm1hnbjfls *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm1hnbjfls .mk{animation:bm1hnbjflsbob 5s ease-in-out 1.7s infinite}@keyframes bm1hnbjflsbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm1hnbjflsp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bm1hnbjfls .p1{animation:bm1hnbjflsp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bm1hnbjfls .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bm1hnbjflsdr 1s ease .55s forwards}@keyframes bm1hnbjflsdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">م</span><span class="en">S</span></span></div>
     <div><div class="bn"><span class="ar">مقهى ومحمصة شرق</span><span class="en">Sharq Coffee &amp; Roastery</span></div><div class="loc"><span class="ar">الرياض · الرياض</span><span class="en">Al Nahda / east Riyadh · Riyadh</span></div></div></div>
   <button class="lang touchable" id="langToggle">English</button>
 </header>
@@ -257,8 +264,8 @@ body{
 <defs>
 <linearGradient id="tdG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8c268"/><stop offset=".5" stop-color="#c79a3a"/><stop offset="1" stop-color="#8a6a1f"/></linearGradient>
 <linearGradient id="tdK" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#efebe6"/><stop offset="1" stop-color="#f8f5f2"/></linearGradient>
-<radialGradient id="tdR" cx=".5" cy=".32" r=".8"><stop offset="0" stop-color="#956523" stop-opacity=".5"/><stop offset="1" stop-color="#5d431d" stop-opacity="0"/></radialGradient>
-<pattern id="tdS" width="26" height="26" patternUnits="userSpaceOnUse"><rect width="26" height="26" fill="#5d431d"/><polygon points="13,3 23,13 13,23 3,13" fill="#c79a3a" opacity=".6"/><polygon points="13,8 18,13 13,18 8,13" fill="#933944" opacity=".8"/></pattern>
+<radialGradient id="tdR" cx=".5" cy=".32" r=".8"><stop offset="0" stop-color="#a36c1f" stop-opacity=".5"/><stop offset="1" stop-color="#593e18" stop-opacity="0"/></radialGradient>
+<pattern id="tdS" width="26" height="26" patternUnits="userSpaceOnUse"><rect width="26" height="26" fill="#593e18"/><polygon points="13,3 23,13 13,23 3,13" fill="#c79a3a" opacity=".6"/><polygon points="13,8 18,13 13,18 8,13" fill="#933944" opacity=".8"/></pattern>
 </defs>
 <rect width="1200" height="640" fill="url(#tdR)" opacity=".65"/>
 <g transform="rotate(-6 600 330)"><g class="td-sway">
@@ -268,19 +275,19 @@ body{
 <line x1="742" y1="222" x2="742" y2="438" stroke="#cec0ab" stroke-width="3" stroke-dasharray="2 12"/>
 <rect x="354" y="232" width="356" height="16" fill="url(#tdS)"/>
 <rect x="354" y="288" width="300" height="7" rx="3.5" fill="url(#tdG)"/>
-<rect x="354" y="316" width="252" height="5" rx="2.5" fill="#897d6c" opacity=".55"/>
-<rect x="354" y="336" width="212" height="5" rx="2.5" fill="#897d6c" opacity=".4"/>
+<rect x="354" y="316" width="252" height="5" rx="2.5" fill="#837867" opacity=".55"/>
+<rect x="354" y="336" width="212" height="5" rx="2.5" fill="#837867" opacity=".4"/>
 <rect x="354" y="386" width="140" height="30" rx="15" fill="none" stroke="#c89651" stroke-width="2.5" opacity=".85"/>
-<rect x="366" y="398" width="116" height="6" rx="3" fill="#956523" opacity=".8"/>
+<rect x="366" y="398" width="116" height="6" rx="3" fill="#a36c1f" opacity=".8"/>
 <path d="M792 258 L806 244 L820 258 L806 272 Z" fill="#c79a3a" opacity=".85"/>
-<rect x="770" y="300" width="72" height="5" rx="2.5" fill="#897d6c" opacity=".5"/>
+<rect x="770" y="300" width="72" height="5" rx="2.5" fill="#837867" opacity=".5"/>
 <rect x="770" y="386" width="72" height="30" rx="6" fill="none" stroke="#8a6a1f" stroke-width="2" stroke-dasharray="5 5" opacity=".8"/>
 </g></g>
 <g transform="rotate(12 952 486)"><g class="td-stampp" opacity=".9">
 <circle cx="952" cy="486" r="58" fill="none" stroke="#c89651" stroke-width="3" stroke-dasharray="4 7"/>
 <circle cx="952" cy="486" r="44" fill="none" stroke="#c89651" stroke-width="2" opacity=".75"/>
 <g fill="#c79a3a" opacity=".85"><rect x="932" y="466" width="40" height="40"/><rect x="932" y="466" width="40" height="40" transform="rotate(45 952 486)"/></g>
-<circle cx="952" cy="486" r="9" fill="#5d431d"/><circle cx="952" cy="486" r="4.5" fill="#e8c268"/>
+<circle cx="952" cy="486" r="9" fill="#593e18"/><circle cx="952" cy="486" r="4.5" fill="#e8c268"/>
 </g></g>
 <g transform="translate(128 268) scale(1.35)" fill="#c79a3a" opacity=".8">
 <circle cx="50" cy="6" r="5"/>
@@ -297,13 +304,13 @@ body{
 <path class="td-tw" d="M620 92 l2.5 7 7 2.5 -7 2.5 -2.5 7 -2.5 -7 -7 -2.5 7 -2.5 Z" style="animation-delay:1.8s"/>
 <path class="td-tw" d="M1104 336 l2.5 7 7 2.5 -7 2.5 -2.5 7 -2.5 -7 -7 -2.5 7 -2.5 Z" style="animation-delay:2.6s" fill="#48747a"/>
 </g>
-<rect y="602" width="1200" height="24" fill="#5d431d" opacity=".9"/>
+<rect y="602" width="1200" height="24" fill="#593e18" opacity=".9"/>
 <rect y="606" width="1200" height="16" fill="url(#tdS)" opacity=".85"/>
 </svg>
 
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:9px;animation-delay:0s">✴</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:5px;animation-delay:0.7s">✳</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:3px;animation-delay:1.4s">·</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:9px;animation-delay:2.0999999999999996s">✦</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:5px;animation-delay:2.8s">✴</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:7px;animation-delay:3.5s">✳</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:4px;animation-delay:0.1999999999999993s">·</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:6px;animation-delay:0.8999999999999995s">✦</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="medal"><span><span class="ar">م</span><span class="en">S</span></span></div>
+    <div class="medal hasmark"><svg class="mark bm1hnbjflw" viewBox="0 0 100 100" fill="none" role="img" aria-label="Sharq Coffee &amp; Roastery"><style>.bm1hnbjflw{overflow:visible}.bm1hnbjflw *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm1hnbjflw .mk{animation:bm1hnbjflwbob 5s ease-in-out 1.7s infinite}@keyframes bm1hnbjflwbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm1hnbjflwp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bm1hnbjflw .p1{animation:bm1hnbjflwp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bm1hnbjflw .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bm1hnbjflwdr 1s ease .55s forwards}@keyframes bm1hnbjflwdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">م</span><span class="en">S</span></span></div>
     <h1><span class="ar">أهلاً ببيت <b>مقهى ومحمصة شرق</b></span><span class="en">Welcome home, <b>Sharq Coffee &amp; Roastery</b>.</span></h1>
     <div class="world"><span class="ar">✦ محمصة تصحى قبل الشمس ✦</span><span class="en">✦ a roastery that wakes before the sun ✦</span></div>
     <div class="heroline hand"><span class="ar">من الشرق تطلع الشمس والقهوة</span><span class="en">Where sun and roast both rise</span></div>

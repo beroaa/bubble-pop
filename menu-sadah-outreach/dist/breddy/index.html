@@ -9,8 +9,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&family=Lalezar&family=Nunito:wght@400;700&family=Cairo:wght@400;700&display=swap">
 <style>
   :root{--bg-0:#fcfbf8;--bg-1:#f8f6f2;--bg-2:#efede6;--border-1:#e3dfd3;--border-2:#cec5ab;
-    --text-1:#312a16;--text-2:#625a41;--text-3:#89826c;--accent:#947824;--accent-2:#c6c841;--accent-soft:#94782422;
-    --sa:#947824;--sa2:#76922f;--radius:16px;--shadow:0 6px 16px #6b5c2e22, 0 16px 40px #6b5c2e14;
+    --text-1:#2e260f;--text-2:#5c543d;--text-3:#837c67;--ink:#2e260f;--accent:#a28120;--accent-2:#c5cd32;--accent-soft:#a2812022;
+    --sa:#a28120;--sa2:#76922f;--radius:16px;--shadow:0 6px 16px #6b5c2e22, 0 16px 40px #6b5c2e14;
     --m-ease:cubic-bezier(.34,1.56,.64,1);--m-dir:up;--tx:1}
   /* RTL MIRROR LAW: --tx flips direction-signed decorative transforms in Arabic */
   [dir="rtl"]{--tx:-1}
@@ -19,7 +19,7 @@
   body{font-family:'Nunito','Cairo',sans-serif,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;
     background:var(--bg-0);color:var(--text-1);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100svh;overflow-x:hidden}
   body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
-    background:radial-gradient(620px 420px at 50% -120px,#94782417,transparent 70%)}
+    background:radial-gradient(620px 420px at 50% -120px,#a2812017,transparent 70%)}
   .wrap{max-width:560px;margin:0 auto;padding:0 18px 110px;position:relative;z-index:1}
   [data-lang="ar"] .en,[data-lang="en"] .ar{display:none}
   .lang-toggle{position:fixed;top:14px;inset-inline-end:14px;z-index:30;background:#f8f6f2d9;backdrop-filter:blur(10px);
@@ -28,17 +28,17 @@
   /* ---- hero: the doorway into the world ---- */
   .hero{position:relative;text-align:center;padding:76px 0 26px;overflow:visible}
   .orb{position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:340px;height:340px;border-radius:50%;
-    background:radial-gradient(circle,#94782430,transparent 65%);pointer-events:none}
+    background:radial-gradient(circle,#a2812030,transparent 65%);pointer-events:none}
   .mote{position:absolute;pointer-events:none;z-index:0}
-  .mote{color:#c6c841;filter:blur(.6px);animation:mfloat2 8s ease-in-out infinite}@keyframes mfloat2{0%,100%{opacity:.18;transform:translateX(-8px)}50%{opacity:.5;transform:translateX(10px)}}
+  .mote{color:#c5cd32;filter:blur(.6px);animation:mfloat2 8s ease-in-out infinite}@keyframes mfloat2{0%,100%{opacity:.18;transform:translateX(-8px)}50%{opacity:.5;transform:translateX(10px)}}
   .greet{color:var(--accent);font-size:13px;letter-spacing:.14em;margin-bottom:10px}
   .medal{position:relative;width:104px;height:104px;margin:0 auto 16px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;
-    background:radial-gradient(circle at 32% 24%,#ffffff2b,transparent 42%),radial-gradient(circle at 32% 28%,#94782442,#94782414 62%,transparent);
-    border:2px solid var(--accent);box-shadow:0 0 0 7px #94782414,0 0 34px #94782440,inset 0 1px 0 #ffffff33;
+    background:radial-gradient(circle at 32% 24%,#ffffff2b,transparent 42%),radial-gradient(circle at 32% 28%,#a2812042,#a2812014 62%,transparent);
+    border:2px solid var(--accent);box-shadow:0 0 0 7px #a2812014,0 0 34px #a2812040,inset 0 1px 0 #ffffff33;
     animation:mfloat 5s ease-in-out infinite}
-  .medal::after{content:"";position:absolute;inset:6px;border-radius:inherit;border:1px solid #94782455}
-  .medal span{font-size:44px;font-weight:700;color:var(--accent);text-shadow:0 2px 12px #94782466}
+  .medal::after{content:"";position:absolute;inset:6px;border-radius:inherit;border:1px solid #a2812055}
+  .medal span{font-size:44px;font-weight:700;color:var(--accent);text-shadow:0 2px 12px #a2812066}
   .medal span .ar{font-family:'Lalezar',cursive}
   .medal span .en{font-family:'Lobster',cursive}
   /* real brand logo inside the medallion (logo.png in the cafe's photo folder) — border+glow stay */
@@ -49,7 +49,7 @@
   h1 .ar{font-family:'Lalezar',cursive}
   h1 .en{font-family:'Lobster',cursive}
   /* gradient-clip only AFTER word entrance — transformed child spans break background-clip:text in Chrome */
-  h1.shimmer{background:linear-gradient(90deg,var(--text-1) 30%,#947824 48%,#c6c841 52%,var(--text-1) 70%);background-size:240% 100%;
+  h1.shimmer{background:linear-gradient(90deg,var(--text-1) 30%,#a28120 48%,#c5cd32 52%,var(--text-1) 70%);background-size:240% 100%;
     -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:sh 5s .3s infinite}
   @keyframes sh{0%{background-position:130% 0}100%{background-position:-130% 0}}
   h1 .w{display:inline-block;opacity:0;animation:wordin .55s cubic-bezier(.2,1.2,.4,1) forwards}
@@ -66,7 +66,7 @@
   .heroline .ar{font-family:'Lalezar',cursive}
   .heroline .en{font-family:'Lobster',cursive}
   .meta{margin-top:14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
-  .badge{background:var(--accent-soft);border:1px solid #94782466;color:var(--accent);border-radius:999px;padding:4px 14px;font-size:12px;letter-spacing:.05em}
+  .badge{background:var(--accent-soft);border:1px solid #a2812066;color:var(--accent);border-radius:999px;padding:4px 14px;font-size:12px;letter-spacing:.05em}
   @keyframes up{0%{opacity:0;transform:translateY(12px)}100%{opacity:1;transform:none}}
 
   /* ---- EXPO-OUT ENTRANCE: medallion → title → above-fold cards, 80ms apart ----
@@ -95,10 +95,10 @@
   .chips::-webkit-scrollbar{display:none}
   .chip{flex:0 0 auto;text-decoration:none;color:var(--text-2);background:#f8f6f2cc;border:1px solid var(--border-1);
     border-radius:999px;padding:9px 16px;font-size:13.5px;transition:all .2s,transform .18s}
-  .chip:hover{color:var(--accent);border-color:var(--accent);box-shadow:0 0 14px #94782433;transform:translateY(-2px)}
+  .chip:hover{color:var(--accent);border-color:var(--accent);box-shadow:0 0 14px #a2812033;transform:translateY(-2px)}
 
   /* ---- signatures with price STAMPS ---- */
-  .sig{margin-top:26px;background:linear-gradient(180deg,#94782414,transparent 90%);border:1px solid #94782444;
+  .sig{margin-top:26px;background:linear-gradient(180deg,#a2812014,transparent 90%);border:1px solid #a2812044;
     border-radius:22px;padding:20px 16px 18px;position:relative}
   .sig-ribbon{text-align:center;color:var(--sa);letter-spacing:.14em;font-size:13px;margin-bottom:16px;font-weight:700}
   .sig-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
@@ -107,11 +107,11 @@
   .sig-card:nth-child(2){animation-delay:1.1s}.sig-card:nth-child(3){animation-delay:2.2s}
   @keyframes sfloat{50%{transform:translateY(-5px)}}
   .sig-art{width:74px;height:74px;margin:0 auto 8px}
-  .sig-art svg{width:100%;height:100%;filter:drop-shadow(0 6px 14px #94782459)}
+  .sig-art svg{width:100%;height:100%;filter:drop-shadow(0 6px 14px #a2812059)}
   .sig-name{font-size:14.5px;font-weight:600;line-height:1.35}
   .stamp{display:inline-flex;align-items:baseline;gap:3px;margin-top:8px;padding:3px 12px;border:1.7px solid var(--sa);
     border-radius:999px;color:var(--sa);font-weight:800;font-size:16px;transform:rotate(-4deg);
-    box-shadow:0 0 0 3px #9478240f}
+    box-shadow:0 0 0 3px #a281200f}
   .reveal.in .stamp{animation:pstamp .5s cubic-bezier(.2,1.5,.4,1) both .35s}
   .sig-card::before,.sig-card::after{content:"";position:absolute;top:-8px;width:44px;height:16px;background:#76922f40;border-radius:2px;z-index:2}
   .sig-card::before{inset-inline-start:14px;transform:rotate(-8deg)}
@@ -126,16 +126,16 @@
     border:1px solid var(--border-2);background:var(--bg-1);box-shadow:var(--shadow);transition:transform .25s}
   .cat-art:hover{transform:rotate(-3deg) scale(1.05)}
   .cat-art .cat-svg{position:absolute;inset:8px}
-  .cat-art .cat-svg svg{filter:drop-shadow(0 5px 12px #9478244d)}
+  .cat-art .cat-svg svg{filter:drop-shadow(0 5px 12px #a281204d)}
   .cat-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;filter:saturate(1.08) contrast(1.04)}
   .cat-art.hasimg img{display:block}
   /* designed photo treatment: brand-tint wash (multiply where supported, plain elsewhere) + 1px inner border */
   .cat-art.hasimg::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
-    background:linear-gradient(160deg,var(--sa,#947824),transparent 55%);opacity:.28;mix-blend-mode:multiply}
+    background:linear-gradient(160deg,var(--sa,#a28120),transparent 55%);opacity:.28;mix-blend-mode:multiply}
   /* RTL MIRROR LAW: the tint wash falls from the inline-start corner in both directions */
-  [dir="rtl"] .cat-art.hasimg::before{background:linear-gradient(200deg,var(--sa,#947824),transparent 55%)}
+  [dir="rtl"] .cat-art.hasimg::before{background:linear-gradient(200deg,var(--sa,#a28120),transparent 55%)}
   .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
-    box-shadow:inset 0 0 0 1px #94782455}
+    box-shadow:inset 0 0 0 1px #a2812055}
   .cat-title{flex:1;min-width:0}
   .room-eyebrow{color:var(--text-3);font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:3px}
   .room-h2{color:var(--sa);font-size:22px;line-height:1.3}
@@ -187,21 +187,21 @@
   .diary .tape{position:absolute;top:-9px;left:50%;transform:translateX(-50%) rotate(-2deg);width:88px;height:20px;
     border-radius:2px;backdrop-filter:blur(1px)}
 
-  .demo-note{margin-top:34px;background:var(--accent-soft);border:1px dashed #94782488;border-radius:14px;
+  .demo-note{margin-top:34px;background:var(--accent-soft);border:1px dashed #a2812088;border-radius:14px;
     padding:13px 16px;font-size:13.5px;color:var(--text-2);text-align:center}
   .footer{margin-top:34px;text-align:center;color:var(--text-3);font-size:13px}
   .footer a{color:var(--accent);text-decoration:none}
 
   /* ---- SELLABLE 1: tap-to-order chips (demo state is intentional & premium) ---- */
   .order-chip{flex:0 0 auto;display:inline-flex;align-items:center;gap:4px;margin-inline-start:2px;
-    background:transparent;border:1.5px solid #94782488;color:var(--sa);border-radius:999px;padding:3px 11px;
+    background:transparent;border:1.5px solid #a2812088;color:var(--sa);border-radius:999px;padding:3px 11px;
     font-size:11px;font-weight:700;font-family:inherit;line-height:1.4;cursor:pointer;text-decoration:none;
     white-space:nowrap;transition:transform .16s,box-shadow .16s}
-  .order-chip:hover{transform:translateY(-1px);box-shadow:0 0 12px #94782433}
+  .order-chip:hover{transform:translateY(-1px);box-shadow:0 0 12px #a2812033}
   .order-chip.demo{border-style:dashed;opacity:.8}
   .acttip{position:fixed;z-index:60;max-width:min(330px,86vw);background:#f8f6f2f5;backdrop-filter:blur(10px);
     color:var(--text-1);border:1px solid var(--accent);border-radius:14px;padding:10px 16px;font-size:13px;
-    line-height:1.5;text-align:center;box-shadow:0 0 0 4px #94782414,0 12px 30px #94782440;
+    line-height:1.5;text-align:center;box-shadow:0 0 0 4px #a2812014,0 12px 30px #a2812040;
     opacity:0;pointer-events:none;transform:translate(-50%,6px);transition:opacity .25s,transform .25s}
   .acttip.show{opacity:1;transform:translate(-50%,0)}
 
@@ -209,7 +209,7 @@
   .waiter-btn{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:30;display:inline-flex;
     align-items:center;gap:7px;background:#f8f6f2e6;backdrop-filter:blur(10px);border:1.5px solid var(--accent);
     color:var(--accent);border-radius:999px;padding:11px 20px;font-size:14px;font-weight:700;font-family:inherit;
-    cursor:pointer;text-decoration:none;box-shadow:0 0 0 4px #94782412,0 8px 22px #94782440}
+    cursor:pointer;text-decoration:none;box-shadow:0 0 0 4px #a2812012,0 8px 22px #a2812040}
   .waiter-btn[hidden]{display:none}
 
   /* ---- SELLABLE 4: SFDA calorie layer — honest placeholders, zero invented numbers ---- */
@@ -222,8 +222,8 @@
   .skydial{position:fixed;bottom:18px;inset-inline-end:16px;z-index:30;width:40px;height:40px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:17px;line-height:1;
     background:#f8f6f2d9;backdrop-filter:blur(10px);border:1px solid var(--border-2);color:var(--accent);
-    box-shadow:0 0 0 4px #94782412,0 6px 16px #94782433;transition:transform .18s,box-shadow .18s}
-  .skydial:hover{transform:translateY(-2px) rotate(12deg);box-shadow:0 0 0 5px #9478241a,0 8px 20px #94782444}
+    box-shadow:0 0 0 4px #a2812012,0 6px 16px #a2812033;transition:transform .18s,box-shadow .18s}
+  .skydial:hover{transform:translateY(-2px) rotate(12deg);box-shadow:0 0 0 5px #a281201a,0 8px 20px #a2812044}
   .skydial[aria-pressed="true"]{color:var(--accent-2);border-color:var(--accent)}
 
   /* ---- big-screen stage (Beyt is designed wide — so are we) ---- */
@@ -262,7 +262,7 @@
   .items::before{inset-inline-start:-10px}.items::after{inset-inline-end:-10px}
   .price{font-family:ui-monospace,Menlo,monospace;font-size:15px}
   .stamp{font-family:ui-monospace,Menlo,monospace}
-  .sep-ticket{display:flex;align-items:center;gap:8px;margin:32px 0 -8px;color:#89826c;font-size:13px}
+  .sep-ticket{display:flex;align-items:center;gap:8px;margin:32px 0 -8px;color:#837c67;font-size:13px}
   .sep-ticket::before,.sep-ticket::after{content:"";flex:1;border-top:2px dashed #cec5ab}
   .room-h2{font-size:23px}
   .chip{border-radius:6px}
@@ -274,10 +274,10 @@
 body{
   background-color:#fcfbf8;
   background-image:
-    radial-gradient(1100px 640px at 84% -12%, color-mix(in srgb, #947824 26%, transparent), transparent 62%),
+    radial-gradient(1100px 640px at 84% -12%, color-mix(in srgb, #a28120 26%, transparent), transparent 62%),
     radial-gradient(840px 540px at -8% 32%, color-mix(in srgb, #c79a3a 18%, transparent), transparent 58%),
-    radial-gradient(920px 720px at 50% 118%, color-mix(in srgb, #5c4d1e 52%, transparent), transparent 72%),
-    conic-gradient(from 210deg at 50% 132%, #fcfbf8, color-mix(in srgb, #5c4d1e 38%, #fcfbf8), color-mix(in srgb, #947824 12%, #fcfbf8), #fcfbf8);
+    radial-gradient(920px 720px at 50% 118%, color-mix(in srgb, #584818 52%, transparent), transparent 72%),
+    conic-gradient(from 210deg at 50% 132%, #fcfbf8, color-mix(in srgb, #584818 38%, #fcfbf8), color-mix(in srgb, #a28120 12%, #fcfbf8), #fcfbf8);
   background-attachment:fixed;
 }
 /* big fixed scene canvas (SVG supplied by heroHtml) */
@@ -299,7 +299,7 @@ body{
 /* sadu-inspired accent band (pure CSS diamond weave) */
 .gold-band{
   height:16px;border-top:1px solid #8a6a1f;border-bottom:1px solid #8a6a1f;
-  background-color:#5c4d1e;
+  background-color:#584818;
   background-image:
     repeating-linear-gradient(45deg, #c79a3a 0 25%, transparent 0 50%),
     repeating-linear-gradient(-45deg, color-mix(in srgb, #76922f 70%, #c79a3a) 0 25%, transparent 0 50%);
@@ -330,16 +330,41 @@ body{
   /* ---- polish50 bespoke touch: Dawn Horizon Strip ---- */
   .bx-dawn{position:relative;margin:1.2rem auto;max-width:260px;text-align:center}.bx-dawn-sky{display:block;height:6px;border-radius:6px;background:linear-gradient(90deg,var(--text-2),var(--accent) 45%,var(--sa) 55%,var(--text-2));background-size:300% 100%;background-position:100% 0;opacity:.55;transition:opacity .8s ease}.bx-dawn:hover .bx-dawn-sky{opacity:.95}.bx-dawn-note{display:block;margin-top:.55rem;font-size:.7rem;color:var(--text-2);letter-spacing:.02em;opacity:.75}@media (prefers-reduced-motion:no-preference){.bx-dawn-sky{animation:bx-dawnrise 14s linear infinite alternate}@keyframes bx-dawnrise{from{background-position:100% 0}to{background-position:0 0}}}
 
+  /* ---- INK-CRAFT FINISH: confident brand-INK display type (never foil-transparent) ----
+     GODZILLA law #1: ink carries the words; accent only decorates (underline/dots/prices/borders).
+     Placed after the scene pack so the gold-foil background-clip:text on headings is neutralised. */
+  h1,h1 .ar,h1 .en{background:none!important;background-image:none!important;-webkit-text-fill-color:#2e260f!important;color:#2e260f!important}
+  h1.shimmer{background:none!important;animation:none!important}
+  .heroline,.heroline .ar,.heroline .en{background:none!important;background-image:none!important;-webkit-text-fill-color:#5c543d!important;color:#5c543d!important;animation:none!important;filter:none!important}
+  /* the animated brand mark sits inside the medallion; the plain initial is hidden when it (or a real logo) is present */
+  .medal .mark{display:block;width:82%;height:82%}
+  .medal.hasmark>span{display:none}
+
+  /* light mode only (dark archetypes stay poster-intact): room titles to INK, ink craft on chrome */
+  .room-h2,.room-h2 .ar,.room-h2 .en{color:#2e260f;-webkit-text-fill-color:#2e260f}
+  .room-eyebrow{color:#837c67}
+  .chip{border:2px solid var(--ink);border-radius:16px 12px 15px 13px;box-shadow:3px 3px 0 var(--ink);color:#2e260f}
+  .chip:hover{color:var(--accent);border-color:var(--ink);box-shadow:4px 5px 0 var(--ink);transform:translateY(-2px)}
+  .order-chip{border:2px solid var(--ink);box-shadow:2px 2px 0 var(--ink);color:#2e260f}
+  .order-chip.demo{border-style:dashed}
+  .order-chip:hover{box-shadow:3px 3px 0 var(--ink);transform:translateY(-1px)}
+  .medal{border:2.5px solid var(--ink);box-shadow:4px 4px 0 var(--ink),inset 0 1px 0 #ffffff55}
+  .medal::after{border-color:#2e260f}
+  .items{border:2px solid var(--ink);border-radius:20px 16px 22px 15px;box-shadow:4px 4px 0 var(--ink)}
+  .sig{border:2px solid var(--ink);box-shadow:5px 5px 0 var(--ink)}
+  .sig-card{border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink)}
+  .stamp{border-color:var(--sa);color:var(--sa)}
+
   /* ---- brandshots: the cafe's OWN photos, pinned like polaroids ---- */
   .brandshots{display:flex;justify-content:center;align-items:flex-start;gap:14px;margin-top:22px;position:relative;z-index:1}
   .bshot{position:relative;width:96px;margin:0;background:#f8f6f2;border:1px solid var(--border-2);padding:6px 6px 16px;
-    box-shadow:4px 5px 0 #5c4d1e30}
+    box-shadow:4px 5px 0 #58481830}
   .bshot img{display:block;width:100%;height:84px;object-fit:cover;filter:saturate(1.08) contrast(1.04)}
   /* designed photo treatment on the polaroids: tint wash + 1px inner border */
   .bshot::after{content:"";position:absolute;inset:6px 6px 16px;pointer-events:none;
-    background:linear-gradient(160deg,#94782448,transparent 55%);mix-blend-mode:multiply;
-    box-shadow:inset 0 0 0 1px #94782455}
-  [dir="rtl"] .bshot::after{background:linear-gradient(200deg,#94782448,transparent 55%)}
+    background:linear-gradient(160deg,#a2812048,transparent 55%);mix-blend-mode:multiply;
+    box-shadow:inset 0 0 0 1px #a2812055}
+  [dir="rtl"] .bshot::after{background:linear-gradient(200deg,#a2812048,transparent 55%)}
   .bshot::before{content:"";position:absolute;top:-9px;left:50%;width:44px;height:16px;background:#76922f40;border-radius:2px;
     transform:translateX(-50%) rotate(-3deg);backdrop-filter:blur(1px);z-index:2}
   .bshot:nth-child(1){transform:rotate(-4deg)}
@@ -372,6 +397,8 @@ body{
     .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
     h1{color:#000!important;background:none!important;-webkit-text-fill-color:#000!important;font-size:30px!important}
     .medal{width:70px!important;height:70px!important;margin-bottom:8px;border-color:#000!important;background:#fff!important}
+    .medal .mark{display:none!important}
+    .medal.hasmark>span{display:inline!important}
     .medal span{color:#000!important;font-size:32px!important}
     .medal::after{border-color:#00000055!important}
     .greet,.world,.world b,.heroline{color:#000!important}
@@ -406,8 +433,8 @@ body{
 <defs>
 <linearGradient id="tdG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8c268"/><stop offset=".5" stop-color="#c79a3a"/><stop offset="1" stop-color="#8a6a1f"/></linearGradient>
 <linearGradient id="tdK" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#efede6"/><stop offset="1" stop-color="#f8f6f2"/></linearGradient>
-<radialGradient id="tdR" cx=".5" cy=".32" r=".8"><stop offset="0" stop-color="#947824" stop-opacity=".5"/><stop offset="1" stop-color="#5c4d1e" stop-opacity="0"/></radialGradient>
-<pattern id="tdS" width="26" height="26" patternUnits="userSpaceOnUse"><rect width="26" height="26" fill="#5c4d1e"/><polygon points="13,3 23,13 13,23 3,13" fill="#c79a3a" opacity=".6"/><polygon points="13,8 18,13 13,18 8,13" fill="#923f3a" opacity=".8"/></pattern>
+<radialGradient id="tdR" cx=".5" cy=".32" r=".8"><stop offset="0" stop-color="#a28120" stop-opacity=".5"/><stop offset="1" stop-color="#584818" stop-opacity="0"/></radialGradient>
+<pattern id="tdS" width="26" height="26" patternUnits="userSpaceOnUse"><rect width="26" height="26" fill="#584818"/><polygon points="13,3 23,13 13,23 3,13" fill="#c79a3a" opacity=".6"/><polygon points="13,8 18,13 13,18 8,13" fill="#923f3a" opacity=".8"/></pattern>
 </defs>
 <rect width="1200" height="640" fill="url(#tdR)" opacity=".65"/>
 <g transform="rotate(-6 600 330)"><g class="td-sway">
@@ -417,19 +444,19 @@ body{
 <line x1="742" y1="222" x2="742" y2="438" stroke="#cec5ab" stroke-width="3" stroke-dasharray="2 12"/>
 <rect x="354" y="232" width="356" height="16" fill="url(#tdS)"/>
 <rect x="354" y="288" width="300" height="7" rx="3.5" fill="url(#tdG)"/>
-<rect x="354" y="316" width="252" height="5" rx="2.5" fill="#89826c" opacity=".55"/>
-<rect x="354" y="336" width="212" height="5" rx="2.5" fill="#89826c" opacity=".4"/>
+<rect x="354" y="316" width="252" height="5" rx="2.5" fill="#837c67" opacity=".55"/>
+<rect x="354" y="336" width="212" height="5" rx="2.5" fill="#837c67" opacity=".4"/>
 <rect x="354" y="386" width="140" height="30" rx="15" fill="none" stroke="#d0b76d" stroke-width="2.5" opacity=".85"/>
-<rect x="366" y="398" width="116" height="6" rx="3" fill="#947824" opacity=".8"/>
+<rect x="366" y="398" width="116" height="6" rx="3" fill="#a28120" opacity=".8"/>
 <path d="M792 258 L806 244 L820 258 L806 272 Z" fill="#c79a3a" opacity=".85"/>
-<rect x="770" y="300" width="72" height="5" rx="2.5" fill="#89826c" opacity=".5"/>
+<rect x="770" y="300" width="72" height="5" rx="2.5" fill="#837c67" opacity=".5"/>
 <rect x="770" y="386" width="72" height="30" rx="6" fill="none" stroke="#8a6a1f" stroke-width="2" stroke-dasharray="5 5" opacity=".8"/>
 </g></g>
 <g transform="rotate(12 952 486)"><g class="td-stampp" opacity=".9">
 <circle cx="952" cy="486" r="58" fill="none" stroke="#d0b76d" stroke-width="3" stroke-dasharray="4 7"/>
 <circle cx="952" cy="486" r="44" fill="none" stroke="#d0b76d" stroke-width="2" opacity=".75"/>
 <g fill="#c79a3a" opacity=".85"><rect x="932" y="466" width="40" height="40"/><rect x="932" y="466" width="40" height="40" transform="rotate(45 952 486)"/></g>
-<circle cx="952" cy="486" r="9" fill="#5c4d1e"/><circle cx="952" cy="486" r="4.5" fill="#e8c268"/>
+<circle cx="952" cy="486" r="9" fill="#584818"/><circle cx="952" cy="486" r="4.5" fill="#e8c268"/>
 </g></g>
 <g transform="translate(128 268) scale(1.35)" fill="#c79a3a" opacity=".8">
 <circle cx="50" cy="6" r="5"/>
@@ -446,12 +473,12 @@ body{
 <path class="td-tw" d="M620 92 l2.5 7 7 2.5 -7 2.5 -2.5 7 -2.5 -7 -7 -2.5 7 -2.5 Z" style="animation-delay:1.8s"/>
 <path class="td-tw" d="M1104 336 l2.5 7 7 2.5 -7 2.5 -2.5 7 -2.5 -7 -7 -2.5 7 -2.5 Z" style="animation-delay:2.6s" fill="#496b79"/>
 </g>
-<rect y="602" width="1200" height="24" fill="#5c4d1e" opacity=".9"/>
+<rect y="602" width="1200" height="24" fill="#584818" opacity=".9"/>
 <rect y="606" width="1200" height="16" fill="url(#tdS)" opacity=".85"/>
 </svg>
 
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal"><span><span class="ar">ب</span><span class="en">B</span></span></div>
+    <div class="medal hasmark"><svg class="mark bm16015rdm" viewBox="0 0 100 100" fill="none" role="img" aria-label="Breddy"><style>.bm16015rdm{overflow:visible}.bm16015rdm *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm16015rdm .mk{animation:bm16015rdmbob 5s ease-in-out 1.7s infinite}@keyframes bm16015rdmbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm16015rdmrise{0%{opacity:0;transform:translateY(30px) scale(.7)}70%{opacity:1;transform:translateY(-3px)}100%{transform:none}}.bm16015rdm .p1{animation:bm16015rdmrise .9s cubic-bezier(.2,1.2,.3,1) both}.bm16015rdm .p2{stroke-dasharray:60;stroke-dashoffset:60;animation:bm16015rdmdr .7s ease .7s forwards}@keyframes bm16015rdmdr{to{stroke-dashoffset:0}}.bm16015rdm .s1,.bm16015rdm .s2{opacity:0;animation:bm16015rdmstm 2.6s ease-in-out 1s infinite}.bm16015rdm .s2{animation-delay:1.4s}@keyframes bm16015rdmstm{0%{opacity:0;transform:translateY(4px)}40%{opacity:.9}100%{opacity:0;transform:translateY(-8px)}}}</style><g class="mk"><path class="p1" d="M18 68 Q18 40 50 40 Q82 40 82 68 Q82 72 78 72 L22 72 Q18 72 18 68 Z" fill="var(--sa)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><path class="p2" d="M34 50 l6 8 M50 47 l6 9 M66 50 l-6 8" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/><path class="s1" d="M40 34 q4 -6 0 -12" stroke="var(--accent)" stroke-width="4" stroke-linecap="round" opacity=".85"/><path class="s2" d="M60 34 q4 -6 0 -12" stroke="var(--accent)" stroke-width="4" stroke-linecap="round" opacity=".85"/></g></svg><span><span class="ar">ب</span><span class="en">B</span></span></div>
     <h1><span class="ar">بريدي</span><span class="en">Breddy</span></h1>
     <div class="world"><span class="ar">✦ <b>فرن الحارة قبل الفجر</b> ✦</span><span class="en">✦ <b>the neighborhood oven before dawn</b> ✦</span></div>
     <div class="heroline"><span class="ar">الخبز الطيب ما يحتاج كلام</span><span class="en">good bread speaks softly</span></div>
@@ -465,10 +492,10 @@ body{
   <nav class="chips"><a class="chip touchable" href="#cat-0"><span class="ar">طالع حار.. الحق عليه</span><span class="en">hot out, catch it quick</span></a><a class="chip touchable" href="#cat-1"><span class="ar">بين شريحتين.. قصة</span><span class="en">a story between two slices</span></a><a class="chip touchable" href="#cat-2"><span class="ar">قهوتك مع ريحة الخبز</span><span class="en">coffee beside the baking smell</span></a><a class="chip touchable" href="#cat-3"><span class="ar">عصرة صباح على الماشي</span><span class="en">a bright sip to go</span></a></nav>
   
   
-  <section class="cat reveal cat--flip" id="cat-0" style="--sa:#947824;--sa2:#76922f">
+  <section class="cat reveal cat--flip" id="cat-0" style="--sa:#a28120;--sa2:#76922f">
     <div class="cat-head">
       <div class="cat-art">
-        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f5efe6"/><stop offset=".45" stop-color="#c6c841"/><stop offset="1" stop-color="#947824"/></linearGradient></defs><path d="M38 24h44l-5 74a10 10 0 0 1-10 9H53a10 10 0 0 1-10-9z" fill="url(#gl)"/><path d="M38 24h44l-1.2 18H39.2z" fill="#fff" opacity=".85"/><path d="M52 42c4-6 12-6 16 0-6 4-10 4-16 0z" fill="#947824" opacity=".7"/><ellipse cx="60" cy="24" rx="22" ry="4.5" fill="#fff"/><ellipse cx="60" cy="111" rx="26" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f5efe6"/><stop offset=".45" stop-color="#c5cd32"/><stop offset="1" stop-color="#a28120"/></linearGradient></defs><path d="M38 24h44l-5 74a10 10 0 0 1-10 9H53a10 10 0 0 1-10-9z" fill="url(#gl)"/><path d="M38 24h44l-1.2 18H39.2z" fill="#fff" opacity=".85"/><path d="M52 42c4-6 12-6 16 0-6 4-10 4-16 0z" fill="#a28120" opacity=".7"/><ellipse cx="60" cy="24" rx="22" ry="4.5" fill="#fff"/><ellipse cx="60" cy="111" rx="26" ry="4" fill="#000" opacity=".3"/></svg></div>
         <img src="../assets/photos/breddy/3.jpg" style="object-position:center" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
@@ -537,7 +564,7 @@ body{
   <section class="cat reveal" id="cat-1" style="--sa:#76922f;--sa2:#923f3a">
     <div class="cat-head">
       <div class="cat-art">
-        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gcr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0cf8f"/><stop offset="1" stop-color="#947824"/></linearGradient></defs><path d="M20 74c4-18 20-32 40-32s36 14 40 32c-6 8-16 8-22 2-4-10-12-16-18-16s-14 6-18 16c-6 6-16 6-22-2z" fill="url(#gcr)"/><path d="M45 46 38 70M60 42v26M75 46l7 24" stroke="#5c4d1e" stroke-width="3" opacity=".5" stroke-linecap="round"/><ellipse cx="60" cy="88" rx="34" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gcr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0cf8f"/><stop offset="1" stop-color="#a28120"/></linearGradient></defs><path d="M20 74c4-18 20-32 40-32s36 14 40 32c-6 8-16 8-22 2-4-10-12-16-18-16s-14 6-18 16c-6 6-16 6-22-2z" fill="url(#gcr)"/><path d="M45 46 38 70M60 42v26M75 46l7 24" stroke="#584818" stroke-width="3" opacity=".5" stroke-linecap="round"/><ellipse cx="60" cy="88" rx="34" ry="4" fill="#000" opacity=".3"/></svg></div>
         <img src="../assets/photos/breddy/4.jpg" style="object-position:center" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
@@ -586,7 +613,7 @@ body{
   <section class="cat reveal cat--flip" id="cat-2" style="--sa:#923f3a;--sa2:#496b79">
     <div class="cat-head">
       <div class="cat-art">
-        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f5efe6"/><stop offset=".45" stop-color="#c6c841"/><stop offset="1" stop-color="#947824"/></linearGradient></defs><path d="M38 24h44l-5 74a10 10 0 0 1-10 9H53a10 10 0 0 1-10-9z" fill="url(#gl)"/><path d="M38 24h44l-1.2 18H39.2z" fill="#fff" opacity=".85"/><path d="M52 42c4-6 12-6 16 0-6 4-10 4-16 0z" fill="#947824" opacity=".7"/><ellipse cx="60" cy="24" rx="22" ry="4.5" fill="#fff"/><ellipse cx="60" cy="111" rx="26" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f5efe6"/><stop offset=".45" stop-color="#c5cd32"/><stop offset="1" stop-color="#a28120"/></linearGradient></defs><path d="M38 24h44l-5 74a10 10 0 0 1-10 9H53a10 10 0 0 1-10-9z" fill="url(#gl)"/><path d="M38 24h44l-1.2 18H39.2z" fill="#fff" opacity=".85"/><path d="M52 42c4-6 12-6 16 0-6 4-10 4-16 0z" fill="#a28120" opacity=".7"/><ellipse cx="60" cy="24" rx="22" ry="4.5" fill="#fff"/><ellipse cx="60" cy="111" rx="26" ry="4" fill="#000" opacity=".3"/></svg></div>
         <img src="../assets/photos/breddy/2.jpg" style="object-position:center 40%" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
@@ -638,10 +665,10 @@ body{
 </svg>
 </div>
 
-  <section class="cat reveal" id="cat-3" style="--sa:#496b79;--sa2:#947824">
+  <section class="cat reveal" id="cat-3" style="--sa:#496b79;--sa2:#a28120">
     <div class="cat-head">
       <div class="cat-art">
-        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f5efe6"/><stop offset=".45" stop-color="#c6c841"/><stop offset="1" stop-color="#947824"/></linearGradient></defs><path d="M38 24h44l-5 74a10 10 0 0 1-10 9H53a10 10 0 0 1-10-9z" fill="url(#gl)"/><path d="M38 24h44l-1.2 18H39.2z" fill="#fff" opacity=".85"/><path d="M52 42c4-6 12-6 16 0-6 4-10 4-16 0z" fill="#947824" opacity=".7"/><ellipse cx="60" cy="24" rx="22" ry="4.5" fill="#fff"/><ellipse cx="60" cy="111" rx="26" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f5efe6"/><stop offset=".45" stop-color="#c5cd32"/><stop offset="1" stop-color="#a28120"/></linearGradient></defs><path d="M38 24h44l-5 74a10 10 0 0 1-10 9H53a10 10 0 0 1-10-9z" fill="url(#gl)"/><path d="M38 24h44l-1.2 18H39.2z" fill="#fff" opacity=".85"/><path d="M52 42c4-6 12-6 16 0-6 4-10 4-16 0z" fill="#a28120" opacity=".7"/><ellipse cx="60" cy="24" rx="22" ry="4.5" fill="#fff"/><ellipse cx="60" cy="111" rx="26" ry="4" fill="#000" opacity=".3"/></svg></div>
         <img src="../assets/photos/breddy/3.jpg" style="object-position:center" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
@@ -765,7 +792,6 @@ body{
     });
     setTimeout(()=>{
       document.querySelectorAll('h1 .ar, h1 .en').forEach(el=>{el.textContent=el.textContent;});
-      document.querySelector('h1').classList.add('shimmer');
     },2400);
   }
   // day -> night: the sky shifts as you walk deeper — or by hand via the sky-dial

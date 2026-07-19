@@ -9,8 +9,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap">
 <style>
   :root{--bg-0:#f8fcf9;--bg-1:#f2f8f3;--bg-2:#e6efe9;--border-1:#d3e3d8;--border-2:#abceb5;
-    --text-1:#16311d;--text-2:#41624a;--text-3:#6c8974;--accent:#328648;--accent-2:#54b688;--accent-soft:#32864822;
-    --sa:#328648;--sa2:#3e8476;--radius:16px;--shadow:0 6px 16px #2e6b3e22, 0 16px 40px #2e6b3e14;
+    --text-1:#142a19;--text-2:#3d5c45;--text-3:#67836f;--ink:#142a19;--accent:#2f9349;--accent-2:#45ba87;--accent-soft:#2f934922;
+    --sa:#2f9349;--sa2:#3e8476;--radius:16px;--shadow:0 6px 16px #2e6b3e22, 0 16px 40px #2e6b3e14;
     --m-ease:cubic-bezier(.16,1,.3,1);--m-dir:start;--tx:1}
   /* RTL MIRROR LAW: --tx flips direction-signed decorative transforms in Arabic */
   [dir="rtl"]{--tx:-1}
@@ -19,7 +19,7 @@
   body{font-family:'IBM Plex Sans Arabic',sans-serif,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;
     background:var(--bg-0);color:var(--text-1);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100svh;overflow-x:hidden}
   body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
-    background:radial-gradient(620px 420px at 50% -120px,#32864817,transparent 70%)}
+    background:radial-gradient(620px 420px at 50% -120px,#2f934917,transparent 70%)}
   .wrap{max-width:560px;margin:0 auto;padding:0 18px 110px;position:relative;z-index:1}
   [data-lang="ar"] .en,[data-lang="en"] .ar{display:none}
   .lang-toggle{position:fixed;top:14px;inset-inline-end:14px;z-index:30;background:#f2f8f3d9;backdrop-filter:blur(10px);
@@ -28,17 +28,17 @@
   /* ---- hero: the doorway into the world ---- */
   .hero{position:relative;text-align:center;padding:76px 0 26px;overflow:visible}
   .orb{position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:340px;height:340px;border-radius:50%;
-    background:radial-gradient(circle,#32864830,transparent 65%);pointer-events:none}
+    background:radial-gradient(circle,#2f934930,transparent 65%);pointer-events:none}
   .mote{position:absolute;pointer-events:none;z-index:0}
-  .mote{color:#54b688;filter:blur(.6px);animation:mfloat2 8s ease-in-out infinite}@keyframes mfloat2{0%,100%{opacity:.18;transform:translateX(-8px)}50%{opacity:.5;transform:translateX(10px)}}
+  .mote{color:#45ba87;filter:blur(.6px);animation:mfloat2 8s ease-in-out infinite}@keyframes mfloat2{0%,100%{opacity:.18;transform:translateX(-8px)}50%{opacity:.5;transform:translateX(10px)}}
   .greet{color:var(--accent);font-size:13px;letter-spacing:.14em;margin-bottom:10px}
   .medal{position:relative;width:104px;height:104px;margin:0 auto 16px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;
-    background:radial-gradient(circle at 32% 24%,#ffffff2b,transparent 42%),radial-gradient(circle at 32% 28%,#32864842,#32864814 62%,transparent);
-    border:2px solid var(--accent);box-shadow:0 0 0 7px #32864814,0 0 34px #32864840,inset 0 1px 0 #ffffff33;
+    background:radial-gradient(circle at 32% 24%,#ffffff2b,transparent 42%),radial-gradient(circle at 32% 28%,#2f934942,#2f934914 62%,transparent);
+    border:2px solid var(--accent);box-shadow:0 0 0 7px #2f934914,0 0 34px #2f934940,inset 0 1px 0 #ffffff33;
     animation:mfloat 5s ease-in-out infinite}
-  .medal::after{content:"";position:absolute;inset:6px;border-radius:inherit;border:1px solid #32864855}
-  .medal span{font-size:44px;font-weight:700;color:var(--accent);text-shadow:0 2px 12px #32864866}
+  .medal::after{content:"";position:absolute;inset:6px;border-radius:inherit;border:1px solid #2f934955}
+  .medal span{font-size:44px;font-weight:700;color:var(--accent);text-shadow:0 2px 12px #2f934966}
   .medal span .ar{font-family:'Amiri',serif}
   .medal span .en{font-family:'Playfair Display',serif}
   /* real brand logo inside the medallion (logo.png in the cafe's photo folder) — border+glow stay */
@@ -49,7 +49,7 @@
   h1 .ar{font-family:'Amiri',serif}
   h1 .en{font-family:'Playfair Display',serif}
   /* gradient-clip only AFTER word entrance — transformed child spans break background-clip:text in Chrome */
-  h1.shimmer{background:linear-gradient(90deg,var(--text-1) 30%,#328648 48%,#54b688 52%,var(--text-1) 70%);background-size:240% 100%;
+  h1.shimmer{background:linear-gradient(90deg,var(--text-1) 30%,#2f9349 48%,#45ba87 52%,var(--text-1) 70%);background-size:240% 100%;
     -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:sh 5s .3s infinite}
   @keyframes sh{0%{background-position:130% 0}100%{background-position:-130% 0}}
   h1 .w{display:inline-block;opacity:0;animation:wordin .55s cubic-bezier(.2,1.2,.4,1) forwards}
@@ -66,7 +66,7 @@
   .heroline .ar{font-family:'Amiri',serif}
   .heroline .en{font-family:'Playfair Display',serif}
   .meta{margin-top:14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
-  .badge{background:var(--accent-soft);border:1px solid #32864866;color:var(--accent);border-radius:999px;padding:4px 14px;font-size:12px;letter-spacing:.05em}
+  .badge{background:var(--accent-soft);border:1px solid #2f934966;color:var(--accent);border-radius:999px;padding:4px 14px;font-size:12px;letter-spacing:.05em}
   @keyframes up{0%{opacity:0;transform:translateY(12px)}100%{opacity:1;transform:none}}
 
   /* ---- EXPO-OUT ENTRANCE: medallion → title → above-fold cards, 80ms apart ----
@@ -95,10 +95,10 @@
   .chips::-webkit-scrollbar{display:none}
   .chip{flex:0 0 auto;text-decoration:none;color:var(--text-2);background:#f2f8f3cc;border:1px solid var(--border-1);
     border-radius:999px;padding:9px 16px;font-size:13.5px;transition:all .2s,transform .18s}
-  .chip:hover{color:var(--accent);border-color:var(--accent);box-shadow:0 0 14px #32864833;transform:translateY(-2px)}
+  .chip:hover{color:var(--accent);border-color:var(--accent);box-shadow:0 0 14px #2f934933;transform:translateY(-2px)}
 
   /* ---- signatures with price STAMPS ---- */
-  .sig{margin-top:26px;background:linear-gradient(180deg,#32864814,transparent 90%);border:1px solid #32864844;
+  .sig{margin-top:26px;background:linear-gradient(180deg,#2f934914,transparent 90%);border:1px solid #2f934944;
     border-radius:22px;padding:20px 16px 18px;position:relative}
   .sig-ribbon{text-align:center;color:var(--sa);letter-spacing:.14em;font-size:13px;margin-bottom:16px;font-weight:700}
   .sig-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
@@ -107,11 +107,11 @@
   .sig-card:nth-child(2){animation-delay:1.1s}.sig-card:nth-child(3){animation-delay:2.2s}
   @keyframes sfloat{50%{transform:translateY(-5px)}}
   .sig-art{width:74px;height:74px;margin:0 auto 8px}
-  .sig-art svg{width:100%;height:100%;filter:drop-shadow(0 6px 14px #32864859)}
+  .sig-art svg{width:100%;height:100%;filter:drop-shadow(0 6px 14px #2f934959)}
   .sig-name{font-size:14.5px;font-weight:600;line-height:1.35}
   .stamp{display:inline-flex;align-items:baseline;gap:3px;margin-top:8px;padding:3px 12px;border:1.7px solid var(--sa);
     border-radius:999px;color:var(--sa);font-weight:800;font-size:16px;transform:rotate(-4deg);
-    box-shadow:0 0 0 3px #3286480f}
+    box-shadow:0 0 0 3px #2f93490f}
   .reveal.in .stamp{animation:pstamp .5s cubic-bezier(.2,1.5,.4,1) both .35s}
   .sig-card::before,.sig-card::after{content:"";position:absolute;top:-8px;width:44px;height:16px;background:#3e847640;border-radius:2px;z-index:2}
   .sig-card::before{inset-inline-start:14px;transform:rotate(-8deg)}
@@ -126,16 +126,16 @@
     border:1px solid var(--border-2);background:var(--bg-1);box-shadow:var(--shadow);transition:transform .25s}
   .cat-art:hover{transform:rotate(-3deg) scale(1.05)}
   .cat-art .cat-svg{position:absolute;inset:8px}
-  .cat-art .cat-svg svg{filter:drop-shadow(0 5px 12px #3286484d)}
+  .cat-art .cat-svg svg{filter:drop-shadow(0 5px 12px #2f93494d)}
   .cat-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;filter:saturate(1.08) contrast(1.04)}
   .cat-art.hasimg img{display:block}
   /* designed photo treatment: brand-tint wash (multiply where supported, plain elsewhere) + 1px inner border */
   .cat-art.hasimg::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
-    background:linear-gradient(160deg,var(--sa,#328648),transparent 55%);opacity:.28;mix-blend-mode:multiply}
+    background:linear-gradient(160deg,var(--sa,#2f9349),transparent 55%);opacity:.28;mix-blend-mode:multiply}
   /* RTL MIRROR LAW: the tint wash falls from the inline-start corner in both directions */
-  [dir="rtl"] .cat-art.hasimg::before{background:linear-gradient(200deg,var(--sa,#328648),transparent 55%)}
+  [dir="rtl"] .cat-art.hasimg::before{background:linear-gradient(200deg,var(--sa,#2f9349),transparent 55%)}
   .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
-    box-shadow:inset 0 0 0 1px #32864855}
+    box-shadow:inset 0 0 0 1px #2f934955}
   .cat-title{flex:1;min-width:0}
   .room-eyebrow{color:var(--text-3);font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:3px}
   .room-h2{color:var(--sa);font-size:22px;line-height:1.3}
@@ -187,21 +187,21 @@
   .diary .tape{position:absolute;top:-9px;left:50%;transform:translateX(-50%) rotate(-2deg);width:88px;height:20px;
     border-radius:2px;backdrop-filter:blur(1px)}
 
-  .demo-note{margin-top:34px;background:var(--accent-soft);border:1px dashed #32864888;border-radius:14px;
+  .demo-note{margin-top:34px;background:var(--accent-soft);border:1px dashed #2f934988;border-radius:14px;
     padding:13px 16px;font-size:13.5px;color:var(--text-2);text-align:center}
   .footer{margin-top:34px;text-align:center;color:var(--text-3);font-size:13px}
   .footer a{color:var(--accent);text-decoration:none}
 
   /* ---- SELLABLE 1: tap-to-order chips (demo state is intentional & premium) ---- */
   .order-chip{flex:0 0 auto;display:inline-flex;align-items:center;gap:4px;margin-inline-start:2px;
-    background:transparent;border:1.5px solid #32864888;color:var(--sa);border-radius:999px;padding:3px 11px;
+    background:transparent;border:1.5px solid #2f934988;color:var(--sa);border-radius:999px;padding:3px 11px;
     font-size:11px;font-weight:700;font-family:inherit;line-height:1.4;cursor:pointer;text-decoration:none;
     white-space:nowrap;transition:transform .16s,box-shadow .16s}
-  .order-chip:hover{transform:translateY(-1px);box-shadow:0 0 12px #32864833}
+  .order-chip:hover{transform:translateY(-1px);box-shadow:0 0 12px #2f934933}
   .order-chip.demo{border-style:dashed;opacity:.8}
   .acttip{position:fixed;z-index:60;max-width:min(330px,86vw);background:#f2f8f3f5;backdrop-filter:blur(10px);
     color:var(--text-1);border:1px solid var(--accent);border-radius:14px;padding:10px 16px;font-size:13px;
-    line-height:1.5;text-align:center;box-shadow:0 0 0 4px #32864814,0 12px 30px #32864840;
+    line-height:1.5;text-align:center;box-shadow:0 0 0 4px #2f934914,0 12px 30px #2f934940;
     opacity:0;pointer-events:none;transform:translate(-50%,6px);transition:opacity .25s,transform .25s}
   .acttip.show{opacity:1;transform:translate(-50%,0)}
 
@@ -209,7 +209,7 @@
   .waiter-btn{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:30;display:inline-flex;
     align-items:center;gap:7px;background:#f2f8f3e6;backdrop-filter:blur(10px);border:1.5px solid var(--accent);
     color:var(--accent);border-radius:999px;padding:11px 20px;font-size:14px;font-weight:700;font-family:inherit;
-    cursor:pointer;text-decoration:none;box-shadow:0 0 0 4px #32864812,0 8px 22px #32864840}
+    cursor:pointer;text-decoration:none;box-shadow:0 0 0 4px #2f934912,0 8px 22px #2f934940}
   .waiter-btn[hidden]{display:none}
 
   /* ---- SELLABLE 4: SFDA calorie layer — honest placeholders, zero invented numbers ---- */
@@ -222,8 +222,8 @@
   .skydial{position:fixed;bottom:18px;inset-inline-end:16px;z-index:30;width:40px;height:40px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:17px;line-height:1;
     background:#f2f8f3d9;backdrop-filter:blur(10px);border:1px solid var(--border-2);color:var(--accent);
-    box-shadow:0 0 0 4px #32864812,0 6px 16px #32864833;transition:transform .18s,box-shadow .18s}
-  .skydial:hover{transform:translateY(-2px) rotate(12deg);box-shadow:0 0 0 5px #3286481a,0 8px 20px #32864844}
+    box-shadow:0 0 0 4px #2f934912,0 6px 16px #2f934933;transition:transform .18s,box-shadow .18s}
+  .skydial:hover{transform:translateY(-2px) rotate(12deg);box-shadow:0 0 0 5px #2f93491a,0 8px 20px #2f934944}
   .skydial[aria-pressed="true"]{color:var(--accent-2);border-color:var(--accent)}
 
   /* ---- big-screen stage (Beyt is designed wide — so are we) ---- */
@@ -262,7 +262,7 @@
   .items::before{inset-inline-start:-10px}.items::after{inset-inline-end:-10px}
   .price{font-family:ui-monospace,Menlo,monospace;font-size:15px}
   .stamp{font-family:ui-monospace,Menlo,monospace}
-  .sep-ticket{display:flex;align-items:center;gap:8px;margin:32px 0 -8px;color:#6c8974;font-size:13px}
+  .sep-ticket{display:flex;align-items:center;gap:8px;margin:32px 0 -8px;color:#67836f;font-size:13px}
   .sep-ticket::before,.sep-ticket::after{content:"";flex:1;border-top:2px dashed #abceb5}
   .room-h2{font-size:23px}
   .chip{border-radius:6px}
@@ -274,10 +274,10 @@
 body{
   background-color:#f8fcf9;
   background-image:
-    radial-gradient(1100px 640px at 84% -12%, color-mix(in srgb, #328648 26%, transparent), transparent 62%),
+    radial-gradient(1100px 640px at 84% -12%, color-mix(in srgb, #2f9349 26%, transparent), transparent 62%),
     radial-gradient(840px 540px at -8% 32%, color-mix(in srgb, #c79a3a 18%, transparent), transparent 58%),
-    radial-gradient(920px 720px at 50% 118%, color-mix(in srgb, #275333 52%, transparent), transparent 72%),
-    conic-gradient(from 210deg at 50% 132%, #f8fcf9, color-mix(in srgb, #275333 38%, #f8fcf9), color-mix(in srgb, #328648 12%, #f8fcf9), #f8fcf9);
+    radial-gradient(920px 720px at 50% 118%, color-mix(in srgb, #21502d 52%, transparent), transparent 72%),
+    conic-gradient(from 210deg at 50% 132%, #f8fcf9, color-mix(in srgb, #21502d 38%, #f8fcf9), color-mix(in srgb, #2f9349 12%, #f8fcf9), #f8fcf9);
   background-attachment:fixed;
 }
 /* big fixed scene canvas (SVG supplied by heroHtml) */
@@ -299,7 +299,7 @@ body{
 /* sadu-inspired accent band (pure CSS diamond weave) */
 .gold-band{
   height:16px;border-top:1px solid #8a6a1f;border-bottom:1px solid #8a6a1f;
-  background-color:#275333;
+  background-color:#21502d;
   background-image:
     repeating-linear-gradient(45deg, #c79a3a 0 25%, transparent 0 50%),
     repeating-linear-gradient(-45deg, color-mix(in srgb, #3e8476 70%, #c79a3a) 0 25%, transparent 0 50%);
@@ -330,6 +330,31 @@ body{
   /* ---- polish50 bespoke touch: Torn Table Ticket ---- */
   .bx-ticket{display:inline-flex;align-items:center;margin:10px auto;transform:rotate(-2deg);cursor:default}.bx-tik-a,.bx-tik-b{padding:.5em .95em;border:1px dashed var(--accent);color:var(--text-2);font-size:.76rem;white-space:nowrap;background:color-mix(in srgb,var(--accent) 7%,transparent)}.bx-tik-a{border-start-start-radius:12px;border-end-start-radius:12px}.bx-tik-b{border-start-end-radius:12px;border-end-end-radius:12px;border-inline-start:0}@media (prefers-reduced-motion:no-preference){.bx-ticket{transition:transform .35s ease}.bx-tik-b{transition:transform .35s ease,margin .35s ease}.bx-ticket:hover{transform:rotate(0)}.bx-ticket:hover .bx-tik-b{transform:rotate(3deg) translateY(2px);margin-inline-start:6px}}
 
+  /* ---- INK-CRAFT FINISH: confident brand-INK display type (never foil-transparent) ----
+     GODZILLA law #1: ink carries the words; accent only decorates (underline/dots/prices/borders).
+     Placed after the scene pack so the gold-foil background-clip:text on headings is neutralised. */
+  h1,h1 .ar,h1 .en{background:none!important;background-image:none!important;-webkit-text-fill-color:#142a19!important;color:#142a19!important}
+  h1.shimmer{background:none!important;animation:none!important}
+  .heroline,.heroline .ar,.heroline .en{background:none!important;background-image:none!important;-webkit-text-fill-color:#3d5c45!important;color:#3d5c45!important;animation:none!important;filter:none!important}
+  /* the animated brand mark sits inside the medallion; the plain initial is hidden when it (or a real logo) is present */
+  .medal .mark{display:block;width:82%;height:82%}
+  .medal.hasmark>span{display:none}
+
+  /* light mode only (dark archetypes stay poster-intact): room titles to INK, ink craft on chrome */
+  .room-h2,.room-h2 .ar,.room-h2 .en{color:#142a19;-webkit-text-fill-color:#142a19}
+  .room-eyebrow{color:#67836f}
+  .chip{border:2px solid var(--ink);border-radius:16px 12px 15px 13px;box-shadow:3px 3px 0 var(--ink);color:#142a19}
+  .chip:hover{color:var(--accent);border-color:var(--ink);box-shadow:4px 5px 0 var(--ink);transform:translateY(-2px)}
+  .order-chip{border:2px solid var(--ink);box-shadow:2px 2px 0 var(--ink);color:#142a19}
+  .order-chip.demo{border-style:dashed}
+  .order-chip:hover{box-shadow:3px 3px 0 var(--ink);transform:translateY(-1px)}
+  .medal{border:2.5px solid var(--ink);box-shadow:4px 4px 0 var(--ink),inset 0 1px 0 #ffffff55}
+  .medal::after{border-color:#142a19}
+  .items{border:2px solid var(--ink);border-radius:20px 16px 22px 15px;box-shadow:4px 4px 0 var(--ink)}
+  .sig{border:2px solid var(--ink);box-shadow:5px 5px 0 var(--ink)}
+  .sig-card{border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink)}
+  .stamp{border-color:var(--sa);color:var(--sa)}
+
 
   @media (prefers-reduced-motion: reduce){
     *{animation:none!important;transition:none!important}
@@ -356,6 +381,8 @@ body{
     .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
     h1{color:#000!important;background:none!important;-webkit-text-fill-color:#000!important;font-size:30px!important}
     .medal{width:70px!important;height:70px!important;margin-bottom:8px;border-color:#000!important;background:#fff!important}
+    .medal .mark{display:none!important}
+    .medal.hasmark>span{display:inline!important}
     .medal span{color:#000!important;font-size:32px!important}
     .medal::after{border-color:#00000055!important}
     .greet,.world,.world b,.heroline{color:#000!important}
@@ -390,8 +417,8 @@ body{
 <defs>
 <linearGradient id="tdG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8c268"/><stop offset=".5" stop-color="#c79a3a"/><stop offset="1" stop-color="#8a6a1f"/></linearGradient>
 <linearGradient id="tdK" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e6efe9"/><stop offset="1" stop-color="#f2f8f3"/></linearGradient>
-<radialGradient id="tdR" cx=".5" cy=".32" r=".8"><stop offset="0" stop-color="#328648" stop-opacity=".5"/><stop offset="1" stop-color="#275333" stop-opacity="0"/></radialGradient>
-<pattern id="tdS" width="26" height="26" patternUnits="userSpaceOnUse"><rect width="26" height="26" fill="#275333"/><polygon points="13,3 23,13 13,23 3,13" fill="#c79a3a" opacity=".6"/><polygon points="13,8 18,13 13,18 8,13" fill="#628349" opacity=".8"/></pattern>
+<radialGradient id="tdR" cx=".5" cy=".32" r=".8"><stop offset="0" stop-color="#2f9349" stop-opacity=".5"/><stop offset="1" stop-color="#21502d" stop-opacity="0"/></radialGradient>
+<pattern id="tdS" width="26" height="26" patternUnits="userSpaceOnUse"><rect width="26" height="26" fill="#21502d"/><polygon points="13,3 23,13 13,23 3,13" fill="#c79a3a" opacity=".6"/><polygon points="13,8 18,13 13,18 8,13" fill="#628349" opacity=".8"/></pattern>
 </defs>
 <rect width="1200" height="640" fill="url(#tdR)" opacity=".65"/>
 <g transform="rotate(-6 600 330)"><g class="td-sway">
@@ -401,19 +428,19 @@ body{
 <line x1="742" y1="222" x2="742" y2="438" stroke="#abceb5" stroke-width="3" stroke-dasharray="2 12"/>
 <rect x="354" y="232" width="356" height="16" fill="url(#tdS)"/>
 <rect x="354" y="288" width="300" height="7" rx="3.5" fill="url(#tdG)"/>
-<rect x="354" y="316" width="252" height="5" rx="2.5" fill="#6c8974" opacity=".55"/>
-<rect x="354" y="336" width="212" height="5" rx="2.5" fill="#6c8974" opacity=".4"/>
+<rect x="354" y="316" width="252" height="5" rx="2.5" fill="#67836f" opacity=".55"/>
+<rect x="354" y="336" width="212" height="5" rx="2.5" fill="#67836f" opacity=".4"/>
 <rect x="354" y="386" width="140" height="30" rx="15" fill="none" stroke="#6dba82" stroke-width="2.5" opacity=".85"/>
-<rect x="366" y="398" width="116" height="6" rx="3" fill="#328648" opacity=".8"/>
+<rect x="366" y="398" width="116" height="6" rx="3" fill="#2f9349" opacity=".8"/>
 <path d="M792 258 L806 244 L820 258 L806 272 Z" fill="#c79a3a" opacity=".85"/>
-<rect x="770" y="300" width="72" height="5" rx="2.5" fill="#6c8974" opacity=".5"/>
+<rect x="770" y="300" width="72" height="5" rx="2.5" fill="#67836f" opacity=".5"/>
 <rect x="770" y="386" width="72" height="30" rx="6" fill="none" stroke="#8a6a1f" stroke-width="2" stroke-dasharray="5 5" opacity=".8"/>
 </g></g>
 <g transform="rotate(12 952 486)"><g class="td-stampp" opacity=".9">
 <circle cx="952" cy="486" r="58" fill="none" stroke="#6dba82" stroke-width="3" stroke-dasharray="4 7"/>
 <circle cx="952" cy="486" r="44" fill="none" stroke="#6dba82" stroke-width="2" opacity=".75"/>
 <g fill="#c79a3a" opacity=".85"><rect x="932" y="466" width="40" height="40"/><rect x="932" y="466" width="40" height="40" transform="rotate(45 952 486)"/></g>
-<circle cx="952" cy="486" r="9" fill="#275333"/><circle cx="952" cy="486" r="4.5" fill="#e8c268"/>
+<circle cx="952" cy="486" r="9" fill="#21502d"/><circle cx="952" cy="486" r="4.5" fill="#e8c268"/>
 </g></g>
 <g transform="translate(128 268) scale(1.35)" fill="#c79a3a" opacity=".8">
 <circle cx="50" cy="6" r="5"/>
@@ -430,12 +457,12 @@ body{
 <path class="td-tw" d="M620 92 l2.5 7 7 2.5 -7 2.5 -2.5 7 -2.5 -7 -7 -2.5 7 -2.5 Z" style="animation-delay:1.8s"/>
 <path class="td-tw" d="M1104 336 l2.5 7 7 2.5 -7 2.5 -2.5 7 -2.5 -7 -7 -2.5 7 -2.5 Z" style="animation-delay:2.6s" fill="#6b4f72"/>
 </g>
-<rect y="602" width="1200" height="24" fill="#275333" opacity=".9"/>
+<rect y="602" width="1200" height="24" fill="#21502d" opacity=".9"/>
 <rect y="606" width="1200" height="16" fill="url(#tdS)" opacity=".85"/>
 </svg>
 
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal"><span><span class="ar">أ</span><span class="en">O</span></span></div>
+    <div class="medal hasmark"><svg class="mark bm1cgqm92m" viewBox="0 0 100 100" fill="none" role="img" aria-label="Ob Cafe"><style>.bm1cgqm92m{overflow:visible}.bm1cgqm92m *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm1cgqm92m .mk{animation:bm1cgqm92mbob 5s ease-in-out 1.7s infinite}@keyframes bm1cgqm92mbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm1cgqm92mtop{0%{opacity:0;transform:translateY(-30px) rotate(-10deg)}100%{transform:none}}@keyframes bm1cgqm92mbot{0%{opacity:0;transform:translateY(30px)}100%{transform:none}}@keyframes bm1cgqm92mpop{0%{opacity:0;transform:scale(.3)}100%{opacity:1;transform:none}}.bm1cgqm92m .p1{animation:bm1cgqm92mtop .8s cubic-bezier(.2,1.3,.3,1) both}.bm1cgqm92m .p2{animation:bm1cgqm92mbot .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bm1cgqm92m .p3{animation:bm1cgqm92mpop .5s ease .7s both}}</style><g class="mk"><g class="p1"><path d="M26 48 L50 28 L74 48 Z" fill="var(--sa)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="30" y="48" width="40" height="30" rx="4" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><path d="M44 78 L44 60 Q50 55 56 60 L56 78 Z" fill="var(--sa2)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g></g></svg><span><span class="ar">أ</span><span class="en">O</span></span></div>
     <h1><span class="ar">أوبي كافيه</span><span class="en">Ob Cafe</span></h1>
     <div class="world"><span class="ar">✦ <b>طاولة المطبخ وسوالفها</b> ✦</span><span class="en">✦ <b>the kitchen table after dark</b> ✦</span></div>
     <div class="heroline"><span class="ar">تعالوا، الطاولة تنتظركم</span><span class="en">come in, the table's waiting</span></div>
@@ -449,10 +476,10 @@ body{
   <nav class="chips"><a class="chip touchable" href="#cat-0"><span class="ar">أول شي، القهوة</span><span class="en">first things first: coffee</span></a><a class="chip touchable" href="#cat-1"><span class="ar">لصغارنا وشقاوتهم</span><span class="en">for the smallest bosses</span></a><a class="chip touchable" href="#cat-2"><span class="ar">صحون تنلمّ عليها الأيادي</span><span class="en">made for sharing, barely</span></a><a class="chip touchable" href="#cat-3"><span class="ar">الختام دايم حلو</span><span class="en">always end it sweet</span></a></nav>
   
   
-  <section class="cat reveal cat--flip" id="cat-0" style="--sa:#328648;--sa2:#3e8476">
+  <section class="cat reveal cat--flip" id="cat-0" style="--sa:#2f9349;--sa2:#3e8476">
     <div class="cat-head">
       <div class="cat-art">
-        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f5efe6"/><stop offset=".45" stop-color="#54b688"/><stop offset="1" stop-color="#328648"/></linearGradient></defs><path d="M38 24h44l-5 74a10 10 0 0 1-10 9H53a10 10 0 0 1-10-9z" fill="url(#gl)"/><path d="M38 24h44l-1.2 18H39.2z" fill="#fff" opacity=".85"/><path d="M52 42c4-6 12-6 16 0-6 4-10 4-16 0z" fill="#328648" opacity=".7"/><ellipse cx="60" cy="24" rx="22" ry="4.5" fill="#fff"/><ellipse cx="60" cy="111" rx="26" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f5efe6"/><stop offset=".45" stop-color="#45ba87"/><stop offset="1" stop-color="#2f9349"/></linearGradient></defs><path d="M38 24h44l-5 74a10 10 0 0 1-10 9H53a10 10 0 0 1-10-9z" fill="url(#gl)"/><path d="M38 24h44l-1.2 18H39.2z" fill="#fff" opacity=".85"/><path d="M52 42c4-6 12-6 16 0-6 4-10 4-16 0z" fill="#2f9349" opacity=".7"/><ellipse cx="60" cy="24" rx="22" ry="4.5" fill="#fff"/><ellipse cx="60" cy="111" rx="26" ry="4" fill="#000" opacity=".3"/></svg></div>
         
       </div>
       <div class="cat-title">
@@ -514,7 +541,7 @@ body{
   <section class="cat reveal" id="cat-1" style="--sa:#3e8476;--sa2:#628349">
     <div class="cat-head">
       <div class="cat-art">
-        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f5efe6"/><stop offset=".45" stop-color="#54b688"/><stop offset="1" stop-color="#328648"/></linearGradient></defs><path d="M38 24h44l-5 74a10 10 0 0 1-10 9H53a10 10 0 0 1-10-9z" fill="url(#gl)"/><path d="M38 24h44l-1.2 18H39.2z" fill="#fff" opacity=".85"/><path d="M52 42c4-6 12-6 16 0-6 4-10 4-16 0z" fill="#328648" opacity=".7"/><ellipse cx="60" cy="24" rx="22" ry="4.5" fill="#fff"/><ellipse cx="60" cy="111" rx="26" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f5efe6"/><stop offset=".45" stop-color="#45ba87"/><stop offset="1" stop-color="#2f9349"/></linearGradient></defs><path d="M38 24h44l-5 74a10 10 0 0 1-10 9H53a10 10 0 0 1-10-9z" fill="url(#gl)"/><path d="M38 24h44l-1.2 18H39.2z" fill="#fff" opacity=".85"/><path d="M52 42c4-6 12-6 16 0-6 4-10 4-16 0z" fill="#2f9349" opacity=".7"/><ellipse cx="60" cy="24" rx="22" ry="4.5" fill="#fff"/><ellipse cx="60" cy="111" rx="26" ry="4" fill="#000" opacity=".3"/></svg></div>
         
       </div>
       <div class="cat-title">
@@ -570,7 +597,7 @@ body{
   <section class="cat reveal cat--flip" id="cat-2" style="--sa:#628349;--sa2:#6b4f72">
     <div class="cat-head">
       <div class="cat-art">
-        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gcr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0cf8f"/><stop offset="1" stop-color="#328648"/></linearGradient></defs><path d="M20 74c4-18 20-32 40-32s36 14 40 32c-6 8-16 8-22 2-4-10-12-16-18-16s-14 6-18 16c-6 6-16 6-22-2z" fill="url(#gcr)"/><path d="M45 46 38 70M60 42v26M75 46l7 24" stroke="#275333" stroke-width="3" opacity=".5" stroke-linecap="round"/><ellipse cx="60" cy="88" rx="34" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gcr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0cf8f"/><stop offset="1" stop-color="#2f9349"/></linearGradient></defs><path d="M20 74c4-18 20-32 40-32s36 14 40 32c-6 8-16 8-22 2-4-10-12-16-18-16s-14 6-18 16c-6 6-16 6-22-2z" fill="url(#gcr)"/><path d="M45 46 38 70M60 42v26M75 46l7 24" stroke="#21502d" stroke-width="3" opacity=".5" stroke-linecap="round"/><ellipse cx="60" cy="88" rx="34" ry="4" fill="#000" opacity=".3"/></svg></div>
         
       </div>
       <div class="cat-title">
@@ -622,10 +649,10 @@ body{
 </svg>
 </div>
 
-  <section class="cat reveal" id="cat-3" style="--sa:#6b4f72;--sa2:#328648">
+  <section class="cat reveal" id="cat-3" style="--sa:#6b4f72;--sa2:#2f9349">
     <div class="cat-head">
       <div class="cat-art">
-        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2e0c8"/><stop offset="1" stop-color="#328648"/></linearGradient></defs><path d="M34 50h52v38a6 6 0 0 1-6 6H40a6 6 0 0 1-6-6z" fill="url(#gk)"/><path d="M34 62h52M34 76h52" stroke="#275333" stroke-width="5" opacity=".5"/><path d="M34 50c8-8 18-12 26-12s18 4 26 12c-8 5-17 7-26 7s-18-2-26-7z" fill="#54b688"/><circle cx="60" cy="34" r="5" fill="#e25c5c"/><ellipse cx="60" cy="100" rx="32" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2e0c8"/><stop offset="1" stop-color="#2f9349"/></linearGradient></defs><path d="M34 50h52v38a6 6 0 0 1-6 6H40a6 6 0 0 1-6-6z" fill="url(#gk)"/><path d="M34 62h52M34 76h52" stroke="#21502d" stroke-width="5" opacity=".5"/><path d="M34 50c8-8 18-12 26-12s18 4 26 12c-8 5-17 7-26 7s-18-2-26-7z" fill="#45ba87"/><circle cx="60" cy="34" r="5" fill="#e25c5c"/><ellipse cx="60" cy="100" rx="32" ry="4" fill="#000" opacity=".3"/></svg></div>
         
       </div>
       <div class="cat-title">
@@ -756,7 +783,6 @@ body{
     });
     setTimeout(()=>{
       document.querySelectorAll('h1 .ar, h1 .en').forEach(el=>{el.textContent=el.textContent;});
-      document.querySelector('h1').classList.add('shimmer');
     },2400);
   }
   // day -> night: the sky shifts as you walk deeper — or by hand via the sky-dial

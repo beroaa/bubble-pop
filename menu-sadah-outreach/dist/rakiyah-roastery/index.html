@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Mada:wght@400;600;800&display=swap">
 <style>
   :root{--bg-0:#fcfaf8;--bg-1:#f8f4f2;--bg-2:#efeae6;--border-1:#e3d9d3;--border-2:#ceb9ab;
-    --text-1:#312116;--text-2:#624e41;--text-3:#89776c;--accent:#8c502b;--accent-2:#be964b;--accent-soft:#8c502b22;
+    --text-1:#312116;--text-2:#624e41;--text-3:#89776c;--ink:#312116;--accent:#8c502b;--accent-2:#be964b;--accent-soft:#8c502b22;
     --sa:#8c502b;--sa2:#8b8437;--radius:16px;--shadow:0 6px 16px #6b452e22, 0 16px 40px #6b452e14;
     --m-ease:cubic-bezier(.22,1,.36,1);--m-dir:scale;--tx:1}
   /* RTL MIRROR LAW: --tx flips direction-signed decorative transforms in Arabic */
@@ -362,6 +362,31 @@ body{
   /* ---- polish50 bespoke touch: Traveler Ink Route ---- */
   .bx-route{margin:1rem auto .2rem;max-width:180px;text-align:center}.bx-route svg{width:100%;overflow:visible;display:block}.bx-route-path{stroke-dasharray:3 5;opacity:.8;transition:opacity .6s,filter .6s}.bx-route-note{font-size:.66rem;color:var(--text-2);letter-spacing:.14em;margin-top:.2rem;display:block}.bx-route:hover .bx-route-path{opacity:1;filter:drop-shadow(0 0 3px var(--accent))}@media (prefers-reduced-motion:no-preference){.bx-route:hover .bx-route-path{animation:bx-march 1.4s linear infinite}@keyframes bx-march{to{stroke-dashoffset:-16}}}
 
+  /* ---- INK-CRAFT FINISH: confident brand-INK display type (never foil-transparent) ----
+     GODZILLA law #1: ink carries the words; accent only decorates (underline/dots/prices/borders).
+     Placed after the scene pack so the gold-foil background-clip:text on headings is neutralised. */
+  h1,h1 .ar,h1 .en{background:none!important;background-image:none!important;-webkit-text-fill-color:#312116!important;color:#312116!important}
+  h1.shimmer{background:none!important;animation:none!important}
+  .heroline,.heroline .ar,.heroline .en{background:none!important;background-image:none!important;-webkit-text-fill-color:#624e41!important;color:#624e41!important;animation:none!important;filter:none!important}
+  /* the animated brand mark sits inside the medallion; the plain initial is hidden when it (or a real logo) is present */
+  .medal .mark{display:block;width:82%;height:82%}
+  .medal.hasmark>span{display:none}
+
+  /* light mode only (dark archetypes stay poster-intact): room titles to INK, ink craft on chrome */
+  .room-h2,.room-h2 .ar,.room-h2 .en{color:#312116;-webkit-text-fill-color:#312116}
+  .room-eyebrow{color:#89776c}
+  .chip{border:2px solid var(--ink);border-radius:16px 12px 15px 13px;box-shadow:3px 3px 0 var(--ink);color:#312116}
+  .chip:hover{color:var(--accent);border-color:var(--ink);box-shadow:4px 5px 0 var(--ink);transform:translateY(-2px)}
+  .order-chip{border:2px solid var(--ink);box-shadow:2px 2px 0 var(--ink);color:#312116}
+  .order-chip.demo{border-style:dashed}
+  .order-chip:hover{box-shadow:3px 3px 0 var(--ink);transform:translateY(-1px)}
+  .medal{border:2.5px solid var(--ink);box-shadow:4px 4px 0 var(--ink),inset 0 1px 0 #ffffff55}
+  .medal::after{border-color:#312116}
+  .items{border:2px solid var(--ink);border-radius:20px 16px 22px 15px;box-shadow:4px 4px 0 var(--ink)}
+  .sig{border:2px solid var(--ink);box-shadow:5px 5px 0 var(--ink)}
+  .sig-card{border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink)}
+  .stamp{border-color:var(--sa);color:var(--sa)}
+
   /* ---- brandshots: the cafe's OWN photos, pinned like polaroids ---- */
   .brandshots{display:flex;justify-content:center;align-items:flex-start;gap:14px;margin-top:22px;position:relative;z-index:1}
   .bshot{position:relative;width:96px;margin:0;background:#f8f4f2;border:1px solid var(--border-2);padding:6px 6px 16px;
@@ -404,6 +429,8 @@ body{
     .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
     h1{color:#000!important;background:none!important;-webkit-text-fill-color:#000!important;font-size:30px!important}
     .medal{width:70px!important;height:70px!important;margin-bottom:8px;border-color:#000!important;background:#fff!important}
+    .medal .mark{display:none!important}
+    .medal.hasmark>span{display:inline!important}
     .medal span{color:#000!important;font-size:32px!important}
     .medal::after{border-color:#00000055!important}
     .greet,.world,.world b,.heroline{color:#000!important}
@@ -480,7 +507,7 @@ body{
 </g>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal"><span><span class="ar">م</span><span class="en">R</span></span></div>
+    <div class="medal hasmark"><svg class="mark bmhfw22m" viewBox="0 0 100 100" fill="none" role="img" aria-label="Rakiyah Roastery"><style>.bmhfw22m{overflow:visible}.bmhfw22m *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bmhfw22m .mk{animation:bmhfw22mbob 5s ease-in-out 1.7s infinite}@keyframes bmhfw22mbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bmhfw22mp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bmhfw22m .p1{animation:bmhfw22mp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bmhfw22m .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bmhfw22mdr 1s ease .55s forwards}@keyframes bmhfw22mdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">م</span><span class="en">R</span></span></div>
     <h1><span class="ar">محمصة ركية</span><span class="en">Rakiyah Roastery</span></h1>
     <div class="world"><span class="ar">✦ <b>دفتر رحّالة يدور خلف البن</b> ✦</span><span class="en">✦ <b>a traveler's notebook chasing coffee lands</b> ✦</span></div>
     <div class="heroline"><span class="ar">كل فنجان يحكي عن أرض بعيدة</span><span class="en">every cup, a page from somewhere far</span></div>
@@ -821,7 +848,6 @@ body{
     });
     setTimeout(()=>{
       document.querySelectorAll('h1 .ar, h1 .en').forEach(el=>{el.textContent=el.textContent;});
-      document.querySelector('h1').classList.add('shimmer');
     },2400);
   }
   // day -> night: the sky shifts as you walk deeper — or by hand via the sky-dial

@@ -43,6 +43,160 @@ function cafeLogo(slug) {
 }
 const logoImg = (logo) => `<img class="logo" src="${esc(logo)}" alt="" onerror="this.parentElement.classList.remove('haslogo');this.remove()">`;
 
+/* ---------- ANIMATED BRAND MARK (the "cool Beyt-cube logo" per cafe) ----------
+   A designed, self-assembling inline-SVG mark rendered INSIDE the medallion when no
+   real logo file exists (cafeLogo wins first; the plain initial is the last resort).
+   ~10 templates chosen by cafe type / archetype / motif / world; each ≤2.5KB, drawn in
+   the cafe's own brand vars (ink outline + accents), assembles on load then idles, and
+   under prefers-reduced-motion snaps to its static assembled self (every hide-state and
+   keyframe lives INSIDE the no-preference media query, so rest = fully assembled). */
+function pickMarkKind(cafe, brief) {
+  const t = String(cafe.type || '').toLowerCase();
+  const arch = brief.archetype || '';
+  const motif = brief.motif || '';
+  const world = String((brief.world && (brief.world.en + ' ' + brief.world.ar)) || '').toLowerCase();
+  const tw = t + ' ' + world;
+  if (/bakery|bake|bread|oven|فرن|مخبز|خبز/.test(tw)) return 'loaf';
+  if (/dessert|sweet|pastr|ice ?cream|gelato|cake|حلا|حلوى|كيك|بوظة/.test(tw)) return 'cake';
+  if (/matcha|ماتشا/.test(tw)) return 'matcha';
+  if (/tea|chai|شاي|قعدة الشاي/.test(t)) return 'pot';
+  if (/gaming|game|arcade|esports|قيمنق|ألعاب|قيمرز/.test(t) || arch === 'neon-arcade') return 'arcade';
+  if (/grill|burger|bbq|steak|fire|شواء|برجر|نار|مشاوي/.test(t)) return 'flame';
+  if (/family|عائل/.test(t)) return 'house';
+  if (/roast|specialty|coffee|espresso|قهوة|محمصة|روستري/.test(t)) return 'bean';
+  // fall back to the WORLD / motif imagery
+  if (/garden|flower|petal|leaf|bloom|rooftop|roof|sun|dawn|first light|بستان|حديقة|زهر|ورد|سطح|شمس|فجر|صباح/.test(world) || motif === 'leaves') return 'sun';
+  if (/night|star|moon|flock|bird|sky|dark|ليل|نجوم|قمر|سماء|طير|سرب/.test(world) || motif === 'stars') return 'star';
+  if (motif === 'steam') return 'pot';
+  if (motif === 'sparks') return 'arcade';
+  if (arch === 'garden-fresh') return 'sun';
+  if (arch === 'poster-dark') return 'star';
+  return 'bean'; // coffee is the safe default for a Riyadh cafe
+}
+/* colors passed as CSS-var strings so one template renders correctly in either page's palette */
+function brandMark(cafe, brief, c, tag) {
+  const kind = pickMarkKind(cafe, brief);
+  const u = 'bm' + seedOf((cafe.slug || cafe.name) + kind).toString(36) + tag;
+  const K = c.ink, A = c.accent, S = c.sa, S2 = c.sa2, A2 = c.accent2;
+  const SW = 'stroke="' + K + '" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"';
+  let inner = '', anim = '';
+  switch (kind) {
+    case 'loaf':
+      inner = `<path class="p1" d="M18 68 Q18 40 50 40 Q82 40 82 68 Q82 72 78 72 L22 72 Q18 72 18 68 Z" fill="${S}" ${SW}/>`
+        + `<path class="p2" d="M34 50 l6 8 M50 47 l6 9 M66 50 l-6 8" ${SW.replace('5', '4')}/>`
+        + `<path class="s1" d="M40 34 q4 -6 0 -12" stroke="${A}" stroke-width="4" stroke-linecap="round" opacity=".85"/>`
+        + `<path class="s2" d="M60 34 q4 -6 0 -12" stroke="${A}" stroke-width="4" stroke-linecap="round" opacity=".85"/>`;
+      anim = `@keyframes ${u}rise{0%{opacity:0;transform:translateY(30px) scale(.7)}70%{opacity:1;transform:translateY(-3px)}100%{transform:none}}`
+        + `.${u} .p1{animation:${u}rise .9s cubic-bezier(.2,1.2,.3,1) both}`
+        + `.${u} .p2{stroke-dasharray:60;stroke-dashoffset:60;animation:${u}dr .7s ease .7s forwards}@keyframes ${u}dr{to{stroke-dashoffset:0}}`
+        + `.${u} .s1,.${u} .s2{opacity:0;animation:${u}stm 2.6s ease-in-out 1s infinite}.${u} .s2{animation-delay:1.4s}`
+        + `@keyframes ${u}stm{0%{opacity:0;transform:translateY(4px)}40%{opacity:.9}100%{opacity:0;transform:translateY(-8px)}}`;
+      break;
+    case 'cake':
+      inner = `<g class="p1"><rect x="22" y="54" width="56" height="24" rx="7" fill="${A}" ${SW}/></g>`
+        + `<g class="p2"><rect x="32" y="34" width="36" height="22" rx="7" fill="${S}" ${SW}/></g>`
+        + `<g class="p3"><circle cx="50" cy="26" r="6" fill="${A2}" ${SW.replace('5', '4')}/></g>`
+        + `<path class="p4" d="M50 20 q3 -6 8 -7" ${SW.replace('5', '3.5')}/>`;
+      anim = `@keyframes ${u}fl{0%{opacity:0;transform:translateX(-40px) rotate(-12deg)}100%{transform:none}}`
+        + `@keyframes ${u}fr{0%{opacity:0;transform:translateX(40px) rotate(12deg)}100%{transform:none}}`
+        + `@keyframes ${u}drop{0%{opacity:0;transform:translateY(-30px) scale(.4)}70%{transform:translateY(2px) scale(1.1)}100%{transform:none}}`
+        + `.${u} .p1{animation:${u}fl .8s cubic-bezier(.2,1.2,.3,1) both}`
+        + `.${u} .p2{animation:${u}fr .8s cubic-bezier(.2,1.2,.3,1) .2s both}`
+        + `.${u} .p3{animation:${u}drop .7s cubic-bezier(.2,1.5,.3,1) .55s both}`
+        + `.${u} .p4{opacity:0;animation:${u}fd .4s ease .95s forwards}@keyframes ${u}fd{to{opacity:1}}`;
+      break;
+    case 'matcha':
+      inner = `<path class="p1" d="M24 52 Q50 84 76 52 Z" fill="${A}" ${SW}/>`
+        + `<ellipse class="p2" cx="50" cy="52" rx="26" ry="7" fill="${S2}" ${SW}/>`
+        + `<path class="p3" d="M50 52 L50 30 M50 34 l-8 -6 M50 34 l8 -6" ${SW.replace('5', '4')}/>`
+        + `<path class="lf" d="M64 40 q10 -8 6 -20 q-12 4 -6 20 Z" fill="${S}" ${SW.replace('5', '3.5')}/>`;
+      anim = `@keyframes ${u}cup{0%{opacity:0;transform:translateY(26px) scale(.7)}100%{transform:none}}`
+        + `.${u} .p1,.${u} .p2{animation:${u}cup .85s cubic-bezier(.2,1.2,.3,1) both}.${u} .p2{animation-delay:.1s}`
+        + `.${u} .p3{stroke-dasharray:50;stroke-dashoffset:50;animation:${u}dr .6s ease .7s forwards}@keyframes ${u}dr{to{stroke-dashoffset:0}}`
+        + `.${u} .lf{opacity:0;animation:${u}leaf .7s cubic-bezier(.2,1.4,.3,1) .9s forwards}`
+        + `@keyframes ${u}leaf{0%{opacity:0;transform:translateY(8px) scale(.4) rotate(-20deg)}100%{opacity:1;transform:none}}`;
+      break;
+    case 'pot':
+      inner = `<path class="p1" d="M28 50 Q28 74 50 74 Q72 74 72 50 Z" fill="${A}" ${SW}/>`
+        + `<path class="p2" d="M72 56 q12 -2 14 -12 q-1 -3 -4 -2 q-2 8 -12 8" fill="${A}" ${SW.replace('5', '4.5')}/>`
+        + `<ellipse class="p3" cx="50" cy="50" rx="24" ry="6" fill="${S2}" ${SW}/>`
+        + `<circle class="p4" cx="50" cy="42" r="4" fill="${S}" ${SW.replace('5', '4')}/>`
+        + `<path class="s1" d="M44 34 q4 -6 0 -12" stroke="${A2}" stroke-width="4" stroke-linecap="round"/>`
+        + `<path class="s2" d="M56 34 q4 -6 0 -12" stroke="${A2}" stroke-width="4" stroke-linecap="round"/>`;
+      anim = `@keyframes ${u}rise{0%{opacity:0;transform:translateY(24px) scale(.75)}100%{transform:none}}`
+        + `.${u} .p1,.${u} .p3{animation:${u}rise .85s cubic-bezier(.2,1.2,.3,1) both}.${u} .p3{animation-delay:.1s}`
+        + `.${u} .p2{stroke-dasharray:70;stroke-dashoffset:70;animation:${u}dr .7s ease .6s forwards}@keyframes ${u}dr{to{stroke-dashoffset:0}}`
+        + `.${u} .p4{opacity:0;animation:${u}pop .5s cubic-bezier(.2,1.5,.3,1) .8s forwards}@keyframes ${u}pop{0%{opacity:0;transform:translateY(-8px) scale(.4)}100%{opacity:1;transform:none}}`
+        + `.${u} .s1,.${u} .s2{opacity:0;animation:${u}stm 2.8s ease-in-out 1s infinite}.${u} .s2{animation-delay:1.4s}`
+        + `@keyframes ${u}stm{0%{opacity:0;transform:translateY(4px)}40%{opacity:.85}100%{opacity:0;transform:translateY(-9px)}}`;
+      break;
+    case 'house':
+      inner = `<g class="p1"><path d="M26 48 L50 28 L74 48 Z" fill="${S}" ${SW}/></g>`
+        + `<g class="p2"><rect x="30" y="48" width="40" height="30" rx="4" fill="${A}" ${SW}/></g>`
+        + `<g class="p3"><path d="M44 78 L44 60 Q50 55 56 60 L56 78 Z" fill="${S2}" ${SW.replace('5', '4')}/></g>`;
+      anim = `@keyframes ${u}top{0%{opacity:0;transform:translateY(-30px) rotate(-10deg)}100%{transform:none}}`
+        + `@keyframes ${u}bot{0%{opacity:0;transform:translateY(30px)}100%{transform:none}}`
+        + `@keyframes ${u}pop{0%{opacity:0;transform:scale(.3)}100%{opacity:1;transform:none}}`
+        + `.${u} .p1{animation:${u}top .8s cubic-bezier(.2,1.3,.3,1) both}`
+        + `.${u} .p2{animation:${u}bot .8s cubic-bezier(.2,1.2,.3,1) .2s both}`
+        + `.${u} .p3{animation:${u}pop .5s ease .7s both}`;
+      break;
+    case 'arcade':
+      inner = `<path class="p1" d="M50 26 L74 50 L50 74 L26 50 Z" fill="${A}" ${SW}/>`
+        + `<g class="p2"><rect x="40" y="46" width="8" height="8" fill="${S}"/></g>`
+        + `<g class="p3"><rect x="52" y="46" width="8" height="8" fill="${S2}"/></g>`
+        + `<g class="p4"><rect x="46" y="34" width="8" height="8" fill="${A2}"/></g>`
+        + `<g class="p5"><rect x="46" y="58" width="8" height="8" fill="${S}"/></g>`;
+      anim = `@keyframes ${u}dia{0%{opacity:0;transform:rotate(-135deg) scale(.3)}100%{opacity:1;transform:none}}`
+        + `.${u} .p1{animation:${u}dia .9s cubic-bezier(.2,1.3,.3,1) both}`
+        + `@keyframes ${u}px{0%{opacity:0;transform:scale(0)}100%{opacity:1;transform:none}}`
+        + `.${u} .p2{opacity:0;animation:${u}px .4s .55s forwards}.${u} .p3{opacity:0;animation:${u}px .4s .7s forwards}`
+        + `.${u} .p4{opacity:0;animation:${u}px .4s .85s forwards}.${u} .p5{opacity:0;animation:${u}px .4s 1s forwards}`;
+      break;
+    case 'sun':
+      inner = `<g class="p1"><circle cx="50" cy="50" r="16" fill="${A}" ${SW}/></g>`
+        + `<g class="rays"><path d="M50 20 V8 M50 92 V80 M20 50 H8 M92 50 H80 M29 29 L21 21 M71 29 L79 21 M29 71 L21 79 M71 71 L79 79" stroke="${S}" stroke-width="5" stroke-linecap="round"/></g>`;
+      anim = `@keyframes ${u}pop{0%{opacity:0;transform:scale(.2)}70%{transform:scale(1.12)}100%{opacity:1;transform:none}}`
+        + `.${u} .p1{animation:${u}pop .8s cubic-bezier(.2,1.4,.3,1) both}`
+        + `.${u} .rays{stroke-dasharray:150;stroke-dashoffset:150;animation:${u}dr 1s ease .5s forwards,${u}spin 22s linear 1.6s infinite}`
+        + `@keyframes ${u}dr{to{stroke-dashoffset:0}}@keyframes ${u}spin{to{transform:rotate(360deg)}}`;
+      break;
+    case 'star':
+      inner = `<path class="p1" d="M50 22 L58 42 L80 44 L63 58 L69 80 L50 67 L31 80 L37 58 L20 44 L42 42 Z" fill="${A}" ${SW}/>`
+        + `<circle class="t1" cx="26" cy="26" r="3" fill="${S}"/>`
+        + `<circle class="t2" cx="78" cy="28" r="2.5" fill="${S2}"/>`
+        + `<circle class="t3" cx="72" cy="72" r="2.5" fill="${S}"/>`;
+      anim = `@keyframes ${u}star{0%{opacity:0;transform:scale(.2) rotate(-40deg)}70%{transform:scale(1.08) rotate(4deg)}100%{opacity:1;transform:none}}`
+        + `.${u} .p1{animation:${u}star .9s cubic-bezier(.2,1.4,.3,1) both}`
+        + `.${u} .t1,.${u} .t2,.${u} .t3{animation:${u}tw 2.4s ease-in-out infinite}`
+        + `.${u} .t1{animation-delay:.9s}.${u} .t2{animation-delay:1.3s}.${u} .t3{animation-delay:1.7s}`
+        + `@keyframes ${u}tw{0%,100%{opacity:.2;transform:scale(.7)}50%{opacity:1;transform:scale(1.2)}}`;
+      break;
+    case 'flame':
+      inner = `<path class="p1" d="M50 20 C64 40,58 46,54 52 C64 48,66 60,60 70 C74 62,72 84,50 84 C28 84,26 62,40 70 C34 60,36 48,46 52 C42 46,36 40,50 20 Z" fill="${A}" ${SW}/>`
+        + `<path class="p2" d="M50 44 C57 54,52 60,50 66 C48 60,43 54,50 44 Z" fill="${S}" ${SW.replace('5', '3.5')}/>`;
+      anim = `@keyframes ${u}fl{0%{opacity:0;transform:translateY(26px) scale(.6)}100%{transform:none}}`
+        + `.${u} .p1{animation:${u}fl .85s cubic-bezier(.2,1.2,.3,1) both}`
+        + `.${u} .p2{opacity:0;animation:${u}fd .5s ease .7s forwards,${u}flk 1.5s ease-in-out 1.3s infinite}`
+        + `@keyframes ${u}fd{to{opacity:1}}@keyframes ${u}flk{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.15)}}`;
+      break;
+    default: // bean — specialty_coffee / roastery / safe default
+      inner = `<g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="${A}" ${SW} transform="rotate(-16 50 51)"/></g>`
+        + `<path class="p2" d="M51 22 C42 37,60 64,49 80" ${SW}/>`;
+      anim = `@keyframes ${u}p1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}`
+        + `.${u} .p1{animation:${u}p1 .9s cubic-bezier(.2,1.3,.3,1) both}`
+        + `.${u} .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:${u}dr 1s ease .55s forwards}@keyframes ${u}dr{to{stroke-dashoffset:0}}`;
+  }
+  return `<svg class="mark ${u}" viewBox="0 0 100 100" fill="none" role="img" aria-label="${esc(cafe.name)}">`
+    + `<style>.${u}{overflow:visible}.${u} *{transform-box:fill-box;transform-origin:center}`
+    + `@media (prefers-reduced-motion:no-preference){`
+    + `.${u} .mk{animation:${u}bob 5s ease-in-out 1.7s infinite}@keyframes ${u}bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}`
+    + anim + `}</style><g class="mk">${inner}</g></svg>`;
+}
+/* CSS-var color kits so the same mark reads correctly in each page's palette */
+const MENU_MARK_COLORS = { ink: 'var(--ink)', accent: 'var(--accent)', sa: 'var(--sa)', sa2: 'var(--sa2)', accent2: 'var(--accent-2)' };
+const GIFT_MARK_COLORS = { ink: 'var(--ink)', accent: 'var(--rose)', sa: 'var(--gold)', sa2: 'var(--sage)', accent2: 'var(--ochre)' };
+
 /* shared gold trio handed to every scene pack */
 const SCENE_GOLD = { gold: '#c79a3a', goldBright: '#e8c268', goldDeep: '#8a6a1f' };
 
@@ -317,7 +471,8 @@ export function masterpieceMenuPage(cafe, brief) {
   const direction = directPhotos(cafe.slug, cafePhotos(cafe.slug)); // photodirection50: directed order + excludes
   const shots = direction.shots; // directed → hero first, then strip: the polaroids read in art-directed order
   const roomShots = direction.rooms; // directed room list (cycled, hint → object-position); null → auto cycle
-  const logo = cafeLogo(cafe.slug); // real brand logo → medallion (fallback: bilingual initial)
+  const logo = cafeLogo(cafe.slug); // real brand logo → medallion (fallback: animated mark, then initial)
+  const menuMark = logo ? '' : brandMark(cafe, brief, MENU_MARK_COLORS, 'm'); // designed self-assembling SVG mark
   const shotSrc = (i) => esc('../assets/photos/' + cafe.slug + '/' + shots[i % shots.length].file);
   const polish = polishFor(cafe.slug); // bespoke per-cafe touch (polish50)
   const voice = ROOMVOICE[cafe.slug] || null; // roomvoice50: spoken room asides + third diary
@@ -423,7 +578,7 @@ export function masterpieceMenuPage(cafe, brief) {
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=${T.fonts.q}&display=swap">
 <style>
   :root{--bg-0:${P.bg0};--bg-1:${P.bg1};--bg-2:${P.bg2};--border-1:${P.border1};--border-2:${P.border2};
-    --text-1:${P.text1};--text-2:${P.text2};--text-3:${P.text3};--accent:${a};--accent-2:${a2};--accent-soft:${a}22;
+    --text-1:${P.text1};--text-2:${P.text2};--text-3:${P.text3};--ink:${P.text1};--accent:${a};--accent-2:${a2};--accent-soft:${a}22;
     --sa:${R[0]};--sa2:${R[1]};--radius:16px;--shadow:${P.shadow};
     --m-ease:${MO.ease};--m-dir:${MO.revealDir};--tx:1}
   /* RTL MIRROR LAW: --tx flips direction-signed decorative transforms in Arabic */
@@ -672,6 +827,31 @@ export function masterpieceMenuPage(cafe, brief) {
 ${polish ? `
   /* ---- polish50 bespoke touch: ${polish.name} ---- */
   ${polish.css}` : ''}
+
+  /* ---- INK-CRAFT FINISH: confident brand-INK display type (never foil-transparent) ----
+     GODZILLA law #1: ink carries the words; accent only decorates (underline/dots/prices/borders).
+     Placed after the scene pack so the gold-foil background-clip:text on headings is neutralised. */
+  h1,h1 .ar,h1 .en{background:none!important;background-image:none!important;-webkit-text-fill-color:${P.text1}!important;color:${P.text1}!important}
+  h1.shimmer{background:none!important;animation:none!important}
+  .heroline,.heroline .ar,.heroline .en{background:none!important;background-image:none!important;-webkit-text-fill-color:${P.text2}!important;color:${P.text2}!important;animation:none!important;filter:none!important}
+  /* the animated brand mark sits inside the medallion; the plain initial is hidden when it (or a real logo) is present */
+  .medal .mark{display:block;width:82%;height:82%}
+  .medal.hasmark>span{display:none}
+${P.mode === 'light' ? `
+  /* light mode only (dark archetypes stay poster-intact): room titles to INK, ink craft on chrome */
+  .room-h2,.room-h2 .ar,.room-h2 .en{color:${P.text1};-webkit-text-fill-color:${P.text1}}
+  .room-eyebrow{color:${P.text3}}
+  .chip{border:2px solid var(--ink);border-radius:16px 12px 15px 13px;box-shadow:3px 3px 0 var(--ink);color:${P.text1}}
+  .chip:hover{color:var(--accent);border-color:var(--ink);box-shadow:4px 5px 0 var(--ink);transform:translateY(-2px)}
+  .order-chip{border:2px solid var(--ink);box-shadow:2px 2px 0 var(--ink);color:${P.text1}}
+  .order-chip.demo{border-style:dashed}
+  .order-chip:hover{box-shadow:3px 3px 0 var(--ink);transform:translateY(-1px)}
+  .medal{border:2.5px solid var(--ink);box-shadow:4px 4px 0 var(--ink),inset 0 1px 0 #ffffff55}
+  .medal::after{border-color:${P.text1}}
+  .items{border:2px solid var(--ink);border-radius:20px 16px 22px 15px;box-shadow:4px 4px 0 var(--ink)}
+  .sig{border:2px solid var(--ink);box-shadow:5px 5px 0 var(--ink)}
+  .sig-card{border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink)}
+  .stamp{border-color:var(--sa);color:var(--sa)}` : ''}
 ${shots.length ? `
   /* ---- brandshots: the cafe's OWN photos, pinned like polaroids ---- */
   .brandshots{display:flex;justify-content:center;align-items:flex-start;gap:14px;margin-top:22px;position:relative;z-index:1}
@@ -715,6 +895,8 @@ ${shots.length ? `
     .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
     h1{color:#000!important;background:none!important;-webkit-text-fill-color:#000!important;font-size:30px!important}
     .medal{width:70px!important;height:70px!important;margin-bottom:8px;border-color:#000!important;background:#fff!important}
+    .medal .mark{display:none!important}
+    .medal.hasmark>span{display:inline!important}
     .medal span{color:#000!important;font-size:32px!important}
     .medal::after{border-color:#00000055!important}
     .greet,.world,.world b,.heroline{color:#000!important}
@@ -746,7 +928,7 @@ ${shots.length ? `
     ${motesHtml(brief.motif, sd)}
     ${SC ? SC.heroHtml : ''}
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal${logo ? ' haslogo' : ''}">${logo ? logoImg(logo) : ''}<span><span class="ar">${esc((cafe.nameAr || cafe.name).trim()[0])}</span><span class="en">${esc(cafe.name.trim()[0].toUpperCase())}</span></span></div>
+    <div class="medal${logo ? ' haslogo' : menuMark ? ' hasmark' : ''}">${logo ? logoImg(logo) : menuMark}<span><span class="ar">${esc((cafe.nameAr || cafe.name).trim()[0])}</span><span class="en">${esc(cafe.name.trim()[0].toUpperCase())}</span></span></div>
     <h1><span class="ar">${esc(cafe.nameAr)}</span><span class="en">${esc(cafe.name)}</span></h1>
     <div class="world"><span class="ar">✦ <b>${esc(brief.world?.ar || '')}</b> ✦</span><span class="en">✦ <b>${esc(brief.world?.en || '')}</b> ✦</span></div>
     <div class="heroline"><span class="ar">${esc(brief.heroAr || cafe.taglineAr)}</span><span class="en">${esc(brief.heroEn || cafe.tagline)}</span></div>
@@ -857,7 +1039,6 @@ ${cafePhone
     });
     setTimeout(()=>{
       document.querySelectorAll('h1 .ar, h1 .en').forEach(el=>{el.textContent=el.textContent;});
-      document.querySelector('h1').classList.add('shimmer');
     },2400);
   }
   // day -> night: the sky shifts as you walk deeper — or by hand via the sky-dial
@@ -911,7 +1092,9 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
   // per-cafe shots (VISUALS-FIRST law) are the ONLY photos allowed — shared category photos are banned
   // photodirection50: detail cards lead with hero + first strip file; excluded files never render
   const shots = directPhotos(cafe.slug, cafePhotos(cafe.slug), true).shots;
-  const logo = cafeLogo(cafe.slug); // real brand logo → medallions (fallback: bilingual initial)
+  const logo = cafeLogo(cafe.slug); // real brand logo → medallions (fallback: animated mark, then initial)
+  const giftMark = logo ? '' : brandMark(cafe, brief, GIFT_MARK_COLORS, 'w'); // hero medallion mark
+  const miniMark = logo ? '' : brandMark(cafe, brief, GIFT_MARK_COLORS, 's'); // sticky-bar mini medallion mark
   const social = extras.social && /^@/.test(String(extras.social).trim()) ? String(extras.social).trim() : null;
   const rooms = (brief.rooms || []).slice(0, 3);
   const diary = (brief.diaryAr || [])[0];
@@ -1074,6 +1257,13 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
   /* ---- immersive scene pack: ${brief.archetype || 'none'} ---- */
   ${SC ? SC.css : ''}
 
+  /* ---- INK-CRAFT FINISH (gift page): heroline never foil-transparent; medallion holds the mark ----
+     the gift page is already ink-crafted (2px ink borders + hard offset shadows on every card/pill),
+     so this only neutralises the scene's gold-foil background-clip:text on .heroline + sizes the mark. */
+  .heroline,.heroline .ar,.heroline .en{background:none!important;background-image:none!important;-webkit-text-fill-color:var(--rose)!important;color:var(--rose)!important;animation:none!important;filter:none!important}
+  .medal .mark,.medal-s .mark{display:block;width:82%;height:82%}
+  .medal.hasmark>span,.medal-s.hasmark>span{display:none}
+
   /* ---- BRAND MOTION DNA: press physics — scale .96 in, overshoot release ---- */
   @media (prefers-reduced-motion: no-preference){
     .touchable{transition:transform .32s cubic-bezier(.34,1.56,.64,1)}
@@ -1117,7 +1307,7 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
 <div class="curtain" id="msCurtain" aria-hidden="true"></div>
 <div class="bigmark" aria-hidden="true"><span class="ar">${initAr}</span><span class="en">${initEn}</span></div>
 <header class="top">
-  <div class="bx"><div class="medal-s${logo ? ' haslogo' : ''}">${logo ? logoImg(logo) : ''}<span><span class="ar">${initAr}</span><span class="en">${initEn}</span></span></div>
+  <div class="bx"><div class="medal-s${logo ? ' haslogo' : miniMark ? ' hasmark' : ''}">${logo ? logoImg(logo) : miniMark}<span><span class="ar">${initAr}</span><span class="en">${initEn}</span></span></div>
     <div><div class="bn">${B(esc(cafe.nameAr), esc(cafe.name))}</div><div class="loc">${B(esc(cafe.areaAr) + ' · الرياض', esc(cafe.area) + ' · Riyadh')}</div></div></div>
   <button class="lang touchable" id="langToggle">English</button>
 </header>
@@ -1126,7 +1316,7 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
     ${SC ? SC.heroHtml : ''}
     ${motesHtml(brief.motif, sd)}
     <div class="kick">${B('🎁 هدية من منيو سادة · ليست إعلاناً', '🎁 A gift from Menu Sadah · not an ad')}</div>
-    <div class="medal${logo ? ' haslogo' : ''}">${logo ? logoImg(logo) : ''}<span><span class="ar">${initAr}</span><span class="en">${initEn}</span></span></div>
+    <div class="medal${logo ? ' haslogo' : giftMark ? ' hasmark' : ''}">${logo ? logoImg(logo) : giftMark}<span><span class="ar">${initAr}</span><span class="en">${initEn}</span></span></div>
     <h1>${B('أهلاً ببيت <b>' + esc(cafe.nameAr) + '</b>', 'Welcome home, <b>' + esc(cafe.name) + '</b>.')}</h1>
     <div class="world">${B('✦ ' + esc(brief.world?.ar || '') + ' ✦', '✦ ' + esc(brief.world?.en || '') + ' ✦')}</div>
     <div class="heroline hand">${B(esc(brief.heroAr || ''), esc(brief.heroEn || ''))}</div>

@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap">
 <style>
   :root{--bg-0:#170d11;--bg-1:#23151b;--bg-2:#2f1e25;--border-1:#3a272f;--border-2:#593645;
-    --text-1:#f2edef;--text-2:#cabac0;--text-3:#947f88;--accent:#d8749d;--accent-2:#ea9faa;--accent-soft:#d8749d22;
+    --text-1:#f2edef;--text-2:#cabac0;--text-3:#947f88;--ink:#f2edef;--accent:#d8749d;--accent-2:#ea9faa;--accent-soft:#d8749d22;
     --sa:#d8749d;--sa2:#d77c70;--radius:16px;--shadow:0 6px 16px #00000080, 0 16px 40px #00000059;
     --m-ease:cubic-bezier(.16,1,.3,1);--m-dir:up;--tx:1}
   /* RTL MIRROR LAW: --tx flips direction-signed decorative transforms in Arabic */
@@ -349,6 +349,17 @@ body{
   /* ---- polish50 bespoke touch: Night Rose Bloom ---- */
   .bx-rose{display:flex;flex-direction:column;align-items:center;gap:4px;margin:10px auto;width:max-content}.bx-rose svg{opacity:.85;overflow:visible}.bx-p1,.bx-p2,.bx-p3{transform-origin:20px 20px}.bx-rose-note{font-size:.72rem;color:var(--text-2)}@media (prefers-reduced-motion:no-preference){.bx-p1,.bx-p2,.bx-p3{transition:transform .9s cubic-bezier(.2,.7,.2,1)}.bx-rose:hover .bx-p1{transform:scale(1.25)}.bx-rose:hover .bx-p2{transform:rotate(40deg)}.bx-rose:hover .bx-p3{transform:rotate(-30deg) scale(1.06)}}
 
+  /* ---- INK-CRAFT FINISH: confident brand-INK display type (never foil-transparent) ----
+     GODZILLA law #1: ink carries the words; accent only decorates (underline/dots/prices/borders).
+     Placed after the scene pack so the gold-foil background-clip:text on headings is neutralised. */
+  h1,h1 .ar,h1 .en{background:none!important;background-image:none!important;-webkit-text-fill-color:#f2edef!important;color:#f2edef!important}
+  h1.shimmer{background:none!important;animation:none!important}
+  .heroline,.heroline .ar,.heroline .en{background:none!important;background-image:none!important;-webkit-text-fill-color:#cabac0!important;color:#cabac0!important;animation:none!important;filter:none!important}
+  /* the animated brand mark sits inside the medallion; the plain initial is hidden when it (or a real logo) is present */
+  .medal .mark{display:block;width:82%;height:82%}
+  .medal.hasmark>span{display:none}
+
+
   /* ---- brandshots: the cafe's OWN photos, pinned like polaroids ---- */
   .brandshots{display:flex;justify-content:center;align-items:flex-start;gap:14px;margin-top:22px;position:relative;z-index:1}
   .bshot{position:relative;width:96px;margin:0;background:#23151b;border:1px solid var(--border-2);padding:6px 6px 16px;
@@ -391,6 +402,8 @@ body{
     .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
     h1{color:#000!important;background:none!important;-webkit-text-fill-color:#000!important;font-size:30px!important}
     .medal{width:70px!important;height:70px!important;margin-bottom:8px;border-color:#000!important;background:#fff!important}
+    .medal .mark{display:none!important}
+    .medal.hasmark>span{display:inline!important}
     .medal span{color:#000!important;font-size:32px!important}
     .medal::after{border-color:#00000055!important}
     .greet,.world,.world b,.heroline{color:#000!important}
@@ -463,7 +476,7 @@ body{
 <rect y="783" width="1440" height="24" fill="url(#pdSadu)" opacity=".85"/>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal"><span><span class="ar">ي</span><span class="en">Y</span></span></div>
+    <div class="medal hasmark"><svg class="mark bm24clp9m" viewBox="0 0 100 100" fill="none" role="img" aria-label="Yellow Rose"><style>.bm24clp9m{overflow:visible}.bm24clp9m *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm24clp9m .mk{animation:bm24clp9mbob 5s ease-in-out 1.7s infinite}@keyframes bm24clp9mbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm24clp9mtop{0%{opacity:0;transform:translateY(-30px) rotate(-10deg)}100%{transform:none}}@keyframes bm24clp9mbot{0%{opacity:0;transform:translateY(30px)}100%{transform:none}}@keyframes bm24clp9mpop{0%{opacity:0;transform:scale(.3)}100%{opacity:1;transform:none}}.bm24clp9m .p1{animation:bm24clp9mtop .8s cubic-bezier(.2,1.3,.3,1) both}.bm24clp9m .p2{animation:bm24clp9mbot .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bm24clp9m .p3{animation:bm24clp9mpop .5s ease .7s both}}</style><g class="mk"><g class="p1"><path d="M26 48 L50 28 L74 48 Z" fill="var(--sa)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="30" y="48" width="40" height="30" rx="4" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><path d="M44 78 L44 60 Q50 55 56 60 L56 78 Z" fill="var(--sa2)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g></g></svg><span><span class="ar">ي</span><span class="en">Y</span></span></div>
     <h1><span class="ar">يلو روز</span><span class="en">Yellow Rose</span></h1>
     <div class="world"><span class="ar">✦ <b>حديقة ورد تسهر معنا</b> ✦</span><span class="en">✦ <b>a rose garden that stays up late</b> ✦</span></div>
     <div class="heroline"><span class="ar">أهلاً بكم بين الورد</span><span class="en">welcome in, among the roses</span></div>
@@ -811,7 +824,6 @@ body{
     });
     setTimeout(()=>{
       document.querySelectorAll('h1 .ar, h1 .en').forEach(el=>{el.textContent=el.textContent;});
-      document.querySelector('h1').classList.add('shimmer');
     },2400);
   }
   // day -> night: the sky shifts as you walk deeper — or by hand via the sky-dial

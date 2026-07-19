@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&family=Lalezar&family=Nunito:wght@400;700&family=Cairo:wght@400;700&display=swap">
 <style>
   :root{--bg-0:#16100e;--bg-1:#211a17;--bg-2:#2c2421;--border-1:#3a2d27;--border-2:#594136;
-    --text-1:#f2efed;--text-2:#cabfba;--text-3:#94857f;--accent:#be7c60;--accent-2:#d6b385;--accent-soft:#be7c6022;
+    --text-1:#f2efed;--text-2:#cabfba;--text-3:#94857f;--ink:#f2efed;--accent:#be7c60;--accent-2:#d6b385;--accent-soft:#be7c6022;
     --sa:#be7c60;--sa2:#cabd7d;--radius:16px;--shadow:0 6px 16px #00000080, 0 16px 40px #00000059;
     --m-ease:cubic-bezier(.16,1,.3,1);--m-dir:up;--tx:1}
   /* RTL MIRROR LAW: --tx flips direction-signed decorative transforms in Arabic */
@@ -362,6 +362,17 @@ body{
   /* ---- polish50 bespoke touch: Slow Steam Breath ---- */
   .bx-rzn{display:flex;justify-content:center;margin:4px auto 0}.bx-rzn svg{width:38px;height:46px;overflow:visible}.bx-rzn path{fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;opacity:.5}.bx-rzn path+path{stroke:var(--sa);opacity:.32}.bx-rzn-note{font-size:.72rem;color:var(--text-2);text-align:center;font-style:italic;opacity:.85}@media (prefers-reduced-motion:no-preference){.bx-rzn path{animation:bx-rzn-steam 6s ease-in-out infinite}.bx-rzn path+path{animation-delay:3s}@keyframes bx-rzn-steam{0%{transform:translateY(6px);opacity:0}35%{opacity:.5}100%{transform:translateY(-9px);opacity:0}}}
 
+  /* ---- INK-CRAFT FINISH: confident brand-INK display type (never foil-transparent) ----
+     GODZILLA law #1: ink carries the words; accent only decorates (underline/dots/prices/borders).
+     Placed after the scene pack so the gold-foil background-clip:text on headings is neutralised. */
+  h1,h1 .ar,h1 .en{background:none!important;background-image:none!important;-webkit-text-fill-color:#f2efed!important;color:#f2efed!important}
+  h1.shimmer{background:none!important;animation:none!important}
+  .heroline,.heroline .ar,.heroline .en{background:none!important;background-image:none!important;-webkit-text-fill-color:#cabfba!important;color:#cabfba!important;animation:none!important;filter:none!important}
+  /* the animated brand mark sits inside the medallion; the plain initial is hidden when it (or a real logo) is present */
+  .medal .mark{display:block;width:82%;height:82%}
+  .medal.hasmark>span{display:none}
+
+
   /* ---- brandshots: the cafe's OWN photos, pinned like polaroids ---- */
   .brandshots{display:flex;justify-content:center;align-items:flex-start;gap:14px;margin-top:22px;position:relative;z-index:1}
   .bshot{position:relative;width:96px;margin:0;background:#211a17;border:1px solid var(--border-2);padding:6px 6px 16px;
@@ -404,6 +415,8 @@ body{
     .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
     h1{color:#000!important;background:none!important;-webkit-text-fill-color:#000!important;font-size:30px!important}
     .medal{width:70px!important;height:70px!important;margin-bottom:8px;border-color:#000!important;background:#fff!important}
+    .medal .mark{display:none!important}
+    .medal.hasmark>span{display:inline!important}
     .medal span{color:#000!important;font-size:32px!important}
     .medal::after{border-color:#00000055!important}
     .greet,.world,.world b,.heroline{color:#000!important}
@@ -495,7 +508,7 @@ body{
 <rect x="0" y="779" width="1440" height="2" fill="rgba(232,194,104,0.55)"/>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal"><span><span class="ar">ر</span><span class="en">R</span></span></div>
+    <div class="medal hasmark"><svg class="mark bm14l7dnnm" viewBox="0 0 100 100" fill="none" role="img" aria-label="Razeen Coffee"><style>.bm14l7dnnm{overflow:visible}.bm14l7dnnm *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm14l7dnnm .mk{animation:bm14l7dnnmbob 5s ease-in-out 1.7s infinite}@keyframes bm14l7dnnmbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm14l7dnnmp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bm14l7dnnm .p1{animation:bm14l7dnnmp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bm14l7dnnm .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bm14l7dnnmdr 1s ease .55s forwards}@keyframes bm14l7dnnmdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ر</span><span class="en">R</span></span></div>
     <h1><span class="ar">رزين كوفي</span><span class="en">Razeen Coffee</span></h1>
     <div class="world"><span class="ar">✦ <b>مجلس رزين يهدّي الخاطر</b> ✦</span><span class="en">✦ <b>a calm majlis where time slows</b> ✦</span></div>
     <div class="heroline"><span class="ar">استرخِ، المجلس مجلسك</span><span class="en">Sit long, sip slow</span></div>
@@ -966,7 +979,6 @@ body{
     });
     setTimeout(()=>{
       document.querySelectorAll('h1 .ar, h1 .en').forEach(el=>{el.textContent=el.textContent;});
-      document.querySelector('h1').classList.add('shimmer');
     },2400);
   }
   // day -> night: the sky shifts as you walk deeper — or by hand via the sky-dial

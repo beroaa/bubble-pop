@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap">
 <style>
   :root{--bg-0:#0f160e;--bg-1:#182216;--bg-2:#222d20;--border-1:#2a3a27;--border-2:#3b5936;
-    --text-1:#eef2ed;--text-2:#bccaba;--text-3:#82947f;--accent:#78c86a;--accent-2:#91de9a;--accent-soft:#78c86a22;
+    --text-1:#eef2ed;--text-2:#bccaba;--text-3:#82947f;--ink:#eef2ed;--accent:#78c86a;--accent-2:#91de9a;--accent-soft:#78c86a22;
     --sa:#78c86a;--sa2:#79cd99;--radius:16px;--shadow:0 6px 16px #00000080, 0 16px 40px #00000059;
     --m-ease:cubic-bezier(.34,1.56,.64,1);--m-dir:scale;--tx:1}
   /* RTL MIRROR LAW: --tx flips direction-signed decorative transforms in Arabic */
@@ -343,6 +343,17 @@ body::after{
   /* ---- polish50 bespoke touch: Green Charge Bar ---- */
   .bx-charge{display:flex;gap:4px;align-items:flex-end;justify-content:center;position:relative;padding:6px;cursor:pointer}.bx-charge i{width:9px;background:var(--accent);opacity:.22;box-shadow:0 0 7px var(--accent)}.bx-charge i:nth-child(1){height:10px}.bx-charge i:nth-child(2){height:14px}.bx-charge i:nth-child(3){height:18px}.bx-charge i:nth-child(4){height:22px}.bx-charge i:nth-child(5){height:26px}.bx-charge:hover i,.bx-charge:active i{opacity:1}.bx-charge-note{position:absolute;top:-16px;inset-inline-start:50%;transform:translateX(-50%);font-size:.68rem;letter-spacing:.14em;color:var(--sa);white-space:nowrap;opacity:.8}@media (prefers-reduced-motion:no-preference){.bx-charge i{animation:bx-zap 1.9s steps(1) infinite}.bx-charge i:nth-child(2){animation-delay:.19s}.bx-charge i:nth-child(3){animation-delay:.38s}.bx-charge i:nth-child(4){animation-delay:.57s}.bx-charge i:nth-child(5){animation-delay:.76s}@keyframes bx-zap{0%{opacity:.22}40%{opacity:1}78%{opacity:.22}}}
 
+  /* ---- INK-CRAFT FINISH: confident brand-INK display type (never foil-transparent) ----
+     GODZILLA law #1: ink carries the words; accent only decorates (underline/dots/prices/borders).
+     Placed after the scene pack so the gold-foil background-clip:text on headings is neutralised. */
+  h1,h1 .ar,h1 .en{background:none!important;background-image:none!important;-webkit-text-fill-color:#eef2ed!important;color:#eef2ed!important}
+  h1.shimmer{background:none!important;animation:none!important}
+  .heroline,.heroline .ar,.heroline .en{background:none!important;background-image:none!important;-webkit-text-fill-color:#bccaba!important;color:#bccaba!important;animation:none!important;filter:none!important}
+  /* the animated brand mark sits inside the medallion; the plain initial is hidden when it (or a real logo) is present */
+  .medal .mark{display:block;width:82%;height:82%}
+  .medal.hasmark>span{display:none}
+
+
 
   @media (prefers-reduced-motion: reduce){
     *{animation:none!important;transition:none!important}
@@ -369,6 +380,8 @@ body::after{
     .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
     h1{color:#000!important;background:none!important;-webkit-text-fill-color:#000!important;font-size:30px!important}
     .medal{width:70px!important;height:70px!important;margin-bottom:8px;border-color:#000!important;background:#fff!important}
+    .medal .mark{display:none!important}
+    .medal.hasmark>span{display:inline!important}
     .medal span{color:#000!important;font-size:32px!important}
     .medal::after{border-color:#00000055!important}
     .greet,.world,.world b,.heroline{color:#000!important}
@@ -426,7 +439,7 @@ body::after{
 <path class="nz-neon" d="M0 401h1200" fill="none" stroke="#78c86a" stroke-width="2.2"/>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal"><span><span class="ar">م</span><span class="en">M</span></span></div>
+    <div class="medal hasmark"><svg class="mark bm15o2rs0m" viewBox="0 0 100 100" fill="none" role="img" aria-label="Matchafulll"><style>.bm15o2rs0m{overflow:visible}.bm15o2rs0m *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm15o2rs0m .mk{animation:bm15o2rs0mbob 5s ease-in-out 1.7s infinite}@keyframes bm15o2rs0mbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm15o2rs0mcup{0%{opacity:0;transform:translateY(26px) scale(.7)}100%{transform:none}}.bm15o2rs0m .p1,.bm15o2rs0m .p2{animation:bm15o2rs0mcup .85s cubic-bezier(.2,1.2,.3,1) both}.bm15o2rs0m .p2{animation-delay:.1s}.bm15o2rs0m .p3{stroke-dasharray:50;stroke-dashoffset:50;animation:bm15o2rs0mdr .6s ease .7s forwards}@keyframes bm15o2rs0mdr{to{stroke-dashoffset:0}}.bm15o2rs0m .lf{opacity:0;animation:bm15o2rs0mleaf .7s cubic-bezier(.2,1.4,.3,1) .9s forwards}@keyframes bm15o2rs0mleaf{0%{opacity:0;transform:translateY(8px) scale(.4) rotate(-20deg)}100%{opacity:1;transform:none}}}</style><g class="mk"><path class="p1" d="M24 52 Q50 84 76 52 Z" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><ellipse class="p2" cx="50" cy="52" rx="26" ry="7" fill="var(--sa2)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><path class="p3" d="M50 52 L50 30 M50 34 l-8 -6 M50 34 l8 -6" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/><path class="lf" d="M64 40 q10 -8 6 -20 q-12 4 -6 20 Z" fill="var(--sa)" stroke="var(--ink)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">م</span><span class="en">M</span></span></div>
     <h1><span class="ar">ماتشافل</span><span class="en">Matchafulll</span></h1>
     <div class="world"><span class="ar">✦ <b>سهرة خضرا توهّج في الليل</b> ✦</span><span class="en">✦ <b>a green glow after dark</b> ✦</span></div>
     <div class="heroline"><span class="ar">جرعة خضرا تشغّل السهرة</span><span class="en">your green charge for tonight</span></div>
@@ -671,7 +684,6 @@ body::after{
     });
     setTimeout(()=>{
       document.querySelectorAll('h1 .ar, h1 .en').forEach(el=>{el.textContent=el.textContent;});
-      document.querySelector('h1').classList.add('shimmer');
     },2400);
   }
   // day -> night: the sky shifts as you walk deeper — or by hand via the sky-dial

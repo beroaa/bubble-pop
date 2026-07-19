@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Baloo+Bhaijaan+2:wght@500;700&family=Nunito:wght@400;700&display=swap">
 <style>
   :root{--bg-0:#150e11;--bg-1:#21171a;--bg-2:#2c2124;--border-1:#3a272d;--border-2:#593642;
-    --text-1:#f2edef;--text-2:#cababf;--text-3:#947f86;--accent:#b95f7d;--accent-2:#d28389;--accent-soft:#b95f7d22;
+    --text-1:#f2edef;--text-2:#cababf;--text-3:#947f86;--ink:#f2edef;--accent:#b95f7d;--accent-2:#d28389;--accent-soft:#b95f7d22;
     --sa:#b95f7d;--sa2:#c78e7f;--radius:16px;--shadow:0 6px 16px #00000080, 0 16px 40px #00000059;
     --m-ease:cubic-bezier(.34,1.56,.64,1);--m-dir:start;--tx:1}
   /* RTL MIRROR LAW: --tx flips direction-signed decorative transforms in Arabic */
@@ -362,6 +362,17 @@ body{
   /* ---- polish50 bespoke touch: Open Door Swing ---- */
   .bx-door{display:inline-flex;align-items:flex-end;gap:.7em}.bx-arch{display:block;width:1.7em;height:2.2em;border:2px solid var(--accent);border-bottom:0;border-radius:1em 1em 0 0;position:relative}.bx-leaf{position:absolute;inset:3px 3px 0;background:var(--sa);border-radius:.75em .75em 0 0;transform-origin:0 50%}.bx-door:hover .bx-leaf{transform:perspective(120px) rotateY(-58deg);opacity:.85}.bx-door-note{font-size:.72em;color:var(--text-2)}@media (prefers-reduced-motion: no-preference){.bx-leaf{transition:transform .6s cubic-bezier(.3,.8,.3,1),opacity .6s ease}}
 
+  /* ---- INK-CRAFT FINISH: confident brand-INK display type (never foil-transparent) ----
+     GODZILLA law #1: ink carries the words; accent only decorates (underline/dots/prices/borders).
+     Placed after the scene pack so the gold-foil background-clip:text on headings is neutralised. */
+  h1,h1 .ar,h1 .en{background:none!important;background-image:none!important;-webkit-text-fill-color:#f2edef!important;color:#f2edef!important}
+  h1.shimmer{background:none!important;animation:none!important}
+  .heroline,.heroline .ar,.heroline .en{background:none!important;background-image:none!important;-webkit-text-fill-color:#cababf!important;color:#cababf!important;animation:none!important;filter:none!important}
+  /* the animated brand mark sits inside the medallion; the plain initial is hidden when it (or a real logo) is present */
+  .medal .mark{display:block;width:82%;height:82%}
+  .medal.hasmark>span{display:none}
+
+
   /* ---- brandshots: the cafe's OWN photos, pinned like polaroids ---- */
   .brandshots{display:flex;justify-content:center;align-items:flex-start;gap:14px;margin-top:22px;position:relative;z-index:1}
   .bshot{position:relative;width:96px;margin:0;background:#21171a;border:1px solid var(--border-2);padding:6px 6px 16px;
@@ -404,6 +415,8 @@ body{
     .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
     h1{color:#000!important;background:none!important;-webkit-text-fill-color:#000!important;font-size:30px!important}
     .medal{width:70px!important;height:70px!important;margin-bottom:8px;border-color:#000!important;background:#fff!important}
+    .medal .mark{display:none!important}
+    .medal.hasmark>span{display:inline!important}
     .medal span{color:#000!important;font-size:32px!important}
     .medal::after{border-color:#00000055!important}
     .greet,.world,.world b,.heroline{color:#000!important}
@@ -495,7 +508,7 @@ body{
 <rect x="0" y="779" width="1440" height="2" fill="rgba(232,194,104,0.55)"/>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal"><span><span class="ar">د</span><span class="en">D</span></span></div>
+    <div class="medal hasmark"><svg class="mark bm7ap7gm" viewBox="0 0 100 100" fill="none" role="img" aria-label="Duirrah"><style>.bm7ap7gm{overflow:visible}.bm7ap7gm *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm7ap7gm .mk{animation:bm7ap7gmbob 5s ease-in-out 1.7s infinite}@keyframes bm7ap7gmbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm7ap7gmfl{0%{opacity:0;transform:translateX(-40px) rotate(-12deg)}100%{transform:none}}@keyframes bm7ap7gmfr{0%{opacity:0;transform:translateX(40px) rotate(12deg)}100%{transform:none}}@keyframes bm7ap7gmdrop{0%{opacity:0;transform:translateY(-30px) scale(.4)}70%{transform:translateY(2px) scale(1.1)}100%{transform:none}}.bm7ap7gm .p1{animation:bm7ap7gmfl .8s cubic-bezier(.2,1.2,.3,1) both}.bm7ap7gm .p2{animation:bm7ap7gmfr .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bm7ap7gm .p3{animation:bm7ap7gmdrop .7s cubic-bezier(.2,1.5,.3,1) .55s both}.bm7ap7gm .p4{opacity:0;animation:bm7ap7gmfd .4s ease .95s forwards}@keyframes bm7ap7gmfd{to{opacity:1}}}</style><g class="mk"><g class="p1"><rect x="22" y="54" width="56" height="24" rx="7" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="32" y="34" width="36" height="22" rx="7" fill="var(--sa)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><circle cx="50" cy="26" r="6" fill="var(--accent-2)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g><path class="p4" d="M50 20 q3 -6 8 -7" stroke="var(--ink)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">د</span><span class="en">D</span></span></div>
     <h1><span class="ar">دويرة</span><span class="en">Duirrah</span></h1>
     <div class="world"><span class="ar">✦ <b>بيت صغير بابه مفتوح للحلا</b> ✦</span><span class="en">✦ <b>a little house with an open door</b> ✦</span></div>
     <div class="heroline"><span class="ar">دويرة صغيرة وقلبها كبير</span><span class="en">a little house, a big welcome</span></div>
@@ -861,7 +874,6 @@ body{
     });
     setTimeout(()=>{
       document.querySelectorAll('h1 .ar, h1 .en').forEach(el=>{el.textContent=el.textContent;});
-      document.querySelector('h1').classList.add('shimmer');
     },2400);
   }
   // day -> night: the sky shifts as you walk deeper — or by hand via the sky-dial

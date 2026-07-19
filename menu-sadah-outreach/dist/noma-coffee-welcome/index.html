@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;600&family=Caveat:wght@600;700&family=Patrick+Hand&family=Aref+Ruqaa:wght@400;700&display=swap">
 <style>
-  :root{--ink:#3b1c12;--rose:#963f22;--gold:#9c8830;--ochre:#8b3757;--sage:#88b4a9;--paper:#fcf9f8;--paper2:#f5edea;--card:#fefcfb;
+  :root{--ink:#3b1c12;--rose:#a43f1e;--gold:#9c8830;--ochre:#8b3757;--sage:#88b4a9;--paper:#fcf9f8;--paper2:#f5edea;--card:#fefcfb;
     --m-ease:cubic-bezier(.34,1.56,.64,1);--m-dir:up;--tx:1}
   /* RTL MIRROR LAW: --tx flips direction-signed decorative transforms in Arabic */
   [dir="rtl"]{--tx:-1}
@@ -16,7 +16,7 @@
   body{font-family:'IBM Plex Sans Arabic',sans-serif,"Work Sans",-apple-system,Tahoma,sans-serif;background:var(--paper);color:var(--ink);
     font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
-    background:radial-gradient(700px 500px at 80% -10%,#963f220d,transparent 60%),
+    background:radial-gradient(700px 500px at 80% -10%,#a43f1e0d,transparent 60%),
     repeating-linear-gradient(0deg,#3b1c1205 0 2px,transparent 2px 5px)}
   [data-lang="ar"] .en,[data-lang="en"] .ar{display:none}
   .hand{font-family:Caveat,"Aref Ruqaa",cursive}
@@ -91,11 +91,11 @@
   .hl::before{content:"";position:absolute;inset:-.1em -.3em;background:#88b4a988;z-index:-1;
     border-radius:.35em .5em .4em .55em/.5em .4em .55em .35em;transform:rotate(-1.5deg)}
   .st{background:var(--card);border:2px solid var(--ink);border-radius:22px 10px 22px 10px;overflow:hidden;margin-top:16px;box-shadow:4px 4px 0 #3b1c1222}
-  .st .ph{position:relative;height:150px;background:linear-gradient(135deg,#963f2222,#9c883022);display:flex;align-items:center;justify-content:center}
+  .st .ph{position:relative;height:150px;background:linear-gradient(135deg,#a43f1e22,#9c883022);display:flex;align-items:center;justify-content:center}
   .st .ph img{width:100%;height:100%;object-fit:cover;filter:sepia(.12) saturate(1.08) contrast(1.04)}
   /* designed photo treatment: brand-tint wash (multiply where supported, plain elsewhere) + 1px inner border */
   .st .ph.hasimg::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-    background:linear-gradient(160deg,#963f22,transparent 55%);opacity:.28;mix-blend-mode:multiply}
+    background:linear-gradient(160deg,#a43f1e,transparent 55%);opacity:.28;mix-blend-mode:multiply}
   .st .ph.hasimg::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;box-shadow:inset 0 0 0 1px #3b1c1240}
   .st .ph .big-init{font-size:64px;font-weight:800;color:#3b1c1233}
   .st .tag{position:absolute;top:10px;inset-inline-start:12px;background:var(--card);border:2px solid var(--ink);border-radius:999px;
@@ -150,10 +150,10 @@
 body{
   background-color:#fcf9f8;
   background-image:
-    radial-gradient(1100px 560px at 16% -8%, color-mix(in srgb, #963f22 26%, transparent), transparent 62%),
-    radial-gradient(900px 520px at 86% 2%, color-mix(in srgb, #ca873f 22%, transparent), transparent 60%),
+    radial-gradient(1100px 560px at 16% -8%, color-mix(in srgb, #a43f1e 26%, transparent), transparent 62%),
+    radial-gradient(900px 520px at 86% 2%, color-mix(in srgb, #d0882f 22%, transparent), transparent 60%),
     radial-gradient(1200px 640px at 50% 112%, color-mix(in srgb, #c79a3a 18%, transparent), transparent 66%),
-    conic-gradient(from 210deg at 72% 18%, #f8f3f2, #fcf9f8 30%, color-mix(in srgb, #5e2d1d 55%, #fcf9f8) 52%, #fcf9f8 76%, #f8f3f2),
+    conic-gradient(from 210deg at 72% 18%, #f8f3f2, #fcf9f8 30%, color-mix(in srgb, #592817 55%, #fcf9f8) 52%, #fcf9f8 76%, #f8f3f2),
     linear-gradient(180deg, #fcf9f8, #f8f3f2 58%, #efe8e6);
   background-attachment:fixed;
 }
@@ -167,7 +167,7 @@ body::after{
 }
 /* the big fixed scene (SVG lives in heroHtml) */
 .scenebg{position:fixed; inset:0; width:100%; height:100%; z-index:-1; pointer-events:none; display:block;}
-.nz-neon{filter:drop-shadow(0 0 5px color-mix(in srgb, #d48b73 85%, transparent)) drop-shadow(0 0 16px color-mix(in srgb, #963f22 55%, transparent));}
+.nz-neon{filter:drop-shadow(0 0 5px color-mix(in srgb, #d48b73 85%, transparent)) drop-shadow(0 0 16px color-mix(in srgb, #a43f1e 55%, transparent));}
 .nz-goldneon{filter:drop-shadow(0 0 4px color-mix(in srgb, #e8c268 80%, transparent)) drop-shadow(0 0 14px color-mix(in srgb, #c79a3a 45%, transparent));}
 /* gold-foil headline shine (static fallback = solid bright gold) */
 .room-h2 b, .heroline{color:#e8c268; text-shadow:0 0 18px color-mix(in srgb, #c79a3a 45%, transparent);}
@@ -186,7 +186,7 @@ body::after{
   border-bottom:1px solid color-mix(in srgb, #8a6a1f 80%, transparent);
   background:
     conic-gradient(from 45deg at 50% 50%, color-mix(in srgb, #e8c268 92%, #fcf9f8) 0 25%, transparent 0 50%, #c79a3a 0 75%, transparent 0) 0 50%/14px 14px repeat,
-    repeating-linear-gradient(90deg, color-mix(in srgb, #963f22 80%, #ffffff) 0 10px, color-mix(in srgb, #5e2d1d 85%, #ffffff) 10px 14px);
+    repeating-linear-gradient(90deg, color-mix(in srgb, #a43f1e 80%, #ffffff) 0 10px, color-mix(in srgb, #592817 85%, #ffffff) 10px 14px);
   box-shadow:0 0 18px color-mix(in srgb, #c79a3a 30%, transparent);
 }
 /* section separator: neon rails meeting sadu diamonds */
@@ -216,6 +216,13 @@ body::after{
 @keyframes nzFlick{0%,100%{opacity:1}7%{opacity:.35}9%{opacity:1}11%{opacity:.55}13%{opacity:1}54%{opacity:1}56%{opacity:.4}58%{opacity:1}}
 @keyframes nzTwinkle{0%,100%{opacity:.9}50%{opacity:.45}}
 
+
+  /* ---- INK-CRAFT FINISH (gift page): heroline never foil-transparent; medallion holds the mark ----
+     the gift page is already ink-crafted (2px ink borders + hard offset shadows on every card/pill),
+     so this only neutralises the scene's gold-foil background-clip:text on .heroline + sizes the mark. */
+  .heroline,.heroline .ar,.heroline .en{background:none!important;background-image:none!important;-webkit-text-fill-color:var(--rose)!important;color:var(--rose)!important;animation:none!important;filter:none!important}
+  .medal .mark,.medal-s .mark{display:block;width:82%;height:82%}
+  .medal.hasmark>span,.medal-s.hasmark>span{display:none}
 
   /* ---- BRAND MOTION DNA: press physics — scale .96 in, overshoot release ---- */
   @media (prefers-reduced-motion: no-preference){
@@ -260,7 +267,7 @@ body::after{
 <div class="curtain" id="msCurtain" aria-hidden="true"></div>
 <div class="bigmark" aria-hidden="true"><span class="ar">ن</span><span class="en">N</span></div>
 <header class="top">
-  <div class="bx"><div class="medal-s"><span><span class="ar">ن</span><span class="en">N</span></span></div>
+  <div class="bx"><div class="medal-s hasmark"><svg class="mark bm2tt8jvs" viewBox="0 0 100 100" fill="none" role="img" aria-label="Noma Coffee"><style>.bm2tt8jvs{overflow:visible}.bm2tt8jvs *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm2tt8jvs .mk{animation:bm2tt8jvsbob 5s ease-in-out 1.7s infinite}@keyframes bm2tt8jvsbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm2tt8jvsdia{0%{opacity:0;transform:rotate(-135deg) scale(.3)}100%{opacity:1;transform:none}}.bm2tt8jvs .p1{animation:bm2tt8jvsdia .9s cubic-bezier(.2,1.3,.3,1) both}@keyframes bm2tt8jvspx{0%{opacity:0;transform:scale(0)}100%{opacity:1;transform:none}}.bm2tt8jvs .p2{opacity:0;animation:bm2tt8jvspx .4s .55s forwards}.bm2tt8jvs .p3{opacity:0;animation:bm2tt8jvspx .4s .7s forwards}.bm2tt8jvs .p4{opacity:0;animation:bm2tt8jvspx .4s .85s forwards}.bm2tt8jvs .p5{opacity:0;animation:bm2tt8jvspx .4s 1s forwards}}</style><g class="mk"><path class="p1" d="M50 26 L74 50 L50 74 L26 50 Z" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><g class="p2"><rect x="40" y="46" width="8" height="8" fill="var(--gold)"/></g><g class="p3"><rect x="52" y="46" width="8" height="8" fill="var(--sage)"/></g><g class="p4"><rect x="46" y="34" width="8" height="8" fill="var(--ochre)"/></g><g class="p5"><rect x="46" y="58" width="8" height="8" fill="var(--gold)"/></g></g></svg><span><span class="ar">ن</span><span class="en">N</span></span></div>
     <div><div class="bn"><span class="ar">نوما كافيه</span><span class="en">Noma Coffee</span></div><div class="loc"><span class="ar">الرياض · الرياض</span><span class="en">Al Qirawan · Riyadh</span></div></div></div>
   <button class="lang touchable" id="langToggle">English</button>
 </header>
@@ -268,8 +275,8 @@ body::after{
   <section class="hero">
     <svg class="scenebg" viewBox="0 0 1200 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
 <defs>
-<linearGradient id="nzSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fcf9f8"/><stop offset=".58" stop-color="#5e2d1d" stop-opacity=".5"/><stop offset="1" stop-color="#f8f3f2"/></linearGradient>
-<radialGradient id="nzHal" cx=".5" cy=".63" r=".6"><stop offset="0" stop-color="#d48b73" stop-opacity=".4"/><stop offset=".45" stop-color="#963f22" stop-opacity=".16"/><stop offset="1" stop-color="#963f22" stop-opacity="0"/></radialGradient>
+<linearGradient id="nzSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fcf9f8"/><stop offset=".58" stop-color="#592817" stop-opacity=".5"/><stop offset="1" stop-color="#f8f3f2"/></linearGradient>
+<radialGradient id="nzHal" cx=".5" cy=".63" r=".6"><stop offset="0" stop-color="#d48b73" stop-opacity=".4"/><stop offset=".45" stop-color="#a43f1e" stop-opacity=".16"/><stop offset="1" stop-color="#a43f1e" stop-opacity="0"/></radialGradient>
 <linearGradient id="nzAu" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e8c268"/><stop offset=".55" stop-color="#c79a3a"/><stop offset="1" stop-color="#8a6a1f"/></linearGradient>
 <linearGradient id="nzSun" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e8c268" stop-opacity=".8"/><stop offset="1" stop-color="#947e2e" stop-opacity=".12"/></linearGradient>
 </defs>
@@ -289,13 +296,13 @@ body::after{
 <path d="M1010 200q30 8 28 36q-2 16-16 24"/>
 <path d="M902 300h128"/>
 </g>
-<g fill="none" stroke="#963f22" stroke-width="1.4" opacity=".55"><path d="M600 402 -80 640M600 402 120 640M600 402 300 640M600 402 462 640M600 402 600 640M600 402 738 640M600 402 900 640M600 402 1080 640M600 402 1280 640"/></g>
-<g fill="none" stroke="#ca873f" stroke-width="1.2" opacity=".5"><path d="M0 414h1200M0 430h1200M0 452h1200M0 482h1200M0 522h1200M0 574h1200M0 636h1200"/></g>
+<g fill="none" stroke="#a43f1e" stroke-width="1.4" opacity=".55"><path d="M600 402 -80 640M600 402 120 640M600 402 300 640M600 402 462 640M600 402 600 640M600 402 738 640M600 402 900 640M600 402 1080 640M600 402 1280 640"/></g>
+<g fill="none" stroke="#d0882f" stroke-width="1.2" opacity=".5"><path d="M0 414h1200M0 430h1200M0 452h1200M0 482h1200M0 522h1200M0 574h1200M0 636h1200"/></g>
 <path class="nz-neon" d="M0 401h1200" fill="none" stroke="#d48b73" stroke-width="2.2"/>
 </svg>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:15px;animation-delay:0s">✦</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:15px;animation-delay:0.7s">✧</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:15px;animation-delay:1.4s">⋆</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:15px;animation-delay:2.0999999999999996s">☾</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:15px;animation-delay:2.8s">✦</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:15px;animation-delay:3.5s">✧</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:12px;animation-delay:0.1999999999999993s">⋆</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:10px;animation-delay:0.8999999999999995s">☾</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="medal"><span><span class="ar">ن</span><span class="en">N</span></span></div>
+    <div class="medal hasmark"><svg class="mark bm2tt8jvw" viewBox="0 0 100 100" fill="none" role="img" aria-label="Noma Coffee"><style>.bm2tt8jvw{overflow:visible}.bm2tt8jvw *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm2tt8jvw .mk{animation:bm2tt8jvwbob 5s ease-in-out 1.7s infinite}@keyframes bm2tt8jvwbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm2tt8jvwdia{0%{opacity:0;transform:rotate(-135deg) scale(.3)}100%{opacity:1;transform:none}}.bm2tt8jvw .p1{animation:bm2tt8jvwdia .9s cubic-bezier(.2,1.3,.3,1) both}@keyframes bm2tt8jvwpx{0%{opacity:0;transform:scale(0)}100%{opacity:1;transform:none}}.bm2tt8jvw .p2{opacity:0;animation:bm2tt8jvwpx .4s .55s forwards}.bm2tt8jvw .p3{opacity:0;animation:bm2tt8jvwpx .4s .7s forwards}.bm2tt8jvw .p4{opacity:0;animation:bm2tt8jvwpx .4s .85s forwards}.bm2tt8jvw .p5{opacity:0;animation:bm2tt8jvwpx .4s 1s forwards}}</style><g class="mk"><path class="p1" d="M50 26 L74 50 L50 74 L26 50 Z" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><g class="p2"><rect x="40" y="46" width="8" height="8" fill="var(--gold)"/></g><g class="p3"><rect x="52" y="46" width="8" height="8" fill="var(--sage)"/></g><g class="p4"><rect x="46" y="34" width="8" height="8" fill="var(--ochre)"/></g><g class="p5"><rect x="46" y="58" width="8" height="8" fill="var(--gold)"/></g></g></svg><span><span class="ar">ن</span><span class="en">N</span></span></div>
     <h1><span class="ar">أهلاً ببيت <b>نوما كافيه</b></span><span class="en">Welcome home, <b>Noma Coffee</b>.</span></h1>
     <div class="world"><span class="ar">✦ مختبر قهوة يسهر معك ✦</span><span class="en">✦ a coffee lab glowing after midnight ✦</span></div>
     <div class="heroline hand"><span class="ar">اسهر معنا على فنجان</span><span class="en">stay up with a good cup</span></div>

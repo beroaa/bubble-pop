@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&family=Lalezar&family=Nunito:wght@400;700&family=Cairo:wght@400;700&display=swap">
 <style>
   :root{--bg-0:#16110d;--bg-1:#221b16;--bg-2:#2e251f;--border-1:#3a2f27;--border-2:#594436;
-    --text-1:#f2efed;--text-2:#cac0ba;--text-3:#94887f;--accent:#c8895f;--accent-2:#dec187;--accent-soft:#c8895f22;
+    --text-1:#f2efed;--text-2:#cac0ba;--text-3:#94887f;--ink:#f2efed;--accent:#c8895f;--accent-2:#dec187;--accent-soft:#c8895f22;
     --sa:#c8895f;--sa2:#d0ca76;--radius:16px;--shadow:0 6px 16px #00000080, 0 16px 40px #00000059;
     --m-ease:cubic-bezier(.16,1,.3,1);--m-dir:scale;--tx:1}
   /* RTL MIRROR LAW: --tx flips direction-signed decorative transforms in Arabic */
@@ -374,6 +374,17 @@ body{
 @keyframes bx-emb{0%,100%{opacity:.3}50%{opacity:.6}}
 }
 
+  /* ---- INK-CRAFT FINISH: confident brand-INK display type (never foil-transparent) ----
+     GODZILLA law #1: ink carries the words; accent only decorates (underline/dots/prices/borders).
+     Placed after the scene pack so the gold-foil background-clip:text on headings is neutralised. */
+  h1,h1 .ar,h1 .en{background:none!important;background-image:none!important;-webkit-text-fill-color:#f2efed!important;color:#f2efed!important}
+  h1.shimmer{background:none!important;animation:none!important}
+  .heroline,.heroline .ar,.heroline .en{background:none!important;background-image:none!important;-webkit-text-fill-color:#cac0ba!important;color:#cac0ba!important;animation:none!important;filter:none!important}
+  /* the animated brand mark sits inside the medallion; the plain initial is hidden when it (or a real logo) is present */
+  .medal .mark{display:block;width:82%;height:82%}
+  .medal.hasmark>span{display:none}
+
+
   /* ---- brandshots: the cafe's OWN photos, pinned like polaroids ---- */
   .brandshots{display:flex;justify-content:center;align-items:flex-start;gap:14px;margin-top:22px;position:relative;z-index:1}
   .bshot{position:relative;width:96px;margin:0;background:#221b16;border:1px solid var(--border-2);padding:6px 6px 16px;
@@ -416,6 +427,8 @@ body{
     .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
     h1{color:#000!important;background:none!important;-webkit-text-fill-color:#000!important;font-size:30px!important}
     .medal{width:70px!important;height:70px!important;margin-bottom:8px;border-color:#000!important;background:#fff!important}
+    .medal .mark{display:none!important}
+    .medal.hasmark>span{display:inline!important}
     .medal span{color:#000!important;font-size:32px!important}
     .medal::after{border-color:#00000055!important}
     .greet,.world,.world b,.heroline{color:#000!important}
@@ -507,7 +520,7 @@ body{
 <rect x="0" y="779" width="1440" height="2" fill="rgba(232,194,104,0.55)"/>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal"><span><span class="ar">ل</span><span class="en">L</span></span></div>
+    <div class="medal hasmark"><svg class="mark bm1jqqvmom" viewBox="0 0 100 100" fill="none" role="img" aria-label="Laminam Cafe"><style>.bm1jqqvmom{overflow:visible}.bm1jqqvmom *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm1jqqvmom .mk{animation:bm1jqqvmombob 5s ease-in-out 1.7s infinite}@keyframes bm1jqqvmombob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm1jqqvmomp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bm1jqqvmom .p1{animation:bm1jqqvmomp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bm1jqqvmom .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bm1jqqvmomdr 1s ease .55s forwards}@keyframes bm1jqqvmomdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ل</span><span class="en">L</span></span></div>
     <h1><span class="ar">لامي نم</span><span class="en">Laminam Cafe</span></h1>
     <div class="world"><span class="ar">✦ <b>مجلس هادي بضو خافت</b> ✦</span><span class="en">✦ <b>a quiet majlis carved in stone</b> ✦</span></div>
     <div class="heroline"><span class="ar">ادخل بهدوء واقعد براحتك</span><span class="en">settle in, softly</span></div>
@@ -978,7 +991,6 @@ body{
     });
     setTimeout(()=>{
       document.querySelectorAll('h1 .ar, h1 .en').forEach(el=>{el.textContent=el.textContent;});
-      document.querySelector('h1').classList.add('shimmer');
     },2400);
   }
   // day -> night: the sky shifts as you walk deeper — or by hand via the sky-dial

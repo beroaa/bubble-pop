@@ -100,6 +100,7 @@ export function makeCafe(entry) {
   entry.themeLabel = theme.label;
   return {
     theme,
+    type: entry.type, // powers the per-cafe animated brand mark (fallback: archetype/motif/world)
     slug: entry.slug,
     name: entry.name,
     nameAr: entry.nameAr || entry.name,

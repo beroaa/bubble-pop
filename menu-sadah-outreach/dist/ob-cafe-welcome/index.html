@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;600&family=Caveat:wght@600;700&family=Patrick+Hand&family=Aref+Ruqaa:wght@400;700&display=swap">
 <style>
-  :root{--ink:#17361f;--rose:#328648;--gold:#418b7e;--ochre:#5a7c46;--sage:#a68fae;--paper:#f8fcf9;--paper2:#eaf5ed;--card:#fbfefc;
+  :root{--ink:#17361f;--rose:#2f9349;--gold:#418b7e;--ochre:#5a7c46;--sage:#a68fae;--paper:#f8fcf9;--paper2:#eaf5ed;--card:#fbfefc;
     --m-ease:cubic-bezier(.16,1,.3,1);--m-dir:start;--tx:1}
   /* RTL MIRROR LAW: --tx flips direction-signed decorative transforms in Arabic */
   [dir="rtl"]{--tx:-1}
@@ -16,7 +16,7 @@
   body{font-family:'IBM Plex Sans Arabic',sans-serif,"Work Sans",-apple-system,Tahoma,sans-serif;background:var(--paper);color:var(--ink);
     font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
-    background:radial-gradient(700px 500px at 80% -10%,#3286480d,transparent 60%),
+    background:radial-gradient(700px 500px at 80% -10%,#2f93490d,transparent 60%),
     repeating-linear-gradient(0deg,#17361f05 0 2px,transparent 2px 5px)}
   [data-lang="ar"] .en,[data-lang="en"] .ar{display:none}
   .hand{font-family:Caveat,"Aref Ruqaa",cursive}
@@ -91,11 +91,11 @@
   .hl::before{content:"";position:absolute;inset:-.1em -.3em;background:#a68fae88;z-index:-1;
     border-radius:.35em .5em .4em .55em/.5em .4em .55em .35em;transform:rotate(-1.5deg)}
   .st{background:var(--card);border:2px solid var(--ink);border-radius:22px 10px 22px 10px;overflow:hidden;margin-top:16px;box-shadow:4px 4px 0 #17361f22}
-  .st .ph{position:relative;height:150px;background:linear-gradient(135deg,#32864822,#418b7e22);display:flex;align-items:center;justify-content:center}
+  .st .ph{position:relative;height:150px;background:linear-gradient(135deg,#2f934922,#418b7e22);display:flex;align-items:center;justify-content:center}
   .st .ph img{width:100%;height:100%;object-fit:cover;filter:sepia(.12) saturate(1.08) contrast(1.04)}
   /* designed photo treatment: brand-tint wash (multiply where supported, plain elsewhere) + 1px inner border */
   .st .ph.hasimg::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-    background:linear-gradient(160deg,#328648,transparent 55%);opacity:.28;mix-blend-mode:multiply}
+    background:linear-gradient(160deg,#2f9349,transparent 55%);opacity:.28;mix-blend-mode:multiply}
   .st .ph.hasimg::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;box-shadow:inset 0 0 0 1px #17361f40}
   .st .ph .big-init{font-size:64px;font-weight:800;color:#17361f33}
   .st .tag{position:absolute;top:10px;inset-inline-start:12px;background:var(--card);border:2px solid var(--ink);border-radius:999px;
@@ -150,10 +150,10 @@
 body{
   background-color:#f8fcf9;
   background-image:
-    radial-gradient(1100px 640px at 84% -12%, color-mix(in srgb, #328648 26%, transparent), transparent 62%),
+    radial-gradient(1100px 640px at 84% -12%, color-mix(in srgb, #2f9349 26%, transparent), transparent 62%),
     radial-gradient(840px 540px at -8% 32%, color-mix(in srgb, #c79a3a 18%, transparent), transparent 58%),
-    radial-gradient(920px 720px at 50% 118%, color-mix(in srgb, #275333 52%, transparent), transparent 72%),
-    conic-gradient(from 210deg at 50% 132%, #f8fcf9, color-mix(in srgb, #275333 38%, #f8fcf9), color-mix(in srgb, #328648 12%, #f8fcf9), #f8fcf9);
+    radial-gradient(920px 720px at 50% 118%, color-mix(in srgb, #21502d 52%, transparent), transparent 72%),
+    conic-gradient(from 210deg at 50% 132%, #f8fcf9, color-mix(in srgb, #21502d 38%, #f8fcf9), color-mix(in srgb, #2f9349 12%, #f8fcf9), #f8fcf9);
   background-attachment:fixed;
 }
 /* big fixed scene canvas (SVG supplied by heroHtml) */
@@ -175,7 +175,7 @@ body{
 /* sadu-inspired accent band (pure CSS diamond weave) */
 .gold-band{
   height:16px;border-top:1px solid #8a6a1f;border-bottom:1px solid #8a6a1f;
-  background-color:#275333;
+  background-color:#21502d;
   background-image:
     repeating-linear-gradient(45deg, #c79a3a 0 25%, transparent 0 50%),
     repeating-linear-gradient(-45deg, color-mix(in srgb, #3e8476 70%, #c79a3a) 0 25%, transparent 0 50%);
@@ -202,6 +202,13 @@ body{
   .scenebg g,.scenebg path,.scenebg circle,.room-h2 b,.heroline{animation:none !important;}
 }
 
+
+  /* ---- INK-CRAFT FINISH (gift page): heroline never foil-transparent; medallion holds the mark ----
+     the gift page is already ink-crafted (2px ink borders + hard offset shadows on every card/pill),
+     so this only neutralises the scene's gold-foil background-clip:text on .heroline + sizes the mark. */
+  .heroline,.heroline .ar,.heroline .en{background:none!important;background-image:none!important;-webkit-text-fill-color:var(--rose)!important;color:var(--rose)!important;animation:none!important;filter:none!important}
+  .medal .mark,.medal-s .mark{display:block;width:82%;height:82%}
+  .medal.hasmark>span,.medal-s.hasmark>span{display:none}
 
   /* ---- BRAND MOTION DNA: press physics — scale .96 in, overshoot release ---- */
   @media (prefers-reduced-motion: no-preference){
@@ -246,7 +253,7 @@ body{
 <div class="curtain" id="msCurtain" aria-hidden="true"></div>
 <div class="bigmark" aria-hidden="true"><span class="ar">أ</span><span class="en">O</span></div>
 <header class="top">
-  <div class="bx"><div class="medal-s"><span><span class="ar">أ</span><span class="en">O</span></span></div>
+  <div class="bx"><div class="medal-s hasmark"><svg class="mark bm1cgqm92s" viewBox="0 0 100 100" fill="none" role="img" aria-label="Ob Cafe"><style>.bm1cgqm92s{overflow:visible}.bm1cgqm92s *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm1cgqm92s .mk{animation:bm1cgqm92sbob 5s ease-in-out 1.7s infinite}@keyframes bm1cgqm92sbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm1cgqm92stop{0%{opacity:0;transform:translateY(-30px) rotate(-10deg)}100%{transform:none}}@keyframes bm1cgqm92sbot{0%{opacity:0;transform:translateY(30px)}100%{transform:none}}@keyframes bm1cgqm92spop{0%{opacity:0;transform:scale(.3)}100%{opacity:1;transform:none}}.bm1cgqm92s .p1{animation:bm1cgqm92stop .8s cubic-bezier(.2,1.3,.3,1) both}.bm1cgqm92s .p2{animation:bm1cgqm92sbot .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bm1cgqm92s .p3{animation:bm1cgqm92spop .5s ease .7s both}}</style><g class="mk"><g class="p1"><path d="M26 48 L50 28 L74 48 Z" fill="var(--gold)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="30" y="48" width="40" height="30" rx="4" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><path d="M44 78 L44 60 Q50 55 56 60 L56 78 Z" fill="var(--sage)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g></g></svg><span><span class="ar">أ</span><span class="en">O</span></span></div>
     <div><div class="bn"><span class="ar">أوبي كافيه</span><span class="en">Ob Cafe</span></div><div class="loc"><span class="ar">الرياض · الرياض</span><span class="en">Irqah · Riyadh</span></div></div></div>
   <button class="lang touchable" id="langToggle">English</button>
 </header>
@@ -257,8 +264,8 @@ body{
 <defs>
 <linearGradient id="tdG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8c268"/><stop offset=".5" stop-color="#c79a3a"/><stop offset="1" stop-color="#8a6a1f"/></linearGradient>
 <linearGradient id="tdK" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e6efe9"/><stop offset="1" stop-color="#f2f8f3"/></linearGradient>
-<radialGradient id="tdR" cx=".5" cy=".32" r=".8"><stop offset="0" stop-color="#328648" stop-opacity=".5"/><stop offset="1" stop-color="#275333" stop-opacity="0"/></radialGradient>
-<pattern id="tdS" width="26" height="26" patternUnits="userSpaceOnUse"><rect width="26" height="26" fill="#275333"/><polygon points="13,3 23,13 13,23 3,13" fill="#c79a3a" opacity=".6"/><polygon points="13,8 18,13 13,18 8,13" fill="#628349" opacity=".8"/></pattern>
+<radialGradient id="tdR" cx=".5" cy=".32" r=".8"><stop offset="0" stop-color="#2f9349" stop-opacity=".5"/><stop offset="1" stop-color="#21502d" stop-opacity="0"/></radialGradient>
+<pattern id="tdS" width="26" height="26" patternUnits="userSpaceOnUse"><rect width="26" height="26" fill="#21502d"/><polygon points="13,3 23,13 13,23 3,13" fill="#c79a3a" opacity=".6"/><polygon points="13,8 18,13 13,18 8,13" fill="#628349" opacity=".8"/></pattern>
 </defs>
 <rect width="1200" height="640" fill="url(#tdR)" opacity=".65"/>
 <g transform="rotate(-6 600 330)"><g class="td-sway">
@@ -268,19 +275,19 @@ body{
 <line x1="742" y1="222" x2="742" y2="438" stroke="#abceb5" stroke-width="3" stroke-dasharray="2 12"/>
 <rect x="354" y="232" width="356" height="16" fill="url(#tdS)"/>
 <rect x="354" y="288" width="300" height="7" rx="3.5" fill="url(#tdG)"/>
-<rect x="354" y="316" width="252" height="5" rx="2.5" fill="#6c8974" opacity=".55"/>
-<rect x="354" y="336" width="212" height="5" rx="2.5" fill="#6c8974" opacity=".4"/>
+<rect x="354" y="316" width="252" height="5" rx="2.5" fill="#67836f" opacity=".55"/>
+<rect x="354" y="336" width="212" height="5" rx="2.5" fill="#67836f" opacity=".4"/>
 <rect x="354" y="386" width="140" height="30" rx="15" fill="none" stroke="#6dba82" stroke-width="2.5" opacity=".85"/>
-<rect x="366" y="398" width="116" height="6" rx="3" fill="#328648" opacity=".8"/>
+<rect x="366" y="398" width="116" height="6" rx="3" fill="#2f9349" opacity=".8"/>
 <path d="M792 258 L806 244 L820 258 L806 272 Z" fill="#c79a3a" opacity=".85"/>
-<rect x="770" y="300" width="72" height="5" rx="2.5" fill="#6c8974" opacity=".5"/>
+<rect x="770" y="300" width="72" height="5" rx="2.5" fill="#67836f" opacity=".5"/>
 <rect x="770" y="386" width="72" height="30" rx="6" fill="none" stroke="#8a6a1f" stroke-width="2" stroke-dasharray="5 5" opacity=".8"/>
 </g></g>
 <g transform="rotate(12 952 486)"><g class="td-stampp" opacity=".9">
 <circle cx="952" cy="486" r="58" fill="none" stroke="#6dba82" stroke-width="3" stroke-dasharray="4 7"/>
 <circle cx="952" cy="486" r="44" fill="none" stroke="#6dba82" stroke-width="2" opacity=".75"/>
 <g fill="#c79a3a" opacity=".85"><rect x="932" y="466" width="40" height="40"/><rect x="932" y="466" width="40" height="40" transform="rotate(45 952 486)"/></g>
-<circle cx="952" cy="486" r="9" fill="#275333"/><circle cx="952" cy="486" r="4.5" fill="#e8c268"/>
+<circle cx="952" cy="486" r="9" fill="#21502d"/><circle cx="952" cy="486" r="4.5" fill="#e8c268"/>
 </g></g>
 <g transform="translate(128 268) scale(1.35)" fill="#c79a3a" opacity=".8">
 <circle cx="50" cy="6" r="5"/>
@@ -297,13 +304,13 @@ body{
 <path class="td-tw" d="M620 92 l2.5 7 7 2.5 -7 2.5 -2.5 7 -2.5 -7 -7 -2.5 7 -2.5 Z" style="animation-delay:1.8s"/>
 <path class="td-tw" d="M1104 336 l2.5 7 7 2.5 -7 2.5 -2.5 7 -2.5 -7 -7 -2.5 7 -2.5 Z" style="animation-delay:2.6s" fill="#6b4f72"/>
 </g>
-<rect y="602" width="1200" height="24" fill="#275333" opacity=".9"/>
+<rect y="602" width="1200" height="24" fill="#21502d" opacity=".9"/>
 <rect y="606" width="1200" height="16" fill="url(#tdS)" opacity=".85"/>
 </svg>
 
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:4px;animation-delay:0s">☁</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:3px;animation-delay:0.7s">☁</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:9px;animation-delay:1.4s">☁</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:5px;animation-delay:2.0999999999999996s">☁</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:7px;animation-delay:2.8s">☁</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:4px;animation-delay:3.5s">☁</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:3px;animation-delay:0.1999999999999993s">☁</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:9px;animation-delay:0.8999999999999995s">☁</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="medal"><span><span class="ar">أ</span><span class="en">O</span></span></div>
+    <div class="medal hasmark"><svg class="mark bm1cgqm92w" viewBox="0 0 100 100" fill="none" role="img" aria-label="Ob Cafe"><style>.bm1cgqm92w{overflow:visible}.bm1cgqm92w *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm1cgqm92w .mk{animation:bm1cgqm92wbob 5s ease-in-out 1.7s infinite}@keyframes bm1cgqm92wbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm1cgqm92wtop{0%{opacity:0;transform:translateY(-30px) rotate(-10deg)}100%{transform:none}}@keyframes bm1cgqm92wbot{0%{opacity:0;transform:translateY(30px)}100%{transform:none}}@keyframes bm1cgqm92wpop{0%{opacity:0;transform:scale(.3)}100%{opacity:1;transform:none}}.bm1cgqm92w .p1{animation:bm1cgqm92wtop .8s cubic-bezier(.2,1.3,.3,1) both}.bm1cgqm92w .p2{animation:bm1cgqm92wbot .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bm1cgqm92w .p3{animation:bm1cgqm92wpop .5s ease .7s both}}</style><g class="mk"><g class="p1"><path d="M26 48 L50 28 L74 48 Z" fill="var(--gold)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="30" y="48" width="40" height="30" rx="4" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><path d="M44 78 L44 60 Q50 55 56 60 L56 78 Z" fill="var(--sage)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g></g></svg><span><span class="ar">أ</span><span class="en">O</span></span></div>
     <h1><span class="ar">أهلاً ببيت <b>أوبي كافيه</b></span><span class="en">Welcome home, <b>Ob Cafe</b>.</span></h1>
     <div class="world"><span class="ar">✦ طاولة المطبخ وسوالفها ✦</span><span class="en">✦ the kitchen table after dark ✦</span></div>
     <div class="heroline hand"><span class="ar">تعالوا، الطاولة تنتظركم</span><span class="en">come in, the table's waiting</span></div>

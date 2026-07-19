@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Baloo+Bhaijaan+2:wght@500;700&family=Nunito:wght@400;700&display=swap">
 <style>
   :root{--bg-0:#17130d;--bg-1:#231e15;--bg-2:#2f281e;--border-1:#3a3327;--border-2:#594b36;
-    --text-1:#f2f0ed;--text-2:#cac4ba;--text-3:#948c7f;--accent:#d5a962;--accent-2:#e8dd8d;--accent-soft:#d5a96222;
+    --text-1:#f2f0ed;--text-2:#cac4ba;--text-3:#948c7f;--ink:#f2f0ed;--accent:#d5a962;--accent-2:#e8dd8d;--accent-soft:#d5a96222;
     --sa:#d5a962;--sa2:#c8d86e;--radius:16px;--shadow:0 6px 16px #00000080, 0 16px 40px #00000059;
     --m-ease:cubic-bezier(.22,1,.36,1);--m-dir:scale;--tx:1}
   /* RTL MIRROR LAW: --tx flips direction-signed decorative transforms in Arabic */
@@ -343,6 +343,17 @@ body::after{
   /* ---- polish50 bespoke touch: Ember Edge Sparks ---- */
   .bx-edge{position:relative;height:2px;width:min(220px,60%);margin:1.1rem auto;border-radius:2px;background:linear-gradient(90deg,transparent,var(--accent) 25%,var(--sa) 50%,var(--accent) 75%,transparent);box-shadow:0 0 9px var(--accent);transition:box-shadow .5s}.bx-edge:hover{box-shadow:0 0 18px var(--accent),0 0 30px var(--sa)}.bx-spark{position:absolute;top:-2px;width:3px;height:3px;border-radius:50%;background:var(--sa);opacity:.55}.bx-k1{left:28%}.bx-k2{left:52%}.bx-k3{left:74%}@media (prefers-reduced-motion:no-preference){.bx-spark{animation:bx-pop 2.6s ease-out infinite}.bx-k2{animation-delay:.9s}.bx-k3{animation-delay:1.7s}@keyframes bx-pop{0%{opacity:0;transform:translateY(0)}25%{opacity:1}100%{opacity:0;transform:translateY(-16px)}}.bx-edge{animation:bx-flk 7s steps(1) infinite}@keyframes bx-flk{0%,96%,100%{opacity:1}97%{opacity:.75}98%{opacity:1}99%{opacity:.85}}}
 
+  /* ---- INK-CRAFT FINISH: confident brand-INK display type (never foil-transparent) ----
+     GODZILLA law #1: ink carries the words; accent only decorates (underline/dots/prices/borders).
+     Placed after the scene pack so the gold-foil background-clip:text on headings is neutralised. */
+  h1,h1 .ar,h1 .en{background:none!important;background-image:none!important;-webkit-text-fill-color:#f2f0ed!important;color:#f2f0ed!important}
+  h1.shimmer{background:none!important;animation:none!important}
+  .heroline,.heroline .ar,.heroline .en{background:none!important;background-image:none!important;-webkit-text-fill-color:#cac4ba!important;color:#cac4ba!important;animation:none!important;filter:none!important}
+  /* the animated brand mark sits inside the medallion; the plain initial is hidden when it (or a real logo) is present */
+  .medal .mark{display:block;width:82%;height:82%}
+  .medal.hasmark>span{display:none}
+
+
   /* ---- brandshots: the cafe's OWN photos, pinned like polaroids ---- */
   .brandshots{display:flex;justify-content:center;align-items:flex-start;gap:14px;margin-top:22px;position:relative;z-index:1}
   .bshot{position:relative;width:96px;margin:0;background:#231e15;border:1px solid var(--border-2);padding:6px 6px 16px;
@@ -385,6 +396,8 @@ body::after{
     .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
     h1{color:#000!important;background:none!important;-webkit-text-fill-color:#000!important;font-size:30px!important}
     .medal{width:70px!important;height:70px!important;margin-bottom:8px;border-color:#000!important;background:#fff!important}
+    .medal .mark{display:none!important}
+    .medal.hasmark>span{display:inline!important}
     .medal span{color:#000!important;font-size:32px!important}
     .medal::after{border-color:#00000055!important}
     .greet,.world,.world b,.heroline{color:#000!important}
@@ -442,7 +455,7 @@ body::after{
 <path class="nz-neon" d="M0 401h1200" fill="none" stroke="#d5a962" stroke-width="2.2"/>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal"><span><span class="ar">م</span><span class="en">H</span></span></div>
+    <div class="medal hasmark"><svg class="mark bmpny7ibm" viewBox="0 0 100 100" fill="none" role="img" aria-label="Haffa Coffee Roaster"><style>.bmpny7ibm{overflow:visible}.bmpny7ibm *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bmpny7ibm .mk{animation:bmpny7ibmbob 5s ease-in-out 1.7s infinite}@keyframes bmpny7ibmbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bmpny7ibmdia{0%{opacity:0;transform:rotate(-135deg) scale(.3)}100%{opacity:1;transform:none}}.bmpny7ibm .p1{animation:bmpny7ibmdia .9s cubic-bezier(.2,1.3,.3,1) both}@keyframes bmpny7ibmpx{0%{opacity:0;transform:scale(0)}100%{opacity:1;transform:none}}.bmpny7ibm .p2{opacity:0;animation:bmpny7ibmpx .4s .55s forwards}.bmpny7ibm .p3{opacity:0;animation:bmpny7ibmpx .4s .7s forwards}.bmpny7ibm .p4{opacity:0;animation:bmpny7ibmpx .4s .85s forwards}.bmpny7ibm .p5{opacity:0;animation:bmpny7ibmpx .4s 1s forwards}}</style><g class="mk"><path class="p1" d="M50 26 L74 50 L50 74 L26 50 Z" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><g class="p2"><rect x="40" y="46" width="8" height="8" fill="var(--sa)"/></g><g class="p3"><rect x="52" y="46" width="8" height="8" fill="var(--sa2)"/></g><g class="p4"><rect x="46" y="34" width="8" height="8" fill="var(--accent-2)"/></g><g class="p5"><rect x="46" y="58" width="8" height="8" fill="var(--sa)"/></g></g></svg><span><span class="ar">م</span><span class="en">H</span></span></div>
     <h1><span class="ar">مقهى ومحمصة حافة</span><span class="en">Haffa Coffee Roaster</span></h1>
     <div class="world"><span class="ar">✦ <b>وقفة على حافة التحميص</b> ✦</span><span class="en">✦ <b>standing at the glowing edge of the roast</b> ✦</span></div>
     <div class="heroline"><span class="ar">من حافة النار إلى فنجانك</span><span class="en">from the fire's edge to your cup</span></div>
@@ -726,7 +739,6 @@ body::after{
     });
     setTimeout(()=>{
       document.querySelectorAll('h1 .ar, h1 .en').forEach(el=>{el.textContent=el.textContent;});
-      document.querySelector('h1').classList.add('shimmer');
     },2400);
   }
   // day -> night: the sky shifts as you walk deeper — or by hand via the sky-dial

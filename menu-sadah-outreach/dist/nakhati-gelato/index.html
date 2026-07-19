@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Aref+Ruqaa:wght@400;700&family=Nunito:wght@400;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap">
 <style>
   :root{--bg-0:#150e13;--bg-1:#21181d;--bg-2:#2b2128;--border-1:#3a2733;--border-2:#59364d;
-    --text-1:#f2edf1;--text-2:#cabac4;--text-3:#947f8d;--accent:#b55a95;--accent-2:#cf7d9c;--accent-soft:#b55a9522;
+    --text-1:#f2edf1;--text-2:#cabac4;--text-3:#947f8d;--ink:#f2edf1;--accent:#b55a95;--accent-2:#cf7d9c;--accent-soft:#b55a9522;
     --sa:#b55a95;--sa2:#c68088;--radius:16px;--shadow:0 6px 16px #00000080, 0 16px 40px #00000059;
     --m-ease:cubic-bezier(.22,1,.36,1);--m-dir:scale;--tx:1}
   /* RTL MIRROR LAW: --tx flips direction-signed decorative transforms in Arabic */
@@ -349,6 +349,17 @@ body{
   /* ---- polish50 bespoke touch: Night Flavor Constellation ---- */
   .bx-const{display:inline-flex;gap:.55em;align-items:baseline;color:var(--accent)}.bx-st{opacity:.75;font-size:.95em;display:inline-block}.bx-st2{font-size:.65em}.bx-st3{font-size:.5em}.bx-note{font-size:.72em;color:var(--text-2);margin-inline-start:.45em;letter-spacing:.02em}@media (prefers-reduced-motion: no-preference){.bx-st{animation:bx-tw 3.4s ease-in-out infinite}.bx-st2{animation-delay:1.1s}.bx-st3{animation-delay:2.3s}.bx-const:hover .bx-st{animation-duration:1.1s}@keyframes bx-tw{0%,100%{opacity:.3;transform:scale(.85)}50%{opacity:1;transform:scale(1.12);text-shadow:0 0 9px var(--accent)}}}
 
+  /* ---- INK-CRAFT FINISH: confident brand-INK display type (never foil-transparent) ----
+     GODZILLA law #1: ink carries the words; accent only decorates (underline/dots/prices/borders).
+     Placed after the scene pack so the gold-foil background-clip:text on headings is neutralised. */
+  h1,h1 .ar,h1 .en{background:none!important;background-image:none!important;-webkit-text-fill-color:#f2edf1!important;color:#f2edf1!important}
+  h1.shimmer{background:none!important;animation:none!important}
+  .heroline,.heroline .ar,.heroline .en{background:none!important;background-image:none!important;-webkit-text-fill-color:#cabac4!important;color:#cabac4!important;animation:none!important;filter:none!important}
+  /* the animated brand mark sits inside the medallion; the plain initial is hidden when it (or a real logo) is present */
+  .medal .mark{display:block;width:82%;height:82%}
+  .medal.hasmark>span{display:none}
+
+
   /* ---- brandshots: the cafe's OWN photos, pinned like polaroids ---- */
   .brandshots{display:flex;justify-content:center;align-items:flex-start;gap:14px;margin-top:22px;position:relative;z-index:1}
   .bshot{position:relative;width:96px;margin:0;background:#21181d;border:1px solid var(--border-2);padding:6px 6px 16px;
@@ -391,6 +402,8 @@ body{
     .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
     h1{color:#000!important;background:none!important;-webkit-text-fill-color:#000!important;font-size:30px!important}
     .medal{width:70px!important;height:70px!important;margin-bottom:8px;border-color:#000!important;background:#fff!important}
+    .medal .mark{display:none!important}
+    .medal.hasmark>span{display:inline!important}
     .medal span{color:#000!important;font-size:32px!important}
     .medal::after{border-color:#00000055!important}
     .greet,.world,.world b,.heroline{color:#000!important}
@@ -463,7 +476,7 @@ body{
 <rect y="783" width="1440" height="24" fill="url(#pdSadu)" opacity=".85"/>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal"><span><span class="ar">ن</span><span class="en">N</span></span></div>
+    <div class="medal hasmark"><svg class="mark bm1ho8n7qm" viewBox="0 0 100 100" fill="none" role="img" aria-label="Nakhati Gelato"><style>.bm1ho8n7qm{overflow:visible}.bm1ho8n7qm *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm1ho8n7qm .mk{animation:bm1ho8n7qmbob 5s ease-in-out 1.7s infinite}@keyframes bm1ho8n7qmbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm1ho8n7qmfl{0%{opacity:0;transform:translateX(-40px) rotate(-12deg)}100%{transform:none}}@keyframes bm1ho8n7qmfr{0%{opacity:0;transform:translateX(40px) rotate(12deg)}100%{transform:none}}@keyframes bm1ho8n7qmdrop{0%{opacity:0;transform:translateY(-30px) scale(.4)}70%{transform:translateY(2px) scale(1.1)}100%{transform:none}}.bm1ho8n7qm .p1{animation:bm1ho8n7qmfl .8s cubic-bezier(.2,1.2,.3,1) both}.bm1ho8n7qm .p2{animation:bm1ho8n7qmfr .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bm1ho8n7qm .p3{animation:bm1ho8n7qmdrop .7s cubic-bezier(.2,1.5,.3,1) .55s both}.bm1ho8n7qm .p4{opacity:0;animation:bm1ho8n7qmfd .4s ease .95s forwards}@keyframes bm1ho8n7qmfd{to{opacity:1}}}</style><g class="mk"><g class="p1"><rect x="22" y="54" width="56" height="24" rx="7" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="32" y="34" width="36" height="22" rx="7" fill="var(--sa)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><circle cx="50" cy="26" r="6" fill="var(--accent-2)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g><path class="p4" d="M50 20 q3 -6 8 -7" stroke="var(--ink)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ن</span><span class="en">N</span></span></div>
     <h1><span class="ar">نكهتي</span><span class="en">Nakhati Gelato</span></h1>
     <div class="world"><span class="ar">✦ <b>سهرة حلا تحت نجوم الرياض</b> ✦</span><span class="en">✦ <b>a dessert night under city stars</b> ✦</span></div>
     <div class="heroline"><span class="ar">كل ليلة لها نكهة</span><span class="en">every night has a flavor</span></div>
@@ -811,7 +824,6 @@ body{
     });
     setTimeout(()=>{
       document.querySelectorAll('h1 .ar, h1 .en').forEach(el=>{el.textContent=el.textContent;});
-      document.querySelector('h1').classList.add('shimmer');
     },2400);
   }
   // day -> night: the sky shifts as you walk deeper — or by hand via the sky-dial

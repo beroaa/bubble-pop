@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Mada:wght@400;600;800&display=swap">
 <style>
   :root{--bg-0:#fcf8fa;--bg-1:#f8f2f5;--bg-2:#efe6eb;--border-1:#e3d3dc;--border-2:#ceabbe;
-    --text-1:#311625;--text-2:#624153;--text-3:#896c7c;--accent:#912761;--accent-2:#c44569;--accent-soft:#91276122;
+    --text-1:#311625;--text-2:#624153;--text-3:#896c7c;--ink:#311625;--accent:#912761;--accent-2:#c44569;--accent-soft:#91276122;
     --sa:#912761;--sa2:#8f3234;--radius:16px;--shadow:0 6px 16px #6b2e5022, 0 16px 40px #6b2e5014;
     --m-ease:cubic-bezier(.22,1,.36,1);--m-dir:scale;--tx:1}
   /* RTL MIRROR LAW: --tx flips direction-signed decorative transforms in Arabic */
@@ -340,6 +340,31 @@ body{
   /* ---- polish50 bespoke touch: Storybook Corner Curl ---- */
   .bx-fold{position:absolute;bottom:0;inset-inline-end:0;width:2.6em;height:2.6em}.bx-fold-tip{position:absolute;bottom:0;inset-inline-end:0;width:0;height:0;border-style:solid;border-width:0 0 2.2em 2.2em;border-color:transparent transparent var(--sa) transparent;filter:drop-shadow(-2px -2px 3px rgba(0,0,0,.15))}.bx-fold-note{position:absolute;bottom:.5em;inset-inline-end:2.9em;white-space:nowrap;font-size:.7em;color:var(--text-2);opacity:0}.bx-fold:hover .bx-fold-tip{border-width:0 0 3.3em 3.3em}.bx-fold:hover .bx-fold-note{opacity:1;transform:none}@media (prefers-reduced-motion: no-preference){.bx-fold-tip{transition:border-width .45s ease}.bx-fold-note{transform:translateY(3px);transition:opacity .5s ease .1s,transform .5s ease .1s}}
 
+  /* ---- INK-CRAFT FINISH: confident brand-INK display type (never foil-transparent) ----
+     GODZILLA law #1: ink carries the words; accent only decorates (underline/dots/prices/borders).
+     Placed after the scene pack so the gold-foil background-clip:text on headings is neutralised. */
+  h1,h1 .ar,h1 .en{background:none!important;background-image:none!important;-webkit-text-fill-color:#311625!important;color:#311625!important}
+  h1.shimmer{background:none!important;animation:none!important}
+  .heroline,.heroline .ar,.heroline .en{background:none!important;background-image:none!important;-webkit-text-fill-color:#624153!important;color:#624153!important;animation:none!important;filter:none!important}
+  /* the animated brand mark sits inside the medallion; the plain initial is hidden when it (or a real logo) is present */
+  .medal .mark{display:block;width:82%;height:82%}
+  .medal.hasmark>span{display:none}
+
+  /* light mode only (dark archetypes stay poster-intact): room titles to INK, ink craft on chrome */
+  .room-h2,.room-h2 .ar,.room-h2 .en{color:#311625;-webkit-text-fill-color:#311625}
+  .room-eyebrow{color:#896c7c}
+  .chip{border:2px solid var(--ink);border-radius:16px 12px 15px 13px;box-shadow:3px 3px 0 var(--ink);color:#311625}
+  .chip:hover{color:var(--accent);border-color:var(--ink);box-shadow:4px 5px 0 var(--ink);transform:translateY(-2px)}
+  .order-chip{border:2px solid var(--ink);box-shadow:2px 2px 0 var(--ink);color:#311625}
+  .order-chip.demo{border-style:dashed}
+  .order-chip:hover{box-shadow:3px 3px 0 var(--ink);transform:translateY(-1px)}
+  .medal{border:2.5px solid var(--ink);box-shadow:4px 4px 0 var(--ink),inset 0 1px 0 #ffffff55}
+  .medal::after{border-color:#311625}
+  .items{border:2px solid var(--ink);border-radius:20px 16px 22px 15px;box-shadow:4px 4px 0 var(--ink)}
+  .sig{border:2px solid var(--ink);box-shadow:5px 5px 0 var(--ink)}
+  .sig-card{border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink)}
+  .stamp{border-color:var(--sa);color:var(--sa)}
+
   /* ---- brandshots: the cafe's OWN photos, pinned like polaroids ---- */
   .brandshots{display:flex;justify-content:center;align-items:flex-start;gap:14px;margin-top:22px;position:relative;z-index:1}
   .bshot{position:relative;width:96px;margin:0;background:#f8f2f5;border:1px solid var(--border-2);padding:6px 6px 16px;
@@ -382,6 +407,8 @@ body{
     .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
     h1{color:#000!important;background:none!important;-webkit-text-fill-color:#000!important;font-size:30px!important}
     .medal{width:70px!important;height:70px!important;margin-bottom:8px;border-color:#000!important;background:#fff!important}
+    .medal .mark{display:none!important}
+    .medal.hasmark>span{display:inline!important}
     .medal span{color:#000!important;font-size:32px!important}
     .medal::after{border-color:#00000055!important}
     .greet,.world,.world b,.heroline{color:#000!important}
@@ -461,7 +488,7 @@ body{
 <rect width="1440" height="900" fill="url(#sblVig)"/>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal"><span><span class="ar">س</span><span class="en">S</span></span></div>
+    <div class="medal hasmark"><svg class="mark bmfkjibum" viewBox="0 0 100 100" fill="none" role="img" aria-label="Salve Artisan Gelato"><style>.bmfkjibum{overflow:visible}.bmfkjibum *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bmfkjibum .mk{animation:bmfkjibumbob 5s ease-in-out 1.7s infinite}@keyframes bmfkjibumbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bmfkjibumfl{0%{opacity:0;transform:translateX(-40px) rotate(-12deg)}100%{transform:none}}@keyframes bmfkjibumfr{0%{opacity:0;transform:translateX(40px) rotate(12deg)}100%{transform:none}}@keyframes bmfkjibumdrop{0%{opacity:0;transform:translateY(-30px) scale(.4)}70%{transform:translateY(2px) scale(1.1)}100%{transform:none}}.bmfkjibum .p1{animation:bmfkjibumfl .8s cubic-bezier(.2,1.2,.3,1) both}.bmfkjibum .p2{animation:bmfkjibumfr .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bmfkjibum .p3{animation:bmfkjibumdrop .7s cubic-bezier(.2,1.5,.3,1) .55s both}.bmfkjibum .p4{opacity:0;animation:bmfkjibumfd .4s ease .95s forwards}@keyframes bmfkjibumfd{to{opacity:1}}}</style><g class="mk"><g class="p1"><rect x="22" y="54" width="56" height="24" rx="7" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="32" y="34" width="36" height="22" rx="7" fill="var(--sa)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><circle cx="50" cy="26" r="6" fill="var(--accent-2)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g><path class="p4" d="M50 20 q3 -6 8 -7" stroke="var(--ink)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">س</span><span class="en">S</span></span></div>
     <h1><span class="ar">سالفي جيلاتو</span><span class="en">Salve Artisan Gelato</span></h1>
     <div class="world"><span class="ar">✦ <b>حكاية جيلاتو بصباح الملقا</b> ✦</span><span class="en">✦ <b>a gelato tale on a bright morning</b> ✦</span></div>
     <div class="heroline"><span class="ar">قول سالفي وابدأ بسكوب</span><span class="en">say salve, start with a scoop</span></div>
@@ -752,7 +779,6 @@ body{
     });
     setTimeout(()=>{
       document.querySelectorAll('h1 .ar, h1 .en').forEach(el=>{el.textContent=el.textContent;});
-      document.querySelector('h1').classList.add('shimmer');
     },2400);
   }
   // day -> night: the sky shifts as you walk deeper — or by hand via the sky-dial

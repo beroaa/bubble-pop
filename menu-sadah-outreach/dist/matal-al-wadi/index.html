@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cairo:wght@400;700;900&display=swap">
 <style>
   :root{--bg-0:#0d170f;--bg-1:#152318;--bg-2:#1e2e21;--border-1:#273a2a;--border-2:#36593d;
-    --text-1:#edf2ee;--text-2:#bacabd;--text-3:#7f9483;--accent:#66d17a;--accent-2:#8fe5b6;--accent-soft:#66d17a22;
+    --text-1:#edf2ee;--text-2:#bacabd;--text-3:#7f9483;--ink:#edf2ee;--accent:#66d17a;--accent-2:#8fe5b6;--accent-soft:#66d17a22;
     --sa:#66d17a;--sa2:#72d5b9;--radius:16px;--shadow:0 6px 16px #00000080, 0 16px 40px #00000059;
     --m-ease:cubic-bezier(.22,1,.36,1);--m-dir:up;--tx:1}
   /* RTL MIRROR LAW: --tx flips direction-signed decorative transforms in Arabic */
@@ -362,6 +362,17 @@ body{
   /* ---- polish50 bespoke touch: Valley Breeze Branch ---- */
   .bx-branch{display:block;width:130px;margin:.9rem auto 0;overflow:visible}.bx-stem{opacity:.7}.bx-leaf{transform-box:fill-box;transform-origin:0% 100%;transition:transform .8s ease}.bx-branch:hover .bx-leaf{transform:rotate(7deg) scale(1.08)}@media (prefers-reduced-motion:no-preference){.bx-leaf{animation:bx-sway 6s ease-in-out infinite}.bx-l2{animation-delay:.8s}.bx-l3{animation-delay:1.6s}@keyframes bx-sway{0%,100%{transform:rotate(0)}50%{transform:rotate(5deg)}}.bx-branch:hover .bx-leaf{animation-play-state:paused}}
 
+  /* ---- INK-CRAFT FINISH: confident brand-INK display type (never foil-transparent) ----
+     GODZILLA law #1: ink carries the words; accent only decorates (underline/dots/prices/borders).
+     Placed after the scene pack so the gold-foil background-clip:text on headings is neutralised. */
+  h1,h1 .ar,h1 .en{background:none!important;background-image:none!important;-webkit-text-fill-color:#edf2ee!important;color:#edf2ee!important}
+  h1.shimmer{background:none!important;animation:none!important}
+  .heroline,.heroline .ar,.heroline .en{background:none!important;background-image:none!important;-webkit-text-fill-color:#bacabd!important;color:#bacabd!important;animation:none!important;filter:none!important}
+  /* the animated brand mark sits inside the medallion; the plain initial is hidden when it (or a real logo) is present */
+  .medal .mark{display:block;width:82%;height:82%}
+  .medal.hasmark>span{display:none}
+
+
 
   @media (prefers-reduced-motion: reduce){
     *{animation:none!important;transition:none!important}
@@ -388,6 +399,8 @@ body{
     .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
     h1{color:#000!important;background:none!important;-webkit-text-fill-color:#000!important;font-size:30px!important}
     .medal{width:70px!important;height:70px!important;margin-bottom:8px;border-color:#000!important;background:#fff!important}
+    .medal .mark{display:none!important}
+    .medal.hasmark>span{display:inline!important}
     .medal span{color:#000!important;font-size:32px!important}
     .medal::after{border-color:#00000055!important}
     .greet,.world,.world b,.heroline{color:#000!important}
@@ -479,7 +492,7 @@ body{
 <rect x="0" y="779" width="1440" height="2" fill="rgba(232,194,104,0.55)"/>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal"><span><span class="ar">م</span><span class="en">M</span></span></div>
+    <div class="medal hasmark"><svg class="mark bmhsfv06m" viewBox="0 0 100 100" fill="none" role="img" aria-label="Matal Al Wadi"><style>.bmhsfv06m{overflow:visible}.bmhsfv06m *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bmhsfv06m .mk{animation:bmhsfv06mbob 5s ease-in-out 1.7s infinite}@keyframes bmhsfv06mbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bmhsfv06mtop{0%{opacity:0;transform:translateY(-30px) rotate(-10deg)}100%{transform:none}}@keyframes bmhsfv06mbot{0%{opacity:0;transform:translateY(30px)}100%{transform:none}}@keyframes bmhsfv06mpop{0%{opacity:0;transform:scale(.3)}100%{opacity:1;transform:none}}.bmhsfv06m .p1{animation:bmhsfv06mtop .8s cubic-bezier(.2,1.3,.3,1) both}.bmhsfv06m .p2{animation:bmhsfv06mbot .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bmhsfv06m .p3{animation:bmhsfv06mpop .5s ease .7s both}}</style><g class="mk"><g class="p1"><path d="M26 48 L50 28 L74 48 Z" fill="var(--sa)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="30" y="48" width="40" height="30" rx="4" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><path d="M44 78 L44 60 Q50 55 56 60 L56 78 Z" fill="var(--sa2)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g></g></svg><span><span class="ar">م</span><span class="en">M</span></span></div>
     <h1><span class="ar">مطل الوادي</span><span class="en">Matal Al Wadi</span></h1>
     <div class="world"><span class="ar">✦ <b>بيت المزرعة وقت لمّة العصر</b> ✦</span><span class="en">✦ <b>the farmhouse when the whole family arrives</b> ✦</span></div>
     <div class="heroline"><span class="ar">الوادي جمعنا والقهوة كمّلت اللمة</span><span class="en">the valley gathers, the cups follow</span></div>
@@ -845,7 +858,6 @@ body{
     });
     setTimeout(()=>{
       document.querySelectorAll('h1 .ar, h1 .en').forEach(el=>{el.textContent=el.textContent;});
-      document.querySelector('h1').classList.add('shimmer');
     },2400);
   }
   // day -> night: the sky shifts as you walk deeper — or by hand via the sky-dial

@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Baloo+Bhaijaan+2:wght@500;700&family=Nunito:wght@400;700&display=swap">
 <style>
   :root{--bg-0:#160e11;--bg-1:#21171b;--bg-2:#2c2125;--border-1:#3a272f;--border-2:#593644;
-    --text-1:#f2edef;--text-2:#cabac0;--text-3:#947f88;--accent:#bc5c83;--accent-2:#d5818c;--accent-soft:#bc5c8322;
+    --text-1:#f2edef;--text-2:#cabac0;--text-3:#947f88;--ink:#f2edef;--accent:#bc5c83;--accent-2:#d5818c;--accent-soft:#bc5c8322;
     --sa:#bc5c83;--sa2:#ca877d;--radius:16px;--shadow:0 6px 16px #00000080, 0 16px 40px #00000059;
     --m-ease:cubic-bezier(.34,1.56,.64,1);--m-dir:scale;--tx:1}
   /* RTL MIRROR LAW: --tx flips direction-signed decorative transforms in Arabic */
@@ -349,6 +349,17 @@ body{
   /* ---- polish50 bespoke touch: Velvet Star Drift ---- */
   .bx-stars{position:relative;display:flex;gap:18px;justify-content:center;width:120px;margin:0 auto;color:var(--sa)}.bx-stars b{font-weight:400;font-size:.8rem;opacity:.5;text-shadow:0 0 6px var(--accent)}.bx-stars b:nth-child(2){font-size:1rem;margin-top:-10px}.bx-stars b:nth-child(3){font-size:.65rem;margin-top:6px}.bx-stars:hover b{opacity:.95}.bx-stars-note{position:absolute;bottom:-18px;inset-inline-start:50%;transform:translateX(-50%) rotate(-2deg);font-size:.7rem;color:var(--text-2);white-space:nowrap;opacity:.75}@media (prefers-reduced-motion:no-preference){.bx-stars b{animation:bx-twinkle 5.5s ease-in-out infinite}.bx-stars b:nth-child(2){animation-delay:1.6s;animation-duration:6.5s}.bx-stars b:nth-child(3){animation-delay:3.1s;animation-duration:7s}@keyframes bx-twinkle{0%,100%{opacity:.3;transform:translateY(0)}50%{opacity:.9;transform:translateY(-4px)}}}
 
+  /* ---- INK-CRAFT FINISH: confident brand-INK display type (never foil-transparent) ----
+     GODZILLA law #1: ink carries the words; accent only decorates (underline/dots/prices/borders).
+     Placed after the scene pack so the gold-foil background-clip:text on headings is neutralised. */
+  h1,h1 .ar,h1 .en{background:none!important;background-image:none!important;-webkit-text-fill-color:#f2edef!important;color:#f2edef!important}
+  h1.shimmer{background:none!important;animation:none!important}
+  .heroline,.heroline .ar,.heroline .en{background:none!important;background-image:none!important;-webkit-text-fill-color:#cabac0!important;color:#cabac0!important;animation:none!important;filter:none!important}
+  /* the animated brand mark sits inside the medallion; the plain initial is hidden when it (or a real logo) is present */
+  .medal .mark{display:block;width:82%;height:82%}
+  .medal.hasmark>span{display:none}
+
+
   /* ---- brandshots: the cafe's OWN photos, pinned like polaroids ---- */
   .brandshots{display:flex;justify-content:center;align-items:flex-start;gap:14px;margin-top:22px;position:relative;z-index:1}
   .bshot{position:relative;width:96px;margin:0;background:#21171b;border:1px solid var(--border-2);padding:6px 6px 16px;
@@ -391,6 +402,8 @@ body{
     .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
     h1{color:#000!important;background:none!important;-webkit-text-fill-color:#000!important;font-size:30px!important}
     .medal{width:70px!important;height:70px!important;margin-bottom:8px;border-color:#000!important;background:#fff!important}
+    .medal .mark{display:none!important}
+    .medal.hasmark>span{display:inline!important}
     .medal span{color:#000!important;font-size:32px!important}
     .medal::after{border-color:#00000055!important}
     .greet,.world,.world b,.heroline{color:#000!important}
@@ -463,7 +476,7 @@ body{
 <rect y="783" width="1440" height="24" fill="url(#pdSadu)" opacity=".85"/>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal"><span><span class="ar">T</span><span class="en">T</span></span></div>
+    <div class="medal hasmark"><svg class="mark bm13ct420m" viewBox="0 0 100 100" fill="none" role="img" aria-label="The Sweet Sip"><style>.bm13ct420m{overflow:visible}.bm13ct420m *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm13ct420m .mk{animation:bm13ct420mbob 5s ease-in-out 1.7s infinite}@keyframes bm13ct420mbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm13ct420mfl{0%{opacity:0;transform:translateX(-40px) rotate(-12deg)}100%{transform:none}}@keyframes bm13ct420mfr{0%{opacity:0;transform:translateX(40px) rotate(12deg)}100%{transform:none}}@keyframes bm13ct420mdrop{0%{opacity:0;transform:translateY(-30px) scale(.4)}70%{transform:translateY(2px) scale(1.1)}100%{transform:none}}.bm13ct420m .p1{animation:bm13ct420mfl .8s cubic-bezier(.2,1.2,.3,1) both}.bm13ct420m .p2{animation:bm13ct420mfr .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bm13ct420m .p3{animation:bm13ct420mdrop .7s cubic-bezier(.2,1.5,.3,1) .55s both}.bm13ct420m .p4{opacity:0;animation:bm13ct420mfd .4s ease .95s forwards}@keyframes bm13ct420mfd{to{opacity:1}}}</style><g class="mk"><g class="p1"><rect x="22" y="54" width="56" height="24" rx="7" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="32" y="34" width="36" height="22" rx="7" fill="var(--sa)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><circle cx="50" cy="26" r="6" fill="var(--accent-2)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g><path class="p4" d="M50 20 q3 -6 8 -7" stroke="var(--ink)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">T</span><span class="en">T</span></span></div>
     <h1><span class="ar">The Sweet Sip</span><span class="en">The Sweet Sip</span></h1>
     <div class="world"><span class="ar">✦ <b>سهرة حلا على مخمل الليل</b> ✦</span><span class="en">✦ <b>a velvet evening made for dessert</b> ✦</span></div>
     <div class="heroline"><span class="ar">السهرة ما تكتمل بلا حلا</span><span class="en">the night deserves something sweet</span></div>
@@ -811,7 +824,6 @@ body{
     });
     setTimeout(()=>{
       document.querySelectorAll('h1 .ar, h1 .en').forEach(el=>{el.textContent=el.textContent;});
-      document.querySelector('h1').classList.add('shimmer');
     },2400);
   }
   // day -> night: the sky shifts as you walk deeper — or by hand via the sky-dial

@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Baloo+Bhaijaan+2:wght@500;700&family=Nunito:wght@400;700&display=swap">
 <style>
   :root{--bg-0:#16100e;--bg-1:#221a16;--bg-2:#2d241f;--border-1:#3a2d27;--border-2:#594236;
-    --text-1:#f2efed;--text-2:#cabfba;--text-3:#94867f;--accent:#d0987c;--accent-2:#e5cba4;--accent-soft:#d0987c22;
+    --text-1:#f2efed;--text-2:#cabfba;--text-3:#94867f;--ink:#f2efed;--accent:#d0987c;--accent-2:#e5cba4;--accent-soft:#d0987c22;
     --sa:#d0987c;--sa2:#cec378;--radius:16px;--shadow:0 6px 16px #00000080, 0 16px 40px #00000059;
     --m-ease:cubic-bezier(.34,1.56,.64,1);--m-dir:up;--tx:1}
   /* RTL MIRROR LAW: --tx flips direction-signed decorative transforms in Arabic */
@@ -349,6 +349,17 @@ body{
   /* ---- polish50 bespoke touch: Midnight Corner Star ---- */
   .bx-corner{position:fixed;top:1.2rem;inset-inline-start:1.2rem;z-index:9;display:flex;align-items:center;gap:.55rem}.bx-corner-frame{width:22px;height:22px;border-top:1.5px solid var(--sa);border-inline-start:1.5px solid var(--sa);opacity:.5;display:block}.bx-corner-star{color:var(--accent);font-size:.8rem;margin-inline-start:-15px;margin-top:-7px;transition:text-shadow .6s ease}.bx-corner-note{font-size:.68rem;color:var(--text-2);white-space:nowrap;opacity:0;transform:translateY(2px);transition:opacity .6s ease,transform .6s ease}.bx-corner:hover .bx-corner-note{opacity:.85;transform:none}.bx-corner:hover .bx-corner-star{text-shadow:0 0 10px var(--accent)}@media (prefers-reduced-motion:no-preference){.bx-corner-star{animation:bx-twinkle 4s ease-in-out infinite}@keyframes bx-twinkle{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.25)}}}
 
+  /* ---- INK-CRAFT FINISH: confident brand-INK display type (never foil-transparent) ----
+     GODZILLA law #1: ink carries the words; accent only decorates (underline/dots/prices/borders).
+     Placed after the scene pack so the gold-foil background-clip:text on headings is neutralised. */
+  h1,h1 .ar,h1 .en{background:none!important;background-image:none!important;-webkit-text-fill-color:#f2efed!important;color:#f2efed!important}
+  h1.shimmer{background:none!important;animation:none!important}
+  .heroline,.heroline .ar,.heroline .en{background:none!important;background-image:none!important;-webkit-text-fill-color:#cabfba!important;color:#cabfba!important;animation:none!important;filter:none!important}
+  /* the animated brand mark sits inside the medallion; the plain initial is hidden when it (or a real logo) is present */
+  .medal .mark{display:block;width:82%;height:82%}
+  .medal.hasmark>span{display:none}
+
+
 
   @media (prefers-reduced-motion: reduce){
     *{animation:none!important;transition:none!important}
@@ -375,6 +386,8 @@ body{
     .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
     h1{color:#000!important;background:none!important;-webkit-text-fill-color:#000!important;font-size:30px!important}
     .medal{width:70px!important;height:70px!important;margin-bottom:8px;border-color:#000!important;background:#fff!important}
+    .medal .mark{display:none!important}
+    .medal.hasmark>span{display:inline!important}
     .medal span{color:#000!important;font-size:32px!important}
     .medal::after{border-color:#00000055!important}
     .greet,.world,.world b,.heroline{color:#000!important}
@@ -447,7 +460,7 @@ body{
 <rect y="783" width="1440" height="24" fill="url(#pdSadu)" opacity=".85"/>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal"><span><span class="ar">ذ</span><span class="en">T</span></span></div>
+    <div class="medal hasmark"><svg class="mark bm79g1g3m" viewBox="0 0 100 100" fill="none" role="img" aria-label="The Cake Corner"><style>.bm79g1g3m{overflow:visible}.bm79g1g3m *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm79g1g3m .mk{animation:bm79g1g3mbob 5s ease-in-out 1.7s infinite}@keyframes bm79g1g3mbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm79g1g3mfl{0%{opacity:0;transform:translateX(-40px) rotate(-12deg)}100%{transform:none}}@keyframes bm79g1g3mfr{0%{opacity:0;transform:translateX(40px) rotate(12deg)}100%{transform:none}}@keyframes bm79g1g3mdrop{0%{opacity:0;transform:translateY(-30px) scale(.4)}70%{transform:translateY(2px) scale(1.1)}100%{transform:none}}.bm79g1g3m .p1{animation:bm79g1g3mfl .8s cubic-bezier(.2,1.2,.3,1) both}.bm79g1g3m .p2{animation:bm79g1g3mfr .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bm79g1g3m .p3{animation:bm79g1g3mdrop .7s cubic-bezier(.2,1.5,.3,1) .55s both}.bm79g1g3m .p4{opacity:0;animation:bm79g1g3mfd .4s ease .95s forwards}@keyframes bm79g1g3mfd{to{opacity:1}}}</style><g class="mk"><g class="p1"><rect x="22" y="54" width="56" height="24" rx="7" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="32" y="34" width="36" height="22" rx="7" fill="var(--sa)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><circle cx="50" cy="26" r="6" fill="var(--accent-2)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g><path class="p4" d="M50 20 q3 -6 8 -7" stroke="var(--ink)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ذ</span><span class="en">T</span></span></div>
     <h1><span class="ar">ذا كيك كورنر</span><span class="en">The Cake Corner</span></h1>
     <div class="world"><span class="ar">✦ <b>ركن حلا هادي آخر الليل</b> ✦</span><span class="en">✦ <b>a velvet corner after midnight</b> ✦</span></div>
     <div class="heroline"><span class="ar">للحلا ركن.. وأنت وصلته</span><span class="en">every craving deserves its own corner</span></div>
@@ -795,7 +808,6 @@ body{
     });
     setTimeout(()=>{
       document.querySelectorAll('h1 .ar, h1 .en').forEach(el=>{el.textContent=el.textContent;});
-      document.querySelector('h1').classList.add('shimmer');
     },2400);
   }
   // day -> night: the sky shifts as you walk deeper — or by hand via the sky-dial

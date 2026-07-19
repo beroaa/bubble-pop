@@ -231,6 +231,13 @@ body{
 }
 
 
+  /* ---- INK-CRAFT FINISH (gift page): heroline never foil-transparent; medallion holds the mark ----
+     the gift page is already ink-crafted (2px ink borders + hard offset shadows on every card/pill),
+     so this only neutralises the scene's gold-foil background-clip:text on .heroline + sizes the mark. */
+  .heroline,.heroline .ar,.heroline .en{background:none!important;background-image:none!important;-webkit-text-fill-color:var(--rose)!important;color:var(--rose)!important;animation:none!important;filter:none!important}
+  .medal .mark,.medal-s .mark{display:block;width:82%;height:82%}
+  .medal.hasmark>span,.medal-s.hasmark>span{display:none}
+
   /* ---- BRAND MOTION DNA: press physics — scale .96 in, overshoot release ---- */
   @media (prefers-reduced-motion: no-preference){
     .touchable{transition:transform .32s cubic-bezier(.34,1.56,.64,1)}
@@ -274,7 +281,7 @@ body{
 <div class="curtain" id="msCurtain" aria-hidden="true"></div>
 <div class="bigmark" aria-hidden="true"><span class="ar">ت</span><span class="en">T</span></div>
 <header class="top">
-  <div class="bx"><div class="medal-s"><span><span class="ar">ت</span><span class="en">T</span></span></div>
+  <div class="bx"><div class="medal-s hasmark"><svg class="mark bm18ikn7qs" viewBox="0 0 100 100" fill="none" role="img" aria-label="Trov Cafe"><style>.bm18ikn7qs{overflow:visible}.bm18ikn7qs *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm18ikn7qs .mk{animation:bm18ikn7qsbob 5s ease-in-out 1.7s infinite}@keyframes bm18ikn7qsbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm18ikn7qsp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bm18ikn7qs .p1{animation:bm18ikn7qsp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bm18ikn7qs .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bm18ikn7qsdr 1s ease .55s forwards}@keyframes bm18ikn7qsdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ت</span><span class="en">T</span></span></div>
     <div><div class="bn"><span class="ar">تروف كافيه</span><span class="en">Trov Cafe</span></div><div class="loc"><span class="ar">الرياض · الرياض</span><span class="en">Al Andalus · Riyadh</span></div></div></div>
   <button class="lang touchable" id="langToggle">English</button>
 </header>
@@ -328,7 +335,7 @@ body{
 </svg>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:9px;animation-delay:0s">✒</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:9px;animation-delay:0.7s">·</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:9px;animation-delay:1.4s">෴</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:5px;animation-delay:2.0999999999999996s">·</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:7px;animation-delay:2.8s">✒</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:4px;animation-delay:3.5s">·</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:3px;animation-delay:0.1999999999999993s">෴</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:6px;animation-delay:0.8999999999999995s">·</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="medal"><span><span class="ar">ت</span><span class="en">T</span></span></div>
+    <div class="medal hasmark"><svg class="mark bm18ikn7qw" viewBox="0 0 100 100" fill="none" role="img" aria-label="Trov Cafe"><style>.bm18ikn7qw{overflow:visible}.bm18ikn7qw *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm18ikn7qw .mk{animation:bm18ikn7qwbob 5s ease-in-out 1.7s infinite}@keyframes bm18ikn7qwbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm18ikn7qwp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bm18ikn7qw .p1{animation:bm18ikn7qwp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bm18ikn7qw .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bm18ikn7qwdr 1s ease .55s forwards}@keyframes bm18ikn7qwdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ت</span><span class="en">T</span></span></div>
     <h1><span class="ar">أهلاً ببيت <b>تروف كافيه</b></span><span class="en">Welcome home, <b>Trov Cafe</b>.</span></h1>
     <div class="world"><span class="ar">✦ ورشة ضوء وريحة تحميص ✦</span><span class="en">✦ a bright workshop of roast and light ✦</span></div>
     <div class="heroline hand"><span class="ar">فنجانك ينسقى على مهل</span><span class="en">your cup, poured slowly</span></div>
