@@ -12,6 +12,20 @@ These orders apply to EVERY Claude session in this repo — cloud or MacBook. Re
 - **Easy-steps mode (standing order):** every reply that needs action from Ibrahim ends with a short numbered EASY STEPS list — plain words, one action per step, what to paste and where. No walls of text for instructions.
 
 
+## THE GODZILLA STANDARD — the 10/10 bar (locked 2026-07-19, Ibrahim's most repeated demand)
+- Three pages are the eternal north stars. EVERY menu/gift page is measured against them, always:
+  1. `dist/beyt-coffee/index.html` — the reference MENU (10/10)
+  2. `dist/beyt-coffee-welcome/index.html` — the reference GIFT page / sales weapon (10/10)
+  3. `dist/rustic-grill.html` — Ibrahim's favorite grill menu (its own fire/ticket personality)
+- The blueprint of exactly how they achieve 10/10 lives in `singularity/MASTERS-STUDY-V2.md` (+ the older MASTERS-STUDY.md). Read it before ANY visual build.
+- Non-negotiable quality laws these prove (past mistakes — never repeat):
+  1. **INK-DARK LEGIBLE TEXT.** Headings/names/body are strong near-black brand-ink (Beyt ≈ #382900), NOT gold/accent. Accent color is for shapes/dots/underlines/borders/prices ONLY — never long text. Low-contrast gold-on-cream = the #1 thing that made the 50 look "AI/5-10". Never ship transparent/washed text (watch failed background-clip:text → rgba(0,0,0,0)).
+  2. **CONFIDENT INK CRAFT.** Thick 2px dark borders + hard OFFSET shadows (`3px 3px 0 ink`, no blur), chunky radii, tape/stamps/doodles — the hand-drawn confident look.
+  3. **ANIMATED BRAND MARK.** Each cafe needs its own designed animated SVG mark (like Beyt's assembling cube / the animated logo at the bottom of the Beyt gift page), derived from its world/type/motif — NOT just an initial. Real downloaded logos are a Mac job; designed animated marks are pure design we make here.
+  4. **LIVING ON-BRAND BACKGROUND.** Per-cafe vibrant animated backdrop that expresses that brand's identity/emotion (see brandbg50.json pipeline) — subtle in the center third so text stays legible.
+  5. Real brand photos (VISUALS-FIRST law) + per-cafe palette + bilingual medallion still hold.
+- When Ibrahim says "Godzilla build" / "biggest build" / "make it 10/10 like beyt": run the plan in `singularity/GODZILLA-SPEC.md`, one renderer-surgeon at a time (never two agents editing lib/pages-masterpiece.mjs at once — file collisions), verify in a real browser against the three masters, screenshot, commit, push.
+
 ## ClientOS = THE main workstation (Ibrahim's standing order)
 - ClientOS (the space-theme "G2" app: ATLAS/TONIGHT/PIPELINE/MENUS/SENT/MONEY/LAB/OPS tabs, LV/XP, SILVER ranks) is Ibrahim's MAIN WORKSTATION. Every new operator feature, menu list, or dashboard fuses INTO it — never a separate standalone page, never the old brown "hq" skin.
 - The REAL app lives ONLY on his MacBook at `/Users/bero/Desktop/ClientOS/` — the .app zips he uploads contain just the launcher script, NOT the app. Upgrading ClientOS is therefore MacBook-session work: keep `singularity/CLIENTOS-MISSION.md` + `singularity/clientos-menus-payload.json` current, and hand him the one paste-line.
