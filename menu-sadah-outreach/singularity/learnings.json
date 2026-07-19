@@ -1,5 +1,5 @@
 {
-  "formulaVersion": "2.12",
+  "formulaVersion": "2.13",
   "lessons": [
     {
       "id": 1,
@@ -66,6 +66,12 @@
       "at": 1784392848971,
       "lesson": "Chrome breaks background-clip:text when transformed child spans animate inside — apply gradient class only after word entrance ends, then unwrap spans",
       "from": "masterpiece-50 hero bug"
+    },
+    {
+      "id": 13,
+      "desc": "Google Places Text Search returns wrong-business top hit for ~18% of cafes (generic names, wrong city). ALWAYS audit meta.json place_name vs expected + confirm Riyadh before trusting; purge mismatches (evidence rule).",
+      "source": "photo-harvest-places",
+      "addedAt": 1784465539825
     }
   ],
   "qa": {

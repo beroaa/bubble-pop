@@ -1,5 +1,5 @@
 window.BUILDS_STATE = {
- "generatedAt": 1784465382335,
+ "generatedAt": 1784465523606,
  "builds": [
   {
    "id": "b1",
@@ -295,9 +295,9 @@ window.BUILDS_STATE = {
   {
    "id": "b16",
    "name": "PHOTO-50 real photo harvest (Google Places)",
-   "status": "running",
-   "pct": 30,
-   "etaAt": 1784464634835,
+   "status": "done",
+   "pct": 100,
+   "etaAt": null,
    "note": "harvesting + auto-pushing",
    "startedAt": 1784464052680,
    "feed": [
@@ -324,8 +324,17 @@ window.BUILDS_STATE = {
     {
      "at": 1784465382335,
      "msg": "43 menus rebuilt with real photos — deploying"
+    },
+    {
+     "at": 1784465388334,
+     "msg": "Deploying to menu-sadah.com (Netlify)"
+    },
+    {
+     "at": 1784465523577,
+     "msg": "LIVE on menu-sadah.com — 43 cafes with real photos"
     }
-   ]
+   ],
+   "result": "43/50 cafes now show REAL Google Maps photos (428 shots, per-cafe folders + provenance). 9 wrong matches purged (evidence rule), 2 recovered. Deployed to menu-sadah.com. 7 need manual match."
   }
  ]
 };
