@@ -362,6 +362,31 @@ body{
   /* ---- polish50 bespoke touch: Traveler Ink Route ---- */
   .bx-route{margin:1rem auto .2rem;max-width:180px;text-align:center}.bx-route svg{width:100%;overflow:visible;display:block}.bx-route-path{stroke-dasharray:3 5;opacity:.8;transition:opacity .6s,filter .6s}.bx-route-note{font-size:.66rem;color:var(--text-2);letter-spacing:.14em;margin-top:.2rem;display:block}.bx-route:hover .bx-route-path{opacity:1;filter:drop-shadow(0 0 3px var(--accent))}@media (prefers-reduced-motion:no-preference){.bx-route:hover .bx-route-path{animation:bx-march 1.4s linear infinite}@keyframes bx-march{to{stroke-dashoffset:-16}}}
 
+  /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:var(--bg-0)}
+.rk-rule{position:absolute;left:6%;width:40%;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:.22}
+.rk-ink{position:absolute;top:-10%;left:-8%;width:44vw;height:44vw;border-radius:50%;background:radial-gradient(circle,var(--accent-2) 0%,transparent 60%);opacity:.11;filter:blur(26px)}
+.rk-ring{position:absolute;bottom:8%;right:6%;width:26vw;height:26vw;border:2px solid var(--sa);border-radius:50%;opacity:.12}
+@media (prefers-reduced-motion:no-preference){
+.rk-rule{animation:rk-dr 16s linear infinite}
+.rk-rule:nth-child(4){animation-duration:21s}.rk-rule:nth-child(5){animation-duration:13s}
+.rk-ink{animation:rk-flt 18s ease-in-out infinite}
+.rk-ring{animation:rk-sp 44s linear infinite}
+@keyframes rk-dr{0%{transform:translateX(-60%)}100%{transform:translateX(220%)}}
+@keyframes rk-flt{0%,100%{transform:translate(0,0)}50%{transform:translate(6vw,4vh)}}
+@keyframes rk-sp{to{transform:rotate(360deg)}}}
+
+  /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
+  
+  .medal{position:relative}
+  .medal .najdi{position:absolute;inset:-12px;width:calc(100% + 24px);height:calc(100% + 24px);z-index:0;pointer-events:none;overflow:visible;opacity:.5}
+  .medal>span,.medal .mark,.medal .logo{position:relative;z-index:1}
+  @media (max-width:399px){.medal .najdi .nch{display:none}}
+  
+  .sadu-band{height:11px;margin:9px 0 3px;border:1px solid var(--ink);border-radius:3px;opacity:.62;
+    background:repeating-linear-gradient(60deg,var(--accent) 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(-60deg,var(--ink) 0 6px,transparent 6px 12px)}
+
   /* ---- INK-CRAFT FINISH: confident brand-INK display type (never foil-transparent) ----
      GODZILLA law #1: ink carries the words; accent only decorates (underline/dots/prices/borders).
      Placed after the scene pack so the gold-foil background-clip:text on headings is neutralised. */
@@ -425,7 +450,7 @@ body{
     html,body{background:#fff!important;background-image:none!important;color:#000!important}
     body::before,body::after{display:none!important}
     .mote,.orb,.scenebg,.skydial,.order-chip,.waiter-btn,.lang-toggle,.wa,.bigmark,.chips,.acttip,.sep,
-    .cat-art,.sig-art,.brandshots,.diary,.pdot{display:none!important}
+    .cat-art,.sig-art,.brandshots,.diary,.pdot,.brandbg,.sadu-band,.najdi{display:none!important}
     .wrap{max-width:100%;padding:0}
     .hero{min-height:0!important;padding:0 0 8px!important;display:block!important}
     .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
@@ -456,6 +481,7 @@ body{
 </style>
 </head>
 <body>
+<div class="brandbg" aria-hidden="true"><div class="rk-ink"></div><div class="rk-ring"></div><span class="rk-rule" style="top:24%"></span><span class="rk-rule" style="top:50%"></span><span class="rk-rule" style="top:76%"></span></div>
 <button class="lang-toggle touchable" id="langToggle">English</button>
 <div class="bigmark" aria-hidden="true"><span class="ar">م</span><span class="en">R</span></div>
 <div class="wrap">
@@ -509,7 +535,7 @@ body{
 </g>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal hasmark"><svg class="mark bmhfw22m" viewBox="0 0 100 100" fill="none" role="img" aria-label="Rakiyah Roastery"><style>.bmhfw22m{overflow:visible}.bmhfw22m *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bmhfw22m .mk{animation:bmhfw22mbob 5s ease-in-out 1.7s infinite}@keyframes bmhfw22mbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bmhfw22mp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bmhfw22m .p1{animation:bmhfw22mp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bmhfw22m .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bmhfw22mdr 1s ease .55s forwards}@keyframes bmhfw22mdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">م</span><span class="en">R</span></span></div>
+    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bmhfw22m" viewBox="0 0 100 100" fill="none" role="img" aria-label="Rakiyah Roastery"><style>.bmhfw22m{overflow:visible}.bmhfw22m *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bmhfw22m .mk{animation:bmhfw22mbob 5s ease-in-out 1.7s infinite}@keyframes bmhfw22mbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bmhfw22mp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bmhfw22m .p1{animation:bmhfw22mp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bmhfw22m .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bmhfw22mdr 1s ease .55s forwards}@keyframes bmhfw22mdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">م</span><span class="en">R</span></span></div>
     <h1><span class="ar">محمصة ركية</span><span class="en">Rakiyah Roastery</span></h1>
     <div class="world"><span class="ar">✦ <b>دفتر رحّالة يدور خلف البن</b> ✦</span><span class="en">✦ <b>a traveler's notebook chasing coffee lands</b> ✦</span></div>
     <div class="heroline"><span class="ar">كل فنجان يحكي عن أرض بعيدة</span><span class="en">every cup, a page from somewhere far</span></div>
@@ -521,6 +547,7 @@ body{
     <figure class="bx-route" aria-hidden="true"><svg viewBox="0 0 140 34"><path class="bx-route-path" d="M6 28C36 6 66 30 100 12q18-9 34-4" fill="none" stroke="var(--accent)" stroke-width="1.5"/><circle cx="6" cy="28" r="2.5" fill="var(--sa)"/><circle cx="134" cy="8" r="2.5" fill="var(--sa)"/></svg><figcaption class="bx-route-note">من دفتر الرحلة</figcaption></figure>
   </header>
   <nav class="chips"><a class="chip touchable" href="#cat-0"><span class="ar">وين وصلنا اليوم؟</span><span class="en">where the beans took us today</span></a><a class="chip touchable" href="#cat-1"><span class="ar">خلاصة الرحلة بفنجان</span><span class="en">the whole journey in one cup</span></a><a class="chip touchable" href="#cat-2"><span class="ar">خذ الحكاية معك للبيت</span><span class="en">take the story home</span></a><a class="chip touchable" href="#cat-3"><span class="ar">زاد الطريق</span><span class="en">provisions for the road</span></a></nav>
+  <div class="sadu-band" aria-hidden="true"></div>
   
   
   <section class="cat reveal cat--flip" id="cat-0" style="--sa:#8c502b;--sa2:#8b8437">

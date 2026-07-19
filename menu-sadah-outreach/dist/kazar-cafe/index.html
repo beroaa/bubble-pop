@@ -349,6 +349,20 @@ body{
   /* ---- polish50 bespoke touch: Midnight Spotlight Beam ---- */
   .bx-stage{position:relative;display:flex;flex-direction:column;align-items:center;gap:.35rem;padding:.6rem 0}.bx-stage svg{width:110px;height:auto;display:block}.bx-beam{opacity:.14;transition:opacity .7s ease}.bx-stage:hover .bx-beam,.bx-stage:active .bx-beam{opacity:.5}.bx-stage-note{font-size:.72rem;color:var(--text-2);letter-spacing:.02em;opacity:.8}@media (prefers-reduced-motion:no-preference){.bx-beam{animation:bx-flicker 6s ease-in-out infinite}@keyframes bx-flicker{0%,100%{opacity:.14}45%{opacity:.22}50%{opacity:.17}55%{opacity:.26}}.bx-stage:hover .bx-beam{animation:none;opacity:.5}}
 
+  /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(120% 90% at 50% -10%,var(--bg-1),var(--bg-0))}.kz-spot{position:absolute;top:-20%;left:50%;width:70vw;height:120vh;transform:translateX(-50%) rotate(0deg);background:conic-gradient(from 180deg at 50% 0,transparent 46%,color-mix(in srgb,var(--accent) 22%,transparent) 50%,transparent 54%);opacity:.5;transform-origin:50% 0}.kz-steam{position:absolute;bottom:-10%;width:26vw;height:80vh;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--sa) 16%,transparent),transparent 60%);filter:blur(30px);opacity:.35}.kz-steam.s1{left:6%}.kz-steam.s2{left:70%}.kz-steam.s3{left:40%;opacity:.2}.kz-em{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 8px var(--accent-2);opacity:.6}.kz-em.e1{left:20%;bottom:20%}.kz-em.e2{left:78%;bottom:30%}.kz-em.e3{left:55%;bottom:12%}@media(prefers-reduced-motion:no-preference){.kz-spot{animation:kzsweep 12s ease-in-out infinite alternate}.kz-steam{animation:kzrise 9s ease-in-out infinite alternate}.kz-steam.s2{animation-duration:11s}.kz-steam.s3{animation-duration:7s}.kz-em{animation:kzfloat 6s ease-in infinite}.kz-em.e2{animation-duration:8s}.kz-em.e3{animation-duration:5s}@keyframes kzsweep{from{transform:translateX(-50%) rotate(-9deg)}to{transform:translateX(-50%) rotate(9deg)}}@keyframes kzrise{from{transform:translateY(6%)}to{transform:translateY(-8%)}}@keyframes kzfloat{0%{transform:translateY(0);opacity:0}30%{opacity:.7}100%{transform:translateY(-40vh);opacity:0}}}
+
+  /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
+  
+  .medal{position:relative}
+  .medal .najdi{position:absolute;inset:-12px;width:calc(100% + 24px);height:calc(100% + 24px);z-index:0;pointer-events:none;overflow:visible;opacity:.5}
+  .medal>span,.medal .mark,.medal .logo{position:relative;z-index:1}
+  @media (max-width:399px){.medal .najdi .nch{display:none}}
+  
+  .sadu-band{height:11px;margin:9px 0 3px;border:1px solid var(--ink);border-radius:3px;opacity:.62;
+    background:repeating-linear-gradient(60deg,var(--accent) 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(-60deg,var(--ink) 0 6px,transparent 6px 12px)}
+
   /* ---- INK-CRAFT FINISH: confident brand-INK display type (never foil-transparent) ----
      GODZILLA law #1: ink carries the words; accent only decorates (underline/dots/prices/borders).
      Placed after the scene pack so the gold-foil background-clip:text on headings is neutralised. */
@@ -396,7 +410,7 @@ body{
     html,body{background:#fff!important;background-image:none!important;color:#000!important}
     body::before,body::after{display:none!important}
     .mote,.orb,.scenebg,.skydial,.order-chip,.waiter-btn,.lang-toggle,.wa,.bigmark,.chips,.acttip,.sep,
-    .cat-art,.sig-art,.brandshots,.diary,.pdot{display:none!important}
+    .cat-art,.sig-art,.brandshots,.diary,.pdot,.brandbg,.sadu-band,.najdi{display:none!important}
     .wrap{max-width:100%;padding:0}
     .hero{min-height:0!important;padding:0 0 8px!important;display:block!important}
     .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
@@ -427,6 +441,7 @@ body{
 </style>
 </head>
 <body>
+<div class="brandbg" aria-hidden="true"><span class="kz-spot"></span><span class="kz-steam s1"></span><span class="kz-steam s2"></span><span class="kz-steam s3"></span><i class="kz-em e1"></i><i class="kz-em e2"></i><i class="kz-em e3"></i></div>
 <button class="lang-toggle touchable" id="langToggle">English</button>
 <div class="bigmark" aria-hidden="true"><span class="ar">ك</span><span class="en">K</span></div>
 <div class="wrap">
@@ -476,7 +491,7 @@ body{
 <rect y="783" width="1440" height="24" fill="url(#pdSadu)" opacity=".85"/>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal hasmark"><svg class="mark bmq6lqjam" viewBox="0 0 100 100" fill="none" role="img" aria-label="Kazar Cafe"><style>.bmq6lqjam{overflow:visible}.bmq6lqjam *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bmq6lqjam .mk{animation:bmq6lqjambob 5s ease-in-out 1.7s infinite}@keyframes bmq6lqjambob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bmq6lqjamp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bmq6lqjam .p1{animation:bmq6lqjamp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bmq6lqjam .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bmq6lqjamdr 1s ease .55s forwards}@keyframes bmq6lqjamdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ك</span><span class="en">K</span></span></div>
+    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bmq6lqjam" viewBox="0 0 100 100" fill="none" role="img" aria-label="Kazar Cafe"><style>.bmq6lqjam{overflow:visible}.bmq6lqjam *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bmq6lqjam .mk{animation:bmq6lqjambob 5s ease-in-out 1.7s infinite}@keyframes bmq6lqjambob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bmq6lqjamp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bmq6lqjam .p1{animation:bmq6lqjamp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bmq6lqjam .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bmq6lqjamdr 1s ease .55s forwards}@keyframes bmq6lqjamdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ك</span><span class="en">K</span></span></div>
     <h1><span class="ar">كازار كافيه</span><span class="en">Kazar Cafe</span></h1>
     <div class="world"><span class="ar">✦ <b>مسرح ليلي والقهوة بطلته</b> ✦</span><span class="en">✦ <b>a night stage where coffee performs</b> ✦</span></div>
     <div class="heroline"><span class="ar">الليل هنا له قهوته</span><span class="en">the night keeps its own coffee</span></div>
@@ -488,6 +503,7 @@ body{
     <div class="bx-stage"><svg viewBox="0 0 120 92" aria-hidden="true"><polygon class="bx-beam" points="60,0 16,92 104,92" fill="var(--accent)"/><circle cx="60" cy="78" r="9" fill="none" stroke="var(--sa)" stroke-width="1.5" opacity=".7"/></svg><span class="bx-stage-note">الليل مسرح… والفنجان بطله</span></div>
   </header>
   <nav class="chips"><a class="chip touchable" href="#cat-0"><span class="ar">هنا النار تشتغل</span><span class="en">where the heat takes the stage</span></a><a class="chip touchable" href="#cat-1"><span class="ar">على مهلك، قطرة قطرة</span><span class="en">slow down, drop by drop</span></a><a class="chip touchable" href="#cat-2"><span class="ar">برد يوقّظ السهرة</span><span class="en">a chill to wake the night</span></a><a class="chip touchable" href="#cat-3"><span class="ar">الدلة ما تنام</span><span class="en">the dallah never sleeps</span></a><a class="chip touchable" href="#cat-4"><span class="ar">شي حلو مع السهرة</span><span class="en">something sweet for the late hour</span></a></nav>
+  <div class="sadu-band" aria-hidden="true"></div>
   
   
   <section class="cat reveal cat--flip" id="cat-0" style="--sa:#cab363;--sa2:#b4d076">

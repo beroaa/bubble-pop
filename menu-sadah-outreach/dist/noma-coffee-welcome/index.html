@@ -218,6 +218,21 @@ body::after{
 @keyframes nzTwinkle{0%,100%{opacity:.9}50%{opacity:.45}}
 
 
+  /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  .brandbg{--accent:#a43f1e;--accent-2:#8b3757;--sa:#9c8830;--sa2:#88b4a9;--bg-0:#fcf9f8;--bg-1:#f5edea;--bg-2:#fefcfb}
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}.grid{position:absolute;inset:0;opacity:.11;background:linear-gradient(var(--accent) 1px,transparent 1px) 0 0/48px 48px,linear-gradient(90deg,var(--accent) 1px,transparent 1px) 0 0/48px 48px;-webkit-mask:radial-gradient(circle at 50% 50%,transparent 28%,#000);mask:radial-gradient(circle at 50% 50%,transparent 28%,#000)}.scan{position:absolute;left:0;right:0;height:22vh;top:-22vh;background:linear-gradient(var(--sa,var(--accent-2)),transparent);opacity:.2}.glow{position:absolute;bottom:-16vw;left:50%;width:60vw;height:40vw;margin-inline-start:-30vw;background:radial-gradient(circle,var(--accent),transparent 70%);opacity:.3;filter:blur(50px)}.st{position:absolute;width:4px;height:4px;border-radius:50%;background:var(--sa2,#fff);opacity:.7;box-shadow:0 0 8px var(--accent)}.t1{top:16%;left:24%}.t2{top:30%;left:76%}.t3{top:66%;left:14%}.t4{top:72%;left:84%}@media(prefers-reduced-motion:no-preference){.scan{animation:nsc 6s linear infinite}.glow{animation:ngl 5s ease-in-out infinite}.st{animation:nst 3s ease-in-out infinite}.t2{animation-delay:.7s}.t3{animation-delay:1.4s}.t4{animation-delay:2.1s}@keyframes nsc{to{transform:translateY(128vh)}}@keyframes ngl{50%{opacity:.5}}@keyframes nst{50%{opacity:.15;transform:scale(.5)}}}
+
+  /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
+  
+  .medal{position:relative}
+  .medal .najdi{position:absolute;inset:-12px;width:calc(100% + 24px);height:calc(100% + 24px);z-index:0;pointer-events:none;overflow:visible;opacity:.5}
+  .medal>span,.medal .mark,.medal .logo{position:relative;z-index:1}
+  @media (max-width:399px){.medal .najdi .nch{display:none}}
+  
+  .sadu-band{height:11px;margin:9px 0 3px;border:1px solid var(--ink);border-radius:3px;opacity:.62;
+    background:repeating-linear-gradient(60deg,var(--gold) 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(-60deg,var(--ink) 0 6px,transparent 6px 12px)}
+
   /* ---- INK-CRAFT FINISH (gift page): heroline never foil-transparent; medallion holds the mark ----
      the gift page is already ink-crafted (2px ink borders + hard offset shadows on every card/pill),
      so this only neutralises the scene's gold-foil background-clip:text on .heroline + sizes the mark. */
@@ -264,6 +279,7 @@ body::after{
 </script>
 </head>
 <body>
+<div class="brandbg" aria-hidden="true"><span class="grid"></span><span class="scan"></span><span class="glow"></span><span class="st t1"></span><span class="st t2"></span><span class="st t3"></span><span class="st t4"></span></div>
 <div class="sting-wash" aria-hidden="true"><i></i><i></i></div>
 <div class="curtain" id="msCurtain" aria-hidden="true"></div>
 <div class="bigmark" aria-hidden="true"><span class="ar">ن</span><span class="en">N</span></div>
@@ -303,11 +319,12 @@ body::after{
 </svg>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:15px;animation-delay:0s">✦</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:15px;animation-delay:0.7s">✧</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:15px;animation-delay:1.4s">⋆</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:15px;animation-delay:2.0999999999999996s">☾</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:15px;animation-delay:2.8s">✦</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:15px;animation-delay:3.5s">✧</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:12px;animation-delay:0.1999999999999993s">⋆</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:10px;animation-delay:0.8999999999999995s">☾</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="medal hasmark"><svg class="mark bm2tt8jvw" viewBox="0 0 100 100" fill="none" role="img" aria-label="Noma Coffee"><style>.bm2tt8jvw{overflow:visible}.bm2tt8jvw *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm2tt8jvw .mk{animation:bm2tt8jvwbob 5s ease-in-out 1.7s infinite}@keyframes bm2tt8jvwbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm2tt8jvwdia{0%{opacity:0;transform:rotate(-135deg) scale(.3)}100%{opacity:1;transform:none}}.bm2tt8jvw .p1{animation:bm2tt8jvwdia .9s cubic-bezier(.2,1.3,.3,1) both}@keyframes bm2tt8jvwpx{0%{opacity:0;transform:scale(0)}100%{opacity:1;transform:none}}.bm2tt8jvw .p2{opacity:0;animation:bm2tt8jvwpx .4s .55s forwards}.bm2tt8jvw .p3{opacity:0;animation:bm2tt8jvwpx .4s .7s forwards}.bm2tt8jvw .p4{opacity:0;animation:bm2tt8jvwpx .4s .85s forwards}.bm2tt8jvw .p5{opacity:0;animation:bm2tt8jvwpx .4s 1s forwards}}</style><g class="mk"><path class="p1" d="M50 26 L74 50 L50 74 L26 50 Z" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><g class="p2"><rect x="40" y="46" width="8" height="8" fill="var(--gold)"/></g><g class="p3"><rect x="52" y="46" width="8" height="8" fill="var(--sage)"/></g><g class="p4"><rect x="46" y="34" width="8" height="8" fill="var(--ochre)"/></g><g class="p5"><rect x="46" y="58" width="8" height="8" fill="var(--gold)"/></g></g></svg><span><span class="ar">ن</span><span class="en">N</span></span></div>
+    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bm2tt8jvw" viewBox="0 0 100 100" fill="none" role="img" aria-label="Noma Coffee"><style>.bm2tt8jvw{overflow:visible}.bm2tt8jvw *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm2tt8jvw .mk{animation:bm2tt8jvwbob 5s ease-in-out 1.7s infinite}@keyframes bm2tt8jvwbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm2tt8jvwdia{0%{opacity:0;transform:rotate(-135deg) scale(.3)}100%{opacity:1;transform:none}}.bm2tt8jvw .p1{animation:bm2tt8jvwdia .9s cubic-bezier(.2,1.3,.3,1) both}@keyframes bm2tt8jvwpx{0%{opacity:0;transform:scale(0)}100%{opacity:1;transform:none}}.bm2tt8jvw .p2{opacity:0;animation:bm2tt8jvwpx .4s .55s forwards}.bm2tt8jvw .p3{opacity:0;animation:bm2tt8jvwpx .4s .7s forwards}.bm2tt8jvw .p4{opacity:0;animation:bm2tt8jvwpx .4s .85s forwards}.bm2tt8jvw .p5{opacity:0;animation:bm2tt8jvwpx .4s 1s forwards}}</style><g class="mk"><path class="p1" d="M50 26 L74 50 L50 74 L26 50 Z" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><g class="p2"><rect x="40" y="46" width="8" height="8" fill="var(--gold)"/></g><g class="p3"><rect x="52" y="46" width="8" height="8" fill="var(--sage)"/></g><g class="p4"><rect x="46" y="34" width="8" height="8" fill="var(--ochre)"/></g><g class="p5"><rect x="46" y="58" width="8" height="8" fill="var(--gold)"/></g></g></svg><span><span class="ar">ن</span><span class="en">N</span></span></div>
     <h1><span class="ar">أهلاً ببيت <b>نوما كافيه</b></span><span class="en">Welcome home, <b>Noma Coffee</b>.</span></h1>
     <div class="world"><span class="ar">✦ مختبر قهوة يسهر معك ✦</span><span class="en">✦ a coffee lab glowing after midnight ✦</span></div>
     <div class="heroline hand"><span class="ar">اسهر معنا على فنجان</span><span class="en">stay up with a good cup</span></div>
     <div><a class="cta touchable" href="../noma-coffee/"><span class="ar">افتحوا منيوكم ←</span><span class="en">Open your menu →</span></a></div>
+    <div class="sadu-band" aria-hidden="true" style="max-width:280px;margin-inline:auto"></div>
   </section>
 
   <div class="letter rv">

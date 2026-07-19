@@ -237,6 +237,29 @@ body{
 }
 
 
+  /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  .brandbg{--accent:#1da536;--accent-2:#5d8c36;--sa:#2f9d82;--sa2:#a787b5;--bg-0:#f8fcf9;--bg-1:#eaf5ec;--bg-2:#fbfefc}
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:var(--bg-0)}
+.mw-lantern{position:absolute;top:-16%;right:-10%;width:60vw;height:60vw;border-radius:50%;background:radial-gradient(circle,var(--accent) 0%,transparent 62%);opacity:.15;filter:blur(24px)}
+.mw-sadu{position:absolute;left:0;right:0;bottom:0;height:15vh;opacity:.13;background:repeating-linear-gradient(90deg,var(--sa) 0 10px,transparent 10px 20px,var(--accent-2) 20px 26px,transparent 26px 40px)}
+.mw-lf{position:absolute;top:-6%;width:14px;height:14px;background:var(--accent-2);border-radius:0 100% 0 100%;opacity:0}
+@media (prefers-reduced-motion:no-preference){
+.mw-lantern{animation:mw-flick 6s ease-in-out infinite}
+.mw-lf{animation:mw-fall 12s linear infinite}
+@keyframes mw-flick{0%,100%{opacity:.11}50%{opacity:.19}}
+@keyframes mw-fall{0%{transform:translateY(0) rotate(0);opacity:0}10%{opacity:.5}90%{opacity:.5}100%{transform:translateY(112vh) rotate(220deg);opacity:0}}}
+
+  /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
+  
+  .medal{position:relative}
+  .medal .najdi{position:absolute;inset:-12px;width:calc(100% + 24px);height:calc(100% + 24px);z-index:0;pointer-events:none;overflow:visible;opacity:.5}
+  .medal>span,.medal .mark,.medal .logo{position:relative;z-index:1}
+  @media (max-width:399px){.medal .najdi .nch{display:none}}
+  
+  .sadu-band{height:11px;margin:9px 0 3px;border:1px solid var(--ink);border-radius:3px;opacity:.62;
+    background:repeating-linear-gradient(60deg,var(--gold) 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(-60deg,var(--ink) 0 6px,transparent 6px 12px)}
+
   /* ---- INK-CRAFT FINISH (gift page): heroline never foil-transparent; medallion holds the mark ----
      the gift page is already ink-crafted (2px ink borders + hard offset shadows on every card/pill),
      so this only neutralises the scene's gold-foil background-clip:text on .heroline + sizes the mark. */
@@ -283,6 +306,7 @@ body{
 </script>
 </head>
 <body>
+<div class="brandbg" aria-hidden="true"><div class="mw-lantern"></div><div class="mw-sadu"></div><span class="mw-lf" style="left:14%;animation-delay:0s"></span><span class="mw-lf" style="left:38%;animation-delay:3s"></span><span class="mw-lf" style="left:62%;animation-delay:6s"></span><span class="mw-lf" style="left:84%;animation-delay:2s"></span></div>
 <div class="sting-wash" aria-hidden="true"><i></i><i></i></div>
 <div class="curtain" id="msCurtain" aria-hidden="true"></div>
 <div class="bigmark" aria-hidden="true"><span class="ar">م</span><span class="en">M</span></div>
@@ -356,11 +380,12 @@ body{
 </svg>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:15px;animation-delay:0s">❧</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:12px;animation-delay:0.7s">✿</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:10px;animation-delay:1.4s">❀</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:9px;animation-delay:2.0999999999999996s">⚘</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:9px;animation-delay:2.8s">❧</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:9px;animation-delay:3.5s">✿</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:9px;animation-delay:0.1999999999999993s">❀</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:9px;animation-delay:0.8999999999999995s">⚘</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="medal hasmark"><svg class="mark bmhsfv06w" viewBox="0 0 100 100" fill="none" role="img" aria-label="Matal Al Wadi"><style>.bmhsfv06w{overflow:visible}.bmhsfv06w *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bmhsfv06w .mk{animation:bmhsfv06wbob 5s ease-in-out 1.7s infinite}@keyframes bmhsfv06wbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bmhsfv06wtop{0%{opacity:0;transform:translateY(-30px) rotate(-10deg)}100%{transform:none}}@keyframes bmhsfv06wbot{0%{opacity:0;transform:translateY(30px)}100%{transform:none}}@keyframes bmhsfv06wpop{0%{opacity:0;transform:scale(.3)}100%{opacity:1;transform:none}}.bmhsfv06w .p1{animation:bmhsfv06wtop .8s cubic-bezier(.2,1.3,.3,1) both}.bmhsfv06w .p2{animation:bmhsfv06wbot .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bmhsfv06w .p3{animation:bmhsfv06wpop .5s ease .7s both}}</style><g class="mk"><g class="p1"><path d="M26 48 L50 28 L74 48 Z" fill="var(--gold)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="30" y="48" width="40" height="30" rx="4" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><path d="M44 78 L44 60 Q50 55 56 60 L56 78 Z" fill="var(--sage)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g></g></svg><span><span class="ar">م</span><span class="en">M</span></span></div>
+    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bmhsfv06w" viewBox="0 0 100 100" fill="none" role="img" aria-label="Matal Al Wadi"><style>.bmhsfv06w{overflow:visible}.bmhsfv06w *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bmhsfv06w .mk{animation:bmhsfv06wbob 5s ease-in-out 1.7s infinite}@keyframes bmhsfv06wbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bmhsfv06wtop{0%{opacity:0;transform:translateY(-30px) rotate(-10deg)}100%{transform:none}}@keyframes bmhsfv06wbot{0%{opacity:0;transform:translateY(30px)}100%{transform:none}}@keyframes bmhsfv06wpop{0%{opacity:0;transform:scale(.3)}100%{opacity:1;transform:none}}.bmhsfv06w .p1{animation:bmhsfv06wtop .8s cubic-bezier(.2,1.3,.3,1) both}.bmhsfv06w .p2{animation:bmhsfv06wbot .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bmhsfv06w .p3{animation:bmhsfv06wpop .5s ease .7s both}}</style><g class="mk"><g class="p1"><path d="M26 48 L50 28 L74 48 Z" fill="var(--gold)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="30" y="48" width="40" height="30" rx="4" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><path d="M44 78 L44 60 Q50 55 56 60 L56 78 Z" fill="var(--sage)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g></g></svg><span><span class="ar">م</span><span class="en">M</span></span></div>
     <h1><span class="ar">أهلاً ببيت <b>مطل الوادي</b></span><span class="en">Welcome home, <b>Matal Al Wadi</b>.</span></h1>
     <div class="world"><span class="ar">✦ بيت المزرعة وقت لمّة العصر ✦</span><span class="en">✦ the farmhouse when the whole family arrives ✦</span></div>
     <div class="heroline hand"><span class="ar">الوادي جمعنا والقهوة كمّلت اللمة</span><span class="en">the valley gathers, the cups follow</span></div>
     <div><a class="cta touchable" href="../matal-al-wadi/"><span class="ar">افتحوا منيوكم ←</span><span class="en">Open your menu →</span></a></div>
+    <div class="sadu-band" aria-hidden="true" style="max-width:280px;margin-inline:auto"></div>
   </section>
 
   <div class="letter rv">

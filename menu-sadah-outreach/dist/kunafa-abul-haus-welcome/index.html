@@ -237,6 +237,33 @@ body{
 }
 
 
+  /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  .brandbg{--accent:#9d2571;--accent-2:#713e84;--sa:#95373d;--sa2:#93ae8f;--bg-0:#fcf8fa;--bg-1:#f5eaf1;--bg-2:#fefbfd}
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(90% 60% at 100% 0,color-mix(in srgb,var(--sa) 16%,transparent),transparent 55%),radial-gradient(90% 60% at 0 100%,color-mix(in srgb,var(--accent) 14%,transparent),transparent 55%)}
+.brandbg .lantern{position:absolute;width:34vw;height:34vw;border-radius:50%;filter:blur(40px);opacity:.4;background:radial-gradient(closest-side,var(--sa),transparent)}
+.brandbg .l1{top:-10%;left:-8%}.brandbg .l2{bottom:-12%;right:-6%;background:radial-gradient(closest-side,var(--accent),transparent)}
+.brandbg .sadu{position:absolute;left:0;right:0;top:0;height:10px;background:repeating-linear-gradient(90deg,var(--sa) 0 10px,transparent 10px 22px);opacity:.25}
+.brandbg .steam{position:absolute;bottom:0;width:8px;height:32vh;border-radius:40%;background:linear-gradient(to top,color-mix(in srgb,var(--sa2) 30%,transparent),transparent);filter:blur(6px);opacity:0}
+.brandbg .st1{left:16%}.brandbg .st2{left:50%}.brandbg .st3{right:18%}
+@media (prefers-reduced-motion:no-preference){
+.brandbg .lantern{animation:kah-glow 6s ease-in-out infinite}
+.brandbg .l2{animation-delay:2s}
+.brandbg .steam{animation:kah-rise 7s ease-in-out infinite}
+.brandbg .st2{animation-delay:2.3s}.brandbg .st3{animation-delay:4s}
+@keyframes kah-glow{0%,100%{opacity:.3}50%{opacity:.55}}
+@keyframes kah-rise{0%{opacity:0;transform:translateY(10%) scaleX(1)}40%{opacity:.6}100%{opacity:0;transform:translateY(-30%) scaleX(1.8)}}}
+
+  /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
+  
+  .medal{position:relative}
+  .medal .najdi{position:absolute;inset:-12px;width:calc(100% + 24px);height:calc(100% + 24px);z-index:0;pointer-events:none;overflow:visible;opacity:.5}
+  .medal>span,.medal .mark,.medal .logo{position:relative;z-index:1}
+  @media (max-width:399px){.medal .najdi .nch{display:none}}
+  
+  .sadu-band{height:11px;margin:9px 0 3px;border:1px solid var(--ink);border-radius:3px;opacity:.62;
+    background:repeating-linear-gradient(60deg,var(--gold) 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(-60deg,var(--ink) 0 6px,transparent 6px 12px)}
+
   /* ---- INK-CRAFT FINISH (gift page): heroline never foil-transparent; medallion holds the mark ----
      the gift page is already ink-crafted (2px ink borders + hard offset shadows on every card/pill),
      so this only neutralises the scene's gold-foil background-clip:text on .heroline + sizes the mark. */
@@ -283,6 +310,7 @@ body{
 </script>
 </head>
 <body>
+<div class="brandbg" aria-hidden="true"><span class="sadu"></span><span class="lantern l1"></span><span class="lantern l2"></span><span class="steam st1"></span><span class="steam st2"></span><span class="steam st3"></span></div>
 <div class="sting-wash" aria-hidden="true"><i></i><i></i></div>
 <div class="curtain" id="msCurtain" aria-hidden="true"></div>
 <div class="bigmark" aria-hidden="true"><span class="ar">ك</span><span class="en">K</span></div>
@@ -356,11 +384,12 @@ body{
 </svg>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:11px;animation-delay:0s">〜</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:10px;animation-delay:0.7s">〜</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:9px;animation-delay:1.4s">〜</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:12px;animation-delay:2.0999999999999996s">〜</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:10px;animation-delay:2.8s">〜</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:9px;animation-delay:3.5s">〜</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:12px;animation-delay:0.1999999999999993s">〜</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:14px;animation-delay:0.8999999999999995s">〜</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="medal hasmark"><svg class="mark bmhpi4gqw" viewBox="0 0 100 100" fill="none" role="img" aria-label="Kunafa Abul Haus"><style>.bmhpi4gqw{overflow:visible}.bmhpi4gqw *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bmhpi4gqw .mk{animation:bmhpi4gqwbob 5s ease-in-out 1.7s infinite}@keyframes bmhpi4gqwbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bmhpi4gqwfl{0%{opacity:0;transform:translateX(-40px) rotate(-12deg)}100%{transform:none}}@keyframes bmhpi4gqwfr{0%{opacity:0;transform:translateX(40px) rotate(12deg)}100%{transform:none}}@keyframes bmhpi4gqwdrop{0%{opacity:0;transform:translateY(-30px) scale(.4)}70%{transform:translateY(2px) scale(1.1)}100%{transform:none}}.bmhpi4gqw .p1{animation:bmhpi4gqwfl .8s cubic-bezier(.2,1.2,.3,1) both}.bmhpi4gqw .p2{animation:bmhpi4gqwfr .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bmhpi4gqw .p3{animation:bmhpi4gqwdrop .7s cubic-bezier(.2,1.5,.3,1) .55s both}.bmhpi4gqw .p4{opacity:0;animation:bmhpi4gqwfd .4s ease .95s forwards}@keyframes bmhpi4gqwfd{to{opacity:1}}}</style><g class="mk"><g class="p1"><rect x="22" y="54" width="56" height="24" rx="7" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="32" y="34" width="36" height="22" rx="7" fill="var(--gold)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><circle cx="50" cy="26" r="6" fill="var(--ochre)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g><path class="p4" d="M50 20 q3 -6 8 -7" stroke="var(--ink)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ك</span><span class="en">K</span></span></div>
+    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bmhpi4gqw" viewBox="0 0 100 100" fill="none" role="img" aria-label="Kunafa Abul Haus"><style>.bmhpi4gqw{overflow:visible}.bmhpi4gqw *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bmhpi4gqw .mk{animation:bmhpi4gqwbob 5s ease-in-out 1.7s infinite}@keyframes bmhpi4gqwbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bmhpi4gqwfl{0%{opacity:0;transform:translateX(-40px) rotate(-12deg)}100%{transform:none}}@keyframes bmhpi4gqwfr{0%{opacity:0;transform:translateX(40px) rotate(12deg)}100%{transform:none}}@keyframes bmhpi4gqwdrop{0%{opacity:0;transform:translateY(-30px) scale(.4)}70%{transform:translateY(2px) scale(1.1)}100%{transform:none}}.bmhpi4gqw .p1{animation:bmhpi4gqwfl .8s cubic-bezier(.2,1.2,.3,1) both}.bmhpi4gqw .p2{animation:bmhpi4gqwfr .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bmhpi4gqw .p3{animation:bmhpi4gqwdrop .7s cubic-bezier(.2,1.5,.3,1) .55s both}.bmhpi4gqw .p4{opacity:0;animation:bmhpi4gqwfd .4s ease .95s forwards}@keyframes bmhpi4gqwfd{to{opacity:1}}}</style><g class="mk"><g class="p1"><rect x="22" y="54" width="56" height="24" rx="7" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="32" y="34" width="36" height="22" rx="7" fill="var(--gold)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><circle cx="50" cy="26" r="6" fill="var(--ochre)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g><path class="p4" d="M50 20 q3 -6 8 -7" stroke="var(--ink)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ك</span><span class="en">K</span></span></div>
     <h1><span class="ar">أهلاً ببيت <b>كنافة أبو الهوس</b></span><span class="en">Welcome home, <b>Kunafa Abul Haus</b>.</span></h1>
     <div class="world"><span class="ar">✦ صينية كنافة على نار هادية ✦</span><span class="en">✦ a kunafa tray fresh off the fire ✦</span></div>
     <div class="heroline hand"><span class="ar">الهوس حلال إذا كان كنافة</span><span class="en">an honest obsession, served warm</span></div>
     <div><a class="cta touchable" href="../kunafa-abul-haus/"><span class="ar">افتحوا منيوكم ←</span><span class="en">Open your menu →</span></a></div>
+    <div class="sadu-band" aria-hidden="true" style="max-width:280px;margin-inline:auto"></div>
   </section>
 
   <div class="letter rv">

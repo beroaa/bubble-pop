@@ -354,6 +354,20 @@ body{
 .bx-ink::before{content:"✎";position:absolute;top:-.9em;inset-inline-start:-.6em;color:var(--sa);font-size:.9em;transform:rotate(12deg)}
 @media (prefers-reduced-motion:no-preference){.bx-ink-loop path{transition:stroke-dashoffset 1.2s ease}}
 
+  /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:linear-gradient(180deg,var(--bg-0),var(--bg-1))}.brandbg .rule{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 38px,color-mix(in srgb,var(--accent) 12%,transparent) 38px 39px),radial-gradient(circle,color-mix(in srgb,var(--sa) 16%,transparent) 1.2px,transparent 1.6px) 0 0/26px 26px;opacity:.5}.brandbg .dot{position:absolute;border-radius:50% 48% 52% 50%;background:color-mix(in srgb,var(--accent) 70%,transparent);opacity:.5}.brandbg .d1{width:22px;height:22px;top:18%;left:14%}.brandbg .d2{width:14px;height:14px;top:64%;left:24%;background:color-mix(in srgb,var(--accent-2) 70%,transparent)}.brandbg .d3{width:18px;height:18px;top:36%;left:82%}.brandbg .d4{width:12px;height:12px;top:76%;left:70%}.brandbg .scr{position:absolute;top:50%;left:60%;width:120px;height:18px;border-bottom:3px solid color-mix(in srgb,var(--accent) 60%,transparent);border-radius:0 0 60% 40%;opacity:.4}@media (prefers-reduced-motion:no-preference){.brandbg .dot{animation:hkb 5s ease-in-out infinite}.brandbg .d2{animation-duration:6.5s;animation-delay:.4s}.brandbg .d3{animation-duration:5.8s;animation-delay:.8s}.brandbg .d4{animation-duration:7s;animation-delay:.2s}.brandbg .scr{animation:hks 9s ease-in-out infinite}@keyframes hkb{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-14px) rotate(6deg)}}@keyframes hks{0%,100%{transform:rotate(-3deg) scaleX(.96)}50%{transform:rotate(3deg) scaleX(1.04)}}}
+
+  /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
+  
+  .medal{position:relative}
+  .medal .najdi{position:absolute;inset:-12px;width:calc(100% + 24px);height:calc(100% + 24px);z-index:0;pointer-events:none;overflow:visible;opacity:.5}
+  .medal>span,.medal .mark,.medal .logo{position:relative;z-index:1}
+  @media (max-width:399px){.medal .najdi .nch{display:none}}
+  
+  .sadu-band{height:11px;margin:9px 0 3px;border:1px solid var(--ink);border-radius:3px;opacity:.62;
+    background:repeating-linear-gradient(60deg,var(--accent) 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(-60deg,var(--ink) 0 6px,transparent 6px 12px)}
+
   /* ---- INK-CRAFT FINISH: confident brand-INK display type (never foil-transparent) ----
      GODZILLA law #1: ink carries the words; accent only decorates (underline/dots/prices/borders).
      Placed after the scene pack so the gold-foil background-clip:text on headings is neutralised. */
@@ -417,7 +431,7 @@ body{
     html,body{background:#fff!important;background-image:none!important;color:#000!important}
     body::before,body::after{display:none!important}
     .mote,.orb,.scenebg,.skydial,.order-chip,.waiter-btn,.lang-toggle,.wa,.bigmark,.chips,.acttip,.sep,
-    .cat-art,.sig-art,.brandshots,.diary,.pdot{display:none!important}
+    .cat-art,.sig-art,.brandshots,.diary,.pdot,.brandbg,.sadu-band,.najdi{display:none!important}
     .wrap{max-width:100%;padding:0}
     .hero{min-height:0!important;padding:0 0 8px!important;display:block!important}
     .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
@@ -448,6 +462,7 @@ body{
 </style>
 </head>
 <body>
+<div class="brandbg" aria-hidden="true"><span class="rule"></span><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="dot d4"></span><span class="scr"></span></div>
 <button class="lang-toggle touchable" id="langToggle">English</button>
 <div class="bigmark" aria-hidden="true"><span class="ar">ه</span><span class="en">H</span></div>
 <div class="wrap">
@@ -502,7 +517,7 @@ body{
 <rect width="1440" height="900" fill="url(#phdVig)"/>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal hasmark"><svg class="mark bmvaeqd1m" viewBox="0 0 100 100" fill="none" role="img" aria-label="Hacked"><style>.bmvaeqd1m{overflow:visible}.bmvaeqd1m *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bmvaeqd1m .mk{animation:bmvaeqd1mbob 5s ease-in-out 1.7s infinite}@keyframes bmvaeqd1mbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bmvaeqd1mfl{0%{opacity:0;transform:translateX(-40px) rotate(-12deg)}100%{transform:none}}@keyframes bmvaeqd1mfr{0%{opacity:0;transform:translateX(40px) rotate(12deg)}100%{transform:none}}@keyframes bmvaeqd1mdrop{0%{opacity:0;transform:translateY(-30px) scale(.4)}70%{transform:translateY(2px) scale(1.1)}100%{transform:none}}.bmvaeqd1m .p1{animation:bmvaeqd1mfl .8s cubic-bezier(.2,1.2,.3,1) both}.bmvaeqd1m .p2{animation:bmvaeqd1mfr .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bmvaeqd1m .p3{animation:bmvaeqd1mdrop .7s cubic-bezier(.2,1.5,.3,1) .55s both}.bmvaeqd1m .p4{opacity:0;animation:bmvaeqd1mfd .4s ease .95s forwards}@keyframes bmvaeqd1mfd{to{opacity:1}}}</style><g class="mk"><g class="p1"><rect x="22" y="54" width="56" height="24" rx="7" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="32" y="34" width="36" height="22" rx="7" fill="var(--sa)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><circle cx="50" cy="26" r="6" fill="var(--accent-2)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g><path class="p4" d="M50 20 q3 -6 8 -7" stroke="var(--ink)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ه</span><span class="en">H</span></span></div>
+    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bmvaeqd1m" viewBox="0 0 100 100" fill="none" role="img" aria-label="Hacked"><style>.bmvaeqd1m{overflow:visible}.bmvaeqd1m *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bmvaeqd1m .mk{animation:bmvaeqd1mbob 5s ease-in-out 1.7s infinite}@keyframes bmvaeqd1mbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bmvaeqd1mfl{0%{opacity:0;transform:translateX(-40px) rotate(-12deg)}100%{transform:none}}@keyframes bmvaeqd1mfr{0%{opacity:0;transform:translateX(40px) rotate(12deg)}100%{transform:none}}@keyframes bmvaeqd1mdrop{0%{opacity:0;transform:translateY(-30px) scale(.4)}70%{transform:translateY(2px) scale(1.1)}100%{transform:none}}.bmvaeqd1m .p1{animation:bmvaeqd1mfl .8s cubic-bezier(.2,1.2,.3,1) both}.bmvaeqd1m .p2{animation:bmvaeqd1mfr .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bmvaeqd1m .p3{animation:bmvaeqd1mdrop .7s cubic-bezier(.2,1.5,.3,1) .55s both}.bmvaeqd1m .p4{opacity:0;animation:bmvaeqd1mfd .4s ease .95s forwards}@keyframes bmvaeqd1mfd{to{opacity:1}}}</style><g class="mk"><g class="p1"><rect x="22" y="54" width="56" height="24" rx="7" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="32" y="34" width="36" height="22" rx="7" fill="var(--sa)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><circle cx="50" cy="26" r="6" fill="var(--accent-2)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g><path class="p4" d="M50 20 q3 -6 8 -7" stroke="var(--ink)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ه</span><span class="en">H</span></span></div>
     <h1><span class="ar">هاكد</span><span class="en">Hacked</span></h1>
     <div class="world"><span class="ar">✦ <b>دفتر شخابيط مليان أسرار حلوة</b> ✦</span><span class="en">✦ <b>a doodled notebook of sweet mischief</b> ✦</span></div>
     <div class="heroline"><span class="ar">السر الحلو انكشف، تفضّل</span><span class="en">the sweet secret is out</span></div>
@@ -514,6 +529,7 @@ body{
     <figure class="bx-ink"><svg class="bx-ink-loop" viewBox="0 0 220 60" aria-hidden="true"><path d="M16 34C30 10 192 6 206 26c10 15-38 30-94 28C56 52 16 46 26 30 38 12 150 10 198 22" fill="none" stroke-width="2.4" stroke-linecap="round"/></svg><figcaption class="bx-ink-note">ضحكة وقطعة حلا تكفي</figcaption></figure>
   </header>
   <nav class="chips"><a class="chip touchable" href="#cat-0"><span class="ar">الخطة أ: حلا</span><span class="en">plan A: dessert</span></a><a class="chip touchable" href="#cat-1"><span class="ar">دافي وذايب، وكله مقصود</span><span class="en">warm, gooey, totally on purpose</span></a><a class="chip touchable" href="#cat-2"><span class="ar">قهوة تفك الشفرة</span><span class="en">coffee cracks the code</span></a><a class="chip touchable" href="#cat-3"><span class="ar">خلّك بارد، كله محسوب</span><span class="en">stay cool, it's all planned</span></a></nav>
+  <div class="sadu-band" aria-hidden="true"></div>
   
   
   <section class="cat reveal cat--flip" id="cat-0" style="--sa:#8d2a41;--sa2:#8c5036">

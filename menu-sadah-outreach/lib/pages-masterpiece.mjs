@@ -253,6 +253,69 @@ function directPhotos(slug, shots, giftMode = false) {
   return { shots: ordered, rooms: rooms.length ? rooms : null };
 }
 
+/* ---------- brandbg50: per-cafe LIVING ANIMATED BACKGROUND (pre-vetted file) ----------
+   {slug:{emotion,rationale,css,html}} — a soft, on-brand animated backdrop injected as
+   the FIRST child of <body> (behind everything: position:fixed;inset:0;z-index:0;
+   pointer-events:none), so the .wrap (z-index:1) content — and every card — stays above
+   it and text contrast is never touched. Size-guarded; physical left/right CSS inside an
+   entry is converted to logical so the RTL QA gate stays green. */
+const BRANDBG_FILE = fileURLToPath(new URL('../singularity/brandbg50.json', import.meta.url));
+const BRANDBG = (() => {
+  try {
+    if (existsSync(BRANDBG_FILE)) return JSON.parse(readFileSync(BRANDBG_FILE, 'utf8'));
+  } catch { /* malformed file → no living bg, menus still build */ }
+  return {};
+})();
+/* RTL MIRROR LAW: keep injected bg CSS logical-only (the QA gate fails physical left/right).
+   These decorative layers are pointer-events:none and behind all content, so a purely
+   cosmetic RTL shift on a blurred backdrop is invisible — logical props keep the build green. */
+function bbgLogical(css) {
+  return String(css)
+    .replace(/margin-left\s*:/g, 'margin-inline-start:')
+    .replace(/margin-right\s*:/g, 'margin-inline-end:')
+    .replace(/padding-left\s*:/g, 'padding-inline-start:')
+    .replace(/padding-right\s*:/g, 'padding-inline-end:')
+    .replace(/text-align\s*:\s*left/g, 'text-align:start')
+    .replace(/text-align\s*:\s*right/g, 'text-align:end');
+}
+function brandbgFor(slug) {
+  const b = slug && BRANDBG[slug];
+  if (!b || typeof b.css !== 'string' || typeof b.html !== 'string') return null;
+  if (b.css.length > 3000 || b.html.length > 1200) return null; // size guard
+  return { css: bbgLogical(b.css), html: b.html };
+}
+
+/* ---------- SAUDI SOUL (INSPIRATION ONLY — never a claim of affiliation/endorsement) ----------
+   Tarma peephole medallion frame (VISION2030-BANK shortlist C): re-shell the existing
+   bilingual medallion in a Najdi carved-door frame — a 2px ink-stroked square rotated
+   45deg BEHIND the circle with small triangular furjat corner notches. Static, no
+   animation, no downloads (reduced-motion safe), reuses the per-cafe initial/mark/logo,
+   adds zero assets, and changes nothing about contrast. Notches hide on narrow screens. */
+function najdiFrame(ink) {
+  return `<svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false">`
+    + `<rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="${ink}" stroke-width="2.4"/>`
+    + `<g class="nch" fill="${ink}"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g>`
+    + `</svg>`;
+}
+/* Tarma frame CSS: the frame sits at z-index:0 and the medallion's own content
+   (initial / animated mark / real logo) is raised to z-index:1 so it always reads on top —
+   contrast untouched. Furjat notches hide under ~400px via a width media query (no physical
+   left/right — RTL-safe). Reuses the page's own --ink, so it recolors per palette, light + dark. */
+const NAJDI_CSS = `
+  .medal{position:relative}
+  .medal .najdi{position:absolute;inset:-12px;width:calc(100% + 24px);height:calc(100% + 24px);z-index:0;pointer-events:none;overflow:visible;opacity:.5}
+  .medal>span,.medal .mark,.medal .logo{position:relative;z-index:1}
+  @media (max-width:399px){.medal .najdi .nch{display:none}}`;
+
+/* Sadu / Al-Qatt woven band divider (VISION2030-BANK shortlist B): a ~10px chevron/diamond
+   weave in accent + ink, sealed by a hairline ink outline. Color lives ONLY inside the band,
+   never in the words (honors the INK-DARK law); recolors per-cafe from the palette; light +
+   dark safe; sits between blocks so it never fights the medallion, photos, or body text. */
+const saduBand = (accent, ink) => `
+  .sadu-band{height:11px;margin:9px 0 3px;border:1px solid ${ink};border-radius:3px;opacity:.62;
+    background:repeating-linear-gradient(60deg,${accent} 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(-60deg,${ink} 0 6px,transparent 6px 12px)}`;
+
 /* ---------- BRAND TRUTH (locked): shared category photos are BANNED on masterpiece
    pages — they showed OTHER cafes' branded products. Only per-cafe folder photos
    (dist/assets/photos/<slug>/) ever render; absent folder → tinted SVG art. */
@@ -476,6 +539,7 @@ export function masterpieceMenuPage(cafe, brief) {
   const shotSrc = (i) => esc('../assets/photos/' + cafe.slug + '/' + shots[i % shots.length].file);
   const polish = polishFor(cafe.slug); // bespoke per-cafe touch (polish50)
   const voice = ROOMVOICE[cafe.slug] || null; // roomvoice50: spoken room asides + third diary
+  const bbg = brandbgFor(cafe.slug); // brandbg50: per-cafe living animated background (behind everything)
 
   /* SELLABLE PASS 1 — TAP-TO-ORDER: real phone → wa.me deep link per item;
      no phone (the norm — CONTACT placeholder never counts) → premium demo chip
@@ -827,6 +891,13 @@ export function masterpieceMenuPage(cafe, brief) {
 ${polish ? `
   /* ---- polish50 bespoke touch: ${polish.name} ---- */
   ${polish.css}` : ''}
+${bbg ? `
+  /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  ${bbg.css}` : ''}
+
+  /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
+  ${NAJDI_CSS}
+  ${saduBand('var(--accent)', 'var(--ink)')}
 
   /* ---- INK-CRAFT FINISH: confident brand-INK display type (never foil-transparent) ----
      GODZILLA law #1: ink carries the words; accent only decorates (underline/dots/prices/borders).
@@ -891,7 +962,7 @@ ${shots.length ? `
     html,body{background:#fff!important;background-image:none!important;color:#000!important}
     body::before,body::after{display:none!important}
     .mote,.orb,.scenebg,.skydial,.order-chip,.waiter-btn,.lang-toggle,.wa,.bigmark,.chips,.acttip,.sep,
-    .cat-art,.sig-art,.brandshots,.diary,.pdot{display:none!important}
+    .cat-art,.sig-art,.brandshots,.diary,.pdot,.brandbg,.sadu-band,.najdi{display:none!important}
     .wrap{max-width:100%;padding:0}
     .hero{min-height:0!important;padding:0 0 8px!important;display:block!important}
     .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
@@ -922,6 +993,7 @@ ${shots.length ? `
 </style>
 </head>
 <body>
+${bbg ? bbg.html : ''}
 <button class="lang-toggle touchable" id="langToggle">English</button>
 <div class="bigmark" aria-hidden="true"><span class="ar">${esc((cafe.nameAr || cafe.name).trim()[0])}</span><span class="en">${esc(cafe.name.trim()[0].toUpperCase())}</span></div>
 <div class="wrap">
@@ -930,7 +1002,7 @@ ${shots.length ? `
     ${motesHtml(brief.motif, sd)}
     ${SC ? SC.heroHtml : ''}
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal${logo ? ' haslogo' : menuMark ? ' hasmark' : ''}">${logo ? logoImg(logo) : menuMark}<span><span class="ar">${esc((cafe.nameAr || cafe.name).trim()[0])}</span><span class="en">${esc(cafe.name.trim()[0].toUpperCase())}</span></span></div>
+    <div class="medal${logo ? ' haslogo' : menuMark ? ' hasmark' : ''}">${najdiFrame('var(--ink)')}${logo ? logoImg(logo) : menuMark}<span><span class="ar">${esc((cafe.nameAr || cafe.name).trim()[0])}</span><span class="en">${esc(cafe.name.trim()[0].toUpperCase())}</span></span></div>
     <h1><span class="ar">${esc(cafe.nameAr)}</span><span class="en">${esc(cafe.name)}</span></h1>
     <div class="world"><span class="ar">✦ <b>${esc(brief.world?.ar || '')}</b> ✦</span><span class="en">✦ <b>${esc(brief.world?.en || '')}</b> ✦</span></div>
     <div class="heroline"><span class="ar">${esc(brief.heroAr || cafe.taglineAr)}</span><span class="en">${esc(brief.heroEn || cafe.tagline)}</span></div>
@@ -942,6 +1014,7 @@ ${shots.length ? `
     ${polish ? polish.html : ''}
   </header>
   <nav class="chips">${navChips}</nav>
+  <div class="sadu-band" aria-hidden="true"></div>
   ${sigHtml}
   ${catHtml}
   <div class="demo-note">
@@ -1109,6 +1182,11 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
   const MO = (cafe.theme && cafe.theme.motion) || { ease: 'cubic-bezier(.22,1,.36,1)', revealDir: 'up' };
   const inkframe = `border:2px solid ${ink};border-radius:255px 18px 225px 18px/18px 225px 18px 255px;position:relative`;
   const B = (ar, en) => `<span class="ar">${ar}</span><span class="en">${en}</span>`;
+  const bbg = brandbgFor(cafe.slug); // brandbg50: per-cafe living animated background (behind everything)
+  // the gift palette uses gift-named vars (--rose/--gold/…); brandbg entries speak the menu's
+  // var language (--accent/--sa/--bg-*), so we map them onto the .brandbg wrapper (cascades to
+  // its children). No page var is overridden — the shim lives only on the background layer.
+  const bbgShim = bbg ? `.brandbg{--accent:${rose};--accent-2:${ochre};--sa:${gold};--sa2:${sage};--bg-0:${paper};--bg-1:${paper2};--bg-2:${card}}` : '';
 
   return `<!doctype html>
 <html lang="ar" dir="rtl" data-lang="ar">
@@ -1259,6 +1337,14 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
   @media(max-width:520px){.agrid{grid-template-columns:1fr}}
   /* ---- immersive scene pack: ${brief.archetype || 'none'} ---- */
   ${SC ? SC.css : ''}
+${bbg ? `
+  /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  ${bbgShim}
+  ${bbg.css}` : ''}
+
+  /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
+  ${NAJDI_CSS}
+  ${saduBand('var(--gold)', 'var(--ink)')}
 
   /* ---- INK-CRAFT FINISH (gift page): heroline never foil-transparent; medallion holds the mark ----
      the gift page is already ink-crafted (2px ink borders + hard offset shadows on every card/pill),
@@ -1306,6 +1392,7 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
 </script>
 </head>
 <body>
+${bbg ? bbg.html : ''}
 <div class="sting-wash" aria-hidden="true"><i></i><i></i></div>
 <div class="curtain" id="msCurtain" aria-hidden="true"></div>
 <div class="bigmark" aria-hidden="true"><span class="ar">${initAr}</span><span class="en">${initEn}</span></div>
@@ -1319,11 +1406,12 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
     ${SC ? SC.heroHtml : ''}
     ${motesHtml(brief.motif, sd)}
     <div class="kick">${B('🎁 هدية من منيو سادة · ليست إعلاناً', '🎁 A gift from Menu Sadah · not an ad')}</div>
-    <div class="medal${logo ? ' haslogo' : giftMark ? ' hasmark' : ''}">${logo ? logoImg(logo) : giftMark}<span><span class="ar">${initAr}</span><span class="en">${initEn}</span></span></div>
+    <div class="medal${logo ? ' haslogo' : giftMark ? ' hasmark' : ''}">${najdiFrame('var(--ink)')}${logo ? logoImg(logo) : giftMark}<span><span class="ar">${initAr}</span><span class="en">${initEn}</span></span></div>
     <h1>${B('أهلاً ببيت <b>' + esc(cafe.nameAr) + '</b>', 'Welcome home, <b>' + esc(cafe.name) + '</b>.')}</h1>
     <div class="world">${B('✦ ' + esc(brief.world?.ar || '') + ' ✦', '✦ ' + esc(brief.world?.en || '') + ' ✦')}</div>
     <div class="heroline hand">${B(esc(brief.heroAr || ''), esc(brief.heroEn || ''))}</div>
     <div><a class="cta touchable" href="../${cafe.slug}/">${B('افتحوا منيوكم ←', 'Open your menu →')}</a></div>
+    <div class="sadu-band" aria-hidden="true" style="max-width:280px;margin-inline:auto"></div>
   </section>
 
   <div class="letter rv">

@@ -204,6 +204,31 @@ body{
 }
 
 
+  /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  .brandbg{--accent:#9b5b27;--accent-2:#82404c;--sa:#919339;--sa2:#8faeac;--bg-0:#fcfaf8;--bg-1:#f5efea;--bg-2:#fefcfb}
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:linear-gradient(180deg,var(--bg-0),var(--bg-1))}
+.ou-haze{position:absolute;left:50%;bottom:-20%;width:90vw;height:60vh;transform:translateX(-50%);background:radial-gradient(ellipse at 50% 100%,var(--accent),transparent 65%);opacity:.14;filter:blur(30px)}
+.ou-steam{position:absolute;bottom:-10%;width:80px;height:60vh;border-radius:40px;background:linear-gradient(180deg,transparent,var(--accent-2));opacity:.08;filter:blur(18px)}
+.w1{left:12%}.w2{left:82%}.w3{left:30%;bottom:-20%}
+@media (prefers-reduced-motion:no-preference){
+.ou-steam{animation:ouR 12s ease-in-out infinite}
+.w2{animation-delay:3s}.w3{animation-delay:6s}
+.ou-haze{animation:ouH 9s ease-in-out infinite}
+@keyframes ouR{0%{transform:translateY(20%) scaleX(1);opacity:.03}50%{opacity:.12}100%{transform:translateY(-30%) scaleX(1.4);opacity:.03}}
+@keyframes ouH{0%,100%{opacity:.1}50%{opacity:.2}}
+}
+
+  /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
+  
+  .medal{position:relative}
+  .medal .najdi{position:absolute;inset:-12px;width:calc(100% + 24px);height:calc(100% + 24px);z-index:0;pointer-events:none;overflow:visible;opacity:.5}
+  .medal>span,.medal .mark,.medal .logo{position:relative;z-index:1}
+  @media (max-width:399px){.medal .najdi .nch{display:none}}
+  
+  .sadu-band{height:11px;margin:9px 0 3px;border:1px solid var(--ink);border-radius:3px;opacity:.62;
+    background:repeating-linear-gradient(60deg,var(--gold) 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(-60deg,var(--ink) 0 6px,transparent 6px 12px)}
+
   /* ---- INK-CRAFT FINISH (gift page): heroline never foil-transparent; medallion holds the mark ----
      the gift page is already ink-crafted (2px ink borders + hard offset shadows on every card/pill),
      so this only neutralises the scene's gold-foil background-clip:text on .heroline + sizes the mark. */
@@ -250,6 +275,7 @@ body{
 </script>
 </head>
 <body>
+<div class="brandbg" aria-hidden="true"><span class="ou-haze"></span><span class="ou-steam w1"></span><span class="ou-steam w2"></span><span class="ou-steam w3"></span></div>
 <div class="sting-wash" aria-hidden="true"><i></i><i></i></div>
 <div class="curtain" id="msCurtain" aria-hidden="true"></div>
 <div class="bigmark" aria-hidden="true"><span class="ar">ا</span><span class="en">O</span></div>
@@ -311,11 +337,12 @@ body{
 
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:7px;animation-delay:0s">〜</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:4px;animation-delay:0.7s">〜</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:6px;animation-delay:1.4s">〜</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:7px;animation-delay:2.0999999999999996s">〜</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:4px;animation-delay:2.8s">〜</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:6px;animation-delay:3.5s">〜</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:7px;animation-delay:0.1999999999999993s">〜</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:4px;animation-delay:0.8999999999999995s">〜</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="medal hasmark"><svg class="mark bm9e58c1w" viewBox="0 0 100 100" fill="none" role="img" aria-label="OUIA Cafe"><style>.bm9e58c1w{overflow:visible}.bm9e58c1w *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm9e58c1w .mk{animation:bm9e58c1wbob 5s ease-in-out 1.7s infinite}@keyframes bm9e58c1wbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm9e58c1wp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bm9e58c1w .p1{animation:bm9e58c1wp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bm9e58c1w .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bm9e58c1wdr 1s ease .55s forwards}@keyframes bm9e58c1wdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ا</span><span class="en">O</span></span></div>
+    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bm9e58c1w" viewBox="0 0 100 100" fill="none" role="img" aria-label="OUIA Cafe"><style>.bm9e58c1w{overflow:visible}.bm9e58c1w *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm9e58c1w .mk{animation:bm9e58c1wbob 5s ease-in-out 1.7s infinite}@keyframes bm9e58c1wbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm9e58c1wp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bm9e58c1w .p1{animation:bm9e58c1wp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bm9e58c1w .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bm9e58c1wdr 1s ease .55s forwards}@keyframes bm9e58c1wdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ا</span><span class="en">O</span></span></div>
     <h1><span class="ar">أهلاً ببيت <b>اويا</b></span><span class="en">Welcome home, <b>OUIA Cafe</b>.</span></h1>
     <div class="world"><span class="ar">✦ محطة قهوة تمشي على مهلها ✦</span><span class="en">✦ a coffee station that never hurries ✦</span></div>
     <div class="heroline hand"><span class="ar">خذ راحتك، القهوة على مهلها</span><span class="en">slow coffee, take a seat</span></div>
     <div><a class="cta touchable" href="../ouia-cafe/"><span class="ar">افتحوا منيوكم ←</span><span class="en">Open your menu →</span></a></div>
+    <div class="sadu-band" aria-hidden="true" style="max-width:280px;margin-inline:auto"></div>
   </section>
 
   <div class="letter rv">

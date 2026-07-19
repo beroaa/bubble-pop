@@ -204,6 +204,31 @@ body{
 }
 
 
+  /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  .brandbg{--accent:#a36c1f;--accent-2:#8a383c;--sa:#8b9b31;--sa2:#89b0b3;--bg-0:#fcfaf8;--bg-1:#f5f1ea;--bg-2:#fefdfb}
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(120% 100% at 85% 115%,var(--bg-1),var(--bg-0))}
+.brandbg .dawn{position:absolute;right:-20vw;bottom:-24vh;width:80vw;height:80vh;border-radius:50%;background:radial-gradient(closest-side,color-mix(in srgb,var(--accent) 30%,transparent),transparent 70%);opacity:.55;filter:blur(20px)}
+.brandbg .haze{position:absolute;inset:0;background:linear-gradient(300deg,transparent 40%,color-mix(in srgb,var(--accent-2) 10%,transparent))}
+.brandbg .spark{position:absolute;width:4px;height:4px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent)}
+.brandbg .p1{left:70%;bottom:10%}.brandbg .p2{left:82%;bottom:22%}.brandbg .p3{left:60%;bottom:6%}.brandbg .p4{left:88%;bottom:34%}.brandbg .p5{left:74%;bottom:44%}
+@media (prefers-reduced-motion:no-preference){
+.brandbg .dawn{animation:kDawn 12s ease-in-out infinite alternate}
+.brandbg .spark{animation:kRise 7s ease-in infinite}
+.brandbg .p2{animation-delay:-2s}.brandbg .p3{animation-delay:-3.5s}.brandbg .p4{animation-delay:-1s}.brandbg .p5{animation-delay:-5s}}
+@keyframes kDawn{to{opacity:.75;transform:scale(1.08)}}
+@keyframes kRise{0%{transform:translate(0,0);opacity:0}20%{opacity:1}100%{transform:translate(-40px,-40vh);opacity:0}}
+
+  /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
+  
+  .medal{position:relative}
+  .medal .najdi{position:absolute;inset:-12px;width:calc(100% + 24px);height:calc(100% + 24px);z-index:0;pointer-events:none;overflow:visible;opacity:.5}
+  .medal>span,.medal .mark,.medal .logo{position:relative;z-index:1}
+  @media (max-width:399px){.medal .najdi .nch{display:none}}
+  
+  .sadu-band{height:11px;margin:9px 0 3px;border:1px solid var(--ink);border-radius:3px;opacity:.62;
+    background:repeating-linear-gradient(60deg,var(--gold) 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(-60deg,var(--ink) 0 6px,transparent 6px 12px)}
+
   /* ---- INK-CRAFT FINISH (gift page): heroline never foil-transparent; medallion holds the mark ----
      the gift page is already ink-crafted (2px ink borders + hard offset shadows on every card/pill),
      so this only neutralises the scene's gold-foil background-clip:text on .heroline + sizes the mark. */
@@ -250,6 +275,7 @@ body{
 </script>
 </head>
 <body>
+<div class="brandbg" aria-hidden="true"><div class="dawn"></div><div class="haze"></div><span class="spark p1"></span><span class="spark p2"></span><span class="spark p3"></span><span class="spark p4"></span><span class="spark p5"></span></div>
 <div class="sting-wash" aria-hidden="true"><i></i><i></i></div>
 <div class="curtain" id="msCurtain" aria-hidden="true"></div>
 <div class="bigmark" aria-hidden="true"><span class="ar">م</span><span class="en">S</span></div>
@@ -311,11 +337,12 @@ body{
 
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:9px;animation-delay:0s">✴</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:5px;animation-delay:0.7s">✳</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:3px;animation-delay:1.4s">·</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:9px;animation-delay:2.0999999999999996s">✦</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:5px;animation-delay:2.8s">✴</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:7px;animation-delay:3.5s">✳</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:4px;animation-delay:0.1999999999999993s">·</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:6px;animation-delay:0.8999999999999995s">✦</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="medal hasmark"><svg class="mark bm1hnbjflw" viewBox="0 0 100 100" fill="none" role="img" aria-label="Sharq Coffee &amp; Roastery"><style>.bm1hnbjflw{overflow:visible}.bm1hnbjflw *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm1hnbjflw .mk{animation:bm1hnbjflwbob 5s ease-in-out 1.7s infinite}@keyframes bm1hnbjflwbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm1hnbjflwp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bm1hnbjflw .p1{animation:bm1hnbjflwp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bm1hnbjflw .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bm1hnbjflwdr 1s ease .55s forwards}@keyframes bm1hnbjflwdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">م</span><span class="en">S</span></span></div>
+    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bm1hnbjflw" viewBox="0 0 100 100" fill="none" role="img" aria-label="Sharq Coffee &amp; Roastery"><style>.bm1hnbjflw{overflow:visible}.bm1hnbjflw *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm1hnbjflw .mk{animation:bm1hnbjflwbob 5s ease-in-out 1.7s infinite}@keyframes bm1hnbjflwbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm1hnbjflwp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bm1hnbjflw .p1{animation:bm1hnbjflwp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bm1hnbjflw .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bm1hnbjflwdr 1s ease .55s forwards}@keyframes bm1hnbjflwdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">م</span><span class="en">S</span></span></div>
     <h1><span class="ar">أهلاً ببيت <b>مقهى ومحمصة شرق</b></span><span class="en">Welcome home, <b>Sharq Coffee &amp; Roastery</b>.</span></h1>
     <div class="world"><span class="ar">✦ محمصة تصحى قبل الشمس ✦</span><span class="en">✦ a roastery that wakes before the sun ✦</span></div>
     <div class="heroline hand"><span class="ar">من الشرق تطلع الشمس والقهوة</span><span class="en">Where sun and roast both rise</span></div>
     <div><a class="cta touchable" href="../sharq-coffee-and-roastery/"><span class="ar">افتحوا منيوكم ←</span><span class="en">Open your menu →</span></a></div>
+    <div class="sadu-band" aria-hidden="true" style="max-width:280px;margin-inline:auto"></div>
   </section>
 
   <div class="letter rv">

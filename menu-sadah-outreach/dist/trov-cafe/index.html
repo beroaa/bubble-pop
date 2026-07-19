@@ -362,6 +362,20 @@ body{
   /* ---- polish50 bespoke touch: Slow Drip Ritual ---- */
   .bx-drip{position:relative;width:2px;height:64px;margin:10px auto;background:linear-gradient(var(--accent) 0 38%,transparent 38%);opacity:.75}.bx-drop{position:absolute;top:36%;inset-inline-start:50%;width:7px;height:9px;margin-inline-start:-3.5px;background:var(--accent);border-radius:50% 50% 60% 60%/40% 40% 70% 70%}.bx-drip-note{position:absolute;top:46%;inset-inline-start:16px;font-size:.72rem;font-weight:400;color:var(--text-2);white-space:nowrap}@media (prefers-reduced-motion:no-preference){.bx-drop{animation:bx-fall 5s cubic-bezier(.6,0,.9,.6) infinite}.bx-drip:hover .bx-drop{animation-duration:2.6s}@keyframes bx-fall{0%,18%{transform:translateY(0) scale(.4);opacity:0}30%{transform:translateY(0) scale(1);opacity:.9}80%{transform:translateY(38px);opacity:.9}92%{transform:translateY(40px) scaleX(1.8) scaleY(.4);opacity:.5}100%{transform:translateY(40px) scaleX(2.2) scaleY(.2);opacity:0}}}
 
+  /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}.sun{position:absolute;top:-14vw;right:-10vw;width:46vw;height:46vw;border-radius:50%;background:radial-gradient(circle,var(--accent),transparent 68%);opacity:.26;filter:blur(50px)}.rl{position:absolute;left:-30vw;width:26vw;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:.4}.r1{top:26%}.r2{top:54%}.r3{top:79%}.ink{position:absolute;left:12%;bottom:16vh;width:14px;height:14px;border-radius:50%;background:var(--sa,var(--accent-2));opacity:.32;box-shadow:0 0 0 6px var(--accent) inset}@media(prefers-reduced-motion:no-preference){.rl{animation:trl 14s linear infinite}.r2{animation-duration:19s;animation-delay:-4s}.r3{animation-duration:16s;animation-delay:-8s}.ink{animation:tik 6s ease-in-out infinite}.sun{animation:tsn 12s ease-in-out infinite}@keyframes trl{to{transform:translateX(160vw)}}@keyframes tik{50%{transform:translateY(-10px) scale(1.15);opacity:.5}}@keyframes tsn{50%{opacity:.38;transform:scale(1.06)}}}
+
+  /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
+  
+  .medal{position:relative}
+  .medal .najdi{position:absolute;inset:-12px;width:calc(100% + 24px);height:calc(100% + 24px);z-index:0;pointer-events:none;overflow:visible;opacity:.5}
+  .medal>span,.medal .mark,.medal .logo{position:relative;z-index:1}
+  @media (max-width:399px){.medal .najdi .nch{display:none}}
+  
+  .sadu-band{height:11px;margin:9px 0 3px;border:1px solid var(--ink);border-radius:3px;opacity:.62;
+    background:repeating-linear-gradient(60deg,var(--accent) 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(-60deg,var(--ink) 0 6px,transparent 6px 12px)}
+
   /* ---- INK-CRAFT FINISH: confident brand-INK display type (never foil-transparent) ----
      GODZILLA law #1: ink carries the words; accent only decorates (underline/dots/prices/borders).
      Placed after the scene pack so the gold-foil background-clip:text on headings is neutralised. */
@@ -425,7 +439,7 @@ body{
     html,body{background:#fff!important;background-image:none!important;color:#000!important}
     body::before,body::after{display:none!important}
     .mote,.orb,.scenebg,.skydial,.order-chip,.waiter-btn,.lang-toggle,.wa,.bigmark,.chips,.acttip,.sep,
-    .cat-art,.sig-art,.brandshots,.diary,.pdot{display:none!important}
+    .cat-art,.sig-art,.brandshots,.diary,.pdot,.brandbg,.sadu-band,.najdi{display:none!important}
     .wrap{max-width:100%;padding:0}
     .hero{min-height:0!important;padding:0 0 8px!important;display:block!important}
     .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
@@ -456,6 +470,7 @@ body{
 </style>
 </head>
 <body>
+<div class="brandbg" aria-hidden="true"><span class="sun"></span><span class="rl r1"></span><span class="rl r2"></span><span class="rl r3"></span><span class="ink"></span></div>
 <button class="lang-toggle touchable" id="langToggle">English</button>
 <div class="bigmark" aria-hidden="true"><span class="ar">ت</span><span class="en">T</span></div>
 <div class="wrap">
@@ -509,7 +524,7 @@ body{
 </g>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal hasmark"><svg class="mark bm18ikn7qm" viewBox="0 0 100 100" fill="none" role="img" aria-label="Trov Cafe"><style>.bm18ikn7qm{overflow:visible}.bm18ikn7qm *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm18ikn7qm .mk{animation:bm18ikn7qmbob 5s ease-in-out 1.7s infinite}@keyframes bm18ikn7qmbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm18ikn7qmp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bm18ikn7qm .p1{animation:bm18ikn7qmp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bm18ikn7qm .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bm18ikn7qmdr 1s ease .55s forwards}@keyframes bm18ikn7qmdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ت</span><span class="en">T</span></span></div>
+    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bm18ikn7qm" viewBox="0 0 100 100" fill="none" role="img" aria-label="Trov Cafe"><style>.bm18ikn7qm{overflow:visible}.bm18ikn7qm *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm18ikn7qm .mk{animation:bm18ikn7qmbob 5s ease-in-out 1.7s infinite}@keyframes bm18ikn7qmbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm18ikn7qmp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bm18ikn7qm .p1{animation:bm18ikn7qmp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bm18ikn7qm .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bm18ikn7qmdr 1s ease .55s forwards}@keyframes bm18ikn7qmdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ت</span><span class="en">T</span></span></div>
     <h1><span class="ar">تروف كافيه</span><span class="en">Trov Cafe</span></h1>
     <div class="world"><span class="ar">✦ <b>ورشة ضوء وريحة تحميص</b> ✦</span><span class="en">✦ <b>a bright workshop of roast and light</b> ✦</span></div>
     <div class="heroline"><span class="ar">فنجانك ينسقى على مهل</span><span class="en">your cup, poured slowly</span></div>
@@ -521,6 +536,7 @@ body{
     <div class="bx-drip"><span class="bx-drop" aria-hidden="true"></span><b class="bx-drip-note">قطرة قطرة على مهلك</b></div>
   </header>
   <nav class="chips"><a class="chip touchable" href="#cat-0"><span class="ar">هنا صوت البن العالي</span><span class="en">where the beans speak loudest</span></a><a class="chip touchable" href="#cat-1"><span class="ar">قطرة قطرة على مهلك</span><span class="en">drop by drop, no hurry</span></a><a class="chip touchable" href="#cat-2"><span class="ar">نسمة باردة وسط الظهر</span><span class="en">a cool breeze at noon</span></a><a class="chip touchable" href="#cat-3"><span class="ar">الركن السعودي</span><span class="en">Saudi Corner</span></a><a class="chip touchable" href="#cat-4"><span class="ar">شي حلو جنب الفنجان</span><span class="en">something sweet beside the cup</span></a></nav>
+  <div class="sadu-band" aria-hidden="true"></div>
   
   
   <section class="cat reveal cat--flip" id="cat-0" style="--sa:#8f6a28;--sa2:#7f8d34">

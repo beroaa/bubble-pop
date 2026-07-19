@@ -223,6 +223,33 @@ body{
 }
 
 
+  /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  .brandbg{--accent:#a94419;--accent-2:#8f3251;--sa:#a1912b;--sa2:#83b9ae;--bg-0:#fcf9f8;--bg-1:#f5eeea;--bg-2:#fefcfb}
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(120% 100% at 50% 120%,var(--bg-1),var(--bg-0))}
+.brandbg .spot{position:absolute;top:-30%;left:50%;width:80vw;height:120vh;transform:translateX(-50%);background:radial-gradient(closest-side,color-mix(in srgb,var(--accent) 20%,transparent),transparent 70%);opacity:.5;filter:blur(30px)}
+.brandbg .ember{position:absolute;left:-10vw;bottom:-14vh;width:50vw;height:40vh;border-radius:50%;background:var(--accent-2);filter:blur(70px);opacity:.25}
+.brandbg .star{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--sa,#fff);box-shadow:0 0 6px var(--accent);opacity:.7}
+.brandbg .s1{left:14%;top:16%}.brandbg .s2{left:82%;top:12%}.brandbg .s3{left:68%;top:26%}.brandbg .s4{left:24%;top:34%}.brandbg .s5{left:90%;top:40%}.brandbg .s6{left:8%;top:52%}
+@media (prefers-reduced-motion:no-preference){
+.brandbg .spot{animation:cSweep 20s ease-in-out infinite alternate}
+.brandbg .ember{animation:cGlow 12s ease-in-out infinite alternate}
+.brandbg .star{animation:cTwinkle 5s ease-in-out infinite}
+.brandbg .s2{animation-delay:-1s}.brandbg .s3{animation-delay:-2s}.brandbg .s4{animation-delay:-3s}.brandbg .s5{animation-delay:-1.5s}.brandbg .s6{animation-delay:-2.5s}}
+@keyframes cSweep{from{transform:translateX(-62%) rotate(-6deg)}to{transform:translateX(-38%) rotate(6deg)}}
+@keyframes cGlow{to{opacity:.4;transform:scale(1.12)}}
+@keyframes cTwinkle{50%{opacity:.15;transform:scale(.6)}}
+
+  /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
+  
+  .medal{position:relative}
+  .medal .najdi{position:absolute;inset:-12px;width:calc(100% + 24px);height:calc(100% + 24px);z-index:0;pointer-events:none;overflow:visible;opacity:.5}
+  .medal>span,.medal .mark,.medal .logo{position:relative;z-index:1}
+  @media (max-width:399px){.medal .najdi .nch{display:none}}
+  
+  .sadu-band{height:11px;margin:9px 0 3px;border:1px solid var(--ink);border-radius:3px;opacity:.62;
+    background:repeating-linear-gradient(60deg,var(--gold) 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(-60deg,var(--ink) 0 6px,transparent 6px 12px)}
+
   /* ---- INK-CRAFT FINISH (gift page): heroline never foil-transparent; medallion holds the mark ----
      the gift page is already ink-crafted (2px ink borders + hard offset shadows on every card/pill),
      so this only neutralises the scene's gold-foil background-clip:text on .heroline + sizes the mark. */
@@ -269,6 +296,7 @@ body{
 </script>
 </head>
 <body>
+<div class="brandbg" aria-hidden="true"><div class="spot"></div><div class="ember"></div><span class="star s1"></span><span class="star s2"></span><span class="star s3"></span><span class="star s4"></span><span class="star s5"></span><span class="star s6"></span></div>
 <div class="sting-wash" aria-hidden="true"><i></i><i></i></div>
 <div class="curtain" id="msCurtain" aria-hidden="true"></div>
 <div class="bigmark" aria-hidden="true"><span class="ar">ك</span><span class="en">C</span></div>
@@ -323,11 +351,12 @@ body{
 </svg>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:15px;animation-delay:0s">✦</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:12px;animation-delay:0.7s">✧</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:10px;animation-delay:1.4s">⋆</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:9px;animation-delay:2.0999999999999996s">☾</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:9px;animation-delay:2.8s">✦</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:9px;animation-delay:3.5s">✧</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:9px;animation-delay:0.1999999999999993s">⋆</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:9px;animation-delay:0.8999999999999995s">☾</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="medal hasmark"><svg class="mark bm1gb0wmow" viewBox="0 0 100 100" fill="none" role="img" aria-label="Caia Coffee"><style>.bm1gb0wmow{overflow:visible}.bm1gb0wmow *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm1gb0wmow .mk{animation:bm1gb0wmowbob 5s ease-in-out 1.7s infinite}@keyframes bm1gb0wmowbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm1gb0wmowp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bm1gb0wmow .p1{animation:bm1gb0wmowp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bm1gb0wmow .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bm1gb0wmowdr 1s ease .55s forwards}@keyframes bm1gb0wmowdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ك</span><span class="en">C</span></span></div>
+    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bm1gb0wmow" viewBox="0 0 100 100" fill="none" role="img" aria-label="Caia Coffee"><style>.bm1gb0wmow{overflow:visible}.bm1gb0wmow *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm1gb0wmow .mk{animation:bm1gb0wmowbob 5s ease-in-out 1.7s infinite}@keyframes bm1gb0wmowbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm1gb0wmowp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bm1gb0wmow .p1{animation:bm1gb0wmowp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bm1gb0wmow .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bm1gb0wmowdr 1s ease .55s forwards}@keyframes bm1gb0wmowdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ك</span><span class="en">C</span></span></div>
     <h1><span class="ar">أهلاً ببيت <b>كافيه كايا</b></span><span class="en">Welcome home, <b>Caia Coffee</b>.</span></h1>
     <div class="world"><span class="ar">✦ المدينة بعد ما تهدى وأنوارها بعيدة ✦</span><span class="en">✦ the city after it quiets, lights far away ✦</span></div>
     <div class="heroline hand"><span class="ar">المدينة نامت وفنجانك صاحي</span><span class="en">The city sleeps, your cup doesn't</span></div>
     <div><a class="cta touchable" href="../caia-coffee/"><span class="ar">افتحوا منيوكم ←</span><span class="en">Open your menu →</span></a></div>
+    <div class="sadu-band" aria-hidden="true" style="max-width:280px;margin-inline:auto"></div>
   </section>
 
   <div class="letter rv">

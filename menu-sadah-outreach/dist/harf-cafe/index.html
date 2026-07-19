@@ -362,6 +362,35 @@ body{
   /* ---- polish50 bespoke touch: Self-Writing Ink ---- */
   .bx-ink{display:block;width:min(220px,64%);margin:.7em auto 0;overflow:visible}.bx-ink-p{stroke:var(--accent);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:260 260;stroke-dashoffset:0}.bx-ink-d{fill:var(--accent)}.bx-ink-note{text-align:center;font-size:.72rem;letter-spacing:.04em;color:var(--text-2);margin:.35em 0 0;opacity:.85}@media (prefers-reduced-motion:no-preference){.bx-ink-p{animation:bx-write 2.4s cubic-bezier(.4,0,.2,1) .4s both}.bx-ink-d{animation:bx-dot .5s ease-out 2.7s both}.bx-ink:hover .bx-ink-p{animation:bx-write 1.4s ease-out both}@keyframes bx-write{from{stroke-dashoffset:260}to{stroke-dashoffset:0}}@keyframes bx-dot{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}}
 
+  /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(120% 90% at 50% -10%,var(--bg-1),var(--bg-0))}
+.brandbg .rules{position:absolute;inset:-10% 0;background:repeating-linear-gradient(0deg,transparent 0 46px,color-mix(in srgb,var(--accent) 14%,transparent) 46px 47px);opacity:.5}
+.brandbg .wash{position:absolute;border-radius:50%;filter:blur(60px);opacity:.22}
+.brandbg .w1{width:40vw;height:40vw;left:-12vw;top:-8vw;background:var(--accent)}
+.brandbg .w2{width:34vw;height:34vw;right:-10vw;bottom:-8vw;background:var(--accent-2)}
+.brandbg .mote{position:absolute;width:7px;height:7px;border-radius:50%;background:var(--accent);opacity:.4}
+.brandbg .m1{left:16%;top:30%}.brandbg .m2{left:78%;top:22%}.brandbg .m3{left:66%;top:70%}.brandbg .m4{left:30%;top:80%}
+@media (prefers-reduced-motion:no-preference){
+.brandbg .rules{animation:hDrift 26s linear infinite}
+.brandbg .wash{animation:hBreath 14s ease-in-out infinite alternate}
+.brandbg .w2{animation-delay:-7s}
+.brandbg .mote{animation:hFloat 18s ease-in-out infinite}
+.brandbg .m2{animation-delay:-4s}.brandbg .m3{animation-delay:-9s}.brandbg .m4{animation-delay:-13s}}
+@keyframes hDrift{to{transform:translateY(47px)}}
+@keyframes hBreath{to{transform:scale(1.15);opacity:.3}}
+@keyframes hFloat{50%{transform:translate(10px,-14px);opacity:.7}}
+
+  /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
+  
+  .medal{position:relative}
+  .medal .najdi{position:absolute;inset:-12px;width:calc(100% + 24px);height:calc(100% + 24px);z-index:0;pointer-events:none;overflow:visible;opacity:.5}
+  .medal>span,.medal .mark,.medal .logo{position:relative;z-index:1}
+  @media (max-width:399px){.medal .najdi .nch{display:none}}
+  
+  .sadu-band{height:11px;margin:9px 0 3px;border:1px solid var(--ink);border-radius:3px;opacity:.62;
+    background:repeating-linear-gradient(60deg,var(--accent) 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(-60deg,var(--ink) 0 6px,transparent 6px 12px)}
+
   /* ---- INK-CRAFT FINISH: confident brand-INK display type (never foil-transparent) ----
      GODZILLA law #1: ink carries the words; accent only decorates (underline/dots/prices/borders).
      Placed after the scene pack so the gold-foil background-clip:text on headings is neutralised. */
@@ -425,7 +454,7 @@ body{
     html,body{background:#fff!important;background-image:none!important;color:#000!important}
     body::before,body::after{display:none!important}
     .mote,.orb,.scenebg,.skydial,.order-chip,.waiter-btn,.lang-toggle,.wa,.bigmark,.chips,.acttip,.sep,
-    .cat-art,.sig-art,.brandshots,.diary,.pdot{display:none!important}
+    .cat-art,.sig-art,.brandshots,.diary,.pdot,.brandbg,.sadu-band,.najdi{display:none!important}
     .wrap{max-width:100%;padding:0}
     .hero{min-height:0!important;padding:0 0 8px!important;display:block!important}
     .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
@@ -456,6 +485,7 @@ body{
 </style>
 </head>
 <body>
+<div class="brandbg" aria-hidden="true"><div class="rules"></div><div class="wash w1"></div><div class="wash w2"></div><span class="mote m1"></span><span class="mote m2"></span><span class="mote m3"></span><span class="mote m4"></span></div>
 <button class="lang-toggle touchable" id="langToggle">English</button>
 <div class="bigmark" aria-hidden="true"><span class="ar">ق</span><span class="en">H</span></div>
 <div class="wrap">
@@ -509,7 +539,7 @@ body{
 </g>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal hasmark"><svg class="mark bm1laspdem" viewBox="0 0 100 100" fill="none" role="img" aria-label="Harf Cafe"><style>.bm1laspdem{overflow:visible}.bm1laspdem *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm1laspdem .mk{animation:bm1laspdembob 5s ease-in-out 1.7s infinite}@keyframes bm1laspdembob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm1laspdemp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bm1laspdem .p1{animation:bm1laspdemp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bm1laspdem .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bm1laspdemdr 1s ease .55s forwards}@keyframes bm1laspdemdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ق</span><span class="en">H</span></span></div>
+    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bm1laspdem" viewBox="0 0 100 100" fill="none" role="img" aria-label="Harf Cafe"><style>.bm1laspdem{overflow:visible}.bm1laspdem *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm1laspdem .mk{animation:bm1laspdembob 5s ease-in-out 1.7s infinite}@keyframes bm1laspdembob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm1laspdemp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bm1laspdem .p1{animation:bm1laspdemp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bm1laspdem .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bm1laspdemdr 1s ease .55s forwards}@keyframes bm1laspdemdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ق</span><span class="en">H</span></span></div>
     <h1><span class="ar">قهوة حرف</span><span class="en">Harf Cafe</span></h1>
     <div class="world"><span class="ar">✦ <b>دفتر خطّاط مفتوح على الصبح</b> ✦</span><span class="en">✦ <b>a calligrapher's open notebook at morning</b> ✦</span></div>
     <div class="heroline"><span class="ar">قهوتك تنكتب هنا حرف حرف</span><span class="en">Your coffee, written letter by letter</span></div>
@@ -521,6 +551,7 @@ body{
     <svg class="bx-ink" viewBox="0 0 220 16" aria-hidden="true"><path class="bx-ink-p" d="M6 10 Q40 3 70 9 T130 8 Q160 4 190 9" fill="none"/><circle class="bx-ink-d" cx="206" cy="9" r="2.6"/></svg><p class="bx-ink-note">الحبر ياخذ وقته</p>
   </header>
   <nav class="chips"><a class="chip touchable" href="#cat-0"><span class="ar">أول حرف بالسطر</span><span class="en">The first letter on the page</span></a><a class="chip touchable" href="#cat-1"><span class="ar">سطر ينكتب على مهل</span><span class="en">A line written slowly</span></a><a class="chip touchable" href="#cat-2"><span class="ar">حبر بارد ويد هادية</span><span class="en">Cool ink, steady hand</span></a><a class="chip touchable" href="#cat-3"><span class="ar">الديوان بخطّنا نحن</span><span class="en">The diwan, in our own hand</span></a><a class="chip touchable" href="#cat-4"><span class="ar">نقطة حلوة آخر السطر</span><span class="en">A sweet full stop</span></a></nav>
+  <div class="sadu-band" aria-hidden="true"></div>
   
   
   <section class="cat reveal cat--flip" id="cat-0" style="--sa:#99391e;--sa2:#987d2a">

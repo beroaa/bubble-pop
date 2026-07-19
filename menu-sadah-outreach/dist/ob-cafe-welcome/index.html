@@ -204,6 +204,21 @@ body{
 }
 
 
+  /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  .brandbg{--accent:#2f9349;--accent-2:#5a7c46;--sa:#418b7e;--sa2:#a68fae;--bg-0:#f8fcf9;--bg-1:#eaf5ed;--bg-2:#fbfefc}
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}.haze{position:absolute;inset:0;background:radial-gradient(120% 70% at 50% 120%,var(--accent),transparent 60%);opacity:.3}.cl{position:absolute;border-radius:50%;background:radial-gradient(circle,var(--sa,var(--accent-2)),transparent 70%);filter:blur(30px)}.c1{width:30vw;height:18vw;top:12%;left:-10vw;opacity:.32}.c2{width:24vw;height:14vw;top:60%;right:-8vw;opacity:.26}.c3{width:20vw;height:12vw;top:34%;left:60%;opacity:.18}@media(prefers-reduced-motion:no-preference){.c1{animation:obd 22s linear infinite}.c2{animation:obd2 26s linear infinite}.c3{animation:obd 30s linear infinite}.haze{animation:obh 8s ease-in-out infinite}@keyframes obd{from{transform:translateX(-12vw)}to{transform:translateX(122vw)}}@keyframes obd2{from{transform:translateX(12vw)}to{transform:translateX(-122vw)}}@keyframes obh{50%{opacity:.44}}}
+
+  /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
+  
+  .medal{position:relative}
+  .medal .najdi{position:absolute;inset:-12px;width:calc(100% + 24px);height:calc(100% + 24px);z-index:0;pointer-events:none;overflow:visible;opacity:.5}
+  .medal>span,.medal .mark,.medal .logo{position:relative;z-index:1}
+  @media (max-width:399px){.medal .najdi .nch{display:none}}
+  
+  .sadu-band{height:11px;margin:9px 0 3px;border:1px solid var(--ink);border-radius:3px;opacity:.62;
+    background:repeating-linear-gradient(60deg,var(--gold) 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(-60deg,var(--ink) 0 6px,transparent 6px 12px)}
+
   /* ---- INK-CRAFT FINISH (gift page): heroline never foil-transparent; medallion holds the mark ----
      the gift page is already ink-crafted (2px ink borders + hard offset shadows on every card/pill),
      so this only neutralises the scene's gold-foil background-clip:text on .heroline + sizes the mark. */
@@ -250,6 +265,7 @@ body{
 </script>
 </head>
 <body>
+<div class="brandbg" aria-hidden="true"><span class="haze"></span><span class="cl c1"></span><span class="cl c2"></span><span class="cl c3"></span></div>
 <div class="sting-wash" aria-hidden="true"><i></i><i></i></div>
 <div class="curtain" id="msCurtain" aria-hidden="true"></div>
 <div class="bigmark" aria-hidden="true"><span class="ar">أ</span><span class="en">O</span></div>
@@ -311,11 +327,12 @@ body{
 
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:4px;animation-delay:0s">☁</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:3px;animation-delay:0.7s">☁</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:9px;animation-delay:1.4s">☁</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:5px;animation-delay:2.0999999999999996s">☁</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:7px;animation-delay:2.8s">☁</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:4px;animation-delay:3.5s">☁</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:3px;animation-delay:0.1999999999999993s">☁</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:9px;animation-delay:0.8999999999999995s">☁</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="medal hasmark"><svg class="mark bm1cgqm92w" viewBox="0 0 100 100" fill="none" role="img" aria-label="Ob Cafe"><style>.bm1cgqm92w{overflow:visible}.bm1cgqm92w *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm1cgqm92w .mk{animation:bm1cgqm92wbob 5s ease-in-out 1.7s infinite}@keyframes bm1cgqm92wbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm1cgqm92wtop{0%{opacity:0;transform:translateY(-30px) rotate(-10deg)}100%{transform:none}}@keyframes bm1cgqm92wbot{0%{opacity:0;transform:translateY(30px)}100%{transform:none}}@keyframes bm1cgqm92wpop{0%{opacity:0;transform:scale(.3)}100%{opacity:1;transform:none}}.bm1cgqm92w .p1{animation:bm1cgqm92wtop .8s cubic-bezier(.2,1.3,.3,1) both}.bm1cgqm92w .p2{animation:bm1cgqm92wbot .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bm1cgqm92w .p3{animation:bm1cgqm92wpop .5s ease .7s both}}</style><g class="mk"><g class="p1"><path d="M26 48 L50 28 L74 48 Z" fill="var(--gold)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="30" y="48" width="40" height="30" rx="4" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><path d="M44 78 L44 60 Q50 55 56 60 L56 78 Z" fill="var(--sage)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g></g></svg><span><span class="ar">أ</span><span class="en">O</span></span></div>
+    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bm1cgqm92w" viewBox="0 0 100 100" fill="none" role="img" aria-label="Ob Cafe"><style>.bm1cgqm92w{overflow:visible}.bm1cgqm92w *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm1cgqm92w .mk{animation:bm1cgqm92wbob 5s ease-in-out 1.7s infinite}@keyframes bm1cgqm92wbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm1cgqm92wtop{0%{opacity:0;transform:translateY(-30px) rotate(-10deg)}100%{transform:none}}@keyframes bm1cgqm92wbot{0%{opacity:0;transform:translateY(30px)}100%{transform:none}}@keyframes bm1cgqm92wpop{0%{opacity:0;transform:scale(.3)}100%{opacity:1;transform:none}}.bm1cgqm92w .p1{animation:bm1cgqm92wtop .8s cubic-bezier(.2,1.3,.3,1) both}.bm1cgqm92w .p2{animation:bm1cgqm92wbot .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bm1cgqm92w .p3{animation:bm1cgqm92wpop .5s ease .7s both}}</style><g class="mk"><g class="p1"><path d="M26 48 L50 28 L74 48 Z" fill="var(--gold)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="30" y="48" width="40" height="30" rx="4" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><path d="M44 78 L44 60 Q50 55 56 60 L56 78 Z" fill="var(--sage)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g></g></svg><span><span class="ar">أ</span><span class="en">O</span></span></div>
     <h1><span class="ar">أهلاً ببيت <b>أوبي كافيه</b></span><span class="en">Welcome home, <b>Ob Cafe</b>.</span></h1>
     <div class="world"><span class="ar">✦ طاولة المطبخ وسوالفها ✦</span><span class="en">✦ the kitchen table after dark ✦</span></div>
     <div class="heroline hand"><span class="ar">تعالوا، الطاولة تنتظركم</span><span class="en">come in, the table's waiting</span></div>
     <div><a class="cta touchable" href="../ob-cafe/"><span class="ar">افتحوا منيوكم ←</span><span class="en">Open your menu →</span></a></div>
+    <div class="sadu-band" aria-hidden="true" style="max-width:280px;margin-inline:auto"></div>
   </section>
 
   <div class="letter rv">

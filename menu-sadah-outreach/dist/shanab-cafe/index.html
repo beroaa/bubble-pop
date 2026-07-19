@@ -348,6 +348,36 @@ body{
   /* ---- polish50 bespoke touch: Mustache Curl Wink ---- */
   .bx-must{width:120px;margin:.6em auto 0;cursor:pointer}.bx-must svg{display:block;overflow:visible;width:100%}.bx-must path{fill:var(--accent)}.bx-mL{transform-origin:60px 22px}.bx-mR{transform-origin:80px 22px}.bx-must:hover .bx-mL{transform:rotate(10deg)}.bx-must:hover .bx-mR{transform:rotate(-10deg)}@media (prefers-reduced-motion:no-preference){.bx-mL,.bx-mR{transition:transform .5s cubic-bezier(.34,1.56,.64,1)}}
 
+  /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(110% 90% at 50% 0%,var(--bg-1),var(--bg-0))}
+.brandbg .steam{position:absolute;bottom:-6%;width:16vw;height:60vh;border-radius:50%;filter:blur(50px);opacity:.18;background:var(--accent)}
+.brandbg .st1{left:8%}.brandbg .st2{right:10%;background:var(--accent-2)}
+.brandbg .doo{position:absolute;border:3px solid var(--accent);opacity:.5}
+.brandbg .d1{left:10%;top:24%;width:34px;height:34px;border-radius:50%}
+.brandbg .d2{right:12%;top:18%;width:30px;height:30px}
+.brandbg .d3{left:16%;bottom:20%;width:40px;height:20px;border-radius:0 0 40px 40px;border-top:none}
+.brandbg .d4{right:14%;bottom:24%;width:26px;height:26px;border-radius:50% 50% 50% 0;border-color:var(--accent-2)}
+.brandbg .zig{right:22%;top:44%;width:40px;height:12px;border:none;border-bottom:3px dashed var(--accent-2);opacity:.5;position:absolute}
+@media (prefers-reduced-motion:no-preference){
+.brandbg .doo{animation:sBob 4s ease-in-out infinite}
+.brandbg .d2{animation-delay:-1s}.brandbg .d3{animation-delay:-2s}.brandbg .d4{animation-delay:-1.5s}
+.brandbg .zig{animation:sBob 5s ease-in-out infinite -.5s}
+.brandbg .steam{animation:sRise 10s ease-in-out infinite alternate}
+.brandbg .st2{animation-delay:-5s}}
+@keyframes sBob{50%{transform:translateY(-14px) rotate(8deg)}}
+@keyframes sRise{to{transform:translateY(-20px) scaleX(1.2);opacity:.26}}
+
+  /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
+  
+  .medal{position:relative}
+  .medal .najdi{position:absolute;inset:-12px;width:calc(100% + 24px);height:calc(100% + 24px);z-index:0;pointer-events:none;overflow:visible;opacity:.5}
+  .medal>span,.medal .mark,.medal .logo{position:relative;z-index:1}
+  @media (max-width:399px){.medal .najdi .nch{display:none}}
+  
+  .sadu-band{height:11px;margin:9px 0 3px;border:1px solid var(--ink);border-radius:3px;opacity:.62;
+    background:repeating-linear-gradient(60deg,var(--accent) 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(-60deg,var(--ink) 0 6px,transparent 6px 12px)}
+
   /* ---- INK-CRAFT FINISH: confident brand-INK display type (never foil-transparent) ----
      GODZILLA law #1: ink carries the words; accent only decorates (underline/dots/prices/borders).
      Placed after the scene pack so the gold-foil background-clip:text on headings is neutralised. */
@@ -411,7 +441,7 @@ body{
     html,body{background:#fff!important;background-image:none!important;color:#000!important}
     body::before,body::after{display:none!important}
     .mote,.orb,.scenebg,.skydial,.order-chip,.waiter-btn,.lang-toggle,.wa,.bigmark,.chips,.acttip,.sep,
-    .cat-art,.sig-art,.brandshots,.diary,.pdot{display:none!important}
+    .cat-art,.sig-art,.brandshots,.diary,.pdot,.brandbg,.sadu-band,.najdi{display:none!important}
     .wrap{max-width:100%;padding:0}
     .hero{min-height:0!important;padding:0 0 8px!important;display:block!important}
     .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
@@ -442,6 +472,7 @@ body{
 </style>
 </head>
 <body>
+<div class="brandbg" aria-hidden="true"><span class="steam st1"></span><span class="steam st2"></span><span class="doo d1"></span><span class="doo d2"></span><span class="doo d3"></span><span class="doo d4"></span><span class="zig"></span></div>
 <button class="lang-toggle touchable" id="langToggle">English</button>
 <div class="bigmark" aria-hidden="true"><span class="ar">ش</span><span class="en">S</span></div>
 <div class="wrap">
@@ -496,7 +527,7 @@ body{
 <rect width="1440" height="900" fill="url(#phdVig)"/>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal hasmark"><svg class="mark bm1vuphy8m" viewBox="0 0 100 100" fill="none" role="img" aria-label="Shanab Cafe"><style>.bm1vuphy8m{overflow:visible}.bm1vuphy8m *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm1vuphy8m .mk{animation:bm1vuphy8mbob 5s ease-in-out 1.7s infinite}@keyframes bm1vuphy8mbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm1vuphy8mtop{0%{opacity:0;transform:translateY(-30px) rotate(-10deg)}100%{transform:none}}@keyframes bm1vuphy8mbot{0%{opacity:0;transform:translateY(30px)}100%{transform:none}}@keyframes bm1vuphy8mpop{0%{opacity:0;transform:scale(.3)}100%{opacity:1;transform:none}}.bm1vuphy8m .p1{animation:bm1vuphy8mtop .8s cubic-bezier(.2,1.3,.3,1) both}.bm1vuphy8m .p2{animation:bm1vuphy8mbot .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bm1vuphy8m .p3{animation:bm1vuphy8mpop .5s ease .7s both}}</style><g class="mk"><g class="p1"><path d="M26 48 L50 28 L74 48 Z" fill="var(--sa)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="30" y="48" width="40" height="30" rx="4" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><path d="M44 78 L44 60 Q50 55 56 60 L56 78 Z" fill="var(--sa2)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g></g></svg><span><span class="ar">ش</span><span class="en">S</span></span></div>
+    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bm1vuphy8m" viewBox="0 0 100 100" fill="none" role="img" aria-label="Shanab Cafe"><style>.bm1vuphy8m{overflow:visible}.bm1vuphy8m *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm1vuphy8m .mk{animation:bm1vuphy8mbob 5s ease-in-out 1.7s infinite}@keyframes bm1vuphy8mbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm1vuphy8mtop{0%{opacity:0;transform:translateY(-30px) rotate(-10deg)}100%{transform:none}}@keyframes bm1vuphy8mbot{0%{opacity:0;transform:translateY(30px)}100%{transform:none}}@keyframes bm1vuphy8mpop{0%{opacity:0;transform:scale(.3)}100%{opacity:1;transform:none}}.bm1vuphy8m .p1{animation:bm1vuphy8mtop .8s cubic-bezier(.2,1.3,.3,1) both}.bm1vuphy8m .p2{animation:bm1vuphy8mbot .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bm1vuphy8m .p3{animation:bm1vuphy8mpop .5s ease .7s both}}</style><g class="mk"><g class="p1"><path d="M26 48 L50 28 L74 48 Z" fill="var(--sa)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="30" y="48" width="40" height="30" rx="4" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><path d="M44 78 L44 60 Q50 55 56 60 L56 78 Z" fill="var(--sa2)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g></g></svg><span><span class="ar">ش</span><span class="en">S</span></span></div>
     <h1><span class="ar">شنب كافيه</span><span class="en">Shanab Cafe</span></h1>
     <div class="world"><span class="ar">✦ <b>بيت العيلة يوم الجمعة والضحكة عالية</b> ✦</span><span class="en">✦ <b>the family house on a Friday, laughter loud</b> ✦</span></div>
     <div class="heroline"><span class="ar">قعدة عيلة وضحكة من القلب</span><span class="en">A family table and easy laughter</span></div>
@@ -508,6 +539,7 @@ body{
     <div class="bx-must" aria-hidden="true"><svg viewBox="0 0 140 40"><g class="bx-mL"><path d="M70 22 C58 6 38 8 28 18 C21 25 12 26 7 20 C10 30 24 32 33 26 C44 19 58 20 70 22"/></g><g class="bx-mR"><path d="M70 22 C82 6 102 8 112 18 C119 25 128 26 133 20 C130 30 116 32 107 26 C96 19 82 20 70 22"/></g></svg></div>
   </header>
   <nav class="chips"><a class="chip touchable" href="#cat-0"><span class="ar">قهوة أهل الشنب</span><span class="en">For the mustache club</span></a><a class="chip touchable" href="#cat-1"><span class="ar">للي ما طلع شنبهم بعد</span><span class="en">For mustaches still growing</span></a><a class="chip touchable" href="#cat-2"><span class="ar">صحن بالنص للكل</span><span class="en">One plate, many hands</span></a><a class="chip touchable" href="#cat-3"><span class="ar">حلا يضحّك الشنب</span><span class="en">Sweets that curl the mustache</span></a></nav>
+  <div class="sadu-band" aria-hidden="true"></div>
   
   
   <section class="cat reveal cat--flip" id="cat-0" style="--sa:#875031;--sa2:#857e3d">

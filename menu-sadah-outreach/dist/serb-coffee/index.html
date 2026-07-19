@@ -355,6 +355,20 @@ body{
 .bx-flock::before{content:"✦";color:var(--accent);font-size:.8em}
 @media (prefers-reduced-motion:no-preference){.bx-bird{animation:bx-glide 5s ease-in-out infinite}.bx-bird:nth-of-type(2){animation-delay:.7s}.bx-bird:nth-of-type(3){animation-delay:1.4s}@keyframes bx-glide{0%,100%{transform:translate(0,0)}50%{transform:translate(-7px,-5px)}}.bx-flock::before{animation:bx-twinkle 3s ease-in-out infinite}@keyframes bx-twinkle{0%,100%{opacity:.4}50%{opacity:1}}}
 
+  /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(120% 100% at 70% 0%,color-mix(in srgb,var(--accent) 16%,transparent),transparent 55%),linear-gradient(180deg,var(--bg-0),var(--bg-1))}.brandbg .sweep{position:absolute;top:-30%;left:-20%;width:55%;height:160%;background:linear-gradient(105deg,transparent,color-mix(in srgb,var(--sa) 22%,transparent),transparent);filter:blur(30px);opacity:.55}.brandbg .st{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--sa);opacity:.5}.brandbg .s1{top:18%;left:24%}.brandbg .s2{top:30%;left:64%}.brandbg .s3{top:52%;left:40%}.brandbg .s4{top:12%;left:80%}.brandbg .b{position:absolute;width:16px;height:16px;border-top:2px solid color-mix(in srgb,var(--accent) 70%,transparent);border-left:2px solid color-mix(in srgb,var(--accent) 70%,transparent);transform:rotate(45deg);opacity:.55}.brandbg .b1{top:26%;left:-6%}.brandbg .b2{top:33%;left:-14%;width:12px;height:12px}@media (prefers-reduced-motion:no-preference){.brandbg .sweep{animation:sbsw 16s ease-in-out infinite}.brandbg .st{animation:sbtw 4s ease-in-out infinite}.brandbg .s2{animation-delay:1s}.brandbg .s4{animation-delay:2s}.brandbg .b{animation:sbfly 18s linear infinite}.brandbg .b2{animation-duration:21s;animation-delay:1.4s}@keyframes sbsw{0%,100%{transform:translateX(0)}50%{transform:translateX(60vw)}}@keyframes sbtw{0%,100%{opacity:.2}50%{opacity:.7}}@keyframes sbfly{0%{transform:translate(0,0) rotate(45deg)}100%{transform:translate(130vw,-10vh) rotate(45deg)}}}
+
+  /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
+  
+  .medal{position:relative}
+  .medal .najdi{position:absolute;inset:-12px;width:calc(100% + 24px);height:calc(100% + 24px);z-index:0;pointer-events:none;overflow:visible;opacity:.5}
+  .medal>span,.medal .mark,.medal .logo{position:relative;z-index:1}
+  @media (max-width:399px){.medal .najdi .nch{display:none}}
+  
+  .sadu-band{height:11px;margin:9px 0 3px;border:1px solid var(--ink);border-radius:3px;opacity:.62;
+    background:repeating-linear-gradient(60deg,var(--accent) 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(-60deg,var(--ink) 0 6px,transparent 6px 12px)}
+
   /* ---- INK-CRAFT FINISH: confident brand-INK display type (never foil-transparent) ----
      GODZILLA law #1: ink carries the words; accent only decorates (underline/dots/prices/borders).
      Placed after the scene pack so the gold-foil background-clip:text on headings is neutralised. */
@@ -402,7 +416,7 @@ body{
     html,body{background:#fff!important;background-image:none!important;color:#000!important}
     body::before,body::after{display:none!important}
     .mote,.orb,.scenebg,.skydial,.order-chip,.waiter-btn,.lang-toggle,.wa,.bigmark,.chips,.acttip,.sep,
-    .cat-art,.sig-art,.brandshots,.diary,.pdot{display:none!important}
+    .cat-art,.sig-art,.brandshots,.diary,.pdot,.brandbg,.sadu-band,.najdi{display:none!important}
     .wrap{max-width:100%;padding:0}
     .hero{min-height:0!important;padding:0 0 8px!important;display:block!important}
     .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
@@ -433,6 +447,7 @@ body{
 </style>
 </head>
 <body>
+<div class="brandbg" aria-hidden="true"><span class="sweep"></span><span class="st s1"></span><span class="st s2"></span><span class="st s3"></span><span class="st s4"></span><span class="b b1"></span><span class="b b2"></span></div>
 <button class="lang-toggle touchable" id="langToggle">English</button>
 <div class="bigmark" aria-hidden="true"><span class="ar">س</span><span class="en">S</span></div>
 <div class="wrap">
@@ -482,7 +497,7 @@ body{
 <rect y="783" width="1440" height="24" fill="url(#pdSadu)" opacity=".85"/>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal hasmark"><svg class="mark bmcsbedym" viewBox="0 0 100 100" fill="none" role="img" aria-label="Serb Coffee"><style>.bmcsbedym{overflow:visible}.bmcsbedym *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bmcsbedym .mk{animation:bmcsbedymbob 5s ease-in-out 1.7s infinite}@keyframes bmcsbedymbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bmcsbedymp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bmcsbedym .p1{animation:bmcsbedymp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bmcsbedym .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bmcsbedymdr 1s ease .55s forwards}@keyframes bmcsbedymdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">س</span><span class="en">S</span></span></div>
+    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bmcsbedym" viewBox="0 0 100 100" fill="none" role="img" aria-label="Serb Coffee"><style>.bmcsbedym{overflow:visible}.bmcsbedym *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bmcsbedym .mk{animation:bmcsbedymbob 5s ease-in-out 1.7s infinite}@keyframes bmcsbedymbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bmcsbedymp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bmcsbedym .p1{animation:bmcsbedymp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bmcsbedym .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bmcsbedymdr 1s ease .55s forwards}@keyframes bmcsbedymdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">س</span><span class="en">S</span></span></div>
     <h1><span class="ar">سِرب قهوة مختصة</span><span class="en">Serb Coffee</span></h1>
     <div class="world"><span class="ar">✦ <b>سرب طيور يعبر سماء الليل</b> ✦</span><span class="en">✦ <b>a flock crossing the night sky</b> ✦</span></div>
     <div class="heroline"><span class="ar">انضم للسرب، الليل طويل</span><span class="en">join the flock, the night is long</span></div>
@@ -494,6 +509,7 @@ body{
     <div class="bx-flock"><svg class="bx-bird" viewBox="0 0 24 10" aria-hidden="true"><path id="bx-wing" d="M2 8Q7 1 12 7Q17 1 22 8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><svg class="bx-bird" viewBox="0 0 24 10" aria-hidden="true"><use href="#bx-wing"/></svg><svg class="bx-bird" viewBox="0 0 24 10" aria-hidden="true"><use href="#bx-wing"/></svg><span class="bx-flock-note">السرب يعبر، والليل طويل</span></div>
   </header>
   <nav class="chips"><a class="chip touchable" href="#cat-0"><span class="ar">أول رفّة جناح</span><span class="en">the first wingbeat</span></a><a class="chip touchable" href="#cat-1"><span class="ar">تحليق بطيء فوق الرمال</span><span class="en">a slow glide over the sands</span></a><a class="chip touchable" href="#cat-2"><span class="ar">نسيم تحت الجناح</span><span class="en">cool wind under the wing</span></a><a class="chip touchable" href="#cat-3"><span class="ar">السرب يرجع للديرة</span><span class="en">the flock comes home</span></a><a class="chip touchable" href="#cat-4"><span class="ar">لقمة قبل الطيران</span><span class="en">a small bite before flight</span></a></nav>
+  <div class="sadu-band" aria-hidden="true"></div>
   
   
   <section class="cat reveal cat--flip" id="cat-0" style="--sa:#bea650;--sa2:#b3cd79">

@@ -223,6 +223,37 @@ body{
 }
 
 
+  /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  .brandbg{--accent:#875031;--accent-2:#7c4654;--sa:#8c8740;--sa2:#8faea9;--bg-0:#fcf9f8;--bg-1:#f5eeea;--bg-2:#fefcfb}
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(110% 90% at 50% 0%,var(--bg-1),var(--bg-0))}
+.brandbg .steam{position:absolute;bottom:-6%;width:16vw;height:60vh;border-radius:50%;filter:blur(50px);opacity:.18;background:var(--accent)}
+.brandbg .st1{left:8%}.brandbg .st2{right:10%;background:var(--accent-2)}
+.brandbg .doo{position:absolute;border:3px solid var(--accent);opacity:.5}
+.brandbg .d1{left:10%;top:24%;width:34px;height:34px;border-radius:50%}
+.brandbg .d2{right:12%;top:18%;width:30px;height:30px}
+.brandbg .d3{left:16%;bottom:20%;width:40px;height:20px;border-radius:0 0 40px 40px;border-top:none}
+.brandbg .d4{right:14%;bottom:24%;width:26px;height:26px;border-radius:50% 50% 50% 0;border-color:var(--accent-2)}
+.brandbg .zig{right:22%;top:44%;width:40px;height:12px;border:none;border-bottom:3px dashed var(--accent-2);opacity:.5;position:absolute}
+@media (prefers-reduced-motion:no-preference){
+.brandbg .doo{animation:sBob 4s ease-in-out infinite}
+.brandbg .d2{animation-delay:-1s}.brandbg .d3{animation-delay:-2s}.brandbg .d4{animation-delay:-1.5s}
+.brandbg .zig{animation:sBob 5s ease-in-out infinite -.5s}
+.brandbg .steam{animation:sRise 10s ease-in-out infinite alternate}
+.brandbg .st2{animation-delay:-5s}}
+@keyframes sBob{50%{transform:translateY(-14px) rotate(8deg)}}
+@keyframes sRise{to{transform:translateY(-20px) scaleX(1.2);opacity:.26}}
+
+  /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
+  
+  .medal{position:relative}
+  .medal .najdi{position:absolute;inset:-12px;width:calc(100% + 24px);height:calc(100% + 24px);z-index:0;pointer-events:none;overflow:visible;opacity:.5}
+  .medal>span,.medal .mark,.medal .logo{position:relative;z-index:1}
+  @media (max-width:399px){.medal .najdi .nch{display:none}}
+  
+  .sadu-band{height:11px;margin:9px 0 3px;border:1px solid var(--ink);border-radius:3px;opacity:.62;
+    background:repeating-linear-gradient(60deg,var(--gold) 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(-60deg,var(--ink) 0 6px,transparent 6px 12px)}
+
   /* ---- INK-CRAFT FINISH (gift page): heroline never foil-transparent; medallion holds the mark ----
      the gift page is already ink-crafted (2px ink borders + hard offset shadows on every card/pill),
      so this only neutralises the scene's gold-foil background-clip:text on .heroline + sizes the mark. */
@@ -269,6 +300,7 @@ body{
 </script>
 </head>
 <body>
+<div class="brandbg" aria-hidden="true"><span class="steam st1"></span><span class="steam st2"></span><span class="doo d1"></span><span class="doo d2"></span><span class="doo d3"></span><span class="doo d4"></span><span class="zig"></span></div>
 <div class="sting-wash" aria-hidden="true"><i></i><i></i></div>
 <div class="curtain" id="msCurtain" aria-hidden="true"></div>
 <div class="bigmark" aria-hidden="true"><span class="ar">ش</span><span class="en">S</span></div>
@@ -328,11 +360,12 @@ body{
 </svg>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:8px;animation-delay:0s">〜</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:5px;animation-delay:0.7s">〜</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:7px;animation-delay:1.4s">〜</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:4px;animation-delay:2.0999999999999996s">〜</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:6px;animation-delay:2.8s">〜</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:7px;animation-delay:3.5s">〜</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:8px;animation-delay:0.1999999999999993s">〜</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:8px;animation-delay:0.8999999999999995s">〜</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="medal hasmark"><svg class="mark bm1vuphy8w" viewBox="0 0 100 100" fill="none" role="img" aria-label="Shanab Cafe"><style>.bm1vuphy8w{overflow:visible}.bm1vuphy8w *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm1vuphy8w .mk{animation:bm1vuphy8wbob 5s ease-in-out 1.7s infinite}@keyframes bm1vuphy8wbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm1vuphy8wtop{0%{opacity:0;transform:translateY(-30px) rotate(-10deg)}100%{transform:none}}@keyframes bm1vuphy8wbot{0%{opacity:0;transform:translateY(30px)}100%{transform:none}}@keyframes bm1vuphy8wpop{0%{opacity:0;transform:scale(.3)}100%{opacity:1;transform:none}}.bm1vuphy8w .p1{animation:bm1vuphy8wtop .8s cubic-bezier(.2,1.3,.3,1) both}.bm1vuphy8w .p2{animation:bm1vuphy8wbot .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bm1vuphy8w .p3{animation:bm1vuphy8wpop .5s ease .7s both}}</style><g class="mk"><g class="p1"><path d="M26 48 L50 28 L74 48 Z" fill="var(--gold)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="30" y="48" width="40" height="30" rx="4" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><path d="M44 78 L44 60 Q50 55 56 60 L56 78 Z" fill="var(--sage)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g></g></svg><span><span class="ar">ش</span><span class="en">S</span></span></div>
+    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bm1vuphy8w" viewBox="0 0 100 100" fill="none" role="img" aria-label="Shanab Cafe"><style>.bm1vuphy8w{overflow:visible}.bm1vuphy8w *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm1vuphy8w .mk{animation:bm1vuphy8wbob 5s ease-in-out 1.7s infinite}@keyframes bm1vuphy8wbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm1vuphy8wtop{0%{opacity:0;transform:translateY(-30px) rotate(-10deg)}100%{transform:none}}@keyframes bm1vuphy8wbot{0%{opacity:0;transform:translateY(30px)}100%{transform:none}}@keyframes bm1vuphy8wpop{0%{opacity:0;transform:scale(.3)}100%{opacity:1;transform:none}}.bm1vuphy8w .p1{animation:bm1vuphy8wtop .8s cubic-bezier(.2,1.3,.3,1) both}.bm1vuphy8w .p2{animation:bm1vuphy8wbot .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bm1vuphy8w .p3{animation:bm1vuphy8wpop .5s ease .7s both}}</style><g class="mk"><g class="p1"><path d="M26 48 L50 28 L74 48 Z" fill="var(--gold)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="30" y="48" width="40" height="30" rx="4" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><path d="M44 78 L44 60 Q50 55 56 60 L56 78 Z" fill="var(--sage)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g></g></svg><span><span class="ar">ش</span><span class="en">S</span></span></div>
     <h1><span class="ar">أهلاً ببيت <b>شنب كافيه</b></span><span class="en">Welcome home, <b>Shanab Cafe</b>.</span></h1>
     <div class="world"><span class="ar">✦ بيت العيلة يوم الجمعة والضحكة عالية ✦</span><span class="en">✦ the family house on a Friday, laughter loud ✦</span></div>
     <div class="heroline hand"><span class="ar">قعدة عيلة وضحكة من القلب</span><span class="en">A family table and easy laughter</span></div>
     <div><a class="cta touchable" href="../shanab-cafe/"><span class="ar">افتحوا منيوكم ←</span><span class="en">Open your menu →</span></a></div>
+    <div class="sadu-band" aria-hidden="true" style="max-width:280px;margin-inline:auto"></div>
   </section>
 
   <div class="letter rv">

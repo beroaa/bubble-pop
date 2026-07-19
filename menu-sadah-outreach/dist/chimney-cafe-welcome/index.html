@@ -218,6 +218,31 @@ body::after{
 @keyframes nzTwinkle{0%,100%{opacity:.9}50%{opacity:.45}}
 
 
+  /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  .brandbg{--accent:#a31f7d;--accent-2:#6d388a;--sa:#9b3141;--sa2:#92b389;--bg-0:#fcf8fb;--bg-1:#f5eaf2;--bg-2:#fefbfd}
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(70% 60% at 100% 100%,color-mix(in srgb,var(--sa) 18%,transparent),transparent 55%),radial-gradient(70% 60% at 0 0,color-mix(in srgb,var(--accent) 16%,transparent),transparent 55%)}
+.brandbg .grid{position:absolute;inset:-2px;background:linear-gradient(var(--sa) 1px,transparent 1px) 0 0/100% 42px,linear-gradient(90deg,var(--sa) 1px,transparent 1px) 0 0/42px 100%;opacity:.08;-webkit-mask:radial-gradient(60% 60% at 50% 50%,transparent 40%,#000);mask:radial-gradient(60% 60% at 50% 50%,transparent 40%,#000)}
+.brandbg .scan{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 3px,color-mix(in srgb,var(--sa2) 10%,transparent) 3px 4px);opacity:.4}
+.brandbg .spark{position:absolute;bottom:8%;width:4px;height:4px;border-radius:50%;background:var(--sa2);box-shadow:0 0 8px var(--sa);opacity:0}
+.brandbg .k1{left:12%}.brandbg .k2{left:32%}.brandbg .k3{right:30%}.brandbg .k4{right:12%}
+@media (prefers-reduced-motion:no-preference){
+.brandbg .grid{animation:chm-pulse 3.5s ease-in-out infinite}
+.brandbg .spark{animation:chm-fly 5s ease-in infinite}
+.brandbg .k2{animation-delay:1.2s}.brandbg .k3{animation-delay:2.4s}.brandbg .k4{animation-delay:3.3s}
+@keyframes chm-pulse{0%,100%{opacity:.05}50%{opacity:.16}}
+@keyframes chm-fly{0%{opacity:0;transform:translateY(0) scale(1)}20%{opacity:1}100%{opacity:0;transform:translateY(-70vh) scale(.4)}}}
+
+  /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
+  
+  .medal{position:relative}
+  .medal .najdi{position:absolute;inset:-12px;width:calc(100% + 24px);height:calc(100% + 24px);z-index:0;pointer-events:none;overflow:visible;opacity:.5}
+  .medal>span,.medal .mark,.medal .logo{position:relative;z-index:1}
+  @media (max-width:399px){.medal .najdi .nch{display:none}}
+  
+  .sadu-band{height:11px;margin:9px 0 3px;border:1px solid var(--ink);border-radius:3px;opacity:.62;
+    background:repeating-linear-gradient(60deg,var(--gold) 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(-60deg,var(--ink) 0 6px,transparent 6px 12px)}
+
   /* ---- INK-CRAFT FINISH (gift page): heroline never foil-transparent; medallion holds the mark ----
      the gift page is already ink-crafted (2px ink borders + hard offset shadows on every card/pill),
      so this only neutralises the scene's gold-foil background-clip:text on .heroline + sizes the mark. */
@@ -264,6 +289,7 @@ body::after{
 </script>
 </head>
 <body>
+<div class="brandbg" aria-hidden="true"><span class="grid"></span><span class="scan"></span><span class="spark k1"></span><span class="spark k2"></span><span class="spark k3"></span><span class="spark k4"></span></div>
 <div class="sting-wash" aria-hidden="true"><i></i><i></i></div>
 <div class="curtain" id="msCurtain" aria-hidden="true"></div>
 <div class="bigmark" aria-hidden="true"><span class="ar">ت</span><span class="en">C</span></div>
@@ -303,11 +329,12 @@ body::after{
 </svg>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:15px;animation-delay:0s">✴</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:12px;animation-delay:0.7s">✳</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:10px;animation-delay:1.4s">·</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:9px;animation-delay:2.0999999999999996s">✦</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:9px;animation-delay:2.8s">✴</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:12px;animation-delay:3.5s">✳</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:10px;animation-delay:0.1999999999999993s">·</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:13px;animation-delay:0.8999999999999995s">✦</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="medal hasmark"><svg class="mark bm1s354uaw" viewBox="0 0 100 100" fill="none" role="img" aria-label="Chimney Cafe"><style>.bm1s354uaw{overflow:visible}.bm1s354uaw *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm1s354uaw .mk{animation:bm1s354uawbob 5s ease-in-out 1.7s infinite}@keyframes bm1s354uawbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm1s354uawfl{0%{opacity:0;transform:translateX(-40px) rotate(-12deg)}100%{transform:none}}@keyframes bm1s354uawfr{0%{opacity:0;transform:translateX(40px) rotate(12deg)}100%{transform:none}}@keyframes bm1s354uawdrop{0%{opacity:0;transform:translateY(-30px) scale(.4)}70%{transform:translateY(2px) scale(1.1)}100%{transform:none}}.bm1s354uaw .p1{animation:bm1s354uawfl .8s cubic-bezier(.2,1.2,.3,1) both}.bm1s354uaw .p2{animation:bm1s354uawfr .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bm1s354uaw .p3{animation:bm1s354uawdrop .7s cubic-bezier(.2,1.5,.3,1) .55s both}.bm1s354uaw .p4{opacity:0;animation:bm1s354uawfd .4s ease .95s forwards}@keyframes bm1s354uawfd{to{opacity:1}}}</style><g class="mk"><g class="p1"><rect x="22" y="54" width="56" height="24" rx="7" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="32" y="34" width="36" height="22" rx="7" fill="var(--gold)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><circle cx="50" cy="26" r="6" fill="var(--ochre)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g><path class="p4" d="M50 20 q3 -6 8 -7" stroke="var(--ink)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ت</span><span class="en">C</span></span></div>
+    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bm1s354uaw" viewBox="0 0 100 100" fill="none" role="img" aria-label="Chimney Cafe"><style>.bm1s354uaw{overflow:visible}.bm1s354uaw *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm1s354uaw .mk{animation:bm1s354uawbob 5s ease-in-out 1.7s infinite}@keyframes bm1s354uawbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm1s354uawfl{0%{opacity:0;transform:translateX(-40px) rotate(-12deg)}100%{transform:none}}@keyframes bm1s354uawfr{0%{opacity:0;transform:translateX(40px) rotate(12deg)}100%{transform:none}}@keyframes bm1s354uawdrop{0%{opacity:0;transform:translateY(-30px) scale(.4)}70%{transform:translateY(2px) scale(1.1)}100%{transform:none}}.bm1s354uaw .p1{animation:bm1s354uawfl .8s cubic-bezier(.2,1.2,.3,1) both}.bm1s354uaw .p2{animation:bm1s354uawfr .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bm1s354uaw .p3{animation:bm1s354uawdrop .7s cubic-bezier(.2,1.5,.3,1) .55s both}.bm1s354uaw .p4{opacity:0;animation:bm1s354uawfd .4s ease .95s forwards}@keyframes bm1s354uawfd{to{opacity:1}}}</style><g class="mk"><g class="p1"><rect x="22" y="54" width="56" height="24" rx="7" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="32" y="34" width="36" height="22" rx="7" fill="var(--gold)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><circle cx="50" cy="26" r="6" fill="var(--ochre)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g><path class="p4" d="M50 20 q3 -6 8 -7" stroke="var(--ink)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ت</span><span class="en">C</span></span></div>
     <h1><span class="ar">أهلاً ببيت <b>تشيمني كافيه</b></span><span class="en">Welcome home, <b>Chimney Cafe</b>.</span></h1>
     <div class="world"><span class="ar">✦ سهرة حلا تحت الأضواء ✦</span><span class="en">✦ a dessert run under city lights ✦</span></div>
     <div class="heroline hand"><span class="ar">سهرتك تبدأ من هنا</span><span class="en">the night tastes sweeter here</span></div>
     <div><a class="cta touchable" href="../chimney-cafe/"><span class="ar">افتحوا منيوكم ←</span><span class="en">Open your menu →</span></a></div>
+    <div class="sadu-band" aria-hidden="true" style="max-width:280px;margin-inline:auto"></div>
   </section>
 
   <div class="letter rv">

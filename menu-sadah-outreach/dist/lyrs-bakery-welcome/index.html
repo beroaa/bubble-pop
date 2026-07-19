@@ -204,6 +204,21 @@ body{
 }
 
 
+  /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  .brandbg{--accent:#a16e21;--accent-2:#883a3d;--sa:#889933;--sa2:#8baeb1;--bg-0:#fcfaf8;--bg-1:#f5f1ea;--bg-2:#fefdfb}
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(120% 80% at 50% 120%,var(--accent) 0%,transparent 45%)}.brandbg .haze{position:absolute;inset:-10%;background:radial-gradient(40% 50% at 20% 90%,var(--sa) 0%,transparent 60%),radial-gradient(40% 50% at 85% 85%,var(--accent-2) 0%,transparent 60%);opacity:.14;filter:blur(30px)}.brandbg .steam{position:absolute;bottom:-15%;width:8px;height:60vh;border-radius:50%;background:linear-gradient(to top,var(--sa),transparent);opacity:.10;filter:blur(9px)}.brandbg .s1{left:12%}.brandbg .s2{left:38%}.brandbg .s3{left:66%}.brandbg .s4{left:88%}@media(prefers-reduced-motion:no-preference){.brandbg .steam{animation:rise 9s ease-in-out infinite}.brandbg .s2{animation-delay:2s}.brandbg .s3{animation-delay:4s}.brandbg .s4{animation-delay:1s}@keyframes rise{0%{transform:translateY(20%) scaleX(1);opacity:0}30%{opacity:.12}100%{transform:translateY(-40%) scaleX(2.4);opacity:0}}}
+
+  /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
+  
+  .medal{position:relative}
+  .medal .najdi{position:absolute;inset:-12px;width:calc(100% + 24px);height:calc(100% + 24px);z-index:0;pointer-events:none;overflow:visible;opacity:.5}
+  .medal>span,.medal .mark,.medal .logo{position:relative;z-index:1}
+  @media (max-width:399px){.medal .najdi .nch{display:none}}
+  
+  .sadu-band{height:11px;margin:9px 0 3px;border:1px solid var(--ink);border-radius:3px;opacity:.62;
+    background:repeating-linear-gradient(60deg,var(--gold) 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(-60deg,var(--ink) 0 6px,transparent 6px 12px)}
+
   /* ---- INK-CRAFT FINISH (gift page): heroline never foil-transparent; medallion holds the mark ----
      the gift page is already ink-crafted (2px ink borders + hard offset shadows on every card/pill),
      so this only neutralises the scene's gold-foil background-clip:text on .heroline + sizes the mark. */
@@ -250,6 +265,7 @@ body{
 </script>
 </head>
 <body>
+<div class="brandbg" aria-hidden="true"><div class="haze"></div><div class="steam s1"></div><div class="steam s2"></div><div class="steam s3"></div><div class="steam s4"></div></div>
 <div class="sting-wash" aria-hidden="true"><i></i><i></i></div>
 <div class="curtain" id="msCurtain" aria-hidden="true"></div>
 <div class="bigmark" aria-hidden="true"><span class="ar">ل</span><span class="en">L</span></div>
@@ -311,11 +327,12 @@ body{
 
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:9px;animation-delay:0s">〜</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:9px;animation-delay:0.7s">〜</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:9px;animation-delay:1.4s">〜</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:12px;animation-delay:2.0999999999999996s">〜</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:10px;animation-delay:2.8s">〜</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:13px;animation-delay:3.5s">〜</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:14px;animation-delay:0.1999999999999993s">〜</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:15px;animation-delay:0.8999999999999995s">〜</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="medal hasmark"><svg class="mark bm1a0ynhyw" viewBox="0 0 100 100" fill="none" role="img" aria-label="Lyrs Bakery"><style>.bm1a0ynhyw{overflow:visible}.bm1a0ynhyw *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm1a0ynhyw .mk{animation:bm1a0ynhywbob 5s ease-in-out 1.7s infinite}@keyframes bm1a0ynhywbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm1a0ynhywrise{0%{opacity:0;transform:translateY(30px) scale(.7)}70%{opacity:1;transform:translateY(-3px)}100%{transform:none}}.bm1a0ynhyw .p1{animation:bm1a0ynhywrise .9s cubic-bezier(.2,1.2,.3,1) both}.bm1a0ynhyw .p2{stroke-dasharray:60;stroke-dashoffset:60;animation:bm1a0ynhywdr .7s ease .7s forwards}@keyframes bm1a0ynhywdr{to{stroke-dashoffset:0}}.bm1a0ynhyw .s1,.bm1a0ynhyw .s2{opacity:0;animation:bm1a0ynhywstm 2.6s ease-in-out 1s infinite}.bm1a0ynhyw .s2{animation-delay:1.4s}@keyframes bm1a0ynhywstm{0%{opacity:0;transform:translateY(4px)}40%{opacity:.9}100%{opacity:0;transform:translateY(-8px)}}}</style><g class="mk"><path class="p1" d="M18 68 Q18 40 50 40 Q82 40 82 68 Q82 72 78 72 L22 72 Q18 72 18 68 Z" fill="var(--gold)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><path class="p2" d="M34 50 l6 8 M50 47 l6 9 M66 50 l-6 8" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/><path class="s1" d="M40 34 q4 -6 0 -12" stroke="var(--rose)" stroke-width="4" stroke-linecap="round" opacity=".85"/><path class="s2" d="M60 34 q4 -6 0 -12" stroke="var(--rose)" stroke-width="4" stroke-linecap="round" opacity=".85"/></g></svg><span><span class="ar">ل</span><span class="en">L</span></span></div>
+    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bm1a0ynhyw" viewBox="0 0 100 100" fill="none" role="img" aria-label="Lyrs Bakery"><style>.bm1a0ynhyw{overflow:visible}.bm1a0ynhyw *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm1a0ynhyw .mk{animation:bm1a0ynhywbob 5s ease-in-out 1.7s infinite}@keyframes bm1a0ynhywbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm1a0ynhywrise{0%{opacity:0;transform:translateY(30px) scale(.7)}70%{opacity:1;transform:translateY(-3px)}100%{transform:none}}.bm1a0ynhyw .p1{animation:bm1a0ynhywrise .9s cubic-bezier(.2,1.2,.3,1) both}.bm1a0ynhyw .p2{stroke-dasharray:60;stroke-dashoffset:60;animation:bm1a0ynhywdr .7s ease .7s forwards}@keyframes bm1a0ynhywdr{to{stroke-dashoffset:0}}.bm1a0ynhyw .s1,.bm1a0ynhyw .s2{opacity:0;animation:bm1a0ynhywstm 2.6s ease-in-out 1s infinite}.bm1a0ynhyw .s2{animation-delay:1.4s}@keyframes bm1a0ynhywstm{0%{opacity:0;transform:translateY(4px)}40%{opacity:.9}100%{opacity:0;transform:translateY(-8px)}}}</style><g class="mk"><path class="p1" d="M18 68 Q18 40 50 40 Q82 40 82 68 Q82 72 78 72 L22 72 Q18 72 18 68 Z" fill="var(--gold)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><path class="p2" d="M34 50 l6 8 M50 47 l6 9 M66 50 l-6 8" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/><path class="s1" d="M40 34 q4 -6 0 -12" stroke="var(--rose)" stroke-width="4" stroke-linecap="round" opacity=".85"/><path class="s2" d="M60 34 q4 -6 0 -12" stroke="var(--rose)" stroke-width="4" stroke-linecap="round" opacity=".85"/></g></svg><span><span class="ar">ل</span><span class="en">L</span></span></div>
     <h1><span class="ar">أهلاً ببيت <b>ليرز بيكري</b></span><span class="en">Welcome home, <b>Lyrs Bakery</b>.</span></h1>
     <div class="world"><span class="ar">✦ المخبز اللي ما ينام، والفرن صاحي طول الليل ✦</span><span class="en">✦ the bakehouse that never sleeps ✦</span></div>
     <div class="heroline hand"><span class="ar">ريحة الخبز توصل قبل السلام</span><span class="en">follow the smell of warm bread</span></div>
     <div><a class="cta touchable" href="../lyrs-bakery/"><span class="ar">افتحوا منيوكم ←</span><span class="en">Open your menu →</span></a></div>
+    <div class="sadu-band" aria-hidden="true" style="max-width:280px;margin-inline:auto"></div>
   </section>
 
   <div class="letter rv">
