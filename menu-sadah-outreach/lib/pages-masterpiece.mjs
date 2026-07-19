@@ -29,11 +29,17 @@ function cafePhotos(slug) {
   } catch { return []; }
 }
 
-/* REAL LOGO slot: dist/assets/photos/<slug>/logo.png (lands via MacBook PHOTO-MISSION)
-   → rendered inside the medallion, replacing the bilingual initial; absent → initial stays. */
+/* REAL animated-logo slot: dist/assets/photos/<slug>/logo.(svg|gif|png) — checked in that
+   order (lands via MacBook PHOTO-MISSION) → rendered inside the medallion, replacing the
+   bilingual initial; absent → the (great-on-its-own) initial stays. SVG/GIF animate freely. */
 function cafeLogo(slug) {
   if (!slug) return null;
-  try { return existsSync(PHOTOS_DIR + '/' + slug + '/logo.png') ? '../assets/photos/' + slug + '/logo.png' : null; } catch { return null; }
+  try {
+    for (const ext of ['svg', 'gif', 'png']) {
+      if (existsSync(PHOTOS_DIR + '/' + slug + '/logo.' + ext)) return '../assets/photos/' + slug + '/logo.' + ext;
+    }
+  } catch { /* fs error → fall back to initial */ }
+  return null;
 }
 const logoImg = (logo) => `<img class="logo" src="${esc(logo)}" alt="" onerror="this.parentElement.classList.remove('haslogo');this.remove()">`;
 
@@ -138,11 +144,13 @@ function paletteFor(T, mode) {
   const [h, s, l] = hexHsl(T.accentBright || T.accent);
   if (mode === 'light') return {
     ...T, mode,
-    accent: hslHex(h, clamp(s + 10, 30, 90), 36), accentBright: hslHex(h, s, l),
-    accent2: hslHex(h + 16, clamp(s + 4, 0, 90), 52), deep: hslHex(h, s, 24), ink: '#ffffff',
+    // bolder brand accent (vivid, Beyt-confident) — no more muddy same-gold
+    accent: hslHex(h, clamp(s + 16, 45, 88), 38), accentBright: hslHex(h, s, l),
+    accent2: hslHex(h + 18, clamp(s + 10, 40, 90), 50), deep: hslHex(h, clamp(s + 6, 30, 90), 22), ink: '#ffffff',
     bg0: hslHex(h, 32, 98), bg1: hslHex(h, 28, 96), bg2: hslHex(h, 22, 92),
     border1: hslHex(h, 22, 86), border2: hslHex(h, 26, 74),
-    text1: hslHex(h, 38, 14), text2: hslHex(h, 20, 32), text3: hslHex(h, 12, 48),
+    // strong near-black warm INK (Beyt #382900) — headings + body read confident, not washed
+    text1: hslHex(h, clamp(s, 30, 55), 12), text2: hslHex(h, 20, 30), text3: hslHex(h, 12, 46),
     shadow: '0 6px 16px ' + hslHex(h, 40, 30) + '22, 0 16px 40px ' + hslHex(h, 40, 30) + '14',
   };
   return {
