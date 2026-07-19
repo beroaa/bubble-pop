@@ -71,6 +71,20 @@ const TYPE_POOLS = {
 };
 const DEFAULT_POOL = TYPE_POOLS.specialty_coffee;
 
+/* ---- BRAND MOTION DNA: how this brand MOVES, derived from the same seed ----
+   ease: the brand's signature timing curve; revealDir: how content arrives.
+   Deterministic like the palette — same cafe always moves the same way. */
+const MOTION_EASES = [
+  'cubic-bezier(.22,1,.36,1)',    // silk — long calm settle
+  'cubic-bezier(.16,1,.3,1)',     // expo — fast confident arrival
+  'cubic-bezier(.34,1.56,.64,1)', // spring — playful overshoot
+];
+const MOTION_DIRS = ['up', 'start', 'scale'];
+const motionFor = (seed) => ({
+  ease: MOTION_EASES[seed % MOTION_EASES.length],
+  revealDir: MOTION_DIRS[(seed >>> 7) % MOTION_DIRS.length],
+});
+
 /* ---- curated Google Font pairings (AR display + EN display + body) ----
    Loaded by the VISITOR's browser on the live site — works in production. */
 export const FONT_PAIRS = [
@@ -107,9 +121,10 @@ export function brandTheme(entry = {}) {
   const bgS = clamp(Math.round(s * 0.5), 12, 30);
   const mode = ((seed >>> 9) % 5) < 2 ? 'light' : 'dark'; // ~40% paper-light (Beyt soul), 60% dark worlds
   const F = FONT_PAIRS[(seed >>> 5) % FONT_PAIRS.length];
+  const motion = motionFor(seed); // brand motion DNA rides with the palette
   if (mode === 'light') {
     return {
-      label, mode, fonts: F,
+      label, mode, fonts: F, motion,
       accent: hslHex(h, clamp(s + 10, 30, 90), 36),
       accentBright: hslHex(h, s, l),
       accent2: hslHex(h + 16, clamp(s + 4, 0, 90), 52),
@@ -122,7 +137,7 @@ export function brandTheme(entry = {}) {
     };
   }
   return {
-    label, mode, fonts: F,
+    label, mode, fonts: F, motion,
     accentBright: hslHex(h, s, l),
     shadow: '0 6px 16px #00000080, 0 16px 40px #00000059',
     accent: hslHex(h, s, l),                // the brand color

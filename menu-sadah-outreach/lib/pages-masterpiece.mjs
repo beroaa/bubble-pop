@@ -185,7 +185,7 @@ const motesHtml = (motif, sd) => {
   const pos = [[14, 10], [78, 16], [8, 46], [86, 52], [24, 74], [68, 80], [46, 8], [90, 30]];
   return pos.map(([x, y], i) => {
     const ch = M.chars[i % M.chars.length];
-    return `<span class="mote" style="left:${x}%;top:${y}%;font-size:${9 + ((sd >> i) % 7)}px;animation-delay:${(i * 0.7) % 4}s">${ch}</span>`;
+    return `<span class="mote" style="inset-inline-start:${x}%;top:${y}%;font-size:${9 + ((sd >> i) % 7)}px;animation-delay:${(i * 0.7) % 4}s">${ch}</span>`;
   }).join('');
 };
 
@@ -301,6 +301,11 @@ export function masterpieceMenuPage(cafe, brief) {
   const sd = seedOf(cafe.slug || cafe.name);
   const M = MOTIFS[brief.motif] || MOTIFS.stars;
   const a = P.accent, a2 = P.accent2;
+  // BRAND MOTION DNA: the palette seed also decides how this brand MOVES
+  const MO = (cafe.theme && cafe.theme.motion) || { ease: 'cubic-bezier(.22,1,.36,1)', revealDir: 'up' };
+  // reveal arrival by brand DNA — 'start' is logical (mirrors via --tx in RTL)
+  const revealFrom = MO.revealDir === 'start' ? 'translateX(calc(-14px * var(--tx,1)))'
+    : MO.revealDir === 'scale' ? 'scale(.97)' : 'translateY(16px)';
   const direction = directPhotos(cafe.slug, cafePhotos(cafe.slug)); // photodirection50: directed order + excludes
   const shots = direction.shots; // directed → hero first, then strip: the polaroids read in art-directed order
   const roomShots = direction.rooms; // directed room list (cycled, hint → object-position); null → auto cycle
@@ -315,8 +320,8 @@ export function masterpieceMenuPage(cafe, brief) {
   const rawPhone = String(cafe.phone || '').replace(/\D/g, '');
   const cafePhone = rawPhone && rawPhone !== '966500000000' ? rawPhone : null;
   const orderChip = (en, ar) => cafePhone
-    ? `<a class="order-chip" href="https://wa.me/${cafePhone}?text=${encodeURIComponent('مرحباً ' + (cafe.nameAr || cafe.name) + '، أبغى أطلب: ' + ar)}" target="_blank" rel="noopener"><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></a>`
-    : `<button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>`;
+    ? `<a class="order-chip touchable" href="https://wa.me/${cafePhone}?text=${encodeURIComponent('مرحباً ' + (cafe.nameAr || cafe.name) + '، أبغى أطلب: ' + ar)}" target="_blank" rel="noopener"><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></a>`
+    : `<button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>`;
 
   const roomFor = (cat) => (brief.rooms || []).find((r) => r.catEn && r.catEn.toLowerCase() === String(cat.cat).toLowerCase());
   const sigCat = cafe.menu.find((c) => /signature|توقيع/i.test(c.cat + c.catAr));
@@ -325,7 +330,7 @@ export function masterpieceMenuPage(cafe, brief) {
 
   const navChips = cafe.menu.map((c, i) => {
     const r = roomFor(c);
-    return `<a class="chip" href="#cat-${i}"><span class="ar">${esc(r ? r.titleAr : c.catAr)}</span><span class="en">${esc(r ? r.titleEn : c.cat)}</span></a>`;
+    return `<a class="chip touchable" href="#cat-${i}"><span class="ar">${esc(r ? r.titleAr : c.catAr)}</span><span class="en">${esc(r ? r.titleEn : c.cat)}</span></a>`;
   }).join('');
 
   const sigHtml = sigCat ? `
@@ -411,7 +416,10 @@ export function masterpieceMenuPage(cafe, brief) {
 <style>
   :root{--bg-0:${P.bg0};--bg-1:${P.bg1};--bg-2:${P.bg2};--border-1:${P.border1};--border-2:${P.border2};
     --text-1:${P.text1};--text-2:${P.text2};--text-3:${P.text3};--accent:${a};--accent-2:${a2};--accent-soft:${a}22;
-    --sa:${R[0]};--sa2:${R[1]};--radius:16px;--shadow:${P.shadow}}
+    --sa:${R[0]};--sa2:${R[1]};--radius:16px;--shadow:${P.shadow};
+    --m-ease:${MO.ease};--m-dir:${MO.revealDir};--tx:1}
+  /* RTL MIRROR LAW: --tx flips direction-signed decorative transforms in Arabic */
+  [dir="rtl"]{--tx:-1}
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{font-family:${T.fonts.body},-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;
@@ -429,7 +437,7 @@ export function masterpieceMenuPage(cafe, brief) {
     background:radial-gradient(circle,${a}30,transparent 65%);pointer-events:none}
   .mote{position:absolute;pointer-events:none;z-index:0}
   ${M.css(a2)}
-  .greet{color:var(--accent);font-size:13px;letter-spacing:.14em;margin-bottom:10px;opacity:0;animation:up .7s .1s forwards}
+  .greet{color:var(--accent);font-size:13px;letter-spacing:.14em;margin-bottom:10px}
   .medal{position:relative;width:104px;height:104px;margin:0 auto 16px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;
     background:radial-gradient(circle at 32% 24%,#ffffff2b,transparent 42%),radial-gradient(circle at 32% 28%,${a}42,${a}14 62%,transparent);
@@ -458,14 +466,29 @@ export function masterpieceMenuPage(cafe, brief) {
   @keyframes inkin{0%{opacity:0;transform:translateY(16px) rotate(var(--r,0deg)) scale(.6)}
     60%{opacity:1;transform:translateY(-2px) rotate(calc(var(--r,0deg)*-.4)) scale(1.07)}
     100%{opacity:1;transform:none}}
-  .world{margin-top:10px;color:var(--text-3);font-size:13px;letter-spacing:.08em;opacity:0;animation:up .7s .7s forwards}
+  .world{margin-top:10px;color:var(--text-3);font-size:13px;letter-spacing:.08em}
   .world b{color:${R[1]};font-weight:600}
-  .heroline{margin-top:8px;color:var(--text-2);font-size:19px;line-height:1.5;opacity:0;animation:up .8s 1s forwards}
+  .heroline{margin-top:8px;color:var(--text-2);font-size:19px;line-height:1.5}
   .heroline .ar{font-family:${T.fonts.ar}}
   .heroline .en{font-family:${T.fonts.en}}
-  .meta{margin-top:14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;opacity:0;animation:up .7s 1.25s forwards}
+  .meta{margin-top:14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
   .badge{background:var(--accent-soft);border:1px solid ${a}66;color:var(--accent);border-radius:999px;padding:4px 14px;font-size:12px;letter-spacing:.05em}
   @keyframes up{0%{opacity:0;transform:translateY(12px)}100%{opacity:1;transform:none}}
+
+  /* ---- EXPO-OUT ENTRANCE: medallion → title → above-fold cards, 80ms apart ----
+     one keyframe (fade + 12px rise), opacity/transform only, zero layout shift;
+     below-the-fold cards stay owned by the scroll-reveal system */
+  @media (prefers-reduced-motion: no-preference){
+    @keyframes expo{0%{opacity:0;transform:translateY(12px)}100%{opacity:1;transform:none}}
+    ${['.greet', '.medal', 'h1', '.world', '.heroline', '.brandshots', '.meta', '.chips'].map((sel, i) =>
+    `${sel}{animation:expo .6s cubic-bezier(.16,1,.3,1) ${i * 80}ms both${sel === '.medal' ? ',mfloat 5s ease-in-out .8s infinite' : ''}}`).join('\n    ')}
+  }
+
+  /* ---- BRAND MOTION DNA: press physics — scale .96 in, overshoot release ---- */
+  @media (prefers-reduced-motion: no-preference){
+    .touchable{transition:all .2s,transform .32s cubic-bezier(.34,1.56,.64,1)}
+    .touchable:active{transform:scale(.96);transition:all .2s,transform .07s cubic-bezier(.2,.6,.4,1)}
+  }
 
   .chips{display:flex;gap:8px;overflow-x:auto;padding:14px 2px;position:sticky;top:0;z-index:20;
     background:linear-gradient(${P.bg0}f2 78%,transparent);backdrop-filter:blur(8px);scrollbar-width:none}
@@ -491,8 +514,8 @@ export function masterpieceMenuPage(cafe, brief) {
     box-shadow:0 0 0 3px ${a}0f}
   .reveal.in .stamp{animation:pstamp .5s cubic-bezier(.2,1.5,.4,1) both .35s}
   .sig-card::before,.sig-card::after{content:"";position:absolute;top:-8px;width:44px;height:16px;background:${R[1]}40;border-radius:2px;z-index:2}
-  .sig-card::before{left:14px;transform:rotate(-8deg)}
-  .sig-card::after{right:14px;transform:rotate(6deg)}
+  .sig-card::before{inset-inline-start:14px;transform:rotate(-8deg)}
+  .sig-card::after{inset-inline-end:14px;transform:rotate(6deg)}
   @keyframes pstamp{0%{opacity:0;transform:rotate(-14deg) scale(1.6)}100%{opacity:1;transform:rotate(-4deg) scale(1)}}
   .sar{font-size:11px}
 
@@ -509,6 +532,8 @@ export function masterpieceMenuPage(cafe, brief) {
   /* designed photo treatment: brand-tint wash (multiply where supported, plain elsewhere) + 1px inner border */
   .cat-art.hasimg::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
     background:linear-gradient(160deg,var(--sa,${a}),transparent 55%);opacity:.28;mix-blend-mode:multiply}
+  /* RTL MIRROR LAW: the tint wash falls from the inline-start corner in both directions */
+  [dir="rtl"] .cat-art.hasimg::before{background:linear-gradient(200deg,var(--sa,${a}),transparent 55%)}
   .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
     box-shadow:inset 0 0 0 1px ${a}55}
   .cat-title{flex:1;min-width:0}
@@ -532,7 +557,7 @@ export function masterpieceMenuPage(cafe, brief) {
   .cat--flip .cat-head{flex-direction:row-reverse}
   /* sep idle drift: dividers breathe softly while the page rests (killed by reduced-motion) */
   .sep,.sep-scene{animation:sepidle 7s ease-in-out infinite}
-  @keyframes sepidle{0%,100%{transform:translateX(0);opacity:.82}50%{transform:translateX(6px);opacity:1}}
+  @keyframes sepidle{0%,100%{transform:translateX(0);opacity:.82}50%{transform:translateX(calc(6px * var(--tx,1)));opacity:1}}
 
   .items{position:relative;background:${P.bg1}d9;border:1px solid var(--border-1);border-radius:20px;padding:6px 18px;box-shadow:var(--shadow)}
   .item{display:flex;align-items:baseline;gap:10px;padding:15px 0;border-bottom:1px solid ${P.bg2}99}
@@ -543,14 +568,15 @@ export function masterpieceMenuPage(cafe, brief) {
   .pdot{width:6px;height:6px;border-radius:50%;background:var(--sa);opacity:0;transform:scale(0)}
   .reveal.in .pdot{animation:dotpop .45s cubic-bezier(.2,1.6,.4,1) forwards}
   @keyframes dotpop{0%{opacity:0;transform:scale(0)}70%{opacity:1;transform:scale(1.5)}100%{opacity:.9;transform:scale(1)}}
-  .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+  /* scroll reveals arrive on the brand's own ease + direction (motion DNA: ${MO.revealDir}) */
+  .reveal{opacity:0;transform:${revealFrom};transition:opacity .55s var(--m-ease),transform .55s var(--m-ease)}
   .reveal.in{opacity:1;transform:none}
   .reveal.in .item{opacity:0;animation:itemin .45s forwards}
   .reveal.in .item:nth-child(1){animation-delay:.05s}.reveal.in .item:nth-child(2){animation-delay:.12s}
   .reveal.in .item:nth-child(3){animation-delay:.19s}.reveal.in .item:nth-child(4){animation-delay:.26s}
   .reveal.in .item:nth-child(5){animation-delay:.33s}.reveal.in .item:nth-child(6){animation-delay:.4s}
   .reveal.in .item:nth-child(n+7){animation-delay:.47s}
-  @keyframes itemin{0%{opacity:0;transform:translateX(-8px)}100%{opacity:1;transform:none}}
+  @keyframes itemin{0%{opacity:0;transform:translateX(calc(-8px * var(--tx,1)))}100%{opacity:1;transform:none}}
   .reveal.in .pdot{animation-delay:.55s}
 
   /* ---- diary notes (the human hand) ---- */
@@ -640,8 +666,7 @@ ${polish ? `
   ${polish.css}` : ''}
 ${shots.length ? `
   /* ---- brandshots: the cafe's OWN photos, pinned like polaroids ---- */
-  .brandshots{display:flex;justify-content:center;align-items:flex-start;gap:14px;margin-top:22px;position:relative;z-index:1;
-    opacity:0;animation:up .8s 1.15s forwards}
+  .brandshots{display:flex;justify-content:center;align-items:flex-start;gap:14px;margin-top:22px;position:relative;z-index:1}
   .bshot{position:relative;width:96px;margin:0;background:${P.bg1};border:1px solid var(--border-2);padding:6px 6px 16px;
     box-shadow:4px 5px 0 ${P.deep}30}
   .bshot img{display:block;width:100%;height:84px;object-fit:cover;filter:saturate(1.08) contrast(1.04)}
@@ -649,13 +674,13 @@ ${shots.length ? `
   .bshot::after{content:"";position:absolute;inset:6px 6px 16px;pointer-events:none;
     background:linear-gradient(160deg,${a}48,transparent 55%);mix-blend-mode:multiply;
     box-shadow:inset 0 0 0 1px ${a}55}
+  [dir="rtl"] .bshot::after{background:linear-gradient(200deg,${a}48,transparent 55%)}
   .bshot::before{content:"";position:absolute;top:-9px;left:50%;width:44px;height:16px;background:${R[1]}40;border-radius:2px;
     transform:translateX(-50%) rotate(-3deg);backdrop-filter:blur(1px);z-index:2}
   .bshot:nth-child(1){transform:rotate(-4deg)}
   .bshot:nth-child(2){transform:rotate(2.5deg) translateY(7px)}
   .bshot:nth-child(3){transform:rotate(-1.5deg) translateY(2px)}
-  @media(min-width:900px){.bshot{width:132px}.bshot img{height:116px}}
-  @media (prefers-reduced-motion: reduce){.brandshots{opacity:1!important;animation:none!important}}` : ''}
+  @media(min-width:900px){.bshot{width:132px}.bshot img{height:116px}}` : ''}
 
   @media (prefers-reduced-motion: reduce){
     *{animation:none!important;transition:none!important}
@@ -705,7 +730,7 @@ ${shots.length ? `
 </style>
 </head>
 <body>
-<button class="lang-toggle" id="langToggle">English</button>
+<button class="lang-toggle touchable" id="langToggle">English</button>
 <div class="bigmark" aria-hidden="true"><span class="ar">${esc((cafe.nameAr || cafe.name).trim()[0])}</span><span class="en">${esc(cafe.name.trim()[0].toUpperCase())}</span></div>
 <div class="wrap">
   <header class="hero">
@@ -745,12 +770,12 @@ ${shots.length ? `
     <span class="en">Crafted by <a href="${CONTACT.site}">MENU SADAH</a></span>
   </div>
 </div>
-${wa ? `<a class="wa" href="${wa}"><span class="ar">💬 اطلب منيو مثله</span><span class="en">💬 Get a menu like this</span></a>` : ''}
+${wa ? `<a class="wa touchable" href="${wa}"><span class="ar">💬 اطلب منيو مثله</span><span class="en">💬 Get a menu like this</span></a>` : ''}
 ${cafePhone
-    ? `<a class="waiter-btn" id="waiterBtn" href="https://wa.me/${cafePhone}" target="_blank" rel="noopener" hidden>🔔 <span class="ar">نادِ النادل</span><span class="en">Call the waiter</span></a>`
-    : `<button class="waiter-btn" id="waiterBtn" type="button" data-tip hidden>🔔 <span class="ar">نادِ النادل</span><span class="en">Call the waiter</span></button>`}
+    ? `<a class="waiter-btn touchable" id="waiterBtn" href="https://wa.me/${cafePhone}" target="_blank" rel="noopener" hidden>🔔 <span class="ar">نادِ النادل</span><span class="en">Call the waiter</span></a>`
+    : `<button class="waiter-btn touchable" id="waiterBtn" type="button" data-tip hidden>🔔 <span class="ar">نادِ النادل</span><span class="en">Call the waiter</span></button>`}
 <div class="acttip" id="actTip" role="status" aria-live="polite"><span class="ar">يتفعّل مع رقم واتساب المقهى ✦</span><span class="en">✦ Activates with the cafe's WhatsApp</span></div>
-<button class="skydial" id="skyDial" aria-label="تبديل السماء: نهار / ليل — Toggle sky: day / night" aria-pressed="false">☀</button>
+<button class="skydial touchable" id="skyDial" aria-label="تبديل السماء: نهار / ليل — Toggle sky: day / night" aria-pressed="false">☀</button>
 <script>
   const root=document.documentElement;
   const saved=localStorage.getItem('ms-lang')||'ar';
@@ -760,6 +785,10 @@ ${cafePhone
   document.getElementById('langToggle').addEventListener('click',()=>{setLang(root.getAttribute('data-lang')==='ar'?'en':'ar');});
   const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // motion DNA haptic: a soft 8ms tick when a chip snaps you to a room (feature-checked, motion-respecting)
+  if(matchMedia('(prefers-reduced-motion: no-preference)').matches){
+    document.querySelectorAll('.chips .chip').forEach(c=>c.addEventListener('click',()=>{navigator.vibrate?.(8);}));
+  }
   // local-clock greeting: the doorway greets by the visitor's own hour (static text stays without JS)
   (function(){
     const h=new Date().getHours();
@@ -883,6 +912,8 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
   // SELLABLE 5 — THE ROYAL OFFER: wa.me when CONTACT.whatsapp is real, honest demo tooltip otherwise
   const waRoyal = wa ? `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent('مرحباً، معكم ' + cafe.name + ' — نبغى نفعّل التجربة الملكية اليوم 👑')}` : null;
   const initAr = esc((cafe.nameAr || cafe.name).trim()[0]), initEn = esc(cafe.name.trim()[0].toUpperCase());
+  // BRAND MOTION DNA: the gift moves on the cafe's own curve too
+  const MO = (cafe.theme && cafe.theme.motion) || { ease: 'cubic-bezier(.22,1,.36,1)', revealDir: 'up' };
   const inkframe = `border:2px solid ${ink};border-radius:255px 18px 225px 18px/18px 225px 18px 255px;position:relative`;
   const B = (ar, en) => `<span class="ar">${ar}</span><span class="en">${en}</span>`;
 
@@ -895,7 +926,10 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=${T.fonts.q}&family=Caveat:wght@600;700&family=Patrick+Hand&family=Aref+Ruqaa:wght@400;700&display=swap">
 <style>
-  :root{--ink:${ink};--rose:${rose};--gold:${gold};--ochre:${ochre};--sage:${sage};--paper:${paper};--paper2:${paper2};--card:${card}}
+  :root{--ink:${ink};--rose:${rose};--gold:${gold};--ochre:${ochre};--sage:${sage};--paper:${paper};--paper2:${paper2};--card:${card};
+    --m-ease:${MO.ease};--m-dir:${MO.revealDir};--tx:1}
+  /* RTL MIRROR LAW: --tx flips direction-signed decorative transforms in Arabic */
+  [dir="rtl"]{--tx:-1}
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{font-family:${T.fonts.body},"Work Sans",-apple-system,Tahoma,sans-serif;background:var(--paper);color:var(--ink);
@@ -941,7 +975,7 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
     transition:transform .12s;opacity:0;animation:up .8s 1.3s forwards}
   .cta:active{transform:translate(2px,2px)}
   .cta.gold{background:var(--gold)}
-  .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .rv{opacity:0;transform:translateY(18px);transition:opacity .6s var(--m-ease),transform .6s var(--m-ease)}
   .rv.in{opacity:1;transform:none}
   .sec{margin-top:44px}
   .h2{font-family:Patrick Hand,Caveat,cursive;font-size:clamp(30px,8vw,44px);text-align:center;transform:rotate(-1.5deg);line-height:1.15}
@@ -1031,16 +1065,53 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
   @media(max-width:520px){.agrid{grid-template-columns:1fr}}
   /* ---- immersive scene pack: ${brief.archetype || 'none'} ---- */
   ${SC ? SC.css : ''}
+
+  /* ---- BRAND MOTION DNA: press physics — scale .96 in, overshoot release ---- */
+  @media (prefers-reduced-motion: no-preference){
+    .touchable{transition:transform .32s cubic-bezier(.34,1.56,.64,1)}
+    .touchable:active{transform:scale(.96);transition:transform .07s cubic-bezier(.2,.6,.4,1)}
+  }
+
+  /* ---- CINEMA STING: 3 beats under 3s — wax stamp → brand wash parts → letter rises ----
+     plays once per session, any tap skips, reduced-motion gets the instant static page */
+  .sting-wash{display:none}
+  @media (prefers-reduced-motion: no-preference){
+    .sting .medal{animation:waxstamp .85s cubic-bezier(.16,1,.3,1) .05s both}
+    @keyframes waxstamp{0%{opacity:0;transform:scale(2.2) rotate(-10deg)}55%{opacity:1;transform:scale(.94) rotate(1.5deg)}
+      78%{transform:scale(1.05)}100%{opacity:1;transform:scale(1)}}
+    .sting .sting-wash{display:block;position:fixed;inset:0;z-index:80;pointer-events:none}
+    .sting .sting-wash i{position:absolute;top:0;bottom:0;width:50.5%;background:linear-gradient(180deg,var(--rose),var(--gold));opacity:.97}
+    .sting .sting-wash i:first-child{inset-inline-start:0;animation:stpart .95s cubic-bezier(.16,1,.3,1) .5s both}
+    .sting .sting-wash i:last-child{inset-inline-end:0;animation:stpart2 .95s cubic-bezier(.16,1,.3,1) .5s both}
+    @keyframes stpart{to{transform:translateX(calc(-103% * var(--tx,1)))}}
+    @keyframes stpart2{to{transform:translateX(calc(103% * var(--tx,1)))}}
+    .sting .letter.rv{opacity:1;transform:none;animation:letterrise .9s cubic-bezier(.16,1,.3,1) 1.7s both}
+    @keyframes letterrise{0%{opacity:0;transform:translateY(26px)}100%{opacity:1;transform:none}}
+    .sting-done .medal,.sting-done .letter.rv{opacity:1;transform:none;animation:none}
+  }
+  /* welcome→menu threshold: an 800ms brand-color curtain pulls before we enter the house */
+  .curtain{position:fixed;inset:0;z-index:90;background:linear-gradient(160deg,var(--rose),var(--ochre));
+    transform:translateY(102%);pointer-events:none}
+  .curtain.pull{transition:transform .8s cubic-bezier(.16,1,.3,1);transform:translateY(0)}
+
   @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}
-    .medal,h1,.world,.heroline,.cta,.rv{opacity:1!important;transform:none!important}}
+    .medal,h1,.world,.heroline,.cta,.rv{opacity:1!important;transform:none!important}
+    .sting-wash{display:none!important}.curtain{display:none!important}}
 </style>
+<script>
+  // CINEMA STING gate — decided before first paint: once per session, never for reduced-motion
+  try{if(!sessionStorage.getItem('ms-sting:${cafe.slug}')&&matchMedia('(prefers-reduced-motion: no-preference)').matches){
+    document.documentElement.classList.add('sting');sessionStorage.setItem('ms-sting:${cafe.slug}','1');}}catch(e){}
+</script>
 </head>
 <body>
+<div class="sting-wash" aria-hidden="true"><i></i><i></i></div>
+<div class="curtain" id="msCurtain" aria-hidden="true"></div>
 <div class="bigmark" aria-hidden="true"><span class="ar">${initAr}</span><span class="en">${initEn}</span></div>
 <header class="top">
   <div class="bx"><div class="medal-s${logo ? ' haslogo' : ''}">${logo ? logoImg(logo) : ''}<span><span class="ar">${initAr}</span><span class="en">${initEn}</span></span></div>
     <div><div class="bn">${B(esc(cafe.nameAr), esc(cafe.name))}</div><div class="loc">${B(esc(cafe.areaAr) + ' · الرياض', esc(cafe.area) + ' · Riyadh')}</div></div></div>
-  <button class="lang" id="langToggle">English</button>
+  <button class="lang touchable" id="langToggle">English</button>
 </header>
 <div class="wrap">
   <section class="hero">
@@ -1051,7 +1122,7 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
     <h1>${B('أهلاً ببيت <b>' + esc(cafe.nameAr) + '</b>', 'Welcome home, <b>' + esc(cafe.name) + '</b>.')}</h1>
     <div class="world">${B('✦ ' + esc(brief.world?.ar || '') + ' ✦', '✦ ' + esc(brief.world?.en || '') + ' ✦')}</div>
     <div class="heroline hand">${B(esc(brief.heroAr || ''), esc(brief.heroEn || ''))}</div>
-    <div><a class="cta" href="../${cafe.slug}/">${B('افتحوا منيوكم ←', 'Open your menu →')}</a></div>
+    <div><a class="cta touchable" href="../${cafe.slug}/">${B('افتحوا منيوكم ←', 'Open your menu →')}</a></div>
   </section>
 
   <div class="letter rv">
@@ -1080,8 +1151,8 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
       <li>${B('أولوية دعم بنفس اليوم', 'Same-day priority support')}</li>
     </ul>
     <div style="text-align:center;margin-top:22px">${waRoyal
-      ? `<a class="cta gold" href="${waRoyal}">${B('فعّلوا تجربتكم الملكية — بنفس اليوم', 'Activate your royal experience — same day')}</a>`
-      : `<button class="cta gold" type="button" data-tip>${B('فعّلوا تجربتكم الملكية — بنفس اليوم', 'Activate your royal experience — same day')}</button>`}</div>
+      ? `<a class="cta gold touchable" href="${waRoyal}">${B('فعّلوا تجربتكم الملكية — بنفس اليوم', 'Activate your royal experience — same day')}</a>`
+      : `<button class="cta gold touchable" type="button" data-tip>${B('فعّلوا تجربتكم الملكية — بنفس اليوم', 'Activate your royal experience — same day')}</button>`}</div>
   </div>
 
   <div class="freecard rv">
@@ -1111,13 +1182,13 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
       <div class="ph"><span class="big-init">${initEn}</span>${shots.length ? `<img src="${esc('../assets/photos/' + cafe.slug + '/' + shots[di % shots.length].file)}" alt="" onload="this.parentElement.classList.add('hasimg')" onerror="this.remove()" loading="lazy">` : ''}<span class="tag">${B('تفصيلة ' + d.t, 'Detail ' + d.t)}</span></div>
       <div class="bd"><b>${B(d.bAr, d.bEn)}</b><p>${B(d.pAr, d.pEn)}</p></div>
     </div>`).join('')}
-    <div style="text-align:center;margin-top:22px"><a class="cta gold" href="../${cafe.slug}/">${B('شوفوا منيوكم حيّاً ←', 'See your menu live →')}</a></div>
+    <div style="text-align:center;margin-top:22px"><a class="cta gold touchable" href="../${cafe.slug}/">${B('شوفوا منيوكم حيّاً ←', 'See your menu live →')}</a></div>
   </div>
 
   <div class="sec rv">
     <div class="h2">${B('كل شيء <b>جاهز</b> لكم', 'Everything is <b>ready</b> for you')}</div>
     <div class="agrid">
-      <a class="atile" href="../${cafe.slug}/"><div class="ic">📱</div><b>${B('المنيو الحي', 'Live menu')}</b><span class="go">${B('افتحوه ←', 'Open →')}</span></a>
+      <a class="atile touchable" href="../${cafe.slug}/"><div class="ic">📱</div><b>${B('المنيو الحي', 'Live menu')}</b><span class="go">${B('افتحوه ←', 'Open →')}</span></a>
       <div class="atile"><div class="ic">🖨</div><b>${B('كود QR للطاولات', 'Table QR codes')}</b><span class="go">${B('كود خاص لكل طاولة (١–١٢) والمنيو يرحّب بها باسمها — نطبعها يوم التفعيل', 'A personal code per table (1–12), the menu greets each by name — printed on activation')}</span></div>
     </div>
     <div class="chips2">
@@ -1134,7 +1205,7 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
   <div class="reply rv">
     <div class="hand">${B('باب البيت مفتوح', 'The door of the house is open')}</div>
     <p style="margin-top:8px">${B('عجبكم؟ ردّوا على رسالتنا ونفعّله بنفس اليوم.', 'Love it? Reply to our message and it goes live the same day.')}</p>
-    <div style="margin-top:14px"><a class="cta" href="${wa || '../' + cafe.slug + '/'}">${wa ? B('💬 نفعّله اليوم', '💬 Switch it on today') : B('🎁 افتحوا هديتكم', '🎁 Open your gift')}</a></div>
+    <div style="margin-top:14px"><a class="cta touchable" href="${wa || '../' + cafe.slug + '/'}">${wa ? B('💬 نفعّله اليوم', '💬 Switch it on today') : B('🎁 افتحوا هديتكم', '🎁 Open your gift')}</a></div>
     <p style="margin-top:16px;font-size:13px">${B('شاهدوا عميلنا الحي: <a href="' + CONTACT.site + '/beyt-coffee" style="color:var(--rose);font-weight:700">بيت كوفي ↗</a>', 'See a live client: <a href="' + CONTACT.site + '/beyt-coffee" style="color:var(--rose);font-weight:700">Beyt Coffee ↗</a>')}</p>
   </div>
   <div class="foot">${B('منيو سادة · منيوهات جميلة لبيوت نحبها — <a href="' + CONTACT.site + '">menu-sadah.com</a>', 'MENU SADAH · beautiful menus for houses we admire — <a href="' + CONTACT.site + '">menu-sadah.com</a>')}</div>
@@ -1163,6 +1234,25 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
       tip.style.top=(above>8?above:r.bottom+10)+'px';
       clearTimeout(tmr);tmr=setTimeout(()=>tip.classList.remove('show'),2600);
     });
+  })();
+  // CINEMA STING control: any tap skips instantly; at 3s the page locks to its static self
+  (function(){
+    if(!root.classList.contains('sting'))return;
+    const done=()=>{root.classList.remove('sting');root.classList.add('sting-done');};
+    addEventListener('pointerdown',done,{once:true});
+    setTimeout(done,3000);
+  })();
+  // welcome→menu threshold: 800ms brand-color curtain, then the guest enters the house
+  (function(){
+    const cur=document.getElementById('msCurtain');
+    if(!cur||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    let going=false;
+    document.querySelectorAll('a[href="../${cafe.slug}/"]').forEach(a=>a.addEventListener('click',(e)=>{
+      if(going)return;going=true;e.preventDefault();
+      navigator.vibrate?.(10);
+      cur.classList.add('pull');
+      setTimeout(()=>{location.href=a.getAttribute('href');},800);
+    }));
   })();
 </script>
 </body>

@@ -116,9 +116,17 @@ export function makeCafe(entry) {
 }
 
 // ---------- QA gate (rules come from learnings.json — the enforced part) ----------
+// RTL MIRROR LAW: physical left/right text CSS breaks the Arabic mirror — built pages must be logical-only.
+// Pragmatic flag list (centering `left:50%` etc. stays legal — direction-agnostic known-safe cases).
+const RTL_PHYSICAL_CSS = /text-align:\s*(left|right)\b|(?:margin|padding)-(?:left|right)\s*:/;
+
 function qaCheck(cafe, html, welcomeHtml, qa) {
   const fails = [];
   if (Buffer.byteLength(html) < qa.minHtmlBytes) fails.push(`menu html under ${qa.minHtmlBytes} bytes`);
+  if (qa.rtlMirror !== false) {
+    const hit = html.match(RTL_PHYSICAL_CSS) || welcomeHtml.match(RTL_PHYSICAL_CSS);
+    if (hit) fails.push(`RTL mirror leak: physical CSS "${hit[0]}" in built page — use logical properties`);
+  }
   if (qa.requireArabic && !/[؀-ۿ]/.test(html)) fails.push('no Arabic text in menu');
   if (qa.requireDisclaimer && !html.includes('demo')) fails.push('demo disclaimer missing');
   if (!welcomeHtml.includes(`../${cafe.slug}/`)) fails.push('welcome page not linked to menu');

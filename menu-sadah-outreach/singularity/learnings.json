@@ -1,5 +1,5 @@
 {
-  "formulaVersion": "2.13",
+  "formulaVersion": "2.14",
   "lessons": [
     {
       "id": 1,
@@ -72,6 +72,12 @@
       "desc": "Google Places Text Search returns wrong-business top hit for ~18% of cafes (generic names, wrong city). ALWAYS audit meta.json place_name vs expected + confirm Riyadh before trusting; purge mismatches (evidence rule).",
       "source": "photo-harvest-places",
       "addedAt": 1784465539825
+    },
+    {
+      "id": 14,
+      "desc": "RTL MIRROR LAW: built pages must use logical CSS only (margin-inline, inset-inline, text-align:start) — QA gate now fails any physical text-align:left/right or margin/padding-left/right in built html (qa.rtlMirror)",
+      "source": "fusion-shortlist-rtl-audit",
+      "addedAt": 1784471716709
     }
   ],
   "qa": {
@@ -79,7 +85,8 @@
     "priceMax": 300,
     "minHtmlBytes": 4000,
     "requireArabic": true,
-    "requireDisclaimer": true
+    "requireDisclaimer": true,
+    "rtlMirror": true
   },
   "runs": [
     {
