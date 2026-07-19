@@ -350,6 +350,10 @@ body{
   .bx-heart{margin:1.4rem auto 0;text-align:center;width:max-content;cursor:default}.bx-heart svg{display:block;margin:0 auto}.bx-heart-path{stroke-dasharray:60;stroke-dashoffset:0;opacity:.85;transition:stroke .5s ease}.bx-heart:hover .bx-heart-path{stroke:var(--sa)}.bx-heart-note{margin-top:.45rem;font-size:.7rem;color:var(--text-2);opacity:.75;letter-spacing:.02em}@media (prefers-reduced-motion:no-preference){.bx-heart:hover .bx-heart-path{animation:bx-inkdraw 2s ease}@keyframes bx-inkdraw{from{stroke-dashoffset:60}to{stroke-dashoffset:0}}}
 
   /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  /* HARD CLIP: brandbg is position:fixed, so body overflow-x:hidden can't clip its bleed —
+     the wrapper must clip its own decorative children or dark-mode pages scroll sideways. */
+  .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
+  .hero{overflow-x:clip}
   .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(80% 50% at 50% 108%,color-mix(in srgb,var(--sa) 16%,transparent),transparent 60%)}
 .brandbg .ink{position:absolute;border-radius:48% 52% 55% 45%/50% 48% 52% 50%;filter:blur(34px);opacity:.35}
 .brandbg .i1{top:-14%;left:-10%;width:40vw;height:40vw;background:radial-gradient(closest-side,var(--accent),transparent)}

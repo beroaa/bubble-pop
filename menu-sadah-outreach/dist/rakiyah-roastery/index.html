@@ -363,6 +363,10 @@ body{
   .bx-route{margin:1rem auto .2rem;max-width:180px;text-align:center}.bx-route svg{width:100%;overflow:visible;display:block}.bx-route-path{stroke-dasharray:3 5;opacity:.8;transition:opacity .6s,filter .6s}.bx-route-note{font-size:.66rem;color:var(--text-2);letter-spacing:.14em;margin-top:.2rem;display:block}.bx-route:hover .bx-route-path{opacity:1;filter:drop-shadow(0 0 3px var(--accent))}@media (prefers-reduced-motion:no-preference){.bx-route:hover .bx-route-path{animation:bx-march 1.4s linear infinite}@keyframes bx-march{to{stroke-dashoffset:-16}}}
 
   /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  /* HARD CLIP: brandbg is position:fixed, so body overflow-x:hidden can't clip its bleed —
+     the wrapper must clip its own decorative children or dark-mode pages scroll sideways. */
+  .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
+  .hero{overflow-x:clip}
   .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:var(--bg-0)}
 .rk-rule{position:absolute;left:6%;width:40%;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:.22}
 .rk-ink{position:absolute;top:-10%;left:-8%;width:44vw;height:44vw;border-radius:50%;background:radial-gradient(circle,var(--accent-2) 0%,transparent 60%);opacity:.11;filter:blur(26px)}

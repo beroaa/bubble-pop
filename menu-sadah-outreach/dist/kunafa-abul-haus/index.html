@@ -363,6 +363,10 @@ body{
   .bx-tray{position:relative;margin:1.5rem auto 0;width:74px;text-align:center}.bx-tray-line{display:block;height:4px;border-radius:3px;background:var(--sa);opacity:.7;box-shadow:0 3px 9px -2px var(--accent)}.bx-wisp{position:absolute;bottom:8px;left:24px;width:2px;height:16px;border-radius:2px;background:linear-gradient(to top,var(--accent),transparent);opacity:0}.bx-wisp:nth-child(2){left:37px;height:22px}.bx-wisp:nth-child(3){left:50px;height:14px}.bx-tray-note{display:block;margin-top:.6rem;font-size:.7rem;color:var(--text-2);opacity:0;transition:opacity .8s ease}.bx-tray:hover .bx-tray-note{opacity:.85}@media (prefers-reduced-motion:no-preference){.bx-wisp{animation:bx-steam 3.4s ease-in-out infinite}.bx-wisp:nth-child(2){animation-delay:.9s}.bx-wisp:nth-child(3){animation-delay:1.7s}@keyframes bx-steam{0%{opacity:0;transform:translateY(6px) scaleY(.6)}35%{opacity:.55}100%{opacity:0;transform:translateY(-14px) scaleY(1.15)}}}@media (prefers-reduced-motion:reduce){.bx-wisp{opacity:.3}}
 
   /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  /* HARD CLIP: brandbg is position:fixed, so body overflow-x:hidden can't clip its bleed —
+     the wrapper must clip its own decorative children or dark-mode pages scroll sideways. */
+  .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
+  .hero{overflow-x:clip}
   .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(90% 60% at 100% 0,color-mix(in srgb,var(--sa) 16%,transparent),transparent 55%),radial-gradient(90% 60% at 0 100%,color-mix(in srgb,var(--accent) 14%,transparent),transparent 55%)}
 .brandbg .lantern{position:absolute;width:34vw;height:34vw;border-radius:50%;filter:blur(40px);opacity:.4;background:radial-gradient(closest-side,var(--sa),transparent)}
 .brandbg .l1{top:-10%;left:-8%}.brandbg .l2{bottom:-12%;right:-6%;background:radial-gradient(closest-side,var(--accent),transparent)}

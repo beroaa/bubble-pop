@@ -233,6 +233,8 @@ body{
 
 
   /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
+  .hero{overflow-x:clip}
   .brandbg{--accent:#99521e;--accent-2:#8e3347;--sa:#a09e2c;--sa2:#84b8b4;--bg-0:#fcfaf8;--bg-1:#f5efea;--bg-2:#fefcfb}
   .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:var(--bg-0)}
 .brandbg i{position:absolute;display:block;background:var(--accent)}

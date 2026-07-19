@@ -344,6 +344,10 @@ body::after{
   .bx-edge{position:relative;height:2px;width:min(220px,60%);margin:1.1rem auto;border-radius:2px;background:linear-gradient(90deg,transparent,var(--accent) 25%,var(--sa) 50%,var(--accent) 75%,transparent);box-shadow:0 0 9px var(--accent);transition:box-shadow .5s}.bx-edge:hover{box-shadow:0 0 18px var(--accent),0 0 30px var(--sa)}.bx-spark{position:absolute;top:-2px;width:3px;height:3px;border-radius:50%;background:var(--sa);opacity:.55}.bx-k1{left:28%}.bx-k2{left:52%}.bx-k3{left:74%}@media (prefers-reduced-motion:no-preference){.bx-spark{animation:bx-pop 2.6s ease-out infinite}.bx-k2{animation-delay:.9s}.bx-k3{animation-delay:1.7s}@keyframes bx-pop{0%{opacity:0;transform:translateY(0)}25%{opacity:1}100%{opacity:0;transform:translateY(-16px)}}.bx-edge{animation:bx-flk 7s steps(1) infinite}@keyframes bx-flk{0%,96%,100%{opacity:1}97%{opacity:.75}98%{opacity:1}99%{opacity:.85}}}
 
   /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  /* HARD CLIP: brandbg is position:fixed, so body overflow-x:hidden can't clip its bleed —
+     the wrapper must clip its own decorative children or dark-mode pages scroll sideways. */
+  .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
+  .hero{overflow-x:clip}
   .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:var(--bg-0)}
 .hf-glow{position:absolute;bottom:-22%;left:50%;width:80vw;height:60vw;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,var(--accent) 0%,transparent 60%);opacity:.16;filter:blur(28px)}
 .hf-grid{position:absolute;inset:0;background:linear-gradient(var(--sa) 1px,transparent 1px) 0 0/100% 8vh,linear-gradient(90deg,var(--sa) 1px,transparent 1px) 0 0/8vh 100%;opacity:.06}

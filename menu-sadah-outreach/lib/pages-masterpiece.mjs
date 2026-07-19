@@ -893,6 +893,10 @@ ${polish ? `
   ${polish.css}` : ''}
 ${bbg ? `
   /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  /* HARD CLIP: brandbg is position:fixed, so body overflow-x:hidden can't clip its bleed —
+     the wrapper must clip its own decorative children or dark-mode pages scroll sideways. */
+  .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
+  .hero{overflow-x:clip}
   ${bbg.css}` : ''}
 
   /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
@@ -1339,6 +1343,8 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
   ${SC ? SC.css : ''}
 ${bbg ? `
   /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
+  .hero{overflow-x:clip}
   ${bbgShim}
   ${bbg.css}` : ''}
 

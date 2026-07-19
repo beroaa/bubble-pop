@@ -363,6 +363,10 @@ body{
   .bx-branch{display:block;width:130px;margin:.9rem auto 0;overflow:visible}.bx-stem{opacity:.7}.bx-leaf{transform-box:fill-box;transform-origin:0% 100%;transition:transform .8s ease}.bx-branch:hover .bx-leaf{transform:rotate(7deg) scale(1.08)}@media (prefers-reduced-motion:no-preference){.bx-leaf{animation:bx-sway 6s ease-in-out infinite}.bx-l2{animation-delay:.8s}.bx-l3{animation-delay:1.6s}@keyframes bx-sway{0%,100%{transform:rotate(0)}50%{transform:rotate(5deg)}}.bx-branch:hover .bx-leaf{animation-play-state:paused}}
 
   /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  /* HARD CLIP: brandbg is position:fixed, so body overflow-x:hidden can't clip its bleed —
+     the wrapper must clip its own decorative children or dark-mode pages scroll sideways. */
+  .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
+  .hero{overflow-x:clip}
   .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:var(--bg-0)}
 .mw-lantern{position:absolute;top:-16%;right:-10%;width:60vw;height:60vw;border-radius:50%;background:radial-gradient(circle,var(--accent) 0%,transparent 62%);opacity:.15;filter:blur(24px)}
 .mw-sadu{position:absolute;left:0;right:0;bottom:0;height:15vh;opacity:.13;background:repeating-linear-gradient(90deg,var(--sa) 0 10px,transparent 10px 20px,var(--accent-2) 20px 26px,transparent 26px 40px)}

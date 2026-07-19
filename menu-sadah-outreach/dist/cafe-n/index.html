@@ -344,6 +344,10 @@ body::after{
   .bx-cn-wrap{text-align:center;margin:8px 0}.bx-cn{display:inline-block;padding:4px 16px;border:2px solid var(--accent);border-radius:12px;color:var(--accent);font-size:.82rem;letter-spacing:.06em;box-shadow:0 0 9px var(--sa),inset 0 0 6px var(--sa);text-shadow:0 0 7px var(--sa)}@media (prefers-reduced-motion:no-preference){.bx-cn:hover{animation:bx-cn-wink 1.1s steps(1) 1}@keyframes bx-cn-wink{0%,100%{opacity:1}10%,14%{opacity:.25}12%,50%{opacity:1}55%{opacity:.4}58%{opacity:1}}}
 
   /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  /* HARD CLIP: brandbg is position:fixed, so body overflow-x:hidden can't clip its bleed —
+     the wrapper must clip its own decorative children or dark-mode pages scroll sideways. */
+  .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
+  .hero{overflow-x:clip}
   .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:var(--bg-0)}
 .brandbg i{position:absolute;display:block}
 .brandbg .grid{inset:0;background:linear-gradient(var(--accent) 1px,transparent 1px) 0 0/100% 6vh,linear-gradient(90deg,var(--accent) 1px,transparent 1px) 0 0/6vw 100%;opacity:.06}

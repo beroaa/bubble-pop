@@ -219,6 +219,8 @@ body::after{
 
 
   /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
+  .hero{overflow-x:clip}
   .brandbg{--accent:#a8891a;--accent-2:#8e4133;--sa:#77a02c;--sa2:#84a9b8;--bg-0:#fcfbf8;--bg-1:#f5f3ea;--bg-2:#fefdfb}
   .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:var(--bg-0)}
 .brandbg i{position:absolute;display:block}

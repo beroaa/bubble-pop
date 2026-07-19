@@ -344,6 +344,10 @@ body::after{
   .bx-neon{position:relative;text-align:center;margin:1.4rem auto;width:max-content}.bx-neon-word{font-size:1rem;letter-spacing:.14em;color:var(--accent);text-shadow:0 0 6px var(--accent),0 0 18px var(--sa);opacity:.8;transition:text-shadow .3s ease,opacity .3s ease}.bx-neon-spark{margin-inline-start:.35rem;color:var(--sa);font-size:.75rem;vertical-align:super}.bx-neon:hover .bx-neon-word{opacity:1;text-shadow:0 0 8px var(--accent),0 0 26px var(--accent),0 0 46px var(--sa)}.bx-neon-note{display:block;margin-top:.5rem;font-size:.68rem;color:var(--text-2);opacity:0;transition:opacity .5s ease}.bx-neon:hover .bx-neon-note{opacity:.85}@media (prefers-reduced-motion:no-preference){.bx-neon-word{animation:bx-flicker 6s steps(1) infinite}@keyframes bx-flicker{0%,100%{opacity:.8}7%{opacity:.45}8%{opacity:.85}42%{opacity:.8}43%{opacity:.5}45%{opacity:.9}70%{opacity:.75}}}
 
   /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  /* HARD CLIP: brandbg is position:fixed, so body overflow-x:hidden can't clip its bleed —
+     the wrapper must clip its own decorative children or dark-mode pages scroll sideways. */
+  .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
+  .hero{overflow-x:clip}
   .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(70% 60% at 100% 100%,color-mix(in srgb,var(--sa) 18%,transparent),transparent 55%),radial-gradient(70% 60% at 0 0,color-mix(in srgb,var(--accent) 16%,transparent),transparent 55%)}
 .brandbg .grid{position:absolute;inset:-2px;background:linear-gradient(var(--sa) 1px,transparent 1px) 0 0/100% 42px,linear-gradient(90deg,var(--sa) 1px,transparent 1px) 0 0/42px 100%;opacity:.08;-webkit-mask:radial-gradient(60% 60% at 50% 50%,transparent 40%,#000);mask:radial-gradient(60% 60% at 50% 50%,transparent 40%,#000)}
 .brandbg .scan{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 3px,color-mix(in srgb,var(--sa2) 10%,transparent) 3px 4px);opacity:.4}

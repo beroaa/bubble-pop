@@ -341,6 +341,10 @@ body{
   .bx-fold{position:absolute;bottom:0;inset-inline-end:0;width:2.6em;height:2.6em}.bx-fold-tip{position:absolute;bottom:0;inset-inline-end:0;width:0;height:0;border-style:solid;border-width:0 0 2.2em 2.2em;border-color:transparent transparent var(--sa) transparent;filter:drop-shadow(-2px -2px 3px rgba(0,0,0,.15))}.bx-fold-note{position:absolute;bottom:.5em;inset-inline-end:2.9em;white-space:nowrap;font-size:.7em;color:var(--text-2);opacity:0}.bx-fold:hover .bx-fold-tip{border-width:0 0 3.3em 3.3em}.bx-fold:hover .bx-fold-note{opacity:1;transform:none}@media (prefers-reduced-motion: no-preference){.bx-fold-tip{transition:border-width .45s ease}.bx-fold-note{transform:translateY(3px);transition:opacity .5s ease .1s,transform .5s ease .1s}}
 
   /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  /* HARD CLIP: brandbg is position:fixed, so body overflow-x:hidden can't clip its bleed —
+     the wrapper must clip its own decorative children or dark-mode pages scroll sideways. */
+  .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
+  .hero{overflow-x:clip}
   .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:linear-gradient(180deg,var(--bg-1),var(--bg-0))}
 .sv-sun{position:absolute;right:-8%;top:-10%;width:46vw;height:46vw;border-radius:50%;background:radial-gradient(circle,var(--accent),transparent 62%);opacity:.16;filter:blur(24px)}
 .sv-cloud{position:absolute;height:70px;width:180px;border-radius:60px;background:var(--accent-2);opacity:.10;filter:blur(14px)}

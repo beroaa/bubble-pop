@@ -224,6 +224,8 @@ body{
 
 
   /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
+  .hero{overflow-x:clip}
   .brandbg{--accent:#992956;--accent-2:#7e4280;--sa:#91493b;--sa2:#8fae92;--bg-0:#fcf8f9;--bg-1:#f5eaef;--bg-2:#fefbfc}
   .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(140% 100% at 50% -20%,var(--bg-1) 0%,var(--bg-0) 70%)}.brandbg .spot{position:absolute;top:-30%;left:20%;width:60vw;height:120vh;background:linear-gradient(var(--accent),transparent 70%);opacity:.10;filter:blur(30px);transform:rotate(18deg);transform-origin:top}.brandbg .star{position:absolute;width:4px;height:4px;border-radius:50%;background:var(--sa);box-shadow:0 0 6px var(--sa);opacity:.5}.brandbg .t1{top:18%;left:14%}.brandbg .t2{top:30%;right:20%}.brandbg .t3{top:62%;left:24%}.brandbg .t4{top:74%;right:16%}.brandbg .t5{top:44%;left:80%}@media(prefers-reduced-motion:no-preference){.brandbg .spot{animation:swp 12s ease-in-out infinite}.brandbg .star{animation:tw 3.5s ease-in-out infinite}.brandbg .t2{animation-delay:.8s}.brandbg .t3{animation-delay:1.6s}.brandbg .t4{animation-delay:2.4s}.brandbg .t5{animation-delay:1.1s}@keyframes swp{0%,100%{transform:rotate(12deg)}50%{transform:rotate(24deg);opacity:.16}}@keyframes tw{0%,100%{opacity:.2;transform:scale(.8)}50%{opacity:.7;transform:scale(1.2)}}}
 

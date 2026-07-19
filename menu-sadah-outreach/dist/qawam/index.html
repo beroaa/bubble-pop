@@ -363,6 +363,10 @@ body{
   .bx-qwm{position:relative;max-width:230px;margin:8px auto;padding:6px 16px;border-inline-start:2px solid var(--sa)}.bx-qwm::before{content:"•";position:absolute;top:2px;inset-inline-start:5px;color:var(--sa);font-size:.7rem}.bx-qwm-line{display:inline;font-size:.78rem;color:var(--text-2);line-height:1.9;background:linear-gradient(var(--accent),var(--accent)) no-repeat 100% 92%/0% 1.5px}.bx-qwm:hover .bx-qwm-line{background-size:100% 1.5px}@media (prefers-reduced-motion:no-preference){.bx-qwm-line{transition:background-size .8s ease}}
 
   /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  /* HARD CLIP: brandbg is position:fixed, so body overflow-x:hidden can't clip its bleed —
+     the wrapper must clip its own decorative children or dark-mode pages scroll sideways. */
+  .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
+  .hero{overflow-x:clip}
   .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:var(--bg-0)}
 .brandbg i{position:absolute;display:block;background:var(--accent)}
 .brandbg .rule{height:1px;width:42vw;opacity:.14}

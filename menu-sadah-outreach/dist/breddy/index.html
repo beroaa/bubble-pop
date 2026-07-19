@@ -331,6 +331,10 @@ body{
   .bx-dawn{position:relative;margin:1.2rem auto;max-width:260px;text-align:center}.bx-dawn-sky{display:block;height:6px;border-radius:6px;background:linear-gradient(90deg,var(--text-2),var(--accent) 45%,var(--sa) 55%,var(--text-2));background-size:300% 100%;background-position:100% 0;opacity:.55;transition:opacity .8s ease}.bx-dawn:hover .bx-dawn-sky{opacity:.95}.bx-dawn-note{display:block;margin-top:.55rem;font-size:.7rem;color:var(--text-2);letter-spacing:.02em;opacity:.75}@media (prefers-reduced-motion:no-preference){.bx-dawn-sky{animation:bx-dawnrise 14s linear infinite alternate}@keyframes bx-dawnrise{from{background-position:100% 0}to{background-position:0 0}}}
 
   /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  /* HARD CLIP: brandbg is position:fixed, so body overflow-x:hidden can't clip its bleed —
+     the wrapper must clip its own decorative children or dark-mode pages scroll sideways. */
+  .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
+  .hero{overflow-x:clip}
   .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:linear-gradient(to bottom,color-mix(in srgb,var(--sa) 14%,transparent),transparent 40%),radial-gradient(80% 50% at 50% 110%,color-mix(in srgb,var(--accent) 16%,transparent),transparent 60%)}
 .brandbg .sun{position:absolute;top:-14vh;left:50%;width:44vw;height:44vw;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,color-mix(in srgb,var(--sa) 40%,transparent),transparent);filter:blur(20px);opacity:.5}
 .brandbg .cloud{position:absolute;height:60px;border-radius:60px;background:color-mix(in srgb,var(--sa2) 22%,transparent);filter:blur(14px);opacity:.5}

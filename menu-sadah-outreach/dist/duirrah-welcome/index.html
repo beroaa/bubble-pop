@@ -238,6 +238,8 @@ body{
 
 
   /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
+  .hero{overflow-x:clip}
   .brandbg{--accent:#962c4f;--accent-2:#7d457b;--sa:#8e513e;--sa2:#8fae94;--bg-0:#fcf8f9;--bg-1:#f5eaee;--bg-2:#fefbfc}
   .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(100% 80% at 50% 40%,var(--bg-1),var(--bg-0))}
 .du-tiles{position:absolute;inset:0;opacity:.08;background:repeating-linear-gradient(45deg,var(--accent) 0 6px,transparent 6px 20px),repeating-linear-gradient(-45deg,var(--accent-2) 0 6px,transparent 6px 20px);-webkit-mask:linear-gradient(180deg,#000,transparent 30%,transparent 70%,#000);mask:linear-gradient(180deg,#000,transparent 30%,transparent 70%,#000)}

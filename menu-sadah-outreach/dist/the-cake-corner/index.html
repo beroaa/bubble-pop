@@ -350,6 +350,10 @@ body{
   .bx-corner{position:fixed;top:1.2rem;inset-inline-start:1.2rem;z-index:9;display:flex;align-items:center;gap:.55rem}.bx-corner-frame{width:22px;height:22px;border-top:1.5px solid var(--sa);border-inline-start:1.5px solid var(--sa);opacity:.5;display:block}.bx-corner-star{color:var(--accent);font-size:.8rem;margin-inline-start:-15px;margin-top:-7px;transition:text-shadow .6s ease}.bx-corner-note{font-size:.68rem;color:var(--text-2);white-space:nowrap;opacity:0;transform:translateY(2px);transition:opacity .6s ease,transform .6s ease}.bx-corner:hover .bx-corner-note{opacity:.85;transform:none}.bx-corner:hover .bx-corner-star{text-shadow:0 0 10px var(--accent)}@media (prefers-reduced-motion:no-preference){.bx-corner-star{animation:bx-twinkle 4s ease-in-out infinite}@keyframes bx-twinkle{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.25)}}}
 
   /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  /* HARD CLIP: brandbg is position:fixed, so body overflow-x:hidden can't clip its bleed —
+     the wrapper must clip its own decorative children or dark-mode pages scroll sideways. */
+  .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
+  .hero{overflow-x:clip}
   .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(120% 80% at 50% -10%,color-mix(in srgb,var(--accent) 18%,transparent),transparent 60%)}
 .brandbg .spot{position:absolute;top:-20%;left:50%;width:70vw;height:80vh;transform:translateX(-50%);background:radial-gradient(closest-side,color-mix(in srgb,var(--sa) 22%,transparent),transparent);filter:blur(30px);opacity:.5}
 .brandbg .star{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--sa2);box-shadow:0 0 6px var(--sa)}

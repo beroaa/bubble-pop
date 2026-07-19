@@ -375,6 +375,10 @@ body{
 }
 
   /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  /* HARD CLIP: brandbg is position:fixed, so body overflow-x:hidden can't clip its bleed —
+     the wrapper must clip its own decorative children or dark-mode pages scroll sideways. */
+  .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
+  .hero{overflow-x:clip}
   .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(120% 90% at 50% 20%,var(--bg-1),var(--bg-0))}.lm-lan{position:absolute;width:34vw;height:34vw;border-radius:50%;filter:blur(72px);opacity:.22;background:var(--accent)}.lm-l1{top:-10vw;left:-8vw}.lm-l2{bottom:-12vw;right:-8vw;background:var(--accent-2,var(--sa,var(--accent)));opacity:.18}.lm-tile{position:absolute;top:0;bottom:0;width:20%;opacity:.1;background:repeating-linear-gradient(45deg,var(--accent) 0 2px,transparent 2px 14px),repeating-linear-gradient(-45deg,var(--accent) 0 2px,transparent 2px 14px)}.lm-t1{left:0}.lm-t2{right:0}.lm-d{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.35}.lm-d1{top:30%;left:14%}.lm-d2{top:60%;right:12%}.lm-d3{top:46%;left:8%}@media (prefers-reduced-motion:no-preference){.lm-lan{animation:lmG 12s ease-in-out infinite alternate}.lm-l2{animation-duration:15s}.lm-tile{animation:lmSh 8s ease-in-out infinite alternate}.lm-d{animation:lmDr 16s ease-in-out infinite}.lm-d2{animation-delay:4s}.lm-d3{animation-delay:8s}@keyframes lmG{to{opacity:.32;transform:scale(1.1)}}@keyframes lmSh{to{opacity:.16}}@keyframes lmDr{50%{transform:translateY(-14px);opacity:.6}}}
 
   /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */

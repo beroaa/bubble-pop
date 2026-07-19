@@ -337,6 +337,10 @@ body{
 }
 
   /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  /* HARD CLIP: brandbg is position:fixed, so body overflow-x:hidden can't clip its bleed —
+     the wrapper must clip its own decorative children or dark-mode pages scroll sideways. */
+  .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
+  .hero{overflow-x:clip}
   .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:linear-gradient(160deg,var(--bg-1),var(--bg-0))}.so-sun{position:absolute;top:-14vw;left:-10vw;width:44vw;height:44vw;border-radius:50%;background:radial-gradient(circle,var(--accent),transparent 65%);opacity:.3;filter:blur(20px)}.so-ray{position:absolute;top:-30%;left:-10%;width:60%;height:130%;background:linear-gradient(115deg,var(--accent),transparent 60%);opacity:.1;transform:rotate(6deg)}.so-cl{position:absolute;height:16vw;width:30vw;border-radius:50%;background:var(--sa2,var(--accent-2,var(--accent)));opacity:.14;filter:blur(24px)}.so-c1{top:12%;right:-6vw}.so-c2{bottom:16%;left:-8vw;opacity:.1}.so-c3{top:60%;right:-4vw;opacity:.08}.so-m{position:absolute;width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.4}.so-m1{top:20%;left:16%}.so-m2{top:66%;left:10%}.so-m3{top:34%;right:12%}.so-m4{top:74%;right:18%}@media (prefers-reduced-motion:no-preference){.so-sun{animation:soP 10s ease-in-out infinite alternate}.so-cl{animation:soDr 26s linear infinite}.so-c2{animation-duration:34s}.so-c3{animation-duration:30s}.so-m{animation:soFl 13s ease-in-out infinite}.so-m2{animation-delay:3s}.so-m3{animation-delay:6s}.so-m4{animation-delay:9s}@keyframes soP{to{opacity:.42;transform:scale(1.08)}}@keyframes soDr{from{transform:translateX(6vw)}to{transform:translateX(-10vw)}}@keyframes soFl{50%{transform:translateY(-16px) translateX(8px);opacity:.7}}}
 
   /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */

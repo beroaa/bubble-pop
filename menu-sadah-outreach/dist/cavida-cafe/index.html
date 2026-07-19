@@ -344,6 +344,10 @@ body::after{
   .bx-neon{display:inline-block;padding:.32em .85em;border:1.5px solid var(--accent);border-radius:999px;color:var(--accent);font-size:.78em;letter-spacing:.05em;text-shadow:0 0 7px var(--accent);box-shadow:0 0 14px -4px var(--accent),inset 0 0 10px -6px var(--accent)}.bx-neon:hover{text-shadow:0 0 12px var(--accent),0 0 22px var(--accent)}@media (prefers-reduced-motion: no-preference){.bx-neon{animation:bx-flick 4.5s linear infinite}.bx-neon:hover{animation:none}@keyframes bx-flick{0%,18%,22%,60%,63%,100%{opacity:1}19%,21%{opacity:.45}61%,62%{opacity:.6}}}
 
   /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  /* HARD CLIP: brandbg is position:fixed, so body overflow-x:hidden can't clip its bleed —
+     the wrapper must clip its own decorative children or dark-mode pages scroll sideways. */
+  .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
+  .hero{overflow-x:clip}
   .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(120% 100% at 50% 100%,var(--bg-1),var(--bg-0))}
 .cv-grid{position:absolute;inset:0;opacity:.10;background:linear-gradient(var(--accent) 1px,transparent 1px) 0 0/100% 40px,linear-gradient(90deg,var(--accent) 1px,transparent 1px) 0 0/40px 100%;-webkit-mask:radial-gradient(80% 70% at 50% 50%,transparent,#000);mask:radial-gradient(80% 70% at 50% 50%,transparent,#000)}
 .cv-glow{position:absolute;width:40vw;height:40vw;border-radius:50%;filter:blur(40px);opacity:.16}

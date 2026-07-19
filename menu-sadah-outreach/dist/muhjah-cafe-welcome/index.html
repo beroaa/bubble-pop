@@ -238,6 +238,8 @@ body{
 
 
   /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
+  .hero{overflow-x:clip}
   .brandbg{--accent:#2f9243;--accent-2:#5d7c46;--sa:#428a79;--sa2:#a48fae;--bg-0:#f8fcf9;--bg-1:#eaf5ed;--bg-2:#fbfefc}
   .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}.brandbg .lg{position:absolute;border-radius:50%;filter:blur(60px)}.lg1{width:40vw;height:40vw;top:-10vw;left:-8vw;background:radial-gradient(circle,var(--accent),transparent 70%);opacity:.5}.lg2{width:34vw;height:34vw;bottom:-10vw;right:-6vw;background:radial-gradient(circle,var(--sa,var(--accent-2)),transparent 70%);opacity:.4}.sadu{position:absolute;left:0;right:0;bottom:0;height:14vh;opacity:.13;background:repeating-linear-gradient(90deg,var(--accent) 0 14px,transparent 14px 28px,var(--sa2,var(--accent)) 28px 34px,transparent 34px 56px)}.stm{position:absolute;bottom:9vh;width:9px;height:34vh;border-radius:50%;background:linear-gradient(var(--sa,#fff),transparent);opacity:0;filter:blur(6px)}.s1{left:22%}.s2{left:52%}.s3{left:78%}@media(prefers-reduced-motion:no-preference){.lg1{animation:mgl 9s ease-in-out infinite}.lg2{animation:mgl 11s ease-in-out infinite reverse}.stm{animation:mst 7s ease-in infinite}.s2{animation-delay:2.3s}.s3{animation-delay:4.6s}@keyframes mgl{50%{opacity:.72;transform:scale(1.08)}}@keyframes mst{10%{opacity:.32}100%{opacity:0;transform:translateY(-30vh) scaleX(1.8)}}}
 

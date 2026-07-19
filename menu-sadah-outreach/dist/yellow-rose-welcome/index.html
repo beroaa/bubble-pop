@@ -224,6 +224,8 @@ body{
 
 
   /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
+  .hero{overflow-x:clip}
   .brandbg{--accent:#a71b55;--accent-2:#89348d;--sa:#9f3e2d;--sa2:#85b789;--bg-0:#fcf8fa;--bg-1:#f5eaef;--bg-2:#fefbfc}
   .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}.spot{position:absolute;top:-20vh;left:50%;width:70vw;height:90vh;margin-inline-start:-35vw;background:radial-gradient(60% 50% at 50% 0,var(--accent),transparent 70%);opacity:.3;filter:blur(30px)}.vig{position:absolute;inset:0;box-shadow:inset 0 0 32vh 12vh var(--bg-0,#000);opacity:.55}.pt{position:absolute;top:-6vh;width:15px;height:15px;background:var(--sa2,var(--accent-2));opacity:.5;border-radius:0 60% 0 60%}.p1{left:18%}.p2{left:42%}.p3{left:66%}.p4{left:86%}@media(prefers-reduced-motion:no-preference){.spot{animation:yrs 10s ease-in-out infinite}.pt{animation:yrp 12s linear infinite}.p2{animation-delay:-3s;animation-duration:15s}.p3{animation-delay:-6s;animation-duration:13s}.p4{animation-delay:-9s;animation-duration:17s}@keyframes yrs{50%{opacity:.48;transform:translateX(6vw)}}@keyframes yrp{to{transform:translateY(112vh) rotate(400deg)}}}
 

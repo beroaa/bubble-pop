@@ -350,6 +350,10 @@ body{
   .bx-night{display:flex;align-items:center;gap:.5em;justify-content:flex-end;margin:.9em .6em 0 auto;max-width:17em;opacity:.92}.bx-tw{color:var(--sa);font-size:.55rem;line-height:1;opacity:.6}.bx-tw:nth-child(2){font-size:.85rem}.bx-night-t{font-size:.74rem;color:var(--text-2);letter-spacing:.03em;border-inline-start:1px solid var(--sa);padding-inline-start:.6em}@media (prefers-reduced-motion:no-preference){.bx-tw{animation:bx-twk 3.8s ease-in-out infinite}.bx-tw:nth-child(2){animation-delay:1.3s}.bx-tw:nth-child(3){animation-delay:2.4s}@keyframes bx-twk{0%,100%{opacity:.2}50%{opacity:1}}}
 
   /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  /* HARD CLIP: brandbg is position:fixed, so body overflow-x:hidden can't clip its bleed —
+     the wrapper must clip its own decorative children or dark-mode pages scroll sideways. */
+  .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
+  .hero{overflow-x:clip}
   .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(120% 100% at 50% 120%,var(--bg-1),var(--bg-0))}
 .brandbg .spot{position:absolute;top:-30%;left:50%;width:80vw;height:120vh;transform:translateX(-50%);background:radial-gradient(closest-side,color-mix(in srgb,var(--accent) 20%,transparent),transparent 70%);opacity:.5;filter:blur(30px)}
 .brandbg .ember{position:absolute;left:-10vw;bottom:-14vh;width:50vw;height:40vh;border-radius:50%;background:var(--accent-2);filter:blur(70px);opacity:.25}

@@ -205,6 +205,8 @@ body{
 
 
   /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
+  .hero{overflow-x:clip}
   .brandbg{--accent:#2f9349;--accent-2:#5a7c46;--sa:#418b7e;--sa2:#a68fae;--bg-0:#f8fcf9;--bg-1:#eaf5ed;--bg-2:#fbfefc}
   .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}.haze{position:absolute;inset:0;background:radial-gradient(120% 70% at 50% 120%,var(--accent),transparent 60%);opacity:.3}.cl{position:absolute;border-radius:50%;background:radial-gradient(circle,var(--sa,var(--accent-2)),transparent 70%);filter:blur(30px)}.c1{width:30vw;height:18vw;top:12%;left:-10vw;opacity:.32}.c2{width:24vw;height:14vw;top:60%;right:-8vw;opacity:.26}.c3{width:20vw;height:12vw;top:34%;left:60%;opacity:.18}@media(prefers-reduced-motion:no-preference){.c1{animation:obd 22s linear infinite}.c2{animation:obd2 26s linear infinite}.c3{animation:obd 30s linear infinite}.haze{animation:obh 8s ease-in-out infinite}@keyframes obd{from{transform:translateX(-12vw)}to{transform:translateX(122vw)}}@keyframes obd2{from{transform:translateX(12vw)}to{transform:translateX(-122vw)}}@keyframes obh{50%{opacity:.44}}}
 

@@ -219,6 +219,8 @@ body::after{
 
 
   /* ---- brandbg50 LIVING BACKGROUND (behind everything; .wrap sits at z-index:1) ---- */
+  .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
+  .hero{overflow-x:clip}
   .brandbg{--accent:#9d4325;--accent-2:#843e59;--sa:#958437;--sa2:#8faea6;--bg-0:#fcf9f8;--bg-1:#f5edea;--bg-2:#fefcfb}
   .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(120% 100% at 50% 100%,var(--bg-1),var(--bg-0))}
 .cv-grid{position:absolute;inset:0;opacity:.10;background:linear-gradient(var(--accent) 1px,transparent 1px) 0 0/100% 40px,linear-gradient(90deg,var(--accent) 1px,transparent 1px) 0 0/40px 100%;-webkit-mask:radial-gradient(80% 70% at 50% 50%,transparent,#000);mask:radial-gradient(80% 70% at 50% 50%,transparent,#000)}
