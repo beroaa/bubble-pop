@@ -303,6 +303,23 @@ body{
   /* ---- polish50 bespoke touch: Night Shift Stub ---- */
   .bx-stub{width:max-content;max-width:15rem;margin:1.1rem auto;padding:.55rem .95rem .6rem;border:1px dashed var(--text-2);border-radius:4px;transform:rotate(-1.5deg);transition:transform .5s,border-color .5s,box-shadow .5s;text-align:center;position:relative}.bx-stub::before{content:"✂";position:absolute;top:-.62em;inset-inline-start:.6rem;font-size:.75rem;color:var(--text-2)}.bx-stub-top{display:block;font-size:.62rem;letter-spacing:.3em;color:var(--accent)}.bx-stub-txt{margin:.25rem 0 0;font-size:.78rem;color:var(--text-2)}.bx-stub:hover{transform:rotate(0);border-color:var(--accent);box-shadow:0 3px 12px rgba(0,0,0,.18)}@media (prefers-reduced-motion:no-preference){.bx-stub::after{content:"·";position:absolute;top:-1.1rem;inset-inline-end:1rem;font-size:1rem;color:var(--sa);animation:bx-rise 3s ease-in-out infinite}@keyframes bx-rise{0%{opacity:0;transform:translateY(4px)}40%{opacity:.8}100%{opacity:0;transform:translateY(-7px)}}}
 
+  /* ---- brandshots: the cafe's OWN photos, pinned like polaroids ---- */
+  .brandshots{display:flex;justify-content:center;align-items:flex-start;gap:14px;margin-top:22px;position:relative;z-index:1;
+    opacity:0;animation:up .8s 1.15s forwards}
+  .bshot{position:relative;width:96px;margin:0;background:#f8f4f2;border:1px solid var(--border-2);padding:6px 6px 16px;
+    box-shadow:4px 5px 0 #5e381c30}
+  .bshot img{display:block;width:100%;height:84px;object-fit:cover;filter:saturate(1.08) contrast(1.04)}
+  /* designed photo treatment on the polaroids: tint wash + 1px inner border */
+  .bshot::after{content:"";position:absolute;inset:6px 6px 16px;pointer-events:none;
+    background:linear-gradient(160deg,#97522148,transparent 55%);mix-blend-mode:multiply;
+    box-shadow:inset 0 0 0 1px #97522155}
+  .bshot::before{content:"";position:absolute;top:-9px;left:50%;width:44px;height:16px;background:#95902d40;border-radius:2px;
+    transform:translateX(-50%) rotate(-3deg);backdrop-filter:blur(1px);z-index:2}
+  .bshot:nth-child(1){transform:rotate(-4deg)}
+  .bshot:nth-child(2){transform:rotate(2.5deg) translateY(7px)}
+  .bshot:nth-child(3){transform:rotate(-1.5deg) translateY(2px)}
+  @media(min-width:900px){.bshot{width:132px}.bshot img{height:116px}}
+  @media (prefers-reduced-motion: reduce){.brandshots{opacity:1!important;animation:none!important}}
 
   @media (prefers-reduced-motion: reduce){
     *{animation:none!important;transition:none!important}
@@ -412,7 +429,7 @@ body{
     <h1><span class="ar">مرثد قهوة</span><span class="en">Marthad Coffee</span></h1>
     <div class="world"><span class="ar">✦ <b>كاونتر الليل والطلبات تنادى</b> ✦</span><span class="en">✦ <b>the night counter, orders called out loud</b> ✦</span></div>
     <div class="heroline"><span class="ar">الليل طويل والمكينة ما تنام</span><span class="en">the night is long, the counter's awake</span></div>
-    
+    <div class="brandshots" aria-hidden="true"><figure class="bshot"><img src="../assets/photos/marthad-coffee/1.jpg" alt="" loading="lazy" onerror="this.parentElement.remove()"></figure><figure class="bshot"><img src="../assets/photos/marthad-coffee/10.jpg" alt="" loading="lazy" onerror="this.parentElement.remove()"></figure><figure class="bshot"><img src="../assets/photos/marthad-coffee/2.jpg" alt="" loading="lazy" onerror="this.parentElement.remove()"></figure></div>
     <div class="meta">
       <span class="badge"><span class="ar">الرياض</span><span class="en">Al-Rawdah · Riyadh</span></span>
       <span class="badge"><span class="ar">متوافق مع اشتراطات هيئة الغذاء والدواء</span><span class="en">SFDA-ready</span></span>
@@ -426,7 +443,7 @@ body{
     <div class="cat-head">
       <div class="cat-art">
         <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ge" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#975221"/><stop offset="1" stop-color="#5e381c"/></linearGradient></defs><path d="M30 55h52v28a14 14 0 0 1-14 14H44a14 14 0 0 1-14-14z" fill="url(#ge)"/><path d="M82 58h10a10 10 0 0 1 0 20h-8" fill="none" stroke="#975221" stroke-width="5"/><ellipse cx="56" cy="55" rx="26" ry="5" fill="#cc9f3e"/><path d="M46 20c-4 8 4 10 0 18M60 16c-4 8 4 10 0 18M74 20c-4 8 4 10 0 18" stroke="#624f41" stroke-width="4" fill="none" stroke-linecap="round" opacity=".8"/><ellipse cx="56" cy="104" rx="30" ry="4" fill="#000" opacity=".3"/></svg></div>
-        
+        <img src="../assets/photos/marthad-coffee/1.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
         <div class="room-eyebrow"><span class="ar">البار الحار</span><span class="en">Espresso Bar</span></div>
@@ -509,7 +526,7 @@ body{
     <div class="cat-head">
       <div class="cat-art">
         <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><path d="M28 30h64l-22 34h-20z" fill="none" stroke="#975221" stroke-width="5"/><path d="M40 36h40l-15 23h-10z" fill="#975221" opacity=".35"/><path d="M60 66v12" stroke="#624f41" stroke-width="4" stroke-dasharray="2 6" stroke-linecap="round"/><path d="M36 84h48v6a16 16 0 0 1-16 16H52a16 16 0 0 1-16-16z" fill="#975221"/><path d="M84 86h8a8 8 0 0 1 0 16h-6" fill="none" stroke="#975221" stroke-width="4"/><ellipse cx="60" cy="108" rx="28" ry="4" fill="#000" opacity=".3"/></svg></div>
-        
+        <img src="../assets/photos/marthad-coffee/10.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
         <div class="room-eyebrow"><span class="ar">بار الترشيح</span><span class="en">Filter &amp; Slow Bar</span></div>
@@ -572,7 +589,7 @@ body{
     <div class="cat-head">
       <div class="cat-art">
         <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cc9f3e" stop-opacity=".5"/><stop offset="1" stop-color="#975221"/></linearGradient></defs><path d="M40 22h40l-4 78a8 8 0 0 1-8 8H52a8 8 0 0 1-8-8z" fill="url(#gc)" opacity=".9"/><rect x="46" y="34" width="13" height="13" rx="3" fill="#fff" opacity=".7" transform="rotate(12 52 40)"/><rect x="60" y="52" width="13" height="13" rx="3" fill="#fff" opacity=".55" transform="rotate(-14 66 58)"/><rect x="48" y="70" width="12" height="12" rx="3" fill="#fff" opacity=".45" transform="rotate(8 54 76)"/><path d="M74 14 60 46" stroke="#624f41" stroke-width="4" stroke-linecap="round"/><ellipse cx="60" cy="112" rx="24" ry="4" fill="#000" opacity=".3"/></svg></div>
-        
+        <img src="../assets/photos/marthad-coffee/2.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
         <div class="room-eyebrow"><span class="ar">البار البارد</span><span class="en">Cold Bar</span></div>
@@ -634,7 +651,7 @@ body{
     <div class="cat-head">
       <div class="cat-art">
         <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gs" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cc9f3e"/><stop offset="1" stop-color="#975221"/></linearGradient></defs><path d="M46 34h28l6 34a20 14 0 0 1-40 0z" fill="url(#gs)"/><path d="M50 30h20l3 6H47z" fill="#975221"/><path d="M58 22h4v8h-4z" fill="#975221"/><circle cx="60" cy="18" r="4" fill="#cc9f3e"/><path d="M46 40c-9 2-13 10-9 17 3 5 8 6 11 5" fill="none" stroke="#975221" stroke-width="5" stroke-linecap="round"/><path d="M74 38l6-10 5 3-6 10" fill="#975221"/><ellipse cx="60" cy="96" rx="28" ry="4" fill="#000" opacity=".3"/></svg></div>
-        
+        <img src="../assets/photos/marthad-coffee/3.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
         <div class="room-eyebrow"><span class="ar">الركن السعودي</span><span class="en">Saudi Corner</span></div>
@@ -676,7 +693,7 @@ body{
     <div class="cat-head">
       <div class="cat-art">
         <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gcr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0cf8f"/><stop offset="1" stop-color="#975221"/></linearGradient></defs><path d="M20 74c4-18 20-32 40-32s36 14 40 32c-6 8-16 8-22 2-4-10-12-16-18-16s-14 6-18 16c-6 6-16 6-22-2z" fill="url(#gcr)"/><path d="M45 46 38 70M60 42v26M75 46l7 24" stroke="#5e381c" stroke-width="3" opacity=".5" stroke-linecap="round"/><ellipse cx="60" cy="88" rx="34" ry="4" fill="#000" opacity=".3"/></svg></div>
-        
+        <img src="../assets/photos/marthad-coffee/4.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
         <div class="room-eyebrow"><span class="ar">اللقيمات والحلا</span><span class="en">Bites &amp; Sweets</span></div>

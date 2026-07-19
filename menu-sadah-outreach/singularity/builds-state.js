@@ -1,5 +1,5 @@
 window.BUILDS_STATE = {
- "generatedAt": 1784464154835,
+ "generatedAt": 1784465382335,
  "builds": [
   {
    "id": "b1",
@@ -316,6 +316,14 @@ window.BUILDS_STATE = {
     {
      "at": 1784464154811,
      "msg": "Batch 1 pushed — 15/50 cafes, 10 photos each"
+    },
+    {
+     "at": 1784465318348,
+     "msg": "Wiring real photos into 43 menus (rebuild)"
+    },
+    {
+     "at": 1784465382335,
+     "msg": "43 menus rebuilt with real photos — deploying"
     }
    ]
   }

@@ -335,6 +335,23 @@ body{
   /* ---- polish50 bespoke touch: Traveler Ink Route ---- */
   .bx-route{margin:1rem auto .2rem;max-width:180px;text-align:center}.bx-route svg{width:100%;overflow:visible;display:block}.bx-route-path{stroke-dasharray:3 5;opacity:.8;transition:opacity .6s,filter .6s}.bx-route-note{font-size:.66rem;color:var(--text-2);letter-spacing:.14em;margin-top:.2rem;display:block}.bx-route:hover .bx-route-path{opacity:1;filter:drop-shadow(0 0 3px var(--accent))}@media (prefers-reduced-motion:no-preference){.bx-route:hover .bx-route-path{animation:bx-march 1.4s linear infinite}@keyframes bx-march{to{stroke-dashoffset:-16}}}
 
+  /* ---- brandshots: the cafe's OWN photos, pinned like polaroids ---- */
+  .brandshots{display:flex;justify-content:center;align-items:flex-start;gap:14px;margin-top:22px;position:relative;z-index:1;
+    opacity:0;animation:up .8s 1.15s forwards}
+  .bshot{position:relative;width:96px;margin:0;background:#f8f4f2;border:1px solid var(--border-2);padding:6px 6px 16px;
+    box-shadow:4px 5px 0 #58372330}
+  .bshot img{display:block;width:100%;height:84px;object-fit:cover;filter:saturate(1.08) contrast(1.04)}
+  /* designed photo treatment on the polaroids: tint wash + 1px inner border */
+  .bshot::after{content:"";position:absolute;inset:6px 6px 16px;pointer-events:none;
+    background:linear-gradient(160deg,#8c502b48,transparent 55%);mix-blend-mode:multiply;
+    box-shadow:inset 0 0 0 1px #8c502b55}
+  .bshot::before{content:"";position:absolute;top:-9px;left:50%;width:44px;height:16px;background:#8b843740;border-radius:2px;
+    transform:translateX(-50%) rotate(-3deg);backdrop-filter:blur(1px);z-index:2}
+  .bshot:nth-child(1){transform:rotate(-4deg)}
+  .bshot:nth-child(2){transform:rotate(2.5deg) translateY(7px)}
+  .bshot:nth-child(3){transform:rotate(-1.5deg) translateY(2px)}
+  @media(min-width:900px){.bshot{width:132px}.bshot img{height:116px}}
+  @media (prefers-reduced-motion: reduce){.brandshots{opacity:1!important;animation:none!important}}
 
   @media (prefers-reduced-motion: reduce){
     *{animation:none!important;transition:none!important}
@@ -441,7 +458,7 @@ body{
     <h1><span class="ar">محمصة ركية</span><span class="en">Rakiyah Roastery</span></h1>
     <div class="world"><span class="ar">✦ <b>دفتر رحّالة يدور خلف البن</b> ✦</span><span class="en">✦ <b>a traveler's notebook chasing coffee lands</b> ✦</span></div>
     <div class="heroline"><span class="ar">كل فنجان يحكي عن أرض بعيدة</span><span class="en">every cup, a page from somewhere far</span></div>
-    
+    <div class="brandshots" aria-hidden="true"><figure class="bshot"><img src="../assets/photos/rakiyah-roastery/1.jpg" alt="" loading="lazy" onerror="this.parentElement.remove()"></figure><figure class="bshot"><img src="../assets/photos/rakiyah-roastery/10.jpg" alt="" loading="lazy" onerror="this.parentElement.remove()"></figure><figure class="bshot"><img src="../assets/photos/rakiyah-roastery/2.jpg" alt="" loading="lazy" onerror="this.parentElement.remove()"></figure></div>
     <div class="meta">
       <span class="badge"><span class="ar">الرياض</span><span class="en">Al Faiha, East Riyadh · Riyadh</span></span>
       <span class="badge"><span class="ar">متوافق مع اشتراطات هيئة الغذاء والدواء</span><span class="en">SFDA-ready</span></span>
@@ -455,7 +472,7 @@ body{
     <div class="cat-head">
       <div class="cat-art">
         <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><path d="M28 30h64l-22 34h-20z" fill="none" stroke="#8c502b" stroke-width="5"/><path d="M40 36h40l-15 23h-10z" fill="#8c502b" opacity=".35"/><path d="M60 66v12" stroke="#624e41" stroke-width="4" stroke-dasharray="2 6" stroke-linecap="round"/><path d="M36 84h48v6a16 16 0 0 1-16 16H52a16 16 0 0 1-16-16z" fill="#8c502b"/><path d="M84 86h8a8 8 0 0 1 0 16h-6" fill="none" stroke="#8c502b" stroke-width="4"/><ellipse cx="60" cy="108" rx="28" ry="4" fill="#000" opacity=".3"/></svg></div>
-        
+        <img src="../assets/photos/rakiyah-roastery/1.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
         <div class="room-eyebrow"><span class="ar">محاصيل اليوم</span><span class="en">Today's Origins</span></div>
@@ -526,7 +543,7 @@ body{
     <div class="cat-head">
       <div class="cat-art">
         <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ge" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8c502b"/><stop offset="1" stop-color="#583723"/></linearGradient></defs><path d="M30 55h52v28a14 14 0 0 1-14 14H44a14 14 0 0 1-14-14z" fill="url(#ge)"/><path d="M82 58h10a10 10 0 0 1 0 20h-8" fill="none" stroke="#8c502b" stroke-width="5"/><ellipse cx="56" cy="55" rx="26" ry="5" fill="#be964b"/><path d="M46 20c-4 8 4 10 0 18M60 16c-4 8 4 10 0 18M74 20c-4 8 4 10 0 18" stroke="#624e41" stroke-width="4" fill="none" stroke-linecap="round" opacity=".8"/><ellipse cx="56" cy="104" rx="30" ry="4" fill="#000" opacity=".3"/></svg></div>
-        
+        <img src="../assets/photos/rakiyah-roastery/10.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
         <div class="room-eyebrow"><span class="ar">الإسبريسو</span><span class="en">Espresso</span></div>
@@ -591,7 +608,7 @@ body{
     <div class="cat-head">
       <div class="cat-art">
         <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><path d="M34 44h52l-6 56H40z" fill="#8c502b" opacity=".85"/><path d="M34 44h52l-2 12H36z" fill="#583723"/><path d="M46 30c0-8 28-8 28 0v14H46z" fill="none" stroke="#8c502b" stroke-width="5"/><g fill="#5a3d1e"><ellipse cx="52" cy="74" rx="7" ry="10" transform="rotate(-20 52 74)"/><ellipse cx="68" cy="80" rx="7" ry="10" transform="rotate(15 68 80)"/></g><path d="M49 70c2 3 4 6 3 9M66 76c2 3 3 6 2 9" stroke="#be964b" stroke-width="2" fill="none"/><ellipse cx="60" cy="104" rx="30" ry="4" fill="#000" opacity=".3"/></svg></div>
-        
+        <img src="../assets/photos/rakiyah-roastery/2.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
         <div class="room-eyebrow"><span class="ar">بن للبيت</span><span class="en">Beans To Go</span></div>
@@ -655,7 +672,7 @@ body{
     <div class="cat-head">
       <div class="cat-art">
         <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gcr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0cf8f"/><stop offset="1" stop-color="#8c502b"/></linearGradient></defs><path d="M20 74c4-18 20-32 40-32s36 14 40 32c-6 8-16 8-22 2-4-10-12-16-18-16s-14 6-18 16c-6 6-16 6-22-2z" fill="url(#gcr)"/><path d="M45 46 38 70M60 42v26M75 46l7 24" stroke="#583723" stroke-width="3" opacity=".5" stroke-linecap="round"/><ellipse cx="60" cy="88" rx="34" ry="4" fill="#000" opacity=".3"/></svg></div>
-        
+        <img src="../assets/photos/rakiyah-roastery/3.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
         <div class="room-eyebrow"><span class="ar">اللقيمات</span><span class="en">Bites</span></div>
