@@ -7,7 +7,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;600&family=Caveat:wght@600;700&family=Patrick+Hand&family=Aref+Ruqaa:wght@400;700&display=swap">
 <style>
-  :root{--ink:#1a3815;--rose:#388f28;--gold:#37955e;--ochre:#75843e;--sage:#998fae;--paper:#f8fcf8;--paper2:#ecf5ea;--card:#fcfefb}
+  :root{--ink:#1a3815;--rose:#388f28;--gold:#37955e;--ochre:#75843e;--sage:#998fae;--paper:#f8fcf8;--paper2:#ecf5ea;--card:#fcfefb;
+    --m-ease:cubic-bezier(.34,1.56,.64,1);--m-dir:scale;--tx:1}
+  /* RTL MIRROR LAW: --tx flips direction-signed decorative transforms in Arabic */
+  [dir="rtl"]{--tx:-1}
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{font-family:'IBM Plex Sans Arabic',sans-serif,"Work Sans",-apple-system,Tahoma,sans-serif;background:var(--paper);color:var(--ink);
@@ -53,7 +56,7 @@
     transition:transform .12s;opacity:0;animation:up .8s 1.3s forwards}
   .cta:active{transform:translate(2px,2px)}
   .cta.gold{background:var(--gold)}
-  .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .rv{opacity:0;transform:translateY(18px);transition:opacity .6s var(--m-ease),transform .6s var(--m-ease)}
   .rv.in{opacity:1;transform:none}
   .sec{margin-top:44px}
   .h2{font-family:Patrick Hand,Caveat,cursive;font-size:clamp(30px,8vw,44px);text-align:center;transform:rotate(-1.5deg);line-height:1.15}
@@ -213,16 +216,53 @@ body::after{
 @keyframes nzFlick{0%,100%{opacity:1}7%{opacity:.35}9%{opacity:1}11%{opacity:.55}13%{opacity:1}54%{opacity:1}56%{opacity:.4}58%{opacity:1}}
 @keyframes nzTwinkle{0%,100%{opacity:.9}50%{opacity:.45}}
 
+
+  /* ---- BRAND MOTION DNA: press physics — scale .96 in, overshoot release ---- */
+  @media (prefers-reduced-motion: no-preference){
+    .touchable{transition:transform .32s cubic-bezier(.34,1.56,.64,1)}
+    .touchable:active{transform:scale(.96);transition:transform .07s cubic-bezier(.2,.6,.4,1)}
+  }
+
+  /* ---- CINEMA STING: 3 beats under 3s — wax stamp → brand wash parts → letter rises ----
+     plays once per session, any tap skips, reduced-motion gets the instant static page */
+  .sting-wash{display:none}
+  @media (prefers-reduced-motion: no-preference){
+    .sting .medal{animation:waxstamp .85s cubic-bezier(.16,1,.3,1) .05s both}
+    @keyframes waxstamp{0%{opacity:0;transform:scale(2.2) rotate(-10deg)}55%{opacity:1;transform:scale(.94) rotate(1.5deg)}
+      78%{transform:scale(1.05)}100%{opacity:1;transform:scale(1)}}
+    .sting .sting-wash{display:block;position:fixed;inset:0;z-index:80;pointer-events:none}
+    .sting .sting-wash i{position:absolute;top:0;bottom:0;width:50.5%;background:linear-gradient(180deg,var(--rose),var(--gold));opacity:.97}
+    .sting .sting-wash i:first-child{inset-inline-start:0;animation:stpart .95s cubic-bezier(.16,1,.3,1) .5s both}
+    .sting .sting-wash i:last-child{inset-inline-end:0;animation:stpart2 .95s cubic-bezier(.16,1,.3,1) .5s both}
+    @keyframes stpart{to{transform:translateX(calc(-103% * var(--tx,1)))}}
+    @keyframes stpart2{to{transform:translateX(calc(103% * var(--tx,1)))}}
+    .sting .letter.rv{opacity:1;transform:none;animation:letterrise .9s cubic-bezier(.16,1,.3,1) 1.7s both}
+    @keyframes letterrise{0%{opacity:0;transform:translateY(26px)}100%{opacity:1;transform:none}}
+    .sting-done .medal,.sting-done .letter.rv{opacity:1;transform:none;animation:none}
+  }
+  /* welcome→menu threshold: an 800ms brand-color curtain pulls before we enter the house */
+  .curtain{position:fixed;inset:0;z-index:90;background:linear-gradient(160deg,var(--rose),var(--ochre));
+    transform:translateY(102%);pointer-events:none}
+  .curtain.pull{transition:transform .8s cubic-bezier(.16,1,.3,1);transform:translateY(0)}
+
   @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}
-    .medal,h1,.world,.heroline,.cta,.rv{opacity:1!important;transform:none!important}}
+    .medal,h1,.world,.heroline,.cta,.rv{opacity:1!important;transform:none!important}
+    .sting-wash{display:none!important}.curtain{display:none!important}}
 </style>
+<script>
+  // CINEMA STING gate — decided before first paint: once per session, never for reduced-motion
+  try{if(!sessionStorage.getItem('ms-sting:matchafulll')&&matchMedia('(prefers-reduced-motion: no-preference)').matches){
+    document.documentElement.classList.add('sting');sessionStorage.setItem('ms-sting:matchafulll','1');}}catch(e){}
+</script>
 </head>
 <body>
+<div class="sting-wash" aria-hidden="true"><i></i><i></i></div>
+<div class="curtain" id="msCurtain" aria-hidden="true"></div>
 <div class="bigmark" aria-hidden="true"><span class="ar">م</span><span class="en">M</span></div>
 <header class="top">
   <div class="bx"><div class="medal-s"><span><span class="ar">م</span><span class="en">M</span></span></div>
     <div><div class="bn"><span class="ar">ماتشافل</span><span class="en">Matchafulll</span></div><div class="loc"><span class="ar">الرياض · الرياض</span><span class="en">Riyadh · Riyadh</span></div></div></div>
-  <button class="lang" id="langToggle">English</button>
+  <button class="lang touchable" id="langToggle">English</button>
 </header>
 <div class="wrap">
   <section class="hero">
@@ -253,13 +293,13 @@ body::after{
 <g fill="none" stroke="#47c256" stroke-width="1.2" opacity=".5"><path d="M0 414h1200M0 430h1200M0 452h1200M0 482h1200M0 522h1200M0 574h1200M0 636h1200"/></g>
 <path class="nz-neon" d="M0 401h1200" fill="none" stroke="#78c86a" stroke-width="2.2"/>
 </svg>
-    <span class="mote" style="left:14%;top:10%;font-size:11px;animation-delay:0s">❧</span><span class="mote" style="left:78%;top:16%;font-size:10px;animation-delay:0.7s">✿</span><span class="mote" style="left:8%;top:46%;font-size:13px;animation-delay:1.4s">❀</span><span class="mote" style="left:86%;top:52%;font-size:11px;animation-delay:2.0999999999999996s">⚘</span><span class="mote" style="left:24%;top:74%;font-size:10px;animation-delay:2.8s">❧</span><span class="mote" style="left:68%;top:80%;font-size:13px;animation-delay:3.5s">✿</span><span class="mote" style="left:46%;top:8%;font-size:11px;animation-delay:0.1999999999999993s">❀</span><span class="mote" style="left:90%;top:30%;font-size:13px;animation-delay:0.8999999999999995s">⚘</span>
+    <span class="mote" style="inset-inline-start:14%;top:10%;font-size:11px;animation-delay:0s">❧</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:10px;animation-delay:0.7s">✿</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:13px;animation-delay:1.4s">❀</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:11px;animation-delay:2.0999999999999996s">⚘</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:10px;animation-delay:2.8s">❧</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:13px;animation-delay:3.5s">✿</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:11px;animation-delay:0.1999999999999993s">❀</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:13px;animation-delay:0.8999999999999995s">⚘</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
     <div class="medal"><span><span class="ar">م</span><span class="en">M</span></span></div>
     <h1><span class="ar">أهلاً ببيت <b>ماتشافل</b></span><span class="en">Welcome home, <b>Matchafulll</b>.</span></h1>
     <div class="world"><span class="ar">✦ سهرة خضرا توهّج في الليل ✦</span><span class="en">✦ a green glow after dark ✦</span></div>
     <div class="heroline hand"><span class="ar">جرعة خضرا تشغّل السهرة</span><span class="en">your green charge for tonight</span></div>
-    <div><a class="cta" href="../matchafulll/"><span class="ar">افتحوا منيوكم ←</span><span class="en">Open your menu →</span></a></div>
+    <div><a class="cta touchable" href="../matchafulll/"><span class="ar">افتحوا منيوكم ←</span><span class="en">Open your menu →</span></a></div>
   </section>
 
   <div class="letter rv">
@@ -285,7 +325,7 @@ body::after{
       <li><span class="ar">تقرير زيارات شهري</span><span class="en">Monthly visits report</span></li>
       <li><span class="ar">أولوية دعم بنفس اليوم</span><span class="en">Same-day priority support</span></li>
     </ul>
-    <div style="text-align:center;margin-top:22px"><button class="cta gold" type="button" data-tip><span class="ar">فعّلوا تجربتكم الملكية — بنفس اليوم</span><span class="en">Activate your royal experience — same day</span></button></div>
+    <div style="text-align:center;margin-top:22px"><button class="cta gold touchable" type="button" data-tip><span class="ar">فعّلوا تجربتكم الملكية — بنفس اليوم</span><span class="en">Activate your royal experience — same day</span></button></div>
   </div>
 
   <div class="freecard rv">
@@ -319,13 +359,13 @@ body::after{
       <div class="ph"><span class="big-init">M</span><span class="tag"><span class="ar">تفصيلة 03</span><span class="en">Detail 03</span></span></div>
       <div class="bd"><b><span class="ar">الصفحة تعيش، <i>من الصبح لليل.</i></span><span class="en">The page is alive, <i>from morning to night.</i></span></b><p><span class="ar">ألوانها بألوانكم، وتغمق مع الليل وأنتم تقلبون فيها — عربي وإنجليزي بضغطة.</span><span class="en">It wears your colors and darkens into night as guests scroll — Arabic and English in one tap.</span></p></div>
     </div>
-    <div style="text-align:center;margin-top:22px"><a class="cta gold" href="../matchafulll/"><span class="ar">شوفوا منيوكم حيّاً ←</span><span class="en">See your menu live →</span></a></div>
+    <div style="text-align:center;margin-top:22px"><a class="cta gold touchable" href="../matchafulll/"><span class="ar">شوفوا منيوكم حيّاً ←</span><span class="en">See your menu live →</span></a></div>
   </div>
 
   <div class="sec rv">
     <div class="h2"><span class="ar">كل شيء <b>جاهز</b> لكم</span><span class="en">Everything is <b>ready</b> for you</span></div>
     <div class="agrid">
-      <a class="atile" href="../matchafulll/"><div class="ic">📱</div><b><span class="ar">المنيو الحي</span><span class="en">Live menu</span></b><span class="go"><span class="ar">افتحوه ←</span><span class="en">Open →</span></span></a>
+      <a class="atile touchable" href="../matchafulll/"><div class="ic">📱</div><b><span class="ar">المنيو الحي</span><span class="en">Live menu</span></b><span class="go"><span class="ar">افتحوه ←</span><span class="en">Open →</span></span></a>
       <div class="atile"><div class="ic">🖨</div><b><span class="ar">كود QR للطاولات</span><span class="en">Table QR codes</span></b><span class="go"><span class="ar">كود خاص لكل طاولة (١–١٢) والمنيو يرحّب بها باسمها — نطبعها يوم التفعيل</span><span class="en">A personal code per table (1–12), the menu greets each by name — printed on activation</span></span></div>
     </div>
     <div class="chips2">
@@ -342,7 +382,7 @@ body::after{
   <div class="reply rv">
     <div class="hand"><span class="ar">باب البيت مفتوح</span><span class="en">The door of the house is open</span></div>
     <p style="margin-top:8px"><span class="ar">عجبكم؟ ردّوا على رسالتنا ونفعّله بنفس اليوم.</span><span class="en">Love it? Reply to our message and it goes live the same day.</span></p>
-    <div style="margin-top:14px"><a class="cta" href="../matchafulll/"><span class="ar">🎁 افتحوا هديتكم</span><span class="en">🎁 Open your gift</span></a></div>
+    <div style="margin-top:14px"><a class="cta touchable" href="../matchafulll/"><span class="ar">🎁 افتحوا هديتكم</span><span class="en">🎁 Open your gift</span></a></div>
     <p style="margin-top:16px;font-size:13px"><span class="ar">شاهدوا عميلنا الحي: <a href="https://menu-sadah.com/beyt-coffee" style="color:var(--rose);font-weight:700">بيت كوفي ↗</a></span><span class="en">See a live client: <a href="https://menu-sadah.com/beyt-coffee" style="color:var(--rose);font-weight:700">Beyt Coffee ↗</a></span></p>
   </div>
   <div class="foot"><span class="ar">منيو سادة · منيوهات جميلة لبيوت نحبها — <a href="https://menu-sadah.com">menu-sadah.com</a></span><span class="en">MENU SADAH · beautiful menus for houses we admire — <a href="https://menu-sadah.com">menu-sadah.com</a></span></div>
@@ -371,6 +411,25 @@ body::after{
       tip.style.top=(above>8?above:r.bottom+10)+'px';
       clearTimeout(tmr);tmr=setTimeout(()=>tip.classList.remove('show'),2600);
     });
+  })();
+  // CINEMA STING control: any tap skips instantly; at 3s the page locks to its static self
+  (function(){
+    if(!root.classList.contains('sting'))return;
+    const done=()=>{root.classList.remove('sting');root.classList.add('sting-done');};
+    addEventListener('pointerdown',done,{once:true});
+    setTimeout(done,3000);
+  })();
+  // welcome→menu threshold: 800ms brand-color curtain, then the guest enters the house
+  (function(){
+    const cur=document.getElementById('msCurtain');
+    if(!cur||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    let going=false;
+    document.querySelectorAll('a[href="../matchafulll/"]').forEach(a=>a.addEventListener('click',(e)=>{
+      if(going)return;going=true;e.preventDefault();
+      navigator.vibrate?.(10);
+      cur.classList.add('pull');
+      setTimeout(()=>{location.href=a.getAttribute('href');},800);
+    }));
   })();
 </script>
 </body>

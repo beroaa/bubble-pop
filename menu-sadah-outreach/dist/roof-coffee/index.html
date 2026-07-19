@@ -10,7 +10,10 @@
 <style>
   :root{--bg-0:#fcf9f8;--bg-1:#f8f4f2;--bg-2:#efe9e6;--border-1:#e3d8d3;--border-2:#ceb5ab;
     --text-1:#311e16;--text-2:#624b41;--text-3:#89746c;--accent:#974220;--accent-2:#cd8c3c;--accent-soft:#97422022;
-    --sa:#974220;--sa2:#96832c;--radius:16px;--shadow:0 6px 16px #6b3f2e22, 0 16px 40px #6b3f2e14}
+    --sa:#974220;--sa2:#96832c;--radius:16px;--shadow:0 6px 16px #6b3f2e22, 0 16px 40px #6b3f2e14;
+    --m-ease:cubic-bezier(.22,1,.36,1);--m-dir:start;--tx:1}
+  /* RTL MIRROR LAW: --tx flips direction-signed decorative transforms in Arabic */
+  [dir="rtl"]{--tx:-1}
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{font-family:'Nunito','Baloo Bhaijaan 2',sans-serif,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;
@@ -28,7 +31,7 @@
     background:radial-gradient(circle,#97422030,transparent 65%);pointer-events:none}
   .mote{position:absolute;pointer-events:none;z-index:0}
   .mote{color:#cd8c3c;filter:blur(.6px);animation:mfloat2 8s ease-in-out infinite}@keyframes mfloat2{0%,100%{opacity:.18;transform:translateX(-8px)}50%{opacity:.5;transform:translateX(10px)}}
-  .greet{color:var(--accent);font-size:13px;letter-spacing:.14em;margin-bottom:10px;opacity:0;animation:up .7s .1s forwards}
+  .greet{color:var(--accent);font-size:13px;letter-spacing:.14em;margin-bottom:10px}
   .medal{position:relative;width:104px;height:104px;margin:0 auto 16px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;
     background:radial-gradient(circle at 32% 24%,#ffffff2b,transparent 42%),radial-gradient(circle at 32% 28%,#97422042,#97422014 62%,transparent);
@@ -57,14 +60,35 @@
   @keyframes inkin{0%{opacity:0;transform:translateY(16px) rotate(var(--r,0deg)) scale(.6)}
     60%{opacity:1;transform:translateY(-2px) rotate(calc(var(--r,0deg)*-.4)) scale(1.07)}
     100%{opacity:1;transform:none}}
-  .world{margin-top:10px;color:var(--text-3);font-size:13px;letter-spacing:.08em;opacity:0;animation:up .7s .7s forwards}
+  .world{margin-top:10px;color:var(--text-3);font-size:13px;letter-spacing:.08em}
   .world b{color:#96832c;font-weight:600}
-  .heroline{margin-top:8px;color:var(--text-2);font-size:19px;line-height:1.5;opacity:0;animation:up .8s 1s forwards}
+  .heroline{margin-top:8px;color:var(--text-2);font-size:19px;line-height:1.5}
   .heroline .ar{font-family:'Baloo Bhaijaan 2',cursive}
   .heroline .en{font-family:'Fredoka',sans-serif}
-  .meta{margin-top:14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;opacity:0;animation:up .7s 1.25s forwards}
+  .meta{margin-top:14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
   .badge{background:var(--accent-soft);border:1px solid #97422066;color:var(--accent);border-radius:999px;padding:4px 14px;font-size:12px;letter-spacing:.05em}
   @keyframes up{0%{opacity:0;transform:translateY(12px)}100%{opacity:1;transform:none}}
+
+  /* ---- EXPO-OUT ENTRANCE: medallion → title → above-fold cards, 80ms apart ----
+     one keyframe (fade + 12px rise), opacity/transform only, zero layout shift;
+     below-the-fold cards stay owned by the scroll-reveal system */
+  @media (prefers-reduced-motion: no-preference){
+    @keyframes expo{0%{opacity:0;transform:translateY(12px)}100%{opacity:1;transform:none}}
+    .greet{animation:expo .6s cubic-bezier(.16,1,.3,1) 0ms both}
+    .medal{animation:expo .6s cubic-bezier(.16,1,.3,1) 80ms both,mfloat 5s ease-in-out .8s infinite}
+    h1{animation:expo .6s cubic-bezier(.16,1,.3,1) 160ms both}
+    .world{animation:expo .6s cubic-bezier(.16,1,.3,1) 240ms both}
+    .heroline{animation:expo .6s cubic-bezier(.16,1,.3,1) 320ms both}
+    .brandshots{animation:expo .6s cubic-bezier(.16,1,.3,1) 400ms both}
+    .meta{animation:expo .6s cubic-bezier(.16,1,.3,1) 480ms both}
+    .chips{animation:expo .6s cubic-bezier(.16,1,.3,1) 560ms both}
+  }
+
+  /* ---- BRAND MOTION DNA: press physics — scale .96 in, overshoot release ---- */
+  @media (prefers-reduced-motion: no-preference){
+    .touchable{transition:all .2s,transform .32s cubic-bezier(.34,1.56,.64,1)}
+    .touchable:active{transform:scale(.96);transition:all .2s,transform .07s cubic-bezier(.2,.6,.4,1)}
+  }
 
   .chips{display:flex;gap:8px;overflow-x:auto;padding:14px 2px;position:sticky;top:0;z-index:20;
     background:linear-gradient(#fcf9f8f2 78%,transparent);backdrop-filter:blur(8px);scrollbar-width:none}
@@ -90,8 +114,8 @@
     box-shadow:0 0 0 3px #9742200f}
   .reveal.in .stamp{animation:pstamp .5s cubic-bezier(.2,1.5,.4,1) both .35s}
   .sig-card::before,.sig-card::after{content:"";position:absolute;top:-8px;width:44px;height:16px;background:#96832c40;border-radius:2px;z-index:2}
-  .sig-card::before{left:14px;transform:rotate(-8deg)}
-  .sig-card::after{right:14px;transform:rotate(6deg)}
+  .sig-card::before{inset-inline-start:14px;transform:rotate(-8deg)}
+  .sig-card::after{inset-inline-end:14px;transform:rotate(6deg)}
   @keyframes pstamp{0%{opacity:0;transform:rotate(-14deg) scale(1.6)}100%{opacity:1;transform:rotate(-4deg) scale(1)}}
   .sar{font-size:11px}
 
@@ -108,6 +132,8 @@
   /* designed photo treatment: brand-tint wash (multiply where supported, plain elsewhere) + 1px inner border */
   .cat-art.hasimg::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
     background:linear-gradient(160deg,var(--sa,#974220),transparent 55%);opacity:.28;mix-blend-mode:multiply}
+  /* RTL MIRROR LAW: the tint wash falls from the inline-start corner in both directions */
+  [dir="rtl"] .cat-art.hasimg::before{background:linear-gradient(200deg,var(--sa,#974220),transparent 55%)}
   .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
     box-shadow:inset 0 0 0 1px #97422055}
   .cat-title{flex:1;min-width:0}
@@ -131,7 +157,7 @@
   .cat--flip .cat-head{flex-direction:row-reverse}
   /* sep idle drift: dividers breathe softly while the page rests (killed by reduced-motion) */
   .sep,.sep-scene{animation:sepidle 7s ease-in-out infinite}
-  @keyframes sepidle{0%,100%{transform:translateX(0);opacity:.82}50%{transform:translateX(6px);opacity:1}}
+  @keyframes sepidle{0%,100%{transform:translateX(0);opacity:.82}50%{transform:translateX(calc(6px * var(--tx,1)));opacity:1}}
 
   .items{position:relative;background:#f8f4f2d9;border:1px solid var(--border-1);border-radius:20px;padding:6px 18px;box-shadow:var(--shadow)}
   .item{display:flex;align-items:baseline;gap:10px;padding:15px 0;border-bottom:1px solid #efe9e699}
@@ -142,14 +168,15 @@
   .pdot{width:6px;height:6px;border-radius:50%;background:var(--sa);opacity:0;transform:scale(0)}
   .reveal.in .pdot{animation:dotpop .45s cubic-bezier(.2,1.6,.4,1) forwards}
   @keyframes dotpop{0%{opacity:0;transform:scale(0)}70%{opacity:1;transform:scale(1.5)}100%{opacity:.9;transform:scale(1)}}
-  .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+  /* scroll reveals arrive on the brand's own ease + direction (motion DNA: start) */
+  .reveal{opacity:0;transform:translateX(calc(-14px * var(--tx,1)));transition:opacity .55s var(--m-ease),transform .55s var(--m-ease)}
   .reveal.in{opacity:1;transform:none}
   .reveal.in .item{opacity:0;animation:itemin .45s forwards}
   .reveal.in .item:nth-child(1){animation-delay:.05s}.reveal.in .item:nth-child(2){animation-delay:.12s}
   .reveal.in .item:nth-child(3){animation-delay:.19s}.reveal.in .item:nth-child(4){animation-delay:.26s}
   .reveal.in .item:nth-child(5){animation-delay:.33s}.reveal.in .item:nth-child(6){animation-delay:.4s}
   .reveal.in .item:nth-child(n+7){animation-delay:.47s}
-  @keyframes itemin{0%{opacity:0;transform:translateX(-8px)}100%{opacity:1;transform:none}}
+  @keyframes itemin{0%{opacity:0;transform:translateX(calc(-8px * var(--tx,1)))}100%{opacity:1;transform:none}}
   .reveal.in .pdot{animation-delay:.55s}
 
   /* ---- diary notes (the human hand) ---- */
@@ -299,11 +326,10 @@ body{
 
 
   /* ---- polish50 bespoke touch: Hover Sunrise Horizon ---- */
-  .bx-roof{position:relative;width:76px;height:46px;margin:6px auto 0;overflow:hidden}.bx-roof::after{content:"";position:absolute;left:0;right:0;bottom:11px;border-bottom:1.5px solid var(--sa);opacity:.55}.bx-roof-sun{position:absolute;left:50%;bottom:1px;width:20px;height:20px;margin-left:-10px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--sa)}.bx-roof-cloud{position:absolute;top:2px;left:6px;font-size:12px;color:var(--text-2);opacity:.65}.bx-roof-note{font-size:.72rem;color:var(--text-2);text-align:center;margin-top:2px;opacity:.85}@media (prefers-reduced-motion:no-preference){.bx-roof-sun{transition:transform 1.1s ease}.bx-roof:hover .bx-roof-sun{transform:translateY(-15px)}.bx-roof-cloud{animation:bx-roof-drift 10s ease-in-out infinite alternate}@keyframes bx-roof-drift{from{transform:translateX(0)}to{transform:translateX(30px)}}}
+  .bx-roof{position:relative;width:76px;height:46px;margin:6px auto 0;overflow:hidden}.bx-roof::after{content:"";position:absolute;left:0;right:0;bottom:11px;border-bottom:1.5px solid var(--sa);opacity:.55}.bx-roof-sun{position:absolute;inset-inline-start:50%;bottom:1px;width:20px;height:20px;margin-inline-start:-10px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--sa)}.bx-roof-cloud{position:absolute;top:2px;left:6px;font-size:12px;color:var(--text-2);opacity:.65}.bx-roof-note{font-size:.72rem;color:var(--text-2);text-align:center;margin-top:2px;opacity:.85}@media (prefers-reduced-motion:no-preference){.bx-roof-sun{transition:transform 1.1s ease}.bx-roof:hover .bx-roof-sun{transform:translateY(-15px)}.bx-roof-cloud{animation:bx-roof-drift 10s ease-in-out infinite alternate}@keyframes bx-roof-drift{from{transform:translateX(0)}to{transform:translateX(30px)}}}
 
   /* ---- brandshots: the cafe's OWN photos, pinned like polaroids ---- */
-  .brandshots{display:flex;justify-content:center;align-items:flex-start;gap:14px;margin-top:22px;position:relative;z-index:1;
-    opacity:0;animation:up .8s 1.15s forwards}
+  .brandshots{display:flex;justify-content:center;align-items:flex-start;gap:14px;margin-top:22px;position:relative;z-index:1}
   .bshot{position:relative;width:96px;margin:0;background:#f8f4f2;border:1px solid var(--border-2);padding:6px 6px 16px;
     box-shadow:4px 5px 0 #5f2f1c30}
   .bshot img{display:block;width:100%;height:84px;object-fit:cover;filter:saturate(1.08) contrast(1.04)}
@@ -311,13 +337,13 @@ body{
   .bshot::after{content:"";position:absolute;inset:6px 6px 16px;pointer-events:none;
     background:linear-gradient(160deg,#97422048,transparent 55%);mix-blend-mode:multiply;
     box-shadow:inset 0 0 0 1px #97422055}
+  [dir="rtl"] .bshot::after{background:linear-gradient(200deg,#97422048,transparent 55%)}
   .bshot::before{content:"";position:absolute;top:-9px;left:50%;width:44px;height:16px;background:#96832c40;border-radius:2px;
     transform:translateX(-50%) rotate(-3deg);backdrop-filter:blur(1px);z-index:2}
   .bshot:nth-child(1){transform:rotate(-4deg)}
   .bshot:nth-child(2){transform:rotate(2.5deg) translateY(7px)}
   .bshot:nth-child(3){transform:rotate(-1.5deg) translateY(2px)}
   @media(min-width:900px){.bshot{width:132px}.bshot img{height:116px}}
-  @media (prefers-reduced-motion: reduce){.brandshots{opacity:1!important;animation:none!important}}
 
   @media (prefers-reduced-motion: reduce){
     *{animation:none!important;transition:none!important}
@@ -367,12 +393,12 @@ body{
 </style>
 </head>
 <body>
-<button class="lang-toggle" id="langToggle">English</button>
+<button class="lang-toggle touchable" id="langToggle">English</button>
 <div class="bigmark" aria-hidden="true"><span class="ar">ر</span><span class="en">R</span></div>
 <div class="wrap">
   <header class="hero">
     <div class="orb"></div>
-    <span class="mote" style="left:14%;top:10%;font-size:9px;animation-delay:0s">☁</span><span class="mote" style="left:78%;top:16%;font-size:9px;animation-delay:0.7s">☁</span><span class="mote" style="left:8%;top:46%;font-size:12px;animation-delay:1.4s">☁</span><span class="mote" style="left:86%;top:52%;font-size:14px;animation-delay:2.0999999999999996s">☁</span><span class="mote" style="left:24%;top:74%;font-size:11px;animation-delay:2.8s">☁</span><span class="mote" style="left:68%;top:80%;font-size:10px;animation-delay:3.5s">☁</span><span class="mote" style="left:46%;top:8%;font-size:9px;animation-delay:0.1999999999999993s">☁</span><span class="mote" style="left:90%;top:30%;font-size:12px;animation-delay:0.8999999999999995s">☁</span>
+    <span class="mote" style="inset-inline-start:14%;top:10%;font-size:9px;animation-delay:0s">☁</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:9px;animation-delay:0.7s">☁</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:12px;animation-delay:1.4s">☁</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:14px;animation-delay:2.0999999999999996s">☁</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:11px;animation-delay:2.8s">☁</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:10px;animation-delay:3.5s">☁</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:9px;animation-delay:0.1999999999999993s">☁</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:12px;animation-delay:0.8999999999999995s">☁</span>
     
 <svg class="scenebg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
  <defs>
@@ -439,7 +465,7 @@ body{
     </div>
     <div class="bx-roof" aria-hidden="true"><span class="bx-roof-cloud">☁</span><span class="bx-roof-sun"></span></div><p class="bx-roof-note">الصبح يبدأ من فوق</p>
   </header>
-  <nav class="chips"><a class="chip" href="#cat-0"><span class="ar">الشمس طلعت والبن جاهز</span><span class="en">Where the morning warms up</span></a><a class="chip" href="#cat-1"><span class="ar">على مهلك، السما ما تستعجل</span><span class="en">Slow, like clouds crossing</span></a><a class="chip" href="#cat-2"><span class="ar">نسمة باردة فوق السطوح</span><span class="en">A cool breeze up here</span></a><a class="chip" href="#cat-3"><span class="ar">دلة على ضو الصبح</span><span class="en">The dallah greets the sunrise</span></a><a class="chip" href="#cat-4"><span class="ar">لقمة حلوة والمنظر أحلى</span><span class="en">Something sweet for the view</span></a></nav>
+  <nav class="chips"><a class="chip touchable" href="#cat-0"><span class="ar">الشمس طلعت والبن جاهز</span><span class="en">Where the morning warms up</span></a><a class="chip touchable" href="#cat-1"><span class="ar">على مهلك، السما ما تستعجل</span><span class="en">Slow, like clouds crossing</span></a><a class="chip touchable" href="#cat-2"><span class="ar">نسمة باردة فوق السطوح</span><span class="en">A cool breeze up here</span></a><a class="chip touchable" href="#cat-3"><span class="ar">دلة على ضو الصبح</span><span class="en">The dallah greets the sunrise</span></a><a class="chip touchable" href="#cat-4"><span class="ar">لقمة حلوة والمنظر أحلى</span><span class="en">Something sweet for the view</span></a></nav>
   
   
   <section class="cat reveal cat--flip" id="cat-0" style="--sa:#974220;--sa2:#96832c">
@@ -462,56 +488,56 @@ body{
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>12<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">ماكياتو</span><span class="en">Macchiato</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>13<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كورتادو</span><span class="en">Cortado</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>15<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">فلات وايت</span><span class="en">Flat White</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>17<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كابتشينو</span><span class="en">Cappuccino</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>17<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">لاتيه</span><span class="en">Latte</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>18<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">سبانيش لاتيه</span><span class="en">Spanish Latte</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>20<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">لاتيه فستق</span><span class="en">Pistachio Latte</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>23<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
     </div>
   </section>
@@ -543,35 +569,35 @@ body{
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>24<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كيمكس</span><span class="en">Chemex</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>24<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">إيروبرس</span><span class="en">Aeropress</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>22<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">قهوة اليوم</span><span class="en">Coffee of the Day</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>16<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">مقطّرة باردة</span><span class="en">Iced Drip</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>22<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
     </div>
   </section>
@@ -604,35 +630,35 @@ body{
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>18<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">سبانيش لاتيه بارد</span><span class="en">Iced Spanish Latte</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>21<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كولد برو</span><span class="en">Cold Brew</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>19<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كولد برو تونيك</span><span class="en">Cold Brew Tonic</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>24<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">موكا باردة</span><span class="en">Iced Mocha</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>20<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
     </div>
   </section>
@@ -664,14 +690,14 @@ body{
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>25<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">طبق تمر</span><span class="en">Dates Plate</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>12<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
     </div>
   </section>
@@ -704,35 +730,35 @@ body{
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>12<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كرواسون زعتر</span><span class="en">Zaatar Croissant</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>13<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كوكيز شوكولاتة</span><span class="en">Chocolate Cookie</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>10<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">تشيز كيك سان سباستيان</span><span class="en">San Sebastián Cheesecake</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>26<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كيكة التمر</span><span class="en">Date Cake</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>15<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
       </div>
     </div>
   </section>
@@ -756,9 +782,9 @@ body{
   </div>
 </div>
 
-<button class="waiter-btn" id="waiterBtn" type="button" data-tip hidden>🔔 <span class="ar">نادِ النادل</span><span class="en">Call the waiter</span></button>
+<button class="waiter-btn touchable" id="waiterBtn" type="button" data-tip hidden>🔔 <span class="ar">نادِ النادل</span><span class="en">Call the waiter</span></button>
 <div class="acttip" id="actTip" role="status" aria-live="polite"><span class="ar">يتفعّل مع رقم واتساب المقهى ✦</span><span class="en">✦ Activates with the cafe's WhatsApp</span></div>
-<button class="skydial" id="skyDial" aria-label="تبديل السماء: نهار / ليل — Toggle sky: day / night" aria-pressed="false">☀</button>
+<button class="skydial touchable" id="skyDial" aria-label="تبديل السماء: نهار / ليل — Toggle sky: day / night" aria-pressed="false">☀</button>
 <script>
   const root=document.documentElement;
   const saved=localStorage.getItem('ms-lang')||'ar';
@@ -768,6 +794,10 @@ body{
   document.getElementById('langToggle').addEventListener('click',()=>{setLang(root.getAttribute('data-lang')==='ar'?'en':'ar');});
   const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // motion DNA haptic: a soft 8ms tick when a chip snaps you to a room (feature-checked, motion-respecting)
+  if(matchMedia('(prefers-reduced-motion: no-preference)').matches){
+    document.querySelectorAll('.chips .chip').forEach(c=>c.addEventListener('click',()=>{navigator.vibrate?.(8);}));
+  }
   // local-clock greeting: the doorway greets by the visitor's own hour (static text stays without JS)
   (function(){
     const h=new Date().getHours();
