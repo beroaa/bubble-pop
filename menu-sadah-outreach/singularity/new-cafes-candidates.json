@@ -1,0 +1,549 @@
+{
+ "found": 22,
+ "note": "evidence-only leads (real source URL each); NOT auto-built — need vetted menu data before building",
+ "cafes": [
+  {
+   "slug": "in-queue",
+   "name": "In Queue",
+   "nameAr": "إن كيو",
+   "area": "Hittin",
+   "instagram": "@inqueuesa",
+   "type": "specialty_coffee",
+   "confidence": "high",
+   "source": "https://www.timeoutriyadh.com/food-drink/new-coffee-shops-in-riyadh",
+   "items": [
+    {
+     "en": "V60 drip coffee",
+     "ar": "قهوة مقطرة V60",
+     "price": "",
+     "source": "https://www.timeoutriyadh.com/food-drink/new-coffee-shops-in-riyadh"
+    },
+    {
+     "en": "Flat white",
+     "ar": "فلات وايت",
+     "price": "",
+     "source": "https://www.timeoutriyadh.com/food-drink/new-coffee-shops-in-riyadh"
+    },
+    {
+     "en": "Espresso",
+     "ar": "إسبريسو",
+     "price": "",
+     "source": "https://www.timeoutriyadh.com/food-drink/new-coffee-shops-in-riyadh"
+    }
+   ]
+  },
+  {
+   "slug": "salam",
+   "name": "Salam",
+   "nameAr": "سلام",
+   "area": "Al Malqa",
+   "instagram": "@salamcafe.sa",
+   "type": "specialty_coffee",
+   "confidence": "high",
+   "source": "https://www.instagram.com/salamcafe.sa/",
+   "items": []
+  },
+  {
+   "slug": "camel-step-al-malqa-branch",
+   "name": "Camel Step (Al Malqa branch)",
+   "nameAr": "كامل ستيب",
+   "area": "Al Malqa",
+   "instagram": "@camelstep",
+   "type": "roastery",
+   "confidence": "high",
+   "source": "https://www.daymarkcoffeeguide.com/coffee-shops/camel-step-al-malqa-riyadh",
+   "items": [
+    {
+     "en": "Single-origin espresso",
+     "ar": "إسبريسو أحادي المصدر",
+     "price": "",
+     "source": "https://www.daymarkcoffeeguide.com/coffee-shops/camel-step-al-malqa-riyadh"
+    },
+    {
+     "en": "V60 pour-over",
+     "ar": "في60",
+     "price": "",
+     "source": "https://www.daymarkcoffeeguide.com/coffee-shops/camel-step-al-malqa-riyadh"
+    },
+    {
+     "en": "Cold brew",
+     "ar": "كولد برو",
+     "price": "",
+     "source": "https://www.daymarkcoffeeguide.com/coffee-shops/camel-step-al-malqa-riyadh"
+    }
+   ]
+  },
+  {
+   "slug": "recaf-al-narjis-branch",
+   "name": "Recaf (Al Narjis branch)",
+   "nameAr": "ريكاف",
+   "area": "Al Narjis",
+   "instagram": "@recaf_sa",
+   "type": "specialty_coffee",
+   "confidence": "medium",
+   "source": "https://www.instagram.com/recaf_sa/",
+   "items": []
+  },
+  {
+   "slug": "camel-step-coffee-roasters",
+   "name": "Camel Step Coffee Roasters",
+   "nameAr": "خطوة جمل",
+   "area": "Al Malqa / Abi Bakr As Siddiq Road, Riyadh",
+   "instagram": "@camelstep",
+   "type": "roastery",
+   "confidence": "high",
+   "source": "https://www.instagram.com/camelstep/",
+   "items": [
+    {
+     "en": "Single-origin espresso",
+     "ar": "",
+     "price": "",
+     "source": "https://www.daymarkcoffeeguide.com/coffee-shops/camel-step-al-malqa-riyadh"
+    },
+    {
+     "en": "V60 pour-over",
+     "ar": "",
+     "price": "",
+     "source": "https://www.daymarkcoffeeguide.com/coffee-shops/camel-step-al-malqa-riyadh"
+    },
+    {
+     "en": "Bright cold brew",
+     "ar": "",
+     "price": "",
+     "source": "https://www.daymarkcoffeeguide.com/coffee-shops/camel-step-al-malqa-riyadh"
+    }
+   ]
+  },
+  {
+   "slug": "elixir-bunn-coffee-roasters",
+   "name": "Elixir Bunn Coffee Roasters",
+   "nameAr": "إكسير البُن",
+   "area": "Al Olaya, Riyadh",
+   "instagram": "@elixirbunn",
+   "type": "roastery",
+   "confidence": "high",
+   "source": "https://www.instagram.com/elixirbunn/",
+   "items": [
+    {
+     "en": "Saudi Coffee - Southern Region Blend",
+     "ar": "",
+     "price": "",
+     "source": "https://www.tasteatlas.com/elixir-bunn-coffee-roasters-saudi-coffee---southern-region-blend"
+    },
+    {
+     "en": "V60 pour-over",
+     "ar": "",
+     "price": "",
+     "source": "https://houseofsaud.com/travel/riyadh-cafe-guide/"
+    },
+    {
+     "en": "Cold brew",
+     "ar": "",
+     "price": "",
+     "source": "https://houseofsaud.com/travel/riyadh-cafe-guide/"
+    }
+   ]
+  },
+  {
+   "slug": "brew92",
+   "name": "Brew92",
+   "nameAr": "٩٢°",
+   "area": "Al Nada, Riyadh",
+   "instagram": "@brew92cafe",
+   "type": "roastery",
+   "confidence": "high",
+   "source": "https://www.instagram.com/brew92cafe/",
+   "items": [
+    {
+     "en": "Spanish Latte (espresso with condensed milk)",
+     "ar": "",
+     "price": "",
+     "source": "https://www.timeoutriyadh.com/restaurants/brew92"
+    },
+    {
+     "en": "Brick by Brick (espresso with ice cream sandwich chunks)",
+     "ar": "",
+     "price": "",
+     "source": "https://www.timeoutriyadh.com/restaurants/brew92"
+    },
+    {
+     "en": "Salted Cow Latte",
+     "ar": "",
+     "price": "",
+     "source": "https://www.timeoutriyadh.com/restaurants/brew92"
+    }
+   ]
+  },
+  {
+   "slug": "woods-specialty-cafe-roastery",
+   "name": "Woods Specialty Cafe & Roastery",
+   "nameAr": "وودز",
+   "area": "Al Olaya, Riyadh",
+   "instagram": "@woods.ksa",
+   "type": "roastery",
+   "confidence": "high",
+   "source": "https://www.instagram.com/woods.ksa/",
+   "items": [
+    {
+     "en": "Specialty single-origin brewed coffee",
+     "ar": "",
+     "price": "",
+     "source": "https://www.timeoutriyadh.com/restaurants/woods-specialty-cafe-roastery"
+    },
+    {
+     "en": "Iced specialty brews",
+     "ar": "",
+     "price": "",
+     "source": "https://www.timeoutriyadh.com/restaurants/woods-specialty-cafe-roastery"
+    }
+   ]
+  },
+  {
+   "slug": "namq-coffee",
+   "name": "Namq Coffee",
+   "nameAr": "نمق قهوة ومحمصة",
+   "area": "Al Malqa, Riyadh",
+   "instagram": "@namq_cafe",
+   "type": "roastery",
+   "confidence": "high",
+   "source": "https://www.instagram.com/namq_cafe/",
+   "items": [
+    {
+     "en": "V60 pour-over",
+     "ar": "",
+     "price": "",
+     "source": "https://houseofsaud.com/travel/riyadh-cafe-guide/"
+    },
+    {
+     "en": "Cold brew",
+     "ar": "",
+     "price": "",
+     "source": "https://houseofsaud.com/travel/riyadh-cafe-guide/"
+    },
+    {
+     "en": "Croissant",
+     "ar": "",
+     "price": "",
+     "source": "https://www.timeoutriyadh.com/restaurants/namq-cafe"
+    }
+   ]
+  },
+  {
+   "slug": "arriyadh-roaster",
+   "name": "Arriyadh Roaster",
+   "nameAr": "محمصة الرياض",
+   "area": "Riyadh",
+   "instagram": "",
+   "type": "roastery",
+   "confidence": "medium",
+   "source": "https://arriyadhroaster.com/en",
+   "items": [
+    {
+     "en": "Freshly roasted specialty coffee beans (original Saudi blends)",
+     "ar": "قهوة مختصة محمصة طازج",
+     "price": "",
+     "source": "https://arriyadhroaster.com/ar/%D9%82%D9%87%D9%88%D8%A9-%D9%85%D8%AE%D8%AA%D8%B5%D8%A9/c340069676"
+    }
+   ]
+  },
+  {
+   "slug": "so-matcha",
+   "name": "So Matcha",
+   "nameAr": "سو ماتشا",
+   "area": "Shorofat Park, King Salman District / Olaya, Riyadh",
+   "instagram": "@somatcha.me",
+   "type": "matcha_bar",
+   "confidence": "high",
+   "source": "https://www.instagram.com/somatcha.me/",
+   "items": [
+    {
+     "en": "Iced matcha latte with vanilla cream foam",
+     "ar": "ايس ماتشا لاتيه بكريمة الفانيلا",
+     "price": "",
+     "source": "https://www.arabnews.com/node/2594965/food-health"
+    },
+    {
+     "en": "Matcha Fuel (pure matcha, shot of water & ice)",
+     "ar": "ماتشا فيول",
+     "price": "",
+     "source": "https://www.arabnews.com/node/2594965/food-health"
+    },
+    {
+     "en": "Matcha Marble Cake",
+     "ar": "كيك الماتشا الرخامي",
+     "price": "",
+     "source": "https://www.timeoutriyadh.com/food-drink/jimmy-choo-and-so-matcha"
+    }
+   ]
+  },
+  {
+   "slug": "aani-dani",
+   "name": "Aani & Dani",
+   "nameAr": "آني وداني",
+   "area": "Takhassusi, Riyadh (multiple branches)",
+   "instagram": "",
+   "type": "dessert_cafe",
+   "confidence": "high",
+   "source": "https://wanderlog.com/place/details/4358375/aani--dani-takhassusi",
+   "items": [
+    {
+     "en": "Kunafa caramel (crunchy kunafa, cream cheese, caramel, crushed Lotus)",
+     "ar": "كنافة كراميل",
+     "price": "",
+     "source": "https://www.timeoutriyadh.com/food-drink/food-trends-viral-riyadh"
+    },
+    {
+     "en": "Kunafa pistachio cake with chocolate ganache",
+     "ar": "كيك كنافة فستق مع غاناش الشوكولاتة",
+     "price": "159.95 SAR",
+     "source": "https://ananinja.com/sa/en/restaurants/aani-dani-18804"
+    },
+    {
+     "en": "Strawberry cheesecake",
+     "ar": "تشيز كيك فراولة",
+     "price": "222.95 SAR",
+     "source": "https://ananinja.com/sa/en/restaurants/aani-dani-18804"
+    }
+   ]
+  },
+  {
+   "slug": "iota",
+   "name": "IOTA",
+   "nameAr": "",
+   "area": "Riyadh",
+   "instagram": "",
+   "type": "specialty_coffee",
+   "confidence": "medium",
+   "source": "https://saudinights.com/riyadh/best-matcha-spots-riyadh/",
+   "items": [
+    {
+     "en": "Iced matcha latte",
+     "ar": "ايس ماتشا لاتيه",
+     "price": "",
+     "source": "https://saudinights.com/riyadh/best-matcha-spots-riyadh/"
+    }
+   ]
+  },
+  {
+   "slug": "origin-coffee-roasters",
+   "name": "Origin Coffee Roasters",
+   "nameAr": "",
+   "area": "Al Wurud",
+   "instagram": "@originroaster",
+   "type": "roastery",
+   "confidence": "high",
+   "source": "https://hungerstation.com/sa-en/restaurant/riyadh/al-wurud/161520",
+   "items": [
+    {
+     "en": "Spanish latte",
+     "ar": "",
+     "price": "",
+     "source": "https://foursquare.com/v/origin-coffee-roasters/5e29cb2606bf85000882508c"
+    },
+    {
+     "en": "Iced SORS latte",
+     "ar": "",
+     "price": "",
+     "source": "https://foursquare.com/v/origin-coffee-roasters/5e29cb2606bf85000882508c"
+    },
+    {
+     "en": "Matcha",
+     "ar": "",
+     "price": "",
+     "source": "https://foursquare.com/v/origin-coffee-roasters/5e29cb2606bf85000882508c"
+    }
+   ]
+  },
+  {
+   "slug": "calibrated-coffee-roasters",
+   "name": "Calibrated Coffee Roasters",
+   "nameAr": "",
+   "area": "Al Muruj",
+   "instagram": "",
+   "type": "roastery",
+   "confidence": "medium",
+   "source": "https://www.daymarkcoffeeguide.com/coffee-shops/calibrated-coffee-roasters-al-muruj-riyadh",
+   "items": [
+    {
+     "en": "V60 pour-over",
+     "ar": "",
+     "price": "",
+     "source": "https://www.daymarkcoffeeguide.com/coffee-shops/calibrated-coffee-roasters-al-muruj-riyadh"
+    },
+    {
+     "en": "Cortado",
+     "ar": "",
+     "price": "",
+     "source": "https://www.daymarkcoffeeguide.com/coffee-shops/calibrated-coffee-roasters-al-muruj-riyadh"
+    },
+    {
+     "en": "Matcha",
+     "ar": "",
+     "price": "",
+     "source": "https://www.daymarkcoffeeguide.com/coffee-shops/calibrated-coffee-roasters-al-muruj-riyadh"
+    }
+   ]
+  },
+  {
+   "slug": "idmi-roastery",
+   "name": "Idmi Roastery",
+   "nameAr": "",
+   "area": "Al Wurud",
+   "instagram": "",
+   "type": "roastery",
+   "confidence": "medium",
+   "source": "https://hungerstation.com/sa-en/restaurant/riyadh/al-wurud/151730",
+   "items": []
+  },
+  {
+   "slug": "b-aru-family-cafe",
+   "name": "Béaru Family Cafe",
+   "nameAr": "بيرو",
+   "area": "Al Yasmin (some listings say Al Malqa), northern Riyadh",
+   "instagram": "@bearu.cafe",
+   "type": "family_cafe",
+   "confidence": "high",
+   "source": "https://www.thisisriyadh.com/en/12548/family-day-plans-meet-bearu-cafe-in-riyadh",
+   "items": [
+    {
+     "en": "Babyccino (kid-friendly cappuccino)",
+     "ar": "",
+     "price": "",
+     "source": "https://www.thisisriyadh.com/en/12548/family-day-plans-meet-bearu-cafe-in-riyadh"
+    },
+    {
+     "en": "House-made sweet & savoury bites",
+     "ar": "",
+     "price": "",
+     "source": "https://www.instagram.com/bearu.cafe/"
+    }
+   ]
+  },
+  {
+   "slug": "namq-cafe",
+   "name": "Namq Cafe",
+   "nameAr": "نمق قهوة ومحمصة",
+   "area": "Al Malqa (Anas Ibn Malik Rd), Riyadh",
+   "instagram": "@namq_cafe",
+   "type": "specialty_coffee",
+   "confidence": "high",
+   "source": "https://www.instagram.com/namq_cafe/",
+   "items": [
+    {
+     "en": "Namq cake (signature)",
+     "ar": "",
+     "price": "",
+     "source": "https://www.timeoutriyadh.com/food-drink/sip-on-refined-coffee-beans-at-specialty-coffee-brand-namq-cafe"
+    },
+    {
+     "en": "V60 pour-over coffee",
+     "ar": "",
+     "price": "",
+     "source": "https://www.daymarkcoffeeguide.com/coffee-shops/namq-cafe-al-malqa-riyadh"
+    }
+   ]
+  },
+  {
+   "slug": "the-breakfast-club",
+   "name": "The Breakfast Club",
+   "nameAr": "ذا بريكفاست كلوب",
+   "area": "Al Ghadir (Northern Ring Road), Riyadh",
+   "instagram": "@breakfastclubksa",
+   "type": "family_cafe",
+   "confidence": "high",
+   "source": "https://www.instagram.com/breakfastclubksa/",
+   "items": [
+    {
+     "en": "Fluffy pancakes with strawberries & Nutella",
+     "ar": "",
+     "price": "",
+     "source": "https://www.timeoutriyadh.com/food-drink/family-friendly-restaurants-in-riyadh"
+    },
+    {
+     "en": "Eggs Benedict",
+     "ar": "",
+     "price": "",
+     "source": "https://www.tripadvisor.com/Restaurant_Review-g293995-d23115535-Reviews-The_Breakfast_Club-Riyadh_Riyadh_Province.html"
+    },
+    {
+     "en": "French toast",
+     "ar": "",
+     "price": "",
+     "source": "https://www.tripadvisor.com/Restaurant_Review-g293995-d23115535-Reviews-The_Breakfast_Club-Riyadh_Riyadh_Province.html"
+    }
+   ]
+  },
+  {
+   "slug": "nooa-naturally-out-of-africa",
+   "name": "NOOA (Naturally Out Of Africa)",
+   "nameAr": "نوا",
+   "area": "Laysen Valley, Umm Al Hamam Al Gharbi, Riyadh",
+   "instagram": "@nooasaudi",
+   "type": "family_cafe",
+   "confidence": "high",
+   "source": "https://www.instagram.com/nooasaudi/?hl=en",
+   "items": [
+    {
+     "en": "Caramelised Banana Pancakes (3 puffy pancakes, caramel, Chantilly)",
+     "ar": "",
+     "price": "",
+     "source": "https://www.timeoutriyadh.com/restaurants/breakfast-at-nooa"
+    },
+    {
+     "en": "Eggs Benedict",
+     "ar": "",
+     "price": "",
+     "source": "https://www.timeoutriyadh.com/restaurants/breakfast-at-nooa"
+    }
+   ]
+  },
+  {
+   "slug": "brunch-cake",
+   "name": "Brunch & Cake",
+   "nameAr": "برانش أند كيك",
+   "area": "Bujairi Terrace, Diriyah, Riyadh",
+   "instagram": "@brunchandcakeksa",
+   "type": "dessert_cafe",
+   "confidence": "high",
+   "source": "https://www.visitsaudi.com/en/riyadh/attractions/brunch-and-cake",
+   "items": [
+    {
+     "en": "NY Cheesecake Pancakes",
+     "ar": "",
+     "price": "",
+     "source": "https://www.tripadvisor.com/Restaurant_Review-g293995-d25109144-Reviews-Brunch_Cake_Al_Bujairi-Riyadh_Riyadh_Province.html"
+    },
+    {
+     "en": "Eggs Carbonara",
+     "ar": "",
+     "price": "",
+     "source": "https://www.visitsaudi.com/en/riyadh/attractions/brunch-and-cake"
+    },
+    {
+     "en": "Pulled Beef Benny",
+     "ar": "",
+     "price": "",
+     "source": "https://www.tripadvisor.com/Restaurant_Review-g293995-d25109144-Reviews-Brunch_Cake_Al_Bujairi-Riyadh_Riyadh_Province.html"
+    }
+   ]
+  },
+  {
+   "slug": "repository-coffee-roasters",
+   "name": "Repository Coffee Roasters",
+   "nameAr": "محمصة ريبوستري",
+   "area": "An Narjis / Al Olaya, Riyadh",
+   "instagram": "@repository.sa",
+   "type": "roastery",
+   "confidence": "high",
+   "source": "https://www.instagram.com/repository.sa/",
+   "items": [
+    {
+     "en": "Single-origin filter and espresso from rotating origins",
+     "ar": "",
+     "price": "",
+     "source": "https://www.daymarkcoffeeguide.com/cities/coffee-shops-in-riyadh"
+    }
+   ]
+  }
+ ]
+}
