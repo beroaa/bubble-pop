@@ -1,5 +1,5 @@
 window.BUILDS_STATE = {
- "generatedAt": 1784465523606,
+ "generatedAt": 1784506554864,
  "builds": [
   {
    "id": "b1",
@@ -335,6 +335,33 @@ window.BUILDS_STATE = {
     }
    ],
    "result": "43/50 cafes now show REAL Google Maps photos (428 shots, per-cafe folders + provenance). 9 wrong matches purged (evidence rule), 2 recovered. Deployed to menu-sadah.com. 7 need manual match."
+  },
+  {
+   "id": "b17",
+   "name": "🎨 50 BESPOKE ANIMATED LOGOS (Beyt-level)",
+   "status": "running",
+   "pct": 40,
+   "etaAt": 1784508954864,
+   "note": "typography done; logos still drawing",
+   "startedAt": 1784505782092,
+   "feed": [
+    {
+     "at": 1784505782137,
+     "msg": "reading all 50 cafe identities"
+    },
+    {
+     "at": 1784506038636,
+     "msg": "50 logo artists drawing now"
+    },
+    {
+     "at": 1784506038682,
+     "msg": "meanwhile: making all menu text bigger + bolder"
+    },
+    {
+     "at": 1784506554775,
+     "msg": "menu text now big + bold — verified on phone"
+    }
+   ]
   }
  ]
 };

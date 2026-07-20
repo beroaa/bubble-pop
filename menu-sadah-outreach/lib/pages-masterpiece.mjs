@@ -197,6 +197,95 @@ function brandMark(cafe, brief, c, tag) {
 const MENU_MARK_COLORS = { ink: 'var(--ink)', accent: 'var(--accent)', sa: 'var(--sa)', sa2: 'var(--sa2)', accent2: 'var(--accent-2)' };
 const GIFT_MARK_COLORS = { ink: 'var(--ink)', accent: 'var(--rose)', sa: 'var(--gold)', sa2: 'var(--sage)', accent2: 'var(--ochre)' };
 
+/* ---------- brandlogo50: per-cafe BESPOKE animated logo (Beyt-level, pre-vetted) ----------
+   {slug:{concept,css,svg}} — a hand-designed self-assembling inline-SVG logo shown BIG at the
+   hero and small at the footer (like Beyt's cube). The svg/css use the token UID (replaced with a
+   per-cafe id at render) and colors ONLY via the logo vars --lk/--la/--ls/--ls2/--la2/--lp, so one
+   design reads correctly in both the menu and gift palettes. Validated by merge-logos.mjs; a missing
+   or malformed entry falls back to the generic animated brandMark — a broken logo never ships. */
+const BRANDLOGO_FILE = fileURLToPath(new URL('../singularity/brandlogo50.json', import.meta.url));
+const BRANDLOGO = (() => {
+  try {
+    if (existsSync(BRANDLOGO_FILE)) return JSON.parse(readFileSync(BRANDLOGO_FILE, 'utf8'));
+  } catch { /* malformed file → no bespoke logos, menus still build with the generic mark */ }
+  return {};
+})();
+function brandLogoEntry(slug) {
+  const e = slug && BRANDLOGO[slug];
+  if (!e || typeof e.svg !== 'string' || typeof e.css !== 'string') return null;
+  if (e.svg.length > 5200 || e.css.length > 4600) return null; // size guard
+  if (!/^<svg[\s>]/.test(e.svg.trim())) return null;
+  return e;
+}
+/* render one bespoke-logo instance: UID → per-cafe id; css emitted once (withCss) then reused */
+function brandLogoHtml(entry, slug, cls, withCss) {
+  const id = 'L' + seedOf(slug + 'logo').toString(36);
+  const svg = entry.svg.replace(/UID/g, id);
+  const css = withCss ? `<style>${entry.css.replace(/UID/g, id)}</style>` : '';
+  return `<div class="brandlogo ${cls}" aria-hidden="true">${css}${svg}</div>`;
+}
+/* shared wrapper CSS: the logo color-var contract + hero/footer sizing + reduced-motion safety.
+   `vars` differs per page so the SAME svg inherits that page's palette. */
+function brandLogoCss(vars) {
+  return `.brandlogo{${vars};line-height:0}
+  .brandlogo svg{display:block;overflow:visible;width:100%;height:auto}
+  .brandlogo *{transform-box:fill-box;transform-origin:center}
+  .brandlogo.big{width:min(196px,54vw);margin:2px auto 8px}
+  .brandlogo.big svg{filter:drop-shadow(0 10px 22px var(--accent-soft,rgba(0,0,0,.14)))}
+  .brandlogo.mini{width:60px;margin:0 auto 12px;opacity:.96}
+  @media(min-width:900px){.brandlogo.big{width:236px}.brandlogo.mini{width:70px}}
+  @media(prefers-reduced-motion:reduce){.brandlogo svg *{animation:none!important;opacity:1!important;stroke-dashoffset:0!important;filter:none!important;transform:none!important}}
+  @media print{.brandlogo{display:none!important}}`;
+}
+
+/* ---------- BOLD BRAND TYPOGRAPHY: per-archetype type VOICE (size/weight/case/tracking) ----------
+   Layered after the ink-craft finish, so it never touches heading COLOR (ink stays ink) — it only
+   pushes scale, weight, case and letter-spacing so each brand's words feel designed, never timid.
+   Transform-free where a reveal animation runs, except playful-hand whose tilt is intentional. */
+const TYPE_PERSONA = {
+  'editorial-mag': `.room-eyebrow{border-top:2px solid var(--ink);display:inline-block;padding-top:5px}
+    .room-h2{font-weight:800;letter-spacing:-.022em}
+    h1{letter-spacing:-.035em}
+    .item-name{font-weight:600;letter-spacing:-.01em}`,
+  'poster-dark': `.room-eyebrow{letter-spacing:.3em}
+    .room-h2{text-transform:uppercase;letter-spacing:.03em;font-weight:800}
+    h1{letter-spacing:-.015em}`,
+  'neon-arcade': `.room-eyebrow{letter-spacing:.34em}
+    .room-h2{text-transform:uppercase;letter-spacing:.05em;font-weight:800}
+    .item-name{font-weight:600}
+    .price{letter-spacing:.02em}`,
+  'majlis-heritage': `.room-eyebrow{letter-spacing:.26em;font-weight:700}
+    .room-h2{font-weight:700}
+    [data-lang="ar"] .room-h2{font-size:1.07em}
+    .item-name{font-weight:600}`,
+  'garden-fresh': `.room-eyebrow{letter-spacing:.22em}
+    .room-h2{font-weight:800;letter-spacing:-.01em}
+    .item-name{font-weight:600}`,
+  'storybook-light': `.room-eyebrow{letter-spacing:.2em}
+    .room-h2{font-weight:800}
+    .item-name{font-weight:600}`,
+  'playful-hand': `.room-eyebrow{letter-spacing:.18em}
+    .room-h2{font-weight:800;transform:rotate(-1.4deg)}
+    .cat--flip .room-h2{transform:rotate(1.4deg)}
+    .item-name{font-weight:600}`,
+  'ticket-diner': `.room-eyebrow{letter-spacing:.26em}
+    .room-h2{text-transform:uppercase;letter-spacing:.02em;font-weight:800}
+    .price{font-family:ui-monospace,Menlo,monospace;letter-spacing:-.02em}
+    .item-name{font-weight:600}`,
+};
+function typePersona(arch) {
+  return `  /* ---- BOLD BRAND TYPOGRAPHY: confident scale + ${arch} voice + animated headers ---- */
+  .room-eyebrow{font-weight:800}
+  ${TYPE_PERSONA[arch] || '.room-h2{font-weight:800}.item-name{font-weight:600}'}
+  @media (prefers-reduced-motion:no-preference){
+    .reveal .room-h2,.reveal .room-eyebrow{opacity:0}
+    .reveal.in .room-eyebrow{animation:rhk .5s ease .05s forwards}
+    .reveal.in .room-h2{animation:rh2in .62s ease .12s forwards}
+    @keyframes rh2in{0%{opacity:0;filter:blur(5px)}100%{opacity:1;filter:blur(0)}}
+    @keyframes rhk{to{opacity:1}}
+  }`;
+}
+
 /* shared gold trio handed to every scene pack */
 const SCENE_GOLD = { gold: '#c79a3a', goldBright: '#e8c268', goldDeep: '#8a6a1f' };
 
@@ -534,8 +623,12 @@ export function masterpieceMenuPage(cafe, brief) {
   const direction = directPhotos(cafe.slug, cafePhotos(cafe.slug)); // photodirection50: directed order + excludes
   const shots = direction.shots; // directed → hero first, then strip: the polaroids read in art-directed order
   const roomShots = direction.rooms; // directed room list (cycled, hint → object-position); null → auto cycle
-  const logo = cafeLogo(cafe.slug); // real brand logo → medallion (fallback: animated mark, then initial)
-  const menuMark = logo ? '' : brandMark(cafe, brief, MENU_MARK_COLORS, 'm'); // designed self-assembling SVG mark
+  const logo = cafeLogo(cafe.slug); // real brand logo → medallion (fallback: bespoke logo, animated mark, then initial)
+  const blogo = logo ? null : brandLogoEntry(cafe.slug); // BESPOKE Beyt-level animated logo (big hero + footer mini)
+  // when a bespoke logo carries the hero, the medallion drops back to the plain bilingual initial
+  const menuMark = (logo || blogo) ? '' : brandMark(cafe, brief, MENU_MARK_COLORS, 'm'); // designed self-assembling SVG mark
+  const heroLogo = blogo ? brandLogoHtml(blogo, cafe.slug, 'big', true) : '';
+  const footLogo = blogo ? brandLogoHtml(blogo, cafe.slug, 'mini', false) : '';
   const shotSrc = (i) => esc('../assets/photos/' + cafe.slug + '/' + shots[i % shots.length].file);
   const polish = polishFor(cafe.slug); // bespoke per-cafe touch (polish50)
   const voice = ROOMVOICE[cafe.slug] || null; // roomvoice50: spoken room asides + third diary
@@ -678,7 +771,7 @@ export function masterpieceMenuPage(cafe, brief) {
   .medal .logo{width:84%;height:84%;object-fit:contain;border-radius:50%;position:relative;z-index:1}
   .medal.haslogo>span{display:none}
   @keyframes mfloat{50%{transform:translateY(-6px)}}
-  h1{font-size:36px;letter-spacing:-.01em;line-height:1.2}
+  h1{font-size:clamp(41px,11.5vw,54px);font-weight:800;letter-spacing:-.02em;line-height:1.08}
   h1 .ar{font-family:${T.fonts.ar}}
   h1 .en{font-family:${T.fonts.en}}
   /* gradient-clip only AFTER word entrance — transformed child spans break background-clip:text in Chrome */
@@ -695,7 +788,7 @@ export function masterpieceMenuPage(cafe, brief) {
     100%{opacity:1;transform:none}}
   .world{margin-top:10px;color:var(--text-3);font-size:13px;letter-spacing:.08em}
   .world b{color:${R[1]};font-weight:600}
-  .heroline{margin-top:8px;color:var(--text-2);font-size:19px;line-height:1.5}
+  .heroline{margin-top:10px;color:var(--text-2);font-size:22px;font-weight:600;line-height:1.45}
   .heroline .ar{font-family:${T.fonts.ar}}
   .heroline .en{font-family:${T.fonts.en}}
   .meta{margin-top:14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
@@ -735,7 +828,7 @@ export function masterpieceMenuPage(cafe, brief) {
   @keyframes sfloat{50%{transform:translateY(-5px)}}
   .sig-art{width:74px;height:74px;margin:0 auto 8px}
   .sig-art svg{width:100%;height:100%;filter:drop-shadow(0 6px 14px ${a}59)}
-  .sig-name{font-size:14.5px;font-weight:600;line-height:1.35}
+  .sig-name{font-size:16px;font-weight:700;line-height:1.32}
   .stamp{display:inline-flex;align-items:baseline;gap:3px;margin-top:8px;padding:3px 12px;border:1.7px solid var(--sa);
     border-radius:999px;color:var(--sa);font-weight:800;font-size:16px;transform:rotate(-4deg);
     box-shadow:0 0 0 3px ${a}0f}
@@ -764,8 +857,8 @@ export function masterpieceMenuPage(cafe, brief) {
   .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
     box-shadow:inset 0 0 0 1px ${a}55}
   .cat-title{flex:1;min-width:0}
-  .room-eyebrow{color:var(--text-3);font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:3px}
-  .room-h2{color:var(--sa);font-size:22px;line-height:1.3}
+  .room-eyebrow{color:var(--text-3);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+  .room-h2{color:var(--sa);font-size:28px;font-weight:800;line-height:1.14;letter-spacing:-.01em}
   .room-h2 .ar{font-family:${T.fonts.ar}}
   .room-h2 .en{font-family:${T.fonts.en}}
   /* self-drawing ink underline: a hand-wavy SVG stroke that draws itself on reveal */
@@ -787,11 +880,11 @@ export function masterpieceMenuPage(cafe, brief) {
   @keyframes sepidle{0%,100%{transform:translateX(0);opacity:.82}50%{transform:translateX(calc(6px * var(--tx,1)));opacity:1}}
 
   .items{position:relative;background:${P.bg1}d9;border:1px solid var(--border-1);border-radius:20px;padding:6px 18px;box-shadow:var(--shadow)}
-  .item{display:flex;align-items:baseline;gap:10px;padding:15px 0;border-bottom:1px solid ${P.bg2}99}
+  .item{display:flex;align-items:baseline;gap:10px;padding:16px 0;border-bottom:1px solid ${P.bg2}99}
   .item:last-child{border-bottom:none}
-  .item-name{font-size:16px}
+  .item-name{font-size:18.5px;font-weight:600;line-height:1.32;letter-spacing:-.004em}
   .dots{flex:1;border-bottom:1px dotted var(--border-2);transform:translateY(-4px)}
-  .price{color:var(--sa);font-weight:800;white-space:nowrap;font-variant-numeric:tabular-nums;display:flex;align-items:baseline;gap:6px}
+  .price{color:var(--sa);font-weight:800;font-size:18px;white-space:nowrap;font-variant-numeric:tabular-nums;display:flex;align-items:baseline;gap:6px}
   .pdot{width:6px;height:6px;border-radius:50%;background:var(--sa);opacity:0;transform:scale(0)}
   .reveal.in .pdot{animation:dotpop .45s cubic-bezier(.2,1.6,.4,1) forwards}
   @keyframes dotpop{0%{opacity:0;transform:scale(0)}70%{opacity:1;transform:scale(1.5)}100%{opacity:.9;transform:scale(1)}}
@@ -865,17 +958,18 @@ export function masterpieceMenuPage(cafe, brief) {
     .hero{min-height:62vh;display:flex;flex-direction:column;justify-content:center;padding:40px 0 14px}
     .medal{width:136px;height:136px}
     .medal span{font-size:58px}
-    h1{font-size:66px}
+    h1{font-size:clamp(66px,8vw,84px)}
     .world{font-size:15px;margin-top:16px}
-    .heroline{font-size:27px;margin-top:12px}
-    .room-h2{font-size:34px}
-    .room-voice{font-size:17px}
-    .inkline{width:min(190px,72%)}
+    .heroline{font-size:30px;margin-top:14px}
+    .room-h2{font-size:42px}
+    .room-voice{font-size:18px}
+    .inkline{width:min(200px,72%)}
     .inkline path{stroke-width:2.6}
     .cat-art{width:96px;height:96px}
     .items{padding:10px 30px}
-    .item{padding:18px 0}
-    .item-name{font-size:17.5px}
+    .item{padding:20px 0}
+    .item-name{font-size:20px}
+    .price{font-size:20px}
     .sig-art{width:96px;height:96px}
     .sig{padding:26px 22px 24px}
     .diary{max-width:480px;font-size:17px}
@@ -929,6 +1023,9 @@ ${P.mode === 'light' ? `
   .sig{border:2px solid var(--ink);box-shadow:5px 5px 0 var(--ink)}
   .sig-card{border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink)}
   .stamp{border-color:var(--sa);color:var(--sa)}` : ''}
+
+${typePersona(arch)}
+  ${brandLogoCss('--lk:var(--ink);--la:var(--accent);--ls:var(--sa);--ls2:var(--sa2);--la2:var(--accent-2);--lp:var(--bg-1)')}
 ${shots.length ? `
   /* ---- brandshots: the cafe's OWN photos, pinned like polaroids ---- */
   .brandshots{display:flex;justify-content:center;align-items:flex-start;gap:14px;margin-top:22px;position:relative;z-index:1}
@@ -949,7 +1046,7 @@ ${shots.length ? `
 
   @media (prefers-reduced-motion: reduce){
     *{animation:none!important;transition:none!important}
-    .reveal,.reveal.in .item,.heroline,.world,.meta,.greet,h1 .w,h1 .lt{opacity:1!important;transform:none!important}
+    .reveal,.reveal.in .item,.heroline,.world,.meta,.greet,h1 .w,h1 .lt,.reveal .room-h2,.reveal .room-eyebrow{opacity:1!important;transform:none!important;filter:none!important}
     .room-voice{opacity:.85!important;transform:none!important}
     .sep,.sep-scene{animation:none!important;transform:none!important}
     .pdot{opacity:.9!important;transform:scale(1)!important}
@@ -969,7 +1066,7 @@ ${shots.length ? `
     .cat-art,.sig-art,.brandshots,.diary,.pdot,.brandbg,.sadu-band,.najdi{display:none!important}
     .wrap{max-width:100%;padding:0}
     .hero{min-height:0!important;padding:0 0 8px!important;display:block!important}
-    .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
+    .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item,.reveal .room-h2,.reveal .room-eyebrow{opacity:1!important;transform:none!important;filter:none!important}
     h1{color:#000!important;background:none!important;-webkit-text-fill-color:#000!important;font-size:30px!important}
     .medal{width:70px!important;height:70px!important;margin-bottom:8px;border-color:#000!important;background:#fff!important}
     .medal .mark{display:none!important}
@@ -1006,6 +1103,7 @@ ${bbg ? bbg.html : ''}
     ${motesHtml(brief.motif, sd)}
     ${SC ? SC.heroHtml : ''}
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
+    ${heroLogo}
     <div class="medal${logo ? ' haslogo' : menuMark ? ' hasmark' : ''}">${najdiFrame('var(--ink)')}${logo ? logoImg(logo) : menuMark}<span><span class="ar">${esc((cafe.nameAr || cafe.name).trim()[0])}</span><span class="en">${esc(cafe.name.trim()[0].toUpperCase())}</span></span></div>
     <h1><span class="ar">${esc(cafe.nameAr)}</span><span class="en">${esc(cafe.name)}</span></h1>
     <div class="world"><span class="ar">✦ <b>${esc(brief.world?.ar || '')}</b> ✦</span><span class="en">✦ <b>${esc(brief.world?.en || '')}</b> ✦</span></div>
@@ -1034,6 +1132,7 @@ ${bbg ? bbg.html : ''}
     <span class="en">📱 Live digital menu: scan the table QR — menu-sadah.com/${esc(cafe.slug)}</span>
   </div>
   <div class="footer">
+    ${footLogo}
     ${cafe.social && /^@/.test(String(cafe.social)) ? `<div style="margin-bottom:6px;color:var(--text-2)"><span class="ar">تابعوا ${esc(cafe.nameAr)}: <b style="color:var(--accent)">${esc(cafe.social)}</b></span><span class="en">Follow ${esc(cafe.name)}: <b style="color:var(--accent)">${esc(cafe.social)}</b></span></div>` : ''}
     <span class="ar">تجربة من <a href="${CONTACT.site}">منيو سادة — MENU SADAH</a></span>
     <span class="en">Crafted by <a href="${CONTACT.site}">MENU SADAH</a></span>
@@ -1171,9 +1270,11 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
   // per-cafe shots (VISUALS-FIRST law) are the ONLY photos allowed — shared category photos are banned
   // photodirection50: detail cards lead with hero + first strip file; excluded files never render
   const shots = directPhotos(cafe.slug, cafePhotos(cafe.slug), true).shots;
-  const logo = cafeLogo(cafe.slug); // real brand logo → medallions (fallback: animated mark, then initial)
-  const giftMark = logo ? '' : brandMark(cafe, brief, GIFT_MARK_COLORS, 'w'); // hero medallion mark
+  const logo = cafeLogo(cafe.slug); // real brand logo → medallions (fallback: bespoke logo, animated mark, then initial)
+  const blogo = logo ? null : brandLogoEntry(cafe.slug); // BESPOKE Beyt-level animated logo, big above the letter
+  const giftMark = (logo || blogo) ? '' : brandMark(cafe, brief, GIFT_MARK_COLORS, 'w'); // hero medallion mark
   const miniMark = logo ? '' : brandMark(cafe, brief, GIFT_MARK_COLORS, 's'); // sticky-bar mini medallion mark
+  const giftHeroLogo = blogo ? brandLogoHtml(blogo, cafe.slug, 'big', true) : '';
   const social = extras.social && /^@/.test(String(extras.social).trim()) ? String(extras.social).trim() : null;
   const rooms = (brief.rooms || []).slice(0, 3);
   const diary = (brief.diaryAr || [])[0];
@@ -1390,6 +1491,8 @@ ${bbg ? `
   @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}
     .medal,h1,.world,.heroline,.cta,.rv{opacity:1!important;transform:none!important}
     .sting-wash{display:none!important}.curtain{display:none!important}}
+  ${brandLogoCss('--lk:var(--ink);--la:var(--rose);--ls:var(--gold);--ls2:var(--sage);--la2:var(--ochre);--lp:var(--paper,#fffdf6)')}
+  .brandlogo.big{width:min(210px,58vw);margin:6px auto 10px}
 </style>
 <script>
   // CINEMA STING gate — decided before first paint: once per session, never for reduced-motion
@@ -1412,6 +1515,7 @@ ${bbg ? bbg.html : ''}
     ${SC ? SC.heroHtml : ''}
     ${motesHtml(brief.motif, sd)}
     <div class="kick">${B('🎁 هدية من منيو سادة · ليست إعلاناً', '🎁 A gift from Menu Sadah · not an ad')}</div>
+    ${giftHeroLogo}
     <div class="medal${logo ? ' haslogo' : giftMark ? ' hasmark' : ''}">${najdiFrame('var(--ink)')}${logo ? logoImg(logo) : giftMark}<span><span class="ar">${initAr}</span><span class="en">${initEn}</span></span></div>
     <h1>${B('أهلاً ببيت <b>' + esc(cafe.nameAr) + '</b>', 'Welcome home, <b>' + esc(cafe.name) + '</b>.')}</h1>
     <div class="world">${B('✦ ' + esc(brief.world?.ar || '') + ' ✦', '✦ ' + esc(brief.world?.en || '') + ' ✦')}</div>
