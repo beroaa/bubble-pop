@@ -422,6 +422,33 @@ body::after{
   .hero{overflow-x:clip}
   .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(85% 65% at 20% 15%,var(--sa) 0%,transparent 55%),radial-gradient(72% 62% at 85% 26%,var(--accent-2) 0%,transparent 52%),radial-gradient(120% 110% at 50% 125%,var(--sa2) 0%,transparent 60%),linear-gradient(165deg,var(--accent) 0%,#0a0b1e 46%,#05061a 72%,#020310 100%)}.brandbg i,.brandbg span{position:absolute;display:block;border-radius:50%}.brandbg .g1{inset-block-start:-14%;inset-inline-start:-8%;width:60vmax;height:60vmax;background:radial-gradient(circle,var(--accent-2),transparent 62%);filter:blur(34px);opacity:.5;mix-blend-mode:screen}.brandbg .g2{inset-block-end:-18%;inset-inline-end:-12%;width:54vmax;height:54vmax;background:radial-gradient(circle,var(--sa),transparent 60%);filter:blur(38px);opacity:.46;mix-blend-mode:screen}.brandbg .g3{inset-block-start:32%;inset-inline-start:42%;width:34vmax;height:34vmax;background:radial-gradient(circle,var(--sa2),transparent 66%);filter:blur(44px);opacity:.4;mix-blend-mode:screen}.brandbg .mote{width:5px;height:5px;background:var(--accent-2);box-shadow:0 0 10px var(--accent-2)}.brandbg .m1{inset-inline-start:16%;inset-block-end:8%}.brandbg .m2{inset-inline-start:36%;inset-block-end:-2%;width:4px;height:4px}.brandbg .m3{inset-inline-start:60%;inset-block-end:5%}.brandbg .m4{inset-inline-start:80%;inset-block-end:1%;width:4px;height:4px}.brandbg .m5{inset-inline-start:48%;inset-block-end:12%;width:6px;height:6px}.brandbg .vig{inset:0;width:auto;height:auto;border-radius:0;background:radial-gradient(130% 95% at 50% 38%,transparent 52%,#01020c 100%)}@media (prefers-reduced-motion:no-preference){.brandbg .g1{animation:bgD1 24s ease-in-out infinite}.brandbg .g2{animation:bgD2 30s ease-in-out infinite}.brandbg .g3{animation:bgP 16s ease-in-out infinite}.brandbg .mote{animation:bgRise 18s linear infinite}.brandbg .m2{animation-duration:24s;animation-delay:-5s}.brandbg .m3{animation-duration:15s;animation-delay:-8s}.brandbg .m4{animation-duration:21s;animation-delay:-3s}.brandbg .m5{animation-duration:27s;animation-delay:-11s}@keyframes bgD1{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(6%,4%,0)}}@keyframes bgD2{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(-5%,-4%,0)}}@keyframes bgP{0%,100%{opacity:.32;transform:scale(1)}50%{opacity:.5;transform:scale(1.16)}}@keyframes bgRise{0%{transform:translateY(18vh) scale(.5);opacity:0}20%{opacity:.9}82%{opacity:.85}100%{transform:translateY(-32vh) scale(1);opacity:0}}}
 
+  /* ---- wow50: bespoke hero signature flourish (decorative, behind the text) ---- */
+  .hero{position:relative}
+  .hero .wow{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+  .hero>.greet,.hero>.brandlogo,.hero>.medal,.hero>h1,.hero>.world,.hero>.heroline,.hero>.meta,.hero>.brandshots,.hero>.orb{position:relative;z-index:1}
+  @media (prefers-reduced-motion:reduce){.hero .wow *{animation:none!important}}
+  @media print{.hero .wow{display:none!important}}
+  .wow-sparks{position:absolute;inset:0;overflow:hidden}
+.wow-sparks i{position:absolute;bottom:-6px;width:3px;height:3px;border-radius:50%;background:var(--accent);opacity:.3;box-shadow:0 0 6px var(--accent)}
+.wow-sparks i:nth-child(1){left:16%}
+.wow-sparks i:nth-child(2){left:34%;background:var(--accent-2);box-shadow:0 0 6px var(--accent-2)}
+.wow-sparks i:nth-child(3){left:52%}
+.wow-sparks i:nth-child(4){left:68%;background:var(--accent-2);box-shadow:0 0 6px var(--accent-2)}
+.wow-sparks i:nth-child(5){left:82%}
+.wow-sparks i:nth-child(6){left:44%}
+.wow-sparks b{position:absolute;top:20%;left:72%;width:60px;height:60px;border-radius:50%;background:var(--accent-2);opacity:.06;filter:blur(13px)}
+@media (prefers-reduced-motion:no-preference){
+.wow-sparks i{animation:wowrise 10s ease-in infinite}
+.wow-sparks i:nth-child(2){animation-duration:12s;animation-delay:-3s}
+.wow-sparks i:nth-child(3){animation-duration:9s;animation-delay:-5s}
+.wow-sparks i:nth-child(4){animation-duration:13s;animation-delay:-2s}
+.wow-sparks i:nth-child(5){animation-duration:11s;animation-delay:-6s}
+.wow-sparks i:nth-child(6){animation-duration:14s;animation-delay:-8s}
+.wow-sparks b{animation:wowpulse 8s ease-in-out infinite}
+@keyframes wowrise{0%{transform:translateY(0);opacity:0}15%{opacity:.45}85%{opacity:.2}100%{transform:translateY(-115vh);opacity:0}}
+@keyframes wowpulse{0%,100%{opacity:.04}50%{opacity:.16}}
+}
+
   /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
   
   .medal{position:relative}
@@ -540,6 +567,7 @@ body::after{
 <div class="wrap">
   <header class="hero">
     <div class="orb"></div>
+    <div class="wow wow-sparks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><b></b></div>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:11px;animation-delay:0s">✴</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:13px;animation-delay:0.7s">✳</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:14px;animation-delay:1.4s">·</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:11px;animation-delay:2.0999999999999996s">✦</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:13px;animation-delay:2.8s">✴</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:11px;animation-delay:3.5s">✳</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:13px;animation-delay:0.1999999999999993s">·</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:14px;animation-delay:0.8999999999999995s">✦</span>
     <svg class="scenebg" viewBox="0 0 1200 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
 <defs>

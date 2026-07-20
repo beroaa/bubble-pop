@@ -459,6 +459,28 @@ body{
 @keyframes bg_hue{0%,100%{filter:hue-rotate(0deg)}50%{filter:hue-rotate(12deg)}}
 }
 
+  /* ---- wow50: bespoke hero signature flourish (decorative, behind the text) ---- */
+  .hero{position:relative}
+  .hero .wow{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+  .hero>.greet,.hero>.brandlogo,.hero>.medal,.hero>h1,.hero>.world,.hero>.heroline,.hero>.meta,.hero>.brandshots,.hero>.orb{position:relative;z-index:1}
+  @media (prefers-reduced-motion:reduce){.hero .wow *{animation:none!important}}
+  @media print{.hero .wow{display:none!important}}
+  .wow-leaves{position:absolute;inset:0;overflow:hidden}
+.wow-leaves i{position:absolute;top:-6%;width:11px;height:7px;border-radius:0 100% 0 100%;background:var(--accent);opacity:0}
+.wow-leaves i:nth-child(1){left:15%}
+.wow-leaves i:nth-child(2){left:38%}
+.wow-leaves i:nth-child(3){left:60%}
+.wow-leaves i:nth-child(4){left:78%}
+.wow-leaves i:nth-child(5){left:90%}
+@media (prefers-reduced-motion:no-preference){
+.wow-leaves i{animation:wowFall 15s linear infinite}
+.wow-leaves i:nth-child(2){animation-duration:19s;animation-delay:3s}
+.wow-leaves i:nth-child(3){animation-duration:16s;animation-delay:7s}
+.wow-leaves i:nth-child(4){animation-duration:21s;animation-delay:2s}
+.wow-leaves i:nth-child(5){animation-duration:17s;animation-delay:10s}
+@keyframes wowFall{0%{transform:translate(0,-20px) rotate(0);opacity:0}12%{opacity:.26}50%{transform:translate(26px,180px) rotate(150deg)}88%{opacity:.26}100%{transform:translate(-12px,380px) rotate(310deg);opacity:0}}
+}
+
   /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
   
   .medal{position:relative}
@@ -561,6 +583,7 @@ body{
 <div class="wrap">
   <header class="hero">
     <div class="orb"></div>
+    <div class="wow wow-leaves" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:15px;animation-delay:0s">❧</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:12px;animation-delay:0.7s">✿</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:10px;animation-delay:1.4s">❀</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:9px;animation-delay:2.0999999999999996s">⚘</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:9px;animation-delay:2.8s">❧</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:9px;animation-delay:3.5s">✿</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:9px;animation-delay:0.1999999999999993s">❀</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:9px;animation-delay:0.8999999999999995s">⚘</span>
     <svg class="scenebg" viewBox="0 0 1440 810" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false" role="presentation">
 <defs>

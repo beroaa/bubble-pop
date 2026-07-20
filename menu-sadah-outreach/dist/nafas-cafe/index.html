@@ -435,6 +435,14 @@ body{
 @keyframes bgB{0%,100%{transform:translate(0,0)}50%{transform:translate(-7vmax,-3vmax)}}
 @keyframes bgM{from{transform:translateX(0)}to{transform:translateX(140vmax)}}
 
+  /* ---- wow50: bespoke hero signature flourish (decorative, behind the text) ---- */
+  .hero{position:relative}
+  .hero .wow{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+  .hero>.greet,.hero>.brandlogo,.hero>.medal,.hero>h1,.hero>.world,.hero>.heroline,.hero>.meta,.hero>.brandshots,.hero>.orb{position:relative;z-index:1}
+  @media (prefers-reduced-motion:reduce){.hero .wow *{animation:none!important}}
+  @media print{.hero .wow{display:none!important}}
+  .wow-clouds{position:absolute;inset:0;overflow:hidden}.wow-clouds b{position:absolute;width:140px;height:44px;border-radius:40px;background:var(--sa);filter:blur(15px);opacity:.22}.wow-clouds b:nth-child(1){top:20%}.wow-clouds b:nth-child(2){top:42%;width:110px;height:34px}.wow-clouds b:nth-child(3){top:64%;width:172px;height:50px}@media (prefers-reduced-motion:no-preference){.wow-clouds b{animation:wowDrift 30s linear infinite}.wow-clouds b:nth-child(2){animation-duration:38s;animation-delay:-12s}.wow-clouds b:nth-child(3){animation-duration:34s;animation-delay:-20s}@keyframes wowDrift{0%{transform:translateX(-40%);opacity:0}15%,85%{opacity:.22}100%{transform:translateX(130%);opacity:0}}}
+
   /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
   
   .medal{position:relative}
@@ -568,6 +576,7 @@ body{
 <div class="wrap">
   <header class="hero">
     <div class="orb"></div>
+    <div class="wow wow-clouds" aria-hidden="true"><b></b><b></b><b></b></div>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:5px;animation-delay:0s">☁</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:7px;animation-delay:0.7s">☁</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:8px;animation-delay:1.4s">☁</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:8px;animation-delay:2.0999999999999996s">☁</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:8px;animation-delay:2.8s">☁</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:8px;animation-delay:3.5s">☁</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:8px;animation-delay:0.1999999999999993s">☁</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:8px;animation-delay:0.8999999999999995s">☁</span>
     <svg class="scenebg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
 <defs>

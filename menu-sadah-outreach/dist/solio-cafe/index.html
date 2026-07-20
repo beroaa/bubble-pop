@@ -419,6 +419,24 @@ body{
   .hero{overflow-x:clip}
   .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}.brandbg i,.brandbg span{position:absolute;display:block}.brandbg .sky{inset:0;background:radial-gradient(130% 100% at 50% -15%,var(--accent-2),transparent 58%),radial-gradient(85% 70% at 10% 18%,var(--sa),transparent 55%),radial-gradient(90% 80% at 90% 88%,var(--sa2),transparent 55%),linear-gradient(160deg,var(--accent),var(--sa2))}.brandbg .sun{inset-block-start:-25%;inset-inline:-10%;block-size:75%;background:radial-gradient(45% 55% at 50% 35%,color-mix(in srgb,var(--accent-2) 75%,white),transparent 68%);filter:blur(8px);opacity:.9}.brandbg .beam{inset:-30%;background:linear-gradient(115deg,transparent 42%,rgba(255,255,255,.5) 50%,transparent 58%);mix-blend-mode:soft-light}.brandbg .c{border-radius:50%;filter:blur(22px);background:radial-gradient(circle,rgba(255,255,255,.85),transparent 70%)}.brandbg .c1{inline-size:42vmin;block-size:20vmin;inset-block-start:22%;inset-inline-start:8%}.brandbg .c2{inline-size:34vmin;block-size:16vmin;inset-block-start:64%;inset-inline-start:60%}.brandbg .c3{inline-size:28vmin;block-size:14vmin;inset-block-start:44%;inset-inline-start:72%;opacity:.7}.brandbg .veil{inset:0;background:radial-gradient(72% 58% at 50% 46%,rgba(255,255,255,.75),rgba(255,255,255,.32) 46%,transparent 76%)}@media (prefers-reduced-motion:no-preference){.brandbg .sky{background-size:200% 200%;animation:bg_sky 26s ease-in-out infinite}.brandbg .sun{animation:bg_sun 14s ease-in-out infinite}.brandbg .beam{animation:bg_beam 20s ease-in-out infinite}.brandbg .c1{animation:bg_d1 30s ease-in-out infinite}.brandbg .c2{animation:bg_d2 34s ease-in-out infinite}.brandbg .c3{animation:bg_d3 26s ease-in-out infinite}@keyframes bg_sky{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}@keyframes bg_sun{0%,100%{transform:translateX(-3%);opacity:.85}50%{transform:translateX(4%);opacity:1}}@keyframes bg_beam{0%{transform:translateX(-40%)}50%{transform:translateX(40%)}100%{transform:translateX(-40%)}}@keyframes bg_d1{0%,100%{transform:translate(0,0)}50%{transform:translate(6vmin,-2vmin)}}@keyframes bg_d2{0%,100%{transform:translate(0,0)}50%{transform:translate(-7vmin,3vmin)}}@keyframes bg_d3{0%,100%{transform:translate(0,0)}50%{transform:translate(-5vmin,-3vmin)}}}
 
+  /* ---- wow50: bespoke hero signature flourish (decorative, behind the text) ---- */
+  .hero{position:relative}
+  .hero .wow{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+  .hero>.greet,.hero>.brandlogo,.hero>.medal,.hero>h1,.hero>.world,.hero>.heroline,.hero>.meta,.hero>.brandshots,.hero>.orb{position:relative;z-index:1}
+  @media (prefers-reduced-motion:reduce){.hero .wow *{animation:none!important}}
+  @media print{.hero .wow{display:none!important}}
+  .wow-clouds{position:absolute;inset:0;overflow:hidden}
+.wow-clouds span{position:absolute;height:40px;width:90px;border-radius:40px;background:var(--sa);filter:blur(12px);opacity:.18}
+.wow-clouds span:nth-child(1){top:16%;left:-25%}
+.wow-clouds span:nth-child(2){top:42%;left:-32%;background:var(--sa2);height:30px;width:70px}
+.wow-clouds span:nth-child(3){top:66%;left:-28%;background:var(--accent-2)}
+@media (prefers-reduced-motion:no-preference){
+.wow-clouds span{animation:wowdrift 24s linear infinite}
+.wow-clouds span:nth-child(2){animation-duration:30s;animation-delay:-9s}
+.wow-clouds span:nth-child(3){animation-duration:27s;animation-delay:-15s}
+@keyframes wowdrift{0%{transform:translateX(0)}100%{transform:translateX(170vw)}}
+}
+
   /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
   
   .medal{position:relative}
@@ -552,6 +570,7 @@ body{
 <div class="wrap">
   <header class="hero">
     <div class="orb"></div>
+    <div class="wow wow-clouds" aria-hidden="true"><span></span><span></span><span></span></div>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:13px;animation-delay:0s">☁</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:14px;animation-delay:0.7s">☁</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:15px;animation-delay:1.4s">☁</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:15px;animation-delay:2.0999999999999996s">☁</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:12px;animation-delay:2.8s">☁</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:14px;animation-delay:3.5s">☁</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:11px;animation-delay:0.1999999999999993s">☁</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:10px;animation-delay:0.8999999999999995s">☁</span>
     
 <svg class="scenebg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">

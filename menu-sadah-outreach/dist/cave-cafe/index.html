@@ -436,6 +436,14 @@ body{
 @keyframes bgf2{0%,100%{transform:translate(0,0)}50%{transform:translate(-5%,-3%)}}
 @keyframes bgm{0%,100%{transform:translateY(0);opacity:.35}50%{transform:translateY(-16px);opacity:.7}}
 
+  /* ---- wow50: bespoke hero signature flourish (decorative, behind the text) ---- */
+  .hero{position:relative}
+  .hero .wow{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+  .hero>.greet,.hero>.brandlogo,.hero>.medal,.hero>h1,.hero>.world,.hero>.heroline,.hero>.meta,.hero>.brandshots,.hero>.orb{position:relative;z-index:1}
+  @media (prefers-reduced-motion:reduce){.hero .wow *{animation:none!important}}
+  @media print{.hero .wow{display:none!important}}
+  .wow-ink{position:absolute;inset:0;overflow:hidden}.wow-ink i{position:absolute;border-radius:50%;background:radial-gradient(var(--accent),transparent 70%);opacity:0;transform:scale(.2)}.wow-ink i:nth-child(1){left:12%;top:58%;width:130px;height:130px}.wow-ink i:nth-child(2){left:72%;top:22%;width:96px;height:96px}.wow-ink i:nth-child(3){left:84%;top:70%;width:72px;height:72px}@media (prefers-reduced-motion:no-preference){.wow-ink i{animation:wowBloom 13s ease-in-out infinite}.wow-ink i:nth-child(2){animation-delay:4.3s}.wow-ink i:nth-child(3){animation-delay:8.6s}@keyframes wowBloom{0%,100%{opacity:0;transform:scale(.2)}40%{opacity:.22;transform:scale(1)}72%{opacity:.1;transform:scale(1.35)}}}
+
   /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
   
   .medal{position:relative}
@@ -570,6 +578,7 @@ body{
 <div class="wrap">
   <header class="hero">
     <div class="orb"></div>
+    <div class="wow wow-ink" aria-hidden="true"><i></i><i></i><i></i></div>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:12px;animation-delay:0s">✒</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:14px;animation-delay:0.7s">·</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:11px;animation-delay:1.4s">෴</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:10px;animation-delay:2.0999999999999996s">·</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:9px;animation-delay:2.8s">✒</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:12px;animation-delay:3.5s">·</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:10px;animation-delay:0.1999999999999993s">෴</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:13px;animation-delay:0.8999999999999995s">·</span>
     
 <svg class="scenebg" viewBox="0 0 1200 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true">

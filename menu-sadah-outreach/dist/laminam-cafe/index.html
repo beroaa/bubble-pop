@@ -453,6 +453,28 @@ body{
   .hero{overflow-x:clip}
   .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(130% 95% at 50% -12%,color-mix(in oklab,var(--accent) 42%,transparent),transparent 60%),radial-gradient(80% 70% at 14% 20%,color-mix(in oklab,var(--sa) 38%,transparent),transparent 58%),linear-gradient(168deg,var(--sa2),var(--accent) 58%,var(--sa))}.brandbg .l{position:absolute;border-radius:50%;filter:blur(60px);mix-blend-mode:screen;opacity:.5}.brandbg .l1{inline-size:62vmax;block-size:62vmax;inset-block-start:-22vmax;inset-inline-start:16vw;background:radial-gradient(circle,var(--accent),transparent 64%)}.brandbg .l2{inline-size:48vmax;block-size:48vmax;inset-block-end:-16vmax;inset-inline-start:-12vmax;background:radial-gradient(circle,var(--sa2),transparent 66%)}.brandbg .l3{inline-size:44vmax;block-size:44vmax;inset-block-end:6vmax;inset-inline-end:-10vmax;background:radial-gradient(circle,var(--accent-2),transparent 66%)}.brandbg .grid{position:absolute;inset:-12%;opacity:.07;background:repeating-linear-gradient(45deg,transparent 0 28px,color-mix(in oklab,var(--accent-2) 65%,transparent) 28px 29px),repeating-linear-gradient(-45deg,transparent 0 28px,color-mix(in oklab,var(--accent-2) 65%,transparent) 28px 29px)}.brandbg .m{position:absolute;inline-size:7px;block-size:7px;border-radius:50%;background:radial-gradient(circle,var(--accent-2),transparent 70%);opacity:.55}.brandbg .m1{inset-block-end:12%;inset-inline-start:22%}.brandbg .m2{inset-block-end:26%;inset-inline-start:64%}.brandbg .m3{inset-block-end:40%;inset-inline-start:40%}.brandbg .m4{inset-block-end:18%;inset-inline-start:82%}@media (prefers-reduced-motion:no-preference){.brandbg .l1{animation:bg_a 16s ease-in-out infinite}.brandbg .l2{animation:bg_b 20s ease-in-out infinite}.brandbg .l3{animation:bg_c 18s ease-in-out infinite}.brandbg .grid{animation:bg_g 60s linear infinite}.brandbg .m{animation:bg_m 15s ease-in-out infinite}.brandbg .m2{animation-duration:19s;animation-delay:-4s}.brandbg .m3{animation-duration:23s;animation-delay:-9s}.brandbg .m4{animation-duration:17s;animation-delay:-2s}}@keyframes bg_a{0%,100%{transform:translate3d(0,0,0) scale(1);opacity:.5}50%{transform:translate3d(4vw,3vh,0) scale(1.12);opacity:.7}}@keyframes bg_b{0%,100%{transform:translate(0,0);opacity:.42}50%{transform:translate(3vw,-3vh);opacity:.6}}@keyframes bg_c{0%,100%{transform:translate(0,0);opacity:.4}50%{transform:translate(-3vw,-2vh);opacity:.58}}@keyframes bg_g{0%{transform:translate(0,0)}100%{transform:translate(28px,28px)}}@keyframes bg_m{0%{transform:translate(0,0);opacity:0}20%{opacity:.6}100%{transform:translate(0,-42vh);opacity:0}}
 
+  /* ---- wow50: bespoke hero signature flourish (decorative, behind the text) ---- */
+  .hero{position:relative}
+  .hero .wow{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+  .hero>.greet,.hero>.brandlogo,.hero>.medal,.hero>h1,.hero>.world,.hero>.heroline,.hero>.meta,.hero>.brandshots,.hero>.orb{position:relative;z-index:1}
+  @media (prefers-reduced-motion:reduce){.hero .wow *{animation:none!important}}
+  @media print{.hero .wow{display:none!important}}
+  .wow-tiles{position:absolute;inset:0;overflow:hidden}
+.wow-tiles b{position:absolute;width:26px;height:26px;border:2px solid var(--accent);transform:rotate(45deg);opacity:.1}
+.wow-tiles b:nth-child(1){top:20%;left:14%}
+.wow-tiles b:nth-child(2){top:60%;left:24%;border-color:var(--sa)}
+.wow-tiles b:nth-child(3){top:30%;left:80%}
+.wow-tiles b:nth-child(4){top:72%;left:70%;border-color:var(--sa2)}
+.wow-tiles b:nth-child(5){top:44%;left:50%;border-color:var(--accent-2)}
+@media (prefers-reduced-motion:no-preference){
+.wow-tiles b{animation:wowtile 12s ease-in-out infinite}
+.wow-tiles b:nth-child(2){animation-delay:-3s}
+.wow-tiles b:nth-child(3){animation-delay:-6s}
+.wow-tiles b:nth-child(4){animation-delay:-9s}
+.wow-tiles b:nth-child(5){animation-delay:-4.5s}
+@keyframes wowtile{0%,100%{opacity:.07;transform:rotate(45deg) scale(.9)}50%{opacity:.3;transform:rotate(45deg) scale(1.05)}}
+}
+
   /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
   
   .medal{position:relative}
@@ -571,6 +593,7 @@ body{
 <div class="wrap">
   <header class="hero">
     <div class="orb"></div>
+    <div class="wow wow-tiles" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b></div>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:8px;animation-delay:0s">✤</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:5px;animation-delay:0.7s">❖</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:3px;animation-delay:1.4s">✣</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:9px;animation-delay:2.0999999999999996s">◈</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:9px;animation-delay:2.8s">✤</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:5px;animation-delay:3.5s">❖</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:3px;animation-delay:0.1999999999999993s">✣</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:6px;animation-delay:0.8999999999999995s">◈</span>
     <svg class="scenebg" viewBox="0 0 1440 810" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false" role="presentation">
 <defs>

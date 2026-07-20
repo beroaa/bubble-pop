@@ -442,6 +442,14 @@ body::after{
 @keyframes bgsweep{0%{transform:translateX(-32%)}100%{transform:translateX(32%)}}
 @keyframes bgfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-3%)}}
 
+  /* ---- wow50: bespoke hero signature flourish (decorative, behind the text) ---- */
+  .hero{position:relative}
+  .hero .wow{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+  .hero>.greet,.hero>.brandlogo,.hero>.medal,.hero>h1,.hero>.world,.hero>.heroline,.hero>.meta,.hero>.brandshots,.hero>.orb{position:relative;z-index:1}
+  @media (prefers-reduced-motion:reduce){.hero .wow *{animation:none!important}}
+  @media print{.hero .wow{display:none!important}}
+  .wow-sparks{position:absolute;inset:0;overflow:hidden}.wow-sparks span{position:absolute;left:50%;bottom:0;width:62%;height:32%;transform:translateX(-50%);background:radial-gradient(120% 100% at 50% 100%,var(--accent),transparent 70%);opacity:.12}.wow-sparks i{position:absolute;bottom:6%;width:3px;height:3px;border-radius:50%;background:var(--sa2);opacity:0;box-shadow:0 0 6px var(--accent-2)}.wow-sparks i:nth-child(2){left:28%}.wow-sparks i:nth-child(3){left:46%}.wow-sparks i:nth-child(4){left:64%}.wow-sparks i:nth-child(5){left:78%}@media (prefers-reduced-motion:no-preference){.wow-sparks span{animation:wowPulse 6s ease-in-out infinite}.wow-sparks i{animation:wowRise 8s ease-in infinite}.wow-sparks i:nth-child(3){animation-delay:2s}.wow-sparks i:nth-child(4){animation-delay:4s}.wow-sparks i:nth-child(5){animation-delay:6s}@keyframes wowPulse{0%,100%{opacity:.08}50%{opacity:.24}}@keyframes wowRise{0%{opacity:0;transform:translateY(0)}20%{opacity:.5}100%{opacity:0;transform:translateY(-72%) translateX(9px)}}}
+
   /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
   
   .medal{position:relative}
@@ -560,6 +568,7 @@ body::after{
 <div class="wrap">
   <header class="hero">
     <div class="orb"></div>
+    <div class="wow wow-sparks" aria-hidden="true"><span></span><i></i><i></i><i></i><i></i></div>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:4px;animation-delay:0s">✴</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:6px;animation-delay:0.7s">✳</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:4px;animation-delay:1.4s">·</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:3px;animation-delay:2.0999999999999996s">✦</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:9px;animation-delay:2.8s">✴</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:5px;animation-delay:3.5s">✳</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:7px;animation-delay:0.1999999999999993s">·</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:8px;animation-delay:0.8999999999999995s">✦</span>
     <svg class="scenebg" viewBox="0 0 1200 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
 <defs>

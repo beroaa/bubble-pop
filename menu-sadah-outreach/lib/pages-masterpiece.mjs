@@ -374,6 +374,17 @@ function brandbgFor(slug) {
   return { css: bbgLogical(b.css), html: b.html };
 }
 
+/* ---------- wow50: per-cafe bespoke animated signature flourish in the hero (pre-vetted) ----------
+   A subtle CSS-only decoration (pointer-events:none, behind the text) that captures the cafe's soul. */
+const WOW_FILE = fileURLToPath(new URL('../singularity/wow50.json', import.meta.url));
+const WOW = (() => { try { if (existsSync(WOW_FILE)) return JSON.parse(readFileSync(WOW_FILE, 'utf8')); } catch { /* no wow, menus still build */ } return {}; })();
+function wowFor(slug) {
+  const w = slug && WOW[slug];
+  if (!w || typeof w.css !== 'string' || typeof w.html !== 'string') return null;
+  if (w.css.length > 2200 || w.html.length > 800) return null; // size guard
+  return w;
+}
+
 /* ---------- SAUDI SOUL (INSPIRATION ONLY — never a claim of affiliation/endorsement) ----------
    Tarma peephole medallion frame (VISION2030-BANK shortlist C): re-shell the existing
    bilingual medallion in a Najdi carved-door frame — a 2px ink-stroked square rotated
@@ -633,6 +644,7 @@ export function masterpieceMenuPage(cafe, brief) {
   const polish = polishFor(cafe.slug); // bespoke per-cafe touch (polish50)
   const voice = ROOMVOICE[cafe.slug] || null; // roomvoice50: spoken room asides + third diary
   const bbg = brandbgFor(cafe.slug); // brandbg50: per-cafe living animated background (behind everything)
+  const wow = wowFor(cafe.slug); // wow50: bespoke animated signature flourish inside the hero
 
   /* SELLABLE PASS 1 — TAP-TO-ORDER: real phone → wa.me deep link per item;
      no phone (the norm — CONTACT placeholder never counts) → premium demo chip
@@ -1067,6 +1079,14 @@ ${bbg ? `
   .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
   .hero{overflow-x:clip}
   ${bbg.css}` : ''}
+${wow ? `
+  /* ---- wow50: bespoke hero signature flourish (decorative, behind the text) ---- */
+  .hero{position:relative}
+  .hero .wow{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+  .hero>.greet,.hero>.brandlogo,.hero>.medal,.hero>h1,.hero>.world,.hero>.heroline,.hero>.meta,.hero>.brandshots,.hero>.orb{position:relative;z-index:1}
+  @media (prefers-reduced-motion:reduce){.hero .wow *{animation:none!important}}
+  @media print{.hero .wow{display:none!important}}
+  ${wow.css}` : ''}
 
   /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
   ${NAJDI_CSS}
@@ -1175,6 +1195,7 @@ ${bbg ? bbg.html : ''}
 <div class="wrap">
   <header class="hero">
     <div class="orb"></div>
+    ${wow ? wow.html : ''}
     ${motesHtml(brief.motif, sd)}
     ${SC ? SC.heroHtml : ''}
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>

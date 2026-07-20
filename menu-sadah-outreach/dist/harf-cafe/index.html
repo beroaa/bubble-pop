@@ -469,6 +469,14 @@ body{
 @keyframes bgC{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(3%,-3%) scale(1.1)}}
 @keyframes bgF{0%,100%{transform:translateY(0);opacity:.34}50%{transform:translateY(-42px);opacity:.6}}
 
+  /* ---- wow50: bespoke hero signature flourish (decorative, behind the text) ---- */
+  .hero{position:relative}
+  .hero .wow{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+  .hero>.greet,.hero>.brandlogo,.hero>.medal,.hero>h1,.hero>.world,.hero>.heroline,.hero>.meta,.hero>.brandshots,.hero>.orb{position:relative;z-index:1}
+  @media (prefers-reduced-motion:reduce){.hero .wow *{animation:none!important}}
+  @media print{.hero .wow{display:none!important}}
+  .wow{position:absolute;inset:0;overflow:hidden}.wow-ink i{position:absolute;top:20%;width:.5em;height:.5em;border-radius:50%;background:var(--accent);opacity:0}.wow-ink i:nth-child(1){left:12%}.wow-ink i:nth-child(2){left:50%;top:32%}.wow-ink i:nth-child(3){left:82%;top:16%}.wow-ink span{position:absolute;left:10%;right:10%;bottom:22%;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;opacity:.32}@media (prefers-reduced-motion:no-preference){.wow-ink i{animation:wbloom 9s ease-in-out infinite}.wow-ink i:nth-child(2){animation-delay:3s}.wow-ink i:nth-child(3){animation-delay:6s}.wow-ink span{animation:wdraw 13s ease-in-out infinite}@keyframes wbloom{0%,100%{opacity:0;transform:scale(.4)}50%{opacity:.28;transform:scale(1.4)}}@keyframes wdraw{0%{transform:scaleX(0)}45%,55%{transform:scaleX(1)}56%{transform-origin:right}100%{transform:scaleX(0);transform-origin:right}}}
+
   /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
   
   .medal{position:relative}
@@ -603,6 +611,7 @@ body{
 <div class="wrap">
   <header class="hero">
     <div class="orb"></div>
+    <div class="wow wow-ink" aria-hidden="true"><i></i><i></i><i></i><span></span></div>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:11px;animation-delay:0s">✒</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:10px;animation-delay:0.7s">·</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:13px;animation-delay:1.4s">෴</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:11px;animation-delay:2.0999999999999996s">·</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:10px;animation-delay:2.8s">✒</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:13px;animation-delay:3.5s">·</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:11px;animation-delay:0.1999999999999993s">෴</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:10px;animation-delay:0.8999999999999995s">·</span>
     <svg class="scenebg" viewBox="0 0 1440 810" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false" role="presentation">
 <defs>
