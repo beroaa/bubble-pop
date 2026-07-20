@@ -1116,9 +1116,19 @@ body{
   
   (function(){
     var pots=document.querySelectorAll('.dlh-svg'); if(!pots.length) return;
-    var AC=window.AudioContext||window.webkitAudioContext; if(!AC) return;
+    // AUTO-UPGRADE: if a real recorded pour exists on hosting, play THAT; else synthesize.
+    var real=null, realOk=false;
+    try{
+      real=new Audio('../assets/audio/pour.mp3'); real.preload='auto';
+      real.addEventListener('canplaythrough',function(){realOk=true;},{once:true});
+      real.load();
+    }catch(e){}
+    function playReal(){ try{ var a=real.cloneNode(); a.volume=0.9; a.play(); return true; }catch(e){ return false; } }
+    var AC=window.AudioContext||window.webkitAudioContext;
     var ctx=null, busy=false;
     function pour(){
+      if(realOk && playReal()) return;
+      if(!AC) return;
       if(busy) return; busy=true;
       try{ ctx=ctx||new AC(); }catch(e){ busy=false; return; }
       if(ctx.state==='suspended') ctx.resume();
