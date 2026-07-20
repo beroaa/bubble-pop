@@ -1,0 +1,143 @@
+{
+ "north_stars": [
+  {
+   "name": "Ink-dark legibility is law",
+   "takeaway": "Names, descriptions and body are always solid near-black brand ink (e.g. #382900) — never gold/accent, never background-clip:text that can wash to transparent. Accent/metal is reserved for prices, dots, rules, numerals and small marks only. Low-contrast gold-on-cream text is the #1 tell of an AI/5-10 page."
+  },
+  {
+   "name": "Restraint is the premium signal",
+   "takeaway": "40-50% whitespace on an 8pt rhythm, exactly one accent, one signature motion per screen surrounded by stillness. Crowding and effect-piling read cheap; confident empty space and a single strong gesture read expensive."
+  },
+  {
+   "name": "Mirror the page, don't translate it",
+   "takeaway": "AR/EN toggle flips dir+lang on <html> and everything mirrors via CSS logical properties (margin-inline, inset-inline, text-align:start). Arabic gets its own metrics: +10-15% size, line-height ~1.7-1.8, letter-spacing:0 (tracking shatters connected script). This is the exact credibility signal a Riyadh client judges."
+  },
+  {
+   "name": "Editorial hierarchy like a magazine",
+   "takeaway": "Treat the cafe name as artwork (huge fluid display serif), category headers as department openers with numbered eyebrow kickers, and one big type-scale jump to item names. The poster/table-of-contents cadence is what judges reward over a flat spreadsheet list."
+  },
+  {
+   "name": "Confident ink craft, not soft web chrome",
+   "takeaway": "2px near-black borders, chunky radii, hard no-blur offset shadows (3px 3px 0 ink), dotted leaders, tape/stamp accents, sub-150ms tactile press that collapses the shadow. This hand-drawn confidence is how the Beyt masters escape the generic look."
+  },
+  {
+   "name": "Animated brand mark = the screenshot moment",
+   "takeaway": "Each cafe needs a designed SVG mark derived from its motif that draws itself in on load (stroke-dashoffset) then settles into a tiny idle loop, and swaps its glyph AR/EN in the bilingual medallion. An initial-in-a-circle says template; a moving mark says a studio touched this."
+  }
+ ],
+ "playbook": [
+  {
+   "idea": "Sticky scroll-spy category tab-strip pinned under the header",
+   "area": "interaction",
+   "priority": "high",
+   "implementation": "A <nav> of bilingual category chips, position:sticky; top:0 (or below a slim brand bar). Each chip anchors to a #section-id; sections get scroll-margin-top so the sticky bar never covers headings, and html gets scroll-behavior:smooth. Chips are overflow-x:auto with scroll-snap and ≥44x44px tap targets. A ~15-line IntersectionObserver toggles .active (thick 2px accent underline/pill) as sections enter view. In RTL the strip flows right-to-left automatically via dir. Fallback: without JS it's still a working anchor list.",
+   "source_note": "restaurant-sites + digital-menu-ux (Ordery, TableQR, Amrit Palace/Awwwards)"
+  },
+  {
+   "idea": "Photo-forward item row: ink name, dotted leader, tabular accent price, SFDA calorie chip",
+   "area": "layout",
+   "priority": "high",
+   "implementation": "Row = CSS grid/flex [optional thumb][name+desc][leader][price], align-items:baseline. Name font-weight:700 in --ink; description 0.85rem muted ink, line-height 1.6. Leader is a flex:1 span with border-bottom:2px dotted color-mix. Price in accent, number only (currency once per section, not per line), font-variant-numeric:tabular-nums lining-nums so amounts align. Thumb (top 5-8 items only) 64-72px, radius 14px, object-fit:cover, 2px ink border + 3px offset shadow, wired to photo-slot auto-upgrade (collapse column gracefully if no photo). Calories as a muted 'NNN kcal / سعرة' pill after the name. All logical properties so it mirrors in RTL (price/leader on the left).",
+   "source_note": "restaurant-sites + digital-menu-ux + typography + luxury-fnb (fine-dining leader convention, currency-symbol removal, tabular figures)"
+  },
+  {
+   "idea": "Fully mirrored RTL bilingual system driven from a single toggle",
+   "area": "layout",
+   "priority": "high",
+   "implementation": "One AR/EN button sets document.documentElement.dir ('rtl'/'ltr') + a lang class, persisted to localStorage. Build ALL layout with logical properties (margin-inline, padding-inline, inset-inline-start, text-align:start, border-inline-start) and flex/grid so one stylesheet mirrors with zero duplicate CSS. Overrides: [lang=ar]{font-size:1.12em; line-height:1.75; letter-spacing:0}. Bilingual medallion swaps Arabic initial in AR, Latin initial in EN. Strings via data-en/data-ar or dual spans toggled by CSS. Keep Western-Arabic digits for scannability unless the brand prefers Eastern, consistently.",
+   "source_note": "all five lenses converge here (Material 3 bidi, Aivensoft/voxire Arabic type rules)"
+  },
+  {
+   "idea": "Full-bleed 100svh hero as a poster: photo + scrim + animated mark + name + one line",
+   "area": "layout",
+   "priority": "high",
+   "implementation": "Section height:100svh (svh not vh so mobile chrome doesn't clip), background photo object-fit:cover, overlay linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.45)) so ink text stays legible. Only three things float: the animated SVG brand mark, the bilingual cafe name, one tagline. A tiny bouncing chevron + 'اسحب / scroll' hint. Keep the sticky nav/tab bar hidden until the user scrolls past the hero (reveal-on-scroll). No buttons crowding the hero.",
+   "source_note": "restaurant-sites + luxury-fnb (Noma/Quay/NUVO full-bleed, dark-and-moody chiaroscuro hero)"
+  },
+  {
+   "idea": "Fluid oversized display-serif masthead over an ink grotesque workhorse, one accent",
+   "area": "type",
+   "priority": "high",
+   "implementation": "Two families max: a high-contrast display serif (Fraunces/Editorial New/Canela-like) for cafe name + category titles ONLY at >=1.5rem and always in --ink; a sturdy humanist sans (Inter/IBM Plex) for item names, descriptions, prices at min 15-16px. Hero name: font-size:clamp(2.75rem,14vw,6rem); line-height:1.02; letter-spacing:-0.02em. Big scale jump between category title (clamp 28-40px) and item name (16-18px). Never set a fine serif at body size on a phone (strokes vanish = the AI look). Explicit dark color on every text node.",
+   "source_note": "typography + restaurant-sites (Typewolf editorial, Awwwards typography winners)"
+  },
+  {
+   "idea": "Ground-Cream-Ink color triad plus exactly one muted metallic accent",
+   "area": "color",
+   "priority": "high",
+   "implementation": "Per-cafe CSS vars: --ground (deep charcoal/espresso/navy), --cream (surfaces), --ink (~#2b1f14/#382900 for ALL text), --metal (desaturated brass ~#a9855f, never bright yellow-gold). Section backgrounds in cream/ground; every name/description/body in ink; --metal used ONLY for the 2px section rule, the price glyph, category numerals, and the brand-mark stroke. Never set a paragraph, item name, or long text to the metal/accent. Muted bronze reads real; saturated gold reads costume-jewelry.",
+   "source_note": "luxury-fnb + restaurant-sites (Tanic/Webflow luxury palettes, the ink-legibility law)"
+  },
+  {
+   "idea": "Generous whitespace on an 8pt baseline rhythm, one idea per scroll",
+   "area": "layout",
+   "priority": "high",
+   "implementation": "Spacing scale --s1..--s8 (8/16/24/40/64px). Category sections padding-block ~56-72px; item rows ~24px gap; max content width ~34rem/560px centered so lines never sprawl even on mobile. Each category is a chaptered block: big serif title, thin 2px rule, generous margin, then items. Keep the identical rhythm in AR and EN so switching language never reflows the mood. Aim ~40-50% breathing room.",
+   "source_note": "restaurant-sites + luxury-fnb + digital-menu-ux (usekodo/whitespace stats, baseline-grid luxury)"
+  },
+  {
+   "idea": "Confident ink craft + sub-150ms tactile press feedback",
+   "area": "interaction",
+   "priority": "high",
+   "implementation": "Cards/feature blocks: border:2px solid var(--ink); border-radius:18px; box-shadow:3px 3px 0 var(--ink); chunky radii, occasional tape/stamp pseudo-elements. Tap feedback: .item{transition:transform .12s ease-out, box-shadow .12s ease-out} .item:active{transform:scale(.97); box-shadow:1px 1px 0 var(--ink)}; gift CTA adds :hover{translateY(-2px); box-shadow:5px 5px 0 ink}. touch-action:manipulation, :active is the primary state on mobile (no hover-only affordances). Keep this press ON even under reduced-motion (it's feedback, not decoration).",
+   "source_note": "motion + luxury-fnb (130ms micro-interactions, hard-offset ink craft)"
+  },
+  {
+   "idea": "Scroll-reveal fade-and-rise via native view() timeline, no-motion-first",
+   "area": "motion",
+   "priority": "high",
+   "implementation": "Rows/sections start visible by default; wrap the effect in @supports(animation-timeline:view()) and @media(prefers-reduced-motion:no-preference). @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}; .item{animation:rise linear both; animation-timeline:view(); animation-range:entry 5% cover 25%}. Let each row's own viewport position drive it (do NOT stagger with delays — janky on fast scroll). transform+opacity only so it composites on GPU and never reflows the price column. If view() unsupported or JS fails, everything is simply visible.",
+   "source_note": "motion + typography (Codrops scroll-driven CSS, Awwwards Crav Burgers/GEM pacing)"
+  },
+  {
+   "idea": "Hero mask-wipe reveal synced to reading direction + self-drawing animated brand mark",
+   "area": "motion",
+   "priority": "high",
+   "implementation": "On load: inline SVG mark draws itself via stroke-dasharray/stroke-dashoffset->0 over ~900ms (0ms), then name wipes in via clip-path inset over ~600ms (250ms delay), then tagline fades (500ms). Wipe follows reading direction: EN inset(0 100% 0 0)->0 (left->right); [dir=rtl] .name uses inset(0 0 0 100%)->0 (right->left). After draw, mark settles into a 4-8s low-amplitude idle loop tied to its motif (steam curl / cube face / bean bob). Under prefers-reduced-motion:reduce, skip wipe/idle and just fade opacity 0->1 in ~200ms; render mark in finished state. This is the front-loaded motion budget so the rest of the scroll stays calm.",
+   "source_note": "motion + luxury-fnb (Crav Burgers loader, load-moment logo animation, ANIMATED BRAND MARK law)"
+  },
+  {
+   "idea": "Matched bilingual superfamily pairing (one voice, two scripts)",
+   "area": "type",
+   "priority": "high",
+   "implementation": "Choose fonts drawn to harmonize across scripts so neither looks like an afterthought. Latin body: Inter or IBM Plex (tabular numerals); Arabic body: IBM Plex Sans Arabic / Tajawal / Cairo; a heavier display Arabic (Aref Ruqaa / Reem Kufi) for headers. Same face for a dish name and its price so columns feel unified. [lang=ar]/[dir=rtl] bumps Arabic 10-15% and never applies letter-spacing. Self-host/subset fonts (font work is a Mac-network job) with sensible fallbacks to avoid FOUT and broken thin strokes. Mismatched scripts read amateur instantly.",
+   "source_note": "typography + luxury-fnb (29LT bi-scriptual families, IBM Plex/Cairo pairing)"
+  },
+  {
+   "idea": "Numbered editorial section headers with uppercase eyebrow kickers",
+   "area": "type",
+   "priority": "medium",
+   "implementation": "Each category: <span class=eyebrow>01 · الساخنة / HOT</span> at font-size:.72rem; letter-spacing:.18em; text-transform:uppercase in the accent/metal, above the big serif category title in --ink. Optionally set the index numeral (01,02,03) large in the display serif as a faint watermark or inline accent for scroll anchors. In RTL the eyebrow and numeral sit on the right via logical properties. Note: uppercase/tracking applies to Latin only — never letter-space the Arabic label.",
+   "source_note": "typography (Awwwards editorial-layout, table-of-contents cadence)"
+  },
+  {
+   "idea": "Anchor-item-first: lead each category with an enlarged signature feature card",
+   "area": "content",
+   "priority": "medium",
+   "implementation": "Sort data so the signature/highest-margin item is #1 in each category; render it with a .feature modifier — bigger photo, 2px ink border, hard 3px 3px 0 ink shadow — while the rest stay compact typographic rows. One feature card per section keeps rhythm and gives each category a strong opening beat (and resets the guest's price anchor). Pure CSS via the modifier class on the first <li>.",
+   "source_note": "digital-menu-ux (menu-engineering anchor/decoy, WebstaurantStore/Cornell)"
+  },
+  {
+   "idea": "Selective art-directed photography with Ken Burns + blur-up, parallax only on gift page",
+   "area": "content",
+   "priority": "medium",
+   "implementation": "Reserve full-bleed photo for the hero, a fixed-ratio (4:5 or 16:9) header image per major category, and photos only on 2-3 signature items — standard rows stay text-only (fine-dining eloquence, avoids the delivery-app look). Enforce one crop ratio + a subtle contrast/saturate CSS filter so mismatched sources unify. Blur-up: ship a ~20px base64 placeholder with filter:blur(12px), swap to full res on load, transition filter .4s, loading=lazy. Ken Burns: @keyframes ken{to{transform:scale(1.06) translate(1%,-1%)}} 14s alternate, inside an overflow:hidden frame (never causes horizontal scroll), only under prefers-reduced-motion:no-preference. Wire to per-cafe photo slots dist/assets/photos/<slug>/ with graceful fallback to a CSS texture block.",
+   "source_note": "digital-menu-ux + motion + luxury-fnb (VISUALS-FIRST, conversion stats, one-light art direction)"
+  },
+  {
+   "idea": "Restrained ambient on-brand background, calm through the center third",
+   "area": "motion",
+   "priority": "medium",
+   "implementation": "body::before{content:'';position:fixed;inset:0;z-index:-1;background:radial/linear-gradient in the brand palette; animation:drift 32s ease-in-out infinite alternate} with a slow translateY/background-position shift. Legibility: keep opacity <=0.12 behind text zones OR add a mask-image:linear-gradient that dips opacity in the vertical center third. Steam variant: 2-3 blurred SVG plumes looping behind a hero cup. Wrap the whole loop in @media(prefers-reduced-motion:no-preference) and set animation-play-state:paused otherwise (vestibular + battery). Fulfills the LIVING ON-BRAND BACKGROUND law cheaply without WebGL weight.",
+   "source_note": "motion (La Revoltosa ambient WebGL distilled to CSS, LIVING BACKGROUND law)"
+  },
+  {
+   "idea": "Gift/landing variant: same design tokens, a warmer one-message opening act",
+   "area": "content",
+   "priority": "medium",
+   "implementation": "Build welcome.html reusing the identical --ground/--cream/--ink/--metal, fonts, spacing and animated mark — only the top differs. Structure: 100svh warm greeting hero (scrim + mark doing its entrance animation on load + bilingual 'Beyt Coffee invites you… / يدعوك'), optionally 1-2 full-viewport 'chapters' with one big AR+EN line each, a horizontal scroll-snap row of 3-4 signature cards (scroll-snap-type:x mandatory), then a single metal-outlined CTA (2px ink border, 3px offset shadow) linking to the full menu / WhatsApp / location, ending with an animated-mark replay. Browse-only, no scan-to-order pressure. Prices shown only where evidence exists; unknown-price items appear as tempting mentions without a number. Lazy-load below-the-fold photos so the shared link opens under 3s on cellular. Keep private DM/cockpit assets out — public-safe.",
+   "source_note": "restaurant-sites + digital-menu-ux + luxury-fnb (Beyt welcome page as the 10/10 sales weapon)"
+  }
+ ],
+ "researched": "award-winning e-menus + restaurant sites"
+}
