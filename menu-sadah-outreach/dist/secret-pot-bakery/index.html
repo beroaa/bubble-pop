@@ -31,7 +31,7 @@
     background:radial-gradient(circle,#955c2d30,transparent 65%);pointer-events:none}
   .mote{position:absolute;pointer-events:none;z-index:0}
   .mote{color:#bd9e42;font-size:15px;animation:mrise 4.5s ease-in-out infinite}@keyframes mrise{0%{opacity:0;transform:translateY(10px) rotate(90deg)}45%{opacity:.55}100%{opacity:0;transform:translateY(-26px) rotate(90deg)}}
-  .greet{color:var(--accent);font-size:13px;letter-spacing:.14em;margin-bottom:10px}
+  .greet{color:var(--accent);font-size:13.5px;font-weight:700;letter-spacing:.14em;margin-bottom:10px}
   .medal{position:relative;width:104px;height:104px;margin:0 auto 16px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;
     background:radial-gradient(circle at 32% 24%,#ffffff2b,transparent 42%),radial-gradient(circle at 32% 28%,#955c2d42,#955c2d14 62%,transparent);
@@ -60,8 +60,8 @@
   @keyframes inkin{0%{opacity:0;transform:translateY(16px) rotate(var(--r,0deg)) scale(.6)}
     60%{opacity:1;transform:translateY(-2px) rotate(calc(var(--r,0deg)*-.4)) scale(1.07)}
     100%{opacity:1;transform:none}}
-  .world{margin-top:10px;color:var(--text-3);font-size:13px;letter-spacing:.08em}
-  .world b{color:#86843c;font-weight:600}
+  .world{margin-top:10px;color:var(--text-2);font-size:14px;font-weight:600;letter-spacing:.08em}
+  .world b{color:#86843c;font-weight:700}
   .heroline{margin-top:10px;color:var(--text-2);font-size:22px;font-weight:600;line-height:1.45}
   .heroline .ar{font-family:'Rakkas',serif}
   .heroline .en{font-family:'Anton',sans-serif}
@@ -137,7 +137,7 @@
   .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
     box-shadow:inset 0 0 0 1px #955c2d55}
   .cat-title{flex:1;min-width:0}
-  .room-eyebrow{color:var(--text-3);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+  .room-eyebrow{color:var(--text-2);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
   .room-h2{color:var(--sa);font-size:28px;font-weight:800;line-height:1.14;letter-spacing:-.01em}
   .room-h2 .ar{font-family:'Rakkas',serif}
   .room-h2 .en{font-family:'Anton',sans-serif}
@@ -148,9 +148,9 @@
     transition:stroke-dashoffset .9s cubic-bezier(.2,.8,.2,1) .15s}
   .reveal.in .inkline path{stroke-dashoffset:0}
   /* room-voice: the room leans in and says one line (roomvoice50) — reveals with its section */
-  .room-voice{margin-top:7px;font-size:15px;color:var(--sa);line-height:1.5;
+  .room-voice{margin-top:7px;font-size:15.5px;font-weight:500;color:var(--text-2);line-height:1.5;
     opacity:0;transform:translateY(6px) rotate(-.5deg);transition:opacity .6s ease .35s,transform .6s ease .35s}
-  .reveal.in .room-voice{opacity:.85;transform:rotate(-.5deg)}
+  .reveal.in .room-voice{opacity:1;transform:rotate(-.5deg)}
   .room-voice .ar{font-family:'Rakkas',serif}
   .room-voice .en{font-family:'Anton',sans-serif;font-style:italic}
   /* rhythm: even rooms flip their head — the eye zigzags down the house */
@@ -576,7 +576,7 @@ body{
 </g>
 <path class="L13wf9e1 spark" d="M60,30 L61.6,35.4 L67,37 L61.6,38.6 L60,44 L58.4,38.6 L53,37 L58.4,35.4 Z" fill="var(--la2)"/>
 </svg></div>
-    <div class="medal"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><span><span class="ar">س</span><span class="en">S</span></span></div>
+    
     <h1><span class="ar">سيكرت بوت بيكري</span><span class="en">Secret Pot Bakery</span></h1>
     <div class="world"><span class="ar">✦ <b>قدر مخفي وراء باب الفرن</b> ✦</span><span class="en">✦ <b>a secret pot behind the bakery door</b> ✦</span></div>
     <div class="heroline"><span class="ar">السر يطلع من الفرن الليلة</span><span class="en">tonight the secret leaves the oven</span></div>

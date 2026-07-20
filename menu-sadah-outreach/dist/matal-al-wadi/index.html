@@ -31,7 +31,7 @@
     background:radial-gradient(circle,#66d17a30,transparent 65%);pointer-events:none}
   .mote{position:absolute;pointer-events:none;z-index:0}
   .mote{color:#8fe5b6;animation:mdrift 6s ease-in-out infinite}@keyframes mdrift{0%,100%{opacity:.25;transform:rotate(-8deg)}50%{opacity:.8;transform:translateY(-9px) rotate(10deg)}}
-  .greet{color:var(--accent);font-size:13px;letter-spacing:.14em;margin-bottom:10px}
+  .greet{color:var(--accent);font-size:13.5px;font-weight:700;letter-spacing:.14em;margin-bottom:10px}
   .medal{position:relative;width:104px;height:104px;margin:0 auto 16px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;
     background:radial-gradient(circle at 32% 24%,#ffffff2b,transparent 42%),radial-gradient(circle at 32% 28%,#66d17a42,#66d17a14 62%,transparent);
@@ -60,8 +60,8 @@
   @keyframes inkin{0%{opacity:0;transform:translateY(16px) rotate(var(--r,0deg)) scale(.6)}
     60%{opacity:1;transform:translateY(-2px) rotate(calc(var(--r,0deg)*-.4)) scale(1.07)}
     100%{opacity:1;transform:none}}
-  .world{margin-top:10px;color:var(--text-3);font-size:13px;letter-spacing:.08em}
-  .world b{color:#72d5b9;font-weight:600}
+  .world{margin-top:10px;color:var(--text-2);font-size:14px;font-weight:600;letter-spacing:.08em}
+  .world b{color:#72d5b9;font-weight:700}
   .heroline{margin-top:10px;color:var(--text-2);font-size:22px;font-weight:600;line-height:1.45}
   .heroline .ar{font-family:'Cairo',sans-serif}
   .heroline .en{font-family:'Bebas Neue',sans-serif}
@@ -137,7 +137,7 @@
   .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
     box-shadow:inset 0 0 0 1px #66d17a55}
   .cat-title{flex:1;min-width:0}
-  .room-eyebrow{color:var(--text-3);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+  .room-eyebrow{color:var(--text-2);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
   .room-h2{color:var(--sa);font-size:28px;font-weight:800;line-height:1.14;letter-spacing:-.01em}
   .room-h2 .ar{font-family:'Cairo',sans-serif}
   .room-h2 .en{font-family:'Bebas Neue',sans-serif}
@@ -148,9 +148,9 @@
     transition:stroke-dashoffset .9s cubic-bezier(.2,.8,.2,1) .15s}
   .reveal.in .inkline path{stroke-dashoffset:0}
   /* room-voice: the room leans in and says one line (roomvoice50) — reveals with its section */
-  .room-voice{margin-top:7px;font-size:15px;color:var(--sa);line-height:1.5;
+  .room-voice{margin-top:7px;font-size:15.5px;font-weight:500;color:var(--text-2);line-height:1.5;
     opacity:0;transform:translateY(6px) rotate(-.5deg);transition:opacity .6s ease .35s,transform .6s ease .35s}
-  .reveal.in .room-voice{opacity:.85;transform:rotate(-.5deg)}
+  .reveal.in .room-voice{opacity:1;transform:rotate(-.5deg)}
   .room-voice .ar{font-family:'Cairo',sans-serif}
   .room-voice .en{font-family:'Bebas Neue',sans-serif;font-style:italic}
   /* rhythm: even rooms flip their head — the eye zigzags down the house */
@@ -581,7 +581,7 @@ body{
 <path class="Lkr9b6h part-steam" d="M60,38 Q54,32 60,26 Q66,20 60,13" fill="none" stroke="var(--lk)" stroke-width="3.5"/>
 <path class="Lkr9b6h part-twinkle" d="M93,28 L95,33 L100,35 L95,37 L93,42 L91,37 L86,35 L91,33 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2"/>
 </svg></div>
-    <div class="medal"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><span><span class="ar">م</span><span class="en">M</span></span></div>
+    
     <h1><span class="ar">مطل الوادي</span><span class="en">Matal Al Wadi</span></h1>
     <div class="world"><span class="ar">✦ <b>بيت المزرعة وقت لمّة العصر</b> ✦</span><span class="en">✦ <b>the farmhouse when the whole family arrives</b> ✦</span></div>
     <div class="heroline"><span class="ar">الوادي جمعنا والقهوة كمّلت اللمة</span><span class="en">the valley gathers, the cups follow</span></div>

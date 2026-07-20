@@ -31,7 +31,7 @@
     background:radial-gradient(circle,#cd947930,transparent 65%);pointer-events:none}
   .mote{position:absolute;pointer-events:none;z-index:0}
   .mote{color:#e3c7a1;animation:mflick 1.6s steps(2) infinite}@keyframes mflick{0%,100%{opacity:.15}40%{opacity:.95}60%{opacity:.3}}
-  .greet{color:var(--accent);font-size:13px;letter-spacing:.14em;margin-bottom:10px}
+  .greet{color:var(--accent);font-size:13.5px;font-weight:700;letter-spacing:.14em;margin-bottom:10px}
   .medal{position:relative;width:104px;height:104px;margin:0 auto 16px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;
     background:radial-gradient(circle at 32% 24%,#ffffff2b,transparent 42%),radial-gradient(circle at 32% 28%,#cd947942,#cd947914 62%,transparent);
@@ -60,8 +60,8 @@
   @keyframes inkin{0%{opacity:0;transform:translateY(16px) rotate(var(--r,0deg)) scale(.6)}
     60%{opacity:1;transform:translateY(-2px) rotate(calc(var(--r,0deg)*-.4)) scale(1.07)}
     100%{opacity:1;transform:none}}
-  .world{margin-top:10px;color:var(--text-3);font-size:13px;letter-spacing:.08em}
-  .world b{color:#cdc179;font-weight:600}
+  .world{margin-top:10px;color:var(--text-2);font-size:14px;font-weight:600;letter-spacing:.08em}
+  .world b{color:#cdc179;font-weight:700}
   .heroline{margin-top:10px;color:var(--text-2);font-size:22px;font-weight:600;line-height:1.45}
   .heroline .ar{font-family:'Baloo Bhaijaan 2',cursive}
   .heroline .en{font-family:'Fredoka',sans-serif}
@@ -137,7 +137,7 @@
   .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
     box-shadow:inset 0 0 0 1px #cd947955}
   .cat-title{flex:1;min-width:0}
-  .room-eyebrow{color:var(--text-3);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+  .room-eyebrow{color:var(--text-2);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
   .room-h2{color:var(--sa);font-size:28px;font-weight:800;line-height:1.14;letter-spacing:-.01em}
   .room-h2 .ar{font-family:'Baloo Bhaijaan 2',cursive}
   .room-h2 .en{font-family:'Fredoka',sans-serif}
@@ -148,9 +148,9 @@
     transition:stroke-dashoffset .9s cubic-bezier(.2,.8,.2,1) .15s}
   .reveal.in .inkline path{stroke-dashoffset:0}
   /* room-voice: the room leans in and says one line (roomvoice50) — reveals with its section */
-  .room-voice{margin-top:7px;font-size:15px;color:var(--sa);line-height:1.5;
+  .room-voice{margin-top:7px;font-size:15.5px;font-weight:500;color:var(--text-2);line-height:1.5;
     opacity:0;transform:translateY(6px) rotate(-.5deg);transition:opacity .6s ease .35s,transform .6s ease .35s}
-  .reveal.in .room-voice{opacity:.85;transform:rotate(-.5deg)}
+  .reveal.in .room-voice{opacity:1;transform:rotate(-.5deg)}
   .room-voice .ar{font-family:'Baloo Bhaijaan 2',cursive}
   .room-voice .en{font-family:'Fredoka',sans-serif;font-style:italic}
   /* rhythm: even rooms flip their head — the eye zigzags down the house */
@@ -524,7 +524,7 @@ body::after{
 @keyframes Lkv7c80_twinkle{0%,100%{opacity:.2;transform:scale(.55) rotate(0deg)}50%{opacity:1;transform:scale(1.15) rotate(45deg)}}
 @keyframes Lkv7c80_sway{0%,100%{transform:rotate(-4.5deg)}50%{transform:rotate(4.5deg)}}
 @keyframes Lkv7c80_glowPulse{0%,100%{opacity:.22;transform:scale(.9)}50%{opacity:.55;transform:scale(1.1)}}</style><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><ellipse class="Lkv7c80 glow" cx="60" cy="99" rx="35" ry="10" fill="var(--la2)"/><g class="Lkv7c80 base"><rect x="33" y="82" width="54" height="21" rx="9" fill="var(--la)" stroke="var(--lk)" stroke-width="5"/><ellipse cx="60" cy="84" rx="20" ry="5.5" fill="var(--ls2)" stroke="var(--lk)" stroke-width="3.5"/><line x1="45" y1="96" x2="75" y2="96" stroke="var(--lk)" stroke-width="4" stroke-linecap="round" opacity=".3"/></g><g class="Lkv7c80 cookieSway"><rect class="Lkv7c80 shaft" x="54" y="50" width="12" height="36" rx="6" fill="var(--ls2)" stroke="var(--lk)" stroke-width="5"/><g class="Lkv7c80 cookie"><circle class="Lkv7c80 ring" cx="60" cy="39" r="27" fill="none" stroke="var(--la2)" stroke-width="3" stroke-linecap="round"/><circle cx="60" cy="39" r="22" fill="var(--ls)" stroke="var(--lk)" stroke-width="5"/><circle cx="51" cy="31" r="4.5" fill="var(--lp)" opacity=".55"/><circle class="Lkv7c80 chip chip1" cx="53" cy="35" r="3.3" fill="var(--lk)"/><circle class="Lkv7c80 chip chip2" cx="68" cy="33" r="3.3" fill="var(--lk)"/><circle class="Lkv7c80 chip chip3" cx="58" cy="48" r="3.3" fill="var(--lk)"/><circle class="Lkv7c80 chip chip4" cx="67" cy="46" r="3.3" fill="var(--lk)"/><circle class="Lkv7c80 chip chip5" cx="49" cy="44" r="3.3" fill="var(--lk)"/></g></g><g transform="translate(23,24)"><path class="Lkv7c80 spark spark1" d="M0,-7 L1.6,-1.6 L7,0 L1.6,1.6 L0,7 L-1.6,1.6 L-7,0 L-1.6,-1.6 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="1.5" stroke-linejoin="round"/></g><g transform="translate(98,32)"><path class="Lkv7c80 spark spark2" d="M0,-6 L1.4,-1.4 L6,0 L1.4,1.4 L0,6 L-1.4,1.4 L-6,0 L-1.4,-1.4 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="1.5" stroke-linejoin="round"/></g><g transform="translate(95,66)"><path class="Lkv7c80 spark spark3" d="M0,-5 L1.2,-1.2 L5,0 L1.2,1.2 L0,5 L-1.2,1.2 L-5,0 L-1.2,-1.2 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="1.4" stroke-linejoin="round"/></g></svg></div>
-    <div class="medal"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><span><span class="ar">م</span><span class="en">M</span></span></div>
+    
     <h1><span class="ar">مات كوكيز</span><span class="en">Mat Cookies</span></h1>
     <div class="world"><span class="ar">✦ <b>صالة ألعاب سكّرية بعد نص الليل</b> ✦</span><span class="en">✦ <b>a neon sweet arcade after midnight</b> ✦</span></div>
     <div class="heroline"><span class="ar">السهرة تبدأ من هنا</span><span class="en">the night level starts here</span></div>

@@ -31,7 +31,7 @@
     background:radial-gradient(circle,#bea65030,transparent 65%);pointer-events:none}
   .mote{position:absolute;pointer-events:none;z-index:0}
   .mote{color:#d1d676;animation:mtw 3.4s ease-in-out infinite}@keyframes mtw{0%,100%{opacity:.12;transform:scale(.7)}50%{opacity:.95;transform:scale(1.2)}}
-  .greet{color:var(--accent);font-size:13px;letter-spacing:.14em;margin-bottom:10px}
+  .greet{color:var(--accent);font-size:13.5px;font-weight:700;letter-spacing:.14em;margin-bottom:10px}
   .medal{position:relative;width:104px;height:104px;margin:0 auto 16px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;
     background:radial-gradient(circle at 32% 24%,#ffffff2b,transparent 42%),radial-gradient(circle at 32% 28%,#bea65042,#bea65014 62%,transparent);
@@ -60,8 +60,8 @@
   @keyframes inkin{0%{opacity:0;transform:translateY(16px) rotate(var(--r,0deg)) scale(.6)}
     60%{opacity:1;transform:translateY(-2px) rotate(calc(var(--r,0deg)*-.4)) scale(1.07)}
     100%{opacity:1;transform:none}}
-  .world{margin-top:10px;color:var(--text-3);font-size:13px;letter-spacing:.08em}
-  .world b{color:#b3cd79;font-weight:600}
+  .world{margin-top:10px;color:var(--text-2);font-size:14px;font-weight:600;letter-spacing:.08em}
+  .world b{color:#b3cd79;font-weight:700}
   .heroline{margin-top:10px;color:var(--text-2);font-size:22px;font-weight:600;line-height:1.45}
   .heroline .ar{font-family:'Mada',sans-serif}
   .heroline .en{font-family:'Comfortaa',cursive}
@@ -137,7 +137,7 @@
   .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
     box-shadow:inset 0 0 0 1px #bea65055}
   .cat-title{flex:1;min-width:0}
-  .room-eyebrow{color:var(--text-3);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+  .room-eyebrow{color:var(--text-2);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
   .room-h2{color:var(--sa);font-size:28px;font-weight:800;line-height:1.14;letter-spacing:-.01em}
   .room-h2 .ar{font-family:'Mada',sans-serif}
   .room-h2 .en{font-family:'Comfortaa',cursive}
@@ -148,9 +148,9 @@
     transition:stroke-dashoffset .9s cubic-bezier(.2,.8,.2,1) .15s}
   .reveal.in .inkline path{stroke-dashoffset:0}
   /* room-voice: the room leans in and says one line (roomvoice50) — reveals with its section */
-  .room-voice{margin-top:7px;font-size:15px;color:var(--sa);line-height:1.5;
+  .room-voice{margin-top:7px;font-size:15.5px;font-weight:500;color:var(--text-2);line-height:1.5;
     opacity:0;transform:translateY(6px) rotate(-.5deg);transition:opacity .6s ease .35s,transform .6s ease .35s}
-  .reveal.in .room-voice{opacity:.85;transform:rotate(-.5deg)}
+  .reveal.in .room-voice{opacity:1;transform:rotate(-.5deg)}
   .room-voice .ar{font-family:'Mada',sans-serif}
   .room-voice .en{font-family:'Comfortaa',cursive;font-style:italic}
   /* rhythm: even rooms flip their head — the eye zigzags down the house */
@@ -552,7 +552,7 @@ body{
 @keyframes L1hxwae3_bob{0%,100%{transform:scale(1) translateY(0)}50%{transform:scale(1) translateY(-1.5px)}}
 @keyframes L1hxwae3_glow{0%,100%{opacity:0;transform:scale(.85)}50%{opacity:.35;transform:scale(1.1)}}
 @keyframes L1hxwae3_tw{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.72)}}</style><svg viewBox="0 0 120 120" class="L1hxwae3" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle class="L1hxwae3 glow" cx="90" cy="31" r="20" fill="var(--la)"/><path class="L1hxwae3 moon" d="M92 15 A16 16 0 1 0 92 47 A12 12 0 1 1 92 15 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="5"/><g class="L1hxwae3 star s1" transform="translate(30 26)"><path d="M0 -4 L1 -1 L4 0 L1 1 L0 4 L-1 1 L-4 0 L-1 -1 Z" fill="var(--la2)"/></g><g class="L1hxwae3 star s2" transform="translate(46 42)"><path d="M0 -3 L1 -1 L3 0 L1 1 L0 3 L-1 1 L-3 0 L-1 -1 Z" fill="var(--la2)"/></g><g class="L1hxwae3 star s3" transform="translate(104 56)"><path d="M0 -4 L1 -1 L4 0 L1 1 L0 4 L-1 1 L-4 0 L-1 -1 Z" fill="var(--la2)"/></g><g class="L1hxwae3 star s4" transform="translate(23 60)"><path d="M0 -3 L1 -1 L3 0 L1 1 L0 3 L-1 1 L-3 0 L-1 -1 Z" fill="var(--la2)"/></g><ellipse class="L1hxwae3 saucer" cx="52" cy="108" rx="27" ry="6" fill="var(--ls2)" stroke="var(--lk)" stroke-width="5"/><path class="L1hxwae3 cup" d="M35 79 L69 79 L64 103 L40 103 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="5"/><path class="L1hxwae3 cup" d="M69 82 q13 1 11 11 q-2 8 -12 8" fill="none" stroke="var(--lk)" stroke-width="5"/><ellipse class="L1hxwae3 cup" cx="52" cy="79" rx="17" ry="4.5" fill="var(--ls)" stroke="var(--lk)" stroke-width="5"/><path class="L1hxwae3 band" d="M40 92 L64 92" stroke="var(--la)" stroke-width="4"/><path class="L1hxwae3 bird bA" d="M45 69 Q48 64 51 67.5 Q54 64 57 69" stroke="var(--lk)" stroke-width="4.5"/><path class="L1hxwae3 bird bB" d="M54 58 Q57.5 53 61 56.5 Q64.5 53 68 58" stroke="var(--lk)" stroke-width="4.5"/><path class="L1hxwae3 bird bC" d="M64 49 Q66.5 45 69 48 Q71.5 45 74 49" stroke="var(--lk)" stroke-width="4"/><path class="L1hxwae3 bird bD" d="M73 41 Q75 37.5 77 40 Q79 37.5 81 41" stroke="var(--lk)" stroke-width="4"/></svg></div>
-    <div class="medal"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><span><span class="ar">س</span><span class="en">S</span></span></div>
+    
     <h1><span class="ar">سِرب قهوة مختصة</span><span class="en">Serb Coffee</span></h1>
     <div class="world"><span class="ar">✦ <b>سرب طيور يعبر سماء الليل</b> ✦</span><span class="en">✦ <b>a flock crossing the night sky</b> ✦</span></div>
     <div class="heroline"><span class="ar">انضم للسرب، الليل طويل</span><span class="en">join the flock, the night is long</span></div>

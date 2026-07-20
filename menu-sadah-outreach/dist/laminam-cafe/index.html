@@ -31,7 +31,7 @@
     background:radial-gradient(circle,#c8895f30,transparent 65%);pointer-events:none}
   .mote{position:absolute;pointer-events:none;z-index:0}
   .mote{color:#dec187;animation:mspin 7s ease-in-out infinite}@keyframes mspin{0%,100%{opacity:.2;transform:rotate(0)}50%{opacity:.75;transform:rotate(45deg)}}
-  .greet{color:var(--accent);font-size:13px;letter-spacing:.14em;margin-bottom:10px}
+  .greet{color:var(--accent);font-size:13.5px;font-weight:700;letter-spacing:.14em;margin-bottom:10px}
   .medal{position:relative;width:104px;height:104px;margin:0 auto 16px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;
     background:radial-gradient(circle at 32% 24%,#ffffff2b,transparent 42%),radial-gradient(circle at 32% 28%,#c8895f42,#c8895f14 62%,transparent);
@@ -60,8 +60,8 @@
   @keyframes inkin{0%{opacity:0;transform:translateY(16px) rotate(var(--r,0deg)) scale(.6)}
     60%{opacity:1;transform:translateY(-2px) rotate(calc(var(--r,0deg)*-.4)) scale(1.07)}
     100%{opacity:1;transform:none}}
-  .world{margin-top:10px;color:var(--text-3);font-size:13px;letter-spacing:.08em}
-  .world b{color:#d0ca76;font-weight:600}
+  .world{margin-top:10px;color:var(--text-2);font-size:14px;font-weight:600;letter-spacing:.08em}
+  .world b{color:#d0ca76;font-weight:700}
   .heroline{margin-top:10px;color:var(--text-2);font-size:22px;font-weight:600;line-height:1.45}
   .heroline .ar{font-family:'Lalezar',cursive}
   .heroline .en{font-family:'Lobster',cursive}
@@ -137,7 +137,7 @@
   .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
     box-shadow:inset 0 0 0 1px #c8895f55}
   .cat-title{flex:1;min-width:0}
-  .room-eyebrow{color:var(--text-3);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+  .room-eyebrow{color:var(--text-2);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
   .room-h2{color:var(--sa);font-size:28px;font-weight:800;line-height:1.14;letter-spacing:-.01em}
   .room-h2 .ar{font-family:'Lalezar',cursive}
   .room-h2 .en{font-family:'Lobster',cursive}
@@ -148,9 +148,9 @@
     transition:stroke-dashoffset .9s cubic-bezier(.2,.8,.2,1) .15s}
   .reveal.in .inkline path{stroke-dashoffset:0}
   /* room-voice: the room leans in and says one line (roomvoice50) — reveals with its section */
-  .room-voice{margin-top:7px;font-size:15px;color:var(--sa);line-height:1.5;
+  .room-voice{margin-top:7px;font-size:15.5px;font-weight:500;color:var(--text-2);line-height:1.5;
     opacity:0;transform:translateY(6px) rotate(-.5deg);transition:opacity .6s ease .35s,transform .6s ease .35s}
-  .reveal.in .room-voice{opacity:.85;transform:rotate(-.5deg)}
+  .reveal.in .room-voice{opacity:1;transform:rotate(-.5deg)}
   .room-voice .ar{font-family:'Lalezar',cursive}
   .room-voice .en{font-family:'Lobster',cursive;font-style:italic}
   /* rhythm: even rooms flip their head — the eye zigzags down the house */
@@ -585,7 +585,7 @@ body{
 @keyframes L1azhe1_draw{from{stroke-dashoffset:60}to{stroke-dashoffset:0}}
 @keyframes L1azhe1_steam{0%{opacity:0;transform:translateY(5px) scale(1)}25%{opacity:.85}100%{opacity:0;transform:translateY(-11px) scale(1.05)}}
 @keyframes L1azhe1_tw{0%,100%{opacity:.2;transform:scale(.7)}50%{opacity:1;transform:scale(1.15)}}</style><svg viewBox="0 0 120 120" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect class="L1azhe1 part-base" x="22" y="92" width="76" height="13" rx="4" fill="var(--ls2)" stroke="var(--lk)" stroke-width="5"/><g class="L1azhe1 part-arch"><path d="M28,94 L28,54 Q28,32 60,20 Q92,32 92,54 L92,94 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="5"/></g><path class="L1azhe1 part-niche" d="M38,94 L38,56 Q38,39 60,29 Q82,39 82,56 L82,94 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="4"/><path class="L1azhe1 part-joint" d="M38,56 L28,54" stroke="var(--lk)" stroke-width="3"/><path class="L1azhe1 part-joint" d="M82,56 L92,54" stroke="var(--lk)" stroke-width="3"/><path class="L1azhe1 part-key" d="M51,32 L60,20 L69,32 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="4"/><path class="L1azhe1 part-tile" d="M60,37 L71,48 L60,59 L49,48 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="4"/><path class="L1azhe1 part-tile2" d="M60,42 L65,48 L60,54 L55,48 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="2.5"/><path class="L1azhe1 part-steam" d="M57,74 q-3,-4 0,-7 q3,-3 0,-7" stroke="var(--la2)" stroke-width="3"/><path class="L1azhe1 part-steam s2" d="M63,74 q3,-4 0,-7 q-3,-3 0,-7" stroke="var(--la2)" stroke-width="3"/><ellipse class="L1azhe1 part-saucer" cx="60" cy="92" rx="12" ry="3" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4"/><g class="L1azhe1 part-cup"><path d="M53,76 L67,76 L64,90 L56,90 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="4"/><path d="M67,79 q6,1 3,7" stroke="var(--lk)" stroke-width="4"/></g><ellipse class="L1azhe1 part-coffee" cx="60" cy="76" rx="7" ry="2.2" fill="var(--la)" stroke="var(--lk)" stroke-width="2.5"/><path class="L1azhe1 part-tw" d="M74,30 L75.5,33 L78,34 L75.5,35 L74,38 L72.5,35 L70,34 L72.5,33 Z" fill="var(--la2)"/></svg></div>
-    <div class="medal"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><span><span class="ar">ل</span><span class="en">L</span></span></div>
+    
     <h1><span class="ar">لامي نم</span><span class="en">Laminam Cafe</span></h1>
     <div class="world"><span class="ar">✦ <b>مجلس هادي بضو خافت</b> ✦</span><span class="en">✦ <b>a quiet majlis carved in stone</b> ✦</span></div>
     <div class="heroline"><span class="ar">ادخل بهدوء واقعد براحتك</span><span class="en">settle in, softly</span></div>

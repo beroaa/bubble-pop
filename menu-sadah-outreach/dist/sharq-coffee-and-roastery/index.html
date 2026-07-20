@@ -31,7 +31,7 @@
     background:radial-gradient(circle,#a36c1f30,transparent 65%);pointer-events:none}
   .mote{position:absolute;pointer-events:none;z-index:0}
   .mote{color:#cfbc30;animation:mflick 1.6s steps(2) infinite}@keyframes mflick{0%,100%{opacity:.15}40%{opacity:.95}60%{opacity:.3}}
-  .greet{color:var(--accent);font-size:13px;letter-spacing:.14em;margin-bottom:10px}
+  .greet{color:var(--accent);font-size:13.5px;font-weight:700;letter-spacing:.14em;margin-bottom:10px}
   .medal{position:relative;width:104px;height:104px;margin:0 auto 16px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;
     background:radial-gradient(circle at 32% 24%,#ffffff2b,transparent 42%),radial-gradient(circle at 32% 28%,#a36c1f42,#a36c1f14 62%,transparent);
@@ -60,8 +60,8 @@
   @keyframes inkin{0%{opacity:0;transform:translateY(16px) rotate(var(--r,0deg)) scale(.6)}
     60%{opacity:1;transform:translateY(-2px) rotate(calc(var(--r,0deg)*-.4)) scale(1.07)}
     100%{opacity:1;transform:none}}
-  .world{margin-top:10px;color:var(--text-3);font-size:13px;letter-spacing:.08em}
-  .world b{color:#88932f;font-weight:600}
+  .world{margin-top:10px;color:var(--text-2);font-size:14px;font-weight:600;letter-spacing:.08em}
+  .world b{color:#88932f;font-weight:700}
   .heroline{margin-top:10px;color:var(--text-2);font-size:22px;font-weight:600;line-height:1.45}
   .heroline .ar{font-family:'Baloo Bhaijaan 2',cursive}
   .heroline .en{font-family:'Fredoka',sans-serif}
@@ -137,7 +137,7 @@
   .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
     box-shadow:inset 0 0 0 1px #a36c1f55}
   .cat-title{flex:1;min-width:0}
-  .room-eyebrow{color:var(--text-3);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+  .room-eyebrow{color:var(--text-2);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
   .room-h2{color:var(--sa);font-size:28px;font-weight:800;line-height:1.14;letter-spacing:-.01em}
   .room-h2 .ar{font-family:'Baloo Bhaijaan 2',cursive}
   .room-h2 .en{font-family:'Fredoka',sans-serif}
@@ -148,9 +148,9 @@
     transition:stroke-dashoffset .9s cubic-bezier(.2,.8,.2,1) .15s}
   .reveal.in .inkline path{stroke-dashoffset:0}
   /* room-voice: the room leans in and says one line (roomvoice50) — reveals with its section */
-  .room-voice{margin-top:7px;font-size:15px;color:var(--sa);line-height:1.5;
+  .room-voice{margin-top:7px;font-size:15.5px;font-weight:500;color:var(--text-2);line-height:1.5;
     opacity:0;transform:translateY(6px) rotate(-.5deg);transition:opacity .6s ease .35s,transform .6s ease .35s}
-  .reveal.in .room-voice{opacity:.85;transform:rotate(-.5deg)}
+  .reveal.in .room-voice{opacity:1;transform:rotate(-.5deg)}
   .room-voice .ar{font-family:'Baloo Bhaijaan 2',cursive}
   .room-voice .en{font-family:'Fredoka',sans-serif;font-style:italic}
   /* rhythm: even rooms flip their head — the eye zigzags down the house */
@@ -534,7 +534,7 @@ body{
 @keyframes L1j9giog_draw{0%{stroke-dashoffset:90}100%{stroke-dashoffset:0}}
 @keyframes L1j9giog_glow{0%,100%{transform:scale(1);opacity:.22}50%{transform:scale(1.18);opacity:.42}}
 @keyframes L1j9giog_spark{0%{transform:translateY(3px);opacity:0}20%{opacity:1}60%{transform:translateY(-7px);opacity:.6}100%{transform:translateY(-15px);opacity:0}}</style><svg viewBox="0 0 120 120" fill="none"><g class="L1j9giog rays" stroke="var(--la2)" stroke-width="5" stroke-linecap="round"><path d="M60 24 L60 14"/><path d="M47 34 L41 28"/><path d="M73 34 L79 28"/><path d="M40 46 L32 46"/><path d="M80 46 L88 46"/></g><circle class="L1j9giog glow" cx="60" cy="46" r="22" fill="var(--la2)"/><circle class="L1j9giog sun" cx="60" cy="46" r="16" fill="var(--la2)" stroke="var(--lk)" stroke-width="5"/><path class="L1j9giog ground" d="M22 100 L98 100" stroke="var(--lk)" stroke-width="5" stroke-linecap="round"/><g class="L1j9giog drum" stroke="var(--lk)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"><path d="M46 89 L42 99"/><path d="M74 89 L78 99"/><rect x="30" y="56" width="60" height="34" rx="12" fill="var(--la)"/><ellipse cx="30" cy="73" rx="8" ry="17" fill="var(--ls)"/><path d="M42 57 L42 89" stroke-width="3"/><path d="M78 57 L78 89" stroke-width="3"/><rect x="52" y="64" width="16" height="16" rx="3" fill="var(--ls2)"/><circle cx="60" cy="72" r="2" fill="var(--lk)" stroke="none"/></g><g class="L1j9giog crank" stroke="var(--lk)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"><path d="M90 73 L104 73 L104 84" fill="none"/><circle cx="90" cy="73" r="4" fill="var(--la2)"/><circle cx="104" cy="86" r="4.5" fill="var(--la2)"/></g><path class="L1j9giog spark spark1" d="M26 45 L27.4 48.6 L31 50 L27.4 51.4 L26 55 L24.6 51.4 L21 50 L24.6 48.6 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2" stroke-linejoin="round"/><path class="L1j9giog spark spark2" d="M96 43 L97.4 46.6 L101 48 L97.4 49.4 L96 53 L94.6 49.4 L91 48 L94.6 46.6 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2" stroke-linejoin="round"/><path class="L1j9giog spark spark3" d="M82 13 L83.4 16.6 L87 18 L83.4 19.4 L82 23 L80.6 19.4 L77 18 L80.6 16.6 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2" stroke-linejoin="round"/></svg></div>
-    <div class="medal"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><span><span class="ar">م</span><span class="en">S</span></span></div>
+    
     <h1><span class="ar">مقهى ومحمصة شرق</span><span class="en">Sharq Coffee &amp; Roastery</span></h1>
     <div class="world"><span class="ar">✦ <b>محمصة تصحى قبل الشمس</b> ✦</span><span class="en">✦ <b>a roastery that wakes before the sun</b> ✦</span></div>
     <div class="heroline"><span class="ar">من الشرق تطلع الشمس والقهوة</span><span class="en">Where sun and roast both rise</span></div>

@@ -31,7 +31,7 @@
     background:radial-gradient(circle,#aa461830,transparent 65%);pointer-events:none}
   .mote{position:absolute;pointer-events:none;z-index:0}
   .mote{color:#d79428;animation:mink 4s ease-in-out infinite}@keyframes mink{0%{opacity:0}30%{opacity:.7}100%{opacity:.1}}
-  .greet{color:var(--accent);font-size:13px;letter-spacing:.14em;margin-bottom:10px}
+  .greet{color:var(--accent);font-size:13.5px;font-weight:700;letter-spacing:.14em;margin-bottom:10px}
   .medal{position:relative;width:104px;height:104px;margin:0 auto 16px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;
     background:radial-gradient(circle at 32% 24%,#ffffff2b,transparent 42%),radial-gradient(circle at 32% 28%,#aa461842,#aa461814 62%,transparent);
@@ -60,8 +60,8 @@
   @keyframes inkin{0%{opacity:0;transform:translateY(16px) rotate(var(--r,0deg)) scale(.6)}
     60%{opacity:1;transform:translateY(-2px) rotate(calc(var(--r,0deg)*-.4)) scale(1.07)}
     100%{opacity:1;transform:none}}
-  .world{margin-top:10px;color:var(--text-3);font-size:13px;letter-spacing:.08em}
-  .world b{color:#9a8928;font-weight:600}
+  .world{margin-top:10px;color:var(--text-2);font-size:14px;font-weight:600;letter-spacing:.08em}
+  .world b{color:#9a8928;font-weight:700}
   .heroline{margin-top:10px;color:var(--text-2);font-size:22px;font-weight:600;line-height:1.45}
   .heroline .ar{font-family:'Rakkas',serif}
   .heroline .en{font-family:'Anton',sans-serif}
@@ -137,7 +137,7 @@
   .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
     box-shadow:inset 0 0 0 1px #aa461855}
   .cat-title{flex:1;min-width:0}
-  .room-eyebrow{color:var(--text-3);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+  .room-eyebrow{color:var(--text-2);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
   .room-h2{color:var(--sa);font-size:28px;font-weight:800;line-height:1.14;letter-spacing:-.01em}
   .room-h2 .ar{font-family:'Rakkas',serif}
   .room-h2 .en{font-family:'Anton',sans-serif}
@@ -148,9 +148,9 @@
     transition:stroke-dashoffset .9s cubic-bezier(.2,.8,.2,1) .15s}
   .reveal.in .inkline path{stroke-dashoffset:0}
   /* room-voice: the room leans in and says one line (roomvoice50) — reveals with its section */
-  .room-voice{margin-top:7px;font-size:15px;color:var(--sa);line-height:1.5;
+  .room-voice{margin-top:7px;font-size:15.5px;font-weight:500;color:var(--text-2);line-height:1.5;
     opacity:0;transform:translateY(6px) rotate(-.5deg);transition:opacity .6s ease .35s,transform .6s ease .35s}
-  .reveal.in .room-voice{opacity:.85;transform:rotate(-.5deg)}
+  .reveal.in .room-voice{opacity:1;transform:rotate(-.5deg)}
   .room-voice .ar{font-family:'Rakkas',serif}
   .room-voice .en{font-family:'Anton',sans-serif;font-style:italic}
   /* rhythm: even rooms flip their head — the eye zigzags down the house */
@@ -540,7 +540,7 @@ body{
 @keyframes L1l519jh_pulse{0%,100%{opacity:.5}50%{opacity:1}}
 @keyframes L1l519jh_steam{0%{opacity:0;transform:translateY(9px)}30%{opacity:.8}100%{opacity:0;transform:translateY(-13px)}}
 @keyframes L1l519jh_twinkle{0%,100%{opacity:.15;transform:scale(.5)}50%{opacity:1;transform:scale(1)}}</style><svg viewBox="0 0 120 120" fill="none"><path class="L1l519jh rock" d="M14,97 C9,54 37,17 60,17 C83,17 111,54 106,97 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="5" stroke-linejoin="round"/><path class="L1l519jh crack" d="M31,49 C35,57 34,66 40,71" stroke="var(--lk)" stroke-width="3.5" stroke-linecap="round"/><path class="L1l519jh crack" d="M90,55 C85,62 87,71 80,75" stroke="var(--lk)" stroke-width="3.5" stroke-linecap="round"/><path class="L1l519jh glow" d="M43,97 C43,66 50,52 60,52 C70,52 77,66 77,97 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="4.5" stroke-linejoin="round"/><ellipse class="L1l519jh glowhi" cx="60" cy="86" rx="10" ry="12" fill="var(--la2)"/><path class="L1l519jh flame" d="M60,66 C53,75 51,82 55,88 C57,91 63,91 65,88 C69,82 67,75 60,66 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="4" stroke-linejoin="round"/><circle class="L1l519jh ember" cx="60" cy="83" r="3.4" fill="var(--lp)"/><circle class="L1l519jh pebble" cx="23" cy="99" r="4.5" fill="var(--ls)" stroke="var(--lk)" stroke-width="3.5"/><circle class="L1l519jh pebble" cx="99" cy="98" r="5.5" fill="var(--ls)" stroke="var(--lk)" stroke-width="3.5"/><path class="L1l519jh steam" d="M55,50 C50,44 58,40 54,33 C50,27 58,23 55,16" stroke="var(--lk)" stroke-width="3.5" stroke-linecap="round"/><path class="L1l519jh steam s2" d="M67,50 C63,45 70,41 66,35" stroke="var(--lk)" stroke-width="3.5" stroke-linecap="round"/><path class="L1l519jh spark" d="M92,30 L94,36 L100,38 L94,40 L92,46 L90,40 L84,38 L90,36 Z" fill="var(--la2)"/></svg></div>
-    <div class="medal"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><span><span class="ar">ك</span><span class="en">C</span></span></div>
+    
     <h1><span class="ar">كيڤ كافيه</span><span class="en">Cave Cafe</span></h1>
     <div class="world"><span class="ar">✦ <b>مغارة دافية بعيد عن الزحمة</b> ✦</span><span class="en">✦ <b>a warm hideout from the noise</b> ✦</span></div>
     <div class="heroline"><span class="ar">ادخل، الدفا جوّا</span><span class="en">come in, the warmth is inside</span></div>

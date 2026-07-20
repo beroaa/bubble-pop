@@ -31,7 +31,7 @@
     background:radial-gradient(circle,#a2812030,transparent 65%);pointer-events:none}
   .mote{position:absolute;pointer-events:none;z-index:0}
   .mote{color:#c5cd32;filter:blur(.6px);animation:mfloat2 8s ease-in-out infinite}@keyframes mfloat2{0%,100%{opacity:.18;transform:translateX(-8px)}50%{opacity:.5;transform:translateX(10px)}}
-  .greet{color:var(--accent);font-size:13px;letter-spacing:.14em;margin-bottom:10px}
+  .greet{color:var(--accent);font-size:13.5px;font-weight:700;letter-spacing:.14em;margin-bottom:10px}
   .medal{position:relative;width:104px;height:104px;margin:0 auto 16px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;
     background:radial-gradient(circle at 32% 24%,#ffffff2b,transparent 42%),radial-gradient(circle at 32% 28%,#a2812042,#a2812014 62%,transparent);
@@ -60,8 +60,8 @@
   @keyframes inkin{0%{opacity:0;transform:translateY(16px) rotate(var(--r,0deg)) scale(.6)}
     60%{opacity:1;transform:translateY(-2px) rotate(calc(var(--r,0deg)*-.4)) scale(1.07)}
     100%{opacity:1;transform:none}}
-  .world{margin-top:10px;color:var(--text-3);font-size:13px;letter-spacing:.08em}
-  .world b{color:#76922f;font-weight:600}
+  .world{margin-top:10px;color:var(--text-2);font-size:14px;font-weight:600;letter-spacing:.08em}
+  .world b{color:#76922f;font-weight:700}
   .heroline{margin-top:10px;color:var(--text-2);font-size:22px;font-weight:600;line-height:1.45}
   .heroline .ar{font-family:'Lalezar',cursive}
   .heroline .en{font-family:'Lobster',cursive}
@@ -137,7 +137,7 @@
   .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
     box-shadow:inset 0 0 0 1px #a2812055}
   .cat-title{flex:1;min-width:0}
-  .room-eyebrow{color:var(--text-3);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+  .room-eyebrow{color:var(--text-2);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
   .room-h2{color:var(--sa);font-size:28px;font-weight:800;line-height:1.14;letter-spacing:-.01em}
   .room-h2 .ar{font-family:'Lalezar',cursive}
   .room-h2 .en{font-family:'Lobster',cursive}
@@ -148,9 +148,9 @@
     transition:stroke-dashoffset .9s cubic-bezier(.2,.8,.2,1) .15s}
   .reveal.in .inkline path{stroke-dashoffset:0}
   /* room-voice: the room leans in and says one line (roomvoice50) — reveals with its section */
-  .room-voice{margin-top:7px;font-size:15px;color:var(--sa);line-height:1.5;
+  .room-voice{margin-top:7px;font-size:15.5px;font-weight:500;color:var(--text-2);line-height:1.5;
     opacity:0;transform:translateY(6px) rotate(-.5deg);transition:opacity .6s ease .35s,transform .6s ease .35s}
-  .reveal.in .room-voice{opacity:.85;transform:rotate(-.5deg)}
+  .reveal.in .room-voice{opacity:1;transform:rotate(-.5deg)}
   .room-voice .ar{font-family:'Lalezar',cursive}
   .room-voice .en{font-family:'Lobster',cursive;font-style:italic}
   /* rhythm: even rooms flip their head — the eye zigzags down the house */
@@ -551,7 +551,7 @@ body{
 @keyframes Lz1s6f8_twinkle{0%,100%{transform:scale(1);}50%{transform:scale(1.12);}}
 @keyframes Lz1s6f8_spark{0%,100%{opacity:0;transform:scale(.4);}50%{opacity:1;transform:scale(1);}}
 @keyframes Lz1s6f8_glow{0%,100%{opacity:.3;transform:scale(1);}50%{opacity:.55;transform:scale(1.06);}}</style><svg viewBox="0 0 120 120" class="Lz1s6f8"><ellipse class="Lz1s6f8 glow" cx="60" cy="70" rx="36" ry="27" fill="var(--ls2)"/><path class="Lz1s6f8 counter ink" d="M26 83 L94 83" fill="none"/><path class="Lz1s6f8 loaf ink" d="M34 80 C28 74 30 57 44 51 C52 47 68 47 76 51 C90 57 92 74 86 80 C70 85 50 85 34 80 Z" fill="var(--la)"/><path class="Lz1s6f8 scores ink" d="M46 60 L52 53 M57 58 L63 51 M68 60 L74 53" fill="none"/><path class="Lz1s6f8 puff p1 ink" d="M40 42 Q38 36 44 36 Q45 31 50 34 Q54 33 54 39 Q55 44 48 44 Q40 45 40 42 Z" fill="var(--lp)"/><path class="Lz1s6f8 puff p2 ink" d="M60 33 Q58 27 64 27 Q65 22 70 25 Q74 24 74 30 Q75 35 68 35 Q60 36 60 33 Z" fill="var(--ls)"/><path class="Lz1s6f8 puff p3 ink" d="M51 21 Q49 15 55 15 Q56 11 60 14 Q64 13 64 19 Q65 23 58 23 Q50 24 51 21 Z" fill="var(--lp)"/><path class="Lz1s6f8 moon ink" d="M97 18 A10 10 0 1 0 97 40 A7.5 7.5 0 1 1 97 18 Z" fill="var(--la2)"/><circle class="Lz1s6f8 spark" cx="86" cy="16" r="2" fill="var(--la2)"/></svg></div>
-    <div class="medal"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><span><span class="ar">ب</span><span class="en">B</span></span></div>
+    
     <h1><span class="ar">بريدي</span><span class="en">Breddy</span></h1>
     <div class="world"><span class="ar">✦ <b>فرن الحارة قبل الفجر</b> ✦</span><span class="en">✦ <b>the neighborhood oven before dawn</b> ✦</span></div>
     <div class="heroline"><span class="ar">الخبز الطيب ما يحتاج كلام</span><span class="en">good bread speaks softly</span></div>

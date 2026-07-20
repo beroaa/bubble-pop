@@ -31,7 +31,7 @@
     background:radial-gradient(circle,#9b5b2730,transparent 65%);pointer-events:none}
   .mote{position:absolute;pointer-events:none;z-index:0}
   .mote{color:#c4a23b;font-size:15px;animation:mrise 4.5s ease-in-out infinite}@keyframes mrise{0%{opacity:0;transform:translateY(10px) rotate(90deg)}45%{opacity:.55}100%{opacity:0;transform:translateY(-26px) rotate(90deg)}}
-  .greet{color:var(--accent);font-size:13px;letter-spacing:.14em;margin-bottom:10px}
+  .greet{color:var(--accent);font-size:13.5px;font-weight:700;letter-spacing:.14em;margin-bottom:10px}
   .medal{position:relative;width:104px;height:104px;margin:0 auto 16px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;
     background:radial-gradient(circle at 32% 24%,#ffffff2b,transparent 42%),radial-gradient(circle at 32% 28%,#9b5b2742,#9b5b2714 62%,transparent);
@@ -60,8 +60,8 @@
   @keyframes inkin{0%{opacity:0;transform:translateY(16px) rotate(var(--r,0deg)) scale(.6)}
     60%{opacity:1;transform:translateY(-2px) rotate(calc(var(--r,0deg)*-.4)) scale(1.07)}
     100%{opacity:1;transform:none}}
-  .world{margin-top:10px;color:var(--text-3);font-size:13px;letter-spacing:.08em}
-  .world b{color:#8c8a36;font-weight:600}
+  .world{margin-top:10px;color:var(--text-2);font-size:14px;font-weight:600;letter-spacing:.08em}
+  .world b{color:#8c8a36;font-weight:700}
   .heroline{margin-top:10px;color:var(--text-2);font-size:22px;font-weight:600;line-height:1.45}
   .heroline .ar{font-family:'Baloo Bhaijaan 2',cursive}
   .heroline .en{font-family:'Fredoka',sans-serif}
@@ -137,7 +137,7 @@
   .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
     box-shadow:inset 0 0 0 1px #9b5b2755}
   .cat-title{flex:1;min-width:0}
-  .room-eyebrow{color:var(--text-3);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+  .room-eyebrow{color:var(--text-2);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
   .room-h2{color:var(--sa);font-size:28px;font-weight:800;line-height:1.14;letter-spacing:-.01em}
   .room-h2 .ar{font-family:'Baloo Bhaijaan 2',cursive}
   .room-h2 .en{font-family:'Fredoka',sans-serif}
@@ -148,9 +148,9 @@
     transition:stroke-dashoffset .9s cubic-bezier(.2,.8,.2,1) .15s}
   .reveal.in .inkline path{stroke-dashoffset:0}
   /* room-voice: the room leans in and says one line (roomvoice50) — reveals with its section */
-  .room-voice{margin-top:7px;font-size:15px;color:var(--sa);line-height:1.5;
+  .room-voice{margin-top:7px;font-size:15.5px;font-weight:500;color:var(--text-2);line-height:1.5;
     opacity:0;transform:translateY(6px) rotate(-.5deg);transition:opacity .6s ease .35s,transform .6s ease .35s}
-  .reveal.in .room-voice{opacity:.85;transform:rotate(-.5deg)}
+  .reveal.in .room-voice{opacity:1;transform:rotate(-.5deg)}
   .room-voice .ar{font-family:'Baloo Bhaijaan 2',cursive}
   .room-voice .en{font-family:'Fredoka',sans-serif;font-style:italic}
   /* rhythm: even rooms flip their head — the eye zigzags down the house */
@@ -549,7 +549,7 @@ body{
 @keyframes Li77p28_draw{from{stroke-dashoffset:64}to{stroke-dashoffset:0}}
 @keyframes Li77p28_drift{0%{opacity:.35;transform:translate(-1px,2px)}50%{opacity:.9;transform:translate(1px,-3px)}100%{opacity:.35;transform:translate(-1px,2px)}}
 @keyframes Li77p28_drip{0%{opacity:0;transform:translateY(-2px)}18%{opacity:1}68%{opacity:1;transform:translateY(9px)}80%{opacity:0;transform:translateY(9px)}100%{opacity:0}}</style><svg viewBox="0 0 120 120" fill="none"><circle class="Li77p28 glow" cx="60" cy="58" r="40" fill="var(--la2)" opacity="0.18"/><ellipse class="Li77p28 base" cx="60" cy="108" rx="30" ry="6" fill="var(--ls)" stroke="var(--lk)" stroke-width="4"/><g><path class="Li77p28 steam s1" d="M54,42 C49,34 59,30 55,22 C52,16 59,13 57,8" stroke="var(--ls)" stroke-width="4.5" stroke-linecap="round"/><path class="Li77p28 steam s2" d="M67,42 C72,35 63,31 68,24 C72,18 66,14 68,9" stroke="var(--ls)" stroke-width="4.5" stroke-linecap="round"/></g><g class="Li77p28 carafe"><path class="Li77p28 vessel" d="M42,74 C39,74 38,82 40,90 C42,100 48,106 60,106 C72,106 78,100 80,90 C82,82 81,74 78,74 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4.5" stroke-linejoin="round"/><path class="Li77p28 brew" d="M40.5,88 C44,96 50,102 60,102 C70,102 76,96 79.5,88 C74,92 66,93 60,93 C54,93 46,92 40.5,88 Z" fill="var(--la)"/><path class="Li77p28 handle" d="M79,80 C90,79 92,90 85,95" stroke="var(--lk)" stroke-width="4.5" stroke-linecap="round"/><rect class="Li77p28 collar" x="46" y="68" width="28" height="8" rx="4" fill="var(--lp)" stroke="var(--lk)" stroke-width="4"/></g><g class="Li77p28 dripper"><path class="Li77p28 cone" d="M33,46 L49,66 L71,66 L87,46 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="4.5" stroke-linejoin="round"/><ellipse class="Li77p28 rim" cx="60" cy="46" rx="27" ry="6.5" fill="var(--ls)" stroke="var(--lk)" stroke-width="4.5"/><ellipse class="Li77p28 bed" cx="60" cy="45" rx="20" ry="4.5" fill="var(--lk)"/><path class="Li77p28 ridge" d="M45,50 L52,64" stroke="var(--lk)" stroke-width="3" stroke-linecap="round"/><path class="Li77p28 ridge" d="M60,49 L60,65" stroke="var(--lk)" stroke-width="3" stroke-linecap="round"/><path class="Li77p28 ridge" d="M75,50 L68,64" stroke="var(--lk)" stroke-width="3" stroke-linecap="round"/></g><path class="Li77p28 drip" d="M60,66 C57,69 57,72 60,73 C63,72 63,69 60,66 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="3" stroke-linejoin="round"/></svg></div>
-    <div class="medal"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><span><span class="ar">ا</span><span class="en">O</span></span></div>
+    
     <h1><span class="ar">اويا</span><span class="en">OUIA Cafe</span></h1>
     <div class="world"><span class="ar">✦ <b>محطة قهوة تمشي على مهلها</b> ✦</span><span class="en">✦ <b>a coffee station that never hurries</b> ✦</span></div>
     <div class="heroline"><span class="ar">خذ راحتك، القهوة على مهلها</span><span class="en">slow coffee, take a seat</span></div>

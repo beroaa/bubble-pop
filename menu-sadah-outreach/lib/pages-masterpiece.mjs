@@ -757,7 +757,7 @@ export function masterpieceMenuPage(cafe, brief) {
     background:radial-gradient(circle,${a}30,transparent 65%);pointer-events:none}
   .mote{position:absolute;pointer-events:none;z-index:0}
   ${M.css(a2)}
-  .greet{color:var(--accent);font-size:13px;letter-spacing:.14em;margin-bottom:10px}
+  .greet{color:var(--accent);font-size:13.5px;font-weight:700;letter-spacing:.14em;margin-bottom:10px}
   .medal{position:relative;width:104px;height:104px;margin:0 auto 16px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;
     background:radial-gradient(circle at 32% 24%,#ffffff2b,transparent 42%),radial-gradient(circle at 32% 28%,${a}42,${a}14 62%,transparent);
@@ -786,8 +786,8 @@ export function masterpieceMenuPage(cafe, brief) {
   @keyframes inkin{0%{opacity:0;transform:translateY(16px) rotate(var(--r,0deg)) scale(.6)}
     60%{opacity:1;transform:translateY(-2px) rotate(calc(var(--r,0deg)*-.4)) scale(1.07)}
     100%{opacity:1;transform:none}}
-  .world{margin-top:10px;color:var(--text-3);font-size:13px;letter-spacing:.08em}
-  .world b{color:${R[1]};font-weight:600}
+  .world{margin-top:10px;color:var(--text-2);font-size:14px;font-weight:600;letter-spacing:.08em}
+  .world b{color:${R[1]};font-weight:700}
   .heroline{margin-top:10px;color:var(--text-2);font-size:22px;font-weight:600;line-height:1.45}
   .heroline .ar{font-family:${T.fonts.ar}}
   .heroline .en{font-family:${T.fonts.en}}
@@ -857,7 +857,7 @@ export function masterpieceMenuPage(cafe, brief) {
   .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
     box-shadow:inset 0 0 0 1px ${a}55}
   .cat-title{flex:1;min-width:0}
-  .room-eyebrow{color:var(--text-3);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+  .room-eyebrow{color:var(--text-2);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
   .room-h2{color:var(--sa);font-size:28px;font-weight:800;line-height:1.14;letter-spacing:-.01em}
   .room-h2 .ar{font-family:${T.fonts.ar}}
   .room-h2 .en{font-family:${T.fonts.en}}
@@ -868,9 +868,9 @@ export function masterpieceMenuPage(cafe, brief) {
     transition:stroke-dashoffset .9s cubic-bezier(.2,.8,.2,1) .15s}
   .reveal.in .inkline path{stroke-dashoffset:0}
   /* room-voice: the room leans in and says one line (roomvoice50) — reveals with its section */
-  .room-voice{margin-top:7px;font-size:15px;color:var(--sa);line-height:1.5;
+  .room-voice{margin-top:7px;font-size:15.5px;font-weight:500;color:var(--text-2);line-height:1.5;
     opacity:0;transform:translateY(6px) rotate(-.5deg);transition:opacity .6s ease .35s,transform .6s ease .35s}
-  .reveal.in .room-voice{opacity:.85;transform:rotate(-.5deg)}
+  .reveal.in .room-voice{opacity:1;transform:rotate(-.5deg)}
   .room-voice .ar{font-family:${T.fonts.ar}}
   .room-voice .en{font-family:${T.fonts.en};font-style:italic}
   /* rhythm: even rooms flip their head — the eye zigzags down the house */
@@ -1104,7 +1104,7 @@ ${bbg ? bbg.html : ''}
     ${SC ? SC.heroHtml : ''}
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
     ${heroLogo}
-    <div class="medal${logo ? ' haslogo' : menuMark ? ' hasmark' : ''}">${najdiFrame('var(--ink)')}${logo ? logoImg(logo) : menuMark}<span><span class="ar">${esc((cafe.nameAr || cafe.name).trim()[0])}</span><span class="en">${esc(cafe.name.trim()[0].toUpperCase())}</span></span></div>
+    ${blogo ? '' : `<div class="medal${logo ? ' haslogo' : menuMark ? ' hasmark' : ''}">${najdiFrame('var(--ink)')}${logo ? logoImg(logo) : menuMark}<span><span class="ar">${esc((cafe.nameAr || cafe.name).trim()[0])}</span><span class="en">${esc(cafe.name.trim()[0].toUpperCase())}</span></span></div>`}
     <h1><span class="ar">${esc(cafe.nameAr)}</span><span class="en">${esc(cafe.name)}</span></h1>
     <div class="world"><span class="ar">✦ <b>${esc(brief.world?.ar || '')}</b> ✦</span><span class="en">✦ <b>${esc(brief.world?.en || '')}</b> ✦</span></div>
     <div class="heroline"><span class="ar">${esc(brief.heroAr || cafe.taglineAr)}</span><span class="en">${esc(brief.heroEn || cafe.tagline)}</span></div>
@@ -1516,7 +1516,7 @@ ${bbg ? bbg.html : ''}
     ${motesHtml(brief.motif, sd)}
     <div class="kick">${B('🎁 هدية من منيو سادة · ليست إعلاناً', '🎁 A gift from Menu Sadah · not an ad')}</div>
     ${giftHeroLogo}
-    <div class="medal${logo ? ' haslogo' : giftMark ? ' hasmark' : ''}">${najdiFrame('var(--ink)')}${logo ? logoImg(logo) : giftMark}<span><span class="ar">${initAr}</span><span class="en">${initEn}</span></span></div>
+    ${blogo ? '' : `<div class="medal${logo ? ' haslogo' : giftMark ? ' hasmark' : ''}">${najdiFrame('var(--ink)')}${logo ? logoImg(logo) : giftMark}<span><span class="ar">${initAr}</span><span class="en">${initEn}</span></span></div>`}
     <h1>${B('أهلاً ببيت <b>' + esc(cafe.nameAr) + '</b>', 'Welcome home, <b>' + esc(cafe.name) + '</b>.')}</h1>
     <div class="world">${B('✦ ' + esc(brief.world?.ar || '') + ' ✦', '✦ ' + esc(brief.world?.en || '') + ' ✦')}</div>
     <div class="heroline hand">${B(esc(brief.heroAr || ''), esc(brief.heroEn || ''))}</div>
