@@ -49,6 +49,15 @@ These orders apply to EVERY Claude session in this repo — cloud or MacBook. Re
 - Swarm research: use parallel Workflow squadrons with structured-output agents; merge via singularity/merge-swarm.mjs (re-validates everything).
 - MacBook sessions: network is open — photos, fonts, and menu-sadah.com fetches happen THERE.
 
+## SWARM SURVIVAL LAW (locked 2026-07-20 — Ibrahim's order after repeated silent deaths)
+- **Why swarms "keep dying":** background Workflow swarms in the cloud box get SUSPENDED by the host the moment the main session goes idle between turns. The agent receives its prompt but the model reply never comes — the run journal shows `"type":"started"` with NO matching `"type":"result"`, and **NO completion/failure notification ever fires.** Proven: a dead agent's log was just `[user prompt][attachment][attachment]` then frozen ~49 min, only 2 of 50 agents ever started. It is NOT disk (checked: plenty free) and NOT an agent error — it is the process being starved while the box thinks nobody's home.
+- **NEVER fire-and-forget a swarm.** Every `Workflow` launch is paired with a WATCHDOG loop:
+  1. Immediately schedule a self check-in ~8 min out (`mcp send_later`, this session). The check-in itself KEEPS THE SESSION WARM, which is what keeps the workflow alive — this is the actual fix, not luck.
+  2. On each wake: count `"type":"result"` lines in `<transcriptDir>/journal.jsonl`. If the count grew, re-arm another ~8-min check-in. If it did NOT grow (or agent-*.jsonl mtimes are idle >5 min), the run stalled → relaunch with `Workflow({scriptPath, resumeFromRunId})` — completed agents replay from cache, so zero work is lost — then re-arm.
+  3. Keep re-arming until result count hits the target (e.g. 50/50), THEN merge → rebuild → verify → commit → push.
+- **Keep runs short + resumable:** prefer batches ≤ ~20 agents (chunk big swarms) so a run finishes inside one warm window; always keep the `scriptPath` + `runId` so any stall resumes instead of restarting.
+- **Embed inputs in the script** (a `const DATA = {...}` after `meta`), never pass giant blobs via `args` — the placeholder-args mistake wastes a whole run.
+
 ## VISUALS-FIRST LAW (Ibrahim's most important order — locked 2026-07-18)
 - Real brand visuals are the #1 quality lever. For EVERY menu (starting with the 50): hunt ALL findable images of the cafe's products, shop, and existing menu (Instagram, TikTok, Google Maps, delivery apps), study them, and place them like a Mayfair design firm — hero shots, room headers, detail cards, texture crops. Upscale/clean before use (min ~1200px wide, tasteful crops).
 - Division of labor is physics: cloud box CANNOT download images (network wall) — photo HUNTING always runs on the MacBook via the current PHOTO-MISSION file; cloud box builds the per-cafe photo slots, layout logic, and auto-upgrade wiring so menus improve the moment photos land in dist/assets/photos/<slug>/.
