@@ -1,0 +1,4 @@
+pour.mp3 — Arabic/coffee pour sound
+Source: "Pouring coffee" by Maajora — https://freesound.org/people/Maajora/sounds/432775
+License: CC0 1.0 (public domain dedication)
+Edit: trimmed to ~2.2s, Xing header stripped. No other changes.
