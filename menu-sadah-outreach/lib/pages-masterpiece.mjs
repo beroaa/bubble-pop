@@ -1418,6 +1418,15 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
   .was{display:inline-block;margin-top:12px;font-size:26px;color:var(--rose);text-decoration:line-through;text-decoration-thickness:5px;transform:rotate(-2deg);font-weight:800}
   .big{font-family:Patrick Hand,Caveat,cursive;font-size:clamp(72px,22vw,120px);line-height:1;color:var(--gold);transform:rotate(-1.5deg);text-shadow:0 3px 0 #00000055}
   [data-lang="ar"] .big{font-family:"Aref Ruqaa",cursive;font-size:clamp(56px,17vw,96px)}
+  /* the 1,199 → FREE reveal: the price strikes, then FREE stamps down (motion-gated for legibility) */
+  @media (prefers-reduced-motion:no-preference){
+    .freecard.rv .big{opacity:0}
+    .freecard.rv.in .big{animation:freestamp .6s cubic-bezier(.2,1.6,.4,1) .4s both}
+    .freecard.rv .was{opacity:0}
+    .freecard.rv.in .was{animation:wasin .4s ease .15s both}
+    @keyframes freestamp{0%{opacity:0;transform:scale(1.9) rotate(-10deg)}60%{opacity:1;transform:scale(.95) rotate(-1.5deg)}100%{opacity:1;transform:rotate(-1.5deg) scale(1)}}
+    @keyframes wasin{from{opacity:0;transform:rotate(-2deg) translateY(6px)}to{opacity:1;transform:rotate(-2deg)}}
+  }
   .fine{margin-top:12px;font-size:13px;color:${paper}bb}
   .pt{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:2px solid var(--ink);
     border-radius:120px 16px 120px 16px/16px 120px 16px 120px;padding:16px 20px;margin-top:14px;box-shadow:3px 3px 0 var(--ink)}
@@ -1615,11 +1624,11 @@ ${bbg ? bbg.html : ''}
   </div>
 
   <div class="freecard rv">
-    <div class="giftbadge">${B('هدية من القلب', 'A gift from the heart')}</div>
-    <div class="lbl">${B('المنيو + أول شهر دعم كامل', 'The menu + first month of support')}</div>
-    <div><span class="was">${B('١٩٩ ريال / شهر', '199 SAR / mo')}</span></div>
+    <div class="giftbadge">${B('من أوائل مقاهي الرياض المختارة', "One of Riyadh's founding cafés")}</div>
+    <div class="lbl">${B('قيمة تصميم وبناء منيوكم الرقمي الكامل', 'The value of your complete custom digital menu')}</div>
+    <div><span class="was">${B('١٬١٩٩ ريال', '1,199 SAR')}</span></div>
     <div class="big">${B('مجاناً', 'FREE')}</div>
-    <div class="fine">${B('المنيو هدية تبقى لكم، وأول شهر دعم وتعديلات علينا — بعدها القرار قراركم.', 'The menu is yours to keep, and the first month of support and tweaks is on us — after that, the decision is yours.')}</div>
+    <div class="fine">${B('صمّمناه وبنيناه لكم بالكامل — هدية تبقى لكم للأبد. اخترناكم ضمن أوائل مقاهي الرياض لنُظهر أفضل ما نقدّمه. تشغيله ودعمه لاحقاً ١٩٩ ريال/شهر، وأول ٣٠ يوم علينا.', 'Designed and built for you in full — a gift that stays yours forever. We chose you among the first Riyadh cafés to show our very best. Running it live with support is 199 SAR/mo afterward — and the first 30 days are on us.')}</div>
   </div>
 
   <div class="sec rv">

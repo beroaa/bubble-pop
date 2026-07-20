@@ -98,6 +98,15 @@
   .was{display:inline-block;margin-top:12px;font-size:26px;color:var(--rose);text-decoration:line-through;text-decoration-thickness:5px;transform:rotate(-2deg);font-weight:800}
   .big{font-family:Patrick Hand,Caveat,cursive;font-size:clamp(72px,22vw,120px);line-height:1;color:var(--gold);transform:rotate(-1.5deg);text-shadow:0 3px 0 #00000055}
   [data-lang="ar"] .big{font-family:"Aref Ruqaa",cursive;font-size:clamp(56px,17vw,96px)}
+  /* the 1,199 → FREE reveal: the price strikes, then FREE stamps down (motion-gated for legibility) */
+  @media (prefers-reduced-motion:no-preference){
+    .freecard.rv .big{opacity:0}
+    .freecard.rv.in .big{animation:freestamp .6s cubic-bezier(.2,1.6,.4,1) .4s both}
+    .freecard.rv .was{opacity:0}
+    .freecard.rv.in .was{animation:wasin .4s ease .15s both}
+    @keyframes freestamp{0%{opacity:0;transform:scale(1.9) rotate(-10deg)}60%{opacity:1;transform:scale(.95) rotate(-1.5deg)}100%{opacity:1;transform:rotate(-1.5deg) scale(1)}}
+    @keyframes wasin{from{opacity:0;transform:rotate(-2deg) translateY(6px)}to{opacity:1;transform:rotate(-2deg)}}
+  }
   .fine{margin-top:12px;font-size:13px;color:#fcf9f8bb}
   .pt{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:2px solid var(--ink);
     border-radius:120px 16px 120px 16px/16px 120px 16px 120px;padding:16px 20px;margin-top:14px;box-shadow:3px 3px 0 var(--ink)}
@@ -437,17 +446,17 @@ body{
     </ul>
     <div class="offerbox">
       <div class="oprice"><span class="onow"><span class="ar">٠ ريال اليوم</span><span class="en">0 SAR today</span></span><span class="othen"><span class="ar">ثم 199 ريال/شهر بعد ٣٠ يوم</span><span class="en">then 199 SAR/mo after 30 days</span></span></div>
-      <div style="text-align:center"><button class="cta gold touchable" type="button" data-tip><span class="ar">ابدأوا تجربتكم المجانية — ٣٠ يوم</span><span class="en">Start your free 30-day trial</span></button></div>
-      <div class="osafe"><span class="ar">نبدأها معكم على واتساب — بدون أي التزام.</span><span class="en">We'll start it together on WhatsApp — with zero commitment.</span></div>
+      <div style="text-align:center"><a class="cta gold touchable" href="https://buy.stripe.com/6oUaEQdtOeH8foKfereEo05" target="_blank" rel="noopener"><span class="ar">ابدأوا تجربتكم المجانية — ٣٠ يوم</span><span class="en">Start your free 30-day trial</span></a></div>
+      <div class="osafe"><span class="ar">🔒 بطاقتكم محفوظة بأمان عبر Stripe لبدء التجربة فقط — ٠ ريال الآن، وتلغون بضغطة وحدة في أي وقت خلال ٣٠ يوم بدون أي خصم.</span><span class="en">🔒 Your card is secured by Stripe just to start the trial — 0 SAR now, cancel in one tap anytime within 30 days with no charge.</span></div>
     </div>
   </div>
 
   <div class="freecard rv">
-    <div class="giftbadge"><span class="ar">هدية من القلب</span><span class="en">A gift from the heart</span></div>
-    <div class="lbl"><span class="ar">المنيو + أول شهر دعم كامل</span><span class="en">The menu + first month of support</span></div>
-    <div><span class="was"><span class="ar">١٩٩ ريال / شهر</span><span class="en">199 SAR / mo</span></span></div>
+    <div class="giftbadge"><span class="ar">من أوائل مقاهي الرياض المختارة</span><span class="en">One of Riyadh's founding cafés</span></div>
+    <div class="lbl"><span class="ar">قيمة تصميم وبناء منيوكم الرقمي الكامل</span><span class="en">The value of your complete custom digital menu</span></div>
+    <div><span class="was"><span class="ar">١٬١٩٩ ريال</span><span class="en">1,199 SAR</span></span></div>
     <div class="big"><span class="ar">مجاناً</span><span class="en">FREE</span></div>
-    <div class="fine"><span class="ar">المنيو هدية تبقى لكم، وأول شهر دعم وتعديلات علينا — بعدها القرار قراركم.</span><span class="en">The menu is yours to keep, and the first month of support and tweaks is on us — after that, the decision is yours.</span></div>
+    <div class="fine"><span class="ar">صمّمناه وبنيناه لكم بالكامل — هدية تبقى لكم للأبد. اخترناكم ضمن أوائل مقاهي الرياض لنُظهر أفضل ما نقدّمه. تشغيله ودعمه لاحقاً ١٩٩ ريال/شهر، وأول ٣٠ يوم علينا.</span><span class="en">Designed and built for you in full — a gift that stays yours forever. We chose you among the first Riyadh cafés to show our very best. Running it live with support is 199 SAR/mo afterward — and the first 30 days are on us.</span></div>
   </div>
 
   <div class="sec rv">

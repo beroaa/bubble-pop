@@ -20,9 +20,8 @@ export const CONTACT = {
     // Mac drops the real photo here (network-blocked in the cloud box); until then a designed
     // initials medallion shows — never a broken image.
     photo: 'assets/founder/ibrahim.jpg',
-    // PASTE your real Stripe payment link here → the card-unlocks-trial button goes live.
-    // Empty string = the button honestly falls back to WhatsApp / a "coming" tooltip (never a fake link).
-    stripe: '',
+    // Real Stripe payment link (SAR currency — confirmed by Ibrahim) → card-unlocks-trial button is LIVE.
+    stripe: 'https://buy.stripe.com/6oUaEQdtOeH8foKfereEo05',
   },
   // the offer, in the owner's own currency
   priceSar: 199,
