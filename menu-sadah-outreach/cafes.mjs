@@ -10,6 +10,23 @@ export const CONTACT = {
   // TODO: put your real WhatsApp number here (digits only, e.g. 9665XXXXXXXX)
   whatsapp: '966500000000',
   referenceMenu: 'https://menu-sadah.com/beyt-coffee',
+  // ---- the man behind Menu Sadah (real identity → trust; Saudis do business with Saudis) ----
+  founder: {
+    name: 'Ibrahim Sharbatly',
+    nameAr: 'إبراهيم الشربتلي',
+    lineEn: 'From the Sharbatly family · 75 years in Saudi business · MIT-certified in AI',
+    lineAr: 'من عائلة الشربتلي · ٧٥ سنة في الأعمال بالمملكة · معتمد من MIT في الذكاء الاصطناعي',
+    linkedin: 'https://www.linkedin.com/in/ibrahim-sharbatly',
+    // Mac drops the real photo here (network-blocked in the cloud box); until then a designed
+    // initials medallion shows — never a broken image.
+    photo: 'assets/founder/ibrahim.jpg',
+    // PASTE your real Stripe payment link here → the card-unlocks-trial button goes live.
+    // Empty string = the button honestly falls back to WhatsApp / a "coming" tooltip (never a fake link).
+    stripe: '',
+  },
+  // the offer, in the owner's own currency
+  priceSar: 199,
+  trialDays: 30,
 };
 
 export const CAFES = [

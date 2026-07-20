@@ -1300,6 +1300,13 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
   const wa = CONTACT.whatsapp && CONTACT.whatsapp !== '966500000000' ? `https://wa.me/${CONTACT.whatsapp}?text=${waMsg}` : null;
   // SELLABLE 5 — THE ROYAL OFFER: wa.me when CONTACT.whatsapp is real, honest demo tooltip otherwise
   const waRoyal = wa ? `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent('مرحباً، معكم ' + cafe.name + ' — نبغى نفعّل التجربة الملكية اليوم 👑')}` : null;
+  // ---- FOUNDER TRUST + CARD-UNLOCKS-TRIAL OFFER ----
+  const F = CONTACT.founder || {};
+  const price = CONTACT.priceSar || 199, trialDays = CONTACT.trialDays || 30;
+  const founderPhoto = F.photo ? '../' + F.photo : ''; // Mac drops the real photo; else designed initials show
+  // the offer button prefers the real Stripe link; falls back to WhatsApp; else an honest tooltip. Never a fake link.
+  const offerHref = (F.stripe && /^https?:\/\//.test(F.stripe)) ? F.stripe : (waRoyal || null);
+  const offerIsCard = !!(F.stripe && /^https?:\/\//.test(F.stripe));
   const initAr = esc((cafe.nameAr || cafe.name).trim()[0]), initEn = esc(cafe.name.trim()[0].toUpperCase());
   // BRAND MOTION DNA: the gift moves on the cafe's own curve too
   const MO = (cafe.theme && cafe.theme.motion) || { ease: 'cubic-bezier(.22,1,.36,1)', revealDir: 'up' };
@@ -1377,6 +1384,25 @@ export function masterpieceWelcomePage(cafe, brief, extras = {}) {
   [data-lang="ar"] .h2{font-family:"Aref Ruqaa",cursive}
   .h2 b{color:var(--rose)}
   .sub{text-align:center;color:var(--ink);opacity:.75;font-size:14.5px;margin-top:6px}
+  /* FOUNDER TRUST block — the real man behind Menu Sadah */
+  .founder{display:flex;align-items:center;gap:14px;max-width:470px;margin:22px auto 0;background:var(--card);
+    border:2px solid var(--ink);border-radius:20px 12px 20px 12px;padding:14px 16px;box-shadow:4px 4px 0 var(--ink)}
+  .fphoto{position:relative;flex:0 0 auto;width:68px;height:68px;border-radius:50%;overflow:hidden;
+    border:2px solid var(--ink);background:radial-gradient(circle at 32% 26%,var(--gold),var(--ochre));display:grid;place-items:center}
+  .fphoto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .fphoto .finit{font-family:"Aref Ruqaa",serif;font-size:32px;font-weight:800;color:var(--paper);line-height:1}
+  .fbody{flex:1;min-width:0}
+  .fname{font-weight:800;font-size:17px;color:var(--ink);line-height:1.2}
+  .fline{font-size:12.5px;color:var(--ink);opacity:.74;margin-top:3px;line-height:1.5}
+  .flink{display:inline-flex;align-items:center;gap:6px;margin-top:9px;background:#0a66c2;color:#fff;text-decoration:none;
+    border:2px solid var(--ink);border-radius:999px;padding:5px 13px;font-size:12.5px;font-weight:800;box-shadow:2px 2px 0 var(--ink)}
+  .flink svg{flex:0 0 auto}
+  /* OFFER BOX — card-unlocks-trial, safety promise front-and-centre */
+  .offerbox{max-width:460px;margin:22px auto 0;text-align:center}
+  .oprice{display:flex;flex-direction:column;align-items:center;gap:2px;margin-bottom:14px}
+  .oprice .onow{font-weight:800;font-size:26px;color:var(--ink);line-height:1.1}
+  .oprice .othen{font-size:14px;color:var(--ink);opacity:.72;font-weight:600}
+  .osafe{margin-top:12px;font-size:12.5px;line-height:1.65;color:var(--ink);opacity:.82;max-width:400px;margin-inline:auto}
   .letter{${inkframe};background:var(--card);padding:28px 26px;margin-top:40px;box-shadow:5px 5px 0 ${ink}22}
   .letter::after{content:"";position:absolute;inset:5px;border:1.5px dashed ${ink}55;border-radius:inherit;pointer-events:none}
   .salut{font-size:26px;color:var(--ink);margin-bottom:8px;transform:rotate(-1deg)}
@@ -1543,39 +1569,55 @@ ${bbg ? bbg.html : ''}
   </section>
 
   <div class="letter rv">
-    <div class="salut hand">${B('مرحباً يا بيت ' + esc(cafe.nameAr) + '،', 'Hello, house of ' + esc(cafe.name) + ',')}</div>
-    <p>${B('أنا إبراهيم من «منيو سادة». ' + (social ? 'تابعت <b>' + esc(social) + '</b> — و' : '') + esc(flavor.ar) + '. صراحةً، وقّفني. <span class="punch">فبنينا لكم هدية.</span>',
-      "I'm Ibrahim from MENU SADAH. " + (social ? "I've been following <b>" + esc(social) + "</b> — and " : '') + esc(flavor.en) + '. Honestly, it stopped me. <span class="punch">So we built you a gift.</span>')}</p>
-    <p>${B('منيو رقمي كامل بهويتكم، عربي وإنجليزي، مبني مثل عالمكم: <b>«' + esc(brief.world?.ar || '') + '»</b> — غرفة غرفة، وألوان الصفحة تتبدّل وأنتم تتجولون فيها.',
-      'A complete digital menu in your identity, Arabic and English, shaped like your world: <b>"' + esc(brief.world?.en || '') + '"</b> — room by room, and the page shifts as you wander through it.')}</p>
-    ${sig ? `<p>${B('وبلغنا أن «' + esc(sig[1]) + '» حديث الناس عندكم — جعلناه يفتتح المنيو.', 'And we hear your «' + esc(sig[0]) + '» is the one people talk about — it opens the menu.')}</p>` : ''}
-    <div class="sigline hand">${B('إبراهيم — منيو سادة', 'Ibrahim — Menu Sadah')}</div>
+    <div class="salut hand">${B('أهلاً بأصحاب ' + esc(cafe.nameAr) + '،', 'To the people behind ' + esc(cafe.name) + ',')}</div>
+    <p>${B('أنا إبراهيم الشربتلي. ' + (social ? 'تابعت <b>' + esc(social) + '</b> فترة، و' : '') + esc(flavor.ar) + '. ما راسلتكم عشان أبيعكم شيء — راسلتكم لأني أحترم اللي تبنونه، وحبيت أضيف له. <span class="punch">فجهّزت لكم هذي.</span>',
+      "I'm Ibrahim Sharbatly. " + (social ? "I've been following <b>" + esc(social) + "</b> for a while, and " : '') + esc(flavor.en) + '. I didn\'t reach out to sell you anything — I reached out because I respect what you\'re building, and I wanted to add to it. <span class="punch">So I prepared this for you.</span>')}</p>
+    <p>${B('منيو رقمي كامل بهويتكم، عربي وإنجليزي، مصمّم على مقاس عالمكم: <b>«' + esc(brief.world?.ar || '') + '»</b> — غرفة غرفة، وألوان الصفحة تتبدّل وأنتم تتصفحونه. هدية مني لكم، تبقى لكم سواء كمّلنا مع بعض أو لا.',
+      'A complete digital menu in your identity — Arabic and English — built to the measure of your world: <b>"' + esc(brief.world?.en || '') + '"</b>, room by room, its colors shifting as guests scroll. A gift from me to you; it stays yours whether or not we work together.')}</p>
+    ${sig ? `<p>${B('وسمعت أن «' + esc(sig[1]) + '» حديث زبائنكم — فجعلته يفتتح المنيو، مثل ما يستاهل.', 'And I hear your «' + esc(sig[0]) + '» is what your guests talk about — so I let it open the menu, as it deserves.')}</p>` : ''}
+    <div class="sigline hand">${B('إبراهيم الشربتلي — منيو سادة', 'Ibrahim Sharbatly — Menu Sadah')}</div>
   </div>
 
-  <!-- royal offer section — SELLABLE 5: founding-20 scarcity is REAL (Ibrahim honors the cap; no countdown timers, ever) -->
+  <!-- FOUNDER TRUST: the real man behind it (Saudis do business with Saudis) -->
+  <div class="founder rv">
+    <div class="fphoto">${founderPhoto
+    ? `<img src="${esc(founderPhoto)}" alt="${esc(F.name || 'Ibrahim Sharbatly')}" onerror="this.remove()">`
+    : ''}<span class="finit">إ</span></div>
+    <div class="fbody">
+      <div class="fname">${B(esc(F.nameAr || 'إبراهيم الشربتلي'), esc(F.name || 'Ibrahim Sharbatly'))}</div>
+      <div class="fline">${B(esc(F.lineAr || ''), esc(F.lineEn || ''))}</div>
+      ${F.linkedin ? `<a class="flink touchable" href="${esc(F.linkedin)}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg><span>${B('تعرّفوا عليّ على لينكدإن', 'See me on LinkedIn')}</span></a>` : ''}
+    </div>
+  </div>
+
+  <!-- offer section — card unlocks a 30-day trial; the safety promise is made impossible to miss -->
   <div class="sec royal-offer rv">
-    <div class="rbadge">${B('👑 العرض الملكي', '👑 The Founding Offer')}</div>
-    <div class="h2">${B('العرض <b>الملكي</b> ✦', 'The <b>Founding</b> Offer ✦')}</div>
-    <div class="sub">${B('أول ٢٠ مقهى مؤسس في الرياض — والقائمة تقف عند ٢٠، كلمة من إبراهيم. بدون عدّادات، بدون استعجال مصطنع.', "The first 20 founding cafés of Riyadh — the list closes at 20, Ibrahim's word. No countdown clocks, no fake urgency.")}</div>
+    <div class="rbadge">${B('👑 عرض المقاهي المؤسِّسة', '👑 Founding-cafe offer')}</div>
+    <div class="h2">${B('جرّبوه <b>٣٠ يوم</b> — على حسابي ✦', 'Try it <b>30 days</b> — on me ✦')}</div>
+    <div class="sub">${B('المنيو اللي بين أيديكم هدية تبقى لكم. وإذا حبيتوا تشغّلونه بالكامل، خذوا ٣٠ يوم تجربة كاملة — دعم وتعديلات بلا حدود — قبل أي دفعة.', 'The menu in your hands is a gift you keep. If you want it fully live, take a full 30-day trial — unlimited support and edits — before a single riyal.')}</div>
     <ul class="rlist">
-      <li>${B('شهر مجاني كامل → بعدها ٤٩$ شهرياً', 'One full month free → then $49/mo')}</li>
-      <li>${B('تعديلات بلا حدود', 'Unlimited edits')}</li>
-      <li>${B('أزرار طلب واتساب', 'WhatsApp order buttons')}</li>
-      <li>${B('QR لكل طاولة', 'A QR code for every table')}</li>
-      <li>${B('نسخة طباعة A4', 'A4 print edition')}</li>
-      <li>${B('خانات السعرات والكافيين (SFDA)', 'SFDA calorie & caffeine slots')}</li>
-      <li>${B('تقرير زيارات شهري', 'Monthly visits report')}</li>
-      <li>${B('أولوية دعم بنفس اليوم', 'Same-day priority support')}</li>
+      <li>${B('٣٠ يوم دعم وتعديلات مجاناً بالكامل', '30 days of support & edits — completely free')}</li>
+      <li>${B('تعديلات بلا حدود على الأصناف والأسعار والصور', 'Unlimited edits to items, prices & photos')}</li>
+      <li>${B('أزرار طلب واتساب + سلة طلبات', 'WhatsApp order buttons + a cart')}</li>
+      <li>${B('QR لكل طاولة + نسخة طباعة A4', 'A QR for every table + A4 print edition')}</li>
+      <li>${B('خانات السعرات والكافيين (متوافق SFDA)', 'Calorie & caffeine slots (SFDA-ready)')}</li>
+      <li>${B('تقرير زيارات شهري + أولوية دعم بنفس اليوم', 'Monthly visits report + same-day priority support')}</li>
     </ul>
-    <div style="text-align:center;margin-top:22px">${waRoyal
-      ? `<a class="cta gold touchable" href="${waRoyal}">${B('فعّلوا تجربتكم الملكية — بنفس اليوم', 'Activate your royal experience — same day')}</a>`
-      : `<button class="cta gold touchable" type="button" data-tip>${B('فعّلوا تجربتكم الملكية — بنفس اليوم', 'Activate your royal experience — same day')}</button>`}</div>
+    <div class="offerbox">
+      <div class="oprice"><span class="onow">${B('٠ ريال اليوم', '0 SAR today')}</span><span class="othen">${B('ثم ' + price + ' ريال/شهر بعد ٣٠ يوم', 'then ' + price + ' SAR/mo after 30 days')}</span></div>
+      <div style="text-align:center">${offerHref
+    ? `<a class="cta gold touchable" href="${esc(offerHref)}"${offerIsCard ? ' target="_blank" rel="noopener"' : ''}>${B('ابدأوا تجربتكم المجانية — ٣٠ يوم', 'Start your free 30-day trial')}</a>`
+    : `<button class="cta gold touchable" type="button" data-tip>${B('ابدأوا تجربتكم المجانية — ٣٠ يوم', 'Start your free 30-day trial')}</button>`}</div>
+      <div class="osafe">${offerIsCard
+    ? B('🔒 بطاقتكم محفوظة بأمان عبر Stripe لبدء التجربة فقط — ٠ ريال الآن، وتلغون بضغطة وحدة في أي وقت خلال ٣٠ يوم بدون أي خصم.', '🔒 Your card is secured by Stripe just to start the trial — 0 SAR now, cancel in one tap anytime within 30 days with no charge.')
+    : B('نبدأها معكم على واتساب — بدون أي التزام.', "We'll start it together on WhatsApp — with zero commitment.")}</div>
+    </div>
   </div>
 
   <div class="freecard rv">
     <div class="giftbadge">${B('هدية من القلب', 'A gift from the heart')}</div>
     <div class="lbl">${B('المنيو + أول شهر دعم كامل', 'The menu + first month of support')}</div>
-    <div><span class="was">${B('٤٩$ / شهر', '$49 / mo')}</span></div>
+    <div><span class="was">${B('١٩٩ ريال / شهر', '199 SAR / mo')}</span></div>
     <div class="big">${B('مجاناً', 'FREE')}</div>
     <div class="fine">${B('المنيو هدية تبقى لكم، وأول شهر دعم وتعديلات علينا — بعدها القرار قراركم.', 'The menu is yours to keep, and the first month of support and tweaks is on us — after that, the decision is yours.')}</div>
   </div>
@@ -1583,7 +1625,7 @@ ${bbg ? bbg.html : ''}
   <div class="sec rv">
     <div class="pt"><div class="n">1</div><div><b>${B('هدية حقيقية', 'A true gift')}</b><span class="d">${B('المنيو لكم، مجاناً، للأبد.', 'The menu is yours to keep, free, forever.')}</span></div></div>
     <div class="pt"><div class="n">2</div><div><b>${B('شهر مجاني كامل', 'One free month')}</b><span class="d">${B('دعم وتعديلات بلا حدود، علينا.', 'Support and unlimited tweaks, on us.')}</span></div></div>
-    <div class="pt"><div class="n">3</div><div><b>${B('بعدها أنتم تقررون', 'Then you decide')}</b><span class="d">${B('تكملون بـ٤٩$ شهرياً، أو تلغون وتحتفظون بالمنيو.', 'Continue at $49 a month, or cancel and keep the menu.')}</span></div></div>
+    <div class="pt"><div class="n">3</div><div><b>${B('بعدها أنتم تقررون', 'Then you decide')}</b><span class="d">${B('تكملون بـ١٩٩ ريال شهرياً، أو تلغون وتحتفظون بالمنيو.', 'Continue at 199 SAR a month, or cancel and keep the menu.')}</span></div></div>
     <div class="why">${B('بدون شروط، بدون عقد. نبني مجاناً للبيوت اللي نؤمن فيها — <span class="hl">وبيتكم واحد منها.</span>', 'No catch, no contract. We build free for houses we believe in — <span class="hl">and yours is one of them.</span>')}</div>
   </div>
 

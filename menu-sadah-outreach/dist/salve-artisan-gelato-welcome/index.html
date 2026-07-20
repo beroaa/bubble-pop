@@ -64,6 +64,25 @@
   [data-lang="ar"] .h2{font-family:"Aref Ruqaa",cursive}
   .h2 b{color:var(--rose)}
   .sub{text-align:center;color:var(--ink);opacity:.75;font-size:14.5px;margin-top:6px}
+  /* FOUNDER TRUST block — the real man behind Menu Sadah */
+  .founder{display:flex;align-items:center;gap:14px;max-width:470px;margin:22px auto 0;background:var(--card);
+    border:2px solid var(--ink);border-radius:20px 12px 20px 12px;padding:14px 16px;box-shadow:4px 4px 0 var(--ink)}
+  .fphoto{position:relative;flex:0 0 auto;width:68px;height:68px;border-radius:50%;overflow:hidden;
+    border:2px solid var(--ink);background:radial-gradient(circle at 32% 26%,var(--gold),var(--ochre));display:grid;place-items:center}
+  .fphoto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .fphoto .finit{font-family:"Aref Ruqaa",serif;font-size:32px;font-weight:800;color:var(--paper);line-height:1}
+  .fbody{flex:1;min-width:0}
+  .fname{font-weight:800;font-size:17px;color:var(--ink);line-height:1.2}
+  .fline{font-size:12.5px;color:var(--ink);opacity:.74;margin-top:3px;line-height:1.5}
+  .flink{display:inline-flex;align-items:center;gap:6px;margin-top:9px;background:#0a66c2;color:#fff;text-decoration:none;
+    border:2px solid var(--ink);border-radius:999px;padding:5px 13px;font-size:12.5px;font-weight:800;box-shadow:2px 2px 0 var(--ink)}
+  .flink svg{flex:0 0 auto}
+  /* OFFER BOX — card-unlocks-trial, safety promise front-and-centre */
+  .offerbox{max-width:460px;margin:22px auto 0;text-align:center}
+  .oprice{display:flex;flex-direction:column;align-items:center;gap:2px;margin-bottom:14px}
+  .oprice .onow{font-weight:800;font-size:26px;color:var(--ink);line-height:1.1}
+  .oprice .othen{font-size:14px;color:var(--ink);opacity:.72;font-weight:600}
+  .osafe{margin-top:12px;font-size:12.5px;line-height:1.65;color:var(--ink);opacity:.82;max-width:400px;margin-inline:auto}
   .letter{border:2px solid #391428;border-radius:255px 18px 225px 18px/18px 225px 18px 255px;position:relative;background:var(--card);padding:28px 26px;margin-top:40px;box-shadow:5px 5px 0 #39142822}
   .letter::after{content:"";position:absolute;inset:5px;border:1.5px dashed #39142855;border-radius:inherit;pointer-events:none}
   .salut{font-size:26px;color:var(--ink);margin-bottom:8px;transform:rotate(-1deg)}
@@ -396,35 +415,47 @@ body{
   </section>
 
   <div class="letter rv">
-    <div class="salut hand"><span class="ar">مرحباً يا بيت سالفي جيلاتو،</span><span class="en">Hello, house of Salve Artisan Gelato,</span></div>
-    <p><span class="ar">أنا إبراهيم من «منيو سادة». تابعت <b>@gelato_salve</b> — وحلاكم صار حديث الناس — ويستاهل منيو بمستواه. صراحةً، وقّفني. <span class="punch">فبنينا لكم هدية.</span></span><span class="en">I'm Ibrahim from MENU SADAH. I've been following <b>@gelato_salve</b> — and Your desserts are the talk of the town — they deserve a menu at their level. Honestly, it stopped me. <span class="punch">So we built you a gift.</span></span></p>
-    <p><span class="ar">منيو رقمي كامل بهويتكم، عربي وإنجليزي، مبني مثل عالمكم: <b>«حكاية جيلاتو بصباح الملقا»</b> — غرفة غرفة، وألوان الصفحة تتبدّل وأنتم تتجولون فيها.</span><span class="en">A complete digital menu in your identity, Arabic and English, shaped like your world: <b>"a gelato tale on a bright morning"</b> — room by room, and the page shifts as you wander through it.</span></p>
+    <div class="salut hand"><span class="ar">أهلاً بأصحاب سالفي جيلاتو،</span><span class="en">To the people behind Salve Artisan Gelato,</span></div>
+    <p><span class="ar">أنا إبراهيم الشربتلي. تابعت <b>@gelato_salve</b> فترة، وحلاكم صار حديث الناس — ويستاهل منيو بمستواه. ما راسلتكم عشان أبيعكم شيء — راسلتكم لأني أحترم اللي تبنونه، وحبيت أضيف له. <span class="punch">فجهّزت لكم هذي.</span></span><span class="en">I'm Ibrahim Sharbatly. I've been following <b>@gelato_salve</b> for a while, and Your desserts are the talk of the town — they deserve a menu at their level. I didn't reach out to sell you anything — I reached out because I respect what you're building, and I wanted to add to it. <span class="punch">So I prepared this for you.</span></span></p>
+    <p><span class="ar">منيو رقمي كامل بهويتكم، عربي وإنجليزي، مصمّم على مقاس عالمكم: <b>«حكاية جيلاتو بصباح الملقا»</b> — غرفة غرفة، وألوان الصفحة تتبدّل وأنتم تتصفحونه. هدية مني لكم، تبقى لكم سواء كمّلنا مع بعض أو لا.</span><span class="en">A complete digital menu in your identity — Arabic and English — built to the measure of your world: <b>"a gelato tale on a bright morning"</b>, room by room, its colors shifting as guests scroll. A gift from me to you; it stays yours whether or not we work together.</span></p>
     
-    <div class="sigline hand"><span class="ar">إبراهيم — منيو سادة</span><span class="en">Ibrahim — Menu Sadah</span></div>
+    <div class="sigline hand"><span class="ar">إبراهيم الشربتلي — منيو سادة</span><span class="en">Ibrahim Sharbatly — Menu Sadah</span></div>
   </div>
 
-  <!-- royal offer section — SELLABLE 5: founding-20 scarcity is REAL (Ibrahim honors the cap; no countdown timers, ever) -->
+  <!-- FOUNDER TRUST: the real man behind it (Saudis do business with Saudis) -->
+  <div class="founder rv">
+    <div class="fphoto"><img src="../assets/founder/ibrahim.jpg" alt="Ibrahim Sharbatly" onerror="this.remove()"><span class="finit">إ</span></div>
+    <div class="fbody">
+      <div class="fname"><span class="ar">إبراهيم الشربتلي</span><span class="en">Ibrahim Sharbatly</span></div>
+      <div class="fline"><span class="ar">من عائلة الشربتلي · ٧٥ سنة في الأعمال بالمملكة · معتمد من MIT في الذكاء الاصطناعي</span><span class="en">From the Sharbatly family · 75 years in Saudi business · MIT-certified in AI</span></div>
+      <a class="flink touchable" href="https://www.linkedin.com/in/ibrahim-sharbatly" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg><span><span class="ar">تعرّفوا عليّ على لينكدإن</span><span class="en">See me on LinkedIn</span></span></a>
+    </div>
+  </div>
+
+  <!-- offer section — card unlocks a 30-day trial; the safety promise is made impossible to miss -->
   <div class="sec royal-offer rv">
-    <div class="rbadge"><span class="ar">👑 العرض الملكي</span><span class="en">👑 The Founding Offer</span></div>
-    <div class="h2"><span class="ar">العرض <b>الملكي</b> ✦</span><span class="en">The <b>Founding</b> Offer ✦</span></div>
-    <div class="sub"><span class="ar">أول ٢٠ مقهى مؤسس في الرياض — والقائمة تقف عند ٢٠، كلمة من إبراهيم. بدون عدّادات، بدون استعجال مصطنع.</span><span class="en">The first 20 founding cafés of Riyadh — the list closes at 20, Ibrahim's word. No countdown clocks, no fake urgency.</span></div>
+    <div class="rbadge"><span class="ar">👑 عرض المقاهي المؤسِّسة</span><span class="en">👑 Founding-cafe offer</span></div>
+    <div class="h2"><span class="ar">جرّبوه <b>٣٠ يوم</b> — على حسابي ✦</span><span class="en">Try it <b>30 days</b> — on me ✦</span></div>
+    <div class="sub"><span class="ar">المنيو اللي بين أيديكم هدية تبقى لكم. وإذا حبيتوا تشغّلونه بالكامل، خذوا ٣٠ يوم تجربة كاملة — دعم وتعديلات بلا حدود — قبل أي دفعة.</span><span class="en">The menu in your hands is a gift you keep. If you want it fully live, take a full 30-day trial — unlimited support and edits — before a single riyal.</span></div>
     <ul class="rlist">
-      <li><span class="ar">شهر مجاني كامل → بعدها ٤٩$ شهرياً</span><span class="en">One full month free → then $49/mo</span></li>
-      <li><span class="ar">تعديلات بلا حدود</span><span class="en">Unlimited edits</span></li>
-      <li><span class="ar">أزرار طلب واتساب</span><span class="en">WhatsApp order buttons</span></li>
-      <li><span class="ar">QR لكل طاولة</span><span class="en">A QR code for every table</span></li>
-      <li><span class="ar">نسخة طباعة A4</span><span class="en">A4 print edition</span></li>
-      <li><span class="ar">خانات السعرات والكافيين (SFDA)</span><span class="en">SFDA calorie & caffeine slots</span></li>
-      <li><span class="ar">تقرير زيارات شهري</span><span class="en">Monthly visits report</span></li>
-      <li><span class="ar">أولوية دعم بنفس اليوم</span><span class="en">Same-day priority support</span></li>
+      <li><span class="ar">٣٠ يوم دعم وتعديلات مجاناً بالكامل</span><span class="en">30 days of support & edits — completely free</span></li>
+      <li><span class="ar">تعديلات بلا حدود على الأصناف والأسعار والصور</span><span class="en">Unlimited edits to items, prices & photos</span></li>
+      <li><span class="ar">أزرار طلب واتساب + سلة طلبات</span><span class="en">WhatsApp order buttons + a cart</span></li>
+      <li><span class="ar">QR لكل طاولة + نسخة طباعة A4</span><span class="en">A QR for every table + A4 print edition</span></li>
+      <li><span class="ar">خانات السعرات والكافيين (متوافق SFDA)</span><span class="en">Calorie & caffeine slots (SFDA-ready)</span></li>
+      <li><span class="ar">تقرير زيارات شهري + أولوية دعم بنفس اليوم</span><span class="en">Monthly visits report + same-day priority support</span></li>
     </ul>
-    <div style="text-align:center;margin-top:22px"><button class="cta gold touchable" type="button" data-tip><span class="ar">فعّلوا تجربتكم الملكية — بنفس اليوم</span><span class="en">Activate your royal experience — same day</span></button></div>
+    <div class="offerbox">
+      <div class="oprice"><span class="onow"><span class="ar">٠ ريال اليوم</span><span class="en">0 SAR today</span></span><span class="othen"><span class="ar">ثم 199 ريال/شهر بعد ٣٠ يوم</span><span class="en">then 199 SAR/mo after 30 days</span></span></div>
+      <div style="text-align:center"><button class="cta gold touchable" type="button" data-tip><span class="ar">ابدأوا تجربتكم المجانية — ٣٠ يوم</span><span class="en">Start your free 30-day trial</span></button></div>
+      <div class="osafe"><span class="ar">نبدأها معكم على واتساب — بدون أي التزام.</span><span class="en">We'll start it together on WhatsApp — with zero commitment.</span></div>
+    </div>
   </div>
 
   <div class="freecard rv">
     <div class="giftbadge"><span class="ar">هدية من القلب</span><span class="en">A gift from the heart</span></div>
     <div class="lbl"><span class="ar">المنيو + أول شهر دعم كامل</span><span class="en">The menu + first month of support</span></div>
-    <div><span class="was"><span class="ar">٤٩$ / شهر</span><span class="en">$49 / mo</span></span></div>
+    <div><span class="was"><span class="ar">١٩٩ ريال / شهر</span><span class="en">199 SAR / mo</span></span></div>
     <div class="big"><span class="ar">مجاناً</span><span class="en">FREE</span></div>
     <div class="fine"><span class="ar">المنيو هدية تبقى لكم، وأول شهر دعم وتعديلات علينا — بعدها القرار قراركم.</span><span class="en">The menu is yours to keep, and the first month of support and tweaks is on us — after that, the decision is yours.</span></div>
   </div>
@@ -432,7 +463,7 @@ body{
   <div class="sec rv">
     <div class="pt"><div class="n">1</div><div><b><span class="ar">هدية حقيقية</span><span class="en">A true gift</span></b><span class="d"><span class="ar">المنيو لكم، مجاناً، للأبد.</span><span class="en">The menu is yours to keep, free, forever.</span></span></div></div>
     <div class="pt"><div class="n">2</div><div><b><span class="ar">شهر مجاني كامل</span><span class="en">One free month</span></b><span class="d"><span class="ar">دعم وتعديلات بلا حدود، علينا.</span><span class="en">Support and unlimited tweaks, on us.</span></span></div></div>
-    <div class="pt"><div class="n">3</div><div><b><span class="ar">بعدها أنتم تقررون</span><span class="en">Then you decide</span></b><span class="d"><span class="ar">تكملون بـ٤٩$ شهرياً، أو تلغون وتحتفظون بالمنيو.</span><span class="en">Continue at $49 a month, or cancel and keep the menu.</span></span></div></div>
+    <div class="pt"><div class="n">3</div><div><b><span class="ar">بعدها أنتم تقررون</span><span class="en">Then you decide</span></b><span class="d"><span class="ar">تكملون بـ١٩٩ ريال شهرياً، أو تلغون وتحتفظون بالمنيو.</span><span class="en">Continue at 199 SAR a month, or cancel and keep the menu.</span></span></div></div>
     <div class="why"><span class="ar">بدون شروط، بدون عقد. نبني مجاناً للبيوت اللي نؤمن فيها — <span class="hl">وبيتكم واحد منها.</span></span><span class="en">No catch, no contract. We build free for houses we believe in — <span class="hl">and yours is one of them.</span></span></div>
   </div>
 
