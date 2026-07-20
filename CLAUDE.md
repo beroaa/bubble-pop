@@ -44,6 +44,12 @@ These orders apply to EVERY Claude session in this repo — cloud or MacBook. Re
 5. Commit trailers: `Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>` + the Claude-Session line. NO model IDs in commits/PRs/code.
 6. Talk to Ibrahim in his lingo: fun, simple, direct, "brother" — and ALWAYS honest about what's real vs not. He hates discovering gaps later more than he hates bad news.
 
+## GULF ARABIC VOICE LAW (locked 2026-07-20 — Ibrahim's order)
+- Ibrahim's Arabic is rusty (he lived in 7 countries; English is his first language) — but a Riyadh café owner must NEVER sense that. EVERY Arabic word a client sees (gift letters, offers, founder lines, DMs, menu copy) must read like a **mature Saudi/Gulf businessman wrote it himself** — warm, confident, respectful, personal.
+- Register = *khaleeji mohtaram* (composed, grown man of business): natural Saudi touches — عشان، اللي، حبيت، خذوا، على حسابي، مثل ما يستاهل، ما قصّرتوا، تكفّون بعيد. NOT stiff formal MSA (kill: نحن نقدّم، يسعدنا أن، الرجاء، من خلال، نظراً لـ، نسعى جاهدين) and NOT heavy street slang either. Dignified, not hype-bot, not street.
+- **Write the Arabic FIRST from a Saudi mindset, then fit the English to it — never translate English→Arabic.** Literal translation, passive voice, and robotic parallel structures are the tells that scream "AI/outsider."
+- When shipping client-facing Arabic and authenticity is uncertain, run a native Saudi-voice editor pass (one agent, "mature Riyadh businessman" persona) before it goes live. His whole edge is that he's a real Saudi from a strong family — the language must back that up, always.
+
 ## Machine notes
 - Cloud box: WebSearch works (budget ~200/session, resets each new session); direct fetches to delivery apps/Instagram/image hosts are blocked (403/000).
 - Swarm research: use parallel Workflow squadrons with structured-output agents; merge via singularity/merge-swarm.mjs (re-validates everything).

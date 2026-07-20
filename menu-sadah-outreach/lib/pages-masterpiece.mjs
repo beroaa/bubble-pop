@@ -1578,12 +1578,12 @@ ${bbg ? bbg.html : ''}
   </section>
 
   <div class="letter rv">
-    <div class="salut hand">${B('أهلاً بأصحاب ' + esc(cafe.nameAr) + '،', 'To the people behind ' + esc(cafe.name) + ',')}</div>
-    <p>${B('أنا إبراهيم الشربتلي. ' + (social ? 'تابعت <b>' + esc(social) + '</b> فترة، و' : '') + esc(flavor.ar) + '. ما راسلتكم عشان أبيعكم شيء — راسلتكم لأني أحترم اللي تبنونه، وحبيت أضيف له. <span class="punch">فجهّزت لكم هذي.</span>',
+    <div class="salut hand">${B('يا هلا بأهل ' + esc(cafe.nameAr) + '،', 'To the people behind ' + esc(cafe.name) + ',')}</div>
+    <p>${B('أنا إبراهيم الشربتلي. ' + (social ? 'صار لي مدة أتابع <b>' + esc(social) + '</b>، و' : '') + esc(flavor.ar) + '. ما كتبت لكم عشان أبيعكم شي — كتبت لكم لأني أحترم اللي قاعدين تبنونه، وحبيت أضيف له. <span class="punch">عشان كذا جهّزت لكم هذي.</span>',
       "I'm Ibrahim Sharbatly. " + (social ? "I've been following <b>" + esc(social) + "</b> for a while, and " : '') + esc(flavor.en) + '. I didn\'t reach out to sell you anything — I reached out because I respect what you\'re building, and I wanted to add to it. <span class="punch">So I prepared this for you.</span>')}</p>
-    <p>${B('منيو رقمي كامل بهويتكم، عربي وإنجليزي، مصمّم على مقاس عالمكم: <b>«' + esc(brief.world?.ar || '') + '»</b> — غرفة غرفة، وألوان الصفحة تتبدّل وأنتم تتصفحونه. هدية مني لكم، تبقى لكم سواء كمّلنا مع بعض أو لا.',
+    <p>${B('منيو رقمي كامل بهويتكم، عربي وإنجليزي، مفصّل على مقاس عالمكم: <b>«' + esc(brief.world?.ar || '') + '»</b> — غرفة غرفة، وألوان الصفحة تتبدّل وأنتم تتصفحونه. هدية مني لكم، تبقى لكم سواء كمّلنا سوا أو لا.',
       'A complete digital menu in your identity — Arabic and English — built to the measure of your world: <b>"' + esc(brief.world?.en || '') + '"</b>, room by room, its colors shifting as guests scroll. A gift from me to you; it stays yours whether or not we work together.')}</p>
-    ${sig ? `<p>${B('وسمعت أن «' + esc(sig[1]) + '» حديث زبائنكم — فجعلته يفتتح المنيو، مثل ما يستاهل.', 'And I hear your «' + esc(sig[0]) + '» is what your guests talk about — so I let it open the menu, as it deserves.')}</p>` : ''}
+    ${sig ? `<p>${B('وسمعت إن «' + esc(sig[1]) + '» صار حديث زباينكم — فخليته يفتتح المنيو، مثل ما يستاهل.', 'And I hear your «' + esc(sig[0]) + '» is what your guests talk about — so I let it open the menu, as it deserves.')}</p>` : ''}
     <div class="sigline hand">${B('إبراهيم الشربتلي — منيو سادة', 'Ibrahim Sharbatly — Menu Sadah')}</div>
   </div>
 
@@ -1603,7 +1603,7 @@ ${bbg ? bbg.html : ''}
   <div class="sec royal-offer rv">
     <div class="rbadge">${B('👑 عرض المقاهي المؤسِّسة', '👑 Founding-cafe offer')}</div>
     <div class="h2">${B('جرّبوه <b>٣٠ يوم</b> — على حسابي ✦', 'Try it <b>30 days</b> — on me ✦')}</div>
-    <div class="sub">${B('المنيو اللي بين أيديكم هدية تبقى لكم. وإذا حبيتوا تشغّلونه بالكامل، خذوا ٣٠ يوم تجربة كاملة — دعم وتعديلات بلا حدود — قبل أي دفعة.', 'The menu in your hands is a gift you keep. If you want it fully live, take a full 30-day trial — unlimited support and edits — before a single riyal.')}</div>
+    <div class="sub">${B('المنيو اللي بين أيديكم هدية تبقى لكم. وإن حبيتوا تشغّلونه بالكامل، خذوا ٣٠ يوم تجربة كاملة — دعم وتعديلات ما لها حدود — قبل أي دفعة.', 'The menu in your hands is a gift you keep. If you want it fully live, take a full 30-day trial — unlimited support and edits — before a single riyal.')}</div>
     <ul class="rlist">
       <li>${B('٣٠ يوم دعم وتعديلات مجاناً بالكامل', '30 days of support & edits — completely free')}</li>
       <li>${B('تعديلات بلا حدود على الأصناف والأسعار والصور', 'Unlimited edits to items, prices & photos')}</li>
@@ -1618,7 +1618,7 @@ ${bbg ? bbg.html : ''}
     ? `<a class="cta gold touchable" href="${esc(offerHref)}"${offerIsCard ? ' target="_blank" rel="noopener"' : ''}>${B('ابدأوا تجربتكم المجانية — ٣٠ يوم', 'Start your free 30-day trial')}</a>`
     : `<button class="cta gold touchable" type="button" data-tip>${B('ابدأوا تجربتكم المجانية — ٣٠ يوم', 'Start your free 30-day trial')}</button>`}</div>
       <div class="osafe">${offerIsCard
-    ? B('🔒 بطاقتكم محفوظة بأمان عبر Stripe لبدء التجربة فقط — ٠ ريال الآن، وتلغون بضغطة وحدة في أي وقت خلال ٣٠ يوم بدون أي خصم.', '🔒 Your card is secured by Stripe just to start the trial — 0 SAR now, cancel in one tap anytime within 30 days with no charge.')
+    ? B('🔒 بطاقتكم محفوظة بأمان عبر Stripe لبدء التجربة بس — ٠ ريال الحين، وتلغون بضغطة وحدة في أي وقت خلال الـ٣٠ يوم بدون أي خصم.', '🔒 Your card is secured by Stripe just to start the trial — 0 SAR now, cancel in one tap anytime within 30 days with no charge.')
     : B('نبدأها معكم على واتساب — بدون أي التزام.', "We'll start it together on WhatsApp — with zero commitment.")}</div>
     </div>
   </div>
@@ -1628,14 +1628,14 @@ ${bbg ? bbg.html : ''}
     <div class="lbl">${B('قيمة تصميم وبناء منيوكم الرقمي الكامل', 'The value of your complete custom digital menu')}</div>
     <div><span class="was">${B('١٬١٩٩ ريال', '1,199 SAR')}</span></div>
     <div class="big">${B('مجاناً', 'FREE')}</div>
-    <div class="fine">${B('صمّمناه وبنيناه لكم بالكامل — هدية تبقى لكم للأبد. اخترناكم ضمن أوائل مقاهي الرياض لنُظهر أفضل ما نقدّمه. تشغيله ودعمه لاحقاً ١٩٩ ريال/شهر، وأول ٣٠ يوم علينا.', 'Designed and built for you in full — a gift that stays yours forever. We chose you among the first Riyadh cafés to show our very best. Running it live with support is 199 SAR/mo afterward — and the first 30 days are on us.')}</div>
+    <div class="fine">${B('صمّمناه وبنيناه لكم بالكامل — هدية تبقى لكم للأبد. اخترناكم من أوائل مقاهي الرياض عشان نوريكم أحسن ما عندنا. تشغيله ودعمه بعدها ١٩٩ ريال/شهر، وأول ٣٠ يوم علينا.', 'Designed and built for you in full — a gift that stays yours forever. We chose you among the first Riyadh cafés to show our very best. Running it live with support is 199 SAR/mo afterward — and the first 30 days are on us.')}</div>
   </div>
 
   <div class="sec rv">
     <div class="pt"><div class="n">1</div><div><b>${B('هدية حقيقية', 'A true gift')}</b><span class="d">${B('المنيو لكم، مجاناً، للأبد.', 'The menu is yours to keep, free, forever.')}</span></div></div>
     <div class="pt"><div class="n">2</div><div><b>${B('شهر مجاني كامل', 'One free month')}</b><span class="d">${B('دعم وتعديلات بلا حدود، علينا.', 'Support and unlimited tweaks, on us.')}</span></div></div>
     <div class="pt"><div class="n">3</div><div><b>${B('بعدها أنتم تقررون', 'Then you decide')}</b><span class="d">${B('تكملون بـ١٩٩ ريال شهرياً، أو تلغون وتحتفظون بالمنيو.', 'Continue at 199 SAR a month, or cancel and keep the menu.')}</span></div></div>
-    <div class="why">${B('بدون شروط، بدون عقد. نبني مجاناً للبيوت اللي نؤمن فيها — <span class="hl">وبيتكم واحد منها.</span>', 'No catch, no contract. We build free for houses we believe in — <span class="hl">and yours is one of them.</span>')}</div>
+    <div class="why">${B('بدون شروط ولا عقد. نبني ببلاش للبيوت اللي نؤمن فيها — <span class="hl">وبيتكم واحد منها.</span>', 'No catch, no contract. We build free for houses we believe in — <span class="hl">and yours is one of them.</span>')}</div>
   </div>
 
   <div class="sec rv">
