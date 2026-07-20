@@ -809,6 +809,14 @@ export function masterpieceMenuPage(cafe, brief) {
     .touchable{transition:all .2s,transform .32s cubic-bezier(.34,1.56,.64,1)}
     .touchable:active{transform:scale(.96);transition:all .2s,transform .07s cubic-bezier(.2,.6,.4,1)}
   }
+  /* ---- WAVE 2: unified premium tap-feel — clean press, focus rings, no mobile blue flash ---- */
+  .chip,.order-chip,.lang-toggle,.skydial,.waiter-btn,.wa,.touchable{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+  .chip:focus-visible,.order-chip:focus-visible,.lang-toggle:focus-visible,.skydial:focus-visible,.waiter-btn:focus-visible,.wa:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+  ${P.mode === 'light' ? `@media (prefers-reduced-motion: no-preference){
+    /* ink-press: light-mode buttons carry a hard offset shadow that physically depresses on tap */
+    .chip:active{transform:translate(2px,2px)!important;box-shadow:1px 1px 0 var(--ink)!important}
+    .order-chip:active{transform:translate(1px,1px)!important;box-shadow:1px 1px 0 var(--ink)!important}
+  }` : ''}
 
   .chips{display:flex;gap:8px;overflow-x:auto;padding:14px 2px;position:sticky;top:0;z-index:20;
     background:linear-gradient(${P.bg0}f2 78%,transparent);backdrop-filter:blur(8px);scrollbar-width:none}
@@ -1517,6 +1525,14 @@ ${bbg ? `
   @media (prefers-reduced-motion: no-preference){
     .touchable{transition:transform .32s cubic-bezier(.34,1.56,.64,1)}
     .touchable:active{transform:scale(.96);transition:transform .07s cubic-bezier(.2,.6,.4,1)}
+  }
+  /* ---- WAVE 2: unified premium tap-feel on the gift page ---- */
+  .cta,.lang,.flink,.touchable{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+  .cta:focus-visible,.lang:focus-visible,.flink:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+  @media (prefers-reduced-motion: no-preference){
+    /* ink-press: the gift CTAs slide toward their offset shadow so they read as physically pressed */
+    .cta{transition:transform .14s ease-out,filter .15s}
+    .cta:active{transform:translate(2px,2px)!important;filter:brightness(.97)}
   }
 
   /* ---- CINEMA STING: 3 beats under 3s — wax stamp → brand wash parts → letter rises ----

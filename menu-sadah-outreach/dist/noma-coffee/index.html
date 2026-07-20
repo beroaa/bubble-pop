@@ -89,6 +89,10 @@
     .touchable{transition:all .2s,transform .32s cubic-bezier(.34,1.56,.64,1)}
     .touchable:active{transform:scale(.96);transition:all .2s,transform .07s cubic-bezier(.2,.6,.4,1)}
   }
+  /* ---- WAVE 2: unified premium tap-feel — clean press, focus rings, no mobile blue flash ---- */
+  .chip,.order-chip,.lang-toggle,.skydial,.waiter-btn,.wa,.touchable{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+  .chip:focus-visible,.order-chip:focus-visible,.lang-toggle:focus-visible,.skydial:focus-visible,.waiter-btn:focus-visible,.wa:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+  
 
   .chips{display:flex;gap:8px;overflow-x:auto;padding:14px 2px;position:sticky;top:0;z-index:20;
     background:linear-gradient(#170f0df2 78%,transparent);backdrop-filter:blur(8px);scrollbar-width:none}

@@ -322,6 +322,14 @@ body{
     .touchable{transition:transform .32s cubic-bezier(.34,1.56,.64,1)}
     .touchable:active{transform:scale(.96);transition:transform .07s cubic-bezier(.2,.6,.4,1)}
   }
+  /* ---- WAVE 2: unified premium tap-feel on the gift page ---- */
+  .cta,.lang,.flink,.touchable{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+  .cta:focus-visible,.lang:focus-visible,.flink:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+  @media (prefers-reduced-motion: no-preference){
+    /* ink-press: the gift CTAs slide toward their offset shadow so they read as physically pressed */
+    .cta{transition:transform .14s ease-out,filter .15s}
+    .cta:active{transform:translate(2px,2px)!important;filter:brightness(.97)}
+  }
 
   /* ---- CINEMA STING: 3 beats under 3s — wax stamp → brand wash parts → letter rises ----
      plays once per session, any tap skips, reduced-motion gets the instant static page */
