@@ -212,6 +212,56 @@
     white-space:nowrap;transition:transform .16s,box-shadow .16s}
   .order-chip:hover{transform:translateY(-1px);box-shadow:0 0 12px #be7c6033}
   .order-chip.demo{border-style:dashed;opacity:.8}
+  /* ---- WAVE 3: CART (add chips → floating bar → slide-up sheet → WhatsApp checkout) ---- */
+  .order-chip{position:relative}
+  .order-chip .oc-plus{font-weight:800}
+  .order-chip.incart{border-color:var(--accent);box-shadow:inset 0 0 0 2px var(--accent)}
+  
+  .order-chip.incart .oc-t,.order-chip.incart .oc-plus{display:none}
+  .order-chip .oc-q{font-weight:800;font-variant-numeric:tabular-nums}
+  .cartbar{position:fixed;inset-inline:0;bottom:0;z-index:45;display:flex;justify-content:center;
+    padding:10px 14px calc(10px + env(safe-area-inset-bottom));transform:translateY(130%);
+    transition:transform .3s cubic-bezier(.2,1,.3,1);pointer-events:none}
+  .cartbar.show{transform:none}
+  .cartbar button{pointer-events:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;max-width:460px;
+    background:var(--ink);color:var(--bg-0);border:none;border-radius:16px;padding:14px 18px;font-family:inherit;font-weight:800;
+    font-size:15px;cursor:pointer;box-shadow:0 10px 28px #be7c6055,0 2px 0 #be7c60}
+  .cartbar .cb-l{display:flex;align-items:center;gap:10px}
+  .cartbar .cb-count{background:var(--bg-0);color:var(--ink);border-radius:999px;min-width:23px;height:23px;
+    display:grid;place-items:center;font-size:12.5px;padding:0 6px;font-variant-numeric:tabular-nums}
+  .cartbar .cb-total{font-variant-numeric:tabular-nums;display:flex;align-items:center;gap:4px}
+  .cartsheet{position:fixed;inset:0;z-index:70;visibility:hidden}
+  .cartsheet.open{visibility:visible}
+  .cartsheet .cs-back{position:absolute;inset:0;background:#00000088;opacity:0;transition:opacity .3s}
+  .cartsheet.open .cs-back{opacity:1}
+  .cartsheet .cs-panel{position:absolute;inset-inline:0;bottom:0;background:var(--bg-1);border-top:2px solid var(--ink);
+    border-radius:22px 22px 0 0;max-height:84vh;display:flex;flex-direction:column;transform:translateY(100%);
+    transition:transform .34s cubic-bezier(.2,1,.3,1);box-shadow:0 -12px 34px #00000055}
+  .cartsheet.open .cs-panel{transform:none}
+  .cs-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px 12px;border-bottom:1px solid var(--border-1)}
+  .cs-head b{font-size:18px;font-weight:800;color:var(--text-1)}
+  .cs-close{background:none;border:none;font-size:24px;color:var(--text-2);cursor:pointer;line-height:1;padding:2px 6px;font-family:inherit}
+  .cs-list{overflow-y:auto;padding:4px 18px;flex:1;min-height:60px}
+  .cs-row{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #2c242199}
+  .cs-row:last-child{border-bottom:none}
+  .cs-nm{flex:1;min-width:0;font-weight:600;font-size:16px;color:var(--text-1);line-height:1.3}
+  .cs-pr{color:var(--sa);font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap;font-size:15px}
+  .cs-step{display:flex;align-items:center;gap:9px;flex:0 0 auto}
+  .cs-step button{width:31px;height:31px;border-radius:9px;border:2px solid var(--ink);background:var(--bg-0);color:var(--text-1);
+    font-size:18px;font-weight:800;cursor:pointer;line-height:1;font-family:inherit;display:grid;place-items:center}
+  .cs-step .cs-q{min-width:20px;text-align:center;font-weight:800;font-variant-numeric:tabular-nums;color:var(--text-1)}
+  .cs-empty{text-align:center;color:var(--text-3);padding:34px 10px;font-size:15px}
+  .cs-foot{padding:14px 18px calc(16px + env(safe-area-inset-bottom));border-top:2px solid var(--ink);background:var(--bg-1)}
+  .cs-total{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;font-weight:800;font-size:19px;color:var(--text-1)}
+  .cs-total .cs-tv{color:var(--sa);font-variant-numeric:tabular-nums}
+  .cs-checkout{display:block;width:100%;text-align:center;background:#1faa53;color:#fff;border:2px solid var(--ink);border-radius:14px;
+    padding:14px;font-family:inherit;font-weight:800;font-size:16px;cursor:pointer;text-decoration:none;box-shadow:3px 3px 0 var(--ink)}
+  .cs-note{text-align:center;font-size:12px;color:var(--text-3);margin-top:9px;line-height:1.5}
+  /* keep the corner floaters clear of the cart bar when it's up */
+  body.cart-active .skydial,body.cart-active .wa{bottom:84px}
+  body.cart-active .waiter-btn{bottom:84px}
+  @media print{.cartbar,.cartsheet{display:none!important}}
+
   .acttip{position:fixed;z-index:60;max-width:min(330px,86vw);background:#211a17f5;backdrop-filter:blur(10px);
     color:var(--text-1);border:1px solid var(--accent);border-radius:14px;padding:10px 16px;font-size:13px;
     line-height:1.5;text-align:center;box-shadow:0 0 0 4px #be7c6014,0 12px 30px #be7c6040;
@@ -637,56 +687,56 @@ body{
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>12<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip touchable" type="button" data-add data-id="0-0" data-ar="إسبريسو" data-en="Espresso" data-price="12" aria-label="إسبريسو"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">ماكياتو</span><span class="en">Macchiato</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>13<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip touchable" type="button" data-add data-id="0-1" data-ar="ماكياتو" data-en="Macchiato" data-price="13" aria-label="ماكياتو"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كورتادو</span><span class="en">Cortado</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>15<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip touchable" type="button" data-add data-id="0-2" data-ar="كورتادو" data-en="Cortado" data-price="15" aria-label="كورتادو"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">فلات وايت</span><span class="en">Flat White</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>17<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip touchable" type="button" data-add data-id="0-3" data-ar="فلات وايت" data-en="Flat White" data-price="17" aria-label="فلات وايت"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كابتشينو</span><span class="en">Cappuccino</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>17<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip touchable" type="button" data-add data-id="0-4" data-ar="كابتشينو" data-en="Cappuccino" data-price="17" aria-label="كابتشينو"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">لاتيه</span><span class="en">Latte</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>18<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip touchable" type="button" data-add data-id="0-5" data-ar="لاتيه" data-en="Latte" data-price="18" aria-label="لاتيه"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">سبانيش لاتيه</span><span class="en">Spanish Latte</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>20<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip touchable" type="button" data-add data-id="0-6" data-ar="سبانيش لاتيه" data-en="Spanish Latte" data-price="20" aria-label="سبانيش لاتيه"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">لاتيه فستق</span><span class="en">Pistachio Latte</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>23<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip touchable" type="button" data-add data-id="0-7" data-ar="لاتيه فستق" data-en="Pistachio Latte" data-price="23" aria-label="لاتيه فستق"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
     </div>
   </section><div class="sep-scene" aria-hidden="true"><svg viewBox="0 0 720 44" focusable="false" role="presentation">
@@ -735,35 +785,35 @@ body{
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>24<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip touchable" type="button" data-add data-id="1-0" data-ar="في60 — محصول فردي" data-en="V60 — Single Origin" data-price="24" aria-label="في60 — محصول فردي"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كيمكس</span><span class="en">Chemex</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>24<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip touchable" type="button" data-add data-id="1-1" data-ar="كيمكس" data-en="Chemex" data-price="24" aria-label="كيمكس"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">إيروبرس</span><span class="en">Aeropress</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>22<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip touchable" type="button" data-add data-id="1-2" data-ar="إيروبرس" data-en="Aeropress" data-price="22" aria-label="إيروبرس"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">قهوة اليوم</span><span class="en">Coffee of the Day</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>16<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip touchable" type="button" data-add data-id="1-3" data-ar="قهوة اليوم" data-en="Coffee of the Day" data-price="16" aria-label="قهوة اليوم"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">مقطّرة باردة</span><span class="en">Iced Drip</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>22<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip touchable" type="button" data-add data-id="1-4" data-ar="مقطّرة باردة" data-en="Iced Drip" data-price="22" aria-label="مقطّرة باردة"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
     </div>
   </section>
@@ -813,35 +863,35 @@ body{
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>18<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip touchable" type="button" data-add data-id="2-0" data-ar="لاتيه بارد" data-en="Iced Latte" data-price="18" aria-label="لاتيه بارد"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">سبانيش لاتيه بارد</span><span class="en">Iced Spanish Latte</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>21<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip touchable" type="button" data-add data-id="2-1" data-ar="سبانيش لاتيه بارد" data-en="Iced Spanish Latte" data-price="21" aria-label="سبانيش لاتيه بارد"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كولد برو</span><span class="en">Cold Brew</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>19<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip touchable" type="button" data-add data-id="2-2" data-ar="كولد برو" data-en="Cold Brew" data-price="19" aria-label="كولد برو"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كولد برو تونيك</span><span class="en">Cold Brew Tonic</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>24<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip touchable" type="button" data-add data-id="2-3" data-ar="كولد برو تونيك" data-en="Cold Brew Tonic" data-price="24" aria-label="كولد برو تونيك"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">موكا باردة</span><span class="en">Iced Mocha</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>20<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip touchable" type="button" data-add data-id="2-4" data-ar="موكا باردة" data-en="Iced Mocha" data-price="20" aria-label="موكا باردة"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
     </div>
   </section><div class="sep-scene" aria-hidden="true"><svg viewBox="0 0 720 44" focusable="false" role="presentation">
@@ -890,14 +940,14 @@ body{
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>25<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip touchable" type="button" data-add data-id="3-0" data-ar="قهوة سعودية (دلة)" data-en="Saudi Coffee (dallah)" data-price="25" aria-label="قهوة سعودية (دلة)"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">طبق تمر</span><span class="en">Dates Plate</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>12<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip touchable" type="button" data-add data-id="3-1" data-ar="طبق تمر" data-en="Dates Plate" data-price="12" aria-label="طبق تمر"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
     </div>
   </section>
@@ -947,35 +997,35 @@ body{
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>12<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip touchable" type="button" data-add data-id="4-0" data-ar="كرواسون زبدة" data-en="Butter Croissant" data-price="12" aria-label="كرواسون زبدة"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كرواسون زعتر</span><span class="en">Zaatar Croissant</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>13<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip touchable" type="button" data-add data-id="4-1" data-ar="كرواسون زعتر" data-en="Zaatar Croissant" data-price="13" aria-label="كرواسون زعتر"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كوكيز شوكولاتة</span><span class="en">Chocolate Cookie</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>10<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip touchable" type="button" data-add data-id="4-2" data-ar="كوكيز شوكولاتة" data-en="Chocolate Cookie" data-price="10" aria-label="كوكيز شوكولاتة"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">تشيز كيك سان سباستيان</span><span class="en">San Sebastián Cheesecake</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>26<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip touchable" type="button" data-add data-id="4-3" data-ar="تشيز كيك سان سباستيان" data-en="San Sebastián Cheesecake" data-price="26" aria-label="تشيز كيك سان سباستيان"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كيكة التمر</span><span class="en">Date Cake</span>
           </div>
         <div class="dots"></div>
         <div class="price"><span class="pdot"></span>15<span class="sar"> ﷼</span></div>
-        <button class="order-chip demo touchable" type="button" data-tip><span class="ar">اطلب 🟢</span><span class="en">🟢 Order</span></button>
+        <button class="order-chip touchable" type="button" data-add data-id="4-4" data-ar="كيكة التمر" data-en="Date Cake" data-price="15" aria-label="كيكة التمر"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
     </div>
   </section>
@@ -1001,6 +1051,24 @@ body{
 </div>
 
 <button class="waiter-btn touchable" id="waiterBtn" type="button" data-tip hidden>🔔 <span class="ar">نادِ النادل</span><span class="en">Call the waiter</span></button>
+<div class="cartbar" id="cartBar" aria-hidden="true">
+  <button type="button" id="cartOpen" class="touchable">
+    <span class="cb-l">🛒 <span class="ar">سلّتك</span><span class="en">Your cart</span> <span class="cb-count" id="cbCount">0</span></span>
+    <span class="cb-total"><span id="cbTotal">0</span> ﷼</span>
+  </button>
+</div>
+<div class="cartsheet" id="cartSheet" role="dialog" aria-modal="true" aria-label="Cart">
+  <div class="cs-back" id="csBack"></div>
+  <div class="cs-panel">
+    <div class="cs-head"><b><span class="ar">سلّة طلبك</span><span class="en">Your order</span></b><button class="cs-close" id="csClose" type="button" aria-label="إغلاق">✕</button></div>
+    <div class="cs-list" id="csList"></div>
+    <div class="cs-foot">
+      <div class="cs-total"><span><span class="ar">الإجمالي</span><span class="en">Total</span></span><span><span class="cs-tv" id="csTotal">0</span> ﷼</span></div>
+      <a class="cs-checkout touchable" id="csCheckout" href="#" role="button"><span class="ar">أرسل الطلب على واتساب</span><span class="en">Send order on WhatsApp</span></a>
+      <div class="cs-note" id="csNote"></div>
+    </div>
+  </div>
+</div>
 <div class="acttip" id="actTip" role="status" aria-live="polite"><span class="ar">يتفعّل مع رقم واتساب المقهى ✦</span><span class="en">✦ Activates with the cafe's WhatsApp</span></div>
 <button class="skydial touchable" id="skyDial" aria-label="تبديل السماء: نهار / ليل — Toggle sky: day / night" aria-pressed="false">☀</button>
 <script>
@@ -1064,6 +1132,69 @@ body{
       tip.style.top=(above>8?above:r.bottom+10)+'px';
       clearTimeout(tmr);tmr=setTimeout(()=>tip.classList.remove('show'),2600);
     });
+  })();
+  // ---- WAVE 3: CART engine (localStorage, add/qty/remove, WhatsApp checkout) ----
+  (function(){
+    var SLUG="razeen-coffee", PHONE=null, NM="رزين كوفي", CUR="﷼";
+    var KEY='ms-cart-'+SLUG, cart={};
+    try{cart=JSON.parse(localStorage.getItem(KEY))||{};}catch(e){cart={};}
+    var bar=document.getElementById('cartBar'), sheet=document.getElementById('cartSheet');
+    var cbCount=document.getElementById('cbCount'), cbTotal=document.getElementById('cbTotal');
+    var csList=document.getElementById('csList'), csTotal=document.getElementById('csTotal'), csNote=document.getElementById('csNote'), csCheckout=document.getElementById('csCheckout');
+    function lang(){return document.documentElement.getAttribute('data-lang')||'ar';}
+    function save(){try{localStorage.setItem(KEY,JSON.stringify(cart));}catch(e){}}
+    function count(){var n=0;for(var k in cart)n+=cart[k].qty;return n;}
+    function total(){var t=0;for(var k in cart)t+=cart[k].qty*cart[k].price;return t;}
+    function fmt(n){return (Math.round(n*100)/100).toString();}
+    function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+    function orderText(){
+      var ar=lang()==='ar', lines=[];
+      for(var k in cart){var it=cart[k];lines.push('• '+(ar?it.ar:it.en)+' ×'+it.qty+' — '+fmt(it.qty*it.price)+' '+CUR);}
+      var head=ar?("السلام عليكم، معكم زبون من "+NM+" — أبغى أطلب:"):("Hi "+NM+", I want to order:");
+      var tail=ar?("الإجمالي: "+fmt(total())+" "+CUR):("Total: "+fmt(total())+" "+CUR);
+      return head+"\n"+lines.join("\n")+"\n"+tail;
+    }
+    function updateCheckout(){
+      if(!csCheckout)return;
+      if(PHONE){csCheckout.href='https://wa.me/'+PHONE+'?text='+encodeURIComponent(orderText());csCheckout.target='_blank';csCheckout.rel='noopener';if(csNote)csNote.textContent='';}
+      else{csCheckout.removeAttribute('href');if(csNote)csNote.textContent=(lang()==='ar'?"يتفعّل مع رقم واتساب المقهى — نجهّزه لكم عند التفعيل":"Activates with the cafe's WhatsApp — set up on activation");}
+    }
+    function render(){
+      var n=count(), t=total(), ar=lang()==='ar';
+      document.querySelectorAll('.order-chip[data-add]').forEach(function(b){
+        var id=b.getAttribute('data-id'), q=cart[id]?cart[id].qty:0, qs=b.querySelector('.oc-q');
+        if(q>0){b.classList.add('incart');if(qs){qs.hidden=false;qs.textContent='×'+q;}}
+        else{b.classList.remove('incart');if(qs){qs.hidden=true;}}
+      });
+      if(cbCount)cbCount.textContent=n; if(cbTotal)cbTotal.textContent=fmt(t);
+      if(bar)bar.classList.toggle('show',n>0);
+      document.body.classList.toggle('cart-active',n>0);
+      if(csList){var keys=Object.keys(cart);
+        if(!keys.length){csList.innerHTML='<div class="cs-empty">'+(ar?"سلّتك فاضية":"Your cart is empty")+'</div>';}
+        else{csList.innerHTML=keys.map(function(id){var it=cart[id];var nm=ar?it.ar:it.en;
+          return '<div class="cs-row"><span class="cs-nm">'+esc(nm)+'</span><span class="cs-pr">'+fmt(it.qty*it.price)+' '+CUR+'</span>'+
+          '<span class="cs-step"><button type="button" data-dec="'+esc(id)+'" aria-label="-">−</button><span class="cs-q">'+it.qty+'</span><button type="button" data-inc="'+esc(id)+'" aria-label="+">+</button></span></div>';}).join('');}
+      }
+      if(csTotal)csTotal.textContent=fmt(t);
+      updateCheckout();
+    }
+    document.addEventListener('click',function(e){
+      var add=e.target.closest('.order-chip[data-add]');
+      if(add){var id=add.getAttribute('data-id');
+        if(!cart[id])cart[id]={ar:add.getAttribute('data-ar'),en:add.getAttribute('data-en'),price:parseFloat(add.getAttribute('data-price'))||0,qty:0};
+        cart[id].qty++;save();render();
+        if(!matchMedia('(prefers-reduced-motion: reduce)').matches){try{add.animate([{transform:'scale(1)'},{transform:'scale(.9)'},{transform:'scale(1)'}],{duration:220,easing:'cubic-bezier(.2,1.5,.4,1)'});}catch(e){}}
+        return;}
+      var inc=e.target.closest('[data-inc]'); if(inc){var i2=inc.getAttribute('data-inc');if(cart[i2]){cart[i2].qty++;save();render();}return;}
+      var dec=e.target.closest('[data-dec]'); if(dec){var i3=dec.getAttribute('data-dec');if(cart[i3]){cart[i3].qty--;if(cart[i3].qty<=0)delete cart[i3];save();render();}return;}
+    });
+    var openBtn=document.getElementById('cartOpen'), closeBtn=document.getElementById('csClose'), back=document.getElementById('csBack');
+    if(openBtn)openBtn.addEventListener('click',function(){if(sheet){sheet.classList.add('open');render();}});
+    if(closeBtn)closeBtn.addEventListener('click',function(){if(sheet)sheet.classList.remove('open');});
+    if(back)back.addEventListener('click',function(){if(sheet)sheet.classList.remove('open');});
+    if(csCheckout)csCheckout.addEventListener('click',function(e){if(!PHONE){e.preventDefault();}});
+    var lt2=document.getElementById('langToggle'); if(lt2)lt2.addEventListener('click',function(){setTimeout(render,0);});
+    render();
   })();
   // hero entrance: AR words glide in whole (letter joining stays intact),
   // EN letters land one by one with a tiny deterministic ink-tilt each
