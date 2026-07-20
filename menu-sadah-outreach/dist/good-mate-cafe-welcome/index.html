@@ -259,6 +259,16 @@ body{
   @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}
     .medal,h1,.world,.heroline,.cta,.rv{opacity:1!important;transform:none!important}
     .sting-wash{display:none!important}.curtain{display:none!important}}
+  .brandlogo{--lk:var(--ink);--la:var(--rose);--ls:var(--gold);--ls2:var(--sage);--la2:var(--ochre);--lp:var(--paper,#fffdf6);line-height:0}
+  .brandlogo svg{display:block;overflow:visible;width:100%;height:auto}
+  .brandlogo *{transform-box:fill-box;transform-origin:center}
+  .brandlogo.big{width:min(196px,54vw);margin:2px auto 8px}
+  .brandlogo.big svg{filter:drop-shadow(0 10px 22px var(--accent-soft,rgba(0,0,0,.14)))}
+  .brandlogo.mini{width:60px;margin:0 auto 12px;opacity:.96}
+  @media(min-width:900px){.brandlogo.big{width:236px}.brandlogo.mini{width:70px}}
+  @media(prefers-reduced-motion:reduce){.brandlogo svg *{animation:none!important;opacity:1!important;stroke-dashoffset:0!important;filter:none!important;transform:none!important}}
+  @media print{.brandlogo{display:none!important}}
+  .brandlogo.big{width:min(210px,58vw);margin:6px auto 10px}
 </style>
 <script>
   // CINEMA STING gate — decided before first paint: once per session, never for reduced-motion
@@ -329,7 +339,50 @@ body{
 
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:14px;animation-delay:0s">✴</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:15px;animation-delay:0.7s">✳</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:12px;animation-delay:1.4s">·</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:14px;animation-delay:2.0999999999999996s">✦</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:15px;animation-delay:2.8s">✴</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:15px;animation-delay:3.5s">✳</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:12px;animation-delay:0.1999999999999993s">·</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:14px;animation-delay:0.8999999999999995s">✦</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bm1yq6e6aw" viewBox="0 0 100 100" fill="none" role="img" aria-label="Good Mate Cafe"><style>.bm1yq6e6aw{overflow:visible}.bm1yq6e6aw *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm1yq6e6aw .mk{animation:bm1yq6e6awbob 5s ease-in-out 1.7s infinite}@keyframes bm1yq6e6awbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm1yq6e6awp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bm1yq6e6aw .p1{animation:bm1yq6e6awp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bm1yq6e6aw .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bm1yq6e6awdr 1s ease .55s forwards}@keyframes bm1yq6e6awdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ق</span><span class="en">G</span></span></div>
+    <div class="brandlogo big" aria-hidden="true"><style>.L1xjvkef .gm-plate{transform-origin:center;animation:L1xjvkef_rise .6s cubic-bezier(.2,1.3,.3,1) both}
+.L1xjvkef .gm-left{transform-origin:center;animation:L1xjvkef_flyL .7s cubic-bezier(.2,1.3,.3,1) .15s both}
+.L1xjvkef .gm-right{transform-origin:center;animation:L1xjvkef_flyR .7s cubic-bezier(.2,1.3,.3,1) .45s both}
+.L1xjvkef .gm-frond{stroke-dasharray:70;stroke-dashoffset:70;transform-origin:center bottom;animation:L1xjvkef_draw .8s ease .6s forwards,L1xjvkef_sway 5s ease-in-out 1.6s infinite}
+.L1xjvkef .gm-spark{transform-origin:center;animation:L1xjvkef_pop .6s cubic-bezier(.2,1.3,.3,1) .8s both,L1xjvkef_twinkle 2.6s ease-in-out 1.6s infinite}
+.L1xjvkef .gm-steamL{transform-origin:center;animation:L1xjvkef_drift 3s ease-out 1.4s infinite}
+.L1xjvkef .gm-steamR{transform-origin:center;animation:L1xjvkef_drift 3s ease-out 1.75s infinite}
+.L1xjvkef .gm-ray{transform-origin:center;animation:L1xjvkef_pop .5s cubic-bezier(.2,1.3,.3,1) 1s both,L1xjvkef_twinkle 2.2s ease-in-out 1.7s infinite}
+.L1xjvkef .r2{animation-delay:1.15s,1.9s}
+@keyframes L1xjvkef_rise{0%{opacity:0;transform:translateY(20px) scale(.9)}100%{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes L1xjvkef_flyL{0%{opacity:0;transform:translate(-50px,14px) rotate(-14deg)}100%{opacity:1;transform:translate(0,0) rotate(0)}}
+@keyframes L1xjvkef_flyR{0%{opacity:0;transform:translate(50px,14px) rotate(14deg)}100%{opacity:1;transform:translate(0,0) rotate(0)}}
+@keyframes L1xjvkef_pop{0%{opacity:0;transform:scale(0)}70%{opacity:1;transform:scale(1.15)}100%{opacity:1;transform:scale(1)}}
+@keyframes L1xjvkef_draw{0%{stroke-dashoffset:70}100%{stroke-dashoffset:0}}
+@keyframes L1xjvkef_twinkle{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.2);opacity:.75}}
+@keyframes L1xjvkef_drift{0%{opacity:0;transform:translateY(3px)}30%{opacity:.85}100%{opacity:0;transform:translateY(-11px)}}
+@keyframes L1xjvkef_sway{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}</style><svg viewBox="0 0 120 120" fill="none">
+  <ellipse class="L1xjvkef gm-plate" cx="60" cy="82" rx="33" ry="7" fill="var(--lp)" stroke="var(--lk)" stroke-width="4"/>
+  <path class="L1xjvkef gm-frond" d="M60 32 C58 24 60 16 63 9 M63 9 C60 11 57 12 55 15 M63 9 C66 11 69 12 71 15 M61 18 C58 19 56 20 54 23 M61 18 C64 19 66 20 68 23" fill="none" stroke="var(--la)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <g transform="translate(46,58) rotate(16)">
+    <g class="L1xjvkef gm-left">
+      <path d="M-12 -5 C-22 -5 -22 9 -12 9" fill="var(--lp)" stroke="var(--lk)" stroke-width="4" stroke-linecap="round"/>
+      <path d="M-13 -14 L13 -14 L10 15 L-10 15 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="4" stroke-linejoin="round"/>
+      <ellipse cx="0" cy="-14" rx="13" ry="3.6" fill="var(--lp)" stroke="var(--lk)" stroke-width="4"/>
+      <path d="M-7 1 L7 1" stroke="var(--lk)" stroke-width="3" stroke-linecap="round"/>
+    </g>
+  </g>
+  <g transform="translate(74,58) rotate(-16)">
+    <g class="L1xjvkef gm-right">
+      <path d="M12 -5 C22 -5 22 9 12 9" fill="var(--lp)" stroke="var(--lk)" stroke-width="4" stroke-linecap="round"/>
+      <path d="M-13 -14 L13 -14 L10 15 L-10 15 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4" stroke-linejoin="round"/>
+      <ellipse cx="0" cy="-14" rx="13" ry="3.6" fill="var(--lp)" stroke="var(--lk)" stroke-width="4"/>
+      <path d="M-7 1 L7 1" stroke="var(--lk)" stroke-width="3" stroke-linecap="round"/>
+    </g>
+  </g>
+  <path class="L1xjvkef gm-steamL" d="M50 40 C46 33 53 30 49 23" fill="none" stroke="var(--la)" stroke-width="3" stroke-linecap="round"/>
+  <path class="L1xjvkef gm-steamR" d="M70 40 C74 33 67 30 71 23" fill="none" stroke="var(--la)" stroke-width="3" stroke-linecap="round"/>
+  <g class="L1xjvkef gm-spark">
+    <path d="M60 27 L63 36 L72 39 L63 42 L60 51 L57 42 L48 39 L57 36 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="3.5" stroke-linejoin="round"/>
+  </g>
+  <circle class="L1xjvkef gm-ray r1" cx="45" cy="31" r="2.4" fill="var(--la2)" stroke="var(--lk)" stroke-width="2"/>
+  <circle class="L1xjvkef gm-ray r2" cx="76" cy="32" r="2.4" fill="var(--la2)" stroke="var(--lk)" stroke-width="2"/>
+</svg></div>
+    <div class="medal"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><span><span class="ar">ق</span><span class="en">G</span></span></div>
     <h1><span class="ar">أهلاً ببيت <b>قود مِت كافيه</b></span><span class="en">Welcome home, <b>Good Mate Cafe</b>.</span></h1>
     <div class="world"><span class="ar">✦ قعدة ربع تحت النخل ✦</span><span class="en">✦ a gathering of mates under the palms ✦</span></div>
     <div class="heroline hand"><span class="ar">يا هلا بالرفيق ومن معه</span><span class="en">come as you are, mate</span></div>

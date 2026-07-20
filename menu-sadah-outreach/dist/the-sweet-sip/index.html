@@ -45,7 +45,7 @@
   .medal .logo{width:84%;height:84%;object-fit:contain;border-radius:50%;position:relative;z-index:1}
   .medal.haslogo>span{display:none}
   @keyframes mfloat{50%{transform:translateY(-6px)}}
-  h1{font-size:36px;letter-spacing:-.01em;line-height:1.2}
+  h1{font-size:clamp(41px,11.5vw,54px);font-weight:800;letter-spacing:-.02em;line-height:1.08}
   h1 .ar{font-family:'Baloo Bhaijaan 2',cursive}
   h1 .en{font-family:'Fredoka',sans-serif}
   /* gradient-clip only AFTER word entrance — transformed child spans break background-clip:text in Chrome */
@@ -62,7 +62,7 @@
     100%{opacity:1;transform:none}}
   .world{margin-top:10px;color:var(--text-3);font-size:13px;letter-spacing:.08em}
   .world b{color:#ca877d;font-weight:600}
-  .heroline{margin-top:8px;color:var(--text-2);font-size:19px;line-height:1.5}
+  .heroline{margin-top:10px;color:var(--text-2);font-size:22px;font-weight:600;line-height:1.45}
   .heroline .ar{font-family:'Baloo Bhaijaan 2',cursive}
   .heroline .en{font-family:'Fredoka',sans-serif}
   .meta{margin-top:14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
@@ -108,7 +108,7 @@
   @keyframes sfloat{50%{transform:translateY(-5px)}}
   .sig-art{width:74px;height:74px;margin:0 auto 8px}
   .sig-art svg{width:100%;height:100%;filter:drop-shadow(0 6px 14px #bc5c8359)}
-  .sig-name{font-size:14.5px;font-weight:600;line-height:1.35}
+  .sig-name{font-size:16px;font-weight:700;line-height:1.32}
   .stamp{display:inline-flex;align-items:baseline;gap:3px;margin-top:8px;padding:3px 12px;border:1.7px solid var(--sa);
     border-radius:999px;color:var(--sa);font-weight:800;font-size:16px;transform:rotate(-4deg);
     box-shadow:0 0 0 3px #bc5c830f}
@@ -137,8 +137,8 @@
   .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
     box-shadow:inset 0 0 0 1px #bc5c8355}
   .cat-title{flex:1;min-width:0}
-  .room-eyebrow{color:var(--text-3);font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:3px}
-  .room-h2{color:var(--sa);font-size:22px;line-height:1.3}
+  .room-eyebrow{color:var(--text-3);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+  .room-h2{color:var(--sa);font-size:28px;font-weight:800;line-height:1.14;letter-spacing:-.01em}
   .room-h2 .ar{font-family:'Baloo Bhaijaan 2',cursive}
   .room-h2 .en{font-family:'Fredoka',sans-serif}
   /* self-drawing ink underline: a hand-wavy SVG stroke that draws itself on reveal */
@@ -160,11 +160,11 @@
   @keyframes sepidle{0%,100%{transform:translateX(0);opacity:.82}50%{transform:translateX(calc(6px * var(--tx,1)));opacity:1}}
 
   .items{position:relative;background:#21171bd9;border:1px solid var(--border-1);border-radius:20px;padding:6px 18px;box-shadow:var(--shadow)}
-  .item{display:flex;align-items:baseline;gap:10px;padding:15px 0;border-bottom:1px solid #2c212599}
+  .item{display:flex;align-items:baseline;gap:10px;padding:16px 0;border-bottom:1px solid #2c212599}
   .item:last-child{border-bottom:none}
-  .item-name{font-size:16px}
+  .item-name{font-size:18.5px;font-weight:600;line-height:1.32;letter-spacing:-.004em}
   .dots{flex:1;border-bottom:1px dotted var(--border-2);transform:translateY(-4px)}
-  .price{color:var(--sa);font-weight:800;white-space:nowrap;font-variant-numeric:tabular-nums;display:flex;align-items:baseline;gap:6px}
+  .price{color:var(--sa);font-weight:800;font-size:18px;white-space:nowrap;font-variant-numeric:tabular-nums;display:flex;align-items:baseline;gap:6px}
   .pdot{width:6px;height:6px;border-radius:50%;background:var(--sa);opacity:0;transform:scale(0)}
   .reveal.in .pdot{animation:dotpop .45s cubic-bezier(.2,1.6,.4,1) forwards}
   @keyframes dotpop{0%{opacity:0;transform:scale(0)}70%{opacity:1;transform:scale(1.5)}100%{opacity:.9;transform:scale(1)}}
@@ -237,17 +237,18 @@
     .hero{min-height:62vh;display:flex;flex-direction:column;justify-content:center;padding:40px 0 14px}
     .medal{width:136px;height:136px}
     .medal span{font-size:58px}
-    h1{font-size:66px}
+    h1{font-size:clamp(66px,8vw,84px)}
     .world{font-size:15px;margin-top:16px}
-    .heroline{font-size:27px;margin-top:12px}
-    .room-h2{font-size:34px}
-    .room-voice{font-size:17px}
-    .inkline{width:min(190px,72%)}
+    .heroline{font-size:30px;margin-top:14px}
+    .room-h2{font-size:42px}
+    .room-voice{font-size:18px}
+    .inkline{width:min(200px,72%)}
     .inkline path{stroke-width:2.6}
     .cat-art{width:96px;height:96px}
     .items{padding:10px 30px}
-    .item{padding:18px 0}
-    .item-name{font-size:17.5px}
+    .item{padding:20px 0}
+    .item-name{font-size:20px}
+    .price{font-size:20px}
     .sig-art{width:96px;height:96px}
     .sig{padding:26px 22px 24px}
     .diary{max-width:480px;font-size:17px}
@@ -378,6 +379,28 @@ body{
   .medal.hasmark>span{display:none}
 
 
+  /* ---- BOLD BRAND TYPOGRAPHY: confident scale + poster-dark voice + animated headers ---- */
+  .room-eyebrow{font-weight:800}
+  .room-eyebrow{letter-spacing:.3em}
+    .room-h2{text-transform:uppercase;letter-spacing:.03em;font-weight:800}
+    h1{letter-spacing:-.015em}
+  @media (prefers-reduced-motion:no-preference){
+    .reveal .room-h2,.reveal .room-eyebrow{opacity:0}
+    .reveal.in .room-eyebrow{animation:rhk .5s ease .05s forwards}
+    .reveal.in .room-h2{animation:rh2in .62s ease .12s forwards}
+    @keyframes rh2in{0%{opacity:0;filter:blur(5px)}100%{opacity:1;filter:blur(0)}}
+    @keyframes rhk{to{opacity:1}}
+  }
+  .brandlogo{--lk:var(--ink);--la:var(--accent);--ls:var(--sa);--ls2:var(--sa2);--la2:var(--accent-2);--lp:var(--bg-1);line-height:0}
+  .brandlogo svg{display:block;overflow:visible;width:100%;height:auto}
+  .brandlogo *{transform-box:fill-box;transform-origin:center}
+  .brandlogo.big{width:min(196px,54vw);margin:2px auto 8px}
+  .brandlogo.big svg{filter:drop-shadow(0 10px 22px var(--accent-soft,rgba(0,0,0,.14)))}
+  .brandlogo.mini{width:60px;margin:0 auto 12px;opacity:.96}
+  @media(min-width:900px){.brandlogo.big{width:236px}.brandlogo.mini{width:70px}}
+  @media(prefers-reduced-motion:reduce){.brandlogo svg *{animation:none!important;opacity:1!important;stroke-dashoffset:0!important;filter:none!important;transform:none!important}}
+  @media print{.brandlogo{display:none!important}}
+
   /* ---- brandshots: the cafe's OWN photos, pinned like polaroids ---- */
   .brandshots{display:flex;justify-content:center;align-items:flex-start;gap:14px;margin-top:22px;position:relative;z-index:1}
   .bshot{position:relative;width:96px;margin:0;background:#21171b;border:1px solid var(--border-2);padding:6px 6px 16px;
@@ -397,7 +420,7 @@ body{
 
   @media (prefers-reduced-motion: reduce){
     *{animation:none!important;transition:none!important}
-    .reveal,.reveal.in .item,.heroline,.world,.meta,.greet,h1 .w,h1 .lt{opacity:1!important;transform:none!important}
+    .reveal,.reveal.in .item,.heroline,.world,.meta,.greet,h1 .w,h1 .lt,.reveal .room-h2,.reveal .room-eyebrow{opacity:1!important;transform:none!important;filter:none!important}
     .room-voice{opacity:.85!important;transform:none!important}
     .sep,.sep-scene{animation:none!important;transform:none!important}
     .pdot{opacity:.9!important;transform:scale(1)!important}
@@ -417,7 +440,7 @@ body{
     .cat-art,.sig-art,.brandshots,.diary,.pdot,.brandbg,.sadu-band,.najdi{display:none!important}
     .wrap{max-width:100%;padding:0}
     .hero{min-height:0!important;padding:0 0 8px!important;display:block!important}
-    .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
+    .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item,.reveal .room-h2,.reveal .room-eyebrow{opacity:1!important;transform:none!important;filter:none!important}
     h1{color:#000!important;background:none!important;-webkit-text-fill-color:#000!important;font-size:30px!important}
     .medal{width:70px!important;height:70px!important;margin-bottom:8px;border-color:#000!important;background:#fff!important}
     .medal .mark{display:none!important}
@@ -495,7 +518,35 @@ body{
 <rect y="783" width="1440" height="24" fill="url(#pdSadu)" opacity=".85"/>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bm13ct420m" viewBox="0 0 100 100" fill="none" role="img" aria-label="The Sweet Sip"><style>.bm13ct420m{overflow:visible}.bm13ct420m *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm13ct420m .mk{animation:bm13ct420mbob 5s ease-in-out 1.7s infinite}@keyframes bm13ct420mbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm13ct420mfl{0%{opacity:0;transform:translateX(-40px) rotate(-12deg)}100%{transform:none}}@keyframes bm13ct420mfr{0%{opacity:0;transform:translateX(40px) rotate(12deg)}100%{transform:none}}@keyframes bm13ct420mdrop{0%{opacity:0;transform:translateY(-30px) scale(.4)}70%{transform:translateY(2px) scale(1.1)}100%{transform:none}}.bm13ct420m .p1{animation:bm13ct420mfl .8s cubic-bezier(.2,1.2,.3,1) both}.bm13ct420m .p2{animation:bm13ct420mfr .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bm13ct420m .p3{animation:bm13ct420mdrop .7s cubic-bezier(.2,1.5,.3,1) .55s both}.bm13ct420m .p4{opacity:0;animation:bm13ct420mfd .4s ease .95s forwards}@keyframes bm13ct420mfd{to{opacity:1}}}</style><g class="mk"><g class="p1"><rect x="22" y="54" width="56" height="24" rx="7" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="32" y="34" width="36" height="22" rx="7" fill="var(--sa)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><circle cx="50" cy="26" r="6" fill="var(--accent-2)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g><path class="p4" d="M50 20 q3 -6 8 -7" stroke="var(--ink)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">T</span><span class="en">T</span></span></div>
+    <div class="brandlogo big" aria-hidden="true"><style>.L1aqkjkz .part-moon{transform-origin:26px 26px;animation:L1aqkjkz_pop .6s cubic-bezier(.2,1.3,.3,1) 1.1s both,L1aqkjkz_glow 4s ease-in-out 2s infinite}
+.L1aqkjkz .tw1{transform-origin:94px 28px;animation:L1aqkjkz_pop .5s cubic-bezier(.2,1.3,.3,1) 1.2s both,L1aqkjkz_twinkle 2.6s ease-in-out 2s infinite}
+.L1aqkjkz .tw2{transform-origin:22px 50px;animation:L1aqkjkz_pop .5s cubic-bezier(.2,1.3,.3,1) 1.35s both,L1aqkjkz_twinkle 2.6s ease-in-out 2.4s infinite}
+.L1aqkjkz .tw3{transform-origin:98px 60px;animation:L1aqkjkz_pop .5s cubic-bezier(.2,1.3,.3,1) 1.5s both,L1aqkjkz_twinkle 2.6s ease-in-out 2.2s infinite}
+.L1aqkjkz .part-foot{animation:L1aqkjkz_rise .6s cubic-bezier(.2,1.3,.3,1) .15s both}
+.L1aqkjkz .part-stem{transform-origin:60px 98px;animation:L1aqkjkz_grow .6s cubic-bezier(.2,1.3,.3,1) .3s both}
+.L1aqkjkz .part-bowl{transform-origin:60px 56px;animation:L1aqkjkz_up .7s cubic-bezier(.2,1.3,.3,1) .45s both}
+.L1aqkjkz .part-drink{animation:L1aqkjkz_fade .5s ease .65s both}
+.L1aqkjkz .part-swirl{stroke-dasharray:44;stroke-dashoffset:44;animation:L1aqkjkz_draw .7s ease .95s forwards}
+.L1aqkjkz .part-cream{transform-origin:60px 56px;animation:L1aqkjkz_pop .6s cubic-bezier(.2,1.3,.3,1) .7s both}
+.L1aqkjkz .part-drizzle{stroke-dasharray:38;stroke-dashoffset:38;animation:L1aqkjkz_draw .6s ease 1.05s forwards}
+.L1aqkjkz .part-straw{transform-origin:72px 34px;animation:L1aqkjkz_slide .6s cubic-bezier(.2,1.3,.3,1) .85s both}
+.L1aqkjkz .part-cherry{transform-origin:60px 32px;animation:L1aqkjkz_fly .7s cubic-bezier(.2,1.3,.3,1) 1s both,L1aqkjkz_sway 6s ease-in-out 2s infinite}
+.L1aqkjkz .sp{animation:L1aqkjkz_spark 3s ease-in-out 1.8s infinite}
+.L1aqkjkz .sp2{animation:L1aqkjkz_spark 3s ease-in-out 2.6s infinite}
+.L1aqkjkz .sp3{animation:L1aqkjkz_spark 3s ease-in-out 3.4s infinite}
+@keyframes L1aqkjkz_rise{from{transform:translateY(28px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes L1aqkjkz_grow{from{transform:scaleY(0);opacity:0}to{transform:scaleY(1);opacity:1}}
+@keyframes L1aqkjkz_up{from{transform:translateY(34px) scale(.55);opacity:0}to{transform:translateY(0) scale(1);opacity:1}}
+@keyframes L1aqkjkz_fade{from{opacity:0}to{opacity:1}}
+@keyframes L1aqkjkz_draw{to{stroke-dashoffset:0}}
+@keyframes L1aqkjkz_pop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes L1aqkjkz_slide{from{transform:translate(16px,-16px) rotate(12deg);opacity:0}to{transform:translate(0,0) rotate(0);opacity:1}}
+@keyframes L1aqkjkz_fly{from{transform:translateY(-42px) rotate(-45deg) scale(.4);opacity:0}to{transform:translateY(0) rotate(0) scale(1);opacity:1}}
+@keyframes L1aqkjkz_sway{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
+@keyframes L1aqkjkz_glow{0%,100%{opacity:1}50%{opacity:.65}}
+@keyframes L1aqkjkz_twinkle{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.6);opacity:.4}}
+@keyframes L1aqkjkz_spark{0%{transform:translateY(4px);opacity:0}30%{opacity:1}100%{transform:translateY(-16px);opacity:0}}</style><svg viewBox="0 0 120 120" fill="none" stroke-linejoin="round" stroke-linecap="round"><path class="L1aqkjkz part-moon" d="M26 16 A11 11 0 1 0 26 36 A14 14 0 1 1 26 16 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="4"/><path class="L1aqkjkz tw1" d="M94 22 Q94 28 100 28 Q94 28 94 34 Q94 28 88 28 Q94 28 94 22 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="3"/><path class="L1aqkjkz tw2" d="M22 45 Q22 50 27 50 Q22 50 22 55 Q22 50 17 50 Q22 50 22 45 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="3"/><path class="L1aqkjkz tw3" d="M98 56 Q98 60 102 60 Q98 60 98 64 Q98 60 94 60 Q98 60 98 56 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="3"/><ellipse class="L1aqkjkz part-foot" cx="60" cy="99" rx="15" ry="4" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4"/><rect class="L1aqkjkz part-stem" x="57" y="77" width="6" height="21" rx="3" fill="var(--ls)" stroke="var(--lk)" stroke-width="4"/><path class="L1aqkjkz part-bowl" d="M38 55 C40 77 80 77 82 55 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="4.5"/><ellipse class="L1aqkjkz part-drink" cx="60" cy="55" rx="22" ry="5.5" fill="var(--ls)" stroke="var(--lk)" stroke-width="4"/><path class="L1aqkjkz part-swirl" d="M50 54 C55 58 65 58 70 54" stroke="var(--lk)" stroke-width="3"/><path class="L1aqkjkz part-cream" d="M40 55 C40 45 47 41 51 45 C53 38 67 38 69 45 C73 41 80 46 80 55 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="4.5"/><path class="L1aqkjkz part-drizzle" d="M46 50 C52 46 68 46 74 50" stroke="var(--la)" stroke-width="3"/><g class="L1aqkjkz part-straw"><line x1="66" y1="45" x2="79" y2="23" stroke="var(--lk)" stroke-width="7"/><line x1="66" y1="45" x2="79" y2="23" stroke="var(--ls2)" stroke-width="3.5"/></g><circle class="L1aqkjkz sp" cx="54" cy="50" r="2.3" fill="var(--la2)" stroke="var(--lk)" stroke-width="1.6"/><circle class="L1aqkjkz sp2" cx="60" cy="48" r="2" fill="var(--lp)" stroke="var(--lk)" stroke-width="1.6"/><circle class="L1aqkjkz sp3" cx="66" cy="51" r="2.3" fill="var(--la2)" stroke="var(--lk)" stroke-width="1.6"/><path class="L1aqkjkz part-cherry" d="M60 23 L62.1 29.1 L68.6 29.2 L63.4 33.1 L65.3 39.3 L60 35.6 L54.7 39.3 L56.6 33.1 L51.4 29.2 L57.9 29.1 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="4"/></svg></div>
+    <div class="medal"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><span><span class="ar">T</span><span class="en">T</span></span></div>
     <h1><span class="ar">The Sweet Sip</span><span class="en">The Sweet Sip</span></h1>
     <div class="world"><span class="ar">✦ <b>سهرة حلا على مخمل الليل</b> ✦</span><span class="en">✦ <b>a velvet evening made for dessert</b> ✦</span></div>
     <div class="heroline"><span class="ar">السهرة ما تكتمل بلا حلا</span><span class="en">the night deserves something sweet</span></div>
@@ -763,6 +814,7 @@ body{
     <span class="en">📱 Live digital menu: scan the table QR — menu-sadah.com/the-sweet-sip</span>
   </div>
   <div class="footer">
+    <div class="brandlogo mini" aria-hidden="true"><svg viewBox="0 0 120 120" fill="none" stroke-linejoin="round" stroke-linecap="round"><path class="L1aqkjkz part-moon" d="M26 16 A11 11 0 1 0 26 36 A14 14 0 1 1 26 16 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="4"/><path class="L1aqkjkz tw1" d="M94 22 Q94 28 100 28 Q94 28 94 34 Q94 28 88 28 Q94 28 94 22 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="3"/><path class="L1aqkjkz tw2" d="M22 45 Q22 50 27 50 Q22 50 22 55 Q22 50 17 50 Q22 50 22 45 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="3"/><path class="L1aqkjkz tw3" d="M98 56 Q98 60 102 60 Q98 60 98 64 Q98 60 94 60 Q98 60 98 56 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="3"/><ellipse class="L1aqkjkz part-foot" cx="60" cy="99" rx="15" ry="4" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4"/><rect class="L1aqkjkz part-stem" x="57" y="77" width="6" height="21" rx="3" fill="var(--ls)" stroke="var(--lk)" stroke-width="4"/><path class="L1aqkjkz part-bowl" d="M38 55 C40 77 80 77 82 55 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="4.5"/><ellipse class="L1aqkjkz part-drink" cx="60" cy="55" rx="22" ry="5.5" fill="var(--ls)" stroke="var(--lk)" stroke-width="4"/><path class="L1aqkjkz part-swirl" d="M50 54 C55 58 65 58 70 54" stroke="var(--lk)" stroke-width="3"/><path class="L1aqkjkz part-cream" d="M40 55 C40 45 47 41 51 45 C53 38 67 38 69 45 C73 41 80 46 80 55 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="4.5"/><path class="L1aqkjkz part-drizzle" d="M46 50 C52 46 68 46 74 50" stroke="var(--la)" stroke-width="3"/><g class="L1aqkjkz part-straw"><line x1="66" y1="45" x2="79" y2="23" stroke="var(--lk)" stroke-width="7"/><line x1="66" y1="45" x2="79" y2="23" stroke="var(--ls2)" stroke-width="3.5"/></g><circle class="L1aqkjkz sp" cx="54" cy="50" r="2.3" fill="var(--la2)" stroke="var(--lk)" stroke-width="1.6"/><circle class="L1aqkjkz sp2" cx="60" cy="48" r="2" fill="var(--lp)" stroke="var(--lk)" stroke-width="1.6"/><circle class="L1aqkjkz sp3" cx="66" cy="51" r="2.3" fill="var(--la2)" stroke="var(--lk)" stroke-width="1.6"/><path class="L1aqkjkz part-cherry" d="M60 23 L62.1 29.1 L68.6 29.2 L63.4 33.1 L65.3 39.3 L60 35.6 L54.7 39.3 L56.6 33.1 L51.4 29.2 L57.9 29.1 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="4"/></svg></div>
     <div style="margin-bottom:6px;color:var(--text-2)"><span class="ar">تابعوا The Sweet Sip: <b style="color:var(--accent)">@thesweetsip5</b></span><span class="en">Follow The Sweet Sip: <b style="color:var(--accent)">@thesweetsip5</b></span></div>
     <span class="ar">تجربة من <a href="https://menu-sadah.com">منيو سادة — MENU SADAH</a></span>
     <span class="en">Crafted by <a href="https://menu-sadah.com">MENU SADAH</a></span>

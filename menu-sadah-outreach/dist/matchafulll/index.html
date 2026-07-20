@@ -45,7 +45,7 @@
   .medal .logo{width:84%;height:84%;object-fit:contain;border-radius:50%;position:relative;z-index:1}
   .medal.haslogo>span{display:none}
   @keyframes mfloat{50%{transform:translateY(-6px)}}
-  h1{font-size:36px;letter-spacing:-.01em;line-height:1.2}
+  h1{font-size:clamp(41px,11.5vw,54px);font-weight:800;letter-spacing:-.02em;line-height:1.08}
   h1 .ar{font-family:'Amiri',serif}
   h1 .en{font-family:'Playfair Display',serif}
   /* gradient-clip only AFTER word entrance — transformed child spans break background-clip:text in Chrome */
@@ -62,7 +62,7 @@
     100%{opacity:1;transform:none}}
   .world{margin-top:10px;color:var(--text-3);font-size:13px;letter-spacing:.08em}
   .world b{color:#79cd99;font-weight:600}
-  .heroline{margin-top:8px;color:var(--text-2);font-size:19px;line-height:1.5}
+  .heroline{margin-top:10px;color:var(--text-2);font-size:22px;font-weight:600;line-height:1.45}
   .heroline .ar{font-family:'Amiri',serif}
   .heroline .en{font-family:'Playfair Display',serif}
   .meta{margin-top:14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
@@ -108,7 +108,7 @@
   @keyframes sfloat{50%{transform:translateY(-5px)}}
   .sig-art{width:74px;height:74px;margin:0 auto 8px}
   .sig-art svg{width:100%;height:100%;filter:drop-shadow(0 6px 14px #78c86a59)}
-  .sig-name{font-size:14.5px;font-weight:600;line-height:1.35}
+  .sig-name{font-size:16px;font-weight:700;line-height:1.32}
   .stamp{display:inline-flex;align-items:baseline;gap:3px;margin-top:8px;padding:3px 12px;border:1.7px solid var(--sa);
     border-radius:999px;color:var(--sa);font-weight:800;font-size:16px;transform:rotate(-4deg);
     box-shadow:0 0 0 3px #78c86a0f}
@@ -137,8 +137,8 @@
   .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
     box-shadow:inset 0 0 0 1px #78c86a55}
   .cat-title{flex:1;min-width:0}
-  .room-eyebrow{color:var(--text-3);font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:3px}
-  .room-h2{color:var(--sa);font-size:22px;line-height:1.3}
+  .room-eyebrow{color:var(--text-3);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+  .room-h2{color:var(--sa);font-size:28px;font-weight:800;line-height:1.14;letter-spacing:-.01em}
   .room-h2 .ar{font-family:'Amiri',serif}
   .room-h2 .en{font-family:'Playfair Display',serif}
   /* self-drawing ink underline: a hand-wavy SVG stroke that draws itself on reveal */
@@ -160,11 +160,11 @@
   @keyframes sepidle{0%,100%{transform:translateX(0);opacity:.82}50%{transform:translateX(calc(6px * var(--tx,1)));opacity:1}}
 
   .items{position:relative;background:#182216d9;border:1px solid var(--border-1);border-radius:20px;padding:6px 18px;box-shadow:var(--shadow)}
-  .item{display:flex;align-items:baseline;gap:10px;padding:15px 0;border-bottom:1px solid #222d2099}
+  .item{display:flex;align-items:baseline;gap:10px;padding:16px 0;border-bottom:1px solid #222d2099}
   .item:last-child{border-bottom:none}
-  .item-name{font-size:16px}
+  .item-name{font-size:18.5px;font-weight:600;line-height:1.32;letter-spacing:-.004em}
   .dots{flex:1;border-bottom:1px dotted var(--border-2);transform:translateY(-4px)}
-  .price{color:var(--sa);font-weight:800;white-space:nowrap;font-variant-numeric:tabular-nums;display:flex;align-items:baseline;gap:6px}
+  .price{color:var(--sa);font-weight:800;font-size:18px;white-space:nowrap;font-variant-numeric:tabular-nums;display:flex;align-items:baseline;gap:6px}
   .pdot{width:6px;height:6px;border-radius:50%;background:var(--sa);opacity:0;transform:scale(0)}
   .reveal.in .pdot{animation:dotpop .45s cubic-bezier(.2,1.6,.4,1) forwards}
   @keyframes dotpop{0%{opacity:0;transform:scale(0)}70%{opacity:1;transform:scale(1.5)}100%{opacity:.9;transform:scale(1)}}
@@ -237,17 +237,18 @@
     .hero{min-height:62vh;display:flex;flex-direction:column;justify-content:center;padding:40px 0 14px}
     .medal{width:136px;height:136px}
     .medal span{font-size:58px}
-    h1{font-size:66px}
+    h1{font-size:clamp(66px,8vw,84px)}
     .world{font-size:15px;margin-top:16px}
-    .heroline{font-size:27px;margin-top:12px}
-    .room-h2{font-size:34px}
-    .room-voice{font-size:17px}
-    .inkline{width:min(190px,72%)}
+    .heroline{font-size:30px;margin-top:14px}
+    .room-h2{font-size:42px}
+    .room-voice{font-size:18px}
+    .inkline{width:min(200px,72%)}
     .inkline path{stroke-width:2.6}
     .cat-art{width:96px;height:96px}
     .items{padding:10px 30px}
-    .item{padding:18px 0}
-    .item-name{font-size:17.5px}
+    .item{padding:20px 0}
+    .item-name{font-size:20px}
+    .price{font-size:20px}
     .sig-art{width:96px;height:96px}
     .sig{padding:26px 22px 24px}
     .diary{max-width:480px;font-size:17px}
@@ -372,10 +373,33 @@ body::after{
   .medal.hasmark>span{display:none}
 
 
+  /* ---- BOLD BRAND TYPOGRAPHY: confident scale + neon-arcade voice + animated headers ---- */
+  .room-eyebrow{font-weight:800}
+  .room-eyebrow{letter-spacing:.34em}
+    .room-h2{text-transform:uppercase;letter-spacing:.05em;font-weight:800}
+    .item-name{font-weight:600}
+    .price{letter-spacing:.02em}
+  @media (prefers-reduced-motion:no-preference){
+    .reveal .room-h2,.reveal .room-eyebrow{opacity:0}
+    .reveal.in .room-eyebrow{animation:rhk .5s ease .05s forwards}
+    .reveal.in .room-h2{animation:rh2in .62s ease .12s forwards}
+    @keyframes rh2in{0%{opacity:0;filter:blur(5px)}100%{opacity:1;filter:blur(0)}}
+    @keyframes rhk{to{opacity:1}}
+  }
+  .brandlogo{--lk:var(--ink);--la:var(--accent);--ls:var(--sa);--ls2:var(--sa2);--la2:var(--accent-2);--lp:var(--bg-1);line-height:0}
+  .brandlogo svg{display:block;overflow:visible;width:100%;height:auto}
+  .brandlogo *{transform-box:fill-box;transform-origin:center}
+  .brandlogo.big{width:min(196px,54vw);margin:2px auto 8px}
+  .brandlogo.big svg{filter:drop-shadow(0 10px 22px var(--accent-soft,rgba(0,0,0,.14)))}
+  .brandlogo.mini{width:60px;margin:0 auto 12px;opacity:.96}
+  @media(min-width:900px){.brandlogo.big{width:236px}.brandlogo.mini{width:70px}}
+  @media(prefers-reduced-motion:reduce){.brandlogo svg *{animation:none!important;opacity:1!important;stroke-dashoffset:0!important;filter:none!important;transform:none!important}}
+  @media print{.brandlogo{display:none!important}}
+
 
   @media (prefers-reduced-motion: reduce){
     *{animation:none!important;transition:none!important}
-    .reveal,.reveal.in .item,.heroline,.world,.meta,.greet,h1 .w,h1 .lt{opacity:1!important;transform:none!important}
+    .reveal,.reveal.in .item,.heroline,.world,.meta,.greet,h1 .w,h1 .lt,.reveal .room-h2,.reveal .room-eyebrow{opacity:1!important;transform:none!important;filter:none!important}
     .room-voice{opacity:.85!important;transform:none!important}
     .sep,.sep-scene{animation:none!important;transform:none!important}
     .pdot{opacity:.9!important;transform:scale(1)!important}
@@ -395,7 +419,7 @@ body::after{
     .cat-art,.sig-art,.brandshots,.diary,.pdot,.brandbg,.sadu-band,.najdi{display:none!important}
     .wrap{max-width:100%;padding:0}
     .hero{min-height:0!important;padding:0 0 8px!important;display:block!important}
-    .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
+    .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item,.reveal .room-h2,.reveal .room-eyebrow{opacity:1!important;transform:none!important;filter:none!important}
     h1{color:#000!important;background:none!important;-webkit-text-fill-color:#000!important;font-size:30px!important}
     .medal{width:70px!important;height:70px!important;margin-bottom:8px;border-color:#000!important;background:#fff!important}
     .medal .mark{display:none!important}
@@ -458,7 +482,29 @@ body::after{
 <path class="nz-neon" d="M0 401h1200" fill="none" stroke="#78c86a" stroke-width="2.2"/>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bm15o2rs0m" viewBox="0 0 100 100" fill="none" role="img" aria-label="Matchafulll"><style>.bm15o2rs0m{overflow:visible}.bm15o2rs0m *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm15o2rs0m .mk{animation:bm15o2rs0mbob 5s ease-in-out 1.7s infinite}@keyframes bm15o2rs0mbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm15o2rs0mcup{0%{opacity:0;transform:translateY(26px) scale(.7)}100%{transform:none}}.bm15o2rs0m .p1,.bm15o2rs0m .p2{animation:bm15o2rs0mcup .85s cubic-bezier(.2,1.2,.3,1) both}.bm15o2rs0m .p2{animation-delay:.1s}.bm15o2rs0m .p3{stroke-dasharray:50;stroke-dashoffset:50;animation:bm15o2rs0mdr .6s ease .7s forwards}@keyframes bm15o2rs0mdr{to{stroke-dashoffset:0}}.bm15o2rs0m .lf{opacity:0;animation:bm15o2rs0mleaf .7s cubic-bezier(.2,1.4,.3,1) .9s forwards}@keyframes bm15o2rs0mleaf{0%{opacity:0;transform:translateY(8px) scale(.4) rotate(-20deg)}100%{opacity:1;transform:none}}}</style><g class="mk"><path class="p1" d="M24 52 Q50 84 76 52 Z" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><ellipse class="p2" cx="50" cy="52" rx="26" ry="7" fill="var(--sa2)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><path class="p3" d="M50 52 L50 30 M50 34 l-8 -6 M50 34 l8 -6" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/><path class="lf" d="M64 40 q10 -8 6 -20 q-12 4 -6 20 Z" fill="var(--sa)" stroke="var(--ink)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">م</span><span class="en">M</span></span></div>
+    <div class="brandlogo big" aria-hidden="true"><style>.Lsw95vb .ring{stroke-dasharray:301;animation:Lsw95vb_ringdraw 1s ease-out both,Lsw95vb_glow 3.2s ease-in-out 1.1s infinite}
+.Lsw95vb .cup{transform-origin:50% 100%;animation:Lsw95vb_up .7s cubic-bezier(.2,1.3,.3,1) .15s both}
+.Lsw95vb .lid{transform-origin:50% 0%;animation:Lsw95vb_drop .6s cubic-bezier(.2,1.3,.3,1) .45s both}
+.Lsw95vb .straw{transform-origin:50% 100%;animation:Lsw95vb_straw .55s cubic-bezier(.2,1.3,.3,1) .6s both}
+.Lsw95vb .band{stroke-dasharray:34;animation:Lsw95vb_band .5s ease .7s both}
+.Lsw95vb .leaf{transform-origin:50% 50%;animation:Lsw95vb_pop .5s cubic-bezier(.2,1.3,.3,1) .8s both}
+.Lsw95vb .vein{stroke-dasharray:20;animation:Lsw95vb_vein .5s ease .95s both}
+.Lsw95vb .s1{opacity:0;animation:Lsw95vb_steam 3.4s ease-in-out 1.3s infinite}
+.Lsw95vb .s2{opacity:0;animation:Lsw95vb_steam 3.8s ease-in-out 1.7s infinite}
+.Lsw95vb .k1,.Lsw95vb .k2{opacity:0;transform-origin:50% 50%}
+.Lsw95vb .k1{animation:Lsw95vb_tw 2.6s ease-in-out 1.4s infinite}
+.Lsw95vb .k2{animation:Lsw95vb_tw 3s ease-in-out 2s infinite}
+@keyframes Lsw95vb_ringdraw{from{stroke-dashoffset:301}to{stroke-dashoffset:0}}
+@keyframes Lsw95vb_glow{0%,100%{opacity:.5}50%{opacity:1}}
+@keyframes Lsw95vb_up{0%{transform:translateY(46px) scale(.9);opacity:0}100%{transform:translateY(0) scale(1);opacity:1}}
+@keyframes Lsw95vb_drop{0%{transform:translateY(-34px);opacity:0}100%{transform:translateY(0);opacity:1}}
+@keyframes Lsw95vb_straw{0%{transform:rotate(18deg) translateY(-20px);opacity:0}100%{transform:rotate(18deg) translateY(0);opacity:1}}
+@keyframes Lsw95vb_band{from{stroke-dashoffset:34}to{stroke-dashoffset:0}}
+@keyframes Lsw95vb_pop{0%{transform:scale(0)}70%{transform:scale(1.15)}100%{transform:scale(1)}}
+@keyframes Lsw95vb_vein{from{stroke-dashoffset:20}to{stroke-dashoffset:0}}
+@keyframes Lsw95vb_steam{0%{opacity:0;transform:translateY(6px)}30%{opacity:.9}100%{opacity:0;transform:translateY(-11px)}}
+@keyframes Lsw95vb_tw{0%,100%{opacity:0;transform:scale(.4)}50%{opacity:1;transform:scale(1.1)}}</style><svg viewBox="0 0 120 120" fill="none"><circle class="Lsw95vb ring" cx="60" cy="60" r="48" fill="none" stroke="var(--la2)" stroke-width="3" stroke-linecap="round"/><path class="Lsw95vb s1" d="M54,40 q-5,-6 0,-12 q5,-6 0,-12" fill="none" stroke="var(--ls2)" stroke-width="4" stroke-linecap="round"/><path class="Lsw95vb s2" d="M68,40 q5,-6 0,-12 q-5,-6 0,-12" fill="none" stroke="var(--ls2)" stroke-width="4" stroke-linecap="round"/><g class="Lsw95vb cup"><path d="M41,52 L79,52 L74,96 Q73,99 70,99 L50,99 Q47,99 46,96 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="5" stroke-linejoin="round"/><path class="Lsw95vb band" d="M43,66 L77,66" fill="none" stroke="var(--la2)" stroke-width="3" stroke-linecap="round"/><path class="Lsw95vb leaf" d="M60,60 Q73,70 60,88 Q47,70 60,60 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="3.5" stroke-linejoin="round"/><path class="Lsw95vb vein" d="M60,66 L60,84" fill="none" stroke="var(--lk)" stroke-width="3" stroke-linecap="round"/></g><g class="Lsw95vb lid"><rect x="38" y="46" width="44" height="8" rx="3" fill="var(--ls)" stroke="var(--lk)" stroke-width="5" stroke-linejoin="round"/><path d="M43,46 Q60,33 77,46" fill="var(--ls2)" stroke="var(--lk)" stroke-width="5" stroke-linejoin="round"/></g><rect class="Lsw95vb straw" x="63" y="14" width="7" height="27" rx="3" fill="var(--la2)" stroke="var(--lk)" stroke-width="4" stroke-linejoin="round"/><path class="Lsw95vb k1" d="M98,34 l2,6 6,2 -6,2 -2,6 -2,-6 -6,-2 6,-2 Z" fill="var(--la2)"/><path class="Lsw95vb k2" d="M28,80 l1.5,4 4,1.5 -4,1.5 -1.5,4 -1.5,-4 -4,-1.5 4,-1.5 Z" fill="var(--la2)"/></svg></div>
+    <div class="medal"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><span><span class="ar">م</span><span class="en">M</span></span></div>
     <h1><span class="ar">ماتشافل</span><span class="en">Matchafulll</span></h1>
     <div class="world"><span class="ar">✦ <b>سهرة خضرا توهّج في الليل</b> ✦</span><span class="en">✦ <b>a green glow after dark</b> ✦</span></div>
     <div class="heroline"><span class="ar">جرعة خضرا تشغّل السهرة</span><span class="en">your green charge for tonight</span></div>
@@ -623,6 +669,7 @@ body::after{
     <span class="en">📱 Live digital menu: scan the table QR — menu-sadah.com/matchafulll</span>
   </div>
   <div class="footer">
+    <div class="brandlogo mini" aria-hidden="true"><svg viewBox="0 0 120 120" fill="none"><circle class="Lsw95vb ring" cx="60" cy="60" r="48" fill="none" stroke="var(--la2)" stroke-width="3" stroke-linecap="round"/><path class="Lsw95vb s1" d="M54,40 q-5,-6 0,-12 q5,-6 0,-12" fill="none" stroke="var(--ls2)" stroke-width="4" stroke-linecap="round"/><path class="Lsw95vb s2" d="M68,40 q5,-6 0,-12 q-5,-6 0,-12" fill="none" stroke="var(--ls2)" stroke-width="4" stroke-linecap="round"/><g class="Lsw95vb cup"><path d="M41,52 L79,52 L74,96 Q73,99 70,99 L50,99 Q47,99 46,96 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="5" stroke-linejoin="round"/><path class="Lsw95vb band" d="M43,66 L77,66" fill="none" stroke="var(--la2)" stroke-width="3" stroke-linecap="round"/><path class="Lsw95vb leaf" d="M60,60 Q73,70 60,88 Q47,70 60,60 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="3.5" stroke-linejoin="round"/><path class="Lsw95vb vein" d="M60,66 L60,84" fill="none" stroke="var(--lk)" stroke-width="3" stroke-linecap="round"/></g><g class="Lsw95vb lid"><rect x="38" y="46" width="44" height="8" rx="3" fill="var(--ls)" stroke="var(--lk)" stroke-width="5" stroke-linejoin="round"/><path d="M43,46 Q60,33 77,46" fill="var(--ls2)" stroke="var(--lk)" stroke-width="5" stroke-linejoin="round"/></g><rect class="Lsw95vb straw" x="63" y="14" width="7" height="27" rx="3" fill="var(--la2)" stroke="var(--lk)" stroke-width="4" stroke-linejoin="round"/><path class="Lsw95vb k1" d="M98,34 l2,6 6,2 -6,2 -2,6 -2,-6 -6,-2 6,-2 Z" fill="var(--la2)"/><path class="Lsw95vb k2" d="M28,80 l1.5,4 4,1.5 -4,1.5 -1.5,4 -1.5,-4 -4,-1.5 4,-1.5 Z" fill="var(--la2)"/></svg></div>
     <div style="margin-bottom:6px;color:var(--text-2)"><span class="ar">تابعوا ماتشافل: <b style="color:var(--accent)">@matchafulll</b></span><span class="en">Follow Matchafulll: <b style="color:var(--accent)">@matchafulll</b></span></div>
     <span class="ar">تجربة من <a href="https://menu-sadah.com">منيو سادة — MENU SADAH</a></span>
     <span class="en">Crafted by <a href="https://menu-sadah.com">MENU SADAH</a></span>

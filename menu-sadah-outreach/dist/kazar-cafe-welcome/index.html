@@ -278,6 +278,16 @@ body{
   @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}
     .medal,h1,.world,.heroline,.cta,.rv{opacity:1!important;transform:none!important}
     .sting-wash{display:none!important}.curtain{display:none!important}}
+  .brandlogo{--lk:var(--ink);--la:var(--rose);--ls:var(--gold);--ls2:var(--sage);--la2:var(--ochre);--lp:var(--paper,#fffdf6);line-height:0}
+  .brandlogo svg{display:block;overflow:visible;width:100%;height:auto}
+  .brandlogo *{transform-box:fill-box;transform-origin:center}
+  .brandlogo.big{width:min(196px,54vw);margin:2px auto 8px}
+  .brandlogo.big svg{filter:drop-shadow(0 10px 22px var(--accent-soft,rgba(0,0,0,.14)))}
+  .brandlogo.mini{width:60px;margin:0 auto 12px;opacity:.96}
+  @media(min-width:900px){.brandlogo.big{width:236px}.brandlogo.mini{width:70px}}
+  @media(prefers-reduced-motion:reduce){.brandlogo svg *{animation:none!important;opacity:1!important;stroke-dashoffset:0!important;filter:none!important;transform:none!important}}
+  @media print{.brandlogo{display:none!important}}
+  .brandlogo.big{width:min(210px,58vw);margin:6px auto 10px}
 </style>
 <script>
   // CINEMA STING gate — decided before first paint: once per session, never for reduced-motion
@@ -341,7 +351,28 @@ body{
 </svg>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:13px;animation-delay:0s">〜</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:11px;animation-delay:0.7s">〜</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:10px;animation-delay:1.4s">〜</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:9px;animation-delay:2.0999999999999996s">〜</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:9px;animation-delay:2.8s">〜</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:9px;animation-delay:3.5s">〜</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:12px;animation-delay:0.1999999999999993s">〜</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:10px;animation-delay:0.8999999999999995s">〜</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bmq6lqjaw" viewBox="0 0 100 100" fill="none" role="img" aria-label="Kazar Cafe"><style>.bmq6lqjaw{overflow:visible}.bmq6lqjaw *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bmq6lqjaw .mk{animation:bmq6lqjawbob 5s ease-in-out 1.7s infinite}@keyframes bmq6lqjawbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bmq6lqjawp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bmq6lqjaw .p1{animation:bmq6lqjawp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bmq6lqjaw .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bmq6lqjawdr 1s ease .55s forwards}@keyframes bmq6lqjawdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ك</span><span class="en">K</span></span></div>
+    <div class="brandlogo big" aria-hidden="true"><style>.L1vc6mjf .part-beam{transform-origin:60px 10px;animation:L1vc6mjf_beam .7s cubic-bezier(.2,1.3,.3,1) .55s both,L1vc6mjf_glow 3.6s ease-in-out 1.5s infinite}
+.L1vc6mjf .part-curtainL{transform-origin:10px 4px;animation:L1vc6mjf_drop .7s cubic-bezier(.2,1.3,.3,1) .15s both}
+.L1vc6mjf .part-curtainR{transform-origin:110px 4px;animation:L1vc6mjf_drop .7s cubic-bezier(.2,1.3,.3,1) .25s both}
+.L1vc6mjf .part-stage{transform-origin:60px 94px;animation:L1vc6mjf_grow .6s cubic-bezier(.2,1.3,.3,1) .3s both}
+.L1vc6mjf .part-cup{transform-origin:60px 87px;animation:L1vc6mjf_rise .78s cubic-bezier(.2,1.3,.3,1) .5s both}
+.L1vc6mjf .part-steam,.L1vc6mjf .part-steam2{stroke-dasharray:70;stroke-dashoffset:70}
+.L1vc6mjf .part-steam{transform-origin:54px 42px;animation:L1vc6mjf_draw .85s ease .95s forwards,L1vc6mjf_drift 4.6s ease-in-out 1.8s infinite}
+.L1vc6mjf .part-steam2{transform-origin:66px 42px;animation:L1vc6mjf_draw .85s ease 1.1s forwards,L1vc6mjf_drift2 5.1s ease-in-out 2s infinite}
+.L1vc6mjf .part-twinkle{transform-origin:26px 31px;animation:L1vc6mjf_pop .6s cubic-bezier(.2,1.3,.3,1) 1.15s both,L1vc6mjf_spark 2.8s ease-in-out 1.9s infinite}
+.L1vc6mjf .part-detail{opacity:0;animation:L1vc6mjf_fade .5s ease 1.2s forwards}
+@keyframes L1vc6mjf_beam{0%{opacity:0;transform:scaleY(.15)}100%{opacity:.26;transform:scaleY(1)}}
+@keyframes L1vc6mjf_glow{0%,100%{opacity:.16}50%{opacity:.34}}
+@keyframes L1vc6mjf_drop{0%{opacity:0;transform:translateY(-36px)}100%{opacity:1;transform:translateY(0)}}
+@keyframes L1vc6mjf_grow{0%{opacity:0;transform:scaleX(.08)}100%{opacity:1;transform:scaleX(1)}}
+@keyframes L1vc6mjf_rise{0%{opacity:0;transform:translateY(48px) scale(.82)}100%{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes L1vc6mjf_draw{to{stroke-dashoffset:0}}
+@keyframes L1vc6mjf_drift{0%,100%{transform:translate(0,0);opacity:.9}50%{transform:translate(-3px,-5px);opacity:.5}}
+@keyframes L1vc6mjf_drift2{0%,100%{transform:translate(0,0);opacity:.85}50%{transform:translate(3px,-5px);opacity:.45}}
+@keyframes L1vc6mjf_pop{0%{opacity:0;transform:scale(0) rotate(-40deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
+@keyframes L1vc6mjf_spark{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.3);opacity:.55}}
+@keyframes L1vc6mjf_fade{to{opacity:1}}</style><svg class="L1vc6mjf" viewBox="0 0 120 120" fill="none" stroke-linecap="round" stroke-linejoin="round"><path class="part-beam" d="M54 10 L66 10 L88 84 L32 84 Z" fill="var(--la2)"/><path class="part-curtainL" d="M4 4 Q18 8 20 30 Q10 26 3 32 Q6 16 4 4 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4"/><path class="part-curtainR" d="M116 4 Q102 8 100 30 Q110 26 117 32 Q114 16 116 4 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4"/><ellipse class="part-stage" cx="60" cy="93" rx="36" ry="7" fill="var(--ls)" stroke="var(--lk)" stroke-width="4"/><path class="part-stage" d="M22 96 Q60 100 98 96" stroke="var(--lk)" stroke-width="4"/><g class="part-cup"><ellipse cx="60" cy="86" rx="24" ry="5.5" fill="var(--ls)" stroke="var(--lk)" stroke-width="4"/><path d="M46 60 L74 60 L68 82 Q60 87 52 82 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="5"/><path class="part-detail" d="M74 64 Q86 64 84 74 Q83 80 74 79" stroke="var(--lk)" stroke-width="5"/><ellipse cx="60" cy="60" rx="14" ry="4" fill="var(--lk)"/><path d="M50 66 Q54 70 60 69" stroke="var(--lp)" stroke-width="3" opacity="0.65"/></g><path class="part-steam" d="M54 58 Q46 50 54 42 Q62 34 54 26" stroke="var(--la2)" stroke-width="4"/><path class="part-steam2" d="M66 58 Q74 50 66 42 Q58 34 66 26" stroke="var(--ls)" stroke-width="4"/><path class="part-twinkle" d="M26 20 L29 28 L37 31 L29 34 L26 42 L23 34 L15 31 L23 28 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2.5"/><circle class="part-detail" cx="42" cy="94" r="2.4" fill="var(--la2)"/><circle class="part-detail" cx="60" cy="96" r="2.4" fill="var(--la2)"/><circle class="part-detail" cx="78" cy="94" r="2.4" fill="var(--la2)"/></svg></div>
+    <div class="medal"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><span><span class="ar">ك</span><span class="en">K</span></span></div>
     <h1><span class="ar">أهلاً ببيت <b>كازار كافيه</b></span><span class="en">Welcome home, <b>Kazar Cafe</b>.</span></h1>
     <div class="world"><span class="ar">✦ مسرح ليلي والقهوة بطلته ✦</span><span class="en">✦ a night stage where coffee performs ✦</span></div>
     <div class="heroline hand"><span class="ar">الليل هنا له قهوته</span><span class="en">the night keeps its own coffee</span></div>

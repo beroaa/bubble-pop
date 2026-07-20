@@ -302,6 +302,16 @@ body{
   @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}
     .medal,h1,.world,.heroline,.cta,.rv{opacity:1!important;transform:none!important}
     .sting-wash{display:none!important}.curtain{display:none!important}}
+  .brandlogo{--lk:var(--ink);--la:var(--rose);--ls:var(--gold);--ls2:var(--sage);--la2:var(--ochre);--lp:var(--paper,#fffdf6);line-height:0}
+  .brandlogo svg{display:block;overflow:visible;width:100%;height:auto}
+  .brandlogo *{transform-box:fill-box;transform-origin:center}
+  .brandlogo.big{width:min(196px,54vw);margin:2px auto 8px}
+  .brandlogo.big svg{filter:drop-shadow(0 10px 22px var(--accent-soft,rgba(0,0,0,.14)))}
+  .brandlogo.mini{width:60px;margin:0 auto 12px;opacity:.96}
+  @media(min-width:900px){.brandlogo.big{width:236px}.brandlogo.mini{width:70px}}
+  @media(prefers-reduced-motion:reduce){.brandlogo svg *{animation:none!important;opacity:1!important;stroke-dashoffset:0!important;filter:none!important;transform:none!important}}
+  @media print{.brandlogo{display:none!important}}
+  .brandlogo.big{width:min(210px,58vw);margin:6px auto 10px}
 </style>
 <script>
   // CINEMA STING gate — decided before first paint: once per session, never for reduced-motion
@@ -369,7 +379,43 @@ body{
 </svg>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:11px;animation-delay:0s">✒</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:10px;animation-delay:0.7s">·</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:13px;animation-delay:1.4s">෴</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:11px;animation-delay:2.0999999999999996s">·</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:10px;animation-delay:2.8s">✒</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:13px;animation-delay:3.5s">·</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:11px;animation-delay:0.1999999999999993s">෴</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:10px;animation-delay:0.8999999999999995s">·</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bm1laspdew" viewBox="0 0 100 100" fill="none" role="img" aria-label="Harf Cafe"><style>.bm1laspdew{overflow:visible}.bm1laspdew *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm1laspdew .mk{animation:bm1laspdewbob 5s ease-in-out 1.7s infinite}@keyframes bm1laspdewbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm1laspdewp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bm1laspdew .p1{animation:bm1laspdewp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bm1laspdew .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bm1laspdewdr 1s ease .55s forwards}@keyframes bm1laspdewdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ق</span><span class="en">H</span></span></div>
+    <div class="brandlogo big" aria-hidden="true"><style>.L1jfsyev .p-back{animation:L1jfsyev_spring .7s cubic-bezier(.2,1.3,.3,1) .15s both}
+.L1jfsyev .p-front{animation:L1jfsyev_spring .7s cubic-bezier(.2,1.3,.3,1) .28s both}
+.L1jfsyev .p-rule{animation:L1jfsyev_fade .5s ease .6s both}
+.L1jfsyev .p-swash{stroke-dasharray:150;stroke-dashoffset:150;animation:L1jfsyev_draw .95s ease .78s both}
+.L1jfsyev .p-pen{transform-origin:78px 63px;animation:L1jfsyev_penin .7s cubic-bezier(.2,1.3,.3,1) .45s both,L1jfsyev_sway 4.6s ease-in-out 1.35s infinite}
+.L1jfsyev .p-drop{transform-origin:73px 70px;animation:L1jfsyev_pop .5s cubic-bezier(.2,1.3,.3,1) 1.15s both,L1jfsyev_pulse 3.4s ease-in-out 1.7s infinite}
+.L1jfsyev .p-star{transform-origin:37px 46px;animation:L1jfsyev_pop .5s cubic-bezier(.2,1.3,.3,1) 1.25s both,L1jfsyev_twinkle 3s ease-in-out 1.8s infinite}
+@keyframes L1jfsyev_spring{0%{transform:scale(0) translateY(12px);opacity:0}70%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
+@keyframes L1jfsyev_fade{from{opacity:0}to{opacity:1}}
+@keyframes L1jfsyev_draw{from{stroke-dashoffset:150}to{stroke-dashoffset:0}}
+@keyframes L1jfsyev_penin{0%{transform:translate(28px,-32px) rotate(16deg);opacity:0}60%{opacity:1}100%{transform:translate(0,0) rotate(0);opacity:1}}
+@keyframes L1jfsyev_sway{0%,100%{transform:rotate(-2.5deg)}50%{transform:rotate(3deg)}}
+@keyframes L1jfsyev_pop{0%{transform:scale(0);opacity:0}70%{transform:scale(1.2)}100%{transform:scale(1);opacity:1}}
+@keyframes L1jfsyev_pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+@keyframes L1jfsyev_twinkle{0%,100%{transform:scale(.65);opacity:.5}50%{transform:scale(1.15);opacity:1}}</style><svg viewBox="0 0 120 120" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<g transform="rotate(6 64 70)">
+<rect class="L1jfsyev p-back" x="36" y="46" width="56" height="48" rx="8" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4"/>
+</g>
+<g transform="rotate(-4 56 74)">
+<rect class="L1jfsyev p-front" x="26" y="50" width="60" height="48" rx="8" fill="var(--lp)" stroke="var(--lk)" stroke-width="5"/>
+<g class="L1jfsyev p-rule" stroke="var(--ls)" stroke-width="3">
+<line x1="34" y1="72" x2="80" y2="72"/>
+<line x1="34" y1="82" x2="74" y2="82"/>
+</g>
+<path class="L1jfsyev p-swash" d="M36 88 C 44 72, 56 94, 72 66" stroke="var(--la)" stroke-width="5"/>
+<path class="L1jfsyev p-drop" d="M73 68 c -3.4 4.6 -3.4 8 0 8 c 3.4 0 3.4 -3.4 0 -8 z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2"/>
+</g>
+<g class="L1jfsyev p-pen">
+<line x1="78" y1="63" x2="105" y2="29" stroke="var(--lk)" stroke-width="13"/>
+<line x1="78" y1="63" x2="105" y2="29" stroke="var(--ls2)" stroke-width="6"/>
+<circle cx="105" cy="29" r="4" fill="var(--la)" stroke="var(--lk)" stroke-width="3"/>
+<path d="M78 63 L70 66 L74 72 Z" fill="var(--lk)"/>
+<line x1="75" y1="65" x2="72.5" y2="69" stroke="var(--lp)" stroke-width="1.5"/>
+</g>
+<path class="L1jfsyev p-star" d="M37 40 L39 44.5 L43.5 46 L39 47.5 L37 52 L35 47.5 L30.5 46 L35 44.5 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="1.6"/>
+</svg></div>
+    <div class="medal"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><span><span class="ar">ق</span><span class="en">H</span></span></div>
     <h1><span class="ar">أهلاً ببيت <b>قهوة حرف</b></span><span class="en">Welcome home, <b>Harf Cafe</b>.</span></h1>
     <div class="world"><span class="ar">✦ دفتر خطّاط مفتوح على الصبح ✦</span><span class="en">✦ a calligrapher's open notebook at morning ✦</span></div>
     <div class="heroline hand"><span class="ar">قهوتك تنكتب هنا حرف حرف</span><span class="en">Your coffee, written letter by letter</span></div>

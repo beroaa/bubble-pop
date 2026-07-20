@@ -289,6 +289,16 @@ body::after{
   @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}
     .medal,h1,.world,.heroline,.cta,.rv{opacity:1!important;transform:none!important}
     .sting-wash{display:none!important}.curtain{display:none!important}}
+  .brandlogo{--lk:var(--ink);--la:var(--rose);--ls:var(--gold);--ls2:var(--sage);--la2:var(--ochre);--lp:var(--paper,#fffdf6);line-height:0}
+  .brandlogo svg{display:block;overflow:visible;width:100%;height:auto}
+  .brandlogo *{transform-box:fill-box;transform-origin:center}
+  .brandlogo.big{width:min(196px,54vw);margin:2px auto 8px}
+  .brandlogo.big svg{filter:drop-shadow(0 10px 22px var(--accent-soft,rgba(0,0,0,.14)))}
+  .brandlogo.mini{width:60px;margin:0 auto 12px;opacity:.96}
+  @media(min-width:900px){.brandlogo.big{width:236px}.brandlogo.mini{width:70px}}
+  @media(prefers-reduced-motion:reduce){.brandlogo svg *{animation:none!important;opacity:1!important;stroke-dashoffset:0!important;filter:none!important;transform:none!important}}
+  @media print{.brandlogo{display:none!important}}
+  .brandlogo.big{width:min(210px,58vw);margin:6px auto 10px}
 </style>
 <script>
   // CINEMA STING gate — decided before first paint: once per session, never for reduced-motion
@@ -337,7 +347,34 @@ body::after{
 </svg>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:11px;animation-delay:0s">✴</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:13px;animation-delay:0.7s">✳</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:14px;animation-delay:1.4s">·</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:11px;animation-delay:2.0999999999999996s">✦</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:13px;animation-delay:2.8s">✴</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:11px;animation-delay:3.5s">✳</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:13px;animation-delay:0.1999999999999993s">·</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:14px;animation-delay:0.8999999999999995s">✦</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bm1qxkpizw" viewBox="0 0 100 100" fill="none" role="img" aria-label="Cavida Cafe"><style>.bm1qxkpizw{overflow:visible}.bm1qxkpizw *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm1qxkpizw .mk{animation:bm1qxkpizwbob 5s ease-in-out 1.7s infinite}@keyframes bm1qxkpizwbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm1qxkpizwfl{0%{opacity:0;transform:translateX(-40px) rotate(-12deg)}100%{transform:none}}@keyframes bm1qxkpizwfr{0%{opacity:0;transform:translateX(40px) rotate(12deg)}100%{transform:none}}@keyframes bm1qxkpizwdrop{0%{opacity:0;transform:translateY(-30px) scale(.4)}70%{transform:translateY(2px) scale(1.1)}100%{transform:none}}.bm1qxkpizw .p1{animation:bm1qxkpizwfl .8s cubic-bezier(.2,1.2,.3,1) both}.bm1qxkpizw .p2{animation:bm1qxkpizwfr .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bm1qxkpizw .p3{animation:bm1qxkpizwdrop .7s cubic-bezier(.2,1.5,.3,1) .55s both}.bm1qxkpizw .p4{opacity:0;animation:bm1qxkpizwfd .4s ease .95s forwards}@keyframes bm1qxkpizwfd{to{opacity:1}}}</style><g class="mk"><g class="p1"><rect x="22" y="54" width="56" height="24" rx="7" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="32" y="34" width="36" height="22" rx="7" fill="var(--gold)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><circle cx="50" cy="26" r="6" fill="var(--ochre)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g><path class="p4" d="M50 20 q3 -6 8 -7" stroke="var(--ink)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ك</span><span class="en">C</span></span></div>
+    <div class="brandlogo big" aria-hidden="true"><style>.L4l04nk .glow{transform-origin:center;animation:L4l04nk_halo .7s cubic-bezier(.2,1.3,.3,1) both,L4l04nk_pulse 3.4s ease-in-out 1s infinite}
+.L4l04nk .beam,.L4l04nk .cord{stroke-linecap:round}
+.L4l04nk .cord{stroke-dasharray:26;stroke-dashoffset:26;animation:L4l04nk_draw .5s ease .15s forwards}
+.L4l04nk .beam{stroke-dasharray:46;stroke-dashoffset:46;animation:L4l04nk_draw .6s ease 1.05s forwards}
+.L4l04nk .hook{transform-origin:center;animation:L4l04nk_pop .5s cubic-bezier(.2,1.3,.3,1) .15s both}
+.L4l04nk .cap{transform-origin:center;animation:L4l04nk_drop .6s cubic-bezier(.2,1.3,.3,1) .35s both}
+.L4l04nk .body{transform-origin:50% 100%;animation:L4l04nk_up .7s cubic-bezier(.2,1.3,.3,1) .45s both}
+.L4l04nk .foot{transform-origin:center;animation:L4l04nk_up .6s cubic-bezier(.2,1.3,.3,1) .62s both}
+.L4l04nk .inner{animation:L4l04nk_fade .6s ease .82s both}
+.L4l04nk .moon{transform-origin:center;animation:L4l04nk_flyR .7s cubic-bezier(.2,1.3,.3,1) .55s both,L4l04nk_twk 3s ease-in-out 1.5s infinite}
+.L4l04nk .heart{transform-origin:center;animation:L4l04nk_pop .6s cubic-bezier(.2,1.3,.3,1) .95s both,L4l04nk_beat 2.6s ease-in-out 1.7s infinite}
+.L4l04nk .spark{transform-origin:center}
+.L4l04nk .s1{animation:L4l04nk_pop .5s cubic-bezier(.2,1.3,.3,1) 1s both,L4l04nk_tw 2.1s ease-in-out 1.6s infinite}
+.L4l04nk .s2{animation:L4l04nk_pop .5s cubic-bezier(.2,1.3,.3,1) 1.15s both,L4l04nk_tw 2.4s ease-in-out 1.8s infinite}
+.L4l04nk .s3{animation:L4l04nk_pop .5s cubic-bezier(.2,1.3,.3,1) 1.3s both,L4l04nk_tw 2s ease-in-out 2s infinite}
+.L4l04nk .s4{animation:L4l04nk_pop .5s cubic-bezier(.2,1.3,.3,1) 1.45s both,L4l04nk_tw 2.6s ease-in-out 2.2s infinite}
+@keyframes L4l04nk_halo{0%{opacity:0;transform:scale(.5)}100%{opacity:.5;transform:scale(1)}}
+@keyframes L4l04nk_pulse{0%,100%{opacity:.38;transform:scale(1)}50%{opacity:.62;transform:scale(1.1)}}
+@keyframes L4l04nk_draw{to{stroke-dashoffset:0}}
+@keyframes L4l04nk_pop{0%{opacity:0;transform:scale(0)}100%{opacity:1;transform:scale(1)}}
+@keyframes L4l04nk_drop{0%{opacity:0;transform:translateY(-26px)}100%{opacity:1;transform:translateY(0)}}
+@keyframes L4l04nk_up{0%{opacity:0;transform:translateY(34px) scale(.72)}100%{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes L4l04nk_fade{0%{opacity:0}100%{opacity:.3}}
+@keyframes L4l04nk_flyR{0%{opacity:0;transform:translateX(28px) rotate(34deg)}100%{opacity:1;transform:translateX(0) rotate(0)}}
+@keyframes L4l04nk_twk{0%,100%{opacity:1}50%{opacity:.68}}
+@keyframes L4l04nk_beat{0%,100%{transform:scale(1)}50%{transform:scale(1.13)}}
+@keyframes L4l04nk_tw{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.65)}}</style><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle class="L4l04nk glow" cx="60" cy="64" r="33" fill="var(--la)"/><path class="L4l04nk moon" d="M94 21 A12 12 0 1 0 94 45 A9 9 0 1 1 94 21 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4" stroke-linejoin="round"/><line class="L4l04nk cord" x1="60" y1="14" x2="60" y2="34" stroke="var(--lk)" stroke-width="4"/><circle class="L4l04nk hook" cx="60" cy="12" r="4" fill="var(--lp)" stroke="var(--lk)" stroke-width="4"/><path class="L4l04nk cap" d="M50 40 L54 30 L66 30 L70 40 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="4.5" stroke-linejoin="round"/><rect class="L4l04nk body" x="38" y="40" width="44" height="48" rx="16" fill="var(--lp)" stroke="var(--lk)" stroke-width="5" stroke-linejoin="round"/><rect class="L4l04nk inner" x="44" y="46" width="32" height="36" rx="11" fill="var(--la)"/><rect class="L4l04nk foot" x="52" y="86" width="16" height="6" rx="3" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4"/><path class="L4l04nk heart" d="M60 75 C51 66 46 62 46 56.5 C46 51.5 50 48 54 48 C57 48 59 50 60 52 C61 50 63 48 66 48 C70 48 74 51.5 74 56.5 C74 62 69 66 60 75 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="4" stroke-linejoin="round"/><path class="L4l04nk beam" d="M40 96 Q60 103 80 96" stroke="var(--la2)" stroke-width="4" fill="none"/><path class="L4l04nk spark s1" d="M26 38 L27.6 42.4 L32 44 L27.6 45.6 L26 50 L24.4 45.6 L20 44 L24.4 42.4 Z" fill="var(--la2)"/><path class="L4l04nk spark s2" d="M96 56 L97.6 60.4 L102 62 L97.6 63.6 L96 68 L94.4 63.6 L90 62 L94.4 60.4 Z" fill="var(--la)"/><path class="L4l04nk spark s3" d="M30 83 L31.3 86.7 L35 88 L31.3 89.3 L30 93 L28.7 89.3 L25 88 L28.7 86.7 Z" fill="var(--la)"/><path class="L4l04nk spark s4" d="M90 79 L91.3 82.7 L95 84 L91.3 85.3 L90 89 L88.7 85.3 L85 84 L88.7 82.7 Z" fill="var(--la2)"/></svg></div>
+    <div class="medal"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><span><span class="ar">ك</span><span class="en">C</span></span></div>
     <h1><span class="ar">أهلاً ببيت <b>كافيدا</b></span><span class="en">Welcome home, <b>Cavida Cafe</b>.</span></h1>
     <div class="world"><span class="ar">✦ ركن يضوي وسط ليل المدينة ✦</span><span class="en">✦ a glowing corner in the sleeping city ✦</span></div>
     <div class="heroline hand"><span class="ar">المدينة نامت وضوّنا شغّال</span><span class="en">the city sleeps, our glow doesn't</span></div>

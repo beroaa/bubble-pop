@@ -45,7 +45,7 @@
   .medal .logo{width:84%;height:84%;object-fit:contain;border-radius:50%;position:relative;z-index:1}
   .medal.haslogo>span{display:none}
   @keyframes mfloat{50%{transform:translateY(-6px)}}
-  h1{font-size:36px;letter-spacing:-.01em;line-height:1.2}
+  h1{font-size:clamp(41px,11.5vw,54px);font-weight:800;letter-spacing:-.02em;line-height:1.08}
   h1 .ar{font-family:'Cairo',sans-serif}
   h1 .en{font-family:'Bebas Neue',sans-serif}
   /* gradient-clip only AFTER word entrance — transformed child spans break background-clip:text in Chrome */
@@ -62,7 +62,7 @@
     100%{opacity:1;transform:none}}
   .world{margin-top:10px;color:var(--text-3);font-size:13px;letter-spacing:.08em}
   .world b{color:#8c5036;font-weight:600}
-  .heroline{margin-top:8px;color:var(--text-2);font-size:19px;line-height:1.5}
+  .heroline{margin-top:10px;color:var(--text-2);font-size:22px;font-weight:600;line-height:1.45}
   .heroline .ar{font-family:'Cairo',sans-serif}
   .heroline .en{font-family:'Bebas Neue',sans-serif}
   .meta{margin-top:14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
@@ -108,7 +108,7 @@
   @keyframes sfloat{50%{transform:translateY(-5px)}}
   .sig-art{width:74px;height:74px;margin:0 auto 8px}
   .sig-art svg{width:100%;height:100%;filter:drop-shadow(0 6px 14px #8d2a4159)}
-  .sig-name{font-size:14.5px;font-weight:600;line-height:1.35}
+  .sig-name{font-size:16px;font-weight:700;line-height:1.32}
   .stamp{display:inline-flex;align-items:baseline;gap:3px;margin-top:8px;padding:3px 12px;border:1.7px solid var(--sa);
     border-radius:999px;color:var(--sa);font-weight:800;font-size:16px;transform:rotate(-4deg);
     box-shadow:0 0 0 3px #8d2a410f}
@@ -137,8 +137,8 @@
   .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
     box-shadow:inset 0 0 0 1px #8d2a4155}
   .cat-title{flex:1;min-width:0}
-  .room-eyebrow{color:var(--text-3);font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:3px}
-  .room-h2{color:var(--sa);font-size:22px;line-height:1.3}
+  .room-eyebrow{color:var(--text-3);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+  .room-h2{color:var(--sa);font-size:28px;font-weight:800;line-height:1.14;letter-spacing:-.01em}
   .room-h2 .ar{font-family:'Cairo',sans-serif}
   .room-h2 .en{font-family:'Bebas Neue',sans-serif}
   /* self-drawing ink underline: a hand-wavy SVG stroke that draws itself on reveal */
@@ -160,11 +160,11 @@
   @keyframes sepidle{0%,100%{transform:translateX(0);opacity:.82}50%{transform:translateX(calc(6px * var(--tx,1)));opacity:1}}
 
   .items{position:relative;background:#f8f2f3d9;border:1px solid var(--border-1);border-radius:20px;padding:6px 18px;box-shadow:var(--shadow)}
-  .item{display:flex;align-items:baseline;gap:10px;padding:15px 0;border-bottom:1px solid #efe6e899}
+  .item{display:flex;align-items:baseline;gap:10px;padding:16px 0;border-bottom:1px solid #efe6e899}
   .item:last-child{border-bottom:none}
-  .item-name{font-size:16px}
+  .item-name{font-size:18.5px;font-weight:600;line-height:1.32;letter-spacing:-.004em}
   .dots{flex:1;border-bottom:1px dotted var(--border-2);transform:translateY(-4px)}
-  .price{color:var(--sa);font-weight:800;white-space:nowrap;font-variant-numeric:tabular-nums;display:flex;align-items:baseline;gap:6px}
+  .price{color:var(--sa);font-weight:800;font-size:18px;white-space:nowrap;font-variant-numeric:tabular-nums;display:flex;align-items:baseline;gap:6px}
   .pdot{width:6px;height:6px;border-radius:50%;background:var(--sa);opacity:0;transform:scale(0)}
   .reveal.in .pdot{animation:dotpop .45s cubic-bezier(.2,1.6,.4,1) forwards}
   @keyframes dotpop{0%{opacity:0;transform:scale(0)}70%{opacity:1;transform:scale(1.5)}100%{opacity:.9;transform:scale(1)}}
@@ -237,17 +237,18 @@
     .hero{min-height:62vh;display:flex;flex-direction:column;justify-content:center;padding:40px 0 14px}
     .medal{width:136px;height:136px}
     .medal span{font-size:58px}
-    h1{font-size:66px}
+    h1{font-size:clamp(66px,8vw,84px)}
     .world{font-size:15px;margin-top:16px}
-    .heroline{font-size:27px;margin-top:12px}
-    .room-h2{font-size:34px}
-    .room-voice{font-size:17px}
-    .inkline{width:min(190px,72%)}
+    .heroline{font-size:30px;margin-top:14px}
+    .room-h2{font-size:42px}
+    .room-voice{font-size:18px}
+    .inkline{width:min(200px,72%)}
     .inkline path{stroke-width:2.6}
     .cat-art{width:96px;height:96px}
     .items{padding:10px 30px}
-    .item{padding:18px 0}
-    .item-name{font-size:17.5px}
+    .item{padding:20px 0}
+    .item-name{font-size:20px}
+    .price{font-size:20px}
     .sig-art{width:96px;height:96px}
     .sig{padding:26px 22px 24px}
     .diary{max-width:480px;font-size:17px}
@@ -399,6 +400,29 @@ body{
   .sig-card{border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink)}
   .stamp{border-color:var(--sa);color:var(--sa)}
 
+  /* ---- BOLD BRAND TYPOGRAPHY: confident scale + playful-hand voice + animated headers ---- */
+  .room-eyebrow{font-weight:800}
+  .room-eyebrow{letter-spacing:.18em}
+    .room-h2{font-weight:800;transform:rotate(-1.4deg)}
+    .cat--flip .room-h2{transform:rotate(1.4deg)}
+    .item-name{font-weight:600}
+  @media (prefers-reduced-motion:no-preference){
+    .reveal .room-h2,.reveal .room-eyebrow{opacity:0}
+    .reveal.in .room-eyebrow{animation:rhk .5s ease .05s forwards}
+    .reveal.in .room-h2{animation:rh2in .62s ease .12s forwards}
+    @keyframes rh2in{0%{opacity:0;filter:blur(5px)}100%{opacity:1;filter:blur(0)}}
+    @keyframes rhk{to{opacity:1}}
+  }
+  .brandlogo{--lk:var(--ink);--la:var(--accent);--ls:var(--sa);--ls2:var(--sa2);--la2:var(--accent-2);--lp:var(--bg-1);line-height:0}
+  .brandlogo svg{display:block;overflow:visible;width:100%;height:auto}
+  .brandlogo *{transform-box:fill-box;transform-origin:center}
+  .brandlogo.big{width:min(196px,54vw);margin:2px auto 8px}
+  .brandlogo.big svg{filter:drop-shadow(0 10px 22px var(--accent-soft,rgba(0,0,0,.14)))}
+  .brandlogo.mini{width:60px;margin:0 auto 12px;opacity:.96}
+  @media(min-width:900px){.brandlogo.big{width:236px}.brandlogo.mini{width:70px}}
+  @media(prefers-reduced-motion:reduce){.brandlogo svg *{animation:none!important;opacity:1!important;stroke-dashoffset:0!important;filter:none!important;transform:none!important}}
+  @media print{.brandlogo{display:none!important}}
+
   /* ---- brandshots: the cafe's OWN photos, pinned like polaroids ---- */
   .brandshots{display:flex;justify-content:center;align-items:flex-start;gap:14px;margin-top:22px;position:relative;z-index:1}
   .bshot{position:relative;width:96px;margin:0;background:#f8f2f3;border:1px solid var(--border-2);padding:6px 6px 16px;
@@ -418,7 +442,7 @@ body{
 
   @media (prefers-reduced-motion: reduce){
     *{animation:none!important;transition:none!important}
-    .reveal,.reveal.in .item,.heroline,.world,.meta,.greet,h1 .w,h1 .lt{opacity:1!important;transform:none!important}
+    .reveal,.reveal.in .item,.heroline,.world,.meta,.greet,h1 .w,h1 .lt,.reveal .room-h2,.reveal .room-eyebrow{opacity:1!important;transform:none!important;filter:none!important}
     .room-voice{opacity:.85!important;transform:none!important}
     .sep,.sep-scene{animation:none!important;transform:none!important}
     .pdot{opacity:.9!important;transform:scale(1)!important}
@@ -438,7 +462,7 @@ body{
     .cat-art,.sig-art,.brandshots,.diary,.pdot,.brandbg,.sadu-band,.najdi{display:none!important}
     .wrap{max-width:100%;padding:0}
     .hero{min-height:0!important;padding:0 0 8px!important;display:block!important}
-    .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
+    .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item,.reveal .room-h2,.reveal .room-eyebrow{opacity:1!important;transform:none!important;filter:none!important}
     h1{color:#000!important;background:none!important;-webkit-text-fill-color:#000!important;font-size:30px!important}
     .medal{width:70px!important;height:70px!important;margin-bottom:8px;border-color:#000!important;background:#fff!important}
     .medal .mark{display:none!important}
@@ -521,7 +545,44 @@ body{
 <rect width="1440" height="900" fill="url(#phdVig)"/>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bmvaeqd1m" viewBox="0 0 100 100" fill="none" role="img" aria-label="Hacked"><style>.bmvaeqd1m{overflow:visible}.bmvaeqd1m *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bmvaeqd1m .mk{animation:bmvaeqd1mbob 5s ease-in-out 1.7s infinite}@keyframes bmvaeqd1mbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bmvaeqd1mfl{0%{opacity:0;transform:translateX(-40px) rotate(-12deg)}100%{transform:none}}@keyframes bmvaeqd1mfr{0%{opacity:0;transform:translateX(40px) rotate(12deg)}100%{transform:none}}@keyframes bmvaeqd1mdrop{0%{opacity:0;transform:translateY(-30px) scale(.4)}70%{transform:translateY(2px) scale(1.1)}100%{transform:none}}.bmvaeqd1m .p1{animation:bmvaeqd1mfl .8s cubic-bezier(.2,1.2,.3,1) both}.bmvaeqd1m .p2{animation:bmvaeqd1mfr .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bmvaeqd1m .p3{animation:bmvaeqd1mdrop .7s cubic-bezier(.2,1.5,.3,1) .55s both}.bmvaeqd1m .p4{opacity:0;animation:bmvaeqd1mfd .4s ease .95s forwards}@keyframes bmvaeqd1mfd{to{opacity:1}}}</style><g class="mk"><g class="p1"><rect x="22" y="54" width="56" height="24" rx="7" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="32" y="34" width="36" height="22" rx="7" fill="var(--sa)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><circle cx="50" cy="26" r="6" fill="var(--accent-2)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g><path class="p4" d="M50 20 q3 -6 8 -7" stroke="var(--ink)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ه</span><span class="en">H</span></span></div>
+    <div class="brandlogo big" aria-hidden="true"><style>.L1kl4hv2 .glow{opacity:0;transform-origin:center;animation:L1kl4hv2_glowIn .6s .1s both,L1kl4hv2_glowPulse 3.6s 1.5s ease-in-out infinite}
+.L1kl4hv2 .body{opacity:0;transform-origin:center bottom;animation:L1kl4hv2_riseIn .7s .15s cubic-bezier(.2,1.3,.3,1) both}
+.L1kl4hv2 .key{opacity:0;transform-origin:center;animation:L1kl4hv2_popIn .5s .7s cubic-bezier(.2,1.3,.3,1) both}
+.L1kl4hv2 .shackle{stroke-dasharray:92;transform-origin:left bottom;animation:L1kl4hv2_drop .7s .45s cubic-bezier(.2,1.3,.3,1) both,L1kl4hv2_draw .7s .45s ease both,L1kl4hv2_sway 3.2s 1.35s ease-in-out infinite}
+.L1kl4hv2 .secret{opacity:0;transform-origin:center bottom;animation:L1kl4hv2_popIn .6s .85s cubic-bezier(.2,1.3,.3,1) both,L1kl4hv2_float 3.4s 1.6s ease-in-out infinite}
+.L1kl4hv2 .spark{animation:L1kl4hv2_twinkle 2.4s 1.6s ease-in-out infinite}
+.L1kl4hv2 .curl{stroke-dasharray:34;opacity:0;animation:L1kl4hv2_drawCurl .6s .95s ease both}
+.L1kl4hv2 .dot{opacity:0;transform-origin:center;animation:L1kl4hv2_popIn .5s 1s cubic-bezier(.2,1.3,.3,1) both}
+@keyframes L1kl4hv2_riseIn{0%{opacity:0;transform:translateY(46px) scale(.6)}100%{opacity:1;transform:none}}
+@keyframes L1kl4hv2_popIn{0%{opacity:0;transform:translateY(20px) scale(.35)}100%{opacity:1;transform:none}}
+@keyframes L1kl4hv2_drop{0%{opacity:0;transform:translateY(-40px) rotate(-26deg)}100%{opacity:1;transform:none}}
+@keyframes L1kl4hv2_draw{0%{stroke-dashoffset:92}100%{stroke-dashoffset:0}}
+@keyframes L1kl4hv2_drawCurl{0%{stroke-dashoffset:34;opacity:0}30%{opacity:1}100%{stroke-dashoffset:0;opacity:1}}
+@keyframes L1kl4hv2_sway{0%,100%{transform:rotate(0deg)}50%{transform:rotate(-7deg)}}
+@keyframes L1kl4hv2_float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes L1kl4hv2_twinkle{0%,100%{opacity:1}50%{opacity:.45}}
+@keyframes L1kl4hv2_glowIn{0%{opacity:0}100%{opacity:.45}}
+@keyframes L1kl4hv2_glowPulse{0%,100%{opacity:.34;transform:scale(1)}50%{opacity:.56;transform:scale(1.07)}}</style><svg viewBox="0 0 120 120">
+  <circle class="L1kl4hv2 glow" cx="60" cy="71" r="35" fill="var(--ls2)"/>
+  <path class="L1kl4hv2 curl" d="M27 52 Q20 57 25 63" fill="none" stroke="var(--lk)" stroke-width="3.5" stroke-linecap="round"/>
+  <path class="L1kl4hv2 curl" d="M93 52 Q100 57 95 63" fill="none" stroke="var(--lk)" stroke-width="3.5" stroke-linecap="round"/>
+  <path class="L1kl4hv2 shackle" d="M45 58 L45 42 A15 15 0 0 1 75 42 L75 50" fill="none" stroke="var(--lk)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <g class="L1kl4hv2 body">
+    <rect x="35" y="55" width="50" height="46" rx="13" fill="var(--la)" stroke="var(--lk)" stroke-width="5" stroke-linejoin="round"/>
+    <rect x="35" y="55" width="50" height="15" rx="13" fill="var(--ls)" opacity=".5"/>
+    <g class="L1kl4hv2 key">
+      <circle cx="60" cy="73" r="5.5" fill="var(--lp)" stroke="var(--lk)" stroke-width="3"/>
+      <path d="M60 77 L56 91 L64 91 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="3" stroke-linejoin="round"/>
+    </g>
+    <circle class="L1kl4hv2 dot" cx="44" cy="90" r="2.4" fill="var(--ls2)"/>
+    <circle class="L1kl4hv2 dot" cx="76" cy="90" r="2.4" fill="var(--ls2)"/>
+  </g>
+  <g class="L1kl4hv2 secret">
+    <path class="L1kl4hv2 spark" d="M60 14 Q62.5 24 72 26.5 Q62.5 29 60 39 Q57.5 29 48 26.5 Q57.5 24 60 14 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="3" stroke-linejoin="round"/>
+    <circle cx="70" cy="18" r="2" fill="var(--la2)" stroke="var(--lk)" stroke-width="1.6"/>
+  </g>
+</svg></div>
+    <div class="medal"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><span><span class="ar">ه</span><span class="en">H</span></span></div>
     <h1><span class="ar">هاكد</span><span class="en">Hacked</span></h1>
     <div class="world"><span class="ar">✦ <b>دفتر شخابيط مليان أسرار حلوة</b> ✦</span><span class="en">✦ <b>a doodled notebook of sweet mischief</b> ✦</span></div>
     <div class="heroline"><span class="ar">السر الحلو انكشف، تفضّل</span><span class="en">the sweet secret is out</span></div>
@@ -732,6 +793,26 @@ body{
     <span class="en">📱 Live digital menu: scan the table QR — menu-sadah.com/hacked</span>
   </div>
   <div class="footer">
+    <div class="brandlogo mini" aria-hidden="true"><svg viewBox="0 0 120 120">
+  <circle class="L1kl4hv2 glow" cx="60" cy="71" r="35" fill="var(--ls2)"/>
+  <path class="L1kl4hv2 curl" d="M27 52 Q20 57 25 63" fill="none" stroke="var(--lk)" stroke-width="3.5" stroke-linecap="round"/>
+  <path class="L1kl4hv2 curl" d="M93 52 Q100 57 95 63" fill="none" stroke="var(--lk)" stroke-width="3.5" stroke-linecap="round"/>
+  <path class="L1kl4hv2 shackle" d="M45 58 L45 42 A15 15 0 0 1 75 42 L75 50" fill="none" stroke="var(--lk)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <g class="L1kl4hv2 body">
+    <rect x="35" y="55" width="50" height="46" rx="13" fill="var(--la)" stroke="var(--lk)" stroke-width="5" stroke-linejoin="round"/>
+    <rect x="35" y="55" width="50" height="15" rx="13" fill="var(--ls)" opacity=".5"/>
+    <g class="L1kl4hv2 key">
+      <circle cx="60" cy="73" r="5.5" fill="var(--lp)" stroke="var(--lk)" stroke-width="3"/>
+      <path d="M60 77 L56 91 L64 91 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="3" stroke-linejoin="round"/>
+    </g>
+    <circle class="L1kl4hv2 dot" cx="44" cy="90" r="2.4" fill="var(--ls2)"/>
+    <circle class="L1kl4hv2 dot" cx="76" cy="90" r="2.4" fill="var(--ls2)"/>
+  </g>
+  <g class="L1kl4hv2 secret">
+    <path class="L1kl4hv2 spark" d="M60 14 Q62.5 24 72 26.5 Q62.5 29 60 39 Q57.5 29 48 26.5 Q57.5 24 60 14 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="3" stroke-linejoin="round"/>
+    <circle cx="70" cy="18" r="2" fill="var(--la2)" stroke="var(--lk)" stroke-width="1.6"/>
+  </g>
+</svg></div>
     <div style="margin-bottom:6px;color:var(--text-2)"><span class="ar">تابعوا هاكد: <b style="color:var(--accent)">@hacked.sa</b></span><span class="en">Follow Hacked: <b style="color:var(--accent)">@hacked.sa</b></span></div>
     <span class="ar">تجربة من <a href="https://menu-sadah.com">منيو سادة — MENU SADAH</a></span>
     <span class="en">Crafted by <a href="https://menu-sadah.com">MENU SADAH</a></span>

@@ -1,5 +1,5 @@
 window.BUILDS_STATE = {
- "generatedAt": 1784506554864,
+ "generatedAt": 1784509928004,
  "builds": [
   {
    "id": "b1",
@@ -340,9 +340,9 @@ window.BUILDS_STATE = {
    "id": "b17",
    "name": "🎨 50 BESPOKE ANIMATED LOGOS (Beyt-level)",
    "status": "running",
-   "pct": 40,
-   "etaAt": 1784508954864,
-   "note": "typography done; logos still drawing",
+   "pct": 85,
+   "etaAt": 1784510407962,
+   "note": "50 logos built + verified; committing",
    "startedAt": 1784505782092,
    "feed": [
     {
@@ -360,6 +360,10 @@ window.BUILDS_STATE = {
     {
      "at": 1784506554775,
      "msg": "menu text now big + bold — verified on phone"
+    },
+    {
+     "at": 1784509928004,
+     "msg": "all 50 menus rebuilt with custom logos"
     }
    ]
   }

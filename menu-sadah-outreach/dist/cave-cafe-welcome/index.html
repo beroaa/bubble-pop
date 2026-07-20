@@ -259,6 +259,16 @@ body{
   @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}
     .medal,h1,.world,.heroline,.cta,.rv{opacity:1!important;transform:none!important}
     .sting-wash{display:none!important}.curtain{display:none!important}}
+  .brandlogo{--lk:var(--ink);--la:var(--rose);--ls:var(--gold);--ls2:var(--sage);--la2:var(--ochre);--lp:var(--paper,#fffdf6);line-height:0}
+  .brandlogo svg{display:block;overflow:visible;width:100%;height:auto}
+  .brandlogo *{transform-box:fill-box;transform-origin:center}
+  .brandlogo.big{width:min(196px,54vw);margin:2px auto 8px}
+  .brandlogo.big svg{filter:drop-shadow(0 10px 22px var(--accent-soft,rgba(0,0,0,.14)))}
+  .brandlogo.mini{width:60px;margin:0 auto 12px;opacity:.96}
+  @media(min-width:900px){.brandlogo.big{width:236px}.brandlogo.mini{width:70px}}
+  @media(prefers-reduced-motion:reduce){.brandlogo svg *{animation:none!important;opacity:1!important;stroke-dashoffset:0!important;filter:none!important;transform:none!important}}
+  @media print{.brandlogo{display:none!important}}
+  .brandlogo.big{width:min(210px,58vw);margin:6px auto 10px}
 </style>
 <script>
   // CINEMA STING gate — decided before first paint: once per session, never for reduced-motion
@@ -329,7 +339,24 @@ body{
 
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:12px;animation-delay:0s">✒</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:14px;animation-delay:0.7s">·</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:11px;animation-delay:1.4s">෴</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:10px;animation-delay:2.0999999999999996s">·</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:9px;animation-delay:2.8s">✒</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:12px;animation-delay:3.5s">·</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:10px;animation-delay:0.1999999999999993s">෴</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:13px;animation-delay:0.8999999999999995s">·</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bmije6dgw" viewBox="0 0 100 100" fill="none" role="img" aria-label="Cave Cafe"><style>.bmije6dgw{overflow:visible}.bmije6dgw *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bmije6dgw .mk{animation:bmije6dgwbob 5s ease-in-out 1.7s infinite}@keyframes bmije6dgwbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bmije6dgwp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bmije6dgw .p1{animation:bmije6dgwp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bmije6dgw .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bmije6dgwdr 1s ease .55s forwards}@keyframes bmije6dgwdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ك</span><span class="en">C</span></span></div>
+    <div class="brandlogo big" aria-hidden="true"><style>.L1l519jh .rock{animation:L1l519jh_rise .75s cubic-bezier(.2,1.3,.3,1) .15s both;transform-origin:60px 97px}
+.L1l519jh .glow{animation:L1l519jh_pop .7s cubic-bezier(.2,1.3,.3,1) .45s both;transform-origin:60px 97px}
+.L1l519jh .glowhi{animation:L1l519jh_pop .6s cubic-bezier(.2,1.3,.3,1) .6s both,L1l519jh_pulse 3s ease-in-out 1.5s infinite;transform-origin:60px 86px}
+.L1l519jh .flame{animation:L1l519jh_pop .6s cubic-bezier(.2,1.3,.3,1) .75s both,L1l519jh_flick 2.6s ease-in-out 1.5s infinite;transform-origin:60px 90px}
+.L1l519jh .ember{animation:L1l519jh_pop .55s cubic-bezier(.2,1.3,.3,1) .9s both,L1l519jh_pulse 2.6s ease-in-out 1.6s infinite;transform-origin:60px 83px}
+.L1l519jh .crack{stroke-dasharray:44;stroke-dashoffset:44;animation:L1l519jh_draw .6s ease .95s forwards}
+.L1l519jh .pebble{animation:L1l519jh_rise .6s cubic-bezier(.2,1.3,.3,1) .6s both;transform-origin:60px 101px}
+.L1l519jh .steam{opacity:0;animation:L1l519jh_steam 4.2s ease-in-out 1.3s infinite}
+.L1l519jh .s2{animation-duration:3.6s;animation-delay:2.1s}
+.L1l519jh .spark{animation:L1l519jh_twinkle 2.8s ease-in-out 1.8s infinite;transform-origin:92px 38px}
+@keyframes L1l519jh_rise{0%{opacity:0;transform:translateY(46px) scale(.5)}60%{opacity:1}100%{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes L1l519jh_pop{0%{opacity:0;transform:scale(0)}70%{opacity:1}100%{opacity:1;transform:scale(1)}}
+@keyframes L1l519jh_draw{to{stroke-dashoffset:0}}
+@keyframes L1l519jh_flick{0%,100%{transform:scaleY(1) scaleX(1)}50%{transform:scaleY(1.13) scaleX(.93)}}
+@keyframes L1l519jh_pulse{0%,100%{opacity:.5}50%{opacity:1}}
+@keyframes L1l519jh_steam{0%{opacity:0;transform:translateY(9px)}30%{opacity:.8}100%{opacity:0;transform:translateY(-13px)}}
+@keyframes L1l519jh_twinkle{0%,100%{opacity:.15;transform:scale(.5)}50%{opacity:1;transform:scale(1)}}</style><svg viewBox="0 0 120 120" fill="none"><path class="L1l519jh rock" d="M14,97 C9,54 37,17 60,17 C83,17 111,54 106,97 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="5" stroke-linejoin="round"/><path class="L1l519jh crack" d="M31,49 C35,57 34,66 40,71" stroke="var(--lk)" stroke-width="3.5" stroke-linecap="round"/><path class="L1l519jh crack" d="M90,55 C85,62 87,71 80,75" stroke="var(--lk)" stroke-width="3.5" stroke-linecap="round"/><path class="L1l519jh glow" d="M43,97 C43,66 50,52 60,52 C70,52 77,66 77,97 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="4.5" stroke-linejoin="round"/><ellipse class="L1l519jh glowhi" cx="60" cy="86" rx="10" ry="12" fill="var(--la2)"/><path class="L1l519jh flame" d="M60,66 C53,75 51,82 55,88 C57,91 63,91 65,88 C69,82 67,75 60,66 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="4" stroke-linejoin="round"/><circle class="L1l519jh ember" cx="60" cy="83" r="3.4" fill="var(--lp)"/><circle class="L1l519jh pebble" cx="23" cy="99" r="4.5" fill="var(--ls)" stroke="var(--lk)" stroke-width="3.5"/><circle class="L1l519jh pebble" cx="99" cy="98" r="5.5" fill="var(--ls)" stroke="var(--lk)" stroke-width="3.5"/><path class="L1l519jh steam" d="M55,50 C50,44 58,40 54,33 C50,27 58,23 55,16" stroke="var(--lk)" stroke-width="3.5" stroke-linecap="round"/><path class="L1l519jh steam s2" d="M67,50 C63,45 70,41 66,35" stroke="var(--lk)" stroke-width="3.5" stroke-linecap="round"/><path class="L1l519jh spark" d="M92,30 L94,36 L100,38 L94,40 L92,46 L90,40 L84,38 L90,36 Z" fill="var(--la2)"/></svg></div>
+    <div class="medal"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><span><span class="ar">ك</span><span class="en">C</span></span></div>
     <h1><span class="ar">أهلاً ببيت <b>كيڤ كافيه</b></span><span class="en">Welcome home, <b>Cave Cafe</b>.</span></h1>
     <div class="world"><span class="ar">✦ مغارة دافية بعيد عن الزحمة ✦</span><span class="en">✦ a warm hideout from the noise ✦</span></div>
     <div class="heroline hand"><span class="ar">ادخل، الدفا جوّا</span><span class="en">come in, the warmth is inside</span></div>

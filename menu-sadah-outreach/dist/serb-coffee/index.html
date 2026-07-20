@@ -45,7 +45,7 @@
   .medal .logo{width:84%;height:84%;object-fit:contain;border-radius:50%;position:relative;z-index:1}
   .medal.haslogo>span{display:none}
   @keyframes mfloat{50%{transform:translateY(-6px)}}
-  h1{font-size:36px;letter-spacing:-.01em;line-height:1.2}
+  h1{font-size:clamp(41px,11.5vw,54px);font-weight:800;letter-spacing:-.02em;line-height:1.08}
   h1 .ar{font-family:'Mada',sans-serif}
   h1 .en{font-family:'Comfortaa',cursive}
   /* gradient-clip only AFTER word entrance — transformed child spans break background-clip:text in Chrome */
@@ -62,7 +62,7 @@
     100%{opacity:1;transform:none}}
   .world{margin-top:10px;color:var(--text-3);font-size:13px;letter-spacing:.08em}
   .world b{color:#b3cd79;font-weight:600}
-  .heroline{margin-top:8px;color:var(--text-2);font-size:19px;line-height:1.5}
+  .heroline{margin-top:10px;color:var(--text-2);font-size:22px;font-weight:600;line-height:1.45}
   .heroline .ar{font-family:'Mada',sans-serif}
   .heroline .en{font-family:'Comfortaa',cursive}
   .meta{margin-top:14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
@@ -108,7 +108,7 @@
   @keyframes sfloat{50%{transform:translateY(-5px)}}
   .sig-art{width:74px;height:74px;margin:0 auto 8px}
   .sig-art svg{width:100%;height:100%;filter:drop-shadow(0 6px 14px #bea65059)}
-  .sig-name{font-size:14.5px;font-weight:600;line-height:1.35}
+  .sig-name{font-size:16px;font-weight:700;line-height:1.32}
   .stamp{display:inline-flex;align-items:baseline;gap:3px;margin-top:8px;padding:3px 12px;border:1.7px solid var(--sa);
     border-radius:999px;color:var(--sa);font-weight:800;font-size:16px;transform:rotate(-4deg);
     box-shadow:0 0 0 3px #bea6500f}
@@ -137,8 +137,8 @@
   .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
     box-shadow:inset 0 0 0 1px #bea65055}
   .cat-title{flex:1;min-width:0}
-  .room-eyebrow{color:var(--text-3);font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:3px}
-  .room-h2{color:var(--sa);font-size:22px;line-height:1.3}
+  .room-eyebrow{color:var(--text-3);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+  .room-h2{color:var(--sa);font-size:28px;font-weight:800;line-height:1.14;letter-spacing:-.01em}
   .room-h2 .ar{font-family:'Mada',sans-serif}
   .room-h2 .en{font-family:'Comfortaa',cursive}
   /* self-drawing ink underline: a hand-wavy SVG stroke that draws itself on reveal */
@@ -160,11 +160,11 @@
   @keyframes sepidle{0%,100%{transform:translateX(0);opacity:.82}50%{transform:translateX(calc(6px * var(--tx,1)));opacity:1}}
 
   .items{position:relative;background:#221f16d9;border:1px solid var(--border-1);border-radius:20px;padding:6px 18px;box-shadow:var(--shadow)}
-  .item{display:flex;align-items:baseline;gap:10px;padding:15px 0;border-bottom:1px solid #2d2a2099}
+  .item{display:flex;align-items:baseline;gap:10px;padding:16px 0;border-bottom:1px solid #2d2a2099}
   .item:last-child{border-bottom:none}
-  .item-name{font-size:16px}
+  .item-name{font-size:18.5px;font-weight:600;line-height:1.32;letter-spacing:-.004em}
   .dots{flex:1;border-bottom:1px dotted var(--border-2);transform:translateY(-4px)}
-  .price{color:var(--sa);font-weight:800;white-space:nowrap;font-variant-numeric:tabular-nums;display:flex;align-items:baseline;gap:6px}
+  .price{color:var(--sa);font-weight:800;font-size:18px;white-space:nowrap;font-variant-numeric:tabular-nums;display:flex;align-items:baseline;gap:6px}
   .pdot{width:6px;height:6px;border-radius:50%;background:var(--sa);opacity:0;transform:scale(0)}
   .reveal.in .pdot{animation:dotpop .45s cubic-bezier(.2,1.6,.4,1) forwards}
   @keyframes dotpop{0%{opacity:0;transform:scale(0)}70%{opacity:1;transform:scale(1.5)}100%{opacity:.9;transform:scale(1)}}
@@ -237,17 +237,18 @@
     .hero{min-height:62vh;display:flex;flex-direction:column;justify-content:center;padding:40px 0 14px}
     .medal{width:136px;height:136px}
     .medal span{font-size:58px}
-    h1{font-size:66px}
+    h1{font-size:clamp(66px,8vw,84px)}
     .world{font-size:15px;margin-top:16px}
-    .heroline{font-size:27px;margin-top:12px}
-    .room-h2{font-size:34px}
-    .room-voice{font-size:17px}
-    .inkline{width:min(190px,72%)}
+    .heroline{font-size:30px;margin-top:14px}
+    .room-h2{font-size:42px}
+    .room-voice{font-size:18px}
+    .inkline{width:min(200px,72%)}
     .inkline path{stroke-width:2.6}
     .cat-art{width:96px;height:96px}
     .items{padding:10px 30px}
-    .item{padding:18px 0}
-    .item-name{font-size:17.5px}
+    .item{padding:20px 0}
+    .item-name{font-size:20px}
+    .price{font-size:20px}
     .sig-art{width:96px;height:96px}
     .sig{padding:26px 22px 24px}
     .diary{max-width:480px;font-size:17px}
@@ -384,6 +385,28 @@ body{
   .medal.hasmark>span{display:none}
 
 
+  /* ---- BOLD BRAND TYPOGRAPHY: confident scale + poster-dark voice + animated headers ---- */
+  .room-eyebrow{font-weight:800}
+  .room-eyebrow{letter-spacing:.3em}
+    .room-h2{text-transform:uppercase;letter-spacing:.03em;font-weight:800}
+    h1{letter-spacing:-.015em}
+  @media (prefers-reduced-motion:no-preference){
+    .reveal .room-h2,.reveal .room-eyebrow{opacity:0}
+    .reveal.in .room-eyebrow{animation:rhk .5s ease .05s forwards}
+    .reveal.in .room-h2{animation:rh2in .62s ease .12s forwards}
+    @keyframes rh2in{0%{opacity:0;filter:blur(5px)}100%{opacity:1;filter:blur(0)}}
+    @keyframes rhk{to{opacity:1}}
+  }
+  .brandlogo{--lk:var(--ink);--la:var(--accent);--ls:var(--sa);--ls2:var(--sa2);--la2:var(--accent-2);--lp:var(--bg-1);line-height:0}
+  .brandlogo svg{display:block;overflow:visible;width:100%;height:auto}
+  .brandlogo *{transform-box:fill-box;transform-origin:center}
+  .brandlogo.big{width:min(196px,54vw);margin:2px auto 8px}
+  .brandlogo.big svg{filter:drop-shadow(0 10px 22px var(--accent-soft,rgba(0,0,0,.14)))}
+  .brandlogo.mini{width:60px;margin:0 auto 12px;opacity:.96}
+  @media(min-width:900px){.brandlogo.big{width:236px}.brandlogo.mini{width:70px}}
+  @media(prefers-reduced-motion:reduce){.brandlogo svg *{animation:none!important;opacity:1!important;stroke-dashoffset:0!important;filter:none!important;transform:none!important}}
+  @media print{.brandlogo{display:none!important}}
+
   /* ---- brandshots: the cafe's OWN photos, pinned like polaroids ---- */
   .brandshots{display:flex;justify-content:center;align-items:flex-start;gap:14px;margin-top:22px;position:relative;z-index:1}
   .bshot{position:relative;width:96px;margin:0;background:#221f16;border:1px solid var(--border-2);padding:6px 6px 16px;
@@ -403,7 +426,7 @@ body{
 
   @media (prefers-reduced-motion: reduce){
     *{animation:none!important;transition:none!important}
-    .reveal,.reveal.in .item,.heroline,.world,.meta,.greet,h1 .w,h1 .lt{opacity:1!important;transform:none!important}
+    .reveal,.reveal.in .item,.heroline,.world,.meta,.greet,h1 .w,h1 .lt,.reveal .room-h2,.reveal .room-eyebrow{opacity:1!important;transform:none!important;filter:none!important}
     .room-voice{opacity:.85!important;transform:none!important}
     .sep,.sep-scene{animation:none!important;transform:none!important}
     .pdot{opacity:.9!important;transform:scale(1)!important}
@@ -423,7 +446,7 @@ body{
     .cat-art,.sig-art,.brandshots,.diary,.pdot,.brandbg,.sadu-band,.najdi{display:none!important}
     .wrap{max-width:100%;padding:0}
     .hero{min-height:0!important;padding:0 0 8px!important;display:block!important}
-    .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
+    .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item,.reveal .room-h2,.reveal .room-eyebrow{opacity:1!important;transform:none!important;filter:none!important}
     h1{color:#000!important;background:none!important;-webkit-text-fill-color:#000!important;font-size:30px!important}
     .medal{width:70px!important;height:70px!important;margin-bottom:8px;border-color:#000!important;background:#fff!important}
     .medal .mark{display:none!important}
@@ -501,7 +524,35 @@ body{
 <rect y="783" width="1440" height="24" fill="url(#pdSadu)" opacity=".85"/>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bmcsbedym" viewBox="0 0 100 100" fill="none" role="img" aria-label="Serb Coffee"><style>.bmcsbedym{overflow:visible}.bmcsbedym *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bmcsbedym .mk{animation:bmcsbedymbob 5s ease-in-out 1.7s infinite}@keyframes bmcsbedymbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bmcsbedymp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bmcsbedym .p1{animation:bmcsbedymp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bmcsbedym .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bmcsbedymdr 1s ease .55s forwards}@keyframes bmcsbedymdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">س</span><span class="en">S</span></span></div>
+    <div class="brandlogo big" aria-hidden="true"><style>.L1hxwae3{overflow:visible}
+.L1hxwae3 .glow{transform-origin:center;opacity:0;animation:L1hxwae3_glow 4s ease-in-out 1s infinite}
+.L1hxwae3 .moon{transform-origin:center;transform:scale(0);animation:L1hxwae3_pop .7s cubic-bezier(.2,1.3,.3,1) .45s forwards,L1hxwae3_bob 5s ease-in-out 1.6s infinite}
+.L1hxwae3 .saucer{transform-origin:center;opacity:0;transform:translateY(30px);animation:L1hxwae3_rise .6s cubic-bezier(.2,1.3,.3,1) .1s forwards}
+.L1hxwae3 .cup{transform-origin:center;opacity:0;transform:translateY(36px);animation:L1hxwae3_rise .65s cubic-bezier(.2,1.3,.3,1) .2s forwards}
+.L1hxwae3 .band{opacity:0;animation:L1hxwae3_fade .5s ease .55s forwards}
+.L1hxwae3 .star{transform-origin:center;transform:scale(0)}
+.L1hxwae3 .s1{animation:L1hxwae3_pin .5s cubic-bezier(.2,1.3,.3,1) 1.1s forwards,L1hxwae3_tw 2.6s ease-in-out 1.7s infinite}
+.L1hxwae3 .s2{animation:L1hxwae3_pin .5s cubic-bezier(.2,1.3,.3,1) 1.25s forwards,L1hxwae3_tw 2.9s ease-in-out 1.9s infinite}
+.L1hxwae3 .s3{animation:L1hxwae3_pin .5s cubic-bezier(.2,1.3,.3,1) 1.4s forwards,L1hxwae3_tw 2.3s ease-in-out 2.1s infinite}
+.L1hxwae3 .s4{animation:L1hxwae3_pin .5s cubic-bezier(.2,1.3,.3,1) 1.55s forwards,L1hxwae3_tw 3.1s ease-in-out 1.5s infinite}
+.L1hxwae3 .bird{stroke-dasharray:42;stroke-dashoffset:42;opacity:0}
+.L1hxwae3 .bA{animation:L1hxwae3_flL .7s cubic-bezier(.2,1.3,.3,1) .6s forwards,L1hxwae3_draw .55s ease .6s forwards,L1hxwae3_sway 3s ease-in-out 1.5s infinite}
+.L1hxwae3 .bB{animation:L1hxwae3_flU .7s cubic-bezier(.2,1.3,.3,1) .75s forwards,L1hxwae3_draw .55s ease .75s forwards,L1hxwae3_sway 3.4s ease-in-out 1.7s infinite}
+.L1hxwae3 .bC{animation:L1hxwae3_flR .7s cubic-bezier(.2,1.3,.3,1) .9s forwards,L1hxwae3_draw .55s ease .9s forwards,L1hxwae3_sway 2.8s ease-in-out 1.9s infinite}
+.L1hxwae3 .bD{animation:L1hxwae3_flU .7s cubic-bezier(.2,1.3,.3,1) 1.05s forwards,L1hxwae3_draw .55s ease 1.05s forwards,L1hxwae3_sway 3.6s ease-in-out 2.1s infinite}
+@keyframes L1hxwae3_rise{to{opacity:1;transform:translateY(0)}}
+@keyframes L1hxwae3_fade{to{opacity:1}}
+@keyframes L1hxwae3_pop{to{transform:scale(1)}}
+@keyframes L1hxwae3_pin{to{transform:scale(1)}}
+@keyframes L1hxwae3_flL{from{opacity:0;transform:translate(-22px,6px)}to{opacity:1;transform:translate(0,0)}}
+@keyframes L1hxwae3_flR{from{opacity:0;transform:translate(22px,4px)}to{opacity:1;transform:translate(0,0)}}
+@keyframes L1hxwae3_flU{from{opacity:0;transform:translate(0,20px)}to{opacity:1;transform:translate(0,0)}}
+@keyframes L1hxwae3_draw{to{stroke-dashoffset:0}}
+@keyframes L1hxwae3_sway{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}
+@keyframes L1hxwae3_bob{0%,100%{transform:scale(1) translateY(0)}50%{transform:scale(1) translateY(-1.5px)}}
+@keyframes L1hxwae3_glow{0%,100%{opacity:0;transform:scale(.85)}50%{opacity:.35;transform:scale(1.1)}}
+@keyframes L1hxwae3_tw{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.72)}}</style><svg viewBox="0 0 120 120" class="L1hxwae3" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle class="L1hxwae3 glow" cx="90" cy="31" r="20" fill="var(--la)"/><path class="L1hxwae3 moon" d="M92 15 A16 16 0 1 0 92 47 A12 12 0 1 1 92 15 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="5"/><g class="L1hxwae3 star s1" transform="translate(30 26)"><path d="M0 -4 L1 -1 L4 0 L1 1 L0 4 L-1 1 L-4 0 L-1 -1 Z" fill="var(--la2)"/></g><g class="L1hxwae3 star s2" transform="translate(46 42)"><path d="M0 -3 L1 -1 L3 0 L1 1 L0 3 L-1 1 L-3 0 L-1 -1 Z" fill="var(--la2)"/></g><g class="L1hxwae3 star s3" transform="translate(104 56)"><path d="M0 -4 L1 -1 L4 0 L1 1 L0 4 L-1 1 L-4 0 L-1 -1 Z" fill="var(--la2)"/></g><g class="L1hxwae3 star s4" transform="translate(23 60)"><path d="M0 -3 L1 -1 L3 0 L1 1 L0 3 L-1 1 L-3 0 L-1 -1 Z" fill="var(--la2)"/></g><ellipse class="L1hxwae3 saucer" cx="52" cy="108" rx="27" ry="6" fill="var(--ls2)" stroke="var(--lk)" stroke-width="5"/><path class="L1hxwae3 cup" d="M35 79 L69 79 L64 103 L40 103 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="5"/><path class="L1hxwae3 cup" d="M69 82 q13 1 11 11 q-2 8 -12 8" fill="none" stroke="var(--lk)" stroke-width="5"/><ellipse class="L1hxwae3 cup" cx="52" cy="79" rx="17" ry="4.5" fill="var(--ls)" stroke="var(--lk)" stroke-width="5"/><path class="L1hxwae3 band" d="M40 92 L64 92" stroke="var(--la)" stroke-width="4"/><path class="L1hxwae3 bird bA" d="M45 69 Q48 64 51 67.5 Q54 64 57 69" stroke="var(--lk)" stroke-width="4.5"/><path class="L1hxwae3 bird bB" d="M54 58 Q57.5 53 61 56.5 Q64.5 53 68 58" stroke="var(--lk)" stroke-width="4.5"/><path class="L1hxwae3 bird bC" d="M64 49 Q66.5 45 69 48 Q71.5 45 74 49" stroke="var(--lk)" stroke-width="4"/><path class="L1hxwae3 bird bD" d="M73 41 Q75 37.5 77 40 Q79 37.5 81 41" stroke="var(--lk)" stroke-width="4"/></svg></div>
+    <div class="medal"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><span><span class="ar">س</span><span class="en">S</span></span></div>
     <h1><span class="ar">سِرب قهوة مختصة</span><span class="en">Serb Coffee</span></h1>
     <div class="world"><span class="ar">✦ <b>سرب طيور يعبر سماء الليل</b> ✦</span><span class="en">✦ <b>a flock crossing the night sky</b> ✦</span></div>
     <div class="heroline"><span class="ar">انضم للسرب، الليل طويل</span><span class="en">join the flock, the night is long</span></div>
@@ -868,6 +919,7 @@ body{
     <span class="en">📱 Live digital menu: scan the table QR — menu-sadah.com/serb-coffee</span>
   </div>
   <div class="footer">
+    <div class="brandlogo mini" aria-hidden="true"><svg viewBox="0 0 120 120" class="L1hxwae3" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle class="L1hxwae3 glow" cx="90" cy="31" r="20" fill="var(--la)"/><path class="L1hxwae3 moon" d="M92 15 A16 16 0 1 0 92 47 A12 12 0 1 1 92 15 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="5"/><g class="L1hxwae3 star s1" transform="translate(30 26)"><path d="M0 -4 L1 -1 L4 0 L1 1 L0 4 L-1 1 L-4 0 L-1 -1 Z" fill="var(--la2)"/></g><g class="L1hxwae3 star s2" transform="translate(46 42)"><path d="M0 -3 L1 -1 L3 0 L1 1 L0 3 L-1 1 L-3 0 L-1 -1 Z" fill="var(--la2)"/></g><g class="L1hxwae3 star s3" transform="translate(104 56)"><path d="M0 -4 L1 -1 L4 0 L1 1 L0 4 L-1 1 L-4 0 L-1 -1 Z" fill="var(--la2)"/></g><g class="L1hxwae3 star s4" transform="translate(23 60)"><path d="M0 -3 L1 -1 L3 0 L1 1 L0 3 L-1 1 L-3 0 L-1 -1 Z" fill="var(--la2)"/></g><ellipse class="L1hxwae3 saucer" cx="52" cy="108" rx="27" ry="6" fill="var(--ls2)" stroke="var(--lk)" stroke-width="5"/><path class="L1hxwae3 cup" d="M35 79 L69 79 L64 103 L40 103 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="5"/><path class="L1hxwae3 cup" d="M69 82 q13 1 11 11 q-2 8 -12 8" fill="none" stroke="var(--lk)" stroke-width="5"/><ellipse class="L1hxwae3 cup" cx="52" cy="79" rx="17" ry="4.5" fill="var(--ls)" stroke="var(--lk)" stroke-width="5"/><path class="L1hxwae3 band" d="M40 92 L64 92" stroke="var(--la)" stroke-width="4"/><path class="L1hxwae3 bird bA" d="M45 69 Q48 64 51 67.5 Q54 64 57 69" stroke="var(--lk)" stroke-width="4.5"/><path class="L1hxwae3 bird bB" d="M54 58 Q57.5 53 61 56.5 Q64.5 53 68 58" stroke="var(--lk)" stroke-width="4.5"/><path class="L1hxwae3 bird bC" d="M64 49 Q66.5 45 69 48 Q71.5 45 74 49" stroke="var(--lk)" stroke-width="4"/><path class="L1hxwae3 bird bD" d="M73 41 Q75 37.5 77 40 Q79 37.5 81 41" stroke="var(--lk)" stroke-width="4"/></svg></div>
     <div style="margin-bottom:6px;color:var(--text-2)"><span class="ar">تابعوا سِرب قهوة مختصة: <b style="color:var(--accent)">@serb.coffee</b></span><span class="en">Follow Serb Coffee: <b style="color:var(--accent)">@serb.coffee</b></span></div>
     <span class="ar">تجربة من <a href="https://menu-sadah.com">منيو سادة — MENU SADAH</a></span>
     <span class="en">Crafted by <a href="https://menu-sadah.com">MENU SADAH</a></span>

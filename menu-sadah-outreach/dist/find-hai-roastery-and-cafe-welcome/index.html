@@ -273,6 +273,16 @@ body::after{
   @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}
     .medal,h1,.world,.heroline,.cta,.rv{opacity:1!important;transform:none!important}
     .sting-wash{display:none!important}.curtain{display:none!important}}
+  .brandlogo{--lk:var(--ink);--la:var(--rose);--ls:var(--gold);--ls2:var(--sage);--la2:var(--ochre);--lp:var(--paper,#fffdf6);line-height:0}
+  .brandlogo svg{display:block;overflow:visible;width:100%;height:auto}
+  .brandlogo *{transform-box:fill-box;transform-origin:center}
+  .brandlogo.big{width:min(196px,54vw);margin:2px auto 8px}
+  .brandlogo.big svg{filter:drop-shadow(0 10px 22px var(--accent-soft,rgba(0,0,0,.14)))}
+  .brandlogo.mini{width:60px;margin:0 auto 12px;opacity:.96}
+  @media(min-width:900px){.brandlogo.big{width:236px}.brandlogo.mini{width:70px}}
+  @media(prefers-reduced-motion:reduce){.brandlogo svg *{animation:none!important;opacity:1!important;stroke-dashoffset:0!important;filter:none!important;transform:none!important}}
+  @media print{.brandlogo{display:none!important}}
+  .brandlogo.big{width:min(210px,58vw);margin:6px auto 10px}
 </style>
 <script>
   // CINEMA STING gate — decided before first paint: once per session, never for reduced-motion
@@ -321,7 +331,25 @@ body::after{
 </svg>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:4px;animation-delay:0s">✴</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:6px;animation-delay:0.7s">✳</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:4px;animation-delay:1.4s">·</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:3px;animation-delay:2.0999999999999996s">✦</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:9px;animation-delay:2.8s">✴</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:5px;animation-delay:3.5s">✳</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:7px;animation-delay:0.1999999999999993s">·</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:8px;animation-delay:0.8999999999999995s">✦</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bmei8sqdw" viewBox="0 0 100 100" fill="none" role="img" aria-label="Find Hai Roastery &amp; Cafe"><style>.bmei8sqdw{overflow:visible}.bmei8sqdw *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bmei8sqdw .mk{animation:bmei8sqdwbob 5s ease-in-out 1.7s infinite}@keyframes bmei8sqdwbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bmei8sqdwdia{0%{opacity:0;transform:rotate(-135deg) scale(.3)}100%{opacity:1;transform:none}}.bmei8sqdw .p1{animation:bmei8sqdwdia .9s cubic-bezier(.2,1.3,.3,1) both}@keyframes bmei8sqdwpx{0%{opacity:0;transform:scale(0)}100%{opacity:1;transform:none}}.bmei8sqdw .p2{opacity:0;animation:bmei8sqdwpx .4s .55s forwards}.bmei8sqdw .p3{opacity:0;animation:bmei8sqdwpx .4s .7s forwards}.bmei8sqdw .p4{opacity:0;animation:bmei8sqdwpx .4s .85s forwards}.bmei8sqdw .p5{opacity:0;animation:bmei8sqdwpx .4s 1s forwards}}</style><g class="mk"><path class="p1" d="M50 26 L74 50 L50 74 L26 50 Z" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><g class="p2"><rect x="40" y="46" width="8" height="8" fill="var(--gold)"/></g><g class="p3"><rect x="52" y="46" width="8" height="8" fill="var(--sage)"/></g><g class="p4"><rect x="46" y="34" width="8" height="8" fill="var(--ochre)"/></g><g class="p5"><rect x="46" y="58" width="8" height="8" fill="var(--gold)"/></g></g></svg><span><span class="ar">م</span><span class="en">F</span></span></div>
+    <div class="brandlogo big" aria-hidden="true"><style>.L1qauuri .glow{transform-origin:60px 62px;opacity:.55;animation:L1qauuri_pop .7s cubic-bezier(.2,1.3,.3,1) .15s both,L1qauuri_gp 3.4s ease-in-out 2s infinite}
+.L1qauuri .beanPop{transform-origin:60px 60px;animation:L1qauuri_pop .75s cubic-bezier(.2,1.3,.3,1) .2s both}
+.L1qauuri .beanBreathe{transform-origin:60px 60px;animation:L1qauuri_breathe 3.2s ease-in-out 1.9s infinite}
+.L1qauuri .crease{stroke-dasharray:100;animation:L1qauuri_draw .7s ease .6s both}
+.L1qauuri .pulse{stroke-dasharray:100;animation:L1qauuri_draw .9s ease-out .95s both,L1qauuri_glow 2s ease-in-out 2.1s infinite}
+.L1qauuri .spark{transform-box:fill-box;opacity:0;animation:L1qauuri_sparkin .6s cubic-bezier(.2,1.3,.3,1) both,L1qauuri_tw 2.6s ease-in-out 2.7s infinite}
+.L1qauuri .sparkTL{--dx:-15px;--dy:-15px;animation-delay:1s,2.7s}
+.L1qauuri .sparkTR{--dx:15px;--dy:-14px;animation-delay:1.15s,2.7s}
+.L1qauuri .sparkR{--dx:17px;--dy:3px;animation-delay:1.3s,2.7s}
+.L1qauuri .sparkBL{--dx:-15px;--dy:14px;animation-delay:1.45s,2.7s}
+.L1qauuri .sparkBR{--dx:15px;--dy:15px;animation-delay:1.6s,2.7s}
+@keyframes L1qauuri_pop{0%{transform:scale(0)}to{transform:scale(1)}}
+@keyframes L1qauuri_breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.055)}}
+@keyframes L1qauuri_draw{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
+@keyframes L1qauuri_glow{0%,100%{opacity:.6}50%{opacity:1}}
+@keyframes L1qauuri_gp{0%,100%{opacity:.4}50%{opacity:.75}}
+@keyframes L1qauuri_tw{0%,100%{opacity:.5}50%{opacity:1}}
+@keyframes L1qauuri_sparkin{0%{transform:translate(var(--dx),var(--dy)) scale(.2);opacity:0}60%{opacity:1}100%{transform:none;opacity:1}}</style><svg viewBox="0 0 120 120" fill="none"><g class="L1qauuri glow"><circle cx="60" cy="62" r="46" fill="var(--ls)"/></g><g transform="rotate(-15 60 60)"><g class="L1qauuri beanPop"><g class="L1qauuri beanBreathe"><ellipse cx="60" cy="60" rx="30" ry="40" fill="var(--la)" stroke="var(--lk)" stroke-width="5"/><ellipse cx="50" cy="44" rx="8" ry="12" fill="var(--lp)" opacity=".35"/><path class="L1qauuri crease" d="M60 26 C50 42 70 54 60 68 C52 80 68 88 60 94" stroke="var(--lk)" stroke-width="4.5" stroke-linecap="round" pathLength="100"/></g></g></g><path class="L1qauuri pulse" d="M22 62 L42 62 L48 47 L55 78 L61 49 L67 62 L98 62" stroke="var(--la2)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" pathLength="100"/><g class="L1qauuri spark sparkTL"><path d="M28 21 L30 26 L35 28 L30 30 L28 35 L26 30 L21 28 L26 26 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2"/></g><g class="L1qauuri spark sparkTR"><path d="M94 23 L96 28 L101 30 L96 32 L94 37 L92 32 L87 30 L92 28 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2"/></g><g class="L1qauuri spark sparkR"><path d="M100 57 L102 62 L107 64 L102 66 L100 71 L98 66 L93 64 L98 62 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2"/></g><g class="L1qauuri spark sparkBL"><path d="M24 85 L26 90 L31 92 L26 94 L24 99 L22 94 L17 92 L22 90 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2"/></g><g class="L1qauuri spark sparkBR"><path d="M96 89 L98 94 L103 96 L98 98 L96 103 L94 98 L89 96 L94 94 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2"/></g></svg></div>
+    <div class="medal"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><span><span class="ar">م</span><span class="en">F</span></span></div>
     <h1><span class="ar">أهلاً ببيت <b>محمصة ومقهى حي</b></span><span class="en">Welcome home, <b>Find Hai Roastery &amp; Cafe</b>.</span></h1>
     <div class="world"><span class="ar">✦ محمصة قلبها ينبض حي ✦</span><span class="en">✦ a roastery with a living pulse ✦</span></div>
     <div class="heroline hand"><span class="ar">البن هنا يتنفس</span><span class="en">the beans here still breathe</span></div>

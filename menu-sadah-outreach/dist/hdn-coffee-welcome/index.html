@@ -288,6 +288,16 @@ body{
   @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}
     .medal,h1,.world,.heroline,.cta,.rv{opacity:1!important;transform:none!important}
     .sting-wash{display:none!important}.curtain{display:none!important}}
+  .brandlogo{--lk:var(--ink);--la:var(--rose);--ls:var(--gold);--ls2:var(--sage);--la2:var(--ochre);--lp:var(--paper,#fffdf6);line-height:0}
+  .brandlogo svg{display:block;overflow:visible;width:100%;height:auto}
+  .brandlogo *{transform-box:fill-box;transform-origin:center}
+  .brandlogo.big{width:min(196px,54vw);margin:2px auto 8px}
+  .brandlogo.big svg{filter:drop-shadow(0 10px 22px var(--accent-soft,rgba(0,0,0,.14)))}
+  .brandlogo.mini{width:60px;margin:0 auto 12px;opacity:.96}
+  @media(min-width:900px){.brandlogo.big{width:236px}.brandlogo.mini{width:70px}}
+  @media(prefers-reduced-motion:reduce){.brandlogo svg *{animation:none!important;opacity:1!important;stroke-dashoffset:0!important;filter:none!important;transform:none!important}}
+  @media print{.brandlogo{display:none!important}}
+  .brandlogo.big{width:min(210px,58vw);margin:6px auto 10px}
 </style>
 <script>
   // CINEMA STING gate — decided before first paint: once per session, never for reduced-motion
@@ -358,7 +368,43 @@ body{
 </svg>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:10px;animation-delay:0s">☁</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:13px;animation-delay:0.7s">☁</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:11px;animation-delay:1.4s">☁</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:13px;animation-delay:2.0999999999999996s">☁</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:11px;animation-delay:2.8s">☁</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:13px;animation-delay:3.5s">☁</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:14px;animation-delay:0.1999999999999993s">☁</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:15px;animation-delay:0.8999999999999995s">☁</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bm1r1bkpyw" viewBox="0 0 100 100" fill="none" role="img" aria-label="Hdn Coffee"><style>.bm1r1bkpyw{overflow:visible}.bm1r1bkpyw *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm1r1bkpyw .mk{animation:bm1r1bkpywbob 5s ease-in-out 1.7s infinite}@keyframes bm1r1bkpywbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm1r1bkpywp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bm1r1bkpyw .p1{animation:bm1r1bkpywp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bm1r1bkpyw .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bm1r1bkpywdr 1s ease .55s forwards}@keyframes bm1r1bkpywdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ه</span><span class="en">H</span></span></div>
+    <div class="brandlogo big" aria-hidden="true"><style>.Lx5seqz .sun{transform-origin:center;animation:Lx5seqz_pop .6s cubic-bezier(.2,1.3,.3,1) .15s both,Lx5seqz_glow 3.6s ease-in-out 1.1s infinite}
+.Lx5seqz .cloud{transform-origin:center bottom;animation:Lx5seqz_rise .7s cubic-bezier(.2,1.3,.3,1) .35s both,Lx5seqz_sway 5.2s ease-in-out 1.4s infinite}
+.Lx5seqz .cup{transform-origin:center bottom;animation:Lx5seqz_drop .7s cubic-bezier(.2,1.3,.3,1) .65s both}
+.Lx5seqz .handle{transform-origin:center;animation:Lx5seqz_pop .5s cubic-bezier(.2,1.3,.3,1) .9s both}
+.Lx5seqz .coffee{animation:Lx5seqz_fadein .5s ease 1s both}
+.Lx5seqz .steam1,.Lx5seqz .steam2{stroke-dasharray:34}
+.Lx5seqz .steam1{transform-origin:center bottom;animation:Lx5seqz_draw .7s ease .95s both,Lx5seqz_steamdrift 3.2s ease-in-out 1.7s infinite}
+.Lx5seqz .steam2{transform-origin:center bottom;animation:Lx5seqz_draw .7s ease 1.1s both,Lx5seqz_steamdrift 3.6s ease-in-out 1.95s infinite}
+.Lx5seqz .twinkle{transform-origin:center;animation:Lx5seqz_pop .5s cubic-bezier(.2,1.3,.3,1) 1.2s both,Lx5seqz_twinkle 2.8s ease-in-out 1.9s infinite}
+@keyframes Lx5seqz_pop{0%{opacity:0;transform:scale(0)}100%{opacity:1;transform:scale(1)}}
+@keyframes Lx5seqz_rise{0%{opacity:0;transform:translateY(42px) scale(.92)}100%{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes Lx5seqz_drop{0%{opacity:0;transform:translateY(-46px) scale(.7)}60%{opacity:1}100%{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes Lx5seqz_draw{0%{stroke-dashoffset:34}100%{stroke-dashoffset:0}}
+@keyframes Lx5seqz_fadein{0%{opacity:0}100%{opacity:1}}
+@keyframes Lx5seqz_glow{0%,100%{opacity:.85;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
+@keyframes Lx5seqz_sway{0%,100%{transform:rotate(-1.6deg)}50%{transform:rotate(1.6deg)}}
+@keyframes Lx5seqz_steamdrift{0%{opacity:.65;transform:translateY(0)}50%{opacity:1;transform:translateY(-3px)}100%{opacity:.65;transform:translateY(0)}}
+@keyframes Lx5seqz_twinkle{0%,100%{opacity:.5;transform:scale(.8) rotate(0)}50%{opacity:1;transform:scale(1.12) rotate(45deg)}}</style><svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g class="Lx5seqz sun">
+<circle cx="90" cy="30" r="11" fill="var(--la2)" stroke="var(--lk)" stroke-width="4"/>
+<line x1="90" y1="14" x2="90" y2="8" stroke="var(--lk)" stroke-width="4" stroke-linecap="round"/>
+<line x1="102" y1="18" x2="106" y2="14" stroke="var(--lk)" stroke-width="4" stroke-linecap="round"/>
+<line x1="106" y1="30" x2="112" y2="30" stroke="var(--lk)" stroke-width="4" stroke-linecap="round"/>
+<line x1="78" y1="18" x2="74" y2="14" stroke="var(--lk)" stroke-width="4" stroke-linecap="round"/>
+</g>
+<path class="Lx5seqz cloud" d="M46,96 q-14,0 -14,-11 q0,-11 12,-11 q1,-13 15,-13 q10,0 12,10 q13,-3 13,11 q0,14 -13,14 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="5" stroke-linejoin="round"/>
+<g class="Lx5seqz cup">
+<path d="M51,44 L69,44 L66,62 Q65,66 60,66 Q55,66 54,62 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="4.5" stroke-linejoin="round"/>
+<path d="M55,49 q-2,7 1,12" fill="none" stroke="var(--lp)" stroke-width="2.5" stroke-linecap="round"/>
+</g>
+<path class="Lx5seqz handle" d="M68,48 q11,1 9,10 q-2,6 -9,4" fill="none" stroke="var(--lk)" stroke-width="4.5" stroke-linecap="round"/>
+<ellipse class="Lx5seqz coffee" cx="60" cy="44" rx="9" ry="3" fill="var(--lk)"/>
+<path class="Lx5seqz steam1" d="M57,41 q-5,-4 -1,-9 q4,-5 0,-10" fill="none" stroke="var(--lk)" stroke-width="4" stroke-linecap="round"/>
+<path class="Lx5seqz steam2" d="M64,41 q5,-4 1,-9 q-4,-5 0,-10" fill="none" stroke="var(--lk)" stroke-width="4" stroke-linecap="round"/>
+<path class="Lx5seqz twinkle" d="M28,37 l3,7 7,3 -7,3 -3,7 -3,-7 -7,-3 7,-3 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2.5" stroke-linejoin="round"/>
+</svg></div>
+    <div class="medal"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><span><span class="ar">ه</span><span class="en">H</span></span></div>
     <h1><span class="ar">أهلاً ببيت <b>هدن كافيه</b></span><span class="en">Welcome home, <b>Hdn Coffee</b>.</span></h1>
     <div class="world"><span class="ar">✦ هدنة صغيرة من زحمة اليوم ✦</span><span class="en">✦ a small truce with the busy day ✦</span></div>
     <div class="heroline hand"><span class="ar">خذ لك هدنة من الدنيا</span><span class="en">Take a small truce here</span></div>

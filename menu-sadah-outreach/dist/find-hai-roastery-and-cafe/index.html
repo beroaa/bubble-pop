@@ -45,7 +45,7 @@
   .medal .logo{width:84%;height:84%;object-fit:contain;border-radius:50%;position:relative;z-index:1}
   .medal.haslogo>span{display:none}
   @keyframes mfloat{50%{transform:translateY(-6px)}}
-  h1{font-size:36px;letter-spacing:-.01em;line-height:1.2}
+  h1{font-size:clamp(41px,11.5vw,54px);font-weight:800;letter-spacing:-.02em;line-height:1.08}
   h1 .ar{font-family:'Aref Ruqaa',serif}
   h1 .en{font-family:'Patrick Hand',cursive}
   /* gradient-clip only AFTER word entrance — transformed child spans break background-clip:text in Chrome */
@@ -62,7 +62,7 @@
     100%{opacity:1;transform:none}}
   .world{margin-top:10px;color:var(--text-3);font-size:13px;letter-spacing:.08em}
   .world b{color:#cdd473;font-weight:600}
-  .heroline{margin-top:8px;color:var(--text-2);font-size:19px;line-height:1.5}
+  .heroline{margin-top:10px;color:var(--text-2);font-size:22px;font-weight:600;line-height:1.45}
   .heroline .ar{font-family:'Aref Ruqaa',serif}
   .heroline .en{font-family:'Patrick Hand',cursive}
   .meta{margin-top:14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
@@ -108,7 +108,7 @@
   @keyframes sfloat{50%{transform:translateY(-5px)}}
   .sig-art{width:74px;height:74px;margin:0 auto 8px}
   .sig-art svg{width:100%;height:100%;filter:drop-shadow(0 6px 14px #ca935359)}
-  .sig-name{font-size:14.5px;font-weight:600;line-height:1.35}
+  .sig-name{font-size:16px;font-weight:700;line-height:1.32}
   .stamp{display:inline-flex;align-items:baseline;gap:3px;margin-top:8px;padding:3px 12px;border:1.7px solid var(--sa);
     border-radius:999px;color:var(--sa);font-weight:800;font-size:16px;transform:rotate(-4deg);
     box-shadow:0 0 0 3px #ca93530f}
@@ -137,8 +137,8 @@
   .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
     box-shadow:inset 0 0 0 1px #ca935355}
   .cat-title{flex:1;min-width:0}
-  .room-eyebrow{color:var(--text-3);font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:3px}
-  .room-h2{color:var(--sa);font-size:22px;line-height:1.3}
+  .room-eyebrow{color:var(--text-3);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+  .room-h2{color:var(--sa);font-size:28px;font-weight:800;line-height:1.14;letter-spacing:-.01em}
   .room-h2 .ar{font-family:'Aref Ruqaa',serif}
   .room-h2 .en{font-family:'Patrick Hand',cursive}
   /* self-drawing ink underline: a hand-wavy SVG stroke that draws itself on reveal */
@@ -160,11 +160,11 @@
   @keyframes sepidle{0%,100%{transform:translateX(0);opacity:.82}50%{transform:translateX(calc(6px * var(--tx,1)));opacity:1}}
 
   .items{position:relative;background:#231c15d9;border:1px solid var(--border-1);border-radius:20px;padding:6px 18px;box-shadow:var(--shadow)}
-  .item{display:flex;align-items:baseline;gap:10px;padding:15px 0;border-bottom:1px solid #2e271e99}
+  .item{display:flex;align-items:baseline;gap:10px;padding:16px 0;border-bottom:1px solid #2e271e99}
   .item:last-child{border-bottom:none}
-  .item-name{font-size:16px}
+  .item-name{font-size:18.5px;font-weight:600;line-height:1.32;letter-spacing:-.004em}
   .dots{flex:1;border-bottom:1px dotted var(--border-2);transform:translateY(-4px)}
-  .price{color:var(--sa);font-weight:800;white-space:nowrap;font-variant-numeric:tabular-nums;display:flex;align-items:baseline;gap:6px}
+  .price{color:var(--sa);font-weight:800;font-size:18px;white-space:nowrap;font-variant-numeric:tabular-nums;display:flex;align-items:baseline;gap:6px}
   .pdot{width:6px;height:6px;border-radius:50%;background:var(--sa);opacity:0;transform:scale(0)}
   .reveal.in .pdot{animation:dotpop .45s cubic-bezier(.2,1.6,.4,1) forwards}
   @keyframes dotpop{0%{opacity:0;transform:scale(0)}70%{opacity:1;transform:scale(1.5)}100%{opacity:.9;transform:scale(1)}}
@@ -237,17 +237,18 @@
     .hero{min-height:62vh;display:flex;flex-direction:column;justify-content:center;padding:40px 0 14px}
     .medal{width:136px;height:136px}
     .medal span{font-size:58px}
-    h1{font-size:66px}
+    h1{font-size:clamp(66px,8vw,84px)}
     .world{font-size:15px;margin-top:16px}
-    .heroline{font-size:27px;margin-top:12px}
-    .room-h2{font-size:34px}
-    .room-voice{font-size:17px}
-    .inkline{width:min(190px,72%)}
+    .heroline{font-size:30px;margin-top:14px}
+    .room-h2{font-size:42px}
+    .room-voice{font-size:18px}
+    .inkline{width:min(200px,72%)}
     .inkline path{stroke-width:2.6}
     .cat-art{width:96px;height:96px}
     .items{padding:10px 30px}
-    .item{padding:18px 0}
-    .item-name{font-size:17.5px}
+    .item{padding:20px 0}
+    .item-name{font-size:20px}
+    .price{font-size:20px}
     .sig-art{width:96px;height:96px}
     .sig{padding:26px 22px 24px}
     .diary{max-width:480px;font-size:17px}
@@ -372,6 +373,29 @@ body::after{
   .medal.hasmark>span{display:none}
 
 
+  /* ---- BOLD BRAND TYPOGRAPHY: confident scale + neon-arcade voice + animated headers ---- */
+  .room-eyebrow{font-weight:800}
+  .room-eyebrow{letter-spacing:.34em}
+    .room-h2{text-transform:uppercase;letter-spacing:.05em;font-weight:800}
+    .item-name{font-weight:600}
+    .price{letter-spacing:.02em}
+  @media (prefers-reduced-motion:no-preference){
+    .reveal .room-h2,.reveal .room-eyebrow{opacity:0}
+    .reveal.in .room-eyebrow{animation:rhk .5s ease .05s forwards}
+    .reveal.in .room-h2{animation:rh2in .62s ease .12s forwards}
+    @keyframes rh2in{0%{opacity:0;filter:blur(5px)}100%{opacity:1;filter:blur(0)}}
+    @keyframes rhk{to{opacity:1}}
+  }
+  .brandlogo{--lk:var(--ink);--la:var(--accent);--ls:var(--sa);--ls2:var(--sa2);--la2:var(--accent-2);--lp:var(--bg-1);line-height:0}
+  .brandlogo svg{display:block;overflow:visible;width:100%;height:auto}
+  .brandlogo *{transform-box:fill-box;transform-origin:center}
+  .brandlogo.big{width:min(196px,54vw);margin:2px auto 8px}
+  .brandlogo.big svg{filter:drop-shadow(0 10px 22px var(--accent-soft,rgba(0,0,0,.14)))}
+  .brandlogo.mini{width:60px;margin:0 auto 12px;opacity:.96}
+  @media(min-width:900px){.brandlogo.big{width:236px}.brandlogo.mini{width:70px}}
+  @media(prefers-reduced-motion:reduce){.brandlogo svg *{animation:none!important;opacity:1!important;stroke-dashoffset:0!important;filter:none!important;transform:none!important}}
+  @media print{.brandlogo{display:none!important}}
+
   /* ---- brandshots: the cafe's OWN photos, pinned like polaroids ---- */
   .brandshots{display:flex;justify-content:center;align-items:flex-start;gap:14px;margin-top:22px;position:relative;z-index:1}
   .bshot{position:relative;width:96px;margin:0;background:#231c15;border:1px solid var(--border-2);padding:6px 6px 16px;
@@ -391,7 +415,7 @@ body::after{
 
   @media (prefers-reduced-motion: reduce){
     *{animation:none!important;transition:none!important}
-    .reveal,.reveal.in .item,.heroline,.world,.meta,.greet,h1 .w,h1 .lt{opacity:1!important;transform:none!important}
+    .reveal,.reveal.in .item,.heroline,.world,.meta,.greet,h1 .w,h1 .lt,.reveal .room-h2,.reveal .room-eyebrow{opacity:1!important;transform:none!important;filter:none!important}
     .room-voice{opacity:.85!important;transform:none!important}
     .sep,.sep-scene{animation:none!important;transform:none!important}
     .pdot{opacity:.9!important;transform:scale(1)!important}
@@ -411,7 +435,7 @@ body::after{
     .cat-art,.sig-art,.brandshots,.diary,.pdot,.brandbg,.sadu-band,.najdi{display:none!important}
     .wrap{max-width:100%;padding:0}
     .hero{min-height:0!important;padding:0 0 8px!important;display:block!important}
-    .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
+    .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item,.reveal .room-h2,.reveal .room-eyebrow{opacity:1!important;transform:none!important;filter:none!important}
     h1{color:#000!important;background:none!important;-webkit-text-fill-color:#000!important;font-size:30px!important}
     .medal{width:70px!important;height:70px!important;margin-bottom:8px;border-color:#000!important;background:#fff!important}
     .medal .mark{display:none!important}
@@ -474,7 +498,25 @@ body::after{
 <path class="nz-neon" d="M0 401h1200" fill="none" stroke="#ca9353" stroke-width="2.2"/>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bmei8sqdm" viewBox="0 0 100 100" fill="none" role="img" aria-label="Find Hai Roastery &amp; Cafe"><style>.bmei8sqdm{overflow:visible}.bmei8sqdm *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bmei8sqdm .mk{animation:bmei8sqdmbob 5s ease-in-out 1.7s infinite}@keyframes bmei8sqdmbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bmei8sqdmdia{0%{opacity:0;transform:rotate(-135deg) scale(.3)}100%{opacity:1;transform:none}}.bmei8sqdm .p1{animation:bmei8sqdmdia .9s cubic-bezier(.2,1.3,.3,1) both}@keyframes bmei8sqdmpx{0%{opacity:0;transform:scale(0)}100%{opacity:1;transform:none}}.bmei8sqdm .p2{opacity:0;animation:bmei8sqdmpx .4s .55s forwards}.bmei8sqdm .p3{opacity:0;animation:bmei8sqdmpx .4s .7s forwards}.bmei8sqdm .p4{opacity:0;animation:bmei8sqdmpx .4s .85s forwards}.bmei8sqdm .p5{opacity:0;animation:bmei8sqdmpx .4s 1s forwards}}</style><g class="mk"><path class="p1" d="M50 26 L74 50 L50 74 L26 50 Z" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><g class="p2"><rect x="40" y="46" width="8" height="8" fill="var(--sa)"/></g><g class="p3"><rect x="52" y="46" width="8" height="8" fill="var(--sa2)"/></g><g class="p4"><rect x="46" y="34" width="8" height="8" fill="var(--accent-2)"/></g><g class="p5"><rect x="46" y="58" width="8" height="8" fill="var(--sa)"/></g></g></svg><span><span class="ar">م</span><span class="en">F</span></span></div>
+    <div class="brandlogo big" aria-hidden="true"><style>.L1qauuri .glow{transform-origin:60px 62px;opacity:.55;animation:L1qauuri_pop .7s cubic-bezier(.2,1.3,.3,1) .15s both,L1qauuri_gp 3.4s ease-in-out 2s infinite}
+.L1qauuri .beanPop{transform-origin:60px 60px;animation:L1qauuri_pop .75s cubic-bezier(.2,1.3,.3,1) .2s both}
+.L1qauuri .beanBreathe{transform-origin:60px 60px;animation:L1qauuri_breathe 3.2s ease-in-out 1.9s infinite}
+.L1qauuri .crease{stroke-dasharray:100;animation:L1qauuri_draw .7s ease .6s both}
+.L1qauuri .pulse{stroke-dasharray:100;animation:L1qauuri_draw .9s ease-out .95s both,L1qauuri_glow 2s ease-in-out 2.1s infinite}
+.L1qauuri .spark{transform-box:fill-box;opacity:0;animation:L1qauuri_sparkin .6s cubic-bezier(.2,1.3,.3,1) both,L1qauuri_tw 2.6s ease-in-out 2.7s infinite}
+.L1qauuri .sparkTL{--dx:-15px;--dy:-15px;animation-delay:1s,2.7s}
+.L1qauuri .sparkTR{--dx:15px;--dy:-14px;animation-delay:1.15s,2.7s}
+.L1qauuri .sparkR{--dx:17px;--dy:3px;animation-delay:1.3s,2.7s}
+.L1qauuri .sparkBL{--dx:-15px;--dy:14px;animation-delay:1.45s,2.7s}
+.L1qauuri .sparkBR{--dx:15px;--dy:15px;animation-delay:1.6s,2.7s}
+@keyframes L1qauuri_pop{0%{transform:scale(0)}to{transform:scale(1)}}
+@keyframes L1qauuri_breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.055)}}
+@keyframes L1qauuri_draw{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
+@keyframes L1qauuri_glow{0%,100%{opacity:.6}50%{opacity:1}}
+@keyframes L1qauuri_gp{0%,100%{opacity:.4}50%{opacity:.75}}
+@keyframes L1qauuri_tw{0%,100%{opacity:.5}50%{opacity:1}}
+@keyframes L1qauuri_sparkin{0%{transform:translate(var(--dx),var(--dy)) scale(.2);opacity:0}60%{opacity:1}100%{transform:none;opacity:1}}</style><svg viewBox="0 0 120 120" fill="none"><g class="L1qauuri glow"><circle cx="60" cy="62" r="46" fill="var(--ls)"/></g><g transform="rotate(-15 60 60)"><g class="L1qauuri beanPop"><g class="L1qauuri beanBreathe"><ellipse cx="60" cy="60" rx="30" ry="40" fill="var(--la)" stroke="var(--lk)" stroke-width="5"/><ellipse cx="50" cy="44" rx="8" ry="12" fill="var(--lp)" opacity=".35"/><path class="L1qauuri crease" d="M60 26 C50 42 70 54 60 68 C52 80 68 88 60 94" stroke="var(--lk)" stroke-width="4.5" stroke-linecap="round" pathLength="100"/></g></g></g><path class="L1qauuri pulse" d="M22 62 L42 62 L48 47 L55 78 L61 49 L67 62 L98 62" stroke="var(--la2)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" pathLength="100"/><g class="L1qauuri spark sparkTL"><path d="M28 21 L30 26 L35 28 L30 30 L28 35 L26 30 L21 28 L26 26 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2"/></g><g class="L1qauuri spark sparkTR"><path d="M94 23 L96 28 L101 30 L96 32 L94 37 L92 32 L87 30 L92 28 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2"/></g><g class="L1qauuri spark sparkR"><path d="M100 57 L102 62 L107 64 L102 66 L100 71 L98 66 L93 64 L98 62 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2"/></g><g class="L1qauuri spark sparkBL"><path d="M24 85 L26 90 L31 92 L26 94 L24 99 L22 94 L17 92 L22 90 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2"/></g><g class="L1qauuri spark sparkBR"><path d="M96 89 L98 94 L103 96 L98 98 L96 103 L94 98 L89 96 L94 94 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2"/></g></svg></div>
+    <div class="medal"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><span><span class="ar">م</span><span class="en">F</span></span></div>
     <h1><span class="ar">محمصة ومقهى حي</span><span class="en">Find Hai Roastery &amp; Cafe</span></h1>
     <div class="world"><span class="ar">✦ <b>محمصة قلبها ينبض حي</b> ✦</span><span class="en">✦ <b>a roastery with a living pulse</b> ✦</span></div>
     <div class="heroline"><span class="ar">البن هنا يتنفس</span><span class="en">the beans here still breathe</span></div>
@@ -678,6 +720,7 @@ body::after{
     <span class="en">📱 Live digital menu: scan the table QR — menu-sadah.com/find-hai-roastery-and-cafe</span>
   </div>
   <div class="footer">
+    <div class="brandlogo mini" aria-hidden="true"><svg viewBox="0 0 120 120" fill="none"><g class="L1qauuri glow"><circle cx="60" cy="62" r="46" fill="var(--ls)"/></g><g transform="rotate(-15 60 60)"><g class="L1qauuri beanPop"><g class="L1qauuri beanBreathe"><ellipse cx="60" cy="60" rx="30" ry="40" fill="var(--la)" stroke="var(--lk)" stroke-width="5"/><ellipse cx="50" cy="44" rx="8" ry="12" fill="var(--lp)" opacity=".35"/><path class="L1qauuri crease" d="M60 26 C50 42 70 54 60 68 C52 80 68 88 60 94" stroke="var(--lk)" stroke-width="4.5" stroke-linecap="round" pathLength="100"/></g></g></g><path class="L1qauuri pulse" d="M22 62 L42 62 L48 47 L55 78 L61 49 L67 62 L98 62" stroke="var(--la2)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" pathLength="100"/><g class="L1qauuri spark sparkTL"><path d="M28 21 L30 26 L35 28 L30 30 L28 35 L26 30 L21 28 L26 26 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2"/></g><g class="L1qauuri spark sparkTR"><path d="M94 23 L96 28 L101 30 L96 32 L94 37 L92 32 L87 30 L92 28 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2"/></g><g class="L1qauuri spark sparkR"><path d="M100 57 L102 62 L107 64 L102 66 L100 71 L98 66 L93 64 L98 62 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2"/></g><g class="L1qauuri spark sparkBL"><path d="M24 85 L26 90 L31 92 L26 94 L24 99 L22 94 L17 92 L22 90 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2"/></g><g class="L1qauuri spark sparkBR"><path d="M96 89 L98 94 L103 96 L98 98 L96 103 L94 98 L89 96 L94 94 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2"/></g></svg></div>
     <div style="margin-bottom:6px;color:var(--text-2)"><span class="ar">تابعوا محمصة ومقهى حي: <b style="color:var(--accent)">@find.hai</b></span><span class="en">Follow Find Hai Roastery &amp; Cafe: <b style="color:var(--accent)">@find.hai</b></span></div>
     <span class="ar">تجربة من <a href="https://menu-sadah.com">منيو سادة — MENU SADAH</a></span>
     <span class="en">Crafted by <a href="https://menu-sadah.com">MENU SADAH</a></span>

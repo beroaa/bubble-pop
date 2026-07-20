@@ -269,6 +269,16 @@ body{
   @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}
     .medal,h1,.world,.heroline,.cta,.rv{opacity:1!important;transform:none!important}
     .sting-wash{display:none!important}.curtain{display:none!important}}
+  .brandlogo{--lk:var(--ink);--la:var(--rose);--ls:var(--gold);--ls2:var(--sage);--la2:var(--ochre);--lp:var(--paper,#fffdf6);line-height:0}
+  .brandlogo svg{display:block;overflow:visible;width:100%;height:auto}
+  .brandlogo *{transform-box:fill-box;transform-origin:center}
+  .brandlogo.big{width:min(196px,54vw);margin:2px auto 8px}
+  .brandlogo.big svg{filter:drop-shadow(0 10px 22px var(--accent-soft,rgba(0,0,0,.14)))}
+  .brandlogo.mini{width:60px;margin:0 auto 12px;opacity:.96}
+  @media(min-width:900px){.brandlogo.big{width:236px}.brandlogo.mini{width:70px}}
+  @media(prefers-reduced-motion:reduce){.brandlogo svg *{animation:none!important;opacity:1!important;stroke-dashoffset:0!important;filter:none!important;transform:none!important}}
+  @media print{.brandlogo{display:none!important}}
+  .brandlogo.big{width:min(210px,58vw);margin:6px auto 10px}
 </style>
 <script>
   // CINEMA STING gate — decided before first paint: once per session, never for reduced-motion
@@ -339,7 +349,24 @@ body{
 
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:9px;animation-delay:0s">✴</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:5px;animation-delay:0.7s">✳</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:3px;animation-delay:1.4s">·</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:9px;animation-delay:2.0999999999999996s">✦</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:5px;animation-delay:2.8s">✴</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:7px;animation-delay:3.5s">✳</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:4px;animation-delay:0.1999999999999993s">·</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:6px;animation-delay:0.8999999999999995s">✦</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bm1hnbjflw" viewBox="0 0 100 100" fill="none" role="img" aria-label="Sharq Coffee &amp; Roastery"><style>.bm1hnbjflw{overflow:visible}.bm1hnbjflw *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm1hnbjflw .mk{animation:bm1hnbjflwbob 5s ease-in-out 1.7s infinite}@keyframes bm1hnbjflwbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm1hnbjflwp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bm1hnbjflw .p1{animation:bm1hnbjflwp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bm1hnbjflw .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bm1hnbjflwdr 1s ease .55s forwards}@keyframes bm1hnbjflwdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">م</span><span class="en">S</span></span></div>
+    <div class="brandlogo big" aria-hidden="true"><style>.L1j9giog .sun{animation:L1j9giog_rise .7s cubic-bezier(.2,1.3,.3,1) both;animation-delay:.15s}
+.L1j9giog .drum{animation:L1j9giog_inL .7s cubic-bezier(.2,1.3,.3,1) both;animation-delay:.35s}
+.L1j9giog .rays{transform-origin:center;animation:L1j9giog_pop .6s cubic-bezier(.2,1.3,.3,1) both;animation-delay:.55s}
+.L1j9giog .crank{animation:L1j9giog_inR .7s cubic-bezier(.2,1.3,.3,1) both;animation-delay:.7s}
+.L1j9giog .ground{stroke-dasharray:90;animation:L1j9giog_draw .6s ease-out both;animation-delay:.85s}
+.L1j9giog .glow{transform-origin:center;animation:L1j9giog_glow 3.4s ease-in-out infinite both;animation-delay:1.3s}
+.L1j9giog .spark{transform-origin:center;animation:L1j9giog_spark 2.6s ease-in-out infinite both}
+.L1j9giog .spark1{animation-delay:1s}
+.L1j9giog .spark2{animation-delay:1.5s}
+.L1j9giog .spark3{animation-delay:2s}
+@keyframes L1j9giog_rise{0%{transform:translateY(40px);opacity:0}60%{opacity:1}100%{transform:translateY(0);opacity:1}}
+@keyframes L1j9giog_inL{0%{transform:translateX(-48px);opacity:0}100%{transform:translateX(0);opacity:1}}
+@keyframes L1j9giog_inR{0%{transform:translateX(46px);opacity:0}100%{transform:translateX(0);opacity:1}}
+@keyframes L1j9giog_pop{0%{transform:scale(0);opacity:0}100%{transform:scale(1);opacity:1}}
+@keyframes L1j9giog_draw{0%{stroke-dashoffset:90}100%{stroke-dashoffset:0}}
+@keyframes L1j9giog_glow{0%,100%{transform:scale(1);opacity:.22}50%{transform:scale(1.18);opacity:.42}}
+@keyframes L1j9giog_spark{0%{transform:translateY(3px);opacity:0}20%{opacity:1}60%{transform:translateY(-7px);opacity:.6}100%{transform:translateY(-15px);opacity:0}}</style><svg viewBox="0 0 120 120" fill="none"><g class="L1j9giog rays" stroke="var(--la2)" stroke-width="5" stroke-linecap="round"><path d="M60 24 L60 14"/><path d="M47 34 L41 28"/><path d="M73 34 L79 28"/><path d="M40 46 L32 46"/><path d="M80 46 L88 46"/></g><circle class="L1j9giog glow" cx="60" cy="46" r="22" fill="var(--la2)"/><circle class="L1j9giog sun" cx="60" cy="46" r="16" fill="var(--la2)" stroke="var(--lk)" stroke-width="5"/><path class="L1j9giog ground" d="M22 100 L98 100" stroke="var(--lk)" stroke-width="5" stroke-linecap="round"/><g class="L1j9giog drum" stroke="var(--lk)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"><path d="M46 89 L42 99"/><path d="M74 89 L78 99"/><rect x="30" y="56" width="60" height="34" rx="12" fill="var(--la)"/><ellipse cx="30" cy="73" rx="8" ry="17" fill="var(--ls)"/><path d="M42 57 L42 89" stroke-width="3"/><path d="M78 57 L78 89" stroke-width="3"/><rect x="52" y="64" width="16" height="16" rx="3" fill="var(--ls2)"/><circle cx="60" cy="72" r="2" fill="var(--lk)" stroke="none"/></g><g class="L1j9giog crank" stroke="var(--lk)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"><path d="M90 73 L104 73 L104 84" fill="none"/><circle cx="90" cy="73" r="4" fill="var(--la2)"/><circle cx="104" cy="86" r="4.5" fill="var(--la2)"/></g><path class="L1j9giog spark spark1" d="M26 45 L27.4 48.6 L31 50 L27.4 51.4 L26 55 L24.6 51.4 L21 50 L24.6 48.6 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2" stroke-linejoin="round"/><path class="L1j9giog spark spark2" d="M96 43 L97.4 46.6 L101 48 L97.4 49.4 L96 53 L94.6 49.4 L91 48 L94.6 46.6 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2" stroke-linejoin="round"/><path class="L1j9giog spark spark3" d="M82 13 L83.4 16.6 L87 18 L83.4 19.4 L82 23 L80.6 19.4 L77 18 L80.6 16.6 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2" stroke-linejoin="round"/></svg></div>
+    <div class="medal"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><span><span class="ar">م</span><span class="en">S</span></span></div>
     <h1><span class="ar">أهلاً ببيت <b>مقهى ومحمصة شرق</b></span><span class="en">Welcome home, <b>Sharq Coffee &amp; Roastery</b>.</span></h1>
     <div class="world"><span class="ar">✦ محمصة تصحى قبل الشمس ✦</span><span class="en">✦ a roastery that wakes before the sun ✦</span></div>
     <div class="heroline hand"><span class="ar">من الشرق تطلع الشمس والقهوة</span><span class="en">Where sun and roast both rise</span></div>

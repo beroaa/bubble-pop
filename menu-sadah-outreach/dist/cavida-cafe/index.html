@@ -45,7 +45,7 @@
   .medal .logo{width:84%;height:84%;object-fit:contain;border-radius:50%;position:relative;z-index:1}
   .medal.haslogo>span{display:none}
   @keyframes mfloat{50%{transform:translateY(-6px)}}
-  h1{font-size:36px;letter-spacing:-.01em;line-height:1.2}
+  h1{font-size:clamp(41px,11.5vw,54px);font-weight:800;letter-spacing:-.02em;line-height:1.08}
   h1 .ar{font-family:'Baloo Bhaijaan 2',cursive}
   h1 .en{font-family:'Fredoka',sans-serif}
   /* gradient-clip only AFTER word entrance — transformed child spans break background-clip:text in Chrome */
@@ -62,7 +62,7 @@
     100%{opacity:1;transform:none}}
   .world{margin-top:10px;color:var(--text-3);font-size:13px;letter-spacing:.08em}
   .world b{color:#cdbb79;font-weight:600}
-  .heroline{margin-top:8px;color:var(--text-2);font-size:19px;line-height:1.5}
+  .heroline{margin-top:10px;color:var(--text-2);font-size:22px;font-weight:600;line-height:1.45}
   .heroline .ar{font-family:'Baloo Bhaijaan 2',cursive}
   .heroline .en{font-family:'Fredoka',sans-serif}
   .meta{margin-top:14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
@@ -108,7 +108,7 @@
   @keyframes sfloat{50%{transform:translateY(-5px)}}
   .sig-art{width:74px;height:74px;margin:0 auto 8px}
   .sig-art svg{width:100%;height:100%;filter:drop-shadow(0 6px 14px #cf917d59)}
-  .sig-name{font-size:14.5px;font-weight:600;line-height:1.35}
+  .sig-name{font-size:16px;font-weight:700;line-height:1.32}
   .stamp{display:inline-flex;align-items:baseline;gap:3px;margin-top:8px;padding:3px 12px;border:1.7px solid var(--sa);
     border-radius:999px;color:var(--sa);font-weight:800;font-size:16px;transform:rotate(-4deg);
     box-shadow:0 0 0 3px #cf917d0f}
@@ -137,8 +137,8 @@
   .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
     box-shadow:inset 0 0 0 1px #cf917d55}
   .cat-title{flex:1;min-width:0}
-  .room-eyebrow{color:var(--text-3);font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:3px}
-  .room-h2{color:var(--sa);font-size:22px;line-height:1.3}
+  .room-eyebrow{color:var(--text-3);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+  .room-h2{color:var(--sa);font-size:28px;font-weight:800;line-height:1.14;letter-spacing:-.01em}
   .room-h2 .ar{font-family:'Baloo Bhaijaan 2',cursive}
   .room-h2 .en{font-family:'Fredoka',sans-serif}
   /* self-drawing ink underline: a hand-wavy SVG stroke that draws itself on reveal */
@@ -160,11 +160,11 @@
   @keyframes sepidle{0%,100%{transform:translateX(0);opacity:.82}50%{transform:translateX(calc(6px * var(--tx,1)));opacity:1}}
 
   .items{position:relative;background:#221916d9;border:1px solid var(--border-1);border-radius:20px;padding:6px 18px;box-shadow:var(--shadow)}
-  .item{display:flex;align-items:baseline;gap:10px;padding:15px 0;border-bottom:1px solid #2d232099}
+  .item{display:flex;align-items:baseline;gap:10px;padding:16px 0;border-bottom:1px solid #2d232099}
   .item:last-child{border-bottom:none}
-  .item-name{font-size:16px}
+  .item-name{font-size:18.5px;font-weight:600;line-height:1.32;letter-spacing:-.004em}
   .dots{flex:1;border-bottom:1px dotted var(--border-2);transform:translateY(-4px)}
-  .price{color:var(--sa);font-weight:800;white-space:nowrap;font-variant-numeric:tabular-nums;display:flex;align-items:baseline;gap:6px}
+  .price{color:var(--sa);font-weight:800;font-size:18px;white-space:nowrap;font-variant-numeric:tabular-nums;display:flex;align-items:baseline;gap:6px}
   .pdot{width:6px;height:6px;border-radius:50%;background:var(--sa);opacity:0;transform:scale(0)}
   .reveal.in .pdot{animation:dotpop .45s cubic-bezier(.2,1.6,.4,1) forwards}
   @keyframes dotpop{0%{opacity:0;transform:scale(0)}70%{opacity:1;transform:scale(1.5)}100%{opacity:.9;transform:scale(1)}}
@@ -237,17 +237,18 @@
     .hero{min-height:62vh;display:flex;flex-direction:column;justify-content:center;padding:40px 0 14px}
     .medal{width:136px;height:136px}
     .medal span{font-size:58px}
-    h1{font-size:66px}
+    h1{font-size:clamp(66px,8vw,84px)}
     .world{font-size:15px;margin-top:16px}
-    .heroline{font-size:27px;margin-top:12px}
-    .room-h2{font-size:34px}
-    .room-voice{font-size:17px}
-    .inkline{width:min(190px,72%)}
+    .heroline{font-size:30px;margin-top:14px}
+    .room-h2{font-size:42px}
+    .room-voice{font-size:18px}
+    .inkline{width:min(200px,72%)}
     .inkline path{stroke-width:2.6}
     .cat-art{width:96px;height:96px}
     .items{padding:10px 30px}
-    .item{padding:18px 0}
-    .item-name{font-size:17.5px}
+    .item{padding:20px 0}
+    .item-name{font-size:20px}
+    .price{font-size:20px}
     .sig-art{width:96px;height:96px}
     .sig{padding:26px 22px 24px}
     .diary{max-width:480px;font-size:17px}
@@ -388,6 +389,29 @@ body::after{
   .medal.hasmark>span{display:none}
 
 
+  /* ---- BOLD BRAND TYPOGRAPHY: confident scale + neon-arcade voice + animated headers ---- */
+  .room-eyebrow{font-weight:800}
+  .room-eyebrow{letter-spacing:.34em}
+    .room-h2{text-transform:uppercase;letter-spacing:.05em;font-weight:800}
+    .item-name{font-weight:600}
+    .price{letter-spacing:.02em}
+  @media (prefers-reduced-motion:no-preference){
+    .reveal .room-h2,.reveal .room-eyebrow{opacity:0}
+    .reveal.in .room-eyebrow{animation:rhk .5s ease .05s forwards}
+    .reveal.in .room-h2{animation:rh2in .62s ease .12s forwards}
+    @keyframes rh2in{0%{opacity:0;filter:blur(5px)}100%{opacity:1;filter:blur(0)}}
+    @keyframes rhk{to{opacity:1}}
+  }
+  .brandlogo{--lk:var(--ink);--la:var(--accent);--ls:var(--sa);--ls2:var(--sa2);--la2:var(--accent-2);--lp:var(--bg-1);line-height:0}
+  .brandlogo svg{display:block;overflow:visible;width:100%;height:auto}
+  .brandlogo *{transform-box:fill-box;transform-origin:center}
+  .brandlogo.big{width:min(196px,54vw);margin:2px auto 8px}
+  .brandlogo.big svg{filter:drop-shadow(0 10px 22px var(--accent-soft,rgba(0,0,0,.14)))}
+  .brandlogo.mini{width:60px;margin:0 auto 12px;opacity:.96}
+  @media(min-width:900px){.brandlogo.big{width:236px}.brandlogo.mini{width:70px}}
+  @media(prefers-reduced-motion:reduce){.brandlogo svg *{animation:none!important;opacity:1!important;stroke-dashoffset:0!important;filter:none!important;transform:none!important}}
+  @media print{.brandlogo{display:none!important}}
+
   /* ---- brandshots: the cafe's OWN photos, pinned like polaroids ---- */
   .brandshots{display:flex;justify-content:center;align-items:flex-start;gap:14px;margin-top:22px;position:relative;z-index:1}
   .bshot{position:relative;width:96px;margin:0;background:#221916;border:1px solid var(--border-2);padding:6px 6px 16px;
@@ -407,7 +431,7 @@ body::after{
 
   @media (prefers-reduced-motion: reduce){
     *{animation:none!important;transition:none!important}
-    .reveal,.reveal.in .item,.heroline,.world,.meta,.greet,h1 .w,h1 .lt{opacity:1!important;transform:none!important}
+    .reveal,.reveal.in .item,.heroline,.world,.meta,.greet,h1 .w,h1 .lt,.reveal .room-h2,.reveal .room-eyebrow{opacity:1!important;transform:none!important;filter:none!important}
     .room-voice{opacity:.85!important;transform:none!important}
     .sep,.sep-scene{animation:none!important;transform:none!important}
     .pdot{opacity:.9!important;transform:scale(1)!important}
@@ -427,7 +451,7 @@ body::after{
     .cat-art,.sig-art,.brandshots,.diary,.pdot,.brandbg,.sadu-band,.najdi{display:none!important}
     .wrap{max-width:100%;padding:0}
     .hero{min-height:0!important;padding:0 0 8px!important;display:block!important}
-    .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
+    .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item,.reveal .room-h2,.reveal .room-eyebrow{opacity:1!important;transform:none!important;filter:none!important}
     h1{color:#000!important;background:none!important;-webkit-text-fill-color:#000!important;font-size:30px!important}
     .medal{width:70px!important;height:70px!important;margin-bottom:8px;border-color:#000!important;background:#fff!important}
     .medal .mark{display:none!important}
@@ -490,7 +514,34 @@ body::after{
 <path class="nz-neon" d="M0 401h1200" fill="none" stroke="#cf917d" stroke-width="2.2"/>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bm1qxkpizm" viewBox="0 0 100 100" fill="none" role="img" aria-label="Cavida Cafe"><style>.bm1qxkpizm{overflow:visible}.bm1qxkpizm *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm1qxkpizm .mk{animation:bm1qxkpizmbob 5s ease-in-out 1.7s infinite}@keyframes bm1qxkpizmbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm1qxkpizmfl{0%{opacity:0;transform:translateX(-40px) rotate(-12deg)}100%{transform:none}}@keyframes bm1qxkpizmfr{0%{opacity:0;transform:translateX(40px) rotate(12deg)}100%{transform:none}}@keyframes bm1qxkpizmdrop{0%{opacity:0;transform:translateY(-30px) scale(.4)}70%{transform:translateY(2px) scale(1.1)}100%{transform:none}}.bm1qxkpizm .p1{animation:bm1qxkpizmfl .8s cubic-bezier(.2,1.2,.3,1) both}.bm1qxkpizm .p2{animation:bm1qxkpizmfr .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bm1qxkpizm .p3{animation:bm1qxkpizmdrop .7s cubic-bezier(.2,1.5,.3,1) .55s both}.bm1qxkpizm .p4{opacity:0;animation:bm1qxkpizmfd .4s ease .95s forwards}@keyframes bm1qxkpizmfd{to{opacity:1}}}</style><g class="mk"><g class="p1"><rect x="22" y="54" width="56" height="24" rx="7" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="32" y="34" width="36" height="22" rx="7" fill="var(--sa)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><circle cx="50" cy="26" r="6" fill="var(--accent-2)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g><path class="p4" d="M50 20 q3 -6 8 -7" stroke="var(--ink)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ك</span><span class="en">C</span></span></div>
+    <div class="brandlogo big" aria-hidden="true"><style>.L4l04nk .glow{transform-origin:center;animation:L4l04nk_halo .7s cubic-bezier(.2,1.3,.3,1) both,L4l04nk_pulse 3.4s ease-in-out 1s infinite}
+.L4l04nk .beam,.L4l04nk .cord{stroke-linecap:round}
+.L4l04nk .cord{stroke-dasharray:26;stroke-dashoffset:26;animation:L4l04nk_draw .5s ease .15s forwards}
+.L4l04nk .beam{stroke-dasharray:46;stroke-dashoffset:46;animation:L4l04nk_draw .6s ease 1.05s forwards}
+.L4l04nk .hook{transform-origin:center;animation:L4l04nk_pop .5s cubic-bezier(.2,1.3,.3,1) .15s both}
+.L4l04nk .cap{transform-origin:center;animation:L4l04nk_drop .6s cubic-bezier(.2,1.3,.3,1) .35s both}
+.L4l04nk .body{transform-origin:50% 100%;animation:L4l04nk_up .7s cubic-bezier(.2,1.3,.3,1) .45s both}
+.L4l04nk .foot{transform-origin:center;animation:L4l04nk_up .6s cubic-bezier(.2,1.3,.3,1) .62s both}
+.L4l04nk .inner{animation:L4l04nk_fade .6s ease .82s both}
+.L4l04nk .moon{transform-origin:center;animation:L4l04nk_flyR .7s cubic-bezier(.2,1.3,.3,1) .55s both,L4l04nk_twk 3s ease-in-out 1.5s infinite}
+.L4l04nk .heart{transform-origin:center;animation:L4l04nk_pop .6s cubic-bezier(.2,1.3,.3,1) .95s both,L4l04nk_beat 2.6s ease-in-out 1.7s infinite}
+.L4l04nk .spark{transform-origin:center}
+.L4l04nk .s1{animation:L4l04nk_pop .5s cubic-bezier(.2,1.3,.3,1) 1s both,L4l04nk_tw 2.1s ease-in-out 1.6s infinite}
+.L4l04nk .s2{animation:L4l04nk_pop .5s cubic-bezier(.2,1.3,.3,1) 1.15s both,L4l04nk_tw 2.4s ease-in-out 1.8s infinite}
+.L4l04nk .s3{animation:L4l04nk_pop .5s cubic-bezier(.2,1.3,.3,1) 1.3s both,L4l04nk_tw 2s ease-in-out 2s infinite}
+.L4l04nk .s4{animation:L4l04nk_pop .5s cubic-bezier(.2,1.3,.3,1) 1.45s both,L4l04nk_tw 2.6s ease-in-out 2.2s infinite}
+@keyframes L4l04nk_halo{0%{opacity:0;transform:scale(.5)}100%{opacity:.5;transform:scale(1)}}
+@keyframes L4l04nk_pulse{0%,100%{opacity:.38;transform:scale(1)}50%{opacity:.62;transform:scale(1.1)}}
+@keyframes L4l04nk_draw{to{stroke-dashoffset:0}}
+@keyframes L4l04nk_pop{0%{opacity:0;transform:scale(0)}100%{opacity:1;transform:scale(1)}}
+@keyframes L4l04nk_drop{0%{opacity:0;transform:translateY(-26px)}100%{opacity:1;transform:translateY(0)}}
+@keyframes L4l04nk_up{0%{opacity:0;transform:translateY(34px) scale(.72)}100%{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes L4l04nk_fade{0%{opacity:0}100%{opacity:.3}}
+@keyframes L4l04nk_flyR{0%{opacity:0;transform:translateX(28px) rotate(34deg)}100%{opacity:1;transform:translateX(0) rotate(0)}}
+@keyframes L4l04nk_twk{0%,100%{opacity:1}50%{opacity:.68}}
+@keyframes L4l04nk_beat{0%,100%{transform:scale(1)}50%{transform:scale(1.13)}}
+@keyframes L4l04nk_tw{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.65)}}</style><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle class="L4l04nk glow" cx="60" cy="64" r="33" fill="var(--la)"/><path class="L4l04nk moon" d="M94 21 A12 12 0 1 0 94 45 A9 9 0 1 1 94 21 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4" stroke-linejoin="round"/><line class="L4l04nk cord" x1="60" y1="14" x2="60" y2="34" stroke="var(--lk)" stroke-width="4"/><circle class="L4l04nk hook" cx="60" cy="12" r="4" fill="var(--lp)" stroke="var(--lk)" stroke-width="4"/><path class="L4l04nk cap" d="M50 40 L54 30 L66 30 L70 40 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="4.5" stroke-linejoin="round"/><rect class="L4l04nk body" x="38" y="40" width="44" height="48" rx="16" fill="var(--lp)" stroke="var(--lk)" stroke-width="5" stroke-linejoin="round"/><rect class="L4l04nk inner" x="44" y="46" width="32" height="36" rx="11" fill="var(--la)"/><rect class="L4l04nk foot" x="52" y="86" width="16" height="6" rx="3" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4"/><path class="L4l04nk heart" d="M60 75 C51 66 46 62 46 56.5 C46 51.5 50 48 54 48 C57 48 59 50 60 52 C61 50 63 48 66 48 C70 48 74 51.5 74 56.5 C74 62 69 66 60 75 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="4" stroke-linejoin="round"/><path class="L4l04nk beam" d="M40 96 Q60 103 80 96" stroke="var(--la2)" stroke-width="4" fill="none"/><path class="L4l04nk spark s1" d="M26 38 L27.6 42.4 L32 44 L27.6 45.6 L26 50 L24.4 45.6 L20 44 L24.4 42.4 Z" fill="var(--la2)"/><path class="L4l04nk spark s2" d="M96 56 L97.6 60.4 L102 62 L97.6 63.6 L96 68 L94.4 63.6 L90 62 L94.4 60.4 Z" fill="var(--la)"/><path class="L4l04nk spark s3" d="M30 83 L31.3 86.7 L35 88 L31.3 89.3 L30 93 L28.7 89.3 L25 88 L28.7 86.7 Z" fill="var(--la)"/><path class="L4l04nk spark s4" d="M90 79 L91.3 82.7 L95 84 L91.3 85.3 L90 89 L88.7 85.3 L85 84 L88.7 82.7 Z" fill="var(--la2)"/></svg></div>
+    <div class="medal"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><span><span class="ar">ك</span><span class="en">C</span></span></div>
     <h1><span class="ar">كافيدا</span><span class="en">Cavida Cafe</span></h1>
     <div class="world"><span class="ar">✦ <b>ركن يضوي وسط ليل المدينة</b> ✦</span><span class="en">✦ <b>a glowing corner in the sleeping city</b> ✦</span></div>
     <div class="heroline"><span class="ar">المدينة نامت وضوّنا شغّال</span><span class="en">the city sleeps, our glow doesn't</span></div>
@@ -701,6 +752,7 @@ body::after{
     <span class="en">📱 Live digital menu: scan the table QR — menu-sadah.com/cavida-cafe</span>
   </div>
   <div class="footer">
+    <div class="brandlogo mini" aria-hidden="true"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle class="L4l04nk glow" cx="60" cy="64" r="33" fill="var(--la)"/><path class="L4l04nk moon" d="M94 21 A12 12 0 1 0 94 45 A9 9 0 1 1 94 21 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4" stroke-linejoin="round"/><line class="L4l04nk cord" x1="60" y1="14" x2="60" y2="34" stroke="var(--lk)" stroke-width="4"/><circle class="L4l04nk hook" cx="60" cy="12" r="4" fill="var(--lp)" stroke="var(--lk)" stroke-width="4"/><path class="L4l04nk cap" d="M50 40 L54 30 L66 30 L70 40 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="4.5" stroke-linejoin="round"/><rect class="L4l04nk body" x="38" y="40" width="44" height="48" rx="16" fill="var(--lp)" stroke="var(--lk)" stroke-width="5" stroke-linejoin="round"/><rect class="L4l04nk inner" x="44" y="46" width="32" height="36" rx="11" fill="var(--la)"/><rect class="L4l04nk foot" x="52" y="86" width="16" height="6" rx="3" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4"/><path class="L4l04nk heart" d="M60 75 C51 66 46 62 46 56.5 C46 51.5 50 48 54 48 C57 48 59 50 60 52 C61 50 63 48 66 48 C70 48 74 51.5 74 56.5 C74 62 69 66 60 75 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="4" stroke-linejoin="round"/><path class="L4l04nk beam" d="M40 96 Q60 103 80 96" stroke="var(--la2)" stroke-width="4" fill="none"/><path class="L4l04nk spark s1" d="M26 38 L27.6 42.4 L32 44 L27.6 45.6 L26 50 L24.4 45.6 L20 44 L24.4 42.4 Z" fill="var(--la2)"/><path class="L4l04nk spark s2" d="M96 56 L97.6 60.4 L102 62 L97.6 63.6 L96 68 L94.4 63.6 L90 62 L94.4 60.4 Z" fill="var(--la)"/><path class="L4l04nk spark s3" d="M30 83 L31.3 86.7 L35 88 L31.3 89.3 L30 93 L28.7 89.3 L25 88 L28.7 86.7 Z" fill="var(--la)"/><path class="L4l04nk spark s4" d="M90 79 L91.3 82.7 L95 84 L91.3 85.3 L90 89 L88.7 85.3 L85 84 L88.7 82.7 Z" fill="var(--la2)"/></svg></div>
     <div style="margin-bottom:6px;color:var(--text-2)"><span class="ar">تابعوا كافيدا: <b style="color:var(--accent)">@cavida.cafe</b></span><span class="en">Follow Cavida Cafe: <b style="color:var(--accent)">@cavida.cafe</b></span></div>
     <span class="ar">تجربة من <a href="https://menu-sadah.com">منيو سادة — MENU SADAH</a></span>
     <span class="en">Crafted by <a href="https://menu-sadah.com">MENU SADAH</a></span>

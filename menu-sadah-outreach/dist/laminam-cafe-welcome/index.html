@@ -292,6 +292,16 @@ body{
   @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}
     .medal,h1,.world,.heroline,.cta,.rv{opacity:1!important;transform:none!important}
     .sting-wash{display:none!important}.curtain{display:none!important}}
+  .brandlogo{--lk:var(--ink);--la:var(--rose);--ls:var(--gold);--ls2:var(--sage);--la2:var(--ochre);--lp:var(--paper,#fffdf6);line-height:0}
+  .brandlogo svg{display:block;overflow:visible;width:100%;height:auto}
+  .brandlogo *{transform-box:fill-box;transform-origin:center}
+  .brandlogo.big{width:min(196px,54vw);margin:2px auto 8px}
+  .brandlogo.big svg{filter:drop-shadow(0 10px 22px var(--accent-soft,rgba(0,0,0,.14)))}
+  .brandlogo.mini{width:60px;margin:0 auto 12px;opacity:.96}
+  @media(min-width:900px){.brandlogo.big{width:236px}.brandlogo.mini{width:70px}}
+  @media(prefers-reduced-motion:reduce){.brandlogo svg *{animation:none!important;opacity:1!important;stroke-dashoffset:0!important;filter:none!important;transform:none!important}}
+  @media print{.brandlogo{display:none!important}}
+  .brandlogo.big{width:min(210px,58vw);margin:6px auto 10px}
 </style>
 <script>
   // CINEMA STING gate — decided before first paint: once per session, never for reduced-motion
@@ -374,7 +384,29 @@ body{
 </svg>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:8px;animation-delay:0s">✤</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:5px;animation-delay:0.7s">❖</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:3px;animation-delay:1.4s">✣</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:9px;animation-delay:2.0999999999999996s">◈</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:9px;animation-delay:2.8s">✤</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:5px;animation-delay:3.5s">❖</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:3px;animation-delay:0.1999999999999993s">✣</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:6px;animation-delay:0.8999999999999995s">◈</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bm1jqqvmow" viewBox="0 0 100 100" fill="none" role="img" aria-label="Laminam Cafe"><style>.bm1jqqvmow{overflow:visible}.bm1jqqvmow *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm1jqqvmow .mk{animation:bm1jqqvmowbob 5s ease-in-out 1.7s infinite}@keyframes bm1jqqvmowbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm1jqqvmowp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bm1jqqvmow .p1{animation:bm1jqqvmowp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bm1jqqvmow .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bm1jqqvmowdr 1s ease .55s forwards}@keyframes bm1jqqvmowdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ل</span><span class="en">L</span></span></div>
+    <div class="brandlogo big" aria-hidden="true"><style>.L1azhe1 .part-base{animation:L1azhe1_slideUp .6s cubic-bezier(.2,1.3,.3,1) .15s both}
+.L1azhe1 .part-arch{transform-origin:60px 20px;animation:L1azhe1_drop .7s cubic-bezier(.2,1.3,.3,1) .3s both}
+.L1azhe1 .part-niche{animation:L1azhe1_fade .5s ease .5s both}
+.L1azhe1 .part-joint{stroke-dasharray:60;animation:L1azhe1_draw .5s ease .6s both}
+.L1azhe1 .part-key{transform-origin:60px 26px;animation:L1azhe1_pop .5s cubic-bezier(.2,1.3,.3,1) .65s both}
+.L1azhe1 .part-tile{transform-origin:60px 48px;animation:L1azhe1_spin .6s cubic-bezier(.2,1.3,.3,1) .75s both}
+.L1azhe1 .part-tile2{transform-origin:60px 48px;animation:L1azhe1_pop .45s cubic-bezier(.2,1.3,.3,1) .9s both}
+.L1azhe1 .part-saucer{animation:L1azhe1_slideUp .5s cubic-bezier(.2,1.3,.3,1) .85s both}
+.L1azhe1 .part-cup{transform-origin:60px 88px;animation:L1azhe1_springUp .55s cubic-bezier(.2,1.3,.3,1) .95s both}
+.L1azhe1 .part-coffee{animation:L1azhe1_fade .4s ease 1.15s both}
+.L1azhe1 .part-steam{transform-origin:60px 74px;animation:L1azhe1_steam 3.4s ease-in-out 1.2s infinite}
+.L1azhe1 .part-steam.s2{animation-delay:2s}
+.L1azhe1 .part-tw{transform-origin:74px 34px;animation:L1azhe1_tw 2.8s ease-in-out 1.4s infinite}
+@keyframes L1azhe1_slideUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes L1azhe1_drop{from{opacity:0;transform:translateY(-55px)}to{opacity:1;transform:translateY(0)}}
+@keyframes L1azhe1_pop{from{opacity:0;transform:scale(0)}to{opacity:1;transform:scale(1)}}
+@keyframes L1azhe1_spin{from{opacity:0;transform:scale(0) rotate(-120deg)}to{opacity:1;transform:scale(1) rotate(0)}}
+@keyframes L1azhe1_springUp{from{opacity:0;transform:translateY(30px) scale(.6)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes L1azhe1_fade{from{opacity:0}to{opacity:1}}
+@keyframes L1azhe1_draw{from{stroke-dashoffset:60}to{stroke-dashoffset:0}}
+@keyframes L1azhe1_steam{0%{opacity:0;transform:translateY(5px) scale(1)}25%{opacity:.85}100%{opacity:0;transform:translateY(-11px) scale(1.05)}}
+@keyframes L1azhe1_tw{0%,100%{opacity:.2;transform:scale(.7)}50%{opacity:1;transform:scale(1.15)}}</style><svg viewBox="0 0 120 120" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect class="L1azhe1 part-base" x="22" y="92" width="76" height="13" rx="4" fill="var(--ls2)" stroke="var(--lk)" stroke-width="5"/><g class="L1azhe1 part-arch"><path d="M28,94 L28,54 Q28,32 60,20 Q92,32 92,54 L92,94 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="5"/></g><path class="L1azhe1 part-niche" d="M38,94 L38,56 Q38,39 60,29 Q82,39 82,56 L82,94 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="4"/><path class="L1azhe1 part-joint" d="M38,56 L28,54" stroke="var(--lk)" stroke-width="3"/><path class="L1azhe1 part-joint" d="M82,56 L92,54" stroke="var(--lk)" stroke-width="3"/><path class="L1azhe1 part-key" d="M51,32 L60,20 L69,32 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="4"/><path class="L1azhe1 part-tile" d="M60,37 L71,48 L60,59 L49,48 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="4"/><path class="L1azhe1 part-tile2" d="M60,42 L65,48 L60,54 L55,48 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="2.5"/><path class="L1azhe1 part-steam" d="M57,74 q-3,-4 0,-7 q3,-3 0,-7" stroke="var(--la2)" stroke-width="3"/><path class="L1azhe1 part-steam s2" d="M63,74 q3,-4 0,-7 q-3,-3 0,-7" stroke="var(--la2)" stroke-width="3"/><ellipse class="L1azhe1 part-saucer" cx="60" cy="92" rx="12" ry="3" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4"/><g class="L1azhe1 part-cup"><path d="M53,76 L67,76 L64,90 L56,90 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="4"/><path d="M67,79 q6,1 3,7" stroke="var(--lk)" stroke-width="4"/></g><ellipse class="L1azhe1 part-coffee" cx="60" cy="76" rx="7" ry="2.2" fill="var(--la)" stroke="var(--lk)" stroke-width="2.5"/><path class="L1azhe1 part-tw" d="M74,30 L75.5,33 L78,34 L75.5,35 L74,38 L72.5,35 L70,34 L72.5,33 Z" fill="var(--la2)"/></svg></div>
+    <div class="medal"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><span><span class="ar">ل</span><span class="en">L</span></span></div>
     <h1><span class="ar">أهلاً ببيت <b>لامي نم</b></span><span class="en">Welcome home, <b>Laminam Cafe</b>.</span></h1>
     <div class="world"><span class="ar">✦ مجلس هادي بضو خافت ✦</span><span class="en">✦ a quiet majlis carved in stone ✦</span></div>
     <div class="heroline hand"><span class="ar">ادخل بهدوء واقعد براحتك</span><span class="en">settle in, softly</span></div>

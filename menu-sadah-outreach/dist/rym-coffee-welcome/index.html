@@ -292,6 +292,16 @@ body{
   @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}
     .medal,h1,.world,.heroline,.cta,.rv{opacity:1!important;transform:none!important}
     .sting-wash{display:none!important}.curtain{display:none!important}}
+  .brandlogo{--lk:var(--ink);--la:var(--rose);--ls:var(--gold);--ls2:var(--sage);--la2:var(--ochre);--lp:var(--paper,#fffdf6);line-height:0}
+  .brandlogo svg{display:block;overflow:visible;width:100%;height:auto}
+  .brandlogo *{transform-box:fill-box;transform-origin:center}
+  .brandlogo.big{width:min(196px,54vw);margin:2px auto 8px}
+  .brandlogo.big svg{filter:drop-shadow(0 10px 22px var(--accent-soft,rgba(0,0,0,.14)))}
+  .brandlogo.mini{width:60px;margin:0 auto 12px;opacity:.96}
+  @media(min-width:900px){.brandlogo.big{width:236px}.brandlogo.mini{width:70px}}
+  @media(prefers-reduced-motion:reduce){.brandlogo svg *{animation:none!important;opacity:1!important;stroke-dashoffset:0!important;filter:none!important;transform:none!important}}
+  @media print{.brandlogo{display:none!important}}
+  .brandlogo.big{width:min(210px,58vw);margin:6px auto 10px}
 </style>
 <script>
   // CINEMA STING gate — decided before first paint: once per session, never for reduced-motion
@@ -374,7 +384,43 @@ body{
 </svg>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:4px;animation-delay:0s">✦</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:3px;animation-delay:0.7s">✧</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:9px;animation-delay:1.4s">⋆</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:5px;animation-delay:2.0999999999999996s">☾</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:3px;animation-delay:2.8s">✦</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:6px;animation-delay:3.5s">✧</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:7px;animation-delay:0.1999999999999993s">⋆</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:8px;animation-delay:0.8999999999999995s">☾</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bm15idv60w" viewBox="0 0 100 100" fill="none" role="img" aria-label="RYM Coffee"><style>.bm15idv60w{overflow:visible}.bm15idv60w *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm15idv60w .mk{animation:bm15idv60wbob 5s ease-in-out 1.7s infinite}@keyframes bm15idv60wbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm15idv60wp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bm15idv60w .p1{animation:bm15idv60wp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bm15idv60w .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bm15idv60wdr 1s ease .55s forwards}@keyframes bm15idv60wdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ك</span><span class="en">R</span></span></div>
+    <div class="brandlogo big" aria-hidden="true"><style>.Lkyw87l .sun{animation:Lkyw87l_rise .9s cubic-bezier(.2,1.3,.3,1) .15s both,Lkyw87l_glow 4.2s ease-in-out 1.7s infinite}
+.Lkyw87l .ray{opacity:0;animation:Lkyw87l_fade .5s ease-out 1.1s forwards}
+.Lkyw87l .gazelle{transform-origin:40px 84px;animation:Lkyw87l_fly .8s cubic-bezier(.2,1.3,.3,1) .45s both,Lkyw87l_sway 5s ease-in-out 1.8s infinite}
+.Lkyw87l .horn{stroke-dasharray:80;stroke-dashoffset:80;animation:Lkyw87l_draw .7s ease-out .8s forwards}
+.Lkyw87l .horn2{animation-delay:.95s}
+.Lkyw87l .ear{transform-origin:68px 55px;animation:Lkyw87l_pop .55s cubic-bezier(.2,1.3,.3,1) .9s both}
+.Lkyw87l .eye{opacity:0;animation:Lkyw87l_fade .4s ease-out 1.25s forwards}
+.Lkyw87l .ripple{stroke-dasharray:60;stroke-dashoffset:60;animation:Lkyw87l_draw .8s ease-out 1s forwards}
+.Lkyw87l .star{transform-origin:95px 24px;opacity:0;animation:Lkyw87l_pop .6s cubic-bezier(.2,1.3,.3,1) 1.35s both,Lkyw87l_twinkle 2.8s ease-in-out 2.1s infinite}
+@keyframes Lkyw87l_rise{0%{transform:translateY(48px) scale(.2);opacity:0}100%{transform:translateY(0) scale(1);opacity:1}}
+@keyframes Lkyw87l_glow{0%,100%{opacity:1}50%{opacity:.82}}
+@keyframes Lkyw87l_fly{0%{transform:translateX(-48px) scale(.5);opacity:0}100%{transform:translateX(0) scale(1);opacity:1}}
+@keyframes Lkyw87l_sway{0%,100%{transform:rotate(0)}50%{transform:rotate(3deg)}}
+@keyframes Lkyw87l_draw{to{stroke-dashoffset:0}}
+@keyframes Lkyw87l_pop{0%{transform:scale(0);opacity:0}100%{transform:scale(1);opacity:1}}
+@keyframes Lkyw87l_fade{to{opacity:1}}
+@keyframes Lkyw87l_twinkle{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.5);opacity:.5}}</style><svg viewBox="0 0 120 120" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<circle class="Lkyw87l sun" cx="60" cy="62" r="29" fill="var(--la)" stroke="var(--lk)" stroke-width="5"/>
+<g stroke="var(--la2)" stroke-width="4">
+<line class="Lkyw87l ray" x1="32" y1="50" x2="24" y2="47"/>
+<line class="Lkyw87l ray" x1="30" y1="62" x2="21" y2="62"/>
+<line class="Lkyw87l ray" x1="33" y1="74" x2="26" y2="79"/>
+</g>
+<g class="Lkyw87l gazelle">
+<path class="Lkyw87l head" d="M40 84 C36 74 42 60 56 54 C68 49 74 64 71 78 C68 90 50 94 40 84 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="5"/>
+<path class="Lkyw87l ear" d="M64 56 C66 48 72 48 72 54 C72 58 68 60 64 56 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4"/>
+<path class="Lkyw87l horn" d="M55 55 C58 42 66 36 74 33" stroke="var(--lk)" stroke-width="5"/>
+<path class="Lkyw87l horn horn2" d="M60 54 C64 43 71 39 80 37" stroke="var(--lk)" stroke-width="5"/>
+<circle class="Lkyw87l eye" cx="51" cy="66" r="2.6" fill="var(--lk)"/>
+</g>
+<g class="Lkyw87l ripple" stroke="var(--la)" stroke-width="4">
+<path d="M34 100 q6 5 12 0 q6 5 12 0"/>
+<path d="M42 108 q5 4 10 0 q5 4 10 0"/>
+</g>
+<path class="Lkyw87l star" d="M95 14 L98 22 L106 24 L98 26 L95 34 L92 26 L84 24 L92 22 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="3"/>
+</svg></div>
+    <div class="medal"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><span><span class="ar">ك</span><span class="en">R</span></span></div>
     <h1><span class="ar">أهلاً ببيت <b>كوفي ريم</b></span><span class="en">Welcome home, <b>RYM Coffee</b>.</span></h1>
     <div class="world"><span class="ar">✦ مورد الريم عند الفجر ✦</span><span class="en">✦ where the gazelle drinks at dawn ✦</span></div>
     <div class="heroline hand"><span class="ar">صباحك غزال ورايق</span><span class="en">a morning soft as a gazelle</span></div>

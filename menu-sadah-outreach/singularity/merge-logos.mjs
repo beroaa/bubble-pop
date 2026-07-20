@@ -57,7 +57,11 @@ function validSvg(svg) {
   return null;
 }
 
-const defence = (s) => String(s || '').replace(/^\s*```[a-z]*\s*\n?/i, '').replace(/\n?```\s*$/i, '').trim();
+// some models return SVG/CSS with < > & escaped as HTML entities inside structured-output strings
+const unescapeHtml = (s) => String(s || '')
+  .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"')
+  .replace(/&#0?39;/g, "'").replace(/&apos;/g, "'").replace(/&#x2F;/gi, '/').replace(/&amp;/g, '&');
+const defence = (s) => unescapeHtml(String(s || '').replace(/^\s*```[a-z]*\s*\n?/i, '').replace(/\n?```\s*$/i, '').trim());
 
 const raw = existsSync(RAW) ? JSON.parse(readFileSync(RAW, 'utf8')) : [];
 const items = Array.isArray(raw) ? raw : Object.values(raw);

@@ -272,6 +272,16 @@ body{
   @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}
     .medal,h1,.world,.heroline,.cta,.rv{opacity:1!important;transform:none!important}
     .sting-wash{display:none!important}.curtain{display:none!important}}
+  .brandlogo{--lk:var(--ink);--la:var(--rose);--ls:var(--gold);--ls2:var(--sage);--la2:var(--ochre);--lp:var(--paper,#fffdf6);line-height:0}
+  .brandlogo svg{display:block;overflow:visible;width:100%;height:auto}
+  .brandlogo *{transform-box:fill-box;transform-origin:center}
+  .brandlogo.big{width:min(196px,54vw);margin:2px auto 8px}
+  .brandlogo.big svg{filter:drop-shadow(0 10px 22px var(--accent-soft,rgba(0,0,0,.14)))}
+  .brandlogo.mini{width:60px;margin:0 auto 12px;opacity:.96}
+  @media(min-width:900px){.brandlogo.big{width:236px}.brandlogo.mini{width:70px}}
+  @media(prefers-reduced-motion:reduce){.brandlogo svg *{animation:none!important;opacity:1!important;stroke-dashoffset:0!important;filter:none!important;transform:none!important}}
+  @media print{.brandlogo{display:none!important}}
+  .brandlogo.big{width:min(210px,58vw);margin:6px auto 10px}
 </style>
 <script>
   // CINEMA STING gate — decided before first paint: once per session, never for reduced-motion
@@ -342,7 +352,56 @@ body{
 </svg>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:13px;animation-delay:0s">☁</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:14px;animation-delay:0.7s">☁</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:11px;animation-delay:1.4s">☁</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:10px;animation-delay:2.0999999999999996s">☁</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:13px;animation-delay:2.8s">☁</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:11px;animation-delay:3.5s">☁</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:13px;animation-delay:0.1999999999999993s">☁</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:11px;animation-delay:0.8999999999999995s">☁</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bmx8uiz9w" viewBox="0 0 100 100" fill="none" role="img" aria-label="Sakaf Specialty Coffee"><style>.bmx8uiz9w{overflow:visible}.bmx8uiz9w *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bmx8uiz9w .mk{animation:bmx8uiz9wbob 5s ease-in-out 1.7s infinite}@keyframes bmx8uiz9wbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bmx8uiz9wp1{0%{opacity:0;transform:scale(.2) rotate(-70deg)}60%{opacity:1;transform:scale(1.08) rotate(6deg)}100%{transform:none}}.bmx8uiz9w .p1{animation:bmx8uiz9wp1 .9s cubic-bezier(.2,1.3,.3,1) both}.bmx8uiz9w .p2{stroke-dasharray:130;stroke-dashoffset:130;animation:bmx8uiz9wdr 1s ease .55s forwards}@keyframes bmx8uiz9wdr{to{stroke-dashoffset:0}}}</style><g class="mk"><g class="p1"><ellipse cx="50" cy="51" rx="25" ry="33" fill="var(--rose)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 50 51)"/></g><path class="p2" d="M51 22 C42 37,60 64,49 80" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">س</span><span class="en">S</span></span></div>
+    <div class="brandlogo big" aria-hidden="true"><style>.L13xv69w{overflow:visible}
+.L13xv69w .part-rays{opacity:0;transform-origin:62px 40px;animation:L13xv69w_fade .5s ease-out 1s forwards,L13xv69w_glow 3.6s ease-in-out 1.7s infinite}
+.L13xv69w .part-sun{transform-origin:62px 52px;animation:L13xv69w_rise .8s cubic-bezier(.2,1.3,.3,1) .6s both}
+.L13xv69w .part-roof{transform-origin:60px 48px;animation:L13xv69w_drop .7s cubic-bezier(.2,1.3,.3,1) .15s both}
+.L13xv69w .part-postL,.L13xv69w .part-postR{stroke-dasharray:56;stroke-dashoffset:56;animation:L13xv69w_draw .55s ease-out .45s forwards}
+.L13xv69w .part-postR{animation-delay:.58s}
+.L13xv69w .part-ground{stroke-dasharray:92;stroke-dashoffset:92;animation:L13xv69w_draw .6s ease-out .3s forwards}
+.L13xv69w .part-cup{transform-origin:60px 90px;animation:L13xv69w_pop .6s cubic-bezier(.2,1.3,.3,1) .8s both}
+.L13xv69w .part-cloud{transform-origin:34px 26px;animation:L13xv69w_drift .9s cubic-bezier(.2,1.3,.3,1) .95s both,L13xv69w_sway 6s ease-in-out 1.95s infinite}
+.L13xv69w .part-steam{opacity:0;transform-origin:60px 72px;animation:L13xv69w_fade .5s ease-out 1.25s forwards,L13xv69w_steam 3s ease-in-out 1.9s infinite}
+@keyframes L13xv69w_drop{from{transform:translateY(-46px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes L13xv69w_rise{from{transform:translateY(30px) scale(.7);opacity:0}to{transform:translateY(0) scale(1);opacity:1}}
+@keyframes L13xv69w_draw{to{stroke-dashoffset:0}}
+@keyframes L13xv69w_pop{from{transform:scale(0) translateY(12px);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
+@keyframes L13xv69w_drift{from{transform:translateX(-36px);opacity:0}to{transform:translateX(0);opacity:1}}
+@keyframes L13xv69w_fade{to{opacity:1}}
+@keyframes L13xv69w_glow{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.08)}}
+@keyframes L13xv69w_sway{0%,100%{transform:translateX(0)}50%{transform:translateX(7px)}}
+@keyframes L13xv69w_steam{0%{transform:translateY(3px);opacity:.65}50%{transform:translateY(-4px);opacity:1}100%{transform:translateY(3px);opacity:.65}}</style><svg viewBox="0 0 120 120" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<g class="L13xv69w part-sun">
+<g class="L13xv69w part-rays" stroke="var(--la2)" stroke-width="4">
+<line x1="62" y1="24" x2="62" y2="14"/>
+<line x1="74" y1="28" x2="79" y2="22"/>
+<line x1="50" y1="28" x2="45" y2="22"/>
+<line x1="79" y1="37" x2="85" y2="34"/>
+<line x1="45" y1="37" x2="39" y2="34"/>
+</g>
+<circle cx="62" cy="42" r="14" fill="var(--la2)" stroke="var(--lk)" stroke-width="4"/>
+</g>
+<line class="L13xv69w part-postL" x1="30" y1="56" x2="30" y2="96" stroke="var(--lk)" stroke-width="5"/>
+<line class="L13xv69w part-postR" x1="90" y1="50" x2="90" y2="96" stroke="var(--lk)" stroke-width="5"/>
+<g class="L13xv69w part-roof">
+<polygon points="17,49 103,40 103,50 17,58" fill="var(--la)" stroke="var(--lk)" stroke-width="5"/>
+<line x1="24" y1="52" x2="96" y2="45" stroke="var(--lk)" stroke-width="2"/>
+</g>
+<g class="L13xv69w part-cloud">
+<path d="M20,33 q-5,-9 6,-8 q1,-10 13,-7 q9,-4 9,7 q7,0 3,8 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="4"/>
+</g>
+<line class="L13xv69w part-ground" x1="18" y1="96" x2="102" y2="96" stroke="var(--lk)" stroke-width="5"/>
+<g class="L13xv69w part-steam" stroke="var(--lk)" stroke-width="3" fill="none">
+<path d="M54,71 q-5,-6 0,-11 q5,-5 0,-10"/>
+<path d="M66,71 q5,-6 0,-11 q-5,-5 0,-10"/>
+</g>
+<g class="L13xv69w part-cup">
+<ellipse cx="60" cy="92" rx="19" ry="4" fill="var(--ls)" stroke="var(--lk)" stroke-width="4"/>
+<path d="M72,76 q10,1 6,10 q-2,4 -7,2" fill="none" stroke="var(--lk)" stroke-width="4"/>
+<path d="M47,74 L73,74 L69,89 Q60,92 51,89 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4"/>
+</g>
+</svg></div>
+    <div class="medal"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><span><span class="ar">س</span><span class="en">S</span></span></div>
     <h1><span class="ar">أهلاً ببيت <b>سكـف قهوة مختصة</b></span><span class="en">Welcome home, <b>Sakaf Specialty Coffee</b>.</span></h1>
     <div class="world"><span class="ar">✦ سقيفة ظلها بارد وقت الضحى ✦</span><span class="en">✦ a shaded porch at mid-morning ✦</span></div>
     <div class="heroline hand"><span class="ar">خذ لك ظل وفنجال</span><span class="en">take a seat in the shade</span></div>

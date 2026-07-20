@@ -45,7 +45,7 @@
   .medal .logo{width:84%;height:84%;object-fit:contain;border-radius:50%;position:relative;z-index:1}
   .medal.haslogo>span{display:none}
   @keyframes mfloat{50%{transform:translateY(-6px)}}
-  h1{font-size:36px;letter-spacing:-.01em;line-height:1.2}
+  h1{font-size:clamp(41px,11.5vw,54px);font-weight:800;letter-spacing:-.02em;line-height:1.08}
   h1 .ar{font-family:'Rakkas',serif}
   h1 .en{font-family:'Anton',sans-serif}
   /* gradient-clip only AFTER word entrance — transformed child spans break background-clip:text in Chrome */
@@ -62,7 +62,7 @@
     100%{opacity:1;transform:none}}
   .world{margin-top:10px;color:var(--text-3);font-size:13px;letter-spacing:.08em}
   .world b{color:#d37385;font-weight:600}
-  .heroline{margin-top:8px;color:var(--text-2);font-size:19px;line-height:1.5}
+  .heroline{margin-top:10px;color:var(--text-2);font-size:22px;font-weight:600;line-height:1.45}
   .heroline .ar{font-family:'Rakkas',serif}
   .heroline .en{font-family:'Anton',sans-serif}
   .meta{margin-top:14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
@@ -108,7 +108,7 @@
   @keyframes sfloat{50%{transform:translateY(-5px)}}
   .sig-art{width:74px;height:74px;margin:0 auto 8px}
   .sig-art svg{width:100%;height:100%;filter:drop-shadow(0 6px 14px #cf68b259)}
-  .sig-name{font-size:14.5px;font-weight:600;line-height:1.35}
+  .sig-name{font-size:16px;font-weight:700;line-height:1.32}
   .stamp{display:inline-flex;align-items:baseline;gap:3px;margin-top:8px;padding:3px 12px;border:1.7px solid var(--sa);
     border-radius:999px;color:var(--sa);font-weight:800;font-size:16px;transform:rotate(-4deg);
     box-shadow:0 0 0 3px #cf68b20f}
@@ -137,8 +137,8 @@
   .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
     box-shadow:inset 0 0 0 1px #cf68b255}
   .cat-title{flex:1;min-width:0}
-  .room-eyebrow{color:var(--text-3);font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:3px}
-  .room-h2{color:var(--sa);font-size:22px;line-height:1.3}
+  .room-eyebrow{color:var(--text-3);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+  .room-h2{color:var(--sa);font-size:28px;font-weight:800;line-height:1.14;letter-spacing:-.01em}
   .room-h2 .ar{font-family:'Rakkas',serif}
   .room-h2 .en{font-family:'Anton',sans-serif}
   /* self-drawing ink underline: a hand-wavy SVG stroke that draws itself on reveal */
@@ -160,11 +160,11 @@
   @keyframes sepidle{0%,100%{transform:translateX(0);opacity:.82}50%{transform:translateX(calc(6px * var(--tx,1)));opacity:1}}
 
   .items{position:relative;background:#23161fd9;border:1px solid var(--border-1);border-radius:20px;padding:6px 18px;box-shadow:var(--shadow)}
-  .item{display:flex;align-items:baseline;gap:10px;padding:15px 0;border-bottom:1px solid #2e1f2a99}
+  .item{display:flex;align-items:baseline;gap:10px;padding:16px 0;border-bottom:1px solid #2e1f2a99}
   .item:last-child{border-bottom:none}
-  .item-name{font-size:16px}
+  .item-name{font-size:18.5px;font-weight:600;line-height:1.32;letter-spacing:-.004em}
   .dots{flex:1;border-bottom:1px dotted var(--border-2);transform:translateY(-4px)}
-  .price{color:var(--sa);font-weight:800;white-space:nowrap;font-variant-numeric:tabular-nums;display:flex;align-items:baseline;gap:6px}
+  .price{color:var(--sa);font-weight:800;font-size:18px;white-space:nowrap;font-variant-numeric:tabular-nums;display:flex;align-items:baseline;gap:6px}
   .pdot{width:6px;height:6px;border-radius:50%;background:var(--sa);opacity:0;transform:scale(0)}
   .reveal.in .pdot{animation:dotpop .45s cubic-bezier(.2,1.6,.4,1) forwards}
   @keyframes dotpop{0%{opacity:0;transform:scale(0)}70%{opacity:1;transform:scale(1.5)}100%{opacity:.9;transform:scale(1)}}
@@ -237,17 +237,18 @@
     .hero{min-height:62vh;display:flex;flex-direction:column;justify-content:center;padding:40px 0 14px}
     .medal{width:136px;height:136px}
     .medal span{font-size:58px}
-    h1{font-size:66px}
+    h1{font-size:clamp(66px,8vw,84px)}
     .world{font-size:15px;margin-top:16px}
-    .heroline{font-size:27px;margin-top:12px}
-    .room-h2{font-size:34px}
-    .room-voice{font-size:17px}
-    .inkline{width:min(190px,72%)}
+    .heroline{font-size:30px;margin-top:14px}
+    .room-h2{font-size:42px}
+    .room-voice{font-size:18px}
+    .inkline{width:min(200px,72%)}
     .inkline path{stroke-width:2.6}
     .cat-art{width:96px;height:96px}
     .items{padding:10px 30px}
-    .item{padding:18px 0}
-    .item-name{font-size:17.5px}
+    .item{padding:20px 0}
+    .item-name{font-size:20px}
+    .price{font-size:20px}
     .sig-art{width:96px;height:96px}
     .sig{padding:26px 22px 24px}
     .diary{max-width:480px;font-size:17px}
@@ -382,10 +383,33 @@ body::after{
   .medal.hasmark>span{display:none}
 
 
+  /* ---- BOLD BRAND TYPOGRAPHY: confident scale + neon-arcade voice + animated headers ---- */
+  .room-eyebrow{font-weight:800}
+  .room-eyebrow{letter-spacing:.34em}
+    .room-h2{text-transform:uppercase;letter-spacing:.05em;font-weight:800}
+    .item-name{font-weight:600}
+    .price{letter-spacing:.02em}
+  @media (prefers-reduced-motion:no-preference){
+    .reveal .room-h2,.reveal .room-eyebrow{opacity:0}
+    .reveal.in .room-eyebrow{animation:rhk .5s ease .05s forwards}
+    .reveal.in .room-h2{animation:rh2in .62s ease .12s forwards}
+    @keyframes rh2in{0%{opacity:0;filter:blur(5px)}100%{opacity:1;filter:blur(0)}}
+    @keyframes rhk{to{opacity:1}}
+  }
+  .brandlogo{--lk:var(--ink);--la:var(--accent);--ls:var(--sa);--ls2:var(--sa2);--la2:var(--accent-2);--lp:var(--bg-1);line-height:0}
+  .brandlogo svg{display:block;overflow:visible;width:100%;height:auto}
+  .brandlogo *{transform-box:fill-box;transform-origin:center}
+  .brandlogo.big{width:min(196px,54vw);margin:2px auto 8px}
+  .brandlogo.big svg{filter:drop-shadow(0 10px 22px var(--accent-soft,rgba(0,0,0,.14)))}
+  .brandlogo.mini{width:60px;margin:0 auto 12px;opacity:.96}
+  @media(min-width:900px){.brandlogo.big{width:236px}.brandlogo.mini{width:70px}}
+  @media(prefers-reduced-motion:reduce){.brandlogo svg *{animation:none!important;opacity:1!important;stroke-dashoffset:0!important;filter:none!important;transform:none!important}}
+  @media print{.brandlogo{display:none!important}}
+
 
   @media (prefers-reduced-motion: reduce){
     *{animation:none!important;transition:none!important}
-    .reveal,.reveal.in .item,.heroline,.world,.meta,.greet,h1 .w,h1 .lt{opacity:1!important;transform:none!important}
+    .reveal,.reveal.in .item,.heroline,.world,.meta,.greet,h1 .w,h1 .lt,.reveal .room-h2,.reveal .room-eyebrow{opacity:1!important;transform:none!important;filter:none!important}
     .room-voice{opacity:.85!important;transform:none!important}
     .sep,.sep-scene{animation:none!important;transform:none!important}
     .pdot{opacity:.9!important;transform:scale(1)!important}
@@ -405,7 +429,7 @@ body::after{
     .cat-art,.sig-art,.brandshots,.diary,.pdot,.brandbg,.sadu-band,.najdi{display:none!important}
     .wrap{max-width:100%;padding:0}
     .hero{min-height:0!important;padding:0 0 8px!important;display:block!important}
-    .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item{opacity:1!important;transform:none!important}
+    .greet,.world,.heroline,.meta,h1 .w,h1 .lt,.reveal,.reveal .item,.reveal .room-h2,.reveal .room-eyebrow{opacity:1!important;transform:none!important;filter:none!important}
     h1{color:#000!important;background:none!important;-webkit-text-fill-color:#000!important;font-size:30px!important}
     .medal{width:70px!important;height:70px!important;margin-bottom:8px;border-color:#000!important;background:#fff!important}
     .medal .mark{display:none!important}
@@ -468,7 +492,39 @@ body::after{
 <path class="nz-neon" d="M0 401h1200" fill="none" stroke="#cf68b2" stroke-width="2.2"/>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="medal hasmark"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><svg class="mark bm1s354uam" viewBox="0 0 100 100" fill="none" role="img" aria-label="Chimney Cafe"><style>.bm1s354uam{overflow:visible}.bm1s354uam *{transform-box:fill-box;transform-origin:center}@media (prefers-reduced-motion:no-preference){.bm1s354uam .mk{animation:bm1s354uambob 5s ease-in-out 1.7s infinite}@keyframes bm1s354uambob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}@keyframes bm1s354uamfl{0%{opacity:0;transform:translateX(-40px) rotate(-12deg)}100%{transform:none}}@keyframes bm1s354uamfr{0%{opacity:0;transform:translateX(40px) rotate(12deg)}100%{transform:none}}@keyframes bm1s354uamdrop{0%{opacity:0;transform:translateY(-30px) scale(.4)}70%{transform:translateY(2px) scale(1.1)}100%{transform:none}}.bm1s354uam .p1{animation:bm1s354uamfl .8s cubic-bezier(.2,1.2,.3,1) both}.bm1s354uam .p2{animation:bm1s354uamfr .8s cubic-bezier(.2,1.2,.3,1) .2s both}.bm1s354uam .p3{animation:bm1s354uamdrop .7s cubic-bezier(.2,1.5,.3,1) .55s both}.bm1s354uam .p4{opacity:0;animation:bm1s354uamfd .4s ease .95s forwards}@keyframes bm1s354uamfd{to{opacity:1}}}</style><g class="mk"><g class="p1"><rect x="22" y="54" width="56" height="24" rx="7" fill="var(--accent)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p2"><rect x="32" y="34" width="36" height="22" rx="7" fill="var(--sa)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g><g class="p3"><circle cx="50" cy="26" r="6" fill="var(--accent-2)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g><path class="p4" d="M50 20 q3 -6 8 -7" stroke="var(--ink)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></g></svg><span><span class="ar">ت</span><span class="en">C</span></span></div>
+    <div class="brandlogo big" aria-hidden="true"><style>.L1co5ft5 .part-body{animation:L1co5ft5_up .7s cubic-bezier(.2,1.3,.3,1) .15s both}
+.L1co5ft5 .part-cap{animation:L1co5ft5_down .7s cubic-bezier(.2,1.3,.3,1) .45s both}
+.L1co5ft5 .part-glow{transform-origin:60px 53px;animation:L1co5ft5_pop .6s cubic-bezier(.2,1.3,.3,1) .8s both,L1co5ft5_glow 2.6s ease-in-out 2s infinite}
+.L1co5ft5 .part-bricks{animation:L1co5ft5_fade .6s ease-out .95s both}
+.L1co5ft5 .part-steam{stroke-dasharray:150;stroke-dashoffset:150;transform-origin:60px 46px;animation:L1co5ft5_draw .9s ease-out 1s both,L1co5ft5_sway 4.5s ease-in-out 2.2s infinite}
+.L1co5ft5 .spark1{transform-origin:28px 34px;animation:L1co5ft5_pop .5s cubic-bezier(.2,1.3,.3,1) 1.15s both,L1co5ft5_tw 2.2s ease-in-out 2.1s infinite}
+.L1co5ft5 .spark2{transform-origin:90px 40px;animation:L1co5ft5_pop .5s cubic-bezier(.2,1.3,.3,1) 1.3s both,L1co5ft5_tw 2.4s ease-in-out 2.5s infinite}
+.L1co5ft5 .spark3{transform-origin:74px 15px;animation:L1co5ft5_pop .5s cubic-bezier(.2,1.3,.3,1) 1.45s both,L1co5ft5_tw 2s ease-in-out 2.3s infinite}
+@keyframes L1co5ft5_up{from{transform:translateY(42px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes L1co5ft5_down{from{transform:translateY(-40px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes L1co5ft5_pop{from{transform:scale(0)}to{transform:scale(1)}}
+@keyframes L1co5ft5_fade{from{opacity:0}to{opacity:1}}
+@keyframes L1co5ft5_draw{to{stroke-dashoffset:0}}
+@keyframes L1co5ft5_sway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes L1co5ft5_tw{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.55);opacity:.4}}
+@keyframes L1co5ft5_glow{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.15);opacity:.75}}</style><svg viewBox="0 0 120 120" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path class="L1co5ft5 part-steam" d="M60 46 C46 40 46 30 60 30 C74 30 74 20 60 20 C50 20 50 12 60 9" stroke="var(--lk)" stroke-width="5"/>
+<g class="L1co5ft5 part-body">
+<path d="M40 101 L45 60 L75 60 L80 101 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="5"/>
+<g class="L1co5ft5 part-bricks" stroke="var(--lk)" stroke-width="3">
+<path d="M43 75 H77"/><path d="M42 89 H78"/>
+<path d="M60 60 V75"/><path d="M52 75 V89"/><path d="M68 75 V89"/>
+</g>
+</g>
+<g class="L1co5ft5 part-cap">
+<rect x="36" y="47" width="48" height="14" rx="4" fill="var(--la)" stroke="var(--lk)" stroke-width="5"/>
+<ellipse class="L1co5ft5 part-glow" cx="60" cy="53" rx="15" ry="4" fill="var(--la2)"/>
+</g>
+<path class="L1co5ft5 spark1" d="M28 27 L30.5 31.5 L35 34 L30.5 36.5 L28 41 L25.5 36.5 L21 34 L25.5 31.5 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2.5"/>
+<path class="L1co5ft5 spark2" d="M90 33 L92.5 37.5 L97 40 L92.5 42.5 L90 47 L87.5 42.5 L83 40 L87.5 37.5 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2.5"/>
+<path class="L1co5ft5 spark3" d="M74 9 L76 13.5 L80 15 L76 16.5 L74 21 L72 16.5 L68 15 L72 13.5 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2.5"/>
+</svg></div>
+    <div class="medal"><svg class="najdi" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false"><rect x="24" y="24" width="52" height="52" rx="2" transform="rotate(45 50 50)" fill="none" stroke="var(--ink)" stroke-width="2.4"/><g class="nch" fill="var(--ink)"><path d="M50 4 L45 13 L55 13 Z"/><path d="M96 50 L87 45 L87 55 Z"/><path d="M50 96 L45 87 L55 87 Z"/><path d="M4 50 L13 45 L13 55 Z"/></g></svg><span><span class="ar">ت</span><span class="en">C</span></span></div>
     <h1><span class="ar">تشيمني كافيه</span><span class="en">Chimney Cafe</span></h1>
     <div class="world"><span class="ar">✦ <b>سهرة حلا تحت الأضواء</b> ✦</span><span class="en">✦ <b>a dessert run under city lights</b> ✦</span></div>
     <div class="heroline"><span class="ar">سهرتك تبدأ من هنا</span><span class="en">the night tastes sweeter here</span></div>
@@ -679,6 +735,23 @@ body::after{
     <span class="en">📱 Live digital menu: scan the table QR — menu-sadah.com/chimney-cafe</span>
   </div>
   <div class="footer">
+    <div class="brandlogo mini" aria-hidden="true"><svg viewBox="0 0 120 120" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path class="L1co5ft5 part-steam" d="M60 46 C46 40 46 30 60 30 C74 30 74 20 60 20 C50 20 50 12 60 9" stroke="var(--lk)" stroke-width="5"/>
+<g class="L1co5ft5 part-body">
+<path d="M40 101 L45 60 L75 60 L80 101 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="5"/>
+<g class="L1co5ft5 part-bricks" stroke="var(--lk)" stroke-width="3">
+<path d="M43 75 H77"/><path d="M42 89 H78"/>
+<path d="M60 60 V75"/><path d="M52 75 V89"/><path d="M68 75 V89"/>
+</g>
+</g>
+<g class="L1co5ft5 part-cap">
+<rect x="36" y="47" width="48" height="14" rx="4" fill="var(--la)" stroke="var(--lk)" stroke-width="5"/>
+<ellipse class="L1co5ft5 part-glow" cx="60" cy="53" rx="15" ry="4" fill="var(--la2)"/>
+</g>
+<path class="L1co5ft5 spark1" d="M28 27 L30.5 31.5 L35 34 L30.5 36.5 L28 41 L25.5 36.5 L21 34 L25.5 31.5 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2.5"/>
+<path class="L1co5ft5 spark2" d="M90 33 L92.5 37.5 L97 40 L92.5 42.5 L90 47 L87.5 42.5 L83 40 L87.5 37.5 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2.5"/>
+<path class="L1co5ft5 spark3" d="M74 9 L76 13.5 L80 15 L76 16.5 L74 21 L72 16.5 L68 15 L72 13.5 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2.5"/>
+</svg></div>
     <div style="margin-bottom:6px;color:var(--text-2)"><span class="ar">تابعوا تشيمني كافيه: <b style="color:var(--accent)">@chimneycafe.ksa</b></span><span class="en">Follow Chimney Cafe: <b style="color:var(--accent)">@chimneycafe.ksa</b></span></div>
     <span class="ar">تجربة من <a href="https://menu-sadah.com">منيو سادة — MENU SADAH</a></span>
     <span class="en">Crafted by <a href="https://menu-sadah.com">MENU SADAH</a></span>
