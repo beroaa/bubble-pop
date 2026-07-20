@@ -60,6 +60,10 @@
   .sig-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
   .sig-card{background:var(--bg-1);border:1px solid var(--border-2);border-radius:var(--radius);padding:14px 12px;text-align:center;box-shadow:var(--shadow)}
   .sig-art{width:74px;height:74px;margin:0 auto 8px}
+  
+  .dlh-svg{cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .18s ease}
+  .dlh-svg:hover{transform:scale(1.05)}.dlh-svg:active{transform:scale(.96)}
+  .dlh-svg:focus-visible{outline:2px solid #925f26;outline-offset:3px;border-radius:8px}
   .sig-art svg{width:100%;height:100%;filter:drop-shadow(0 6px 14px #925f2659)}
   .sig-name{font-size:14.5px;font-weight:600;line-height:1.35}
   .sig-price{margin-top:6px;color:var(--accent);font-weight:800;font-size:17px}
@@ -300,7 +304,23 @@
   <section class="cat reveal" id="cat-3">
     <div class="cat-head">
       <div class="cat-art">
-        <div class="cat-svg"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gs" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c5ac44"/><stop offset="1" stop-color="#925f26"/></linearGradient></defs><path d="M46 34h28l6 34a20 14 0 0 1-40 0z" fill="url(#gs)"/><path d="M50 30h20l3 6H47z" fill="#925f26"/><path d="M58 22h4v8h-4z" fill="#925f26"/><circle cx="60" cy="18" r="4" fill="#c5ac44"/><path d="M46 40c-9 2-13 10-9 17 3 5 8 6 11 5" fill="none" stroke="#925f26" stroke-width="5" stroke-linecap="round"/><path d="M74 38l6-10 5 3-6 10" fill="#925f26"/><ellipse cx="60" cy="96" rx="28" ry="4" fill="#000" opacity=".3"/></svg></div>
+        <div class="cat-svg"><svg class="dlh-svg" role="button" tabindex="0" aria-label="اسمع صوت صب القهوة · pour sound" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-linejoin="round" stroke-linecap="round"><defs><linearGradient id="dBody" x1=".28" y1="0" x2=".8" y2="1"><stop offset="0" stop-color="#f7e6ab"/><stop offset=".26" stop-color="#e6bd5c"/><stop offset=".58" stop-color="#c6902c"/><stop offset="1" stop-color="#785318"/></linearGradient><linearGradient id="dGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#faefc6"/><stop offset=".5" stop-color="#d9ad48"/><stop offset="1" stop-color="#87611e"/></linearGradient><radialGradient id="dSheen" cx=".36" cy=".26" r=".6"><stop offset="0" stop-color="#fff9e6" stop-opacity=".9"/><stop offset=".55" stop-color="#fff9e6" stop-opacity="0"/></radialGradient></defs><style>
+.dlh *{transform-box:fill-box}
+.dlh-pot{transform-origin:62px 96px;animation:dlhTilt 6.5s cubic-bezier(.4,0,.3,1) infinite}
+.dlh-stream{opacity:0;animation:dlhPour 6.5s ease-in-out infinite}
+.dlh-drop{opacity:0;animation:dlhDrop 6.5s ease-in-out infinite}
+.dlh-steam{transform-origin:center;opacity:0;animation:dlhSteam 3.2s ease-in-out infinite}
+.dlh-steam.s2{animation-delay:1.6s}
+.dlh-cres{transform-origin:center;animation:dlhTw 2.6s ease-in-out infinite}
+.dlh-band{animation:dlhBand 3.2s ease-in-out infinite}
+@keyframes dlhTilt{0%,58%,100%{transform:rotate(0)}70%,86%{transform:rotate(-21deg)}}
+@keyframes dlhPour{0%,63%,100%{opacity:0}72%{opacity:0}74%,84%{opacity:.95}88%{opacity:0}}
+@keyframes dlhDrop{0%,70%,100%{opacity:0;transform:translateY(0)}76%{opacity:.9;transform:translateY(0)}90%{opacity:0;transform:translateY(16px)}}
+@keyframes dlhSteam{0%{opacity:0;transform:translateY(3px) scaleX(1)}35%{opacity:.65}100%{opacity:0;transform:translateY(-15px) scaleX(1.7)}}
+@keyframes dlhTw{0%,100%{opacity:.55;transform:scale(.88)}50%{opacity:1;transform:scale(1.18)}}
+@keyframes dlhBand{0%,100%{opacity:.4}50%{opacity:.95}}
+@media (prefers-reduced-motion:reduce){.dlh-pot,.dlh-stream,.dlh-drop,.dlh-steam,.dlh-cres,.dlh-band{animation:none}.dlh-stream,.dlh-drop,.dlh-steam{opacity:0}}
+</style><g class="dlh"><ellipse cx="60" cy="106" rx="22" ry="3.4" fill="#000" opacity=".2"/><path class="dlh-steam" d="M64 30 q6 -7 1 -14 q-4 -6 1 -12" stroke="#e8cf8e" stroke-width="2.4" opacity=".5"/><path class="dlh-steam s2" d="M56 30 q-6 -7 -1 -14 q4 -6 -1 -12" stroke="#e8cf8e" stroke-width="2.1" opacity=".42"/><g class="dlh-pot"><path d="M45 99 Q60 104 75 99 L71 93 L49 93 Z" fill="url(#dGold)" stroke="#3d2c10" stroke-width="1.4"/><path d="M49 93 Q41 80 42 63 Q43 50 60 47 Q77 50 78 63 Q79 80 71 93 Z" fill="url(#dBody)" stroke="#3d2c10" stroke-width="1.6"/><path d="M52 91 Q45 79 46 64 Q47 54 57 51 Q53 56 52 65 Q51 80 56 91 Z" fill="url(#dSheen)"/><path class="dlh-band" d="M45 73 Q60 79 75 73" stroke="#5c3d12" stroke-width="2" opacity=".5"/><path class="dlh-band" d="M45 71 Q60 77 75 71" stroke="#faefc6" stroke-width="1" opacity=".6"/><path d="M47 62 Q60 67 73 62" stroke="#5c3d12" stroke-width="1.5" opacity=".4"/><path d="M53 47 Q52 41 60 41 Q68 41 67 47" fill="url(#dGold)" stroke="#3d2c10" stroke-width="1.4"/><path d="M53 44 Q33 41 22 22 Q20.5 18.5 25 18 Q33 34 55 41 Z" fill="url(#dGold)" stroke="#3d2c10" stroke-width="1.4"/><path d="M50 42 Q34 38 26 24" stroke="#faefc6" stroke-width="1" opacity=".5"/><path d="M67 47 Q85 49 85 68 Q85 81 74 84" stroke="#3d2c10" stroke-width="4"/><path d="M67 47 Q85 49 85 68 Q85 81 74 84" stroke="url(#dGold)" stroke-width="2.4"/><path d="M69 49 Q83 51 83 66" stroke="#faefc6" stroke-width=".9" opacity=".5"/><path d="M50 41 Q60 27 70 41 Z" fill="url(#dGold)" stroke="#3d2c10" stroke-width="1.4"/><path d="M54 38 Q59 30 63 34" stroke="#faefc6" stroke-width="1" opacity=".55"/><path d="M60 28 L60 18" stroke="#3d2c10" stroke-width="2"/><path class="dlh-cres" d="M56 16 A5 5 0 1 0 62 12 A3.6 3.6 0 1 1 56 16 Z" fill="url(#dGold)" stroke="#3d2c10" stroke-width="1.4"/><path class="dlh-stream" d="M22 22 q-5 10 -4 22" stroke="#e8cf8e" stroke-width="3" stroke-linecap="round"/><ellipse class="dlh-drop" cx="18" cy="46" rx="2.6" ry="3.4" fill="#e8cf8e"/></g></g></svg></div>
         <img src="../assets/photos/saudi.jpg" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
@@ -385,7 +405,7 @@
   // word-by-word hero entrance (word-level keeps Arabic letter joining intact)
   if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
     document.querySelectorAll('h1 .ar, h1 .en').forEach(el=>{
-      const words=el.textContent.trim().split(/s+/);
+      const words=el.textContent.trim().split(/\s+/);
       el.innerHTML=words.map((w,i)=>'<span class="w" style="animation-delay:'+(0.35+i*0.12)+'s">'+w+'</span>').join(' ');
     });
     setTimeout(()=>{
@@ -393,6 +413,43 @@
       document.querySelector('h1').classList.add('shimmer');
     },2400);
   }
+  
+  (function(){
+    var pots=document.querySelectorAll('.dlh-svg'); if(!pots.length) return;
+    var AC=window.AudioContext||window.webkitAudioContext; if(!AC) return;
+    var ctx=null, busy=false;
+    function pour(){
+      if(busy) return; busy=true;
+      try{ ctx=ctx||new AC(); }catch(e){ busy=false; return; }
+      if(ctx.state==='suspended') ctx.resume();
+      var t0=ctx.currentTime, DUR=2.2;
+      var n=ctx.sampleRate*DUR, buf=ctx.createBuffer(1,n,ctx.sampleRate), d=buf.getChannelData(0);
+      for(var i=0;i<n;i++) d[i]=Math.random()*2-1;
+      var src=ctx.createBufferSource(); src.buffer=buf;
+      var bp=ctx.createBiquadFilter(); bp.type='bandpass'; bp.Q.value=0.8;
+      bp.frequency.setValueAtTime(680,t0); bp.frequency.exponentialRampToValueAtTime(1650,t0+DUR*0.9);
+      var lp=ctx.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=3200;
+      var g=ctx.createGain();
+      g.gain.setValueAtTime(0.0001,t0);
+      g.gain.exponentialRampToValueAtTime(0.22,t0+0.18);
+      g.gain.setValueAtTime(0.22,t0+DUR-0.5);
+      g.gain.exponentialRampToValueAtTime(0.0001,t0+DUR);
+      src.connect(bp); bp.connect(lp); lp.connect(g); g.connect(ctx.destination);
+      src.start(t0); src.stop(t0+DUR);
+      for(var k=0;k<7;k++){
+        var gt=t0+0.25+k*0.26+Math.random()*0.05;
+        var o=ctx.createOscillator(); o.type='sine';
+        var f=150-k*9+Math.random()*30; o.frequency.setValueAtTime(f,gt); o.frequency.exponentialRampToValueAtTime(f*0.7,gt+0.09);
+        var og=ctx.createGain(); og.gain.setValueAtTime(0.0001,gt); og.gain.exponentialRampToValueAtTime(0.08,gt+0.012); og.gain.exponentialRampToValueAtTime(0.0001,gt+0.11);
+        o.connect(og); og.connect(ctx.destination); o.start(gt); o.stop(gt+0.13);
+      }
+      setTimeout(function(){busy=false;},DUR*1000);
+    }
+    pots.forEach(function(p){
+      p.addEventListener('click',pour);
+      p.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();pour();}});
+    });
+  })();
 </script>
 </body>
 </html>

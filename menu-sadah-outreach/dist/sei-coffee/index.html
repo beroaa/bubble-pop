@@ -585,6 +585,10 @@ body{
     .print-note{display:block!important;margin-top:16px;text-align:center;font-size:12px;color:#000!important;
       border-top:1px solid #000;padding-top:10px}
   }
+  
+  .dlh-svg{cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .18s ease}
+  .dlh-svg:hover{transform:scale(1.05)}.dlh-svg:active{transform:scale(.96)}
+  .dlh-svg:focus-visible{outline:2px solid #d7c056;outline-offset:3px;border-radius:8px}
 </style>
 </head>
 <body>
@@ -907,7 +911,7 @@ body{
   <section class="cat reveal" id="cat-3" style="--sa:#82adc4;--sa2:#d7c056">
     <div class="cat-head">
       <div class="cat-art">
-        <div class="cat-svg"><svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-linejoin="round" stroke-linecap="round"><defs><linearGradient id="dBody" x1=".28" y1="0" x2=".8" y2="1"><stop offset="0" stop-color="#f7e6ab"/><stop offset=".26" stop-color="#e6bd5c"/><stop offset=".58" stop-color="#c6902c"/><stop offset="1" stop-color="#785318"/></linearGradient><linearGradient id="dGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#faefc6"/><stop offset=".5" stop-color="#d9ad48"/><stop offset="1" stop-color="#87611e"/></linearGradient><radialGradient id="dSheen" cx=".36" cy=".26" r=".6"><stop offset="0" stop-color="#fff9e6" stop-opacity=".9"/><stop offset=".55" stop-color="#fff9e6" stop-opacity="0"/></radialGradient></defs><style>
+        <div class="cat-svg"><svg class="dlh-svg" role="button" tabindex="0" aria-label="اسمع صوت صب القهوة · pour sound" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-linejoin="round" stroke-linecap="round"><defs><linearGradient id="dBody" x1=".28" y1="0" x2=".8" y2="1"><stop offset="0" stop-color="#f7e6ab"/><stop offset=".26" stop-color="#e6bd5c"/><stop offset=".58" stop-color="#c6902c"/><stop offset="1" stop-color="#785318"/></linearGradient><linearGradient id="dGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#faefc6"/><stop offset=".5" stop-color="#d9ad48"/><stop offset="1" stop-color="#87611e"/></linearGradient><radialGradient id="dSheen" cx=".36" cy=".26" r=".6"><stop offset="0" stop-color="#fff9e6" stop-opacity=".9"/><stop offset=".55" stop-color="#fff9e6" stop-opacity="0"/></radialGradient></defs><style>
 .dlh *{transform-box:fill-box}
 .dlh-pot{transform-origin:62px 96px;animation:dlhTilt 6.5s cubic-bezier(.4,0,.3,1) infinite}
 .dlh-stream{opacity:0;animation:dlhPour 6.5s ease-in-out infinite}
@@ -1237,6 +1241,43 @@ body{
       dial.textContent=forcedNight?'☾':'☀';
       dial.setAttribute('aria-pressed',String(forcedNight));
       lerp();
+    });
+  })();
+  
+  (function(){
+    var pots=document.querySelectorAll('.dlh-svg'); if(!pots.length) return;
+    var AC=window.AudioContext||window.webkitAudioContext; if(!AC) return;
+    var ctx=null, busy=false;
+    function pour(){
+      if(busy) return; busy=true;
+      try{ ctx=ctx||new AC(); }catch(e){ busy=false; return; }
+      if(ctx.state==='suspended') ctx.resume();
+      var t0=ctx.currentTime, DUR=2.2;
+      var n=ctx.sampleRate*DUR, buf=ctx.createBuffer(1,n,ctx.sampleRate), d=buf.getChannelData(0);
+      for(var i=0;i<n;i++) d[i]=Math.random()*2-1;
+      var src=ctx.createBufferSource(); src.buffer=buf;
+      var bp=ctx.createBiquadFilter(); bp.type='bandpass'; bp.Q.value=0.8;
+      bp.frequency.setValueAtTime(680,t0); bp.frequency.exponentialRampToValueAtTime(1650,t0+DUR*0.9);
+      var lp=ctx.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=3200;
+      var g=ctx.createGain();
+      g.gain.setValueAtTime(0.0001,t0);
+      g.gain.exponentialRampToValueAtTime(0.22,t0+0.18);
+      g.gain.setValueAtTime(0.22,t0+DUR-0.5);
+      g.gain.exponentialRampToValueAtTime(0.0001,t0+DUR);
+      src.connect(bp); bp.connect(lp); lp.connect(g); g.connect(ctx.destination);
+      src.start(t0); src.stop(t0+DUR);
+      for(var k=0;k<7;k++){
+        var gt=t0+0.25+k*0.26+Math.random()*0.05;
+        var o=ctx.createOscillator(); o.type='sine';
+        var f=150-k*9+Math.random()*30; o.frequency.setValueAtTime(f,gt); o.frequency.exponentialRampToValueAtTime(f*0.7,gt+0.09);
+        var og=ctx.createGain(); og.gain.setValueAtTime(0.0001,gt); og.gain.exponentialRampToValueAtTime(0.08,gt+0.012); og.gain.exponentialRampToValueAtTime(0.0001,gt+0.11);
+        o.connect(og); og.connect(ctx.destination); o.start(gt); o.stop(gt+0.13);
+      }
+      setTimeout(function(){busy=false;},DUR*1000);
+    }
+    pots.forEach(function(p){
+      p.addEventListener('click',pour);
+      p.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();pour();}});
     });
   })();
 </script>

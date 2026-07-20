@@ -7,7 +7,7 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { CONTACT } from '../cafes.mjs';
-import { ART, artFor } from './pages-luxe.mjs';
+import { ART, artFor, pourCss, POUR_JS } from './pages-luxe.mjs';
 import { SCENES } from './scenes/index.mjs';
 
 /* ---------- VISUALS-FIRST law: per-cafe photo mode ----------
@@ -1186,6 +1186,7 @@ ${shots.length ? `
     .print-note{display:block!important;margin-top:16px;text-align:center;font-size:12px;color:#000!important;
       border-top:1px solid #000;padding-top:10px}
   }
+  ${pourCss(a)}
 </style>
 </head>
 <body>
@@ -1433,6 +1434,7 @@ ${cafePhone
       lerp();
     });
   })();
+  ${POUR_JS}
 </script>
 </body>
 </html>`;

@@ -60,6 +60,10 @@
   .sig-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
   .sig-card{background:var(--bg-1);border:1px solid var(--border-2);border-radius:var(--radius);padding:14px 12px;text-align:center;box-shadow:var(--shadow)}
   .sig-art{width:74px;height:74px;margin:0 auto 8px}
+  
+  .dlh-svg{cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .18s ease}
+  .dlh-svg:hover{transform:scale(1.05)}.dlh-svg:active{transform:scale(.96)}
+  .dlh-svg:focus-visible{outline:2px solid #966522;outline-offset:3px;border-radius:8px}
   .sig-art svg{width:100%;height:100%;filter:drop-shadow(0 6px 14px #96652259)}
   .sig-name{font-size:14.5px;font-weight:600;line-height:1.35}
   .sig-price{margin-top:6px;color:var(--accent);font-weight:800;font-size:17px}
@@ -331,7 +335,7 @@
   // word-by-word hero entrance (word-level keeps Arabic letter joining intact)
   if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
     document.querySelectorAll('h1 .ar, h1 .en').forEach(el=>{
-      const words=el.textContent.trim().split(/s+/);
+      const words=el.textContent.trim().split(/\s+/);
       el.innerHTML=words.map((w,i)=>'<span class="w" style="animation-delay:'+(0.35+i*0.12)+'s">'+w+'</span>').join(' ');
     });
     setTimeout(()=>{
@@ -339,6 +343,43 @@
       document.querySelector('h1').classList.add('shimmer');
     },2400);
   }
+  
+  (function(){
+    var pots=document.querySelectorAll('.dlh-svg'); if(!pots.length) return;
+    var AC=window.AudioContext||window.webkitAudioContext; if(!AC) return;
+    var ctx=null, busy=false;
+    function pour(){
+      if(busy) return; busy=true;
+      try{ ctx=ctx||new AC(); }catch(e){ busy=false; return; }
+      if(ctx.state==='suspended') ctx.resume();
+      var t0=ctx.currentTime, DUR=2.2;
+      var n=ctx.sampleRate*DUR, buf=ctx.createBuffer(1,n,ctx.sampleRate), d=buf.getChannelData(0);
+      for(var i=0;i<n;i++) d[i]=Math.random()*2-1;
+      var src=ctx.createBufferSource(); src.buffer=buf;
+      var bp=ctx.createBiquadFilter(); bp.type='bandpass'; bp.Q.value=0.8;
+      bp.frequency.setValueAtTime(680,t0); bp.frequency.exponentialRampToValueAtTime(1650,t0+DUR*0.9);
+      var lp=ctx.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=3200;
+      var g=ctx.createGain();
+      g.gain.setValueAtTime(0.0001,t0);
+      g.gain.exponentialRampToValueAtTime(0.22,t0+0.18);
+      g.gain.setValueAtTime(0.22,t0+DUR-0.5);
+      g.gain.exponentialRampToValueAtTime(0.0001,t0+DUR);
+      src.connect(bp); bp.connect(lp); lp.connect(g); g.connect(ctx.destination);
+      src.start(t0); src.stop(t0+DUR);
+      for(var k=0;k<7;k++){
+        var gt=t0+0.25+k*0.26+Math.random()*0.05;
+        var o=ctx.createOscillator(); o.type='sine';
+        var f=150-k*9+Math.random()*30; o.frequency.setValueAtTime(f,gt); o.frequency.exponentialRampToValueAtTime(f*0.7,gt+0.09);
+        var og=ctx.createGain(); og.gain.setValueAtTime(0.0001,gt); og.gain.exponentialRampToValueAtTime(0.08,gt+0.012); og.gain.exponentialRampToValueAtTime(0.0001,gt+0.11);
+        o.connect(og); og.connect(ctx.destination); o.start(gt); o.stop(gt+0.13);
+      }
+      setTimeout(function(){busy=false;},DUR*1000);
+    }
+    pots.forEach(function(p){
+      p.addEventListener('click',pour);
+      p.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();pour();}});
+    });
+  })();
 </script>
 </body>
 </html>
