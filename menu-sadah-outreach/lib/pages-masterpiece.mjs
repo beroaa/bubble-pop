@@ -708,11 +708,11 @@ export function masterpieceMenuPage(cafe, brief) {
     </div>
     <div class="items">
       ${c.items.map(([en, ar, price, sfda], ii) => `
-      <div class="item">
+      <div class="item${ii === 0 ? ' item--feature' : ''}">
         <div class="item-name"><span class="ar">${esc(ar)}</span><span class="en">${esc(en)}</span>
           ${sfda && (sfda.kcal || sfda.caffeine) ? `<span class="sfda"><span class="ar">${sfda.kcal ? esc(String(sfda.kcal)) + ' سعرة' : ''}${sfda.kcal && sfda.caffeine ? ' · ' : ''}${sfda.caffeine ? esc(String(sfda.caffeine)) + ' كافيين' : ''}</span><span class="en">${sfda.kcal ? esc(String(sfda.kcal)) + ' kcal' : ''}${sfda.kcal && sfda.caffeine ? ' · ' : ''}${sfda.caffeine ? esc(String(sfda.caffeine)) + ' caffeine' : ''}</span></span>` : ''}</div>
         <div class="dots"></div>
-        <div class="price"><span class="pdot"></span>${price}<span class="sar"> ${SAR}</span></div>
+        <div class="price"><span class="pdot"></span><span class="pval" data-val="${Number(price) || 0}">${price}</span><span class="sar"> ${SAR}</span></div>
         ${orderChip(en, ar, price, i + '-' + ii)}
       </div>`).join('')}
     </div>
@@ -1000,7 +1000,15 @@ export function masterpieceMenuPage(cafe, brief) {
   .waiter-btn[hidden]{display:none}
 
   /* ---- SELLABLE 4: SFDA calorie layer — honest placeholders, zero invented numbers ---- */
-  .sfda{display:block;margin-top:2px;font-size:10.5px;letter-spacing:.05em;color:var(--text-3);font-variant-numeric:tabular-nums}
+  /* WAVE 4: SFDA as a designed micro-badge (legal requirement → premium credibility signal) */
+  .sfda{display:inline-block;margin-top:5px;font-size:10.5px;letter-spacing:.03em;color:var(--text-2);font-variant-numeric:tabular-nums;
+    background:var(--accent-soft);border:1px solid ${a}44;border-radius:999px;padding:1.5px 9px;line-height:1.5}
+  /* WAVE 4: the first item opens each room a touch stronger */
+  .item--feature .item-name{font-weight:800}
+  .item--feature .item-name .ar,.item--feature .item-name .en{font-size:1.05em}
+  .item--feature{position:relative}
+  .item--feature::before{content:"";position:absolute;inset-inline-start:-14px;top:19px;width:5px;height:5px;border-radius:50%;background:var(--sa)}
+  [dir="ltr"] .item--feature::before{inset-inline-start:-12px}
   .sfda-legend{margin-top:10px;text-align:center;font-size:12px;color:var(--text-3);line-height:1.6}
   .print-note{display:none}
   ${wa ? `.wa{position:fixed;bottom:18px;inset-inline-start:18px;z-index:30;background:#1faa53;color:#fff;border-radius:999px;
@@ -1236,7 +1244,17 @@ ${cafePhone
   function setLang(l){root.setAttribute('data-lang',l);root.setAttribute('lang',l);root.setAttribute('dir',l==='ar'?'rtl':'ltr');
     const t=document.getElementById('langToggle');if(t)t.textContent=l==='ar'?'English':'العربية';localStorage.setItem('ms-lang',l);}
   document.getElementById('langToggle').addEventListener('click',()=>{setLang(root.getAttribute('data-lang')==='ar'?'en':'ar');});
-  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08});
+  var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function countUp(root){
+    root.querySelectorAll('.pval').forEach(function(el){
+      if(el.dataset.done)return; el.dataset.done='1';
+      var to=parseFloat(el.getAttribute('data-val'))||0; if(RM||to<=0){el.textContent=to;return;}
+      var dur=650, t0=performance.now();
+      function step(now){var p=Math.min((now-t0)/dur,1); var v=Math.round(to*(1-Math.pow(1-p,3))); el.textContent=v; if(p<1)requestAnimationFrame(step); else el.textContent=to;}
+      requestAnimationFrame(step);
+    });
+  }
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');countUp(e.target);io.unobserve(e.target);}}),{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   // scroll-spy: light the category chip for the room currently in view (award e-menu pattern)
   try{

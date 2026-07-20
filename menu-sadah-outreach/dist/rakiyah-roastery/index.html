@@ -280,7 +280,15 @@
   .waiter-btn[hidden]{display:none}
 
   /* ---- SELLABLE 4: SFDA calorie layer — honest placeholders, zero invented numbers ---- */
-  .sfda{display:block;margin-top:2px;font-size:10.5px;letter-spacing:.05em;color:var(--text-3);font-variant-numeric:tabular-nums}
+  /* WAVE 4: SFDA as a designed micro-badge (legal requirement → premium credibility signal) */
+  .sfda{display:inline-block;margin-top:5px;font-size:10.5px;letter-spacing:.03em;color:var(--text-2);font-variant-numeric:tabular-nums;
+    background:var(--accent-soft);border:1px solid #8c502b44;border-radius:999px;padding:1.5px 9px;line-height:1.5}
+  /* WAVE 4: the first item opens each room a touch stronger */
+  .item--feature .item-name{font-weight:800}
+  .item--feature .item-name .ar,.item--feature .item-name .en{font-size:1.05em}
+  .item--feature{position:relative}
+  .item--feature::before{content:"";position:absolute;inset-inline-start:-14px;top:19px;width:5px;height:5px;border-radius:50%;background:var(--sa)}
+  [dir="ltr"] .item--feature::before{inset-inline-start:-12px}
   .sfda-legend{margin-top:10px;text-align:center;font-size:12px;color:var(--text-3);line-height:1.6}
   .print-note{display:none}
   
@@ -690,39 +698,39 @@ body{
     </div>
     <div class="items">
       
-      <div class="item">
+      <div class="item item--feature">
         <div class="item-name"><span class="ar">في60 — إثيوبيا</span><span class="en">V60 — Ethiopia</span>
           </div>
         <div class="dots"></div>
-        <div class="price"><span class="pdot"></span>24<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span><span class="pval" data-val="24">24</span><span class="sar"> ﷼</span></div>
         <button class="order-chip touchable" type="button" data-add data-id="0-0" data-ar="في60 — إثيوبيا" data-en="V60 — Ethiopia" data-price="24" aria-label="في60 — إثيوبيا"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">في60 — كولومبيا</span><span class="en">V60 — Colombia</span>
           </div>
         <div class="dots"></div>
-        <div class="price"><span class="pdot"></span>24<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span><span class="pval" data-val="24">24</span><span class="sar"> ﷼</span></div>
         <button class="order-chip touchable" type="button" data-add data-id="0-1" data-ar="في60 — كولومبيا" data-en="V60 — Colombia" data-price="24" aria-label="في60 — كولومبيا"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">في60 — جيشا بنما</span><span class="en">V60 — Panama Geisha</span>
           </div>
         <div class="dots"></div>
-        <div class="price"><span class="pdot"></span>38<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span><span class="pval" data-val="38">38</span><span class="sar"> ﷼</span></div>
         <button class="order-chip touchable" type="button" data-add data-id="0-2" data-ar="في60 — جيشا بنما" data-en="V60 — Panama Geisha" data-price="38" aria-label="في60 — جيشا بنما"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كيمكس</span><span class="en">Chemex</span>
           </div>
         <div class="dots"></div>
-        <div class="price"><span class="pdot"></span>24<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span><span class="pval" data-val="24">24</span><span class="sar"> ﷼</span></div>
         <button class="order-chip touchable" type="button" data-add data-id="0-3" data-ar="كيمكس" data-en="Chemex" data-price="24" aria-label="كيمكس"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">مقطّرة باردة</span><span class="en">Iced Filter</span>
           </div>
         <div class="dots"></div>
-        <div class="price"><span class="pdot"></span>22<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span><span class="pval" data-val="22">22</span><span class="sar"> ﷼</span></div>
         <button class="order-chip touchable" type="button" data-add data-id="0-4" data-ar="مقطّرة باردة" data-en="Iced Filter" data-price="22" aria-label="مقطّرة باردة"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
     </div>
@@ -761,32 +769,32 @@ body{
     </div>
     <div class="items">
       
-      <div class="item">
+      <div class="item item--feature">
         <div class="item-name"><span class="ar">إسبريسو محصول فردي</span><span class="en">Single-Origin Espresso</span>
           </div>
         <div class="dots"></div>
-        <div class="price"><span class="pdot"></span>14<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span><span class="pval" data-val="14">14</span><span class="sar"> ﷼</span></div>
         <button class="order-chip touchable" type="button" data-add data-id="1-0" data-ar="إسبريسو محصول فردي" data-en="Single-Origin Espresso" data-price="14" aria-label="إسبريسو محصول فردي"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كورتادو</span><span class="en">Cortado</span>
           </div>
         <div class="dots"></div>
-        <div class="price"><span class="pdot"></span>15<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span><span class="pval" data-val="15">15</span><span class="sar"> ﷼</span></div>
         <button class="order-chip touchable" type="button" data-add data-id="1-1" data-ar="كورتادو" data-en="Cortado" data-price="15" aria-label="كورتادو"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">سبانيش لاتيه</span><span class="en">Spanish Latte</span>
           </div>
         <div class="dots"></div>
-        <div class="price"><span class="pdot"></span>20<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span><span class="pval" data-val="20">20</span><span class="sar"> ﷼</span></div>
         <button class="order-chip touchable" type="button" data-add data-id="1-2" data-ar="سبانيش لاتيه" data-en="Spanish Latte" data-price="20" aria-label="سبانيش لاتيه"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">سبانيش لاتيه بارد</span><span class="en">Iced Spanish Latte</span>
           </div>
         <div class="dots"></div>
-        <div class="price"><span class="pdot"></span>21<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span><span class="pval" data-val="21">21</span><span class="sar"> ﷼</span></div>
         <button class="order-chip touchable" type="button" data-add data-id="1-3" data-ar="سبانيش لاتيه بارد" data-en="Iced Spanish Latte" data-price="21" aria-label="سبانيش لاتيه بارد"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
     </div>
@@ -826,32 +834,32 @@ body{
     </div>
     <div class="items">
       
-      <div class="item">
+      <div class="item item--feature">
         <div class="item-name"><span class="ar">٢٥٠ جم — محصول متغيّر</span><span class="en">250g — Rotating Origin</span>
           </div>
         <div class="dots"></div>
-        <div class="price"><span class="pdot"></span>55<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span><span class="pval" data-val="55">55</span><span class="sar"> ﷼</span></div>
         <button class="order-chip touchable" type="button" data-add data-id="2-0" data-ar="٢٥٠ جم — محصول متغيّر" data-en="250g — Rotating Origin" data-price="55" aria-label="٢٥٠ جم — محصول متغيّر"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">٢٥٠ جم — خلطة إسبريسو</span><span class="en">250g — Espresso Blend</span>
           </div>
         <div class="dots"></div>
-        <div class="price"><span class="pdot"></span>48<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span><span class="pval" data-val="48">48</span><span class="sar"> ﷼</span></div>
         <button class="order-chip touchable" type="button" data-add data-id="2-1" data-ar="٢٥٠ جم — خلطة إسبريسو" data-en="250g — Espresso Blend" data-price="48" aria-label="٢٥٠ جم — خلطة إسبريسو"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">كيلو — خلطة المحمصة</span><span class="en">1kg — House Blend</span>
           </div>
         <div class="dots"></div>
-        <div class="price"><span class="pdot"></span>160<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span><span class="pval" data-val="160">160</span><span class="sar"> ﷼</span></div>
         <button class="order-chip touchable" type="button" data-add data-id="2-2" data-ar="كيلو — خلطة المحمصة" data-en="1kg — House Blend" data-price="160" aria-label="كيلو — خلطة المحمصة"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">أظرف تقطير (٥)</span><span class="en">Drip Bags (5)</span>
           </div>
         <div class="dots"></div>
-        <div class="price"><span class="pdot"></span>35<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span><span class="pval" data-val="35">35</span><span class="sar"> ﷼</span></div>
         <button class="order-chip touchable" type="button" data-add data-id="2-3" data-ar="أظرف تقطير (٥)" data-en="Drip Bags (5)" data-price="35" aria-label="أظرف تقطير (٥)"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
     </div>
@@ -890,18 +898,18 @@ body{
     </div>
     <div class="items">
       
-      <div class="item">
+      <div class="item item--feature">
         <div class="item-name"><span class="ar">براوني</span><span class="en">Brownie</span>
           </div>
         <div class="dots"></div>
-        <div class="price"><span class="pdot"></span>16<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span><span class="pval" data-val="16">16</span><span class="sar"> ﷼</span></div>
         <button class="order-chip touchable" type="button" data-add data-id="3-0" data-ar="براوني" data-en="Brownie" data-price="16" aria-label="براوني"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
       <div class="item">
         <div class="item-name"><span class="ar">معمول تمر</span><span class="en">Date Maamoul</span>
           </div>
         <div class="dots"></div>
-        <div class="price"><span class="pdot"></span>9<span class="sar"> ﷼</span></div>
+        <div class="price"><span class="pdot"></span><span class="pval" data-val="9">9</span><span class="sar"> ﷼</span></div>
         <button class="order-chip touchable" type="button" data-add data-id="3-1" data-ar="معمول تمر" data-en="Date Maamoul" data-price="9" aria-label="معمول تمر"><span class="oc-t"><span class="ar">أضف</span><span class="en">Add</span></span><span class="oc-plus">＋</span><span class="oc-q" hidden></span></button>
       </div>
     </div>
@@ -956,7 +964,17 @@ body{
   function setLang(l){root.setAttribute('data-lang',l);root.setAttribute('lang',l);root.setAttribute('dir',l==='ar'?'rtl':'ltr');
     const t=document.getElementById('langToggle');if(t)t.textContent=l==='ar'?'English':'العربية';localStorage.setItem('ms-lang',l);}
   document.getElementById('langToggle').addEventListener('click',()=>{setLang(root.getAttribute('data-lang')==='ar'?'en':'ar');});
-  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08});
+  var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function countUp(root){
+    root.querySelectorAll('.pval').forEach(function(el){
+      if(el.dataset.done)return; el.dataset.done='1';
+      var to=parseFloat(el.getAttribute('data-val'))||0; if(RM||to<=0){el.textContent=to;return;}
+      var dur=650, t0=performance.now();
+      function step(now){var p=Math.min((now-t0)/dur,1); var v=Math.round(to*(1-Math.pow(1-p,3))); el.textContent=v; if(p<1)requestAnimationFrame(step); else el.textContent=to;}
+      requestAnimationFrame(step);
+    });
+  }
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');countUp(e.target);io.unobserve(e.target);}}),{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   // scroll-spy: light the category chip for the room currently in view (award e-menu pattern)
   try{
