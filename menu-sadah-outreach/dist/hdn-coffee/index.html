@@ -96,6 +96,8 @@
   .chip{flex:0 0 auto;text-decoration:none;color:var(--text-2);background:#f8f5f2cc;border:1px solid var(--border-1);
     border-radius:999px;padding:9px 16px;font-size:13.5px;transition:all .2s,transform .18s}
   .chip:hover{color:var(--accent);border-color:var(--accent);box-shadow:0 0 14px #93582533;transform:translateY(-2px)}
+  /* scroll-spy: the chip for the room you're reading lights up (award e-menu pattern) */
+  .chip.active{color:var(--accent);border-color:var(--accent);font-weight:800;box-shadow:inset 0 -3px 0 var(--accent)}
 
   /* ---- signatures with price STAMPS ---- */
   .sig{margin-top:26px;background:linear-gradient(180deg,#93582514,transparent 90%);border:1px solid #93582544;
@@ -137,7 +139,14 @@
   .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
     box-shadow:inset 0 0 0 1px #93582555}
   .cat-title{flex:1;min-width:0}
-  .room-eyebrow{color:var(--text-2);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+  .room-eyebrow{color:var(--text-2);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+  /* editorial department-opener kicker (award e-menu pattern): a metallic numeral leads each room */
+  .room-eyebrow .rnum{font-family:ui-monospace,Menlo,monospace;font-weight:800;color:var(--sa);letter-spacing:.02em;flex:0 0 auto}
+  .room-eyebrow .rnum::after{content:"·";margin-inline-start:8px;color:var(--sa);opacity:.7}
+  .room-eyebrow.rn-only .rnum::after{content:none}
+  [data-lang="ar"] .room-eyebrow{letter-spacing:0}
+  /* sticky category strip must never hide the heading it jumps to */
+  .cat,.sig{scroll-margin-top:66px}
   .room-h2{color:var(--sa);font-size:28px;font-weight:800;line-height:1.14;letter-spacing:-.01em}
   .room-h2 .ar{font-family:'Lalezar',cursive}
   .room-h2 .en{font-family:'Lobster',cursive}
@@ -346,23 +355,27 @@ body{
      the wrapper must clip its own decorative children or dark-mode pages scroll sideways. */
   .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
   .hero{overflow-x:clip}
-  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:linear-gradient(180deg,var(--bg-1),var(--bg-0))}
-.brandbg .glow{position:absolute;top:-20%;left:50%;width:90vw;height:70vh;transform:translateX(-50%);background:radial-gradient(closest-side,color-mix(in srgb,var(--accent) 16%,transparent),transparent 72%);opacity:.6}
-.brandbg .cloud{position:absolute;border-radius:50%;filter:blur(45px);opacity:.3}
-.brandbg .c1{width:44vw;height:24vw;left:-14vw;top:8%;background:var(--accent)}
-.brandbg .c2{width:38vw;height:22vw;right:-12vw;top:42%;background:var(--accent-2)}
-.brandbg .c3{width:34vw;height:20vw;left:6vw;bottom:-6vw;background:var(--accent)}
-.brandbg .mote{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--accent-2);opacity:.5}
-.brandbg .m1{left:22%;top:28%}.brandbg .m2{left:74%;top:20%}.brandbg .m3{left:60%;top:64%}.brandbg .m4{left:36%;top:74%}
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:linear-gradient(165deg,var(--accent),var(--sa) 40%,var(--accent-2) 75%,var(--sa2));background-size:100% 220%}
+.brandbg>i,.brandbg>span{position:absolute;display:block}
+.brandbg .g1{inset:-15% -10% auto -10%;height:60%;background:radial-gradient(60% 100% at 30% 0,var(--sa2),transparent 70%);opacity:.6}
+.brandbg .g2{inset:auto -10% -15% -10%;height:55%;background:radial-gradient(60% 100% at 75% 100%,var(--accent-2),transparent 70%);opacity:.5}
+.brandbg::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 55% at 50% 46%,rgba(255,255,255,.55),rgba(255,255,255,.12) 45%,transparent 68%)}
+.brandbg .c1,.brandbg .c2,.brandbg .c3{border-radius:50%;filter:blur(26px);background:radial-gradient(circle,rgba(255,255,255,.85),transparent 68%)}
+.brandbg .c1{width:46vmax;height:22vmax;inset-block-start:8%;inset-inline-start:-12%}
+.brandbg .c2{width:38vmax;height:18vmax;inset-block-start:30%;inset-inline-end:-10%}
+.brandbg .c3{width:30vmax;height:15vmax;inset-block-end:6%;inset-inline-start:22%;opacity:.7}
+.brandbg .m{inset:0;background-image:radial-gradient(rgba(255,255,255,.7) 1.4px,transparent 1.6px);background-size:64px 64px;opacity:.32}
 @media (prefers-reduced-motion:no-preference){
-.brandbg .cloud{animation:nDrift 30s ease-in-out infinite alternate}
-.brandbg .c2{animation-delay:-10s}.brandbg .c3{animation-delay:-20s}
-.brandbg .glow{animation:nGlow 16s ease-in-out infinite alternate}
-.brandbg .mote{animation:nFloat 20s ease-in-out infinite}
-.brandbg .m2{animation-delay:-5s}.brandbg .m3{animation-delay:-10s}.brandbg .m4{animation-delay:-15s}}
-@keyframes nDrift{to{transform:translateX(6vw)}}
-@keyframes nGlow{to{opacity:.85}}
-@keyframes nFloat{50%{transform:translate(-10px,-16px);opacity:.8}}
+.brandbg{animation:bg_sky 26s ease-in-out infinite}
+.brandbg .c1{animation:bg_dl 34s ease-in-out infinite}
+.brandbg .c2{animation:bg_dr 40s ease-in-out infinite}
+.brandbg .c3{animation:bg_dl 30s ease-in-out infinite}
+.brandbg .m{animation:bg_m 22s linear infinite}
+}
+@keyframes bg_sky{0%,100%{background-position:0 0}50%{background-position:0 40%}}
+@keyframes bg_dl{0%,100%{transform:translateX(0)}50%{transform:translateX(6vmax)}}
+@keyframes bg_dr{0%,100%{transform:translateX(0)}50%{transform:translateX(-6vmax)}}
+@keyframes bg_m{from{background-position:0 0}to{background-position:0 -64px}}
 
   /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
   
@@ -491,7 +504,7 @@ body{
 </style>
 </head>
 <body>
-<div class="brandbg" aria-hidden="true"><div class="glow"></div><div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div><span class="mote m1"></span><span class="mote m2"></span><span class="mote m3"></span><span class="mote m4"></span></div>
+<div class="brandbg" aria-hidden="true"><i class="g1"></i><i class="g2"></i><i class="c1"></i><i class="c2"></i><i class="c3"></i><span class="m"></span></div>
 <button class="lang-toggle touchable" id="langToggle">English</button>
 <div class="bigmark" aria-hidden="true"><span class="ar">ه</span><span class="en">H</span></div>
 <div class="wrap">
@@ -548,42 +561,18 @@ body{
 <rect width="1440" height="900" fill="url(#sblVig)"/>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="brandlogo big" aria-hidden="true"><style>.Lx5seqz .sun{transform-origin:center;animation:Lx5seqz_pop .6s cubic-bezier(.2,1.3,.3,1) .15s both,Lx5seqz_glow 3.6s ease-in-out 1.1s infinite}
-.Lx5seqz .cloud{transform-origin:center bottom;animation:Lx5seqz_rise .7s cubic-bezier(.2,1.3,.3,1) .35s both,Lx5seqz_sway 5.2s ease-in-out 1.4s infinite}
-.Lx5seqz .cup{transform-origin:center bottom;animation:Lx5seqz_drop .7s cubic-bezier(.2,1.3,.3,1) .65s both}
-.Lx5seqz .handle{transform-origin:center;animation:Lx5seqz_pop .5s cubic-bezier(.2,1.3,.3,1) .9s both}
-.Lx5seqz .coffee{animation:Lx5seqz_fadein .5s ease 1s both}
-.Lx5seqz .steam1,.Lx5seqz .steam2{stroke-dasharray:34}
-.Lx5seqz .steam1{transform-origin:center bottom;animation:Lx5seqz_draw .7s ease .95s both,Lx5seqz_steamdrift 3.2s ease-in-out 1.7s infinite}
-.Lx5seqz .steam2{transform-origin:center bottom;animation:Lx5seqz_draw .7s ease 1.1s both,Lx5seqz_steamdrift 3.6s ease-in-out 1.95s infinite}
-.Lx5seqz .twinkle{transform-origin:center;animation:Lx5seqz_pop .5s cubic-bezier(.2,1.3,.3,1) 1.2s both,Lx5seqz_twinkle 2.8s ease-in-out 1.9s infinite}
-@keyframes Lx5seqz_pop{0%{opacity:0;transform:scale(0)}100%{opacity:1;transform:scale(1)}}
-@keyframes Lx5seqz_rise{0%{opacity:0;transform:translateY(42px) scale(.92)}100%{opacity:1;transform:translateY(0) scale(1)}}
-@keyframes Lx5seqz_drop{0%{opacity:0;transform:translateY(-46px) scale(.7)}60%{opacity:1}100%{opacity:1;transform:translateY(0) scale(1)}}
-@keyframes Lx5seqz_draw{0%{stroke-dashoffset:34}100%{stroke-dashoffset:0}}
-@keyframes Lx5seqz_fadein{0%{opacity:0}100%{opacity:1}}
-@keyframes Lx5seqz_glow{0%,100%{opacity:.85;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
-@keyframes Lx5seqz_sway{0%,100%{transform:rotate(-1.6deg)}50%{transform:rotate(1.6deg)}}
-@keyframes Lx5seqz_steamdrift{0%{opacity:.65;transform:translateY(0)}50%{opacity:1;transform:translateY(-3px)}100%{opacity:.65;transform:translateY(0)}}
-@keyframes Lx5seqz_twinkle{0%,100%{opacity:.5;transform:scale(.8) rotate(0)}50%{opacity:1;transform:scale(1.12) rotate(45deg)}}</style><svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g class="Lx5seqz sun">
-<circle cx="90" cy="30" r="11" fill="var(--la2)" stroke="var(--lk)" stroke-width="4"/>
-<line x1="90" y1="14" x2="90" y2="8" stroke="var(--lk)" stroke-width="4" stroke-linecap="round"/>
-<line x1="102" y1="18" x2="106" y2="14" stroke="var(--lk)" stroke-width="4" stroke-linecap="round"/>
-<line x1="106" y1="30" x2="112" y2="30" stroke="var(--lk)" stroke-width="4" stroke-linecap="round"/>
-<line x1="78" y1="18" x2="74" y2="14" stroke="var(--lk)" stroke-width="4" stroke-linecap="round"/>
-</g>
-<path class="Lx5seqz cloud" d="M46,96 q-14,0 -14,-11 q0,-11 12,-11 q1,-13 15,-13 q10,0 12,10 q13,-3 13,11 q0,14 -13,14 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="5" stroke-linejoin="round"/>
-<g class="Lx5seqz cup">
-<path d="M51,44 L69,44 L66,62 Q65,66 60,66 Q55,66 54,62 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="4.5" stroke-linejoin="round"/>
-<path d="M55,49 q-2,7 1,12" fill="none" stroke="var(--lp)" stroke-width="2.5" stroke-linecap="round"/>
-</g>
-<path class="Lx5seqz handle" d="M68,48 q11,1 9,10 q-2,6 -9,4" fill="none" stroke="var(--lk)" stroke-width="4.5" stroke-linecap="round"/>
-<ellipse class="Lx5seqz coffee" cx="60" cy="44" rx="9" ry="3" fill="var(--lk)"/>
-<path class="Lx5seqz steam1" d="M57,41 q-5,-4 -1,-9 q4,-5 0,-10" fill="none" stroke="var(--lk)" stroke-width="4" stroke-linecap="round"/>
-<path class="Lx5seqz steam2" d="M64,41 q5,-4 1,-9 q-4,-5 0,-10" fill="none" stroke="var(--lk)" stroke-width="4" stroke-linecap="round"/>
-<path class="Lx5seqz twinkle" d="M28,37 l3,7 7,3 -7,3 -3,7 -3,-7 -7,-3 7,-3 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2.5" stroke-linejoin="round"/>
-</svg></div>
+    <div class="brandlogo big" aria-hidden="true"><style>.Lx5seqz .cloud,.Lx5seqz .cup,.Lx5seqz .handle,.Lx5seqz .rim,.Lx5seqz .star,.Lx5seqz .steam{transform-box:fill-box;transform-origin:center}
+.Lx5seqz .cloud{animation:Lx5seqz_pop .9s cubic-bezier(.2,1.3,.3,1) .15s both}
+.Lx5seqz .cup{animation:Lx5seqz_pop .9s cubic-bezier(.2,1.3,.3,1) .4s both}
+.Lx5seqz .handle{animation:Lx5seqz_pop .9s cubic-bezier(.2,1.3,.3,1) .55s both}
+.Lx5seqz .rim{animation:Lx5seqz_fade .7s ease .6s both}
+.Lx5seqz .steam{stroke-dasharray:70;stroke-dashoffset:70;animation:Lx5seqz_draw 1.2s ease .7s forwards,Lx5seqz_drift 9s ease-in-out 2s infinite}
+.Lx5seqz .star{animation:Lx5seqz_pop .8s cubic-bezier(.2,1.3,.3,1) .8s both,Lx5seqz_tw 6s ease-in-out 2s infinite}
+@keyframes Lx5seqz_pop{0%{transform:scale(.4);opacity:0}60%{opacity:1}100%{transform:scale(1);opacity:1}}
+@keyframes Lx5seqz_fade{from{opacity:0}to{opacity:1}}
+@keyframes Lx5seqz_draw{to{stroke-dashoffset:0}}
+@keyframes Lx5seqz_drift{0%,100%{opacity:1;transform:translateY(0)}50%{opacity:.55;transform:translateY(-2px)}}
+@keyframes Lx5seqz_tw{0%,100%{opacity:.4;transform:scale(.85)}50%{opacity:1;transform:scale(1.12)}}</style><svg viewBox="0 0 120 120" fill="none"><g class="Lx5seqz cloud"><path d="M32,81 a8,8 0 0 1 -1,-14 a10,10 0 0 1 15,-8 a11,11 0 0 1 21,1 a9,9 0 0 1 14,9 a7,7 0 0 1 -3,12 z" fill="var(--ls)" stroke="var(--lk)" stroke-width="2.6" stroke-linejoin="round"/><path d="M40,81 a6,6 0 0 1 10,-4 a7,7 0 0 1 13,0 a6,6 0 0 1 9,4 z" fill="var(--ls2)"/></g><g class="Lx5seqz cup"><path d="M47,45 L73,45 L70,62 a4,4 0 0 1 -4,3.4 L54,65.4 a4,4 0 0 1 -4,-3.4 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="2.8" stroke-linejoin="round"/><path class="Lx5seqz handle" d="M73,48 c8,0 9,11 -0.5,12" fill="none" stroke="var(--lk)" stroke-width="2.8" stroke-linecap="round"/><ellipse class="Lx5seqz rim" cx="60" cy="45" rx="13.5" ry="3.2" fill="var(--la)"/></g><path class="Lx5seqz steam" d="M55,41 C51,36 59,33 55,28 C51,24 58,21 55,17 M65,41 C69,36 61,33 65,28 C69,24 62,21 65,17" fill="none" stroke="var(--lk)" stroke-width="2.3" stroke-linecap="round"/><path class="Lx5seqz star" d="M92,24 C92.4,28 92.6,28.4 96.5,29 C92.6,29.6 92.4,30 92,34 C91.6,30 91.4,29.6 87.5,29 C91.4,28.4 91.6,28 92,24 Z" fill="var(--la2)"/></svg></div>
     
     <h1><span class="ar">هدن كافيه</span><span class="en">Hdn Coffee</span></h1>
     <div class="world"><span class="ar">✦ <b>هدنة صغيرة من زحمة اليوم</b> ✦</span><span class="en">✦ <b>a small truce with the busy day</b> ✦</span></div>
@@ -606,7 +595,7 @@ body{
         <img src="../assets/photos/hdn-coffee/2.jpg" style="object-position:center 60%" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">البار الحار</span><span class="en">Espresso Bar</span></div>
+        <div class="room-eyebrow"><span class="rnum">01</span><span class="ar">البار الحار</span><span class="en">Espresso Bar</span></div>
         <h2 class="room-h2"><span class="ar">هنا تبدأ الهدنة</span><span class="en">Where the truce begins</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">وقف الدنيا شوي، أول رشفة هدنة</span><span class="en">Pause the world, the truce starts here</span></p>
@@ -679,7 +668,7 @@ body{
         <img src="../assets/photos/hdn-coffee/4.jpg" style="object-position:center 55%" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">بار الترشيح</span><span class="en">Filter &amp; Slow Bar</span></div>
+        <div class="room-eyebrow"><span class="rnum">02</span><span class="ar">بار الترشيح</span><span class="en">Filter &amp; Slow Bar</span></div>
         <h2 class="room-h2"><span class="ar">الوقت هنا يمشي بكيفه</span><span class="en">Time slows to a drip</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">الوقت هنا يمشي بكيفه، امش معه</span><span class="en">Walk at the drip's slow pace</span></p>
@@ -732,7 +721,7 @@ body{
         <img src="../assets/photos/hdn-coffee/1.jpg" style="object-position:center" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">البار البارد</span><span class="en">Cold Bar</span></div>
+        <div class="room-eyebrow"><span class="rnum">03</span><span class="ar">البار البارد</span><span class="en">Cold Bar</span></div>
         <h2 class="room-h2"><span class="ar">برد يطفي زحمة اليوم</span><span class="en">Cool calm for loud days</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">برودة تهدي الخاطر وسط الزحمة</span><span class="en">Coolness that settles the loud day</span></p>
@@ -784,7 +773,7 @@ body{
         <img src="../assets/photos/hdn-coffee/5.jpg" style="object-position:center 35%" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">الركن السعودي</span><span class="en">Saudi Corner</span></div>
+        <div class="room-eyebrow"><span class="rnum">04</span><span class="ar">الركن السعودي</span><span class="en">Saudi Corner</span></div>
         <h2 class="room-h2"><span class="ar">فنجان يصالحك مع يومك</span><span class="en">A cup to make peace</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">فنجان صلح بينك وبين يومك</span><span class="en">One cup, and the day forgives</span></p>
@@ -816,7 +805,7 @@ body{
         <img src="../assets/photos/hdn-coffee/2.jpg" style="object-position:center 60%" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">اللقيمات والحلا</span><span class="en">Bites &amp; Sweets</span></div>
+        <div class="room-eyebrow"><span class="rnum">05</span><span class="ar">اللقيمات والحلا</span><span class="en">Bites &amp; Sweets</span></div>
         <h2 class="room-h2"><span class="ar">حلا يمدّد الهدنة</span><span class="en">Sweetness to extend the truce</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">مد الهدنة شوي، الحلا يشفع</span><span class="en">Let sweetness extend the ceasefire awhile</span></p>
@@ -875,25 +864,7 @@ body{
     <span class="en">📱 Live digital menu: scan the table QR — menu-sadah.com/hdn-coffee</span>
   </div>
   <div class="footer">
-    <div class="brandlogo mini" aria-hidden="true"><svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g class="Lx5seqz sun">
-<circle cx="90" cy="30" r="11" fill="var(--la2)" stroke="var(--lk)" stroke-width="4"/>
-<line x1="90" y1="14" x2="90" y2="8" stroke="var(--lk)" stroke-width="4" stroke-linecap="round"/>
-<line x1="102" y1="18" x2="106" y2="14" stroke="var(--lk)" stroke-width="4" stroke-linecap="round"/>
-<line x1="106" y1="30" x2="112" y2="30" stroke="var(--lk)" stroke-width="4" stroke-linecap="round"/>
-<line x1="78" y1="18" x2="74" y2="14" stroke="var(--lk)" stroke-width="4" stroke-linecap="round"/>
-</g>
-<path class="Lx5seqz cloud" d="M46,96 q-14,0 -14,-11 q0,-11 12,-11 q1,-13 15,-13 q10,0 12,10 q13,-3 13,11 q0,14 -13,14 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="5" stroke-linejoin="round"/>
-<g class="Lx5seqz cup">
-<path d="M51,44 L69,44 L66,62 Q65,66 60,66 Q55,66 54,62 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="4.5" stroke-linejoin="round"/>
-<path d="M55,49 q-2,7 1,12" fill="none" stroke="var(--lp)" stroke-width="2.5" stroke-linecap="round"/>
-</g>
-<path class="Lx5seqz handle" d="M68,48 q11,1 9,10 q-2,6 -9,4" fill="none" stroke="var(--lk)" stroke-width="4.5" stroke-linecap="round"/>
-<ellipse class="Lx5seqz coffee" cx="60" cy="44" rx="9" ry="3" fill="var(--lk)"/>
-<path class="Lx5seqz steam1" d="M57,41 q-5,-4 -1,-9 q4,-5 0,-10" fill="none" stroke="var(--lk)" stroke-width="4" stroke-linecap="round"/>
-<path class="Lx5seqz steam2" d="M64,41 q5,-4 1,-9 q-4,-5 0,-10" fill="none" stroke="var(--lk)" stroke-width="4" stroke-linecap="round"/>
-<path class="Lx5seqz twinkle" d="M28,37 l3,7 7,3 -7,3 -3,7 -3,-7 -7,-3 7,-3 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2.5" stroke-linejoin="round"/>
-</svg></div>
+    <div class="brandlogo mini" aria-hidden="true"><svg viewBox="0 0 120 120" fill="none"><g class="Lx5seqz cloud"><path d="M32,81 a8,8 0 0 1 -1,-14 a10,10 0 0 1 15,-8 a11,11 0 0 1 21,1 a9,9 0 0 1 14,9 a7,7 0 0 1 -3,12 z" fill="var(--ls)" stroke="var(--lk)" stroke-width="2.6" stroke-linejoin="round"/><path d="M40,81 a6,6 0 0 1 10,-4 a7,7 0 0 1 13,0 a6,6 0 0 1 9,4 z" fill="var(--ls2)"/></g><g class="Lx5seqz cup"><path d="M47,45 L73,45 L70,62 a4,4 0 0 1 -4,3.4 L54,65.4 a4,4 0 0 1 -4,-3.4 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="2.8" stroke-linejoin="round"/><path class="Lx5seqz handle" d="M73,48 c8,0 9,11 -0.5,12" fill="none" stroke="var(--lk)" stroke-width="2.8" stroke-linecap="round"/><ellipse class="Lx5seqz rim" cx="60" cy="45" rx="13.5" ry="3.2" fill="var(--la)"/></g><path class="Lx5seqz steam" d="M55,41 C51,36 59,33 55,28 C51,24 58,21 55,17 M65,41 C69,36 61,33 65,28 C69,24 62,21 65,17" fill="none" stroke="var(--lk)" stroke-width="2.3" stroke-linecap="round"/><path class="Lx5seqz star" d="M92,24 C92.4,28 92.6,28.4 96.5,29 C92.6,29.6 92.4,30 92,34 C91.6,30 91.4,29.6 87.5,29 C91.4,28.4 91.6,28 92,24 Z" fill="var(--la2)"/></svg></div>
     <div style="margin-bottom:6px;color:var(--text-2)"><span class="ar">تابعوا هدن كافيه: <b style="color:var(--accent)">@hdncoffee</b></span><span class="en">Follow Hdn Coffee: <b style="color:var(--accent)">@hdncoffee</b></span></div>
     <span class="ar">تجربة من <a href="https://menu-sadah.com">منيو سادة — MENU SADAH</a></span>
     <span class="en">Crafted by <a href="https://menu-sadah.com">MENU SADAH</a></span>
@@ -912,6 +883,15 @@ body{
   document.getElementById('langToggle').addEventListener('click',()=>{setLang(root.getAttribute('data-lang')==='ar'?'en':'ar');});
   const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // scroll-spy: light the category chip for the room currently in view (award e-menu pattern)
+  try{
+    const chips=[].slice.call(document.querySelectorAll('.chips .chip'));
+    const secs=chips.map(c=>document.querySelector(c.getAttribute('href'))).filter(Boolean);
+    if('IntersectionObserver' in window && secs.length){
+      const spy=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){const id='#'+e.target.id;chips.forEach(c=>c.classList.toggle('active',c.getAttribute('href')===id));}}),{rootMargin:'-45% 0px -50% 0px',threshold:0});
+      secs.forEach(s=>spy.observe(s));
+    }
+  }catch(e){}
   // motion DNA haptic: a soft 8ms tick when a chip snaps you to a room (feature-checked, motion-respecting)
   if(matchMedia('(prefers-reduced-motion: no-preference)').matches){
     document.querySelectorAll('.chips .chip').forEach(c=>c.addEventListener('click',()=>{navigator.vibrate?.(8);}));

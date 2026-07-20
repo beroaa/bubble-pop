@@ -221,7 +221,30 @@ body{
   .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
   .hero{overflow-x:clip}
   .brandbg{--accent:#956123;--accent-2:#8a383f;--sa:#8f9b31;--sa2:#89b1b3;--bg-0:#fcfaf8;--bg-1:#f5f0ea;--bg-2:#fefdfb}
-  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:linear-gradient(180deg,var(--bg-1),var(--bg-0))}.sk-sun{position:absolute;top:-25%;left:-10%;width:60vw;height:80vh;background:radial-gradient(circle,color-mix(in srgb,var(--accent) 18%,transparent),transparent 62%);filter:blur(24px);opacity:.4}.sk-cl{position:absolute;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--sa) 20%,transparent),transparent 65%);filter:blur(22px);opacity:.3}.sk-cl.c1{top:12%;left:60%;width:32vw;height:26vh}.sk-cl.c2{top:40%;left:-6%;width:36vw;height:24vh;opacity:.22}.sk-cl.c3{top:66%;left:70%;width:30vw;height:22vh}.sk-m{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 6px color-mix(in srgb,var(--accent-2) 60%,transparent);opacity:.5}.sk-m.m1{left:24%;top:30%}.sk-m.m2{left:52%;top:50%}.sk-m.m3{left:74%;top:36%}.sk-m.m4{left:38%;top:70%}@media(prefers-reduced-motion:no-preference){.sk-cl{animation:skdrift 26s linear infinite alternate}.sk-cl.c2{animation-duration:34s}.sk-cl.c3{animation-duration:30s}.sk-m{animation:skfloat 12s ease-in-out infinite}.sk-m.m2{animation-duration:15s;animation-delay:2s}.sk-m.m3{animation-duration:10s;animation-delay:1s}.sk-m.m4{animation-duration:14s;animation-delay:3s}@keyframes skdrift{from{transform:translateX(-6vw)}to{transform:translateX(6vw)}}@keyframes skfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}}
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.brandbg .sky,.brandbg .glowA,.brandbg .glowB,.brandbg .veil{position:absolute;inset:0}
+.brandbg .sky{background:radial-gradient(135% 115% at 50% 20%,var(--sa) 0%,var(--sa2) 32%,var(--accent) 72%,var(--accent-2) 100%)}
+.brandbg .glowA{background:radial-gradient(44% 40% at 15% 18%,color-mix(in srgb,var(--accent) 60%,transparent),transparent 70%)}
+.brandbg .glowB{background:radial-gradient(48% 44% at 85% 86%,color-mix(in srgb,var(--accent-2) 60%,transparent),transparent 72%)}
+.brandbg .veil{background:radial-gradient(58% 50% at 50% 45%,color-mix(in srgb,var(--sa) 84%,transparent) 0%,transparent 66%)}
+.brandbg .cloud{position:absolute;border-radius:50%;filter:blur(17px)}
+.brandbg .c1{width:40vmax;height:16vmax;inset-block-start:9%;inset-inline-start:-10%;background:color-mix(in srgb,var(--sa) 72%,transparent);opacity:.55}
+.brandbg .c2{width:32vmax;height:13vmax;inset-block-start:63%;inset-inline-start:52%;background:color-mix(in srgb,var(--sa2) 66%,transparent);opacity:.5}
+.brandbg .c3{width:26vmax;height:11vmax;inset-block-start:31%;inset-inline-start:68%;background:color-mix(in srgb,var(--accent) 42%,transparent);opacity:.4}
+@media (prefers-reduced-motion:no-preference){
+.brandbg .glowA{animation:bgGA 17s ease-in-out infinite alternate}
+.brandbg .glowB{animation:bgGB 21s ease-in-out infinite alternate}
+.brandbg .veil{animation:bgBr 13s ease-in-out infinite alternate}
+.brandbg .c1{animation:bgD1 34s ease-in-out infinite alternate}
+.brandbg .c2{animation:bgD2 40s ease-in-out infinite alternate}
+.brandbg .c3{animation:bgD3 30s ease-in-out infinite alternate}
+}
+@keyframes bgGA{to{transform:translate3d(6%,5%,0) scale(1.16)}}
+@keyframes bgGB{to{transform:translate3d(-5%,-4%,0) scale(1.18)}}
+@keyframes bgBr{to{opacity:.85;transform:scale(1.05)}}
+@keyframes bgD1{to{transform:translateX(16%)}}
+@keyframes bgD2{to{transform:translateX(-14%)}}
+@keyframes bgD3{to{transform:translate(-10%,6%)}}
 
   /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
   
@@ -290,7 +313,7 @@ body{
 </script>
 </head>
 <body>
-<div class="brandbg" aria-hidden="true"><span class="sk-sun"></span><span class="sk-cl c1"></span><span class="sk-cl c2"></span><span class="sk-cl c3"></span><i class="sk-m m1"></i><i class="sk-m m2"></i><i class="sk-m m3"></i><i class="sk-m m4"></i></div>
+<div class="brandbg" aria-hidden="true"><i class="sky"></i><i class="glowA"></i><i class="glowB"></i><span class="cloud c1"></span><span class="cloud c2"></span><span class="cloud c3"></span><i class="veil"></i></div>
 <div class="sting-wash" aria-hidden="true"><i></i><i></i></div>
 <div class="curtain" id="msCurtain" aria-hidden="true"></div>
 <div class="bigmark" aria-hidden="true"><span class="ar">س</span><span class="en">S</span></div>
@@ -352,55 +375,21 @@ body{
 </svg>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:13px;animation-delay:0s">☁</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:14px;animation-delay:0.7s">☁</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:11px;animation-delay:1.4s">☁</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:10px;animation-delay:2.0999999999999996s">☁</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:13px;animation-delay:2.8s">☁</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:11px;animation-delay:3.5s">☁</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:13px;animation-delay:0.1999999999999993s">☁</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:11px;animation-delay:0.8999999999999995s">☁</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="brandlogo big" aria-hidden="true"><style>.L13xv69w{overflow:visible}
-.L13xv69w .part-rays{opacity:0;transform-origin:62px 40px;animation:L13xv69w_fade .5s ease-out 1s forwards,L13xv69w_glow 3.6s ease-in-out 1.7s infinite}
-.L13xv69w .part-sun{transform-origin:62px 52px;animation:L13xv69w_rise .8s cubic-bezier(.2,1.3,.3,1) .6s both}
-.L13xv69w .part-roof{transform-origin:60px 48px;animation:L13xv69w_drop .7s cubic-bezier(.2,1.3,.3,1) .15s both}
-.L13xv69w .part-postL,.L13xv69w .part-postR{stroke-dasharray:56;stroke-dashoffset:56;animation:L13xv69w_draw .55s ease-out .45s forwards}
-.L13xv69w .part-postR{animation-delay:.58s}
-.L13xv69w .part-ground{stroke-dasharray:92;stroke-dashoffset:92;animation:L13xv69w_draw .6s ease-out .3s forwards}
-.L13xv69w .part-cup{transform-origin:60px 90px;animation:L13xv69w_pop .6s cubic-bezier(.2,1.3,.3,1) .8s both}
-.L13xv69w .part-cloud{transform-origin:34px 26px;animation:L13xv69w_drift .9s cubic-bezier(.2,1.3,.3,1) .95s both,L13xv69w_sway 6s ease-in-out 1.95s infinite}
-.L13xv69w .part-steam{opacity:0;transform-origin:60px 72px;animation:L13xv69w_fade .5s ease-out 1.25s forwards,L13xv69w_steam 3s ease-in-out 1.9s infinite}
-@keyframes L13xv69w_drop{from{transform:translateY(-46px);opacity:0}to{transform:translateY(0);opacity:1}}
-@keyframes L13xv69w_rise{from{transform:translateY(30px) scale(.7);opacity:0}to{transform:translateY(0) scale(1);opacity:1}}
+    <div class="brandlogo big" aria-hidden="true"><style>.L13xv69w.halo,.L13xv69w.sun,.L13xv69w.roof,.L13xv69w.cloud,.L13xv69w.cup{transform-box:fill-box;transform-origin:center}
+.L13xv69w.halo{animation:L13xv69w_glow 9s ease-in-out 1s infinite}
+.L13xv69w.sun{animation:L13xv69w_rise .9s cubic-bezier(.2,1.3,.3,1) both}
+.L13xv69w.roof{animation:L13xv69w_drop .9s cubic-bezier(.2,1.3,.3,1) .15s both}
+.L13xv69w.postL,.L13xv69w.postR,.L13xv69w.ground{stroke-dasharray:90;stroke-dashoffset:90;animation:L13xv69w_draw .85s ease .4s forwards}
+.L13xv69w.cloud{animation:L13xv69w_cloudin .9s cubic-bezier(.2,1.3,.3,1) .7s both,L13xv69w_float 12s ease-in-out 1.7s infinite}
+.L13xv69w.cup{transform-origin:50% 100%;animation:L13xv69w_pop .8s cubic-bezier(.2,1.3,.3,1) .7s both}
+.L13xv69w.steam{stroke-dasharray:40;stroke-dashoffset:40;animation:L13xv69w_draw 1s ease 1.05s forwards}
+@keyframes L13xv69w_rise{from{transform:translateY(24px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes L13xv69w_drop{from{transform:translateY(-26px);opacity:0}to{transform:translateY(0);opacity:1}}
 @keyframes L13xv69w_draw{to{stroke-dashoffset:0}}
-@keyframes L13xv69w_pop{from{transform:scale(0) translateY(12px);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
-@keyframes L13xv69w_drift{from{transform:translateX(-36px);opacity:0}to{transform:translateX(0);opacity:1}}
-@keyframes L13xv69w_fade{to{opacity:1}}
-@keyframes L13xv69w_glow{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.08)}}
-@keyframes L13xv69w_sway{0%,100%{transform:translateX(0)}50%{transform:translateX(7px)}}
-@keyframes L13xv69w_steam{0%{transform:translateY(3px);opacity:.65}50%{transform:translateY(-4px);opacity:1}100%{transform:translateY(3px);opacity:.65}}</style><svg viewBox="0 0 120 120" fill="none" stroke-linecap="round" stroke-linejoin="round">
-<g class="L13xv69w part-sun">
-<g class="L13xv69w part-rays" stroke="var(--la2)" stroke-width="4">
-<line x1="62" y1="24" x2="62" y2="14"/>
-<line x1="74" y1="28" x2="79" y2="22"/>
-<line x1="50" y1="28" x2="45" y2="22"/>
-<line x1="79" y1="37" x2="85" y2="34"/>
-<line x1="45" y1="37" x2="39" y2="34"/>
-</g>
-<circle cx="62" cy="42" r="14" fill="var(--la2)" stroke="var(--lk)" stroke-width="4"/>
-</g>
-<line class="L13xv69w part-postL" x1="30" y1="56" x2="30" y2="96" stroke="var(--lk)" stroke-width="5"/>
-<line class="L13xv69w part-postR" x1="90" y1="50" x2="90" y2="96" stroke="var(--lk)" stroke-width="5"/>
-<g class="L13xv69w part-roof">
-<polygon points="17,49 103,40 103,50 17,58" fill="var(--la)" stroke="var(--lk)" stroke-width="5"/>
-<line x1="24" y1="52" x2="96" y2="45" stroke="var(--lk)" stroke-width="2"/>
-</g>
-<g class="L13xv69w part-cloud">
-<path d="M20,33 q-5,-9 6,-8 q1,-10 13,-7 q9,-4 9,7 q7,0 3,8 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="4"/>
-</g>
-<line class="L13xv69w part-ground" x1="18" y1="96" x2="102" y2="96" stroke="var(--lk)" stroke-width="5"/>
-<g class="L13xv69w part-steam" stroke="var(--lk)" stroke-width="3" fill="none">
-<path d="M54,71 q-5,-6 0,-11 q5,-5 0,-10"/>
-<path d="M66,71 q5,-6 0,-11 q-5,-5 0,-10"/>
-</g>
-<g class="L13xv69w part-cup">
-<ellipse cx="60" cy="92" rx="19" ry="4" fill="var(--ls)" stroke="var(--lk)" stroke-width="4"/>
-<path d="M72,76 q10,1 6,10 q-2,4 -7,2" fill="none" stroke="var(--lk)" stroke-width="4"/>
-<path d="M47,74 L73,74 L69,89 Q60,92 51,89 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4"/>
-</g>
-</svg></div>
+@keyframes L13xv69w_cloudin{from{transform:translateX(-14px);opacity:0}to{transform:translateX(0);opacity:1}}
+@keyframes L13xv69w_float{0%,100%{transform:translateX(0)}50%{transform:translateX(7px)}}
+@keyframes L13xv69w_pop{from{transform:translateY(10px) scale(.82);opacity:0}to{transform:translateY(0) scale(1);opacity:1}}
+@keyframes L13xv69w_glow{0%,100%{opacity:.32;transform:scale(1)}50%{opacity:.6;transform:scale(1.09)}}</style><svg viewBox="0 0 120 120"><circle class="L13xv69w halo" cx="60" cy="58" r="24" fill="var(--ls2)"/><circle class="L13xv69w sun" cx="60" cy="58" r="16" fill="var(--la2)"/><path class="L13xv69w roof" d="M24 48 Q60 34 96 48 L96 56 Q60 42 24 56 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="2.8" stroke-linejoin="round"/><path class="L13xv69w postL" d="M32 53 L32 94" fill="none" stroke="var(--lk)" stroke-width="3" stroke-linecap="round"/><path class="L13xv69w postR" d="M88 53 L88 94" fill="none" stroke="var(--lk)" stroke-width="3" stroke-linecap="round"/><path class="L13xv69w ground" d="M26 94 L94 94" fill="none" stroke="var(--lk)" stroke-width="3" stroke-linecap="round"/><path class="L13xv69w cloud" d="M28 34 C22 34 22 26 29 25 C29 18 39 18 42 24 C46 19 55 21 54 28 C60 29 59 34 53 34 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="2.2" stroke-linejoin="round"/><path class="L13xv69w cup" d="M52 80 L68 80 L65 90 Q60 94 55 90 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="2.4" stroke-linejoin="round"/><path class="L13xv69w cup" d="M68 82 Q73 84 70 89" fill="none" stroke="var(--lk)" stroke-width="2.2" stroke-linecap="round"/><path class="L13xv69w steam" d="M60 78 Q56 72 60 66 Q64 60 60 55" fill="none" stroke="var(--lk)" stroke-width="2.2" stroke-linecap="round"/></svg></div>
     
     <h1><span class="ar">أهلاً ببيت <b>سكـف قهوة مختصة</b></span><span class="en">Welcome home, <b>Sakaf Specialty Coffee</b>.</span></h1>
     <div class="world"><span class="ar">✦ سقيفة ظلها بارد وقت الضحى ✦</span><span class="en">✦ a shaded porch at mid-morning ✦</span></div>

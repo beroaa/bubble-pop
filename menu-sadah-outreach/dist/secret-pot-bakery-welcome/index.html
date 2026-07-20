@@ -208,7 +208,31 @@ body{
   .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
   .hero{overflow-x:clip}
   .brandbg{--accent:#955c2d;--accent-2:#7c4650;--sa:#8b8d3f;--sa2:#8faeac;--bg-0:#fcfaf8;--bg-1:#f5efea;--bg-2:#fefcfb}
-  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(90% 70% at 50% 110%,color-mix(in srgb,var(--accent) 22%,transparent),transparent 60%),linear-gradient(180deg,var(--bg-0),var(--bg-1))}.brandbg .haze{position:absolute;left:0;right:0;bottom:0;height:55%;background:linear-gradient(0deg,color-mix(in srgb,var(--sa) 26%,transparent),transparent);opacity:.5}.brandbg .stm{position:absolute;bottom:8%;width:40px;height:38vmax;border-radius:50%;filter:blur(26px);background:linear-gradient(0deg,color-mix(in srgb,var(--sa) 40%,transparent),transparent 75%);opacity:.4}.brandbg .w1{left:24%}.brandbg .w2{left:52%;opacity:.32}.brandbg .w3{left:74%;opacity:.28}@media (prefers-reduced-motion:no-preference){.brandbg .stm{animation:spst 9s ease-in-out infinite}.brandbg .w2{animation-duration:11s;animation-delay:1.2s}.brandbg .w3{animation-duration:8s;animation-delay:.6s}@keyframes spst{0%{transform:translateY(20px) scaleX(1);opacity:0}25%{opacity:.4}75%{opacity:.35}100%{transform:translateY(-30px) scaleX(1.4);opacity:0}}}
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:linear-gradient(165deg,var(--sa) 0%,var(--accent) 48%,var(--sa2) 100%)}
+.brandbg i,.brandbg span{position:absolute;display:block}
+.brandbg .field{inset:0;background:radial-gradient(115% 85% at 50% -8%,var(--accent-2) 0%,transparent 52%),radial-gradient(85% 78% at 10% 114%,var(--sa2) 0%,transparent 58%)}
+.brandbg .glow{inset-block-start:-24%;inset-inline-start:50%;width:78vmax;height:78vmax;margin-inline-start:-39vmax;border-radius:50%;background:radial-gradient(circle,var(--accent-2) 0%,transparent 60%);opacity:.5;filter:blur(4px)}
+.brandbg .halo{inset-block-end:-30%;inset-inline-end:-12%;width:62vmax;height:62vmax;border-radius:50%;background:radial-gradient(circle,var(--sa2) 0%,transparent 62%);opacity:.42}
+.brandbg .veil{inset:0;background:radial-gradient(66% 52% at 50% 47%,rgba(255,248,236,.82) 0%,rgba(255,246,232,.3) 42%,transparent 66%)}
+.brandbg .mote{width:10px;height:10px;border-radius:50%;background:radial-gradient(circle,rgba(255,252,244,.92) 0%,transparent 70%);opacity:.55}
+.brandbg .m1{inset-block-start:22%;inset-inline-start:18%}
+.brandbg .m2{inset-block-start:64%;inset-inline-start:30%;width:7px;height:7px}
+.brandbg .m3{inset-block-start:38%;inset-inline-end:16%;width:13px;height:13px}
+.brandbg .m4{inset-block-start:76%;inset-inline-end:26%;width:8px;height:8px}
+.brandbg .m5{inset-block-start:14%;inset-inline-end:34%;width:6px;height:6px}
+@media (prefers-reduced-motion:no-preference){
+.brandbg .glow{animation:bg_breathe 12s ease-in-out infinite}
+.brandbg .halo{animation:bg_breathe 15s ease-in-out infinite reverse}
+.brandbg .field{animation:bg_shift 22s ease-in-out infinite}
+.brandbg .mote{animation:bg_rise 14s ease-in-out infinite}
+.brandbg .m2{animation-duration:18s;animation-delay:-4s}
+.brandbg .m3{animation-duration:16s;animation-delay:-7s}
+.brandbg .m4{animation-duration:20s;animation-delay:-2s}
+.brandbg .m5{animation-duration:17s;animation-delay:-9s}
+@keyframes bg_breathe{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:.6;transform:scale(1.08)}}
+@keyframes bg_shift{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-2%,0)}}
+@keyframes bg_rise{0%{transform:translateY(8px);opacity:.12}50%{opacity:.6}100%{transform:translateY(-26px);opacity:0}}
+}
 
   /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
   
@@ -277,7 +301,7 @@ body{
 </script>
 </head>
 <body>
-<div class="brandbg" aria-hidden="true"><span class="haze"></span><span class="stm w1"></span><span class="stm w2"></span><span class="stm w3"></span></div>
+<div class="brandbg" aria-hidden="true"><i class="field"></i><i class="glow"></i><i class="halo"></i><span class="mote m1"></span><span class="mote m2"></span><span class="mote m3"></span><span class="mote m4"></span><span class="mote m5"></span><i class="veil"></i></div>
 <div class="sting-wash" aria-hidden="true"><i></i><i></i></div>
 <div class="curtain" id="msCurtain" aria-hidden="true"></div>
 <div class="bigmark" aria-hidden="true"><span class="ar">س</span><span class="en">S</span></div>
@@ -339,52 +363,23 @@ body{
 
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:8px;animation-delay:0s">〜</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:5px;animation-delay:0.7s">〜</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:3px;animation-delay:1.4s">〜</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:9px;animation-delay:2.0999999999999996s">〜</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:9px;animation-delay:2.8s">〜</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:5px;animation-delay:3.5s">〜</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:3px;animation-delay:0.1999999999999993s">〜</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:6px;animation-delay:0.8999999999999995s">〜</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="brandlogo big" aria-hidden="true"><style>.L13wf9e1 .door{animation:L13wf9e1_pop .55s cubic-bezier(.2,1.3,.3,1) both}
-.L13wf9e1 .rivet{animation:L13wf9e1_pop .4s cubic-bezier(.2,1.3,.3,1) both;transform-origin:center}
-.L13wf9e1 .rivet.r1{animation-delay:.35s}
-.L13wf9e1 .rivet.r2{animation-delay:.45s}
-.L13wf9e1 .rivet.r3{animation-delay:.55s}
-.L13wf9e1 .rivet.r4{animation-delay:.65s}
-.L13wf9e1 .pot{animation:L13wf9e1_up .6s cubic-bezier(.2,1.3,.3,1) both;animation-delay:.15s}
-.L13wf9e1 .lid{animation:L13wf9e1_drop .6s cubic-bezier(.2,1.3,.3,1) both;animation-delay:.45s}
-.L13wf9e1 .knob{animation:L13wf9e1_pop .45s cubic-bezier(.2,1.3,.3,1) both;animation-delay:.72s;transform-origin:60px 40px}
-.L13wf9e1 .keyhole{animation:L13wf9e1_pop .4s cubic-bezier(.2,1.3,.3,1) both;animation-delay:.95s;transform-origin:60px 80px}
-.L13wf9e1 .steamg{animation:L13wf9e1_drift 3.4s ease-in-out infinite;animation-delay:2s;transform-origin:60px 60px}
-.L13wf9e1 .steam{stroke-dasharray:46;stroke-dashoffset:46;animation:L13wf9e1_draw 1s ease both}
-.L13wf9e1 .s1{animation-delay:.9s}
-.L13wf9e1 .s2{animation-delay:1.05s}
-.L13wf9e1 .s3{animation-delay:1.2s}
-.L13wf9e1 .spark{animation:L13wf9e1_twinkle 2.6s ease-in-out infinite;animation-delay:1.4s;transform-origin:60px 37px}
-@keyframes L13wf9e1_pop{0%{opacity:0;transform:scale(.35)}100%{opacity:1;transform:scale(1)}}
-@keyframes L13wf9e1_up{0%{opacity:0;transform:translateY(34px)}100%{opacity:1;transform:translateY(0)}}
-@keyframes L13wf9e1_drop{0%{opacity:0;transform:translateY(-32px)}55%{opacity:1}100%{opacity:1;transform:translateY(0)}}
-@keyframes L13wf9e1_draw{0%{stroke-dashoffset:46;opacity:0}25%{opacity:1}100%{stroke-dashoffset:0;opacity:1}}
-@keyframes L13wf9e1_drift{0%{transform:translateY(0)}50%{transform:translateY(-3px)}100%{transform:translateY(0)}}
-@keyframes L13wf9e1_twinkle{0%,100%{opacity:.25;transform:scale(.6)}50%{opacity:1;transform:scale(1.15)}}</style><svg viewBox="0 0 120 120" fill="none" stroke-linecap="round" stroke-linejoin="round">
-<path class="L13wf9e1 door" d="M28,56 Q28,28 60,28 Q92,28 92,56 L92,96 Q92,100 88,100 L32,100 Q28,100 28,96 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="5"/>
-<circle class="L13wf9e1 rivet r1" cx="37" cy="44" r="2.6" fill="var(--la2)" stroke="var(--lk)" stroke-width="2"/>
-<circle class="L13wf9e1 rivet r2" cx="83" cy="44" r="2.6" fill="var(--la2)" stroke="var(--lk)" stroke-width="2"/>
-<circle class="L13wf9e1 rivet r3" cx="37" cy="90" r="2.6" fill="var(--la2)" stroke="var(--lk)" stroke-width="2"/>
-<circle class="L13wf9e1 rivet r4" cx="83" cy="90" r="2.6" fill="var(--la2)" stroke="var(--lk)" stroke-width="2"/>
-<g class="L13wf9e1 pot">
-<path d="M40,68 Q39,92 60,92 Q81,92 80,68 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="5"/>
-<path d="M37,64 L83,64 L80,70 L40,70 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="5"/>
-</g>
-<g class="L13wf9e1 keyhole">
-<circle cx="60" cy="78" r="3.2" fill="var(--lk)"/>
-<path d="M58,80 L62,80 L63.5,86 L56.5,86 Z" fill="var(--lk)"/>
-</g>
-<g class="L13wf9e1 lid">
-<path d="M39,58 Q39,42 60,42 Q81,42 81,58 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="5"/>
-<circle class="L13wf9e1 knob" cx="60" cy="40" r="4.2" fill="var(--la2)" stroke="var(--lk)" stroke-width="4"/>
-</g>
-<g class="L13wf9e1 steamg">
-<path class="L13wf9e1 steam s1" d="M51,60 q-5,-6 0,-12 q5,-6 0,-13" stroke="var(--lk)" stroke-width="3"/>
-<path class="L13wf9e1 steam s2" d="M60,58 q-5,-7 0,-14 q5,-7 0,-14" stroke="var(--lk)" stroke-width="3"/>
-<path class="L13wf9e1 steam s3" d="M69,60 q5,-6 0,-12 q-5,-6 0,-13" stroke="var(--lk)" stroke-width="3"/>
-</g>
-<path class="L13wf9e1 spark" d="M60,30 L61.6,35.4 L67,37 L61.6,38.6 L60,44 L58.4,38.6 L53,37 L58.4,35.4 Z" fill="var(--la2)"/>
-</svg></div>
+    <div class="brandlogo big" aria-hidden="true"><style>.L13wf9e1 .arch{transform-box:fill-box;transform-origin:50% 100%;animation:L13wf9e1_pop .9s .15s cubic-bezier(.2,1.3,.3,1) both}
+.L13wf9e1 .archIn{stroke-dasharray:210;stroke-dashoffset:210;animation:L13wf9e1_draw 1.2s .55s ease both}
+.L13wf9e1 .glow{transform-box:fill-box;transform-origin:center;opacity:0;animation:L13wf9e1_pulse 9s 1.6s ease-in-out infinite both}
+.L13wf9e1 .pot{transform-box:fill-box;transform-origin:50% 100%;opacity:0;animation:L13wf9e1_rise .85s .4s cubic-bezier(.2,1.3,.3,1) both}
+.L13wf9e1 .keyhole{opacity:0;animation:L13wf9e1_fade .6s 1s both}
+.L13wf9e1 .lid{transform-box:fill-box;transform-origin:50% 100%;opacity:0;animation:L13wf9e1_lift .95s .7s cubic-bezier(.2,1.3,.3,1) both}
+.L13wf9e1 .steam{fill:none;stroke-linecap:round;stroke-dasharray:60;stroke-dashoffset:60;transform-box:fill-box;transform-origin:50% 100%}
+.L13wf9e1 .s1{animation:L13wf9e1_draw 1s .95s ease both,L13wf9e1_drift 8s 2.1s ease-in-out infinite}
+.L13wf9e1 .s2{animation:L13wf9e1_draw 1s 1.2s ease both,L13wf9e1_drift 9s 2.5s ease-in-out infinite}
+.L13wf9e1 .s3{animation:L13wf9e1_draw 1s 1.45s ease both,L13wf9e1_drift 8.5s 2.8s ease-in-out infinite}
+@keyframes L13wf9e1_pop{0%{transform:scale(.68);opacity:0}100%{transform:scale(1);opacity:1}}
+@keyframes L13wf9e1_rise{0%{transform:translateY(16px) scale(.9);opacity:0}100%{transform:translateY(0) scale(1);opacity:1}}
+@keyframes L13wf9e1_lift{0%{transform:translateY(10px) scale(.82);opacity:0}62%{transform:translateY(-3px)}100%{transform:translateY(0) scale(1);opacity:1}}
+@keyframes L13wf9e1_draw{to{stroke-dashoffset:0}}
+@keyframes L13wf9e1_fade{to{opacity:1}}
+@keyframes L13wf9e1_drift{0%,100%{transform:translateY(0);opacity:.9}50%{transform:translateY(-5px);opacity:.5}}
+@keyframes L13wf9e1_pulse{0%,100%{opacity:.28;transform:scale(1)}50%{opacity:.5;transform:scale(1.1)}}</style><svg viewBox="0 0 120 120" fill="none"><ellipse class="L13wf9e1 glow" cx="60" cy="86" rx="24" ry="17" fill="var(--la2)"/><path class="L13wf9e1 arch" d="M28 106 L28 58 A32 32 0 0 1 92 58 L92 106 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="3.2" stroke-linejoin="round"/><path class="L13wf9e1 archIn" d="M38 106 L38 60 A22 22 0 0 1 82 60 L82 106" fill="none" stroke="var(--la)" stroke-width="2.4" stroke-linecap="round"/><path class="L13wf9e1 pot" d="M46 96 Q43 80 54 79 L66 79 Q77 80 74 96 Q60 100 46 96 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="3" stroke-linejoin="round"/><g class="L13wf9e1 keyhole"><circle cx="60" cy="87" r="3.1" fill="var(--lk)"/><path d="M58.5 89 L61.5 89 L62.4 94 L57.6 94 Z" fill="var(--lk)"/></g><g class="L13wf9e1 lid"><path d="M49 78 Q60 68 71 78 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="3" stroke-linejoin="round"/><line x1="60" y1="70" x2="60" y2="65" stroke="var(--lk)" stroke-width="2.6" stroke-linecap="round"/><circle cx="60" cy="63.5" r="2.4" fill="var(--la2)" stroke="var(--lk)" stroke-width="2.2"/></g><g class="L13wf9e1 steamG"><path class="L13wf9e1 steam s1" d="M54 60 q-5 -7 0 -14 q5 -7 0 -13" stroke="var(--lk)" stroke-width="2.6"/><path class="L13wf9e1 steam s2" d="M60 58 q-5 -7 0 -14 q5 -7 0 -13" stroke="var(--lk)" stroke-width="2.6"/><path class="L13wf9e1 steam s3" d="M66 60 q-5 -7 0 -14 q5 -7 0 -13" stroke="var(--lk)" stroke-width="2.6"/></g></svg></div>
     
     <h1><span class="ar">أهلاً ببيت <b>سيكرت بوت بيكري</b></span><span class="en">Welcome home, <b>Secret Pot Bakery</b>.</span></h1>
     <div class="world"><span class="ar">✦ قدر مخفي وراء باب الفرن ✦</span><span class="en">✦ a secret pot behind the bakery door ✦</span></div>

@@ -96,6 +96,8 @@
   .chip{flex:0 0 auto;text-decoration:none;color:var(--text-2);background:#18201acc;border:1px solid var(--border-1);
     border-radius:999px;padding:9px 16px;font-size:13.5px;transition:all .2s,transform .18s}
   .chip:hover{color:var(--accent);border-color:var(--accent);box-shadow:0 0 14px #6eb97d33;transform:translateY(-2px)}
+  /* scroll-spy: the chip for the room you're reading lights up (award e-menu pattern) */
+  .chip.active{color:var(--accent);border-color:var(--accent);font-weight:800;box-shadow:inset 0 -3px 0 var(--accent)}
 
   /* ---- signatures with price STAMPS ---- */
   .sig{margin-top:26px;background:linear-gradient(180deg,#6eb97d14,transparent 90%);border:1px solid #6eb97d44;
@@ -137,7 +139,14 @@
   .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
     box-shadow:inset 0 0 0 1px #6eb97d55}
   .cat-title{flex:1;min-width:0}
-  .room-eyebrow{color:var(--text-2);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+  .room-eyebrow{color:var(--text-2);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+  /* editorial department-opener kicker (award e-menu pattern): a metallic numeral leads each room */
+  .room-eyebrow .rnum{font-family:ui-monospace,Menlo,monospace;font-weight:800;color:var(--sa);letter-spacing:.02em;flex:0 0 auto}
+  .room-eyebrow .rnum::after{content:"·";margin-inline-start:8px;color:var(--sa);opacity:.7}
+  .room-eyebrow.rn-only .rnum::after{content:none}
+  [data-lang="ar"] .room-eyebrow{letter-spacing:0}
+  /* sticky category strip must never hide the heading it jumps to */
+  .cat,.sig{scroll-margin-top:66px}
   .room-h2{color:var(--sa);font-size:28px;font-weight:800;line-height:1.14;letter-spacing:-.01em}
   .room-h2 .ar{font-family:'Aref Ruqaa',serif}
   .room-h2 .en{font-family:'Patrick Hand',cursive}
@@ -368,7 +377,30 @@ body{
      the wrapper must clip its own decorative children or dark-mode pages scroll sideways. */
   .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
   .hero{overflow-x:clip}
-  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}.brandbg .lg{position:absolute;border-radius:50%;filter:blur(60px)}.lg1{width:40vw;height:40vw;top:-10vw;left:-8vw;background:radial-gradient(circle,var(--accent),transparent 70%);opacity:.5}.lg2{width:34vw;height:34vw;bottom:-10vw;right:-6vw;background:radial-gradient(circle,var(--sa,var(--accent-2)),transparent 70%);opacity:.4}.sadu{position:absolute;left:0;right:0;bottom:0;height:14vh;opacity:.13;background:repeating-linear-gradient(90deg,var(--accent) 0 14px,transparent 14px 28px,var(--sa2,var(--accent)) 28px 34px,transparent 34px 56px)}.stm{position:absolute;bottom:9vh;width:9px;height:34vh;border-radius:50%;background:linear-gradient(var(--sa,#fff),transparent);opacity:0;filter:blur(6px)}.s1{left:22%}.s2{left:52%}.s3{left:78%}@media(prefers-reduced-motion:no-preference){.lg1{animation:mgl 9s ease-in-out infinite}.lg2{animation:mgl 11s ease-in-out infinite reverse}.stm{animation:mst 7s ease-in infinite}.s2{animation-delay:2.3s}.s3{animation-delay:4.6s}@keyframes mgl{50%{opacity:.72;transform:scale(1.08)}}@keyframes mst{10%{opacity:.32}100%{opacity:0;transform:translateY(-30vh) scaleX(1.8)}}}
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:linear-gradient(165deg,color-mix(in srgb,var(--sa2) 34%,black),color-mix(in srgb,var(--accent-2) 30%,black) 55%,black)}
+.brandbg i,.brandbg b{position:absolute;display:block;border-radius:50%}
+.brandbg .g1{inset-block-end:-30%;inset-inline-start:18%;width:64%;height:72%;background:radial-gradient(circle,color-mix(in srgb,var(--accent) 85%,transparent),transparent 62%);filter:blur(14px)}
+.brandbg .g2{inset-block-start:-22%;inset-inline-start:-12%;width:56%;height:60%;background:radial-gradient(circle,color-mix(in srgb,var(--sa) 60%,transparent),transparent 60%);filter:blur(22px);opacity:.7}
+.brandbg .g3{inset-block-start:8%;inset-inline-end:-16%;width:52%;height:62%;background:radial-gradient(circle,color-mix(in srgb,var(--accent-2) 55%,transparent),transparent 60%);filter:blur(26px);opacity:.6}
+.brandbg .hz{inset-block-end:-46%;inset-inline-start:50%;width:82%;height:82%;margin-inline-start:-41%;background:radial-gradient(circle,color-mix(in srgb,var(--accent) 92%,white),color-mix(in srgb,var(--accent) 38%,transparent) 45%,transparent 66%);filter:blur(9px)}
+.brandbg .m{position:absolute;inset-block-end:-6%;width:7px;height:7px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--accent) 90%,white),transparent 70%);opacity:0}
+.brandbg .m2{width:5px;height:5px}
+.brandbg .m4{width:9px;height:9px}
+@media (prefers-reduced-motion:no-preference){
+.brandbg .g1{animation:bgG 11s ease-in-out infinite}
+.brandbg .g2{animation:bgG 14s ease-in-out infinite reverse}
+.brandbg .g3{animation:bgG 13s ease-in-out infinite}
+.brandbg .hz{animation:bgP 9s ease-in-out infinite}
+.brandbg .m{animation:bgR linear infinite}
+.brandbg .m1{inset-inline-start:30%;animation-duration:15s}
+.brandbg .m2{inset-inline-start:44%;animation-duration:18s;animation-delay:-6s}
+.brandbg .m3{inset-inline-start:56%;animation-duration:13s;animation-delay:-3s}
+.brandbg .m4{inset-inline-start:64%;animation-duration:17s;animation-delay:-9s}
+.brandbg .m5{inset-inline-start:48%;animation-duration:20s;animation-delay:-12s}
+}
+@keyframes bgG{0%,100%{transform:translateY(0) scale(1);opacity:.6}50%{transform:translateY(-3%) scale(1.08);opacity:.85}}
+@keyframes bgP{0%,100%{transform:scale(1);opacity:.82}50%{transform:scale(1.06);opacity:1}}
+@keyframes bgR{0%{transform:translateY(0) scale(.6);opacity:0}12%{opacity:.7}85%{opacity:.45}100%{transform:translateY(-106vh) scale(1.1);opacity:0}}
 
   /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
   
@@ -482,7 +514,7 @@ body{
 </style>
 </head>
 <body>
-<div class="brandbg" aria-hidden="true"><span class="lg lg1"></span><span class="lg lg2"></span><span class="sadu"></span><span class="stm s1"></span><span class="stm s2"></span><span class="stm s3"></span></div>
+<div class="brandbg" aria-hidden="true"><i class="g1"></i><i class="g2"></i><i class="g3"></i><b class="hz"></b><span class="m m1"></span><span class="m m2"></span><span class="m m3"></span><span class="m m4"></span><span class="m m5"></span></div>
 <button class="lang-toggle touchable" id="langToggle">English</button>
 <div class="bigmark" aria-hidden="true"><span class="ar">م</span><span class="en">M</span></div>
 <div class="wrap">
@@ -551,52 +583,21 @@ body{
 <rect x="0" y="779" width="1440" height="2" fill="rgba(232,194,104,0.55)"/>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="brandlogo big" aria-hidden="true"><style>.Lj6modt .base{animation:Lj6modt_up .75s cubic-bezier(.2,1.3,.3,1) .15s both}
-.Lj6modt .lid{animation:Lj6modt_drop .7s cubic-bezier(.2,1.3,.3,1) .5s both;transform-origin:center}
-.Lj6modt .finial{animation:Lj6modt_pop .6s cubic-bezier(.2,1.3,.3,1) .8s both;transform-origin:center}
-.Lj6modt .spout{animation:Lj6modt_swingL .6s cubic-bezier(.2,1.3,.3,1) .6s both,Lj6modt_draw .7s ease .65s both;transform-origin:right center}
-.Lj6modt .handle{animation:Lj6modt_swingR .6s cubic-bezier(.2,1.3,.3,1) .6s both;transform-origin:left center}
-.Lj6modt .cup{animation:Lj6modt_up .6s cubic-bezier(.2,1.3,.3,1) .95s both;transform-origin:center bottom}
-.Lj6modt .steam{animation:Lj6modt_draw .7s ease 1.05s both,Lj6modt_drift 4s ease-in-out 2s infinite}
-.Lj6modt .hline{animation:Lj6modt_draw .9s ease 1.2s both}
-.Lj6modt .hfill{animation:Lj6modt_glowin2 .7s ease 1.5s both}
-.Lj6modt .heart{animation:Lj6modt_beat 3s ease-in-out 2.1s infinite;transform-origin:60px 30px}
-.Lj6modt .glow{animation:Lj6modt_glowin 1s ease 1.3s both,Lj6modt_glowpulse 3.6s ease-in-out 2.3s infinite;transform-origin:60px 28px}
-.Lj6modt .pot{animation:Lj6modt_sway 6s ease-in-out 2s infinite;transform-origin:60px 92px}
-.Lj6modt .hline,.Lj6modt .steam,.Lj6modt .spout{stroke-dasharray:100}
-@keyframes Lj6modt_up{from{transform:translateY(40px);opacity:0}to{transform:translateY(0);opacity:1}}
-@keyframes Lj6modt_drop{from{transform:translateY(-32px);opacity:0}to{transform:translateY(0);opacity:1}}
-@keyframes Lj6modt_pop{0%{transform:scale(0);opacity:0}60%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}
-@keyframes Lj6modt_swingL{from{transform:rotate(-40deg);opacity:0}to{transform:rotate(0);opacity:1}}
-@keyframes Lj6modt_swingR{from{transform:rotate(38deg);opacity:0}to{transform:rotate(0);opacity:1}}
-@keyframes Lj6modt_draw{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
-@keyframes Lj6modt_glowin{from{opacity:0}to{opacity:.4}}
-@keyframes Lj6modt_glowin2{from{opacity:0}to{opacity:.9}}
-@keyframes Lj6modt_glowpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
-@keyframes Lj6modt_beat{0%,22%,100%{transform:scale(1)}8%{transform:scale(1.14)}15%{transform:scale(1.03)}}
-@keyframes Lj6modt_drift{0%{transform:translateY(3px)}50%{transform:translateY(-3px)}100%{transform:translateY(3px)}}
-@keyframes Lj6modt_sway{0%,100%{transform:rotate(-1.6deg)}50%{transform:rotate(1.6deg)}}</style><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-<circle class="Lj6modt glow" cx="60" cy="28" r="24" fill="var(--la2)" opacity="0"/>
-<g class="Lj6modt heart">
-<path class="Lj6modt hfill" d="M60,45 C52,37 44,33 44,25 C44,19 50,17 54,20 C57,22 60,26 60,26 C60,26 63,22 66,20 C70,17 76,19 76,25 C76,33 68,37 60,45 Z" fill="var(--la2)" opacity="0"/>
-<path class="Lj6modt hline" pathLength="100" d="M60,45 C52,37 44,33 44,25 C44,19 50,17 54,20 C57,22 60,26 60,26 C60,26 63,22 66,20 C70,17 76,19 76,25 C76,33 68,37 60,45 Z" fill="none" stroke="var(--lk)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
-</g>
-<path class="Lj6modt steam" pathLength="100" d="M55,53 C51,49 59,47 55,43" fill="none" stroke="var(--la)" stroke-width="4" stroke-linecap="round" stroke-opacity=".75"/>
-<path class="Lj6modt steam" pathLength="100" d="M64,54 C68,50 60,47 64,44" fill="none" stroke="var(--la)" stroke-width="4" stroke-linecap="round" stroke-opacity=".75"/>
-<g class="Lj6modt pot" stroke="var(--lk)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
-<path class="Lj6modt base" d="M50,93 L70,93 L67,99 Q60,101 53,99 Z" fill="var(--ls2)"/>
-<path class="Lj6modt base" d="M45,55 C35,61 31,75 37,85 C41,92 50,95 60,95 C70,95 79,92 83,85 C89,75 85,61 75,55 Z" fill="var(--ls)"/>
-<path class="Lj6modt spout" pathLength="100" d="M45,60 Q29,55 24,42 Q23,39 26,38" fill="none"/>
-<path class="Lj6modt handle" d="M75,60 Q92,63 88,82" fill="none"/>
-<path class="Lj6modt base" d="M47,51 L73,51 L71,56 L49,56 Z" fill="var(--ls)"/>
-<path class="Lj6modt lid" d="M45,51 Q60,33 75,51 Z" fill="var(--la)"/>
-<circle class="Lj6modt finial" cx="60" cy="35" r="4.5" fill="var(--la2)"/>
-</g>
-<g class="Lj6modt cup" stroke="var(--lk)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
-<ellipse cx="97" cy="96" rx="10" ry="2.6" fill="var(--ls2)"/>
-<path d="M91,86 L103,86 L101,94 Q97,96 93,94 Z" fill="var(--lp)"/>
-</g>
-</svg></div>
+    <div class="brandlogo big" aria-hidden="true"><style>.Lj6modt *{transform-box:fill-box;transform-origin:center}
+.Lj6modt .base{animation:Lj6modt_rise .8s cubic-bezier(.2,1.3,.3,1) .1s both}
+.Lj6modt .body{animation:Lj6modt_rise .8s cubic-bezier(.2,1.3,.3,1) .15s both}
+.Lj6modt .spout,.Lj6modt .handle{animation:Lj6modt_pop .7s cubic-bezier(.2,1.3,.3,1) .4s both}
+.Lj6modt .lid{animation:Lj6modt_drop .8s cubic-bezier(.2,1.3,.3,1) .4s both}
+.Lj6modt .band,.Lj6modt .gem{animation:Lj6modt_pop .7s cubic-bezier(.2,1.3,.3,1) .55s both}
+.Lj6modt .finial{animation:Lj6modt_pop .7s cubic-bezier(.2,1.3,.3,1) .7s both}
+.Lj6modt .wisp{animation:Lj6modt_pop .6s ease .8s both}
+.Lj6modt .heart{stroke-dasharray:64;animation:Lj6modt_draw 1s cubic-bezier(.2,1.3,.3,1) .7s both}
+.Lj6modt .hearts{animation:Lj6modt_beat 4.6s ease-in-out 2s infinite}
+@keyframes Lj6modt_rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes Lj6modt_drop{from{opacity:0;transform:translateY(-9px)}to{opacity:1;transform:translateY(0)}}
+@keyframes Lj6modt_pop{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}
+@keyframes Lj6modt_draw{from{stroke-dashoffset:64}to{stroke-dashoffset:0}}
+@keyframes Lj6modt_beat{0%,100%{transform:scale(1)}45%{transform:scale(1.07)}}</style><svg viewBox="0 0 120 120" fill="none" stroke-linecap="round" stroke-linejoin="round"><ellipse class="Lj6modt base" cx="54" cy="100" rx="19" ry="3.2" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2.4"/><path class="Lj6modt body" d="M41,53 C36,61 35,75 40,88 C43,96 48,99 54,99 C60,99 65,96 68,88 C73,75 72,61 67,53 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="2.8"/><path class="Lj6modt band" d="M40,68 C46,72 62,72 68,68" fill="none" stroke="var(--la)" stroke-width="2.2"/><path class="Lj6modt gem" d="M54,74 l4,5 l-4,5 l-4,-5 Z" fill="var(--la)"/><path class="Lj6modt spout" d="M41,60 C32,56 27,48 30,40" fill="none" stroke="var(--lk)" stroke-width="2.8"/><path class="Lj6modt handle" d="M67,60 C78,58 80,73 71,80" fill="none" stroke="var(--lk)" stroke-width="2.8"/><path class="Lj6modt lid" d="M42,53 C42,44 47,40 54,40 C61,40 66,44 66,53 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2.6"/><path class="Lj6modt lid" d="M40,53 H68" stroke="var(--lk)" stroke-width="2.6"/><circle class="Lj6modt finial" cx="54" cy="36" r="2.6" fill="var(--la2)" stroke="var(--lk)" stroke-width="1.6"/><path class="Lj6modt wisp" d="M54,33 C56,31 55,30 54,29" fill="none" stroke="var(--lp)" stroke-width="2" stroke-opacity=".55"/><g class="Lj6modt hearts"><path class="Lj6modt heart" d="M54,29 C47,22 41,21 41,15 C41,10 47,8 51,13 C53,15 54,15 54,12" fill="none" stroke="var(--la2)" stroke-width="2.8"/><path class="Lj6modt heart" d="M54,29 C61,22 67,21 67,15 C67,10 61,8 57,13 C55,15 54,15 54,12" fill="none" stroke="var(--la2)" stroke-width="2.8"/></g></svg></div>
     
     <h1><span class="ar">مهجة كافيه</span><span class="en">Muhjah Cafe</span></h1>
     <div class="world"><span class="ar">✦ <b>قلب البيت أول ما يدفى</b> ✦</span><span class="en">✦ <b>the warmest room in the house</b> ✦</span></div>
@@ -619,7 +620,7 @@ body{
         <img src="../assets/photos/muhjah-cafe/4.jpg" style="object-position:center" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">القهوة وأكثر</span><span class="en">Coffee &amp; More</span></div>
+        <div class="room-eyebrow"><span class="rnum">01</span><span class="ar">القهوة وأكثر</span><span class="en">Coffee &amp; More</span></div>
         <h2 class="room-h2"><span class="ar">الدلّة ما تبرد عندنا</span><span class="en">the pot never goes cold</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">ادخل تدفّى، الفنجان أول ما ينسكب لك</span><span class="en">step in, the warm cup finds you first</span></p>
@@ -696,7 +697,7 @@ body{
         <img src="../assets/photos/muhjah-cafe/5.jpg" style="object-position:center" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">لصغار البيت</span><span class="en">Little Ones</span></div>
+        <div class="room-eyebrow"><span class="rnum">02</span><span class="ar">لصغار البيت</span><span class="en">Little Ones</span></div>
         <h2 class="room-h2"><span class="ar">ركن الصغار وضحكتهم</span><span class="en">where the little laughs live</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">ضحكة الصغار تملا البيت دفا</span><span class="en">little laughter warms the whole house</span></p>
@@ -767,7 +768,7 @@ body{
         <img src="../assets/photos/muhjah-cafe/6.jpg" style="object-position:center 25%" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">لقيمات العائلة</span><span class="en">Family Bites</span></div>
+        <div class="room-eyebrow"><span class="rnum">03</span><span class="ar">لقيمات العائلة</span><span class="en">Family Bites</span></div>
         <h2 class="room-h2"><span class="ar">لقمة تلمّنا حول الطاولة</span><span class="en">one plate, everyone reaches in</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">قرّبوا، الصحن يوصل لكل يد</span><span class="en">come closer, every hand finds the plate</span></p>
@@ -837,7 +838,7 @@ body{
         <img src="../assets/photos/muhjah-cafe/4.jpg" style="object-position:center" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">الحلويات</span><span class="en">Sweets</span></div>
+        <div class="room-eyebrow"><span class="rnum">04</span><span class="ar">الحلويات</span><span class="en">Sweets</span></div>
         <h2 class="room-h2"><span class="ar">الحلا آخر السوالف</span><span class="en">sweetness before goodnight</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">خلّوا الحلا يختم السهرة على خير</span><span class="en">let sweetness tuck the evening in</span></p>
@@ -883,28 +884,7 @@ body{
     <span class="en">📱 Live digital menu: scan the table QR — menu-sadah.com/muhjah-cafe</span>
   </div>
   <div class="footer">
-    <div class="brandlogo mini" aria-hidden="true"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-<circle class="Lj6modt glow" cx="60" cy="28" r="24" fill="var(--la2)" opacity="0"/>
-<g class="Lj6modt heart">
-<path class="Lj6modt hfill" d="M60,45 C52,37 44,33 44,25 C44,19 50,17 54,20 C57,22 60,26 60,26 C60,26 63,22 66,20 C70,17 76,19 76,25 C76,33 68,37 60,45 Z" fill="var(--la2)" opacity="0"/>
-<path class="Lj6modt hline" pathLength="100" d="M60,45 C52,37 44,33 44,25 C44,19 50,17 54,20 C57,22 60,26 60,26 C60,26 63,22 66,20 C70,17 76,19 76,25 C76,33 68,37 60,45 Z" fill="none" stroke="var(--lk)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
-</g>
-<path class="Lj6modt steam" pathLength="100" d="M55,53 C51,49 59,47 55,43" fill="none" stroke="var(--la)" stroke-width="4" stroke-linecap="round" stroke-opacity=".75"/>
-<path class="Lj6modt steam" pathLength="100" d="M64,54 C68,50 60,47 64,44" fill="none" stroke="var(--la)" stroke-width="4" stroke-linecap="round" stroke-opacity=".75"/>
-<g class="Lj6modt pot" stroke="var(--lk)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
-<path class="Lj6modt base" d="M50,93 L70,93 L67,99 Q60,101 53,99 Z" fill="var(--ls2)"/>
-<path class="Lj6modt base" d="M45,55 C35,61 31,75 37,85 C41,92 50,95 60,95 C70,95 79,92 83,85 C89,75 85,61 75,55 Z" fill="var(--ls)"/>
-<path class="Lj6modt spout" pathLength="100" d="M45,60 Q29,55 24,42 Q23,39 26,38" fill="none"/>
-<path class="Lj6modt handle" d="M75,60 Q92,63 88,82" fill="none"/>
-<path class="Lj6modt base" d="M47,51 L73,51 L71,56 L49,56 Z" fill="var(--ls)"/>
-<path class="Lj6modt lid" d="M45,51 Q60,33 75,51 Z" fill="var(--la)"/>
-<circle class="Lj6modt finial" cx="60" cy="35" r="4.5" fill="var(--la2)"/>
-</g>
-<g class="Lj6modt cup" stroke="var(--lk)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
-<ellipse cx="97" cy="96" rx="10" ry="2.6" fill="var(--ls2)"/>
-<path d="M91,86 L103,86 L101,94 Q97,96 93,94 Z" fill="var(--lp)"/>
-</g>
-</svg></div>
+    <div class="brandlogo mini" aria-hidden="true"><svg viewBox="0 0 120 120" fill="none" stroke-linecap="round" stroke-linejoin="round"><ellipse class="Lj6modt base" cx="54" cy="100" rx="19" ry="3.2" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2.4"/><path class="Lj6modt body" d="M41,53 C36,61 35,75 40,88 C43,96 48,99 54,99 C60,99 65,96 68,88 C73,75 72,61 67,53 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="2.8"/><path class="Lj6modt band" d="M40,68 C46,72 62,72 68,68" fill="none" stroke="var(--la)" stroke-width="2.2"/><path class="Lj6modt gem" d="M54,74 l4,5 l-4,5 l-4,-5 Z" fill="var(--la)"/><path class="Lj6modt spout" d="M41,60 C32,56 27,48 30,40" fill="none" stroke="var(--lk)" stroke-width="2.8"/><path class="Lj6modt handle" d="M67,60 C78,58 80,73 71,80" fill="none" stroke="var(--lk)" stroke-width="2.8"/><path class="Lj6modt lid" d="M42,53 C42,44 47,40 54,40 C61,40 66,44 66,53 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2.6"/><path class="Lj6modt lid" d="M40,53 H68" stroke="var(--lk)" stroke-width="2.6"/><circle class="Lj6modt finial" cx="54" cy="36" r="2.6" fill="var(--la2)" stroke="var(--lk)" stroke-width="1.6"/><path class="Lj6modt wisp" d="M54,33 C56,31 55,30 54,29" fill="none" stroke="var(--lp)" stroke-width="2" stroke-opacity=".55"/><g class="Lj6modt hearts"><path class="Lj6modt heart" d="M54,29 C47,22 41,21 41,15 C41,10 47,8 51,13 C53,15 54,15 54,12" fill="none" stroke="var(--la2)" stroke-width="2.8"/><path class="Lj6modt heart" d="M54,29 C61,22 67,21 67,15 C67,10 61,8 57,13 C55,15 54,15 54,12" fill="none" stroke="var(--la2)" stroke-width="2.8"/></g></svg></div>
     <div style="margin-bottom:6px;color:var(--text-2)"><span class="ar">تابعوا مهجة كافيه: <b style="color:var(--accent)">@muhjahcafe</b></span><span class="en">Follow Muhjah Cafe: <b style="color:var(--accent)">@muhjahcafe</b></span></div>
     <span class="ar">تجربة من <a href="https://menu-sadah.com">منيو سادة — MENU SADAH</a></span>
     <span class="en">Crafted by <a href="https://menu-sadah.com">MENU SADAH</a></span>
@@ -923,6 +903,15 @@ body{
   document.getElementById('langToggle').addEventListener('click',()=>{setLang(root.getAttribute('data-lang')==='ar'?'en':'ar');});
   const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // scroll-spy: light the category chip for the room currently in view (award e-menu pattern)
+  try{
+    const chips=[].slice.call(document.querySelectorAll('.chips .chip'));
+    const secs=chips.map(c=>document.querySelector(c.getAttribute('href'))).filter(Boolean);
+    if('IntersectionObserver' in window && secs.length){
+      const spy=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){const id='#'+e.target.id;chips.forEach(c=>c.classList.toggle('active',c.getAttribute('href')===id));}}),{rootMargin:'-45% 0px -50% 0px',threshold:0});
+      secs.forEach(s=>spy.observe(s));
+    }
+  }catch(e){}
   // motion DNA haptic: a soft 8ms tick when a chip snaps you to a room (feature-checked, motion-respecting)
   if(matchMedia('(prefers-reduced-motion: no-preference)').matches){
     document.querySelectorAll('.chips .chip').forEach(c=>c.addEventListener('click',()=>{navigator.vibrate?.(8);}));

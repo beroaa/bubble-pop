@@ -96,6 +96,8 @@
   .chip{flex:0 0 auto;text-decoration:none;color:var(--text-2);background:#221a16cc;border:1px solid var(--border-1);
     border-radius:999px;padding:9px 16px;font-size:13.5px;transition:all .2s,transform .18s}
   .chip:hover{color:var(--accent);border-color:var(--accent);box-shadow:0 0 14px #d0987c33;transform:translateY(-2px)}
+  /* scroll-spy: the chip for the room you're reading lights up (award e-menu pattern) */
+  .chip.active{color:var(--accent);border-color:var(--accent);font-weight:800;box-shadow:inset 0 -3px 0 var(--accent)}
 
   /* ---- signatures with price STAMPS ---- */
   .sig{margin-top:26px;background:linear-gradient(180deg,#d0987c14,transparent 90%);border:1px solid #d0987c44;
@@ -137,7 +139,14 @@
   .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
     box-shadow:inset 0 0 0 1px #d0987c55}
   .cat-title{flex:1;min-width:0}
-  .room-eyebrow{color:var(--text-2);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+  .room-eyebrow{color:var(--text-2);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+  /* editorial department-opener kicker (award e-menu pattern): a metallic numeral leads each room */
+  .room-eyebrow .rnum{font-family:ui-monospace,Menlo,monospace;font-weight:800;color:var(--sa);letter-spacing:.02em;flex:0 0 auto}
+  .room-eyebrow .rnum::after{content:"·";margin-inline-start:8px;color:var(--sa);opacity:.7}
+  .room-eyebrow.rn-only .rnum::after{content:none}
+  [data-lang="ar"] .room-eyebrow{letter-spacing:0}
+  /* sticky category strip must never hide the heading it jumps to */
+  .cat,.sig{scroll-margin-top:66px}
   .room-h2{color:var(--sa);font-size:28px;font-weight:800;line-height:1.14;letter-spacing:-.01em}
   .room-h2 .ar{font-family:'Baloo Bhaijaan 2',cursive}
   .room-h2 .en{font-family:'Fredoka',sans-serif}
@@ -355,16 +364,36 @@ body{
      the wrapper must clip its own decorative children or dark-mode pages scroll sideways. */
   .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
   .hero{overflow-x:clip}
-  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(120% 80% at 50% -10%,color-mix(in srgb,var(--accent) 18%,transparent),transparent 60%)}
-.brandbg .spot{position:absolute;top:-20%;left:50%;width:70vw;height:80vh;transform:translateX(-50%);background:radial-gradient(closest-side,color-mix(in srgb,var(--sa) 22%,transparent),transparent);filter:blur(30px);opacity:.5}
-.brandbg .star{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--sa2);box-shadow:0 0 6px var(--sa)}
-.brandbg .s1{top:14%;left:8%}.brandbg .s2{top:22%;right:10%}.brandbg .s3{top:60%;left:6%}.brandbg .s4{top:72%;right:8%}.brandbg .s5{top:40%;left:14%}.brandbg .s6{top:34%;right:16%}
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:linear-gradient(165deg,var(--sa2),var(--accent-2) 48%,var(--sa))}
+.brandbg .g{position:absolute;width:62vmax;height:62vmax;border-radius:50%;filter:blur(64px);opacity:.6;mix-blend-mode:screen}
+.brandbg .g1{background:radial-gradient(circle,color-mix(in srgb,var(--accent) 72%,transparent),transparent 66%);inset-block-start:-20vmax;inset-inline-start:-14vmax}
+.brandbg .g2{background:radial-gradient(circle,color-mix(in srgb,var(--accent-2) 78%,transparent),transparent 66%);inset-block-end:-22vmax;inset-inline-end:-16vmax}
+.brandbg .g3{width:42vmax;height:42vmax;opacity:.42;background:radial-gradient(circle,color-mix(in srgb,var(--sa) 62%,transparent),transparent 62%);inset-block-start:34%;inset-inline-start:56%}
+.brandbg .v{position:absolute;inset:0;background:radial-gradient(122% 82% at 50% 46%,transparent 38%,color-mix(in srgb,var(--accent-2) 88%,black) 100%)}
+.brandbg .m{position:absolute;width:3px;height:3px;border-radius:50%;background:color-mix(in srgb,var(--sa2) 78%,white);box-shadow:0 0 7px color-mix(in srgb,var(--sa2) 60%,white);opacity:.7}
+.brandbg .m1{inset-block-start:18%;inset-inline-start:22%}
+.brandbg .m2{inset-block-start:30%;inset-inline-start:71%}
+.brandbg .m3{inset-block-start:63%;inset-inline-start:37%}
+.brandbg .m4{inset-block-start:76%;inset-inline-start:80%}
+.brandbg .m5{inset-block-start:47%;inset-inline-start:12%}
+.brandbg .m6{inset-block-start:12%;inset-inline-start:53%}
 @media (prefers-reduced-motion:no-preference){
-.brandbg .spot{animation:tcc-sweep 14s ease-in-out infinite}
-.brandbg .star{animation:tcc-tw 4s ease-in-out infinite}
-.brandbg .s2{animation-delay:1s}.brandbg .s3{animation-delay:2s}.brandbg .s4{animation-delay:.5s}.brandbg .s5{animation-delay:1.5s}.brandbg .s6{animation-delay:2.5s}
-@keyframes tcc-sweep{0%,100%{transform:translateX(-60%) rotate(-6deg)}50%{transform:translateX(-40%) rotate(6deg)}}
-@keyframes tcc-tw{0%,100%{opacity:.2;transform:scale(.7)}50%{opacity:.9;transform:scale(1.2)}}}
+.brandbg{background-size:200% 200%;animation:bgShift 26s ease-in-out infinite}
+.brandbg .g1{animation:drift1 28s ease-in-out infinite}
+.brandbg .g2{animation:drift2 32s ease-in-out infinite}
+.brandbg .g3{animation:drift3 22s ease-in-out infinite}
+.brandbg .m{animation:tw 9s ease-in-out infinite}
+.brandbg .m2{animation-delay:2s}
+.brandbg .m3{animation-delay:4s}
+.brandbg .m4{animation-delay:1s}
+.brandbg .m5{animation-delay:5.5s}
+.brandbg .m6{animation-delay:3s}
+@keyframes bgShift{0%,100%{background-position:0% 0%}50%{background-position:100% 100%}}
+@keyframes drift1{0%,100%{transform:translate(0,0)}50%{transform:translate(6vmax,4vmax)}}
+@keyframes drift2{0%,100%{transform:translate(0,0)}50%{transform:translate(-5vmax,-4vmax)}}
+@keyframes drift3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-4vmax,3vmax) scale(1.12)}}
+@keyframes tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:.95;transform:scale(1.15)}}
+}
 
   /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
   
@@ -461,7 +490,7 @@ body{
 </style>
 </head>
 <body>
-<div class="brandbg" aria-hidden="true"><div class="spot"></div><span class="star s1"></span><span class="star s2"></span><span class="star s3"></span><span class="star s4"></span><span class="star s5"></span><span class="star s6"></span></div>
+<div class="brandbg" aria-hidden="true"><i class="g g1"></i><i class="g g2"></i><i class="g g3"></i><i class="v"></i><span class="m m1"></span><span class="m m2"></span><span class="m m3"></span><span class="m m4"></span><span class="m m5"></span><span class="m m6"></span></div>
 <button class="lang-toggle touchable" id="langToggle">English</button>
 <div class="bigmark" aria-hidden="true"><span class="ar">ذ</span><span class="en">T</span></div>
 <div class="wrap">
@@ -511,36 +540,19 @@ body{
 <rect y="783" width="1440" height="24" fill="url(#pdSadu)" opacity=".85"/>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="brandlogo big" aria-hidden="true"><style>.L9rn5l4 .arch{opacity:0;transform-origin:50% 100%;animation:L9rn5l4_arch .7s cubic-bezier(.2,1.3,.3,1) .15s both}
-.L9rn5l4 .plate{opacity:0;transform-origin:50% 100%;animation:L9rn5l4_plate .7s cubic-bezier(.2,1.3,.3,1) .3s both}
-.L9rn5l4 .slice{opacity:0;transform-origin:50% 100%;animation:L9rn5l4_fly .7s cubic-bezier(.2,1.3,.3,1) .45s both}
-.L9rn5l4 .filling{opacity:0;transform-origin:50% 50%;animation:L9rn5l4_fade .5s ease-out .7s both}
-.L9rn5l4 .cream{opacity:0;transform-origin:50% 50%;animation:L9rn5l4_fade .5s ease-out .6s both}
-.L9rn5l4 .ink{fill:none;stroke-dasharray:44;stroke-dashoffset:44;animation:L9rn5l4_draw .8s ease-out .85s both}
-.L9rn5l4 .cherry{opacity:0;transform-origin:center;animation:L9rn5l4_pop .6s cubic-bezier(.2,1.3,.3,1) .95s both,L9rn5l4_twinkle 2.6s ease-in-out 1.7s infinite}
-.L9rn5l4 .spark{opacity:0;transform-origin:center}
-.L9rn5l4 .s1{animation:L9rn5l4_fade .5s ease-out 1.05s both,L9rn5l4_spark 2.4s ease-in-out 1.7s infinite}
-.L9rn5l4 .s2{animation:L9rn5l4_fade .5s ease-out 1.2s both,L9rn5l4_spark 2.4s ease-in-out 2.1s infinite}
-.L9rn5l4 .s3{animation:L9rn5l4_fade .5s ease-out 1.35s both,L9rn5l4_spark 2.4s ease-in-out 2.5s infinite}
-@keyframes L9rn5l4_arch{0%{opacity:0;transform:scaleY(.15) translateY(18px)}100%{opacity:1;transform:none}}
-@keyframes L9rn5l4_plate{0%{opacity:0;transform:translateY(26px) scale(.5)}100%{opacity:1;transform:none}}
-@keyframes L9rn5l4_fly{0%{opacity:0;transform:translateX(52px) translateY(-12px) rotate(14deg)}100%{opacity:1;transform:none}}
-@keyframes L9rn5l4_fade{0%{opacity:0;transform:translateY(6px)}100%{opacity:1;transform:none}}
+    <div class="brandlogo big" aria-hidden="true"><style>.L9rn5l4{overflow:visible}
+.L9rn5l4 .nook{stroke-dasharray:64;stroke-dashoffset:64;animation:L9rn5l4_draw 1.1s ease .3s forwards}
+.L9rn5l4 .plate{transform-origin:60px 90px;animation:L9rn5l4_rise .8s cubic-bezier(.2,1.3,.3,1) .15s both}
+.L9rn5l4 .slice{transform-origin:64px 80px;animation:L9rn5l4_rise .8s cubic-bezier(.2,1.3,.3,1) .4s both}
+.L9rn5l4 .layer{stroke-dasharray:44;stroke-dashoffset:44;animation:L9rn5l4_draw 1s ease .9s forwards}
+.L9rn5l4 .star{transform-origin:48px 47px;animation:L9rn5l4_pop .7s cubic-bezier(.2,1.3,.3,1) .7s both,L9rn5l4_twinkle 4.6s ease-in-out 1.7s infinite}
+.L9rn5l4 .spark{animation:L9rn5l4_pop .6s cubic-bezier(.2,1.3,.3,1) both,L9rn5l4_twinkle 5.2s ease-in-out infinite}
+.L9rn5l4 .s1{transform-origin:78px 40px;animation-delay:.95s,2.1s}
+.L9rn5l4 .s2{transform-origin:30px 66px;animation-delay:1.15s,2.7s}
+@keyframes L9rn5l4_rise{from{opacity:0;transform:translateY(9px) scale(.92)}to{opacity:1;transform:none}}
 @keyframes L9rn5l4_draw{to{stroke-dashoffset:0}}
-@keyframes L9rn5l4_pop{0%{opacity:0;transform:scale(0) rotate(-45deg)}60%{opacity:1;transform:scale(1.2) rotate(8deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
-@keyframes L9rn5l4_twinkle{0%,100%{transform:scale(1) rotate(0)}50%{transform:scale(1.14) rotate(7deg)}}
-@keyframes L9rn5l4_spark{0%,100%{opacity:.35;transform:scale(.65)}50%{opacity:1;transform:scale(1.2)}}</style><svg viewBox="0 0 120 120" fill="none" stroke-linejoin="round" stroke-linecap="round">
-<path class="L9rn5l4 arch" d="M26,86 L26,50 Q26,24 60,24 Q94,24 94,50 L94,86 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4"/>
-<path class="L9rn5l4 spark s1" d="M34,37 L35.5,40.5 L39,42 L35.5,43.5 L34,47 L32.5,43.5 L29,42 L32.5,40.5 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="1.5"/>
-<path class="L9rn5l4 spark s2" d="M86,30 L87.2,32.8 L90,34 L87.2,35.2 L86,38 L84.8,35.2 L82,34 L84.8,32.8 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="1.5"/>
-<path class="L9rn5l4 spark s3" d="M30,63 L31.05,65.45 L33.5,66.5 L31.05,67.55 L30,70 L28.95,67.55 L26.5,66.5 L28.95,65.45 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="1.5"/>
-<ellipse class="L9rn5l4 plate" cx="60" cy="88" rx="34" ry="7" fill="var(--lp)" stroke="var(--lk)" stroke-width="4"/>
-<path class="L9rn5l4 slice" d="M60,46 L42,83 L78,83 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="5"/>
-<path class="L9rn5l4 cream" d="M51,64 L69,64 L71.5,69 L48.5,69 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="1.5"/>
-<path class="L9rn5l4 filling" d="M48.5,69 L71.5,69 L74,74.5 L46,74.5 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="1.5"/>
-<path class="L9rn5l4 ink" d="M47,58 Q54,54 60,58 Q66,62 72,57" stroke="var(--la2)" stroke-width="3"/>
-<path class="L9rn5l4 cherry" d="M60,30 L62.35,36.76 L69.51,36.91 L63.8,41.24 L65.88,48.09 L60,44 L54.12,48.09 L56.2,41.24 L50.49,36.91 L57.65,36.76 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="3.5"/>
-</svg></div>
+@keyframes L9rn5l4_pop{from{opacity:0;transform:scale(.3)}to{opacity:1;transform:none}}
+@keyframes L9rn5l4_twinkle{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.78)}}</style><svg viewBox="0 0 120 120" fill="none"><path class="L9rn5l4 nook" d="M20 44 Q20 26 38 26 L54 26" stroke="var(--lk)" stroke-width="2.6" stroke-linecap="round"/><ellipse class="L9rn5l4 plate" cx="60" cy="90" rx="33" ry="6.2" fill="var(--lp)" stroke="var(--lk)" stroke-width="2.4"/><path class="L9rn5l4 slice" d="M42 84 L42 55 L86 76 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="2.8" stroke-linejoin="round"/><line class="L9rn5l4 layer" x1="46" y1="73" x2="79" y2="68" stroke="var(--ls)" stroke-width="2.4" stroke-linecap="round"/><line class="L9rn5l4 layer" x1="44" y1="79" x2="83" y2="73" stroke="var(--ls2)" stroke-width="2.4" stroke-linecap="round"/><path class="L9rn5l4 star" d="M48 36 Q48 47 59 47 Q48 47 48 58 Q48 47 37 47 Q48 47 48 36 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2.2" stroke-linejoin="round"/><path class="L9rn5l4 spark s1" d="M78 34 Q78 40 84 40 Q78 40 78 46 Q78 40 72 40 Q78 40 78 34 Z" fill="var(--la2)"/><path class="L9rn5l4 spark s2" d="M30 61 Q30 66 35 66 Q30 66 30 71 Q30 66 25 66 Q30 66 30 61 Z" fill="var(--la2)"/></svg></div>
     
     <h1><span class="ar">ذا كيك كورنر</span><span class="en">The Cake Corner</span></h1>
     <div class="world"><span class="ar">✦ <b>ركن حلا هادي آخر الليل</b> ✦</span><span class="en">✦ <b>a velvet corner after midnight</b> ✦</span></div>
@@ -563,7 +575,7 @@ body{
         
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">حلا البيت</span><span class="en">House Desserts</span></div>
+        <div class="room-eyebrow"><span class="rnum">01</span><span class="ar">حلا البيت</span><span class="en">House Desserts</span></div>
         <h2 class="room-h2"><span class="ar">الحلا اللي يفتح السوالف</span><span class="en">the sweet heart of the house</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">تعال اقعد.. الركن محفوظ لك ولحلاك</span><span class="en">settle in, this corner kept your seat</span></p>
@@ -641,7 +653,7 @@ body{
         
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">دافي ولذيذ</span><span class="en">Warm &amp; Gooey</span></div>
+        <div class="room-eyebrow"><span class="rnum">02</span><span class="ar">دافي ولذيذ</span><span class="en">Warm &amp; Gooey</span></div>
         <h2 class="room-h2"><span class="ar">دافي من الفرن لصحنك</span><span class="en">still warm when it reaches you</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">لسه دافي.. لا تطوّل عليه</span><span class="en">still warm, don't keep it waiting</span></p>
@@ -699,7 +711,7 @@ body{
         
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">القهوة</span><span class="en">Coffee</span></div>
+        <div class="room-eyebrow"><span class="rnum">03</span><span class="ar">القهوة</span><span class="en">Coffee</span></div>
         <h2 class="room-h2"><span class="ar">فنجانك جنب الحلا</span><span class="en">a cup to cut the sweetness</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">مرّة خفيفة تعدّل حلاة الليل</span><span class="en">a gentle bitter for a sweet night</span></p>
@@ -763,7 +775,7 @@ body{
         
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">المشروبات الباردة</span><span class="en">Cold Drinks</span></div>
+        <div class="room-eyebrow"><span class="rnum">04</span><span class="ar">المشروبات الباردة</span><span class="en">Cold Drinks</span></div>
         <h2 class="room-h2"><span class="ar">برد يوازن الطاولة</span><span class="en">cold and calm beside it</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">شي بارد يهدّي آخر الليل</span><span class="en">something cold to slow the midnight down</span></p>
@@ -809,18 +821,7 @@ body{
     <span class="en">📱 Live digital menu: scan the table QR — menu-sadah.com/the-cake-corner</span>
   </div>
   <div class="footer">
-    <div class="brandlogo mini" aria-hidden="true"><svg viewBox="0 0 120 120" fill="none" stroke-linejoin="round" stroke-linecap="round">
-<path class="L9rn5l4 arch" d="M26,86 L26,50 Q26,24 60,24 Q94,24 94,50 L94,86 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4"/>
-<path class="L9rn5l4 spark s1" d="M34,37 L35.5,40.5 L39,42 L35.5,43.5 L34,47 L32.5,43.5 L29,42 L32.5,40.5 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="1.5"/>
-<path class="L9rn5l4 spark s2" d="M86,30 L87.2,32.8 L90,34 L87.2,35.2 L86,38 L84.8,35.2 L82,34 L84.8,32.8 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="1.5"/>
-<path class="L9rn5l4 spark s3" d="M30,63 L31.05,65.45 L33.5,66.5 L31.05,67.55 L30,70 L28.95,67.55 L26.5,66.5 L28.95,65.45 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="1.5"/>
-<ellipse class="L9rn5l4 plate" cx="60" cy="88" rx="34" ry="7" fill="var(--lp)" stroke="var(--lk)" stroke-width="4"/>
-<path class="L9rn5l4 slice" d="M60,46 L42,83 L78,83 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="5"/>
-<path class="L9rn5l4 cream" d="M51,64 L69,64 L71.5,69 L48.5,69 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="1.5"/>
-<path class="L9rn5l4 filling" d="M48.5,69 L71.5,69 L74,74.5 L46,74.5 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="1.5"/>
-<path class="L9rn5l4 ink" d="M47,58 Q54,54 60,58 Q66,62 72,57" stroke="var(--la2)" stroke-width="3"/>
-<path class="L9rn5l4 cherry" d="M60,30 L62.35,36.76 L69.51,36.91 L63.8,41.24 L65.88,48.09 L60,44 L54.12,48.09 L56.2,41.24 L50.49,36.91 L57.65,36.76 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="3.5"/>
-</svg></div>
+    <div class="brandlogo mini" aria-hidden="true"><svg viewBox="0 0 120 120" fill="none"><path class="L9rn5l4 nook" d="M20 44 Q20 26 38 26 L54 26" stroke="var(--lk)" stroke-width="2.6" stroke-linecap="round"/><ellipse class="L9rn5l4 plate" cx="60" cy="90" rx="33" ry="6.2" fill="var(--lp)" stroke="var(--lk)" stroke-width="2.4"/><path class="L9rn5l4 slice" d="M42 84 L42 55 L86 76 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="2.8" stroke-linejoin="round"/><line class="L9rn5l4 layer" x1="46" y1="73" x2="79" y2="68" stroke="var(--ls)" stroke-width="2.4" stroke-linecap="round"/><line class="L9rn5l4 layer" x1="44" y1="79" x2="83" y2="73" stroke="var(--ls2)" stroke-width="2.4" stroke-linecap="round"/><path class="L9rn5l4 star" d="M48 36 Q48 47 59 47 Q48 47 48 58 Q48 47 37 47 Q48 47 48 36 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2.2" stroke-linejoin="round"/><path class="L9rn5l4 spark s1" d="M78 34 Q78 40 84 40 Q78 40 78 46 Q78 40 72 40 Q78 40 78 34 Z" fill="var(--la2)"/><path class="L9rn5l4 spark s2" d="M30 61 Q30 66 35 66 Q30 66 30 71 Q30 66 25 66 Q30 66 30 61 Z" fill="var(--la2)"/></svg></div>
     <div style="margin-bottom:6px;color:var(--text-2)"><span class="ar">تابعوا ذا كيك كورنر: <b style="color:var(--accent)">@thecakecornerksa</b></span><span class="en">Follow The Cake Corner: <b style="color:var(--accent)">@thecakecornerksa</b></span></div>
     <span class="ar">تجربة من <a href="https://menu-sadah.com">منيو سادة — MENU SADAH</a></span>
     <span class="en">Crafted by <a href="https://menu-sadah.com">MENU SADAH</a></span>
@@ -839,6 +840,15 @@ body{
   document.getElementById('langToggle').addEventListener('click',()=>{setLang(root.getAttribute('data-lang')==='ar'?'en':'ar');});
   const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // scroll-spy: light the category chip for the room currently in view (award e-menu pattern)
+  try{
+    const chips=[].slice.call(document.querySelectorAll('.chips .chip'));
+    const secs=chips.map(c=>document.querySelector(c.getAttribute('href'))).filter(Boolean);
+    if('IntersectionObserver' in window && secs.length){
+      const spy=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){const id='#'+e.target.id;chips.forEach(c=>c.classList.toggle('active',c.getAttribute('href')===id));}}),{rootMargin:'-45% 0px -50% 0px',threshold:0});
+      secs.forEach(s=>spy.observe(s));
+    }
+  }catch(e){}
   // motion DNA haptic: a soft 8ms tick when a chip snaps you to a room (feature-checked, motion-respecting)
   if(matchMedia('(prefers-reduced-motion: no-preference)').matches){
     document.querySelectorAll('.chips .chip').forEach(c=>c.addEventListener('click',()=>{navigator.vibrate?.(8);}));

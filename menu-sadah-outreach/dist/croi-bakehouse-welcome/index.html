@@ -227,17 +227,24 @@ body{
   .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
   .hero{overflow-x:clip}
   .brandbg{--accent:#a4611e;--accent-2:#8b3742;--sa:#959c30;--sa2:#88b4b4;--bg-0:#fcfaf8;--bg-1:#f5f0ea;--bg-2:#fefcfb}
-  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(80% 50% at 50% 108%,color-mix(in srgb,var(--sa) 16%,transparent),transparent 60%)}
-.brandbg .ink{position:absolute;border-radius:48% 52% 55% 45%/50% 48% 52% 50%;filter:blur(34px);opacity:.35}
-.brandbg .i1{top:-14%;left:-10%;width:40vw;height:40vw;background:radial-gradient(closest-side,var(--accent),transparent)}
-.brandbg .i2{bottom:-16%;right:-12%;width:46vw;height:46vw;background:radial-gradient(closest-side,var(--accent-2),transparent)}
-.brandbg .rule{position:absolute;left:8%;right:8%;top:50%;height:1px;background:linear-gradient(90deg,transparent,var(--sa),transparent);opacity:.2}
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:linear-gradient(155deg,var(--accent-2),var(--accent) 58%,var(--sa2))}
+.brandbg i,.brandbg span{position:absolute;display:block;inset:0}
+.brandbg .g1{background:radial-gradient(60% 55% at 22% 18%,var(--sa),transparent 66%);opacity:.55;mix-blend-mode:screen}
+.brandbg .g2{background:radial-gradient(55% 50% at 82% 84%,var(--sa2),transparent 64%);opacity:.5;mix-blend-mode:screen}
+.brandbg .g3{background:radial-gradient(48% 42% at 50% 50%,var(--accent),transparent 70%);opacity:.4;mix-blend-mode:screen}
+.brandbg .mote{background-image:radial-gradient(circle at 18% 24%,var(--sa2) 0 1.5px,transparent 2px),radial-gradient(circle at 68% 16%,var(--sa) 0 1.5px,transparent 2px),radial-gradient(circle at 42% 66%,var(--sa2) 0 1px,transparent 2px),radial-gradient(circle at 84% 48%,var(--sa) 0 1.5px,transparent 2px),radial-gradient(circle at 30% 88%,var(--sa2) 0 1px,transparent 2px);opacity:.6}
+.brandbg .grain{background:repeating-linear-gradient(115deg,transparent 0 6px,var(--accent-2) 6px 7px);opacity:.06;mix-blend-mode:overlay}
 @media (prefers-reduced-motion:no-preference){
-.brandbg .i1{animation:cro-float 22s ease-in-out infinite}
-.brandbg .i2{animation:cro-float 26s ease-in-out infinite reverse}
-.brandbg .rule{animation:cro-breathe 9s ease-in-out infinite}
-@keyframes cro-float{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(4%,-3%) rotate(8deg)}}
-@keyframes cro-breathe{0%,100%{opacity:.12}50%{opacity:.3}}}
+.brandbg .g1{animation:bgA 18s ease-in-out infinite}
+.brandbg .g2{animation:bgB 22s ease-in-out infinite}
+.brandbg .g3{animation:bgC 14s ease-in-out infinite}
+.brandbg .mote{animation:bgM 26s linear infinite}
+.brandbg .grain{animation:bgG 30s ease-in-out infinite}}
+@keyframes bgA{0%,100%{transform:translate(0,0)}50%{transform:translate(6%,4%)}}
+@keyframes bgB{0%,100%{transform:translate(0,0)}50%{transform:translate(-5%,-4%)}}
+@keyframes bgC{0%,100%{opacity:.3}50%{opacity:.55}}
+@keyframes bgM{0%{transform:translateY(0)}100%{transform:translateY(-8%)}}
+@keyframes bgG{0%,100%{opacity:.15;transform:translate(0,0)}50%{opacity:.3;transform:translate(3%,-3%)}}
 
   /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
   
@@ -306,7 +313,7 @@ body{
 </script>
 </head>
 <body>
-<div class="brandbg" aria-hidden="true"><span class="ink i1"></span><span class="ink i2"></span><span class="rule"></span></div>
+<div class="brandbg" aria-hidden="true"><i class="g1"></i><i class="g2"></i><i class="g3"></i><span class="mote"></span><span class="grain"></span></div>
 <div class="sting-wash" aria-hidden="true"><i></i><i></i></div>
 <div class="curtain" id="msCurtain" aria-hidden="true"></div>
 <div class="bigmark" aria-hidden="true"><span class="ar">ك</span><span class="en">C</span></div>
@@ -361,45 +368,17 @@ body{
 </svg>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:10px;animation-delay:0s">✒</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:13px;animation-delay:0.7s">·</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:14px;animation-delay:1.4s">෴</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:11px;animation-delay:2.0999999999999996s">·</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:10px;animation-delay:2.8s">✒</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:9px;animation-delay:3.5s">·</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:9px;animation-delay:0.1999999999999993s">෴</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:12px;animation-delay:0.8999999999999995s">·</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="brandlogo big" aria-hidden="true"><style>.L5ap4rt .part-board{transform-origin:60px 102px;animation:L5ap4rt_rise .7s cubic-bezier(.2,1.3,.3,1) both;animation-delay:.1s}
-.L5ap4rt .part-loaf{transform-origin:60px 78px;animation:L5ap4rt_rise .7s cubic-bezier(.2,1.3,.3,1) both;animation-delay:.22s}
-.L5ap4rt .part-wheat{transform-origin:96px 72px;animation:L5ap4rt_flyR .75s cubic-bezier(.2,1.3,.3,1) both;animation-delay:.75s}
-.L5ap4rt .part-heart{fill:none;stroke-dasharray:130;stroke-dashoffset:130;animation:L5ap4rt_draw .85s ease both;animation-delay:.62s}
-.L5ap4rt .glow{transform-origin:60px 58px;animation:L5ap4rt_pop .5s cubic-bezier(.2,1.3,.3,1) both,L5ap4rt_glow 3.2s ease-in-out infinite;animation-delay:.9s,1.4s}
-.L5ap4rt .flour{transform-origin:center;animation:L5ap4rt_pop .45s cubic-bezier(.2,1.3,.3,1) both}
-.L5ap4rt .f1{animation-delay:1.05s}
-.L5ap4rt .f2{animation-delay:1.2s}
-.L5ap4rt .steam{transform-origin:60px 50px;opacity:0;animation:L5ap4rt_steam 3s ease-in-out infinite both}
-.L5ap4rt .s1{animation-delay:1s}
-.L5ap4rt .s2{animation-delay:1.5s}
-.L5ap4rt .s3{animation-delay:2s}
-@keyframes L5ap4rt_rise{from{opacity:0;transform:translateY(32px) scale(.55)}to{opacity:1;transform:none}}
-@keyframes L5ap4rt_flyR{from{opacity:0;transform:translate(28px,12px) rotate(20deg)}to{opacity:1;transform:none}}
-@keyframes L5ap4rt_pop{from{opacity:0;transform:scale(0)}to{opacity:1;transform:scale(1)}}
+    <div class="brandlogo big" aria-hidden="true"><style>.L5ap4rt{transform-box:view-box}
+.L5ap4rt.pop1{transform-origin:60px 70px;animation:L5ap4rt_pop .85s cubic-bezier(.2,1.3,.3,1) .15s both}
+.L5ap4rt.pop2{transform-origin:88px 56px;animation:L5ap4rt_pop .85s cubic-bezier(.2,1.3,.3,1) .4s both}
+.L5ap4rt.draw{stroke-dasharray:150;stroke-dashoffset:150;animation:L5ap4rt_draw 1.1s ease .7s forwards}
+.L5ap4rt.glow{transform-origin:60px 71px;opacity:0;animation:L5ap4rt_in .6s ease 1.5s forwards,L5ap4rt_pulse 4.5s ease-in-out 2.1s infinite}
+.L5ap4rt.steam{transform-origin:60px 30px;animation:L5ap4rt_drift 9s ease-in-out infinite}
+@keyframes L5ap4rt_pop{0%{opacity:0;transform:scale(.55)}60%{opacity:1}100%{opacity:1;transform:scale(1)}}
 @keyframes L5ap4rt_draw{to{stroke-dashoffset:0}}
-@keyframes L5ap4rt_glow{0%,100%{opacity:.4;transform:scale(.82)}50%{opacity:.95;transform:scale(1.15)}}
-@keyframes L5ap4rt_steam{0%{opacity:0;transform:translateY(6px) scale(.9)}25%{opacity:.8}100%{opacity:0;transform:translateY(-16px) scale(1.12)}}</style><svg viewBox="0 0 120 120" fill="none" stroke-linecap="round" stroke-linejoin="round">
-<g stroke="var(--lk)" stroke-width="4">
-<path class="L5ap4rt steam s1" d="M50 46 C46 40 54 37 50 31 C47 27 53 24 50 18" stroke="var(--ls)"/>
-<path class="L5ap4rt steam s2" d="M60 46 C56 39 64 36 60 29 C57 24 63 21 60 15" stroke="var(--ls)"/>
-<path class="L5ap4rt steam s3" d="M70 46 C66 40 74 37 70 31 C67 27 73 24 70 18" stroke="var(--ls)"/>
-</g>
-<rect class="L5ap4rt part-board" x="24" y="98" width="72" height="10" rx="5" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4"/>
-<g class="L5ap4rt part-wheat" stroke="var(--lk)" stroke-width="3.4">
-<path d="M89 90 L100 54" stroke-width="4"/>
-<path d="M100 54 L101 47"/>
-<path d="M96 60 L91 57" stroke="var(--la)"/><path d="M97 61 L102 58" stroke="var(--la)"/>
-<path d="M97 66 L92 63" stroke="var(--la)"/><path d="M98 67 L103 64" stroke="var(--la)"/>
-<path d="M98 72 L93 69" stroke="var(--la)"/><path d="M99 73 L104 70" stroke="var(--la)"/>
-</g>
-<g class="L5ap4rt part-loaf">
-<ellipse cx="60" cy="78" rx="35" ry="26" fill="var(--la)" stroke="var(--lk)" stroke-width="5"/>
-<circle class="L5ap4rt flour f1" cx="42" cy="72" r="2.4" fill="var(--lp)"/>
-<circle class="L5ap4rt flour f2" cx="78" cy="82" r="2" fill="var(--lp)"/>
-</g>
-<path class="L5ap4rt glow" d="M60 66 C60 66 52 61 52 56 C52 53 55 52 57 54 C59 55 60 56 60 57 C60 56 61 55 63 54 C65 52 68 53 68 56 C68 61 60 66 60 66 Z" fill="var(--la2)"/>
-<path class="L5ap4rt part-heart" d="M60 70 C60 70 47 60 47 52 C47 47 52 45 56 48 C59 50 60 53 60 55 C60 53 62 50 65 48 C69 45 73 47 73 52 C73 60 60 70 60 70 Z" stroke="var(--lk)" stroke-width="3.6"/>
-</svg></div>
+@keyframes L5ap4rt_in{to{opacity:.85}}
+@keyframes L5ap4rt_pulse{0%,100%{opacity:.45;transform:scale(.92)}50%{opacity:.95;transform:scale(1.08)}}
+@keyframes L5ap4rt_drift{0%,100%{opacity:.5;transform:translateY(0)}50%{opacity:.85;transform:translateY(-4px)}}</style><svg viewBox="0 0 120 120"><g class="L5ap4rt pop1"><circle cx="60" cy="70" r="30" fill="var(--ls)" stroke="var(--lk)" stroke-width="2.6"/><path d="M34 66 Q60 56 86 66" fill="none" stroke="var(--lk)" stroke-width="2.2" stroke-linecap="round" opacity=".45"/><path d="M40 78 Q60 72 80 78" fill="none" stroke="var(--lk)" stroke-width="1.8" stroke-linecap="round" opacity=".3"/></g><path class="L5ap4rt glow" d="M60 82 C48 73 43 65 50 60 C55 56 60 61 60 65 C60 61 65 56 70 60 C77 65 72 73 60 82 Z" fill="var(--la2)"/><path class="L5ap4rt draw" d="M60 82 C48 73 43 65 50 60 C55 56 60 61 60 65 C60 61 65 56 70 60 C77 65 72 73 60 82 Z" fill="none" stroke="var(--lk)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><g class="L5ap4rt pop2"><path d="M84 58 Q94 40 98 20" fill="none" stroke="var(--la)" stroke-width="2.4" stroke-linecap="round"/><path d="M96 26 q7 -2 8 -9 q-7 0 -8 9" fill="var(--la)"/><path d="M94 34 q7 -2 8 -9 q-7 0 -8 9" fill="var(--la)"/><path d="M92 42 q7 -2 8 -9 q-7 0 -8 9" fill="var(--la)"/><path d="M97 24 q-8 -1 -10 -8 q8 -1 10 8" fill="var(--la)" opacity=".85"/><path d="M95 32 q-8 -1 -10 -8 q8 -1 10 8" fill="var(--la)" opacity=".85"/></g><g class="L5ap4rt steam"><path d="M52 36 q-5 -7 0 -14 q5 -7 0 -14" fill="none" stroke="var(--lp)" stroke-width="2" stroke-linecap="round" opacity=".6"/><path d="M66 38 q-5 -7 0 -14 q5 -7 0 -14" fill="none" stroke="var(--lp)" stroke-width="1.8" stroke-linecap="round" opacity=".45"/></g></svg></div>
     
     <h1><span class="ar">أهلاً ببيت <b>كروي بيت الخبز</b></span><span class="en">Welcome home, <b>Croi Bakehouse</b>.</span></h1>
     <div class="world"><span class="ar">✦ بيت خبز يشتغل بقلبه ✦</span><span class="en">✦ a bakehouse that works by heart ✦</span></div>

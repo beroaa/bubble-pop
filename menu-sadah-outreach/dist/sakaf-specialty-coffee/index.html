@@ -96,6 +96,8 @@
   .chip{flex:0 0 auto;text-decoration:none;color:var(--text-2);background:#f8f5f2cc;border:1px solid var(--border-1);
     border-radius:999px;padding:9px 16px;font-size:13.5px;transition:all .2s,transform .18s}
   .chip:hover{color:var(--accent);border-color:var(--accent);box-shadow:0 0 14px #95612333;transform:translateY(-2px)}
+  /* scroll-spy: the chip for the room you're reading lights up (award e-menu pattern) */
+  .chip.active{color:var(--accent);border-color:var(--accent);font-weight:800;box-shadow:inset 0 -3px 0 var(--accent)}
 
   /* ---- signatures with price STAMPS ---- */
   .sig{margin-top:26px;background:linear-gradient(180deg,#95612314,transparent 90%);border:1px solid #95612344;
@@ -137,7 +139,14 @@
   .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
     box-shadow:inset 0 0 0 1px #95612355}
   .cat-title{flex:1;min-width:0}
-  .room-eyebrow{color:var(--text-2);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+  .room-eyebrow{color:var(--text-2);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+  /* editorial department-opener kicker (award e-menu pattern): a metallic numeral leads each room */
+  .room-eyebrow .rnum{font-family:ui-monospace,Menlo,monospace;font-weight:800;color:var(--sa);letter-spacing:.02em;flex:0 0 auto}
+  .room-eyebrow .rnum::after{content:"·";margin-inline-start:8px;color:var(--sa);opacity:.7}
+  .room-eyebrow.rn-only .rnum::after{content:none}
+  [data-lang="ar"] .room-eyebrow{letter-spacing:0}
+  /* sticky category strip must never hide the heading it jumps to */
+  .cat,.sig{scroll-margin-top:66px}
   .room-h2{color:var(--sa);font-size:28px;font-weight:800;line-height:1.14;letter-spacing:-.01em}
   .room-h2 .ar{font-family:'Lalezar',cursive}
   .room-h2 .en{font-family:'Lobster',cursive}
@@ -346,7 +355,30 @@ body{
      the wrapper must clip its own decorative children or dark-mode pages scroll sideways. */
   .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
   .hero{overflow-x:clip}
-  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:linear-gradient(180deg,var(--bg-1),var(--bg-0))}.sk-sun{position:absolute;top:-25%;left:-10%;width:60vw;height:80vh;background:radial-gradient(circle,color-mix(in srgb,var(--accent) 18%,transparent),transparent 62%);filter:blur(24px);opacity:.4}.sk-cl{position:absolute;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--sa) 20%,transparent),transparent 65%);filter:blur(22px);opacity:.3}.sk-cl.c1{top:12%;left:60%;width:32vw;height:26vh}.sk-cl.c2{top:40%;left:-6%;width:36vw;height:24vh;opacity:.22}.sk-cl.c3{top:66%;left:70%;width:30vw;height:22vh}.sk-m{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 6px color-mix(in srgb,var(--accent-2) 60%,transparent);opacity:.5}.sk-m.m1{left:24%;top:30%}.sk-m.m2{left:52%;top:50%}.sk-m.m3{left:74%;top:36%}.sk-m.m4{left:38%;top:70%}@media(prefers-reduced-motion:no-preference){.sk-cl{animation:skdrift 26s linear infinite alternate}.sk-cl.c2{animation-duration:34s}.sk-cl.c3{animation-duration:30s}.sk-m{animation:skfloat 12s ease-in-out infinite}.sk-m.m2{animation-duration:15s;animation-delay:2s}.sk-m.m3{animation-duration:10s;animation-delay:1s}.sk-m.m4{animation-duration:14s;animation-delay:3s}@keyframes skdrift{from{transform:translateX(-6vw)}to{transform:translateX(6vw)}}@keyframes skfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}}
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.brandbg .sky,.brandbg .glowA,.brandbg .glowB,.brandbg .veil{position:absolute;inset:0}
+.brandbg .sky{background:radial-gradient(135% 115% at 50% 20%,var(--sa) 0%,var(--sa2) 32%,var(--accent) 72%,var(--accent-2) 100%)}
+.brandbg .glowA{background:radial-gradient(44% 40% at 15% 18%,color-mix(in srgb,var(--accent) 60%,transparent),transparent 70%)}
+.brandbg .glowB{background:radial-gradient(48% 44% at 85% 86%,color-mix(in srgb,var(--accent-2) 60%,transparent),transparent 72%)}
+.brandbg .veil{background:radial-gradient(58% 50% at 50% 45%,color-mix(in srgb,var(--sa) 84%,transparent) 0%,transparent 66%)}
+.brandbg .cloud{position:absolute;border-radius:50%;filter:blur(17px)}
+.brandbg .c1{width:40vmax;height:16vmax;inset-block-start:9%;inset-inline-start:-10%;background:color-mix(in srgb,var(--sa) 72%,transparent);opacity:.55}
+.brandbg .c2{width:32vmax;height:13vmax;inset-block-start:63%;inset-inline-start:52%;background:color-mix(in srgb,var(--sa2) 66%,transparent);opacity:.5}
+.brandbg .c3{width:26vmax;height:11vmax;inset-block-start:31%;inset-inline-start:68%;background:color-mix(in srgb,var(--accent) 42%,transparent);opacity:.4}
+@media (prefers-reduced-motion:no-preference){
+.brandbg .glowA{animation:bgGA 17s ease-in-out infinite alternate}
+.brandbg .glowB{animation:bgGB 21s ease-in-out infinite alternate}
+.brandbg .veil{animation:bgBr 13s ease-in-out infinite alternate}
+.brandbg .c1{animation:bgD1 34s ease-in-out infinite alternate}
+.brandbg .c2{animation:bgD2 40s ease-in-out infinite alternate}
+.brandbg .c3{animation:bgD3 30s ease-in-out infinite alternate}
+}
+@keyframes bgGA{to{transform:translate3d(6%,5%,0) scale(1.16)}}
+@keyframes bgGB{to{transform:translate3d(-5%,-4%,0) scale(1.18)}}
+@keyframes bgBr{to{opacity:.85;transform:scale(1.05)}}
+@keyframes bgD1{to{transform:translateX(16%)}}
+@keyframes bgD2{to{transform:translateX(-14%)}}
+@keyframes bgD3{to{transform:translate(-10%,6%)}}
 
   /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
   
@@ -475,7 +507,7 @@ body{
 </style>
 </head>
 <body>
-<div class="brandbg" aria-hidden="true"><span class="sk-sun"></span><span class="sk-cl c1"></span><span class="sk-cl c2"></span><span class="sk-cl c3"></span><i class="sk-m m1"></i><i class="sk-m m2"></i><i class="sk-m m3"></i><i class="sk-m m4"></i></div>
+<div class="brandbg" aria-hidden="true"><i class="sky"></i><i class="glowA"></i><i class="glowB"></i><span class="cloud c1"></span><span class="cloud c2"></span><span class="cloud c3"></span><i class="veil"></i></div>
 <button class="lang-toggle touchable" id="langToggle">English</button>
 <div class="bigmark" aria-hidden="true"><span class="ar">س</span><span class="en">S</span></div>
 <div class="wrap">
@@ -532,55 +564,21 @@ body{
 <rect width="1440" height="900" fill="url(#sblVig)"/>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="brandlogo big" aria-hidden="true"><style>.L13xv69w{overflow:visible}
-.L13xv69w .part-rays{opacity:0;transform-origin:62px 40px;animation:L13xv69w_fade .5s ease-out 1s forwards,L13xv69w_glow 3.6s ease-in-out 1.7s infinite}
-.L13xv69w .part-sun{transform-origin:62px 52px;animation:L13xv69w_rise .8s cubic-bezier(.2,1.3,.3,1) .6s both}
-.L13xv69w .part-roof{transform-origin:60px 48px;animation:L13xv69w_drop .7s cubic-bezier(.2,1.3,.3,1) .15s both}
-.L13xv69w .part-postL,.L13xv69w .part-postR{stroke-dasharray:56;stroke-dashoffset:56;animation:L13xv69w_draw .55s ease-out .45s forwards}
-.L13xv69w .part-postR{animation-delay:.58s}
-.L13xv69w .part-ground{stroke-dasharray:92;stroke-dashoffset:92;animation:L13xv69w_draw .6s ease-out .3s forwards}
-.L13xv69w .part-cup{transform-origin:60px 90px;animation:L13xv69w_pop .6s cubic-bezier(.2,1.3,.3,1) .8s both}
-.L13xv69w .part-cloud{transform-origin:34px 26px;animation:L13xv69w_drift .9s cubic-bezier(.2,1.3,.3,1) .95s both,L13xv69w_sway 6s ease-in-out 1.95s infinite}
-.L13xv69w .part-steam{opacity:0;transform-origin:60px 72px;animation:L13xv69w_fade .5s ease-out 1.25s forwards,L13xv69w_steam 3s ease-in-out 1.9s infinite}
-@keyframes L13xv69w_drop{from{transform:translateY(-46px);opacity:0}to{transform:translateY(0);opacity:1}}
-@keyframes L13xv69w_rise{from{transform:translateY(30px) scale(.7);opacity:0}to{transform:translateY(0) scale(1);opacity:1}}
+    <div class="brandlogo big" aria-hidden="true"><style>.L13xv69w.halo,.L13xv69w.sun,.L13xv69w.roof,.L13xv69w.cloud,.L13xv69w.cup{transform-box:fill-box;transform-origin:center}
+.L13xv69w.halo{animation:L13xv69w_glow 9s ease-in-out 1s infinite}
+.L13xv69w.sun{animation:L13xv69w_rise .9s cubic-bezier(.2,1.3,.3,1) both}
+.L13xv69w.roof{animation:L13xv69w_drop .9s cubic-bezier(.2,1.3,.3,1) .15s both}
+.L13xv69w.postL,.L13xv69w.postR,.L13xv69w.ground{stroke-dasharray:90;stroke-dashoffset:90;animation:L13xv69w_draw .85s ease .4s forwards}
+.L13xv69w.cloud{animation:L13xv69w_cloudin .9s cubic-bezier(.2,1.3,.3,1) .7s both,L13xv69w_float 12s ease-in-out 1.7s infinite}
+.L13xv69w.cup{transform-origin:50% 100%;animation:L13xv69w_pop .8s cubic-bezier(.2,1.3,.3,1) .7s both}
+.L13xv69w.steam{stroke-dasharray:40;stroke-dashoffset:40;animation:L13xv69w_draw 1s ease 1.05s forwards}
+@keyframes L13xv69w_rise{from{transform:translateY(24px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes L13xv69w_drop{from{transform:translateY(-26px);opacity:0}to{transform:translateY(0);opacity:1}}
 @keyframes L13xv69w_draw{to{stroke-dashoffset:0}}
-@keyframes L13xv69w_pop{from{transform:scale(0) translateY(12px);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
-@keyframes L13xv69w_drift{from{transform:translateX(-36px);opacity:0}to{transform:translateX(0);opacity:1}}
-@keyframes L13xv69w_fade{to{opacity:1}}
-@keyframes L13xv69w_glow{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.08)}}
-@keyframes L13xv69w_sway{0%,100%{transform:translateX(0)}50%{transform:translateX(7px)}}
-@keyframes L13xv69w_steam{0%{transform:translateY(3px);opacity:.65}50%{transform:translateY(-4px);opacity:1}100%{transform:translateY(3px);opacity:.65}}</style><svg viewBox="0 0 120 120" fill="none" stroke-linecap="round" stroke-linejoin="round">
-<g class="L13xv69w part-sun">
-<g class="L13xv69w part-rays" stroke="var(--la2)" stroke-width="4">
-<line x1="62" y1="24" x2="62" y2="14"/>
-<line x1="74" y1="28" x2="79" y2="22"/>
-<line x1="50" y1="28" x2="45" y2="22"/>
-<line x1="79" y1="37" x2="85" y2="34"/>
-<line x1="45" y1="37" x2="39" y2="34"/>
-</g>
-<circle cx="62" cy="42" r="14" fill="var(--la2)" stroke="var(--lk)" stroke-width="4"/>
-</g>
-<line class="L13xv69w part-postL" x1="30" y1="56" x2="30" y2="96" stroke="var(--lk)" stroke-width="5"/>
-<line class="L13xv69w part-postR" x1="90" y1="50" x2="90" y2="96" stroke="var(--lk)" stroke-width="5"/>
-<g class="L13xv69w part-roof">
-<polygon points="17,49 103,40 103,50 17,58" fill="var(--la)" stroke="var(--lk)" stroke-width="5"/>
-<line x1="24" y1="52" x2="96" y2="45" stroke="var(--lk)" stroke-width="2"/>
-</g>
-<g class="L13xv69w part-cloud">
-<path d="M20,33 q-5,-9 6,-8 q1,-10 13,-7 q9,-4 9,7 q7,0 3,8 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="4"/>
-</g>
-<line class="L13xv69w part-ground" x1="18" y1="96" x2="102" y2="96" stroke="var(--lk)" stroke-width="5"/>
-<g class="L13xv69w part-steam" stroke="var(--lk)" stroke-width="3" fill="none">
-<path d="M54,71 q-5,-6 0,-11 q5,-5 0,-10"/>
-<path d="M66,71 q5,-6 0,-11 q-5,-5 0,-10"/>
-</g>
-<g class="L13xv69w part-cup">
-<ellipse cx="60" cy="92" rx="19" ry="4" fill="var(--ls)" stroke="var(--lk)" stroke-width="4"/>
-<path d="M72,76 q10,1 6,10 q-2,4 -7,2" fill="none" stroke="var(--lk)" stroke-width="4"/>
-<path d="M47,74 L73,74 L69,89 Q60,92 51,89 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4"/>
-</g>
-</svg></div>
+@keyframes L13xv69w_cloudin{from{transform:translateX(-14px);opacity:0}to{transform:translateX(0);opacity:1}}
+@keyframes L13xv69w_float{0%,100%{transform:translateX(0)}50%{transform:translateX(7px)}}
+@keyframes L13xv69w_pop{from{transform:translateY(10px) scale(.82);opacity:0}to{transform:translateY(0) scale(1);opacity:1}}
+@keyframes L13xv69w_glow{0%,100%{opacity:.32;transform:scale(1)}50%{opacity:.6;transform:scale(1.09)}}</style><svg viewBox="0 0 120 120"><circle class="L13xv69w halo" cx="60" cy="58" r="24" fill="var(--ls2)"/><circle class="L13xv69w sun" cx="60" cy="58" r="16" fill="var(--la2)"/><path class="L13xv69w roof" d="M24 48 Q60 34 96 48 L96 56 Q60 42 24 56 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="2.8" stroke-linejoin="round"/><path class="L13xv69w postL" d="M32 53 L32 94" fill="none" stroke="var(--lk)" stroke-width="3" stroke-linecap="round"/><path class="L13xv69w postR" d="M88 53 L88 94" fill="none" stroke="var(--lk)" stroke-width="3" stroke-linecap="round"/><path class="L13xv69w ground" d="M26 94 L94 94" fill="none" stroke="var(--lk)" stroke-width="3" stroke-linecap="round"/><path class="L13xv69w cloud" d="M28 34 C22 34 22 26 29 25 C29 18 39 18 42 24 C46 19 55 21 54 28 C60 29 59 34 53 34 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="2.2" stroke-linejoin="round"/><path class="L13xv69w cup" d="M52 80 L68 80 L65 90 Q60 94 55 90 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="2.4" stroke-linejoin="round"/><path class="L13xv69w cup" d="M68 82 Q73 84 70 89" fill="none" stroke="var(--lk)" stroke-width="2.2" stroke-linecap="round"/><path class="L13xv69w steam" d="M60 78 Q56 72 60 66 Q64 60 60 55" fill="none" stroke="var(--lk)" stroke-width="2.2" stroke-linecap="round"/></svg></div>
     
     <h1><span class="ar">سكـف قهوة مختصة</span><span class="en">Sakaf Specialty Coffee</span></h1>
     <div class="world"><span class="ar">✦ <b>سقيفة ظلها بارد وقت الضحى</b> ✦</span><span class="en">✦ <b>a shaded porch at mid-morning</b> ✦</span></div>
@@ -603,7 +601,7 @@ body{
         <img src="../assets/photos/sakaf-specialty-coffee/1.jpg" style="object-position:center" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">البار الحار</span><span class="en">Espresso Bar</span></div>
+        <div class="room-eyebrow"><span class="rnum">01</span><span class="ar">البار الحار</span><span class="en">Espresso Bar</span></div>
         <h2 class="room-h2"><span class="ar">أول دفا الصباح</span><span class="en">morning's first warmth</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">تعال بدري، الدفا أوله فنجان</span><span class="en">come early, the porch wakes with warmth</span></p>
@@ -676,7 +674,7 @@ body{
         <img src="../assets/photos/sakaf-specialty-coffee/4.jpg" style="object-position:center" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">بار الترشيح</span><span class="en">Filter &amp; Slow Bar</span></div>
+        <div class="room-eyebrow"><span class="rnum">02</span><span class="ar">بار الترشيح</span><span class="en">Filter &amp; Slow Bar</span></div>
         <h2 class="room-h2"><span class="ar">الضي يقطر على مهله</span><span class="en">light, dripping slowly</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">خل الضحى يقطر على راحته</span><span class="en">let the morning light drip slowly</span></p>
@@ -729,7 +727,7 @@ body{
         <img src="../assets/photos/sakaf-specialty-coffee/5.jpg" style="object-position:center" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">البار البارد</span><span class="en">Cold Bar</span></div>
+        <div class="room-eyebrow"><span class="rnum">03</span><span class="ar">البار البارد</span><span class="en">Cold Bar</span></div>
         <h2 class="room-h2"><span class="ar">برد الظل الحنون</span><span class="en">the kind cool of shade</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">ظلنا بارد وقلبنا دافي</span><span class="en">cool in the shade, warm at heart</span></p>
@@ -781,7 +779,7 @@ body{
         <img src="../assets/photos/sakaf-specialty-coffee/2.jpg" style="object-position:center 55%" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">الركن السعودي</span><span class="en">Saudi Corner</span></div>
+        <div class="room-eyebrow"><span class="rnum">04</span><span class="ar">الركن السعودي</span><span class="en">Saudi Corner</span></div>
         <h2 class="room-h2"><span class="ar">فنجال تحت السقيفة</span><span class="en">a finjal under the roof</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">افرش لك مكان تحت السقيفة</span><span class="en">spread out beneath the old roof</span></p>
@@ -813,7 +811,7 @@ body{
         <img src="../assets/photos/sakaf-specialty-coffee/1.jpg" style="object-position:center" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">اللقيمات والحلا</span><span class="en">Bites &amp; Sweets</span></div>
+        <div class="room-eyebrow"><span class="rnum">05</span><span class="ar">اللقيمات والحلا</span><span class="en">Bites &amp; Sweets</span></div>
         <h2 class="room-h2"><span class="ar">حلا الضحى الخفيف</span><span class="en">a light mid-morning sweet</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">شي خفيف على رواقة الضحى</span><span class="en">something light for an unhurried morning</span></p>
@@ -872,37 +870,7 @@ body{
     <span class="en">📱 Live digital menu: scan the table QR — menu-sadah.com/sakaf-specialty-coffee</span>
   </div>
   <div class="footer">
-    <div class="brandlogo mini" aria-hidden="true"><svg viewBox="0 0 120 120" fill="none" stroke-linecap="round" stroke-linejoin="round">
-<g class="L13xv69w part-sun">
-<g class="L13xv69w part-rays" stroke="var(--la2)" stroke-width="4">
-<line x1="62" y1="24" x2="62" y2="14"/>
-<line x1="74" y1="28" x2="79" y2="22"/>
-<line x1="50" y1="28" x2="45" y2="22"/>
-<line x1="79" y1="37" x2="85" y2="34"/>
-<line x1="45" y1="37" x2="39" y2="34"/>
-</g>
-<circle cx="62" cy="42" r="14" fill="var(--la2)" stroke="var(--lk)" stroke-width="4"/>
-</g>
-<line class="L13xv69w part-postL" x1="30" y1="56" x2="30" y2="96" stroke="var(--lk)" stroke-width="5"/>
-<line class="L13xv69w part-postR" x1="90" y1="50" x2="90" y2="96" stroke="var(--lk)" stroke-width="5"/>
-<g class="L13xv69w part-roof">
-<polygon points="17,49 103,40 103,50 17,58" fill="var(--la)" stroke="var(--lk)" stroke-width="5"/>
-<line x1="24" y1="52" x2="96" y2="45" stroke="var(--lk)" stroke-width="2"/>
-</g>
-<g class="L13xv69w part-cloud">
-<path d="M20,33 q-5,-9 6,-8 q1,-10 13,-7 q9,-4 9,7 q7,0 3,8 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="4"/>
-</g>
-<line class="L13xv69w part-ground" x1="18" y1="96" x2="102" y2="96" stroke="var(--lk)" stroke-width="5"/>
-<g class="L13xv69w part-steam" stroke="var(--lk)" stroke-width="3" fill="none">
-<path d="M54,71 q-5,-6 0,-11 q5,-5 0,-10"/>
-<path d="M66,71 q5,-6 0,-11 q-5,-5 0,-10"/>
-</g>
-<g class="L13xv69w part-cup">
-<ellipse cx="60" cy="92" rx="19" ry="4" fill="var(--ls)" stroke="var(--lk)" stroke-width="4"/>
-<path d="M72,76 q10,1 6,10 q-2,4 -7,2" fill="none" stroke="var(--lk)" stroke-width="4"/>
-<path d="M47,74 L73,74 L69,89 Q60,92 51,89 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4"/>
-</g>
-</svg></div>
+    <div class="brandlogo mini" aria-hidden="true"><svg viewBox="0 0 120 120"><circle class="L13xv69w halo" cx="60" cy="58" r="24" fill="var(--ls2)"/><circle class="L13xv69w sun" cx="60" cy="58" r="16" fill="var(--la2)"/><path class="L13xv69w roof" d="M24 48 Q60 34 96 48 L96 56 Q60 42 24 56 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="2.8" stroke-linejoin="round"/><path class="L13xv69w postL" d="M32 53 L32 94" fill="none" stroke="var(--lk)" stroke-width="3" stroke-linecap="round"/><path class="L13xv69w postR" d="M88 53 L88 94" fill="none" stroke="var(--lk)" stroke-width="3" stroke-linecap="round"/><path class="L13xv69w ground" d="M26 94 L94 94" fill="none" stroke="var(--lk)" stroke-width="3" stroke-linecap="round"/><path class="L13xv69w cloud" d="M28 34 C22 34 22 26 29 25 C29 18 39 18 42 24 C46 19 55 21 54 28 C60 29 59 34 53 34 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="2.2" stroke-linejoin="round"/><path class="L13xv69w cup" d="M52 80 L68 80 L65 90 Q60 94 55 90 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="2.4" stroke-linejoin="round"/><path class="L13xv69w cup" d="M68 82 Q73 84 70 89" fill="none" stroke="var(--lk)" stroke-width="2.2" stroke-linecap="round"/><path class="L13xv69w steam" d="M60 78 Q56 72 60 66 Q64 60 60 55" fill="none" stroke="var(--lk)" stroke-width="2.2" stroke-linecap="round"/></svg></div>
     <div style="margin-bottom:6px;color:var(--text-2)"><span class="ar">تابعوا سكـف قهوة مختصة: <b style="color:var(--accent)">@sakafcafe</b></span><span class="en">Follow Sakaf Specialty Coffee: <b style="color:var(--accent)">@sakafcafe</b></span></div>
     <span class="ar">تجربة من <a href="https://menu-sadah.com">منيو سادة — MENU SADAH</a></span>
     <span class="en">Crafted by <a href="https://menu-sadah.com">MENU SADAH</a></span>
@@ -921,6 +889,15 @@ body{
   document.getElementById('langToggle').addEventListener('click',()=>{setLang(root.getAttribute('data-lang')==='ar'?'en':'ar');});
   const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // scroll-spy: light the category chip for the room currently in view (award e-menu pattern)
+  try{
+    const chips=[].slice.call(document.querySelectorAll('.chips .chip'));
+    const secs=chips.map(c=>document.querySelector(c.getAttribute('href'))).filter(Boolean);
+    if('IntersectionObserver' in window && secs.length){
+      const spy=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){const id='#'+e.target.id;chips.forEach(c=>c.classList.toggle('active',c.getAttribute('href')===id));}}),{rootMargin:'-45% 0px -50% 0px',threshold:0});
+      secs.forEach(s=>spy.observe(s));
+    }
+  }catch(e){}
   // motion DNA haptic: a soft 8ms tick when a chip snaps you to a room (feature-checked, motion-respecting)
   if(matchMedia('(prefers-reduced-motion: no-preference)').matches){
     document.querySelectorAll('.chips .chip').forEach(c=>c.addEventListener('click',()=>{navigator.vibrate?.(8);}));

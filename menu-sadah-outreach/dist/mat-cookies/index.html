@@ -96,6 +96,8 @@
   .chip{flex:0 0 auto;text-decoration:none;color:var(--text-2);background:#221a16cc;border:1px solid var(--border-1);
     border-radius:999px;padding:9px 16px;font-size:13.5px;transition:all .2s,transform .18s}
   .chip:hover{color:var(--accent);border-color:var(--accent);box-shadow:0 0 14px #cd947933;transform:translateY(-2px)}
+  /* scroll-spy: the chip for the room you're reading lights up (award e-menu pattern) */
+  .chip.active{color:var(--accent);border-color:var(--accent);font-weight:800;box-shadow:inset 0 -3px 0 var(--accent)}
 
   /* ---- signatures with price STAMPS ---- */
   .sig{margin-top:26px;background:linear-gradient(180deg,#cd947914,transparent 90%);border:1px solid #cd947944;
@@ -137,7 +139,14 @@
   .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
     box-shadow:inset 0 0 0 1px #cd947955}
   .cat-title{flex:1;min-width:0}
-  .room-eyebrow{color:var(--text-2);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+  .room-eyebrow{color:var(--text-2);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+  /* editorial department-opener kicker (award e-menu pattern): a metallic numeral leads each room */
+  .room-eyebrow .rnum{font-family:ui-monospace,Menlo,monospace;font-weight:800;color:var(--sa);letter-spacing:.02em;flex:0 0 auto}
+  .room-eyebrow .rnum::after{content:"·";margin-inline-start:8px;color:var(--sa);opacity:.7}
+  .room-eyebrow.rn-only .rnum::after{content:none}
+  [data-lang="ar"] .room-eyebrow{letter-spacing:0}
+  /* sticky category strip must never hide the heading it jumps to */
+  .cat,.sig{scroll-margin-top:66px}
   .room-h2{color:var(--sa);font-size:28px;font-weight:800;line-height:1.14;letter-spacing:-.01em}
   .room-h2 .ar{font-family:'Baloo Bhaijaan 2',cursive}
   .room-h2 .en{font-family:'Fredoka',sans-serif}
@@ -352,7 +361,36 @@ body::after{
      the wrapper must clip its own decorative children or dark-mode pages scroll sideways. */
   .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
   .hero{overflow-x:clip}
-  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(100% 80% at 50% 120%,color-mix(in srgb,var(--accent) 20%,transparent),transparent 60%),linear-gradient(180deg,var(--bg-0),var(--bg-1))}.brandbg .grid{position:absolute;left:-10%;right:-10%;bottom:-5%;height:45%;background:repeating-linear-gradient(90deg,transparent 0 46px,color-mix(in srgb,var(--accent) 30%,transparent) 46px 48px),repeating-linear-gradient(0deg,transparent 0 40px,color-mix(in srgb,var(--sa) 26%,transparent) 40px 42px);transform:perspective(40vmax) rotateX(62deg);transform-origin:bottom;opacity:.4;mask:linear-gradient(transparent,#000)}.brandbg .scan{position:absolute;left:0;right:0;height:2px;top:0;background:color-mix(in srgb,var(--sa2,var(--sa)) 60%,transparent);opacity:.4;box-shadow:0 0 12px color-mix(in srgb,var(--accent) 60%,transparent)}.brandbg .sp{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent);opacity:.7}.brandbg .p1{top:20%;left:18%}.brandbg .p2{top:34%;left:76%}.brandbg .p3{top:58%;left:30%}@media (prefers-reduced-motion:no-preference){.brandbg .grid{animation:mcg 8s linear infinite}.brandbg .scan{animation:mcs 6s linear infinite}.brandbg .sp{animation:mcp 3s ease-in-out infinite}.brandbg .p2{animation-delay:.7s}.brandbg .p3{animation-delay:1.4s}@keyframes mcg{to{background-position:0 42px,42px 0}}@keyframes mcs{0%{top:-2%;opacity:0}12%{opacity:.5}88%{opacity:.5}100%{top:102%;opacity:0}}@keyframes mcp{0%,100%{transform:scale(.6);opacity:.2}50%{transform:scale(1.2);opacity:.9}}}
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(90% 60% at 50% 0%,color-mix(in srgb,var(--sa) 45%,transparent),transparent 62%),linear-gradient(165deg,color-mix(in srgb,var(--accent-2) 90%,black),color-mix(in srgb,var(--accent) 74%,black) 55%,color-mix(in srgb,var(--sa2) 55%,black))}
+.brandbg i{position:absolute;border-radius:50%;filter:blur(44px);mix-blend-mode:screen;opacity:.55}
+.brandbg .g1{width:46vmax;height:46vmax;inset-block-start:-12vmax;inset-inline-start:-10vmax;background:radial-gradient(circle,var(--accent),transparent 70%)}
+.brandbg .g2{width:40vmax;height:40vmax;inset-block-end:-14vmax;inset-inline-end:-8vmax;background:radial-gradient(circle,var(--sa2),transparent 70%)}
+.brandbg .g3{width:30vmax;height:30vmax;inset-block-start:28%;inset-inline-start:42%;opacity:.4;background:radial-gradient(circle,var(--accent-2),transparent 72%)}
+.brandbg .grid{position:absolute;inset-block-end:0;inset-inline:0;height:44vh;transform:perspective(38vh) rotateX(63deg);transform-origin:bottom;opacity:.2;mask:linear-gradient(to top,black,transparent);background:repeating-linear-gradient(to right,color-mix(in srgb,var(--sa) 60%,transparent) 0 1px,transparent 1px 9%),repeating-linear-gradient(to top,color-mix(in srgb,var(--sa) 60%,transparent) 0 1px,transparent 1px 13%)}
+.brandbg .m{position:absolute;width:4px;height:4px;border-radius:50%;background:var(--sa2);box-shadow:0 0 9px var(--sa2);opacity:.7}
+.brandbg .m1{inset-inline-start:16%;inset-block-start:78%}
+.brandbg .m2{inset-inline-start:34%;inset-block-start:88%}
+.brandbg .m3{inset-inline-start:52%;inset-block-start:82%}
+.brandbg .m4{inset-inline-start:68%;inset-block-start:90%}
+.brandbg .m5{inset-inline-start:80%;inset-block-start:74%}
+.brandbg .m6{inset-inline-start:44%;inset-block-start:70%}
+@media (prefers-reduced-motion:no-preference){
+.brandbg .g1{animation:bgA 24s ease-in-out infinite}
+.brandbg .g2{animation:bgB 28s ease-in-out infinite}
+.brandbg .g3{animation:bgC 20s ease-in-out infinite}
+.brandbg .grid{animation:bgG 14s linear infinite}
+.brandbg .m{animation:bgM 15s linear infinite}
+.brandbg .m2{animation-duration:19s;animation-delay:-4s}
+.brandbg .m3{animation-duration:17s;animation-delay:-8s}
+.brandbg .m4{animation-duration:21s;animation-delay:-3s}
+.brandbg .m5{animation-duration:16s;animation-delay:-10s}
+.brandbg .m6{animation-duration:20s;animation-delay:-13s}
+}
+@keyframes bgA{0%,100%{transform:translate(0,0)}50%{transform:translate(6vmax,4vmax)}}
+@keyframes bgB{0%,100%{transform:translate(0,0)}50%{transform:translate(-5vmax,-3vmax)}}
+@keyframes bgC{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(3vmax,-4vmax) scale(1.18)}}
+@keyframes bgG{to{background-position:0 -13%,0 0}}
+@keyframes bgM{0%{transform:translateY(0);opacity:0}12%{opacity:.85}88%{opacity:.85}100%{transform:translateY(-42vh);opacity:0}}
 
   /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
   
@@ -466,7 +504,7 @@ body::after{
 </style>
 </head>
 <body>
-<div class="brandbg" aria-hidden="true"><span class="grid"></span><span class="scan"></span><span class="sp p1"></span><span class="sp p2"></span><span class="sp p3"></span></div>
+<div class="brandbg" aria-hidden="true"><i class="g1"></i><i class="g2"></i><i class="g3"></i><b class="grid"></b><span class="m m1"></span><span class="m m2"></span><span class="m m3"></span><span class="m m4"></span><span class="m m5"></span><span class="m m6"></span></div>
 <button class="lang-toggle touchable" id="langToggle">English</button>
 <div class="bigmark" aria-hidden="true"><span class="ar">م</span><span class="en">M</span></div>
 <div class="wrap">
@@ -501,29 +539,23 @@ body::after{
 <path class="nz-neon" d="M0 401h1200" fill="none" stroke="#cd9479" stroke-width="2.2"/>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="brandlogo big" aria-hidden="true"><style>.Lkv7c80 .glow{transform-origin:50% 50%;animation:Lkv7c80_glowPulse 3s ease-in-out 1.5s infinite}
-.Lkv7c80 .base{animation:Lkv7c80_springUp .7s cubic-bezier(.2,1.3,.3,1) .15s both}
-.Lkv7c80 .shaft{transform-origin:50% 100%;animation:Lkv7c80_grow .5s cubic-bezier(.2,1.3,.3,1) .45s both}
-.Lkv7c80 .cookieSway{transform-origin:50% 100%;animation:Lkv7c80_drop .7s cubic-bezier(.2,1.3,.3,1) .75s both,Lkv7c80_sway 4s ease-in-out 1.7s infinite}
-.Lkv7c80 .ring{transform-origin:50% 50%;stroke-dasharray:170;animation:Lkv7c80_draw .8s ease-out 1.15s both}
-.Lkv7c80 .chip{transform-origin:50% 50%}
-.Lkv7c80 .chip1{animation:Lkv7c80_pop .5s cubic-bezier(.2,1.3,.3,1) 1.2s both}
-.Lkv7c80 .chip2{animation:Lkv7c80_pop .5s cubic-bezier(.2,1.3,.3,1) 1.32s both}
-.Lkv7c80 .chip3{animation:Lkv7c80_pop .5s cubic-bezier(.2,1.3,.3,1) 1.44s both}
-.Lkv7c80 .chip4{animation:Lkv7c80_pop .5s cubic-bezier(.2,1.3,.3,1) 1.56s both}
-.Lkv7c80 .chip5{animation:Lkv7c80_pop .5s cubic-bezier(.2,1.3,.3,1) 1.68s both}
-.Lkv7c80 .spark{transform-origin:50% 50%;opacity:0}
-.Lkv7c80 .spark1{animation:Lkv7c80_twinkle 1.8s ease-in-out 1.6s infinite}
-.Lkv7c80 .spark2{animation:Lkv7c80_twinkle 1.8s ease-in-out 2s infinite}
-.Lkv7c80 .spark3{animation:Lkv7c80_twinkle 1.8s ease-in-out 2.35s infinite}
-@keyframes Lkv7c80_springUp{from{opacity:0;transform:translateY(46px)}to{opacity:1;transform:translateY(0)}}
-@keyframes Lkv7c80_grow{from{opacity:0;transform:scaleY(0)}to{opacity:1;transform:scaleY(1)}}
-@keyframes Lkv7c80_drop{0%{opacity:0;transform:translateY(-58px) scale(.4)}100%{opacity:1;transform:translateY(0) scale(1)}}
-@keyframes Lkv7c80_pop{from{opacity:0;transform:scale(0)}to{opacity:1;transform:scale(1)}}
-@keyframes Lkv7c80_draw{from{stroke-dashoffset:170}to{stroke-dashoffset:0}}
-@keyframes Lkv7c80_twinkle{0%,100%{opacity:.2;transform:scale(.55) rotate(0deg)}50%{opacity:1;transform:scale(1.15) rotate(45deg)}}
-@keyframes Lkv7c80_sway{0%,100%{transform:rotate(-4.5deg)}50%{transform:rotate(4.5deg)}}
-@keyframes Lkv7c80_glowPulse{0%,100%{opacity:.22;transform:scale(.9)}50%{opacity:.55;transform:scale(1.1)}}</style><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><ellipse class="Lkv7c80 glow" cx="60" cy="99" rx="35" ry="10" fill="var(--la2)"/><g class="Lkv7c80 base"><rect x="33" y="82" width="54" height="21" rx="9" fill="var(--la)" stroke="var(--lk)" stroke-width="5"/><ellipse cx="60" cy="84" rx="20" ry="5.5" fill="var(--ls2)" stroke="var(--lk)" stroke-width="3.5"/><line x1="45" y1="96" x2="75" y2="96" stroke="var(--lk)" stroke-width="4" stroke-linecap="round" opacity=".3"/></g><g class="Lkv7c80 cookieSway"><rect class="Lkv7c80 shaft" x="54" y="50" width="12" height="36" rx="6" fill="var(--ls2)" stroke="var(--lk)" stroke-width="5"/><g class="Lkv7c80 cookie"><circle class="Lkv7c80 ring" cx="60" cy="39" r="27" fill="none" stroke="var(--la2)" stroke-width="3" stroke-linecap="round"/><circle cx="60" cy="39" r="22" fill="var(--ls)" stroke="var(--lk)" stroke-width="5"/><circle cx="51" cy="31" r="4.5" fill="var(--lp)" opacity=".55"/><circle class="Lkv7c80 chip chip1" cx="53" cy="35" r="3.3" fill="var(--lk)"/><circle class="Lkv7c80 chip chip2" cx="68" cy="33" r="3.3" fill="var(--lk)"/><circle class="Lkv7c80 chip chip3" cx="58" cy="48" r="3.3" fill="var(--lk)"/><circle class="Lkv7c80 chip chip4" cx="67" cy="46" r="3.3" fill="var(--lk)"/><circle class="Lkv7c80 chip chip5" cx="49" cy="44" r="3.3" fill="var(--lk)"/></g></g><g transform="translate(23,24)"><path class="Lkv7c80 spark spark1" d="M0,-7 L1.6,-1.6 L7,0 L1.6,1.6 L0,7 L-1.6,1.6 L-7,0 L-1.6,-1.6 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="1.5" stroke-linejoin="round"/></g><g transform="translate(98,32)"><path class="Lkv7c80 spark spark2" d="M0,-6 L1.4,-1.4 L6,0 L1.4,1.4 L0,6 L-1.4,1.4 L-6,0 L-1.4,-1.4 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="1.5" stroke-linejoin="round"/></g><g transform="translate(95,66)"><path class="Lkv7c80 spark spark3" d="M0,-5 L1.2,-1.2 L5,0 L1.2,1.2 L0,5 L-1.2,1.2 L-5,0 L-1.2,-1.2 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="1.4" stroke-linejoin="round"/></g></svg></div>
+    <div class="brandlogo big" aria-hidden="true"><style>.Lkv7c80{}
+.Lkv7c80.halo{transform-box:fill-box;transform-origin:center;opacity:0;animation:Lkv7c80_glow 8.5s ease-in-out 1.2s infinite}
+@keyframes Lkv7c80_glow{0%,100%{opacity:.1;transform:scale(.9)}50%{opacity:.32;transform:scale(1.1)}}
+.Lkv7c80.base{transform-box:fill-box;transform-origin:center;opacity:0;animation:Lkv7c80_pop .7s cubic-bezier(.2,1.3,.3,1) .15s forwards}
+@keyframes Lkv7c80_pop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+.Lkv7c80.ring{stroke-dasharray:70;stroke-dashoffset:70;animation:Lkv7c80_draw .7s ease .3s forwards}
+.Lkv7c80.stick{stroke-dasharray:36;stroke-dashoffset:36;animation:Lkv7c80_draw .55s ease .4s forwards}
+@keyframes Lkv7c80_draw{to{stroke-dashoffset:0}}
+.Lkv7c80.cookie{transform-box:fill-box;transform-origin:center;opacity:0;animation:Lkv7c80_drop .8s cubic-bezier(.2,1.3,.3,1) .7s forwards, Lkv7c80_float 9s ease-in-out 1.6s infinite}
+@keyframes Lkv7c80_drop{from{opacity:0;transform:translateY(-22px) scale(.7)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes Lkv7c80_float{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.Lkv7c80.chip{transform-box:fill-box;transform-origin:center;opacity:0;animation:Lkv7c80_chip .5s cubic-bezier(.2,1.3,.3,1) forwards}
+.Lkv7c80.c1{animation-delay:1.45s}.Lkv7c80.c2{animation-delay:1.6s}.Lkv7c80.c3{animation-delay:1.75s}.Lkv7c80.c4{animation-delay:1.9s}
+@keyframes Lkv7c80_chip{from{opacity:0;transform:scale(0)}to{opacity:1;transform:scale(1)}}
+.Lkv7c80.spark{transform-box:fill-box;transform-origin:center;opacity:.2;animation:Lkv7c80_tw 3.6s ease-in-out 2s infinite}
+.Lkv7c80.s2{animation-delay:2.8s;animation-duration:4.2s}
+@keyframes Lkv7c80_tw{0%,100%{opacity:.2;transform:scale(.6) rotate(0deg)}50%{opacity:1;transform:scale(1.15) rotate(45deg)}}</style><svg viewBox="0 0 120 120" fill="none"><circle class="Lkv7c80 halo" cx="60" cy="43" r="25" fill="var(--la)"/><g class="Lkv7c80 base"><ellipse cx="60" cy="96" rx="28" ry="9.5" fill="var(--ls)" stroke="var(--lk)" stroke-width="2.6"/><ellipse cx="60" cy="93" rx="16" ry="5.4" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2.4"/></g><path class="Lkv7c80 ring" d="M39 86 A21 21 0 0 1 81 86" fill="none" stroke="var(--la2)" stroke-width="2.6" stroke-linecap="round"/><path class="Lkv7c80 stick" d="M60 91 L60 58" stroke="var(--lk)" stroke-width="3.2" stroke-linecap="round"/><g class="Lkv7c80 cookie"><circle cx="60" cy="43" r="17.5" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2.8"/><circle cx="53.5" cy="36" r="3" fill="var(--lp)" opacity=".45"/><circle class="Lkv7c80 chip c1" cx="54" cy="45" r="2.6" fill="var(--lk)"/><circle class="Lkv7c80 chip c2" cx="66" cy="41" r="2.4" fill="var(--lk)"/><circle class="Lkv7c80 chip c3" cx="60" cy="50" r="2.2" fill="var(--lk)"/><circle class="Lkv7c80 chip c4" cx="64" cy="34" r="1.9" fill="var(--la)"/></g><g transform="translate(88,24)"><path class="Lkv7c80 spark s1" d="M0 -6 L1.5 -1.5 L6 0 L1.5 1.5 L0 6 L-1.5 1.5 L-6 0 L-1.5 -1.5 Z" fill="var(--la2)"/></g><g transform="translate(30,30)"><path class="Lkv7c80 spark s2" d="M0 -5 L1.2 -1.2 L5 0 L1.2 1.2 L0 5 L-1.2 1.2 L-5 0 L-1.2 -1.2 Z" fill="var(--la2)"/></g></svg></div>
     
     <h1><span class="ar">مات كوكيز</span><span class="en">Mat Cookies</span></h1>
     <div class="world"><span class="ar">✦ <b>صالة ألعاب سكّرية بعد نص الليل</b> ✦</span><span class="en">✦ <b>a neon sweet arcade after midnight</b> ✦</span></div>
@@ -546,7 +578,7 @@ body::after{
         <img src="../assets/photos/mat-cookies/5.jpg" style="object-position:center" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">حلا البيت</span><span class="en">House Desserts</span></div>
+        <div class="room-eyebrow"><span class="rnum">01</span><span class="ar">حلا البيت</span><span class="en">House Desserts</span></div>
         <h2 class="room-h2"><span class="ar">اضغط ستارت على الحلا</span><span class="en">press start on sweet</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">دورك بدأ، اختر حلاك</span><span class="en">your turn, pick your sweet move</span></p>
@@ -605,7 +637,7 @@ body::after{
         <img src="../assets/photos/mat-cookies/4.jpg" style="object-position:center 55%" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">دافي ولذيذ</span><span class="en">Warm &amp; Gooey</span></div>
+        <div class="room-eyebrow"><span class="rnum">02</span><span class="ar">دافي ولذيذ</span><span class="en">Warm &amp; Gooey</span></div>
         <h2 class="room-h2"><span class="ar">لسّه ذايب، الحقّه دافي</span><span class="en">still melting, catch it warm</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">الحقه وهو دافي، الوقت يمشي</span><span class="en">grab it warm before the timer</span></p>
@@ -644,7 +676,7 @@ body::after{
         <img src="../assets/photos/mat-cookies/5.jpg" style="object-position:center" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">القهوة</span><span class="en">Coffee</span></div>
+        <div class="room-eyebrow"><span class="rnum">03</span><span class="ar">القهوة</span><span class="en">Coffee</span></div>
         <h2 class="room-h2"><span class="ar">بنزين السهرة</span><span class="en">power-up in a cup</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">شحن كامل، السهرة طويلة</span><span class="en">full recharge for the night run</span></p>
@@ -689,7 +721,7 @@ body::after{
         <img src="../assets/photos/mat-cookies/4.jpg" style="object-position:center 55%" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">المشروبات الباردة</span><span class="en">Cold Drinks</span></div>
+        <div class="room-eyebrow"><span class="rnum">04</span><span class="ar">المشروبات الباردة</span><span class="en">Cold Drinks</span></div>
         <h2 class="room-h2"><span class="ar">وقت التبريد</span><span class="en">system cooldown, sip slow</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">برّد النظام وكمّل لعب</span><span class="en">cool the system, keep on playing</span></p>
@@ -735,7 +767,7 @@ body::after{
     <span class="en">📱 Live digital menu: scan the table QR — menu-sadah.com/mat-cookies</span>
   </div>
   <div class="footer">
-    <div class="brandlogo mini" aria-hidden="true"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><ellipse class="Lkv7c80 glow" cx="60" cy="99" rx="35" ry="10" fill="var(--la2)"/><g class="Lkv7c80 base"><rect x="33" y="82" width="54" height="21" rx="9" fill="var(--la)" stroke="var(--lk)" stroke-width="5"/><ellipse cx="60" cy="84" rx="20" ry="5.5" fill="var(--ls2)" stroke="var(--lk)" stroke-width="3.5"/><line x1="45" y1="96" x2="75" y2="96" stroke="var(--lk)" stroke-width="4" stroke-linecap="round" opacity=".3"/></g><g class="Lkv7c80 cookieSway"><rect class="Lkv7c80 shaft" x="54" y="50" width="12" height="36" rx="6" fill="var(--ls2)" stroke="var(--lk)" stroke-width="5"/><g class="Lkv7c80 cookie"><circle class="Lkv7c80 ring" cx="60" cy="39" r="27" fill="none" stroke="var(--la2)" stroke-width="3" stroke-linecap="round"/><circle cx="60" cy="39" r="22" fill="var(--ls)" stroke="var(--lk)" stroke-width="5"/><circle cx="51" cy="31" r="4.5" fill="var(--lp)" opacity=".55"/><circle class="Lkv7c80 chip chip1" cx="53" cy="35" r="3.3" fill="var(--lk)"/><circle class="Lkv7c80 chip chip2" cx="68" cy="33" r="3.3" fill="var(--lk)"/><circle class="Lkv7c80 chip chip3" cx="58" cy="48" r="3.3" fill="var(--lk)"/><circle class="Lkv7c80 chip chip4" cx="67" cy="46" r="3.3" fill="var(--lk)"/><circle class="Lkv7c80 chip chip5" cx="49" cy="44" r="3.3" fill="var(--lk)"/></g></g><g transform="translate(23,24)"><path class="Lkv7c80 spark spark1" d="M0,-7 L1.6,-1.6 L7,0 L1.6,1.6 L0,7 L-1.6,1.6 L-7,0 L-1.6,-1.6 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="1.5" stroke-linejoin="round"/></g><g transform="translate(98,32)"><path class="Lkv7c80 spark spark2" d="M0,-6 L1.4,-1.4 L6,0 L1.4,1.4 L0,6 L-1.4,1.4 L-6,0 L-1.4,-1.4 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="1.5" stroke-linejoin="round"/></g><g transform="translate(95,66)"><path class="Lkv7c80 spark spark3" d="M0,-5 L1.2,-1.2 L5,0 L1.2,1.2 L0,5 L-1.2,1.2 L-5,0 L-1.2,-1.2 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="1.4" stroke-linejoin="round"/></g></svg></div>
+    <div class="brandlogo mini" aria-hidden="true"><svg viewBox="0 0 120 120" fill="none"><circle class="Lkv7c80 halo" cx="60" cy="43" r="25" fill="var(--la)"/><g class="Lkv7c80 base"><ellipse cx="60" cy="96" rx="28" ry="9.5" fill="var(--ls)" stroke="var(--lk)" stroke-width="2.6"/><ellipse cx="60" cy="93" rx="16" ry="5.4" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2.4"/></g><path class="Lkv7c80 ring" d="M39 86 A21 21 0 0 1 81 86" fill="none" stroke="var(--la2)" stroke-width="2.6" stroke-linecap="round"/><path class="Lkv7c80 stick" d="M60 91 L60 58" stroke="var(--lk)" stroke-width="3.2" stroke-linecap="round"/><g class="Lkv7c80 cookie"><circle cx="60" cy="43" r="17.5" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2.8"/><circle cx="53.5" cy="36" r="3" fill="var(--lp)" opacity=".45"/><circle class="Lkv7c80 chip c1" cx="54" cy="45" r="2.6" fill="var(--lk)"/><circle class="Lkv7c80 chip c2" cx="66" cy="41" r="2.4" fill="var(--lk)"/><circle class="Lkv7c80 chip c3" cx="60" cy="50" r="2.2" fill="var(--lk)"/><circle class="Lkv7c80 chip c4" cx="64" cy="34" r="1.9" fill="var(--la)"/></g><g transform="translate(88,24)"><path class="Lkv7c80 spark s1" d="M0 -6 L1.5 -1.5 L6 0 L1.5 1.5 L0 6 L-1.5 1.5 L-6 0 L-1.5 -1.5 Z" fill="var(--la2)"/></g><g transform="translate(30,30)"><path class="Lkv7c80 spark s2" d="M0 -5 L1.2 -1.2 L5 0 L1.2 1.2 L0 5 L-1.2 1.2 L-5 0 L-1.2 -1.2 Z" fill="var(--la2)"/></g></svg></div>
     <div style="margin-bottom:6px;color:var(--text-2)"><span class="ar">تابعوا مات كوكيز: <b style="color:var(--accent)">@matcookies</b></span><span class="en">Follow Mat Cookies: <b style="color:var(--accent)">@matcookies</b></span></div>
     <span class="ar">تجربة من <a href="https://menu-sadah.com">منيو سادة — MENU SADAH</a></span>
     <span class="en">Crafted by <a href="https://menu-sadah.com">MENU SADAH</a></span>
@@ -754,6 +786,15 @@ body::after{
   document.getElementById('langToggle').addEventListener('click',()=>{setLang(root.getAttribute('data-lang')==='ar'?'en':'ar');});
   const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // scroll-spy: light the category chip for the room currently in view (award e-menu pattern)
+  try{
+    const chips=[].slice.call(document.querySelectorAll('.chips .chip'));
+    const secs=chips.map(c=>document.querySelector(c.getAttribute('href'))).filter(Boolean);
+    if('IntersectionObserver' in window && secs.length){
+      const spy=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){const id='#'+e.target.id;chips.forEach(c=>c.classList.toggle('active',c.getAttribute('href')===id));}}),{rootMargin:'-45% 0px -50% 0px',threshold:0});
+      secs.forEach(s=>spy.observe(s));
+    }
+  }catch(e){}
   // motion DNA haptic: a soft 8ms tick when a chip snaps you to a room (feature-checked, motion-respecting)
   if(matchMedia('(prefers-reduced-motion: no-preference)').matches){
     document.querySelectorAll('.chips .chip').forEach(c=>c.addEventListener('click',()=>{navigator.vibrate?.(8);}));

@@ -227,7 +227,27 @@ body{
   .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
   .hero{overflow-x:clip}
   .brandbg{--accent:#ac9115;--accent-2:#93412f;--sa:#75a527;--sa2:#7fa9bd;--bg-0:#fcfbf8;--bg-1:#f5f3ea;--bg-2:#fefdfb}
-  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(120% 100% at 50% 120%,var(--bg-1),var(--bg-0))}.se-shaft{position:absolute;top:-20%;left:-10%;width:50%;height:150%;background:linear-gradient(105deg,transparent,var(--accent),transparent);opacity:.14;filter:blur(30px);transform:rotate(8deg)}.se-horizon{position:absolute;left:0;right:0;bottom:0;height:38%;background:linear-gradient(0deg,var(--accent),transparent);opacity:.22}.se-st{position:absolute;bottom:20%;width:10px;height:120px;border-radius:50%;background:linear-gradient(0deg,transparent,var(--accent-2,var(--accent)));filter:blur(9px);opacity:.16}.se-s1{left:14%}.se-s2{right:16%;bottom:24%}.se-s3{left:50%;bottom:18%;opacity:.08}.se-em{position:absolute;width:4px;height:4px;border-radius:50%;background:var(--accent);box-shadow:0 0 6px var(--accent);opacity:.5}.se-e1{bottom:30%;left:20%}.se-e2{bottom:26%;right:22%}.se-e3{bottom:40%;left:82%}@media (prefers-reduced-motion:no-preference){.se-shaft{animation:seSw 16s ease-in-out infinite alternate}.se-st{animation:seRis 9s ease-in-out infinite}.se-s2{animation-delay:2s}.se-s3{animation-delay:4s}.se-em{animation:seUp 11s linear infinite}.se-e2{animation-delay:3s}.se-e3{animation-delay:6s}@keyframes seSw{to{transform:rotate(14deg) translateX(30%)}}@keyframes seRis{0%{opacity:0;transform:translateY(30px) scaleX(1)}40%{opacity:.18}100%{opacity:0;transform:translateY(-40px) scaleX(1.6)}}@keyframes seUp{0%{opacity:0}20%{opacity:.6}100%{opacity:0;transform:translateY(-120px) translateX(20px)}}}
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:linear-gradient(178deg,var(--sa2),var(--accent-2) 55%,var(--sa2))}
+.brandbg i,.brandbg span{position:absolute;display:block;border-radius:50%}
+.brandbg .a{inset-inline-start:50%;inset-block-end:-18%;width:72vmax;height:72vmax;margin-inline-start:-36vmax;background:radial-gradient(circle,var(--accent) 0%,transparent 62%);opacity:.85;filter:blur(6px)}
+.brandbg .b{inset-inline-start:-15%;inset-block-start:-12%;width:55vmax;height:55vmax;background:radial-gradient(circle,var(--sa) 0%,transparent 65%);opacity:.5}
+.brandbg .c{inset-inline-end:-12%;inset-block-start:18%;width:48vmax;height:48vmax;background:radial-gradient(circle,var(--accent-2) 0%,transparent 60%);opacity:.55}
+.brandbg .v{inset:0;border-radius:0;background:radial-gradient(120% 80% at 50% 58%,transparent 0%,transparent 34%,var(--sa2) 100%);opacity:.9}
+.brandbg .m{width:6px;height:6px;background:var(--accent);opacity:0;filter:blur(1px)}
+.brandbg .m1{inset-inline-start:24%;inset-block-end:8%}
+.brandbg .m2{inset-inline-start:58%;inset-block-end:4%}
+.brandbg .m3{inset-inline-start:78%;inset-block-end:12%}
+@media (prefers-reduced-motion:no-preference){
+.brandbg .a{animation:bg_sun 14s ease-in-out infinite}
+.brandbg .b{animation:bg_drift 18s ease-in-out infinite}
+.brandbg .c{animation:bg_drift2 20s ease-in-out infinite}
+.brandbg .m{animation:bg_rise 12s ease-in infinite}
+.brandbg .m2{animation-duration:16s;animation-delay:3s}
+.brandbg .m3{animation-duration:10s;animation-delay:6s}}
+@keyframes bg_sun{0%,100%{transform:scale(1);opacity:.75}50%{transform:scale(1.08);opacity:.95}}
+@keyframes bg_drift{0%,100%{transform:translate(0,0)}50%{transform:translate(4%,3%)}}
+@keyframes bg_drift2{0%,100%{transform:translate(0,0)}50%{transform:translate(-4%,-2%)}}
+@keyframes bg_rise{0%{transform:translateY(0) scale(.6);opacity:0}15%{opacity:.9}85%{opacity:.6}100%{transform:translateY(-72vh) scale(1);opacity:0}}
 
   /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
   
@@ -296,7 +316,7 @@ body{
 </script>
 </head>
 <body>
-<div class="brandbg" aria-hidden="true"><span class="se-shaft"></span><span class="se-horizon"></span><b class="se-st se-s1"></b><b class="se-st se-s2"></b><b class="se-st se-s3"></b><i class="se-em se-e1"></i><i class="se-em se-e2"></i><i class="se-em se-e3"></i></div>
+<div class="brandbg" aria-hidden="true"><i class="b"></i><i class="c"></i><i class="a"></i><span class="v"></span><span class="m m1"></span><span class="m m2"></span><span class="m m3"></span></div>
 <div class="sting-wash" aria-hidden="true"><i></i><i></i></div>
 <div class="curtain" id="msCurtain" aria-hidden="true"></div>
 <div class="bigmark" aria-hidden="true"><span class="ar">ق</span><span class="en">S</span></div>
@@ -351,48 +371,21 @@ body{
 </svg>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:15px;animation-delay:0s">〜</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:15px;animation-delay:0.7s">〜</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:15px;animation-delay:1.4s">〜</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:15px;animation-delay:2.0999999999999996s">〜</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:12px;animation-delay:2.8s">〜</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:10px;animation-delay:3.5s">〜</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:13px;animation-delay:0.1999999999999993s">〜</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:11px;animation-delay:0.8999999999999995s">〜</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="brandlogo big" aria-hidden="true"><style>.Lx7rfs8{overflow:visible}
-.Lx7rfs8 .s-sun{transform-origin:50% 50%;animation:Lx7rfs8_rise .8s cubic-bezier(.2,1.3,.3,1) .15s both, Lx7rfs8_glow 4.5s ease-in-out 1.9s infinite}
-.Lx7rfs8 .s-rays{transform-origin:50% 90%;animation:Lx7rfs8_pop .6s cubic-bezier(.2,1.3,.3,1) .95s both, Lx7rfs8_twinkle 3s ease-in-out 1.7s infinite}
-.Lx7rfs8 .s-mtn{transform-origin:50% 100%;animation:Lx7rfs8_rise .8s cubic-bezier(.2,1.3,.3,1) .3s both}
-.Lx7rfs8 .s-saucer{transform-origin:50% 50%;animation:Lx7rfs8_pop .7s cubic-bezier(.2,1.3,.3,1) .25s both}
-.Lx7rfs8 .s-cup{transform-origin:50% 100%;animation:Lx7rfs8_rise .85s cubic-bezier(.2,1.3,.3,1) .45s both}
-.Lx7rfs8 .s-coffee{transform-origin:50% 50%;animation:Lx7rfs8_fade .5s ease .95s both}
-.Lx7rfs8 .s-handle{transform-origin:0% 50%;animation:Lx7rfs8_pop .6s cubic-bezier(.2,1.3,.3,1) .6s both}
-.Lx7rfs8 .s-steam1{stroke-dasharray:82;stroke-dashoffset:82;transform-origin:50% 100%;animation:Lx7rfs8_draw 1s ease .95s forwards, Lx7rfs8_drift 4s ease-in-out 2s infinite}
-.Lx7rfs8 .s-steam2{stroke-dasharray:82;stroke-dashoffset:82;transform-origin:50% 100%;animation:Lx7rfs8_draw 1s ease 1.15s forwards, Lx7rfs8_drift 4.6s ease-in-out 2.2s infinite}
-@keyframes Lx7rfs8_rise{0%{opacity:0;transform:translateY(26px) scale(.5)}100%{opacity:1;transform:translateY(0) scale(1)}}
-@keyframes Lx7rfs8_pop{0%{opacity:0;transform:scale(0)}100%{opacity:1;transform:scale(1)}}
-@keyframes Lx7rfs8_fade{0%{opacity:0;transform:scale(.85)}100%{opacity:1;transform:scale(1)}}
-@keyframes Lx7rfs8_draw{0%{stroke-dashoffset:82}100%{stroke-dashoffset:0}}
-@keyframes Lx7rfs8_glow{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
-@keyframes Lx7rfs8_twinkle{0%,100%{opacity:.5}50%{opacity:1}}
-@keyframes Lx7rfs8_drift{0%{transform:translateY(0) translateX(0)}50%{transform:translateY(-3px) translateX(2px)}100%{transform:translateY(0) translateX(0)}}</style><svg viewBox="0 0 120 120" fill="none" stroke-linecap="round" stroke-linejoin="round">
-<g class="Lx7rfs8 s-sun">
-<circle cx="60" cy="46" r="20" fill="var(--la)" stroke="var(--lk)" stroke-width="4"/>
-<circle cx="52" cy="39" r="5" fill="var(--la2)"/>
-</g>
-<g class="Lx7rfs8 s-rays" stroke="var(--la2)" stroke-width="4">
-<line x1="60" y1="21" x2="60" y2="13"/>
-<line x1="43" y1="30" x2="37" y2="24"/>
-<line x1="77" y1="30" x2="83" y2="24"/>
-<line x1="37" y1="45" x2="29" y2="43"/>
-<line x1="83" y1="45" x2="91" y2="43"/>
-</g>
-<g class="Lx7rfs8 s-mtn">
-<polygon points="4,68 4,60 22,50 34,58 46,44 58,56 70,42 84,58 96,52 116,60 116,68" fill="var(--ls2)"/>
-<polyline points="4,60 22,50 34,58 46,44 58,56 70,42 84,58 96,52 116,60" stroke="var(--lk)" stroke-width="4"/>
-</g>
-<ellipse class="Lx7rfs8 s-saucer" cx="60" cy="98" rx="31" ry="6.5" fill="var(--lp)" stroke="var(--lk)" stroke-width="4"/>
-<g class="Lx7rfs8 s-cup">
-<path d="M40,62 L44,88 Q44,92 48,92 L72,92 Q76,92 76,88 L80,62 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="4"/>
-<ellipse cx="60" cy="62" rx="20" ry="5" fill="var(--ls)" stroke="var(--lk)" stroke-width="4"/>
-</g>
-<ellipse class="Lx7rfs8 s-coffee" cx="60" cy="62" rx="16" ry="3.6" fill="var(--la)"/>
-<path class="Lx7rfs8 s-handle" d="M80,67 C93,67 93,85 77,83" stroke="var(--lk)" stroke-width="4"/>
-<path class="Lx7rfs8 s-steam1" d="M54,58 C50,50 58,45 54,37 C50,31 57,25 54,18" stroke="var(--lk)" stroke-width="4"/>
-<path class="Lx7rfs8 s-steam2" d="M66,58 C70,50 62,45 66,37 C70,31 63,25 66,18" stroke="var(--lk)" stroke-width="4"/>
-</svg></div>
+    <div class="brandlogo big" aria-hidden="true"><style>.Lx7rfs8.sun{transform-box:fill-box;transform-origin:center;animation:Lx7rfs8_pop .9s cubic-bezier(.2,1.3,.3,1) both}
+.Lx7rfs8.halo{transform-box:fill-box;transform-origin:center;opacity:0;animation:Lx7rfs8_halo 1s cubic-bezier(.2,1.3,.3,1) .15s both,Lx7rfs8_breathe 9s ease-in-out 1.2s infinite}
+.Lx7rfs8.sunline{stroke-dasharray:44;stroke-dashoffset:44;animation:Lx7rfs8_draw .7s ease .55s forwards}
+.Lx7rfs8.ridge{stroke-dasharray:210;stroke-dashoffset:210;animation:Lx7rfs8_draw 1s ease .4s forwards}
+.Lx7rfs8.base{stroke-dasharray:110;stroke-dashoffset:110;animation:Lx7rfs8_draw .8s ease .7s forwards}
+.Lx7rfs8.steam{stroke-dasharray:72;stroke-dashoffset:72;animation:Lx7rfs8_draw .9s ease .7s forwards,Lx7rfs8_drift 8s ease-in-out 2s infinite}
+.Lx7rfs8.s2{animation-delay:.9s,2.4s}
+.Lx7rfs8.spark{transform-box:fill-box;transform-origin:center;opacity:0;animation:Lx7rfs8_spark .6s ease 1.1s forwards,Lx7rfs8_twinkle 8s ease-in-out 2s infinite}
+@keyframes Lx7rfs8_pop{from{opacity:0;transform:scale(.4) translateY(10px)}to{opacity:1;transform:none}}
+@keyframes Lx7rfs8_halo{from{opacity:0;transform:scale(.5)}to{opacity:.55;transform:scale(1)}}
+@keyframes Lx7rfs8_breathe{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.09);opacity:.78}}
+@keyframes Lx7rfs8_draw{to{stroke-dashoffset:0}}
+@keyframes Lx7rfs8_drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+@keyframes Lx7rfs8_spark{to{opacity:1}}
+@keyframes Lx7rfs8_twinkle{0%,100%{opacity:.3;transform:scale(.8)}50%{opacity:1;transform:scale(1.2)}}</style><svg viewBox="0 0 120 120"><circle class="Lx7rfs8 halo" cx="60" cy="56" r="34" fill="var(--ls)"/><circle class="Lx7rfs8 sun" cx="60" cy="56" r="21" fill="var(--la)"/><path class="Lx7rfs8 sunline" d="M41 56 H79" fill="none" stroke="var(--la2)" stroke-width="2.4" stroke-linecap="round"/><path class="Lx7rfs8 ridge" d="M22 74 L42 58 L56 69 L72 52 L98 74" fill="none" stroke="var(--lk)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><path class="Lx7rfs8 base" d="M26 86 Q60 97 94 86" fill="none" stroke="var(--lk)" stroke-width="2.6" stroke-linecap="round"/><path class="Lx7rfs8 steam s1" d="M51 34 Q46 26 52 20 Q58 14 53 8" fill="none" stroke="var(--ls2)" stroke-width="2.6" stroke-linecap="round"/><path class="Lx7rfs8 steam s2" d="M69 34 Q74 26 68 20 Q62 14 67 8" fill="none" stroke="var(--ls2)" stroke-width="2.6" stroke-linecap="round"/><circle class="Lx7rfs8 spark" cx="94" cy="30" r="2.4" fill="var(--la2)"/></svg></div>
     
     <h1><span class="ar">أهلاً ببيت <b>قهوة سي</b></span><span class="en">Welcome home, <b>Sei Coffee</b>.</span></h1>
     <div class="world"><span class="ar">✦ غروب طويق ينسكب في فنجان ✦</span><span class="en">✦ Tuwaiq at sunset, poured in a cup ✦</span></div>

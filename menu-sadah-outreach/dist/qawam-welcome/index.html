@@ -236,20 +236,28 @@ body{
   .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
   .hero{overflow-x:clip}
   .brandbg{--accent:#99521e;--accent-2:#8e3347;--sa:#a09e2c;--sa2:#84b8b4;--bg-0:#fcfaf8;--bg-1:#f5efea;--bg-2:#fefcfb}
-  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:var(--bg-0)}
-.brandbg i{position:absolute;display:block;background:var(--accent)}
-.brandbg .rule{height:1px;width:42vw;opacity:.14}
-.brandbg .r1{top:22%;left:-42vw}
-.brandbg .r2{top:50%;left:-42vw;height:2px;opacity:.1}
-.brandbg .r3{top:78%;left:-42vw;opacity:.12}
-.brandbg .ink{width:30vw;height:30vw;border-radius:50%;background:radial-gradient(circle,var(--accent) 0%,transparent 60%);opacity:.08;filter:blur(32px);top:58%;left:-6%}
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(120% 110% at 12% 0%,var(--sa) 0%,transparent 52%),radial-gradient(120% 120% at 100% 12%,var(--accent-2) 0%,transparent 48%),radial-gradient(140% 130% at 50% 118%,var(--sa2) 0%,transparent 55%),linear-gradient(158deg,var(--accent),var(--sa) 60%,var(--sa2))}
+.brandbg>*{position:absolute}
+.brandbg .g1,.brandbg .g2{inset:-25%;border-radius:50%;filter:blur(64px);opacity:.5}
+.brandbg .g1{background:radial-gradient(circle,var(--accent) 0%,transparent 60%);inset-inline-start:-20%;inset-block-start:-15%}
+.brandbg .g2{background:radial-gradient(circle,var(--accent-2) 0%,transparent 60%);inset-inline-start:auto;inset-inline-end:-20%;inset-block-start:18%}
+.brandbg .halo{inset:0;background:radial-gradient(58% 46% at 50% 44%,white 0%,transparent 62%);opacity:.52;mix-blend-mode:soft-light}
+.brandbg .rules{inset:0;opacity:.13;background:repeating-linear-gradient(0deg,transparent 0 26px,var(--accent-2) 26px 27px)}
+.brandbg .m{inline-size:6px;block-size:6px;border-radius:50%;background:var(--accent-2);opacity:.32;filter:blur(1px)}
+.brandbg .m1{inset-block-end:12%;inset-inline-start:22%}
+.brandbg .m2{inset-block-end:30%;inset-inline-start:70%}
+.brandbg .m3{inset-block-end:55%;inset-inline-start:44%}
 @media (prefers-reduced-motion:no-preference){
-.brandbg .r1{animation:qslide 26s linear infinite}
-.brandbg .r2{animation:qslide 34s linear infinite;animation-delay:3s}
-.brandbg .r3{animation:qslide 30s linear infinite;animation-delay:6s}
-.brandbg .ink{animation:qbleed 16s ease-in-out infinite}
-@keyframes qslide{from{transform:translateX(0)}to{transform:translateX(150vw)}}
-@keyframes qbleed{0%,100%{opacity:.05;transform:scale(1)}50%{opacity:.12;transform:scale(1.15)}}}
+.brandbg .g1{animation:bgA 22s ease-in-out infinite}
+.brandbg .g2{animation:bgB 27s ease-in-out infinite}
+.brandbg .rules{animation:bgR 30s linear infinite}
+.brandbg .m{animation:bgM 17s ease-in-out infinite}
+.brandbg .m2{animation-duration:21s;animation-delay:-6s}
+.brandbg .m3{animation-duration:25s;animation-delay:-11s}}
+@keyframes bgA{0%,100%{transform:translate(0,0)}50%{transform:translate(8%,6%)}}
+@keyframes bgB{0%,100%{transform:translate(0,0)}50%{transform:translate(-7%,5%)}}
+@keyframes bgR{to{transform:translateY(27px)}}
+@keyframes bgM{0%{transform:translateY(0);opacity:.1}50%{opacity:.38}100%{transform:translateY(-150px);opacity:0}}
 
   /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
   
@@ -318,7 +326,7 @@ body{
 </script>
 </head>
 <body>
-<div class="brandbg" aria-hidden="true"><i class="rule r1"></i><i class="rule r2"></i><i class="rule r3"></i><i class="ink"></i></div>
+<div class="brandbg" aria-hidden="true"><i class="g1"></i><i class="g2"></i><i class="halo"></i><i class="rules"></i><span class="m m1"></span><span class="m m2"></span><span class="m m3"></span></div>
 <div class="sting-wash" aria-hidden="true"><i></i><i></i></div>
 <div class="curtain" id="msCurtain" aria-hidden="true"></div>
 <div class="bigmark" aria-hidden="true"><span class="ar">ق</span><span class="en">Q</span></div>
@@ -377,53 +385,20 @@ body{
 </svg>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:9px;animation-delay:0s">✒</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:9px;animation-delay:0.7s">·</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:12px;animation-delay:1.4s">෴</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:14px;animation-delay:2.0999999999999996s">·</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:11px;animation-delay:2.8s">✒</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:10px;animation-delay:3.5s">·</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:13px;animation-delay:0.1999999999999993s">෴</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:14px;animation-delay:0.8999999999999995s">·</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="brandlogo big" aria-hidden="true"><style>.Lgvo0t .part-page{opacity:0;transform-origin:50% 100%;animation:Lgvo0t_page .7s cubic-bezier(.2,1.3,.3,1) .15s forwards}
-@keyframes Lgvo0t_page{0%{opacity:0;transform:translateY(34px) scale(.6)}100%{opacity:1;transform:translateY(0) scale(1)}}
-.Lgvo0t .part-head{opacity:0;transform-origin:0% 50%;animation:Lgvo0t_pop .55s cubic-bezier(.2,1.3,.3,1) .5s forwards}
-@keyframes Lgvo0t_pop{0%{opacity:0;transform:scale(0)}100%{opacity:1;transform:scale(1)}}
-.Lgvo0t .part-margin{stroke-dasharray:72;stroke-dashoffset:72;animation:Lgvo0t_draw .7s cubic-bezier(.2,1.3,.3,1) .5s forwards}
-.Lgvo0t .part-rule{stroke-dasharray:44;stroke-dashoffset:44}
-.Lgvo0t .part-rule1{animation:Lgvo0t_draw .55s cubic-bezier(.2,1.3,.3,1) .62s forwards}
-.Lgvo0t .part-rule2{animation:Lgvo0t_draw .55s cubic-bezier(.2,1.3,.3,1) .76s forwards}
-.Lgvo0t .part-rule3{animation:Lgvo0t_draw .55s cubic-bezier(.2,1.3,.3,1) .9s forwards}
-.Lgvo0t .part-rule4{animation:Lgvo0t_draw .55s cubic-bezier(.2,1.3,.3,1) 1.04s forwards}
-@keyframes Lgvo0t_draw{to{stroke-dashoffset:0}}
-.Lgvo0t .part-nib{opacity:0;animation:Lgvo0t_nibin .7s cubic-bezier(.2,1.3,.3,1) .65s forwards}
-@keyframes Lgvo0t_nibin{0%{opacity:0;transform:translate(26px,-30px) rotate(18deg)}100%{opacity:1;transform:translate(0,0) rotate(0)}}
-.Lgvo0t .nib-sway{transform-origin:88% 12%;animation:Lgvo0t_sway 4.2s ease-in-out 1.5s infinite}
-@keyframes Lgvo0t_sway{0%,100%{transform:rotate(-2.5deg)}50%{transform:rotate(2.5deg)}}
-.Lgvo0t .nib-slit{stroke-dasharray:30;stroke-dashoffset:30;animation:Lgvo0t_draw .5s ease .98s forwards}
-.Lgvo0t .drop-glow{opacity:.15;transform-origin:50% 50%;animation:Lgvo0t_glow 3.4s ease-in-out 1.9s infinite}
-@keyframes Lgvo0t_glow{0%,100%{opacity:.1;transform:scale(.8)}50%{opacity:.3;transform:scale(1.15)}}
-.Lgvo0t .part-drop{opacity:0;transform-origin:50% 0%;animation:Lgvo0t_drop .5s cubic-bezier(.2,1.3,.3,1) 1.3s forwards}
-@keyframes Lgvo0t_drop{0%{opacity:0;transform:translateY(-6px) scale(.2)}100%{opacity:1;transform:translateY(0) scale(1)}}
-.Lgvo0t .part-spark{opacity:0;transform-origin:50% 50%;animation:Lgvo0t_spark 3s ease-in-out 1.6s infinite}
-@keyframes Lgvo0t_spark{0%,100%{opacity:0;transform:scale(.4) rotate(0)}50%{opacity:1;transform:scale(1) rotate(90deg)}}</style><svg viewBox="0 0 120 120" fill="none">
-<g class="Lgvo0t part-page">
-<rect x="20" y="26" width="64" height="82" rx="9" fill="var(--lp)" stroke="var(--lk)" stroke-width="5"/>
-<circle cx="34" cy="26" r="3" fill="var(--ls2)" stroke="var(--lk)" stroke-width="3"/>
-<circle cx="52" cy="26" r="3" fill="var(--ls2)" stroke="var(--lk)" stroke-width="3"/>
-<circle cx="70" cy="26" r="3" fill="var(--ls2)" stroke="var(--lk)" stroke-width="3"/>
-</g>
-<line class="Lgvo0t part-margin" x1="36" y1="36" x2="36" y2="100" stroke="var(--la2)" stroke-width="3.5" stroke-linecap="round"/>
-<rect class="Lgvo0t part-head" x="44" y="39" width="30" height="7" rx="3.5" fill="var(--la2)" stroke="var(--lk)" stroke-width="3"/>
-<line class="Lgvo0t part-rule part-rule1" x1="43" y1="60" x2="77" y2="60" stroke="var(--la)" stroke-width="3.5" stroke-linecap="round"/>
-<line class="Lgvo0t part-rule part-rule2" x1="43" y1="72" x2="77" y2="72" stroke="var(--la)" stroke-width="3.5" stroke-linecap="round"/>
-<line class="Lgvo0t part-rule part-rule3" x1="43" y1="84" x2="70" y2="84" stroke="var(--la)" stroke-width="3.5" stroke-linecap="round"/>
-<line class="Lgvo0t part-rule part-rule4" x1="43" y1="96" x2="63" y2="96" stroke="var(--la)" stroke-width="3.5" stroke-linecap="round"/>
-<g class="Lgvo0t part-drop">
-<circle class="Lgvo0t drop-glow" cx="70" cy="72" r="8" fill="var(--la2)"/>
-<path d="M70 64 C66 69 66 73 70 76 C74 73 74 69 70 64 Z" fill="var(--lk)"/>
-</g>
-<g class="Lgvo0t part-nib">
-<g class="Lgvo0t nib-sway">
-<path d="M70 62 C74 51 80 40 90 27 C95 40 89 53 80 60 C77 62 73 63 70 62 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="4.5" stroke-linejoin="round"/>
-<line class="Lgvo0t nib-slit" x1="72" y1="58" x2="87" y2="34" stroke="var(--lk)" stroke-width="3" stroke-linecap="round"/>
-<circle cx="82" cy="44" r="2.6" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2.5"/>
-</g>
-</g>
-<path class="Lgvo0t part-spark" d="M28 53 L29.6 57.4 L34 59 L29.6 60.6 L28 65 L26.4 60.6 L22 59 L26.4 57.4 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="1.5" stroke-linejoin="round"/>
-</svg></div>
+    <div class="brandlogo big" aria-hidden="true"><style>.Lgvo0t .page,.Lgvo0t .nib,.Lgvo0t .drop{transform-box:fill-box;transform-origin:center}
+.Lgvo0t .page{opacity:0;transform:scale(.84) translateY(5px);animation:Lgvo0t_pg .8s cubic-bezier(.2,1.3,.3,1) .15s forwards}
+.Lgvo0t .nib{opacity:0;transform:translate(20px,-24px) rotate(-8deg) scale(.92);animation:Lgvo0t_nb .9s cubic-bezier(.2,1.3,.3,1) .4s forwards}
+.Lgvo0t .rule{fill:none;stroke-dasharray:40;stroke-dashoffset:40;animation:Lgvo0t_dr .9s ease forwards}
+.Lgvo0t .r1{animation-delay:.6s}
+.Lgvo0t .r2{animation-delay:.78s}
+.Lgvo0t .r3{animation-delay:.96s}
+.Lgvo0t .margin{stroke-dasharray:56;stroke-dashoffset:56;animation:Lgvo0t_dr 1s ease .3s forwards}
+.Lgvo0t .drop{opacity:0;transform:scale(0);animation:Lgvo0t_pop .7s cubic-bezier(.2,1.3,.3,1) 1s forwards,Lgvo0t_tw 7s ease-in-out 2.2s infinite}
+@keyframes Lgvo0t_pg{to{opacity:1;transform:scale(1) translateY(0)}}
+@keyframes Lgvo0t_nb{to{opacity:1;transform:translate(0,0) rotate(0) scale(1)}}
+@keyframes Lgvo0t_dr{to{stroke-dashoffset:0}}
+@keyframes Lgvo0t_pop{to{opacity:1;transform:scale(1)}}
+@keyframes Lgvo0t_tw{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.3)}}</style><svg viewBox="0 0 120 120"><g class="Lgvo0t page"><rect x="24" y="24" width="72" height="72" rx="8" fill="var(--lp)" stroke="var(--lk)" stroke-width="2.6" stroke-linejoin="round"/><line class="Lgvo0t margin" x1="34" y1="32" x2="34" y2="84" stroke="var(--ls2)" stroke-width="2.2" stroke-linecap="round"/></g><path class="Lgvo0t rule r1" d="M66 58 H88" fill="none" stroke="var(--la)" stroke-width="2.4" stroke-linecap="round"/><path class="Lgvo0t rule r2" d="M66 68 H88" fill="none" stroke="var(--la)" stroke-width="2.4" stroke-linecap="round"/><path class="Lgvo0t rule r3" d="M66 78 H82" fill="none" stroke="var(--la)" stroke-width="2.4" stroke-linecap="round"/><g class="Lgvo0t nib"><path d="M54 28 C63 28 68 33 68 41 L57 76 L54 82 L51 76 L40 41 C40 33 45 28 54 28 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="2.8" stroke-linejoin="round"/><circle cx="54" cy="43" r="3.4" fill="var(--lp)" stroke="var(--lk)" stroke-width="2"/><path d="M54 49 L54 76" fill="none" stroke="var(--lk)" stroke-width="2.2" stroke-linecap="round"/></g><circle class="Lgvo0t drop" cx="54" cy="88" r="2.8" fill="var(--la2)"/></svg></div>
     
     <h1><span class="ar">أهلاً ببيت <b>قوام</b></span><span class="en">Welcome home, <b>Qawam</b>.</span></h1>
     <div class="world"><span class="ar">✦ دفتر بارستا مرتّب بخط أنيق ✦</span><span class="en">✦ a barista's neatly ruled notebook ✦</span></div>

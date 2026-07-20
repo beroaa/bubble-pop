@@ -208,15 +208,29 @@ body{
   .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
   .hero{overflow-x:clip}
   .brandbg{--accent:#a5561d;--accent-2:#8c3649;--sa:#9d9b2f;--sa2:#87b5b1;--bg-0:#fcfaf8;--bg-1:#f5efea;--bg-2:#fefcfb}
-  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:var(--bg-0)}
-.md-haze{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 118%,var(--accent) 0%,transparent 55%);opacity:.15}
-.md-stm{position:absolute;bottom:8%;width:10px;height:34vh;border-radius:50%;background:linear-gradient(var(--sa),transparent);filter:blur(8px);opacity:0}
-.md-rail{position:absolute;top:0;bottom:0;left:6%;width:2px;background:repeating-linear-gradient(var(--accent-2) 0 8px,transparent 8px 20px);opacity:.15}
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:linear-gradient(168deg,var(--sa) 0%,var(--accent-2) 38%,var(--sa2) 74%,var(--accent) 100%)}
+.brandbg i{position:absolute;display:block;border-radius:50%}
+.brandbg .glow{inset-block-start:-26vh;inset-inline-start:50%;width:92vw;height:74vh;margin-inline-start:-46vw;background:radial-gradient(circle,var(--accent-2) 0%,transparent 60%);opacity:.55;filter:blur(6px)}
+.brandbg .calm{inset-block-start:22%;inset-inline-start:50%;width:82vw;height:58vh;margin-inline-start:-41vw;background:radial-gradient(closest-side,var(--sa) 0%,transparent 72%);opacity:.72}
+.brandbg .base{inset-block-end:-14vh;inset-inline-start:50%;width:120vw;height:60vh;margin-inline-start:-60vw;background:radial-gradient(closest-side,var(--accent) 0%,transparent 70%);opacity:.5}
+.brandbg .p1{inset-block-start:8%;inset-inline-start:-10%;width:34vw;height:52vh;background:var(--sa2);opacity:.42;filter:blur(30px)}
+.brandbg .p2{inset-block-end:-8%;inset-inline-end:-8%;width:30vw;height:46vh;background:var(--accent-2);opacity:.36;filter:blur(32px)}
+.brandbg span{position:absolute;width:7px;height:7px;border-radius:50%;background:var(--accent-2);opacity:.45;filter:blur(1px)}
+.brandbg .s1{inset-block-start:30%;inset-inline-start:22%}
+.brandbg .s2{inset-block-start:58%;inset-inline-start:70%}
+.brandbg .s3{inset-block-start:46%;inset-inline-start:44%}
 @media (prefers-reduced-motion:no-preference){
-.md-stm{animation:md-rise 7s ease-in infinite}
-.md-rail{animation:md-tick 3s linear infinite}
-@keyframes md-rise{0%{opacity:0;transform:translateY(20px) scaleX(1)}30%{opacity:.4}100%{opacity:0;transform:translateY(-42vh) scaleX(1.9)}}
-@keyframes md-tick{0%{background-position:0 0}100%{background-position:0 -28px}}}
+.brandbg .glow{animation:bg_breath 11s ease-in-out infinite}
+.brandbg .calm{animation:bg_calm 15s ease-in-out infinite}
+.brandbg .p1{animation:bg_rise 20s ease-in-out infinite alternate}
+.brandbg .p2{animation:bg_rise 26s ease-in-out infinite alternate-reverse}
+.brandbg .s1{animation:bg_float 16s ease-in-out infinite}
+.brandbg .s2{animation:bg_float 21s ease-in-out infinite}
+.brandbg .s3{animation:bg_float 18s ease-in-out infinite}
+@keyframes bg_breath{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:.62;transform:scale(1.07)}}
+@keyframes bg_calm{0%,100%{opacity:.6}50%{opacity:.8}}
+@keyframes bg_rise{from{transform:translateY(6vh)}to{transform:translateY(-6vh)}}
+@keyframes bg_float{0%,100%{transform:translateY(0);opacity:.3}50%{transform:translateY(-14vh);opacity:.6}}}
 
   /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
   
@@ -285,7 +299,7 @@ body{
 </script>
 </head>
 <body>
-<div class="brandbg" aria-hidden="true"><div class="md-haze"></div><span class="md-stm" style="left:16%"></span><span class="md-stm" style="left:46%;animation-delay:2.5s"></span><span class="md-stm" style="left:76%;animation-delay:4s"></span><div class="md-rail"></div></div>
+<div class="brandbg" aria-hidden="true"><i class="glow"></i><i class="calm"></i><i class="base"></i><i class="p1"></i><i class="p2"></i><span class="s1"></span><span class="s2"></span><span class="s3"></span></div>
 <div class="sting-wash" aria-hidden="true"><i></i><i></i></div>
 <div class="curtain" id="msCurtain" aria-hidden="true"></div>
 <div class="bigmark" aria-hidden="true"><span class="ar">م</span><span class="en">M</span></div>
@@ -347,47 +361,36 @@ body{
 
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:12px;animation-delay:0s">〜</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:10px;animation-delay:0.7s">〜</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:13px;animation-delay:1.4s">〜</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:11px;animation-delay:2.0999999999999996s">〜</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:10px;animation-delay:2.8s">〜</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:9px;animation-delay:3.5s">〜</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:12px;animation-delay:0.1999999999999993s">〜</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:14px;animation-delay:0.8999999999999995s">〜</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="brandlogo big" aria-hidden="true"><style>.L1br8yu .base{animation:L1br8yu_rise .6s cubic-bezier(.2,1.3,.3,1) .15s both;transform-origin:50% 100%}
-.L1br8yu .spike{stroke-dasharray:72;stroke-dashoffset:72;animation:L1br8yu_draw .55s ease .3s forwards}
-.L1br8yu .tip{opacity:0;animation:L1br8yu_pop .4s cubic-bezier(.2,1.3,.3,1) .8s forwards;transform-origin:50% 100%}
-.L1br8yu .moon{animation:L1br8yu_flyTR .7s cubic-bezier(.2,1.3,.3,1) .45s both;transform-origin:50% 50%}
-.L1br8yu .star{opacity:0;animation:L1br8yu_pop .45s cubic-bezier(.2,1.3,.3,1) 1s forwards,L1br8yu_twinkle 2.6s ease-in-out 1.7s infinite;transform-origin:50% 50%}
-.L1br8yu .ticket{animation:L1br8yu_drop .8s cubic-bezier(.2,1.3,.3,1) .6s both;transform-origin:50% 2%}
-.L1br8yu .tbody{animation:L1br8yu_sway 4.2s ease-in-out 1.7s infinite;transform-origin:50% 10%}
-.L1br8yu .steam{stroke-dasharray:46;stroke-dashoffset:46;animation:L1br8yu_draw .9s ease 1.2s forwards,L1br8yu_drift 3.6s ease-in-out 2.1s infinite}
-.L1br8yu .s2{animation-delay:1.4s,2.4s}
-.L1br8yu .line{opacity:0;animation:L1br8yu_pop .4s cubic-bezier(.2,1.3,.3,1) both}
-.L1br8yu .lh{animation-delay:.95s}
-.L1br8yu .l1{animation-delay:1.05s}
-.L1br8yu .l2{animation-delay:1.15s}
-.L1br8yu .l3{animation-delay:1.25s}
-@keyframes L1br8yu_rise{0%{opacity:0;transform:translateY(26px) scale(.6)}60%{opacity:1}100%{opacity:1;transform:none}}
+    <div class="brandlogo big" aria-hidden="true"><style>.L1br8yu .base{transform-origin:60px 96px;animation:L1br8yu_up .55s .15s cubic-bezier(.2,1.3,.3,1) both}
+.L1br8yu .spike{transform-origin:60px 96px;animation:L1br8yu_grow .6s .2s cubic-bezier(.2,1.3,.3,1) both}
+.L1br8yu .finial{transform-origin:60px 29px;animation:L1br8yu_pop .5s .5s cubic-bezier(.2,1.3,.3,1) both}
+.L1br8yu .ticket{transform-origin:60px 70px;animation:L1br8yu_drop .6s .4s cubic-bezier(.2,1.3,.3,1) both}
+.L1br8yu .rule{stroke-dasharray:30;stroke-dashoffset:30;animation:L1br8yu_draw .5s .85s ease both}
+.L1br8yu .r2{animation-delay:1s}
+.L1br8yu .moon{transform-origin:89px 33px;animation:L1br8yu_pop .55s .7s cubic-bezier(.2,1.3,.3,1) both,L1br8yu_glow 5s 1.5s ease-in-out infinite}
+.L1br8yu .steam{stroke-dasharray:46;stroke-dashoffset:46;animation:L1br8yu_draw 1s .7s ease both,L1br8yu_rise 4.5s 1.9s ease-in-out infinite}
+.L1br8yu .s2{animation:L1br8yu_draw .8s .95s ease both,L1br8yu_rise 4s 2.1s ease-in-out infinite}
+@keyframes L1br8yu_up{0%{opacity:0;transform:translateY(14px) scale(.7)}100%{opacity:1;transform:none}}
+@keyframes L1br8yu_grow{0%{opacity:0;transform:scaleY(0)}100%{opacity:1;transform:none}}
+@keyframes L1br8yu_pop{0%{opacity:0;transform:scale(0)}100%{opacity:1;transform:none}}
+@keyframes L1br8yu_drop{0%{opacity:0;transform:translateY(-16px) rotate(-18deg)}100%{opacity:1;transform:rotate(-5deg)}}
 @keyframes L1br8yu_draw{to{stroke-dashoffset:0}}
-@keyframes L1br8yu_flyTR{0%{opacity:0;transform:translate(26px,-28px) scale(.4) rotate(-40deg)}100%{opacity:1;transform:none}}
-@keyframes L1br8yu_drop{0%{opacity:0;transform:translateY(-66px) rotate(-14deg) scale(.72)}70%{opacity:1;transform:translateY(4px) rotate(3deg) scale(1.02)}100%{opacity:1;transform:none}}
-@keyframes L1br8yu_pop{0%{opacity:0;transform:scale(.2)}100%{opacity:1;transform:scale(1)}}
-@keyframes L1br8yu_sway{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
-@keyframes L1br8yu_drift{0%{opacity:.15;transform:translateY(4px)}50%{opacity:.7}100%{opacity:.15;transform:translateY(-7px)}}
-@keyframes L1br8yu_twinkle{0%,100%{opacity:.5;transform:scale(.8)}50%{opacity:1;transform:scale(1.15)}}</style><svg viewBox="0 0 120 120" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path class="L1br8yu moon" d="M96 15 A11 11 0 1 0 96 37 A8 8 0 1 1 96 15 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="4"/>
-  <path class="L1br8yu star" d="M106 40 L108 45 L113 47 L108 49 L106 54 L104 49 L99 47 L104 45 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2.5"/>
-  <g class="L1br8yu base">
-    <ellipse cx="60" cy="101" rx="20" ry="5.5" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4"/>
-  </g>
-  <path class="L1br8yu spike" d="M60 100 L60 40" stroke="var(--la)" stroke-width="5"/>
-  <path class="L1br8yu tip" d="M56 43 L64 43 L60 33 Z" fill="var(--lk)" stroke="var(--lk)" stroke-width="3"/>
-  <path class="L1br8yu steam s1" d="M53 46 C49 40 57 36 52 29 C49 25 55 22 53 18" stroke="var(--ls)" stroke-width="4"/>
-  <path class="L1br8yu steam s2" d="M67 46 C71 40 63 36 68 29 C71 25 66 22 68 19" stroke="var(--ls)" stroke-width="4"/>
-  <g class="L1br8yu ticket">
-    <g class="L1br8yu tbody">
-      <path d="M40 50 L80 50 L80 88 L76 92 L72 88 L68 92 L64 88 L60 92 L56 88 L52 92 L48 88 L44 92 L40 88 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="4"/>
-      <circle cx="60" cy="56" r="3.4" fill="var(--ls2)" stroke="var(--lk)" stroke-width="3"/>
-      <rect class="L1br8yu line lh" x="46" y="62" width="28" height="5.5" rx="2.5" fill="var(--la)" stroke="var(--lk)" stroke-width="2.5"/>
-      <path class="L1br8yu line l1" d="M47 74 H71" stroke="var(--lk)" stroke-width="3"/>
-      <path class="L1br8yu line l2" d="M47 80 H65" stroke="var(--la2)" stroke-width="3"/>
-      <path class="L1br8yu line l3" d="M47 84 H69" stroke="var(--lk)" stroke-width="3"/>
-    </g>
-  </g>
+@keyframes L1br8yu_glow{0%,100%{opacity:1}50%{opacity:.72}}
+@keyframes L1br8yu_rise{0%,100%{opacity:.9;transform:translateY(0)}50%{opacity:.55;transform:translateY(-3px)}}</style><svg viewBox="0 0 120 120" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path class="L1br8yu moon" d="M96,20 A13,13 0 1 0 96,46 A9.5,9.5 0 1 1 96,20 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2.6"/>
+<line class="L1br8yu spike" x1="60" y1="30" x2="60" y2="96" stroke="var(--lk)" stroke-width="3"/>
+<circle class="L1br8yu finial" cx="60" cy="29" r="3.4" fill="var(--la2)" stroke="var(--lk)" stroke-width="2.4"/>
+<ellipse class="L1br8yu base" cx="60" cy="96" rx="15" ry="4.6" fill="var(--la)" stroke="var(--lk)" stroke-width="2.8"/>
+<g class="L1br8yu ticket">
+<rect x="41" y="51" width="38" height="42" rx="3.5" fill="var(--lp)" stroke="var(--lk)" stroke-width="2.6"/>
+<circle cx="60" cy="56" r="2.4" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2"/>
+<line class="L1br8yu rule r1" x1="47" y1="66" x2="73" y2="66" stroke="var(--lk)" stroke-width="2.2"/>
+<line class="L1br8yu rule r2" x1="47" y1="72" x2="68" y2="72" stroke="var(--lk)" stroke-width="2.2"/>
+<line x1="47" y1="78" x2="73" y2="78" stroke="var(--la)" stroke-width="2.8"/>
+<line x1="45" y1="85" x2="75" y2="85" stroke="var(--lk)" stroke-width="1.8" stroke-dasharray="3 3"/>
+</g>
+<path class="L1br8yu steam s1" d="M54,50 C49,44 58,40 53,34 C49,29 56,26 53,21" stroke="var(--la)" stroke-width="2.6"/>
+<path class="L1br8yu steam s2" d="M67,50 C72,45 64,41 69,36" stroke="var(--la)" stroke-width="2.4"/>
 </svg></div>
     
     <h1><span class="ar">أهلاً ببيت <b>مرثد قهوة</b></span><span class="en">Welcome home, <b>Marthad Coffee</b>.</span></h1>

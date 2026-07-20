@@ -222,7 +222,7 @@ body::after{
   .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
   .hero{overflow-x:clip}
   .brandbg{--accent:#954a2d;--accent-2:#7c4659;--sa:#8d813f;--sa2:#8faea7;--bg-0:#fcf9f8;--bg-1:#f5edea;--bg-2:#fefcfb}
-  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(120% 90% at 50% 8%,var(--bg-1),var(--bg-0))}.rw-glow{position:absolute;width:46vw;height:46vw;border-radius:50%;filter:blur(72px);opacity:.28}.rw-a{top:-12vw;left:-10vw;background:var(--accent)}.rw-b{bottom:-14vw;right:-10vw;background:var(--accent-2,var(--sa,var(--accent)))}.rw-scan{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.03) 3px 4px);opacity:.5}.rw-s{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent);opacity:.7}.rw-s1{top:14%;left:12%}.rw-s2{top:22%;right:15%}.rw-s3{top:70%;left:9%}.rw-s4{top:78%;right:12%}.rw-s5{top:40%;left:6%}.rw-s6{top:52%;right:7%}@media (prefers-reduced-motion:no-preference){.rw-glow{animation:rwF 14s ease-in-out infinite alternate}.rw-b{animation-duration:18s}.rw-s{animation:rwT 3s ease-in-out infinite}.rw-s2{animation-delay:.6s}.rw-s3{animation-delay:1.2s}.rw-s4{animation-delay:1.8s}.rw-s5{animation-delay:.9s}.rw-s6{animation-delay:1.5s}@keyframes rwF{to{transform:translate(4vw,3vw) scale(1.15)}}@keyframes rwT{50%{opacity:1;transform:scale(1.5)}}}
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:linear-gradient(165deg,rgba(9,3,15,1),rgba(22,7,31,1) 55%,rgba(9,3,15,1))}.brandbg i,.brandbg span{position:absolute;display:block}.brandbg i{inset:0}.brandbg .g1{background:radial-gradient(60% 50% at 22% 18%,var(--accent),transparent 60%);opacity:.55;mix-blend-mode:screen}.brandbg .g2{background:radial-gradient(55% 46% at 82% 28%,var(--sa),transparent 62%);opacity:.5;mix-blend-mode:screen}.brandbg .g3{background:radial-gradient(80% 60% at 50% 108%,var(--accent-2),transparent 66%);opacity:.62;mix-blend-mode:screen}.brandbg .veil{background:radial-gradient(130% 95% at 50% 38%,transparent 42%,rgba(4,1,9,.72))}.brandbg .mote{width:3px;height:3px;border-radius:50%;background:var(--sa2);box-shadow:0 0 7px var(--sa2),0 0 14px var(--sa);opacity:.8}.brandbg .m1{top:18%;inset-inline-start:20%}.brandbg .m2{top:30%;inset-inline-start:72%;width:2px;height:2px}.brandbg .m3{top:62%;inset-inline-start:38%}.brandbg .m4{top:76%;inset-inline-start:80%;width:2px;height:2px}.brandbg .m5{top:46%;inset-inline-start:56%}.brandbg .m6{top:12%;inset-inline-start:60%;width:2px;height:2px}@media (prefers-reduced-motion:no-preference){.brandbg .g1{animation:bg_a 16s ease-in-out infinite alternate}.brandbg .g2{animation:bg_b 20s ease-in-out infinite alternate}.brandbg .g3{animation:bg_c 24s ease-in-out infinite alternate}.brandbg .mote{animation:bg_tw 9s ease-in-out infinite}.brandbg .m2{animation-duration:12s;animation-delay:1.5s}.brandbg .m3{animation-duration:11s;animation-delay:.6s}.brandbg .m4{animation-duration:13s;animation-delay:2.2s}.brandbg .m5{animation-duration:10s;animation-delay:1s}.brandbg .m6{animation-duration:14s;animation-delay:.3s}}@keyframes bg_a{to{transform:translate3d(6%,4%,0) scale(1.16)}}@keyframes bg_b{to{transform:translate3d(-5%,6%,0) scale(1.22)}}@keyframes bg_c{to{transform:translate3d(0,-4%,0) scale(1.12)}}@keyframes bg_tw{0%,100%{opacity:.22;transform:scale(.7)}50%{opacity:1;transform:scale(1.35)}}
 
   /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
   
@@ -291,7 +291,7 @@ body::after{
 </script>
 </head>
 <body>
-<div class="brandbg" aria-hidden="true"><span class="rw-glow rw-a"></span><span class="rw-glow rw-b"></span><span class="rw-scan"></span><i class="rw-s rw-s1"></i><i class="rw-s rw-s2"></i><i class="rw-s rw-s3"></i><i class="rw-s rw-s4"></i><i class="rw-s rw-s5"></i><i class="rw-s rw-s6"></i></div>
+<div class="brandbg" aria-hidden="true"><i class="g1"></i><i class="g2"></i><i class="g3"></i><i class="veil"></i><span class="mote m1"></span><span class="mote m2"></span><span class="mote m3"></span><span class="mote m4"></span><span class="mote m5"></span><span class="mote m6"></span></div>
 <div class="sting-wash" aria-hidden="true"><i></i><i></i></div>
 <div class="curtain" id="msCurtain" aria-hidden="true"></div>
 <div class="bigmark" aria-hidden="true"><span class="ar">ر</span><span class="en">R</span></div>
@@ -331,52 +331,7 @@ body::after{
 </svg>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:8px;animation-delay:0s">✦</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:8px;animation-delay:0.7s">✧</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:8px;animation-delay:1.4s">⋆</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:5px;animation-delay:2.0999999999999996s">☾</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:3px;animation-delay:2.8s">✦</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:6px;animation-delay:3.5s">✧</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:4px;animation-delay:0.1999999999999993s">⋆</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:3px;animation-delay:0.8999999999999995s">☾</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="brandlogo big" aria-hidden="true"><style>.Lfgcqfw .halo{transform-origin:center;animation:Lfgcqfw_glow 3.4s ease-in-out .2s infinite both}
-.Lfgcqfw .cradle{animation:Lfgcqfw_rise .7s cubic-bezier(.2,1.3,.3,1) .15s both}
-.Lfgcqfw .smile{stroke-dasharray:70;stroke-dashoffset:70;animation:Lfgcqfw_draw .5s ease .7s forwards}
-.Lfgcqfw .swirl-drop{animation:Lfgcqfw_drop .7s cubic-bezier(.2,1.3,.3,1) .45s both}
-.Lfgcqfw .swirl-sway{transform-origin:center bottom;animation:Lfgcqfw_sway 4.2s ease-in-out 1.4s infinite}
-.Lfgcqfw .r1{stroke-dasharray:26;stroke-dashoffset:26;animation:Lfgcqfw_draw .45s ease 1s forwards}
-.Lfgcqfw .r2{stroke-dasharray:22;stroke-dashoffset:22;animation:Lfgcqfw_draw .45s ease 1.12s forwards}
-.Lfgcqfw .r3{stroke-dasharray:14;stroke-dashoffset:14;animation:Lfgcqfw_draw .4s ease 1.24s forwards}
-.Lfgcqfw .topper-pop{transform-origin:center;animation:Lfgcqfw_pop .6s cubic-bezier(.2,1.3,.3,1) .78s both}
-.Lfgcqfw .topper-tw{transform-origin:center;animation:Lfgcqfw_twinkle 3s ease-in-out 1.6s infinite}
-.Lfgcqfw .s1{transform-origin:center;opacity:0;animation:Lfgcqfw_fin .5s ease 1s forwards,Lfgcqfw_spark 2.6s ease-in-out 1.6s infinite}
-.Lfgcqfw .s2{transform-origin:center;opacity:0;animation:Lfgcqfw_fin .5s ease 1.15s forwards,Lfgcqfw_spark 2.9s ease-in-out 1.8s infinite}
-.Lfgcqfw .s3{transform-origin:center;opacity:0;animation:Lfgcqfw_fin .5s ease 1.3s forwards,Lfgcqfw_spark 3.2s ease-in-out 2s infinite}
-@keyframes Lfgcqfw_rise{0%{opacity:0;transform:translateY(48px)}60%{opacity:1}100%{opacity:1;transform:translateY(0)}}
-@keyframes Lfgcqfw_drop{0%{opacity:0;transform:translateY(-54px)}100%{opacity:1;transform:translateY(0)}}
-@keyframes Lfgcqfw_pop{0%{opacity:0;transform:scale(0)}100%{opacity:1;transform:scale(1)}}
-@keyframes Lfgcqfw_fin{0%{opacity:0;transform:scale(.4)}100%{opacity:1;transform:scale(1)}}
-@keyframes Lfgcqfw_draw{to{stroke-dashoffset:0}}
-@keyframes Lfgcqfw_twinkle{0%,100%{transform:scale(1) rotate(0deg)}50%{transform:scale(1.16) rotate(9deg)}}
-@keyframes Lfgcqfw_glow{0%,100%{opacity:.32;transform:scale(1)}50%{opacity:.55;transform:scale(1.05)}}
-@keyframes Lfgcqfw_spark{0%,100%{opacity:.45;transform:scale(.8)}50%{opacity:1;transform:scale(1.18)}}
-@keyframes Lfgcqfw_sway{0%,100%{transform:rotate(-2.5deg)}50%{transform:rotate(2.5deg)}}</style><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-<g class="Lfgcqfw halo"><circle cx="60" cy="56" r="42" fill="var(--ls2)"/></g>
-<g class="Lfgcqfw cradle">
-<path d="M33 54 C30 78 44 94 60 94 C76 94 90 78 87 54 C82 62 74 66 60 66 C46 66 38 62 33 54 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="5" stroke-linejoin="round"/>
-<path class="Lfgcqfw smile" d="M42 62 C50 70 70 70 78 62" fill="none" stroke="var(--lk)" stroke-width="3.5" stroke-linecap="round"/>
-<circle cx="48" cy="82" r="3" fill="var(--lp)" stroke="var(--lk)" stroke-width="2"/>
-<circle cx="66" cy="86" r="2.4" fill="var(--lp)" stroke="var(--lk)" stroke-width="2"/>
-</g>
-<g class="Lfgcqfw swirl-drop">
-<g class="Lfgcqfw swirl-sway">
-<path d="M48 66 C45 58 50 57 51 54 C48 50 53 47 55 47 C53 42 58 39 60 39 C60 33 66 34 64 40 C68 41 69 47 65 49 C69 51 68 57 63 56 C68 59 66 66 62 66 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="5" stroke-linejoin="round"/>
-<path class="Lfgcqfw r1" d="M50 58 C55 55 62 57 65 54" fill="none" stroke="var(--lk)" stroke-width="3" stroke-linecap="round"/>
-<path class="Lfgcqfw r2" d="M52 50 C56 48 61 50 64 49" fill="none" stroke="var(--lk)" stroke-width="3" stroke-linecap="round"/>
-<path class="Lfgcqfw r3" d="M55 44 C57 43 61 44 62 43" fill="none" stroke="var(--lk)" stroke-width="2.6" stroke-linecap="round"/>
-</g>
-</g>
-<g class="Lfgcqfw topper-pop">
-<g class="Lfgcqfw topper-tw">
-<path d="M60 15 L62.1 21.1 L68.6 21.2 L63.4 25.1 L65.3 31.3 L60 27.6 L54.7 31.3 L56.6 25.1 L51.4 21.2 L57.9 21.1 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="4" stroke-linejoin="round"/>
-</g>
-</g>
-<g class="Lfgcqfw s1"><path d="M28 42 L30 46 L34 48 L30 50 L28 54 L26 50 L22 48 L26 46 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2.4" stroke-linejoin="round"/></g>
-<g class="Lfgcqfw s2"><path d="M92 48 L94 52 L98 54 L94 56 L92 60 L90 56 L86 54 L90 52 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2.4" stroke-linejoin="round"/></g>
-<g class="Lfgcqfw s3"><path d="M24 74 L25.6 77 L29 78.5 L25.6 80 L24 83 L22.4 80 L19 78.5 L22.4 77 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="2.2" stroke-linejoin="round"/></g>
-</svg></div>
+    <div class="brandlogo big" aria-hidden="true"><style>.Lfgcqfw{transform-box:fill-box}.Lfgcqfw.cradle{transform-origin:60px 58px;animation:Lfgcqfw_rise .9s cubic-bezier(.2,1.3,.3,1) .15s both}.Lfgcqfw.swirl{transform-origin:60px 57px;animation:Lfgcqfw_pop .9s cubic-bezier(.2,1.3,.3,1) .4s both}.Lfgcqfw.hl{stroke-dasharray:60;stroke-dashoffset:60;animation:Lfgcqfw_draw 1s ease .7s both}.Lfgcqfw.star{transform-origin:60px 22px;animation:Lfgcqfw_pop .8s cubic-bezier(.2,1.3,.3,1) .7s both,Lfgcqfw_tw 6s ease-in-out 1.7s infinite}.Lfgcqfw.spark{transform-origin:center;animation:Lfgcqfw_tw 5s ease-in-out infinite}.Lfgcqfw.s2{animation-duration:7s;animation-delay:.9s}@keyframes Lfgcqfw_rise{from{opacity:0;transform:translateY(10px) scale(.62)}to{opacity:1;transform:none}}@keyframes Lfgcqfw_pop{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}@keyframes Lfgcqfw_draw{to{stroke-dashoffset:0}}@keyframes Lfgcqfw_tw{0%,100%{opacity:.5;transform:scale(.85)}50%{opacity:1;transform:scale(1.12)}}</style><svg viewBox="0 0 120 120" fill="none" stroke="var(--lk)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path class="Lfgcqfw spark" d="M30 37 L31.6 40.4 L35 42 L31.6 43.6 L30 47 L28.4 43.6 L25 42 L28.4 40.4 Z" fill="var(--la2)" stroke-width="1.6"/><path class="Lfgcqfw spark s2" d="M90 48 L91.4 51 L94 52 L91.4 53 L90 56 L88.6 53 L86 52 L88.6 51 Z" fill="var(--la2)" stroke-width="1.6"/><path class="Lfgcqfw cradle" d="M30 56 A32 32 0 0 0 90 56 A40 40 0 0 1 30 56 Z" fill="var(--ls)"/><path class="Lfgcqfw swirl" d="M47 57 C43 49 53 47 55 52 C52 44 62 43 62 49 C62 42 70 43 67 50 C72 51 71 57 74 57 C66 60 55 60 47 57 Z" fill="var(--la)"/><path class="Lfgcqfw hl" d="M52 54 C54 50 58 49 61 52" stroke="var(--lp)" stroke-width="2"/><path class="Lfgcqfw star" d="M60 6 L64 18 L76 22 L64 26 L60 38 L56 26 L44 22 L56 18 Z" fill="var(--la2)" stroke-width="2.2"/></svg></div>
     
     <h1><span class="ar">أهلاً ببيت <b>ري ونتد كافيه</b></span><span class="en">Welcome home, <b>Rewanted Cafe</b>.</span></h1>
     <div class="world"><span class="ar">✦ ليل وردي بضو خافت وسكّر ✦</span><span class="en">✦ a berry-pink night, lit soft ✦</span></div>

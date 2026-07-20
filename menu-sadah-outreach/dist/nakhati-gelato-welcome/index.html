@@ -227,19 +227,22 @@ body{
   .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
   .hero{overflow-x:clip}
   .brandbg{--accent:#952d71;--accent-2:#6d467c;--sa:#8d3f46;--sa2:#93ae8f;--bg-0:#fcf8fb;--bg-1:#f5eaf1;--bg-2:#fefbfd}
-  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(120% 90% at 50% 0%,var(--bg-1),var(--bg-0))}
-.nk-glow{position:absolute;left:50%;top:-30%;width:70vw;height:70vw;transform:translateX(-50%);background:radial-gradient(circle,var(--accent),transparent 60%);opacity:.14;filter:blur(30px)}
-.nk-sweep{position:absolute;left:50%;top:-20%;width:60vw;height:140vh;transform:translateX(-50%);background:conic-gradient(from 180deg at 50% 0,transparent,var(--accent-2) 8%,transparent 16%);opacity:.10}
-.nk-star{position:absolute;width:4px;height:4px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 6px var(--accent-2)}
-.s1{left:12%;top:18%}.s2{left:84%;top:12%}.s3{left:22%;top:70%}.s4{left:90%;top:64%}.s5{left:8%;top:44%}.s6{left:76%;top:82%}
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(130% 100% at 50% -18%,color-mix(in srgb,var(--accent-2) 58%,#01020a),transparent 58%),linear-gradient(165deg,color-mix(in srgb,var(--accent) 64%,#02030b),color-mix(in srgb,var(--sa) 52%,#03040c) 52%,#04050e)}
+.brandbg i,.brandbg span{position:absolute;display:block}
+.brandbg i{border-radius:50%;filter:blur(72px)}
+.brandbg .g1{inset-block-start:-12%;inset-inline-start:-8%;width:62vw;height:62vw;background:radial-gradient(circle,var(--accent-2),transparent 68%);opacity:.5}
+.brandbg .g2{inset-block-end:-18%;inset-inline-end:-10%;width:68vw;height:68vw;background:radial-gradient(circle,var(--sa2),transparent 70%);opacity:.45}
+.brandbg .haze{inset:0;background:radial-gradient(85% 55% at 50% 10%,color-mix(in srgb,var(--accent-2) 32%,transparent),transparent 62%);mix-blend-mode:screen;opacity:.55}
+.brandbg .stars{inset:0;background-image:radial-gradient(1.6px 1.6px at 12% 18%,var(--sa2),transparent),radial-gradient(1.3px 1.3px at 28% 62%,#fff,transparent),radial-gradient(1.8px 1.8px at 46% 26%,var(--sa2),transparent),radial-gradient(1.3px 1.3px at 66% 54%,#fff,transparent),radial-gradient(1.7px 1.7px at 79% 20%,var(--sa2),transparent),radial-gradient(1.4px 1.4px at 88% 70%,#fff,transparent),radial-gradient(1.5px 1.5px at 34% 84%,var(--sa2),transparent),radial-gradient(1.3px 1.3px at 58% 90%,#fff,transparent);opacity:.85}
 @media (prefers-reduced-motion:no-preference){
-.nk-sweep{animation:nkS 14s ease-in-out infinite}
-.nk-glow{animation:nkP 6s ease-in-out infinite}
-.nk-star{animation:nkT 3s ease-in-out infinite}
-.s2{animation-delay:.6s}.s3{animation-delay:1.2s}.s4{animation-delay:1.8s}.s5{animation-delay:.9s}.s6{animation-delay:2.1s}
-@keyframes nkS{0%,100%{transform:translateX(-50%) rotate(-8deg)}50%{transform:translateX(-50%) rotate(8deg)}}
-@keyframes nkP{0%,100%{opacity:.1}50%{opacity:.2}}
-@keyframes nkT{0%,100%{opacity:.3;transform:scale(.8)}50%{opacity:1;transform:scale(1.3)}}
+.brandbg .g1{animation:UID_d1 26s ease-in-out infinite}
+.brandbg .g2{animation:UID_d2 32s ease-in-out infinite}
+.brandbg .haze{animation:UID_br 15s ease-in-out infinite}
+.brandbg .stars{animation:UID_tw 9s ease-in-out infinite}
+@keyframes UID_d1{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(6%,4%,0)}}
+@keyframes UID_d2{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(-5%,-4%,0)}}
+@keyframes UID_br{0%,100%{opacity:.42}50%{opacity:.75}}
+@keyframes UID_tw{0%,100%{opacity:.85}50%{opacity:.5}}
 }
 
   /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
@@ -309,7 +312,7 @@ body{
 </script>
 </head>
 <body>
-<div class="brandbg" aria-hidden="true"><span class="nk-sweep"></span><span class="nk-glow"></span><i class="nk-star s1"></i><i class="nk-star s2"></i><i class="nk-star s3"></i><i class="nk-star s4"></i><i class="nk-star s5"></i><i class="nk-star s6"></i></div>
+<div class="brandbg" aria-hidden="true"><i class="g1"></i><i class="g2"></i><span class="haze"></span><span class="stars"></span></div>
 <div class="sting-wash" aria-hidden="true"><i></i><i></i></div>
 <div class="curtain" id="msCurtain" aria-hidden="true"></div>
 <div class="bigmark" aria-hidden="true"><span class="ar">ن</span><span class="en">N</span></div>
@@ -364,19 +367,31 @@ body{
 </svg>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:5px;animation-delay:0s">✦</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:7px;animation-delay:0.7s">✧</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:4px;animation-delay:1.4s">⋆</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:3px;animation-delay:2.0999999999999996s">☾</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:6px;animation-delay:2.8s">✦</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:4px;animation-delay:3.5s">✧</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:3px;animation-delay:0.1999999999999993s">⋆</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:6px;animation-delay:0.8999999999999995s">☾</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="brandlogo big" aria-hidden="true"><style>.L11pxvd1 .cone{animation:L11pxvd1_up .7s cubic-bezier(.2,1.3,.3,1) .15s both}
-.L11pxvd1 .scoop{transform-origin:center;animation:L11pxvd1_drop .75s cubic-bezier(.2,1.3,.3,1) .45s both}
-.L11pxvd1 .waffle{stroke-dasharray:70;animation:L11pxvd1_draw .6s ease .85s both}
-.L11pxvd1 .star{transform-origin:center;animation:L11pxvd1_pop .7s cubic-bezier(.2,1.3,.3,1) .95s both,L11pxvd1_tw 3s ease-in-out 1.7s infinite}
-.L11pxvd1 .sp1{transform-origin:center;animation:L11pxvd1_pop .5s cubic-bezier(.2,1.3,.3,1) 1.2s both,L11pxvd1_sp 2.4s ease-in-out 1.9s infinite}
-.L11pxvd1 .sp2{transform-origin:center;animation:L11pxvd1_pop .5s cubic-bezier(.2,1.3,.3,1) 1.4s both,L11pxvd1_sp 2.4s ease-in-out 2.1s infinite}
-.L11pxvd1 .sp3{transform-origin:center;animation:L11pxvd1_pop .5s cubic-bezier(.2,1.3,.3,1) 1.6s both,L11pxvd1_sp 2.4s ease-in-out 2.3s infinite}
-@keyframes L11pxvd1_up{from{transform:translateY(48px);opacity:0}to{transform:none;opacity:1}}
-@keyframes L11pxvd1_drop{from{transform:translateY(-46px) scale(.5);opacity:0}to{transform:none;opacity:1}}
-@keyframes L11pxvd1_draw{from{stroke-dashoffset:70}to{stroke-dashoffset:0}}
-@keyframes L11pxvd1_pop{0%{transform:scale(0) rotate(-45deg);opacity:0}60%{opacity:1}100%{transform:scale(1) rotate(0);opacity:1}}
-@keyframes L11pxvd1_tw{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
-@keyframes L11pxvd1_sp{0%,100%{transform:scale(.75);opacity:.45}50%{transform:scale(1.1);opacity:1}}</style><svg viewBox="0 0 120 120" fill="none" stroke-linejoin="round" stroke-linecap="round"><g class="L11pxvd1 cone"><path d="M44,62 L76,62 L60,104 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="5"/><path class="L11pxvd1 waffle" d="M51,68 L60,92 M57,66 L65,84 M69,68 L60,92 M63,66 L55,84" stroke="var(--lk)" stroke-width="2.4"/></g><g class="L11pxvd1 scoop"><path d="M46,60 Q44,68 47,73 Q50,68 50,60 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="4"/><path d="M40,58 C40,40 50,34 60,34 C70,34 80,40 80,58 C80,62 74,63 60,63 C46,63 40,62 40,58 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="5"/><ellipse cx="52" cy="46" rx="6" ry="3.6" fill="var(--ls)"/></g><path class="L11pxvd1 star" d="M60,11 L62.64,18.36 L70.46,18.6 L64.28,23.39 L66.47,30.9 L60,26.5 L53.53,30.9 L55.72,23.39 L49.54,18.6 L57.36,18.36 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="4"/><path class="L11pxvd1 sp1" d="M30,26 Q30,32 36,32 Q30,32 30,38 Q30,32 24,32 Q30,32 30,26 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2.6"/><path class="L11pxvd1 sp2" d="M92,39 Q92,44 97,44 Q92,44 92,49 Q92,44 87,44 Q92,44 92,39 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2.6"/><path class="L11pxvd1 sp3" d="M26,62 Q26,66 30,66 Q26,66 26,70 Q26,66 22,66 Q26,66 26,62 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="2.4"/></svg></div>
+    <div class="brandlogo big" aria-hidden="true"><style>.L11pxvd1{transform-box:fill-box;transform-origin:center}
+.L11pxvd1.cone{animation:L11pxvd1_pop .7s cubic-bezier(.2,1.3,.3,1) .15s both}
+.L11pxvd1.scoop{animation:L11pxvd1_pop .7s cubic-bezier(.2,1.3,.3,1) .4s both}
+.L11pxvd1.star{animation:L11pxvd1_pop .7s cubic-bezier(.2,1.3,.3,1) .7s both, L11pxvd1_tw 4.5s ease-in-out 1.6s infinite}
+.L11pxvd1.spark{animation:L11pxvd1_pop .6s cubic-bezier(.2,1.3,.3,1) .95s both, L11pxvd1_tw 3.4s ease-in-out 1.7s infinite}
+.L11pxvd1.coneLine{stroke-dasharray:150;stroke-dashoffset:150;animation:L11pxvd1_draw 1.1s ease .35s forwards}
+@keyframes L11pxvd1_pop{0%{opacity:0;transform:scale(.2)}60%{opacity:1}100%{opacity:1;transform:scale(1)}}
+@keyframes L11pxvd1_draw{to{stroke-dashoffset:0}}
+@keyframes L11pxvd1_tw{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.9)}}</style><svg viewBox="0 0 120 120">
+<g class="L11pxvd1 cone">
+<path class="L11pxvd1 coneLine" d="M43 66 L60 106 L77 66" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M49 74 L64 89 M57 71 L72 82 M45 82 L59 96" fill="none" stroke="var(--lk)" stroke-width="1.8" stroke-linecap="round" opacity=".5"/>
+</g>
+<g class="L11pxvd1 scoop">
+<path d="M41 68 C41 43 79 43 79 68 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="2.8" stroke-linejoin="round"/>
+<path d="M50 54 q10 -7 20 0" fill="none" stroke="var(--la)" stroke-width="2.4" stroke-linecap="round"/>
+<circle cx="60" cy="60" r="3.4" fill="var(--la)"/>
+</g>
+<g class="L11pxvd1 star">
+<path d="M60 6 C61.5 18 66 22.5 78 24 C66 25.5 61.5 30 60 42 C58.5 30 54 25.5 42 24 C54 22.5 58.5 18 60 6 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2.2" stroke-linejoin="round"/>
+</g>
+<circle class="L11pxvd1 spark" cx="38" cy="14" r="2.2" fill="var(--la2)"/>
+<circle class="L11pxvd1 spark" cx="84" cy="16" r="2.6" fill="var(--la2)"/>
+<circle class="L11pxvd1 spark" cx="90" cy="38" r="1.8" fill="var(--la2)"/>
+</svg></div>
     
     <h1><span class="ar">أهلاً ببيت <b>نكهتي</b></span><span class="en">Welcome home, <b>Nakhati Gelato</b>.</span></h1>
     <div class="world"><span class="ar">✦ سهرة حلا تحت نجوم الرياض ✦</span><span class="en">✦ a dessert night under city stars ✦</span></div>

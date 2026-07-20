@@ -96,6 +96,8 @@
   .chip{flex:0 0 auto;text-decoration:none;color:var(--text-2);background:#211917cc;border:1px solid var(--border-1);
     border-radius:999px;padding:9px 16px;font-size:13.5px;transition:all .2s,transform .18s}
   .chip:hover{color:var(--accent);border-color:var(--accent);box-shadow:0 0 14px #c17c6733;transform:translateY(-2px)}
+  /* scroll-spy: the chip for the room you're reading lights up (award e-menu pattern) */
+  .chip.active{color:var(--accent);border-color:var(--accent);font-weight:800;box-shadow:inset 0 -3px 0 var(--accent)}
 
   /* ---- signatures with price STAMPS ---- */
   .sig{margin-top:26px;background:linear-gradient(180deg,#c17c6714,transparent 90%);border:1px solid #c17c6744;
@@ -137,7 +139,14 @@
   .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
     box-shadow:inset 0 0 0 1px #c17c6755}
   .cat-title{flex:1;min-width:0}
-  .room-eyebrow{color:var(--text-2);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+  .room-eyebrow{color:var(--text-2);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+  /* editorial department-opener kicker (award e-menu pattern): a metallic numeral leads each room */
+  .room-eyebrow .rnum{font-family:ui-monospace,Menlo,monospace;font-weight:800;color:var(--sa);letter-spacing:.02em;flex:0 0 auto}
+  .room-eyebrow .rnum::after{content:"·";margin-inline-start:8px;color:var(--sa);opacity:.7}
+  .room-eyebrow.rn-only .rnum::after{content:none}
+  [data-lang="ar"] .room-eyebrow{letter-spacing:0}
+  /* sticky category strip must never hide the heading it jumps to */
+  .cat,.sig{scroll-margin-top:66px}
   .room-h2{color:var(--sa);font-size:28px;font-weight:800;line-height:1.14;letter-spacing:-.01em}
   .room-h2 .ar{font-family:'Mada',sans-serif}
   .room-h2 .en{font-family:'Comfortaa',cursive}
@@ -355,17 +364,25 @@ body{
      the wrapper must clip its own decorative children or dark-mode pages scroll sideways. */
   .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
   .hero{overflow-x:clip}
-  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:var(--bg-0)}
-.sc-glow{position:absolute;top:-22%;left:50%;width:72vw;height:72vw;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,var(--accent) 0%,transparent 60%);opacity:.13;filter:blur(30px)}
-.sc-st{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--sa);box-shadow:0 0 8px var(--sa);opacity:.45}
-.sc-vig{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 42%,var(--bg-1) 100%);opacity:.6}
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(120% 90% at 50% 6%,var(--sa) 0%,transparent 52%),radial-gradient(100% 80% at 84% 96%,var(--accent-2) 0%,transparent 58%),linear-gradient(165deg,var(--accent) 0%,var(--sa2) 58%,var(--accent) 100%)}
+.brandbg i,.brandbg span{position:absolute;display:block}
+.brandbg .g1{inset-block-start:-18%;inset-inline-start:-12%;inline-size:66%;block-size:66%;background:radial-gradient(circle,var(--sa) 0%,transparent 65%);opacity:.5;filter:blur(22px)}
+.brandbg .g2{inset-block-end:-22%;inset-inline-end:-14%;inline-size:72%;block-size:72%;background:radial-gradient(circle,var(--accent-2) 0%,transparent 66%);opacity:.46;filter:blur(26px)}
+.brandbg .stars{inset:0;background-image:radial-gradient(1.6px 1.6px at 20% 28%,var(--sa) 45%,transparent),radial-gradient(1.1px 1.1px at 70% 18%,var(--accent-2) 45%,transparent),radial-gradient(1.5px 1.5px at 40% 66%,var(--sa) 45%,transparent),radial-gradient(1.1px 1.1px at 86% 52%,var(--sa) 45%,transparent),radial-gradient(1.2px 1.2px at 58% 84%,var(--accent-2) 45%,transparent),radial-gradient(1.6px 1.6px at 12% 78%,var(--sa) 45%,transparent);background-repeat:no-repeat;opacity:.85}
+.brandbg .motes{inset:0;background-image:radial-gradient(2px 2px at 32% 60%,var(--sa2) 40%,transparent),radial-gradient(1.6px 1.6px at 78% 40%,var(--sa) 40%,transparent),radial-gradient(2px 2px at 52% 24%,var(--sa2) 40%,transparent);background-repeat:no-repeat;opacity:.4}
+.brandbg .veil{inset:0;background:radial-gradient(92% 62% at 50% 44%,transparent 0%,var(--accent) 92%);opacity:.34}
 @media (prefers-reduced-motion:no-preference){
-.sc-glow{animation:sc-breathe 9s ease-in-out infinite}
-.sc-st{animation:sc-tw 4s ease-in-out infinite}
-.sc-st:nth-child(3){animation-delay:1.2s}.sc-st:nth-child(4){animation-delay:2s}
-.sc-st:nth-child(5){animation-delay:.6s}.sc-st:nth-child(6){animation-delay:2.6s}
-@keyframes sc-breathe{0%,100%{opacity:.09}50%{opacity:.19}}
-@keyframes sc-tw{0%,100%{opacity:.22;transform:scale(.8)}50%{opacity:.65;transform:scale(1.25)}}}
+.brandbg .g1{animation:sc_f1 17s ease-in-out infinite}
+.brandbg .g2{animation:sc_f2 21s ease-in-out infinite}
+.brandbg .stars{animation:sc_tw 9s ease-in-out infinite}
+.brandbg .motes{animation:sc_rise 24s linear infinite}
+.brandbg .veil{animation:sc_breathe 14s ease-in-out infinite}
+}
+@keyframes sc_f1{0%,100%{transform:translate(0,0)}50%{transform:translate(6%,4%)}}
+@keyframes sc_f2{0%,100%{transform:translate(0,0)}50%{transform:translate(-5%,-4%)}}
+@keyframes sc_tw{0%,100%{opacity:.55}50%{opacity:.95}}
+@keyframes sc_rise{from{transform:translateY(4%)}to{transform:translateY(-4%)}}
+@keyframes sc_breathe{0%,100%{opacity:.3}50%{opacity:.42}}
 
   /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
   
@@ -478,7 +495,7 @@ body{
 </style>
 </head>
 <body>
-<div class="brandbg" aria-hidden="true"><div class="sc-glow"></div><span class="sc-st" style="top:13%;left:18%"></span><span class="sc-st" style="top:23%;left:78%"></span><span class="sc-st" style="top:70%;left:13%"></span><span class="sc-st" style="top:82%;left:66%"></span><span class="sc-st" style="top:34%;left:45%"></span><div class="sc-vig"></div></div>
+<div class="brandbg" aria-hidden="true"><i class="g1"></i><i class="g2"></i><span class="stars"></span><i class="motes"></i><i class="veil"></i></div>
 <button class="lang-toggle touchable" id="langToggle">English</button>
 <div class="bigmark" aria-hidden="true"><span class="ar">ك</span><span class="en">S</span></div>
 <div class="wrap">
@@ -528,66 +545,21 @@ body{
 <rect y="783" width="1440" height="24" fill="url(#pdSadu)" opacity=".85"/>
 </svg>
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="brandlogo big" aria-hidden="true"><style>.Lvu5tkb svg{display:block}
-.Lvu5tkb .panel{transform-origin:center;animation:Lvu5tkb_panel .55s cubic-bezier(.2,1.3,.3,1) both}
-.Lvu5tkb .ground{animation:Lvu5tkb_fade .5s ease .3s both}
-.Lvu5tkb .body{transform-origin:center bottom;animation:Lvu5tkb_up .7s cubic-bezier(.2,1.3,.3,1) .2s both}
-.Lvu5tkb .handle{transform-origin:right center;animation:Lvu5tkb_left .6s cubic-bezier(.2,1.3,.3,1) .35s both}
-.Lvu5tkb .lid{transform-origin:center bottom;animation:Lvu5tkb_down .6s cubic-bezier(.2,1.3,.3,1) .5s both}
-.Lvu5tkb .spout{transform-origin:left center;animation:Lvu5tkb_spoutin .6s cubic-bezier(.2,1.3,.3,1) .55s both}
-.Lvu5tkb .cup{transform-origin:center bottom;animation:Lvu5tkb_up .6s cubic-bezier(.2,1.3,.3,1) .55s both}
-.Lvu5tkb .pour{stroke-dasharray:44;animation:Lvu5tkb_draw .7s ease-out .9s both}
-.Lvu5tkb .moon{transform-origin:center;animation:Lvu5tkb_moonin .7s cubic-bezier(.2,1.3,.3,1) .65s both}
-.Lvu5tkb .moonglow{transform-origin:center;animation:Lvu5tkb_glow 4s ease-in-out .8s infinite both}
-.Lvu5tkb .star{transform-origin:center}
-.Lvu5tkb .s1{animation:Lvu5tkb_star .5s cubic-bezier(.2,1.3,.3,1) .85s both,Lvu5tkb_tw 3.2s ease-in-out 2s infinite}
-.Lvu5tkb .s2{animation:Lvu5tkb_star .5s cubic-bezier(.2,1.3,.3,1) .95s both,Lvu5tkb_tw 2.6s ease-in-out 2.3s infinite}
-.Lvu5tkb .s3{animation:Lvu5tkb_star .5s cubic-bezier(.2,1.3,.3,1) 1.05s both,Lvu5tkb_tw 3.6s ease-in-out 2.1s infinite}
-.Lvu5tkb .s4{animation:Lvu5tkb_star .5s cubic-bezier(.2,1.3,.3,1) 1.15s both,Lvu5tkb_tw 3s ease-in-out 2.6s infinite}
-.Lvu5tkb .s5{animation:Lvu5tkb_star .5s cubic-bezier(.2,1.3,.3,1) 1.25s both,Lvu5tkb_tw 2.8s ease-in-out 2.4s infinite}
-.Lvu5tkb .steamA{transform-origin:center bottom;animation:Lvu5tkb_steam 3.2s ease-in-out 1.4s infinite both}
-.Lvu5tkb .steamB{transform-origin:center bottom;animation:Lvu5tkb_steam 3.8s ease-in-out 2s infinite both}
-@keyframes Lvu5tkb_panel{from{opacity:0;transform:scale(.82)}to{opacity:1;transform:scale(1)}}
-@keyframes Lvu5tkb_fade{from{opacity:0}to{opacity:1}}
-@keyframes Lvu5tkb_up{from{opacity:0;transform:translateY(46px) scale(.7)}to{opacity:1;transform:translateY(0) scale(1)}}
-@keyframes Lvu5tkb_down{from{opacity:0;transform:translateY(-40px) scale(.7)}to{opacity:1;transform:translateY(0) scale(1)}}
-@keyframes Lvu5tkb_left{from{opacity:0;transform:translateX(-36px) rotate(-18deg)}to{opacity:1;transform:translateX(0) rotate(0)}}
-@keyframes Lvu5tkb_spoutin{from{opacity:0;transform:translate(28px,-14px) rotate(22deg)}to{opacity:1;transform:translate(0,0) rotate(0)}}
-@keyframes Lvu5tkb_moonin{from{opacity:0;transform:translate(-26px,-26px) rotate(-50deg) scale(.4)}to{opacity:1;transform:translate(0,0) rotate(0) scale(1)}}
-@keyframes Lvu5tkb_star{0%{opacity:0;transform:scale(0) rotate(-40deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
-@keyframes Lvu5tkb_draw{from{stroke-dashoffset:44}to{stroke-dashoffset:0}}
-@keyframes Lvu5tkb_tw{0%,100%{opacity:1}50%{opacity:.35}}
-@keyframes Lvu5tkb_glow{0%,100%{opacity:.22;transform:scale(1)}50%{opacity:.48;transform:scale(1.14)}}
-@keyframes Lvu5tkb_steam{0%{opacity:0;transform:translateY(6px)}25%{opacity:.7}100%{opacity:0;transform:translateY(-12px)}}</style><svg viewBox="0 0 120 120" fill="none" stroke-linejoin="round" stroke-linecap="round">
-<rect class="Lvu5tkb panel" x="8" y="8" width="104" height="104" rx="22" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4"/>
-<circle class="Lvu5tkb moonglow" cx="22" cy="26" r="14" fill="var(--la2)"/>
-<path class="Lvu5tkb moon" d="M28,14 C18,16 14,26 18,38 C26,32 26,20 28,14 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="3"/>
-<path class="Lvu5tkb star s1" d="M58,13 L59.5,16.5 L63,18 L59.5,19.5 L58,23 L56.5,19.5 L53,18 L56.5,16.5 Z" fill="var(--la)"/>
-<path class="Lvu5tkb star s2" d="M78,26 L79.2,28.8 L82,30 L79.2,31.2 L78,34 L76.8,31.2 L74,30 L76.8,28.8 Z" fill="var(--la2)"/>
-<path class="Lvu5tkb star s3" d="M95,16.5 L96,18.9 L98.5,20 L96,21 L95,23.5 L94,21 L91.5,20 L94,18.9 Z" fill="var(--la)"/>
-<path class="Lvu5tkb star s4" d="M101,47 L101.9,49.1 L104,50 L101.9,50.9 L101,53 L100.1,50.9 L98,50 L100.1,49.1 Z" fill="var(--la2)"/>
-<path class="Lvu5tkb star s5" d="M42,40 L42.9,42.1 L45,43 L42.9,43.9 L42,46 L41.1,43.9 L39,43 L41.1,42.1 Z" fill="var(--la)"/>
-<path class="Lvu5tkb ground" d="M22,108 L98,108" stroke="var(--lk)" stroke-width="3"/>
-<path class="Lvu5tkb handle" d="M40,60 C29,60 29,78 40,78" stroke="var(--lk)" stroke-width="6"/>
-<g class="Lvu5tkb body">
-<ellipse cx="54" cy="91" rx="12" ry="3.5" fill="var(--ls)" stroke="var(--lk)" stroke-width="3"/>
-<path d="M40,66 C39,80 45,90 54,90 C63,90 69,80 68,66 C68,59 62,55 54,55 C46,55 40,59 40,66 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="5"/>
-<path d="M43,70 C48,73 60,73 65,70" stroke="var(--lp)" stroke-width="3"/>
-</g>
-<g class="Lvu5tkb lid">
-<path d="M46,55 C46,47 49,43 54,43 C59,43 62,47 62,55 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="4"/>
-<path d="M54,32 C50,33 49,37 51,41 C54,39 54,35 54,32 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2.5"/>
-</g>
-<path class="Lvu5tkb spout" d="M66,62 C74,56 80,54 84,58 C85,59 84,61 82,62 C79,58 73,61 67,66 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="4"/>
-<path class="Lvu5tkb pour" d="M83,61 C86,72 87,82 88,90" stroke="var(--la)" stroke-width="3"/>
-<g class="Lvu5tkb cup">
-<ellipse cx="88" cy="104" rx="13" ry="3" fill="var(--ls2)" stroke="var(--lk)" stroke-width="3"/>
-<path d="M80,90 C80,99 84,102 88,102 C92,102 96,99 96,90 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="4"/>
-<ellipse cx="88" cy="90" rx="8" ry="2.6" fill="var(--ls)" stroke="var(--lk)" stroke-width="3"/>
-</g>
-<path class="Lvu5tkb steamA" d="M84,88 C81,82 87,79 84,73" stroke="var(--lk)" stroke-width="2.5"/>
-<path class="Lvu5tkb steamB" d="M92,88 C89,83 94,80 92,75" stroke="var(--lk)" stroke-width="2.5"/>
-</svg></div>
+    <div class="brandlogo big" aria-hidden="true"><style>.Lvu5tkb.moon,.Lvu5tkb.pot,.Lvu5tkb.cup{transform-box:fill-box;transform-origin:center;opacity:0}
+.Lvu5tkb.moon{animation:Lvu5tkb_rise .9s cubic-bezier(.2,1.3,.3,1) .15s both,Lvu5tkb_glow 9s ease-in-out 1.4s infinite}
+.Lvu5tkb.pot{animation:Lvu5tkb_rise 1s cubic-bezier(.2,1.3,.3,1) .4s both}
+.Lvu5tkb.cup{animation:Lvu5tkb_rise 1s cubic-bezier(.2,1.3,.3,1) .7s both}
+.Lvu5tkb.thread{stroke-dasharray:64;stroke-dashoffset:64;animation:Lvu5tkb_draw 1.2s ease .95s forwards}
+.Lvu5tkb.star{transform-box:fill-box;transform-origin:center;opacity:0}
+.Lvu5tkb.s1{animation:Lvu5tkb_pop .6s cubic-bezier(.2,1.3,.3,1) .9s both,Lvu5tkb_tw 5s ease-in-out 1.6s infinite}
+.Lvu5tkb.s2{animation:Lvu5tkb_pop .6s cubic-bezier(.2,1.3,.3,1) 1.1s both,Lvu5tkb_tw 6s ease-in-out 1.9s infinite}
+.Lvu5tkb.s3{animation:Lvu5tkb_pop .6s cubic-bezier(.2,1.3,.3,1) 1.3s both,Lvu5tkb_tw 5.5s ease-in-out 2.2s infinite}
+.Lvu5tkb.s4{animation:Lvu5tkb_pop .6s cubic-bezier(.2,1.3,.3,1) 1.5s both,Lvu5tkb_tw 6.5s ease-in-out 2.5s infinite}
+@keyframes Lvu5tkb_rise{from{opacity:0;transform:translateY(10px) scale(.92)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes Lvu5tkb_pop{from{opacity:0;transform:scale(.3)}to{opacity:1;transform:scale(1)}}
+@keyframes Lvu5tkb_draw{to{stroke-dashoffset:0}}
+@keyframes Lvu5tkb_glow{0%,100%{opacity:.85}50%{opacity:1}}
+@keyframes Lvu5tkb_tw{0%,100%{opacity:.45;transform:scale(.85)}50%{opacity:1;transform:scale(1.12)}}</style><svg viewBox="0 0 120 120" fill="none"><g class="Lvu5tkb moon"><path d="M58,10 A12,12 0 1 0 58,34 A10,10 0 1 1 58,10 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="2.6" stroke-linejoin="round"/></g><path class="Lvu5tkb star s1" d="M26,41.5 C26,44.6 27.4,46 30.5,46 C27.4,46 26,47.4 26,50.5 C26,47.4 24.6,46 21.5,46 C24.6,46 26,44.6 26,41.5 Z" fill="var(--la2)"/><path class="Lvu5tkb star s2" d="M94,24.5 C94,28.4 95.6,30 99.5,30 C95.6,30 94,31.6 94,35.5 C94,31.6 92.4,30 88.5,30 C92.4,30 94,28.4 94,24.5 Z" fill="var(--la2)"/><path class="Lvu5tkb star s3" d="M88,58 C88,60.8 89.2,62 92,62 C89.2,62 88,63.2 88,66 C88,63.2 86.8,62 84,62 C86.8,62 88,60.8 88,58 Z" fill="var(--la2)"/><path class="Lvu5tkb star s4" d="M22,70.5 C22,72.9 23.1,74 25.5,74 C23.1,74 22,75.1 22,77.5 C22,75.1 20.9,74 18.5,74 C20.9,74 22,72.9 22,70.5 Z" fill="var(--la2)"/><g class="Lvu5tkb pot"><path d="M42,44 C34,46 34,60 39,66" fill="none" stroke="var(--lk)" stroke-width="2.4" stroke-linecap="round"/><path d="M40,76 C33,72 32,62 37,56 C40,52 44,51 46,51 C48,51 52,52 55,56 C60,62 59,72 52,76 C48,78 44,78 40,76 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2.6" stroke-linejoin="round"/><path d="M43,51 C43,47 43,45 44,43 L48,43 C49,45 49,47 49,51" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2.4" stroke-linejoin="round"/><path d="M49,46 C55,43 61,42 66,45 C62,47 58,48 54,48" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2.4" stroke-linejoin="round"/><path d="M42,43 C42,38 45,36 46,36 C47,36 50,38 50,43 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="2.4" stroke-linejoin="round"/><path d="M46,32 l2.4,3.5 l-2.4,3.5 l-2.4,-3.5 Z" fill="var(--la2)"/></g><path class="Lvu5tkb thread" d="M66,46 C69,58 72,70 76,82" fill="none" stroke="var(--la2)" stroke-width="2.2" stroke-linecap="round"/><g class="Lvu5tkb cup"><path d="M71,83 C71,89 74,92 78,92 C82,92 85,89 85,83 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="2.6" stroke-linejoin="round"/><path d="M68,95 C72,97 84,97 88,95" fill="none" stroke="var(--lk)" stroke-width="2.4" stroke-linecap="round"/></g></svg></div>
     
     <h1><span class="ar">كوفي سلام</span><span class="en">Salam Coffee</span></h1>
     <div class="world"><span class="ar">✦ <b>حوش هادي وقت ما يسكن الليل</b> ✦</span><span class="en">✦ <b>a quiet courtyard where the night settles</b> ✦</span></div>
@@ -610,7 +582,7 @@ body{
         <img src="../assets/photos/salam-coffee/4.jpg" style="object-position:center" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">البار الحار</span><span class="en">Espresso Bar</span></div>
+        <div class="room-eyebrow"><span class="rnum">01</span><span class="ar">البار الحار</span><span class="en">Espresso Bar</span></div>
         <h2 class="room-h2"><span class="ar">أول السلام فنجان حار</span><span class="en">peace begins with a hot shot</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">تعال خذ سلامك الأول، حار وصادق</span><span class="en">your first salam, poured hot and true</span></p>
@@ -702,7 +674,7 @@ body{
         <img src="../assets/photos/salam-coffee/2.jpg" style="object-position:center" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">بار الترشيح</span><span class="en">Filter &amp; Slow Bar</span></div>
+        <div class="room-eyebrow"><span class="rnum">02</span><span class="ar">بار الترشيح</span><span class="en">Filter &amp; Slow Bar</span></div>
         <h2 class="room-h2"><span class="ar">هنا الوقت يمشي على كيفه</span><span class="en">where time slows to a drip</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">اقعد براحتك، الليل ما يستعجل</span><span class="en">sit easy, the night hurries for no one</span></p>
@@ -774,7 +746,7 @@ body{
         <img src="../assets/photos/salam-coffee/5.jpg" style="object-position:center 60%" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">البار البارد</span><span class="en">Cold Bar</span></div>
+        <div class="room-eyebrow"><span class="rnum">03</span><span class="ar">البار البارد</span><span class="en">Cold Bar</span></div>
         <h2 class="room-h2"><span class="ar">برد يطفي حر النهار</span><span class="en">cold that calms the day</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">خذ لك نفس بارد، الحوش ساكن</span><span class="en">a cool breath in the still courtyard</span></p>
@@ -845,7 +817,7 @@ body{
         <img src="../assets/photos/salam-coffee/4.jpg" style="object-position:center" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">الركن السعودي</span><span class="en">Saudi Corner</span></div>
+        <div class="room-eyebrow"><span class="rnum">04</span><span class="ar">الركن السعودي</span><span class="en">Saudi Corner</span></div>
         <h2 class="room-h2"><span class="ar">الفنجال يبدأ بسلام</span><span class="en">every dallah starts with salam</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">الدلة حاضرة والسلام أول كلامها</span><span class="en">the dallah waits, peace her first word</span></p>
@@ -896,7 +868,7 @@ body{
         <img src="../assets/photos/salam-coffee/2.jpg" style="object-position:center" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">اللقيمات والحلا</span><span class="en">Bites &amp; Sweets</span></div>
+        <div class="room-eyebrow"><span class="rnum">05</span><span class="ar">اللقيمات والحلا</span><span class="en">Bites &amp; Sweets</span></div>
         <h2 class="room-h2"><span class="ar">لقمة حلوة قبل الوداع</span><span class="en">a sweet word before goodbye</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">حلّي ليلك قبل لا تقوم</span><span class="en">sweeten the night before you rise</span></p>
@@ -955,36 +927,7 @@ body{
     <span class="en">📱 Live digital menu: scan the table QR — menu-sadah.com/salam-coffee</span>
   </div>
   <div class="footer">
-    <div class="brandlogo mini" aria-hidden="true"><svg viewBox="0 0 120 120" fill="none" stroke-linejoin="round" stroke-linecap="round">
-<rect class="Lvu5tkb panel" x="8" y="8" width="104" height="104" rx="22" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4"/>
-<circle class="Lvu5tkb moonglow" cx="22" cy="26" r="14" fill="var(--la2)"/>
-<path class="Lvu5tkb moon" d="M28,14 C18,16 14,26 18,38 C26,32 26,20 28,14 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="3"/>
-<path class="Lvu5tkb star s1" d="M58,13 L59.5,16.5 L63,18 L59.5,19.5 L58,23 L56.5,19.5 L53,18 L56.5,16.5 Z" fill="var(--la)"/>
-<path class="Lvu5tkb star s2" d="M78,26 L79.2,28.8 L82,30 L79.2,31.2 L78,34 L76.8,31.2 L74,30 L76.8,28.8 Z" fill="var(--la2)"/>
-<path class="Lvu5tkb star s3" d="M95,16.5 L96,18.9 L98.5,20 L96,21 L95,23.5 L94,21 L91.5,20 L94,18.9 Z" fill="var(--la)"/>
-<path class="Lvu5tkb star s4" d="M101,47 L101.9,49.1 L104,50 L101.9,50.9 L101,53 L100.1,50.9 L98,50 L100.1,49.1 Z" fill="var(--la2)"/>
-<path class="Lvu5tkb star s5" d="M42,40 L42.9,42.1 L45,43 L42.9,43.9 L42,46 L41.1,43.9 L39,43 L41.1,42.1 Z" fill="var(--la)"/>
-<path class="Lvu5tkb ground" d="M22,108 L98,108" stroke="var(--lk)" stroke-width="3"/>
-<path class="Lvu5tkb handle" d="M40,60 C29,60 29,78 40,78" stroke="var(--lk)" stroke-width="6"/>
-<g class="Lvu5tkb body">
-<ellipse cx="54" cy="91" rx="12" ry="3.5" fill="var(--ls)" stroke="var(--lk)" stroke-width="3"/>
-<path d="M40,66 C39,80 45,90 54,90 C63,90 69,80 68,66 C68,59 62,55 54,55 C46,55 40,59 40,66 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="5"/>
-<path d="M43,70 C48,73 60,73 65,70" stroke="var(--lp)" stroke-width="3"/>
-</g>
-<g class="Lvu5tkb lid">
-<path d="M46,55 C46,47 49,43 54,43 C59,43 62,47 62,55 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="4"/>
-<path d="M54,32 C50,33 49,37 51,41 C54,39 54,35 54,32 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2.5"/>
-</g>
-<path class="Lvu5tkb spout" d="M66,62 C74,56 80,54 84,58 C85,59 84,61 82,62 C79,58 73,61 67,66 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="4"/>
-<path class="Lvu5tkb pour" d="M83,61 C86,72 87,82 88,90" stroke="var(--la)" stroke-width="3"/>
-<g class="Lvu5tkb cup">
-<ellipse cx="88" cy="104" rx="13" ry="3" fill="var(--ls2)" stroke="var(--lk)" stroke-width="3"/>
-<path d="M80,90 C80,99 84,102 88,102 C92,102 96,99 96,90 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="4"/>
-<ellipse cx="88" cy="90" rx="8" ry="2.6" fill="var(--ls)" stroke="var(--lk)" stroke-width="3"/>
-</g>
-<path class="Lvu5tkb steamA" d="M84,88 C81,82 87,79 84,73" stroke="var(--lk)" stroke-width="2.5"/>
-<path class="Lvu5tkb steamB" d="M92,88 C89,83 94,80 92,75" stroke="var(--lk)" stroke-width="2.5"/>
-</svg></div>
+    <div class="brandlogo mini" aria-hidden="true"><svg viewBox="0 0 120 120" fill="none"><g class="Lvu5tkb moon"><path d="M58,10 A12,12 0 1 0 58,34 A10,10 0 1 1 58,10 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="2.6" stroke-linejoin="round"/></g><path class="Lvu5tkb star s1" d="M26,41.5 C26,44.6 27.4,46 30.5,46 C27.4,46 26,47.4 26,50.5 C26,47.4 24.6,46 21.5,46 C24.6,46 26,44.6 26,41.5 Z" fill="var(--la2)"/><path class="Lvu5tkb star s2" d="M94,24.5 C94,28.4 95.6,30 99.5,30 C95.6,30 94,31.6 94,35.5 C94,31.6 92.4,30 88.5,30 C92.4,30 94,28.4 94,24.5 Z" fill="var(--la2)"/><path class="Lvu5tkb star s3" d="M88,58 C88,60.8 89.2,62 92,62 C89.2,62 88,63.2 88,66 C88,63.2 86.8,62 84,62 C86.8,62 88,60.8 88,58 Z" fill="var(--la2)"/><path class="Lvu5tkb star s4" d="M22,70.5 C22,72.9 23.1,74 25.5,74 C23.1,74 22,75.1 22,77.5 C22,75.1 20.9,74 18.5,74 C20.9,74 22,72.9 22,70.5 Z" fill="var(--la2)"/><g class="Lvu5tkb pot"><path d="M42,44 C34,46 34,60 39,66" fill="none" stroke="var(--lk)" stroke-width="2.4" stroke-linecap="round"/><path d="M40,76 C33,72 32,62 37,56 C40,52 44,51 46,51 C48,51 52,52 55,56 C60,62 59,72 52,76 C48,78 44,78 40,76 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2.6" stroke-linejoin="round"/><path d="M43,51 C43,47 43,45 44,43 L48,43 C49,45 49,47 49,51" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2.4" stroke-linejoin="round"/><path d="M49,46 C55,43 61,42 66,45 C62,47 58,48 54,48" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2.4" stroke-linejoin="round"/><path d="M42,43 C42,38 45,36 46,36 C47,36 50,38 50,43 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="2.4" stroke-linejoin="round"/><path d="M46,32 l2.4,3.5 l-2.4,3.5 l-2.4,-3.5 Z" fill="var(--la2)"/></g><path class="Lvu5tkb thread" d="M66,46 C69,58 72,70 76,82" fill="none" stroke="var(--la2)" stroke-width="2.2" stroke-linecap="round"/><g class="Lvu5tkb cup"><path d="M71,83 C71,89 74,92 78,92 C82,92 85,89 85,83 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="2.6" stroke-linejoin="round"/><path d="M68,95 C72,97 84,97 88,95" fill="none" stroke="var(--lk)" stroke-width="2.4" stroke-linecap="round"/></g></svg></div>
     
     <span class="ar">تجربة من <a href="https://menu-sadah.com">منيو سادة — MENU SADAH</a></span>
     <span class="en">Crafted by <a href="https://menu-sadah.com">MENU SADAH</a></span>
@@ -1003,6 +946,15 @@ body{
   document.getElementById('langToggle').addEventListener('click',()=>{setLang(root.getAttribute('data-lang')==='ar'?'en':'ar');});
   const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // scroll-spy: light the category chip for the room currently in view (award e-menu pattern)
+  try{
+    const chips=[].slice.call(document.querySelectorAll('.chips .chip'));
+    const secs=chips.map(c=>document.querySelector(c.getAttribute('href'))).filter(Boolean);
+    if('IntersectionObserver' in window && secs.length){
+      const spy=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){const id='#'+e.target.id;chips.forEach(c=>c.classList.toggle('active',c.getAttribute('href')===id));}}),{rootMargin:'-45% 0px -50% 0px',threshold:0});
+      secs.forEach(s=>spy.observe(s));
+    }
+  }catch(e){}
   // motion DNA haptic: a soft 8ms tick when a chip snaps you to a room (feature-checked, motion-respecting)
   if(matchMedia('(prefers-reduced-motion: no-preference)').matches){
     document.querySelectorAll('.chips .chip').forEach(c=>c.addEventListener('click',()=>{navigator.vibrate?.(8);}));

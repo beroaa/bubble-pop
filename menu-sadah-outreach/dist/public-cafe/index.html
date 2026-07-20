@@ -96,6 +96,8 @@
   .chip{flex:0 0 auto;text-decoration:none;color:var(--text-2);background:#f8f4f2cc;border:1px solid var(--border-1);
     border-radius:999px;padding:9px 16px;font-size:13.5px;transition:all .2s,transform .18s}
   .chip:hover{color:var(--accent);border-color:var(--accent);box-shadow:0 0 14px #a9471933;transform:translateY(-2px)}
+  /* scroll-spy: the chip for the room you're reading lights up (award e-menu pattern) */
+  .chip.active{color:var(--accent);border-color:var(--accent);font-weight:800;box-shadow:inset 0 -3px 0 var(--accent)}
 
   /* ---- signatures with price STAMPS ---- */
   .sig{margin-top:26px;background:linear-gradient(180deg,#a9471914,transparent 90%);border:1px solid #a9471944;
@@ -137,7 +139,14 @@
   .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
     box-shadow:inset 0 0 0 1px #a9471955}
   .cat-title{flex:1;min-width:0}
-  .room-eyebrow{color:var(--text-2);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+  .room-eyebrow{color:var(--text-2);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+  /* editorial department-opener kicker (award e-menu pattern): a metallic numeral leads each room */
+  .room-eyebrow .rnum{font-family:ui-monospace,Menlo,monospace;font-weight:800;color:var(--sa);letter-spacing:.02em;flex:0 0 auto}
+  .room-eyebrow .rnum::after{content:"·";margin-inline-start:8px;color:var(--sa);opacity:.7}
+  .room-eyebrow.rn-only .rnum::after{content:none}
+  [data-lang="ar"] .room-eyebrow{letter-spacing:0}
+  /* sticky category strip must never hide the heading it jumps to */
+  .cat,.sig{scroll-margin-top:66px}
   .room-h2{color:var(--sa);font-size:28px;font-weight:800;line-height:1.14;letter-spacing:-.01em}
   .room-h2 .ar{font-family:'Baloo Bhaijaan 2',cursive}
   .room-h2 .en{font-family:'Fredoka',sans-serif}
@@ -336,18 +345,23 @@ body{
      the wrapper must clip its own decorative children or dark-mode pages scroll sideways. */
   .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
   .hero{overflow-x:clip}
-  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(100% 80% at 50% 0,var(--sa) 0,transparent 60%)}
-.brandbg i{position:absolute;display:block}
-.brandbg .tiles{inset:0;background:linear-gradient(45deg,var(--accent) 25%,transparent 25%) 0 0/7vw 7vw,linear-gradient(-45deg,var(--accent) 25%,transparent 25%) 0 0/7vw 7vw;opacity:.05}
-.brandbg .haze{width:46vw;height:30vh;border-radius:50%;background:radial-gradient(circle,var(--accent) 0%,transparent 60%);filter:blur(32px);opacity:.14}
-.brandbg .h1{top:-6%;left:-8%}
-.brandbg .h2{bottom:-8%;right:-6%;opacity:.12}
-@media (prefers-reduced-motion:no-preference){
-.brandbg .tiles{animation:pslide 40s linear infinite}
-.brandbg .haze{animation:phaze 9s ease-in-out infinite}
-.brandbg .h2{animation-delay:3s}
-@keyframes pslide{from{background-position:0 0,0 0}to{background-position:7vw 7vw,7vw 7vw}}
-@keyframes phaze{0%,100%{opacity:.08;transform:scale(1)}50%{opacity:.18;transform:scale(1.08)}}}
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(72% 52% at 50% 44%,color-mix(in oklab,white 78%,transparent),transparent 70%),radial-gradient(95% 78% at 50% 120%,color-mix(in oklab,var(--sa2) 52%,transparent),transparent 62%),linear-gradient(165deg,var(--sa) 0%,color-mix(in oklab,var(--accent) 60%,white) 52%,var(--sa2) 100%)}
+.brandbg i,.brandbg span{position:absolute;display:block}
+.brandbg .g1{inset-inline-start:-12%;inset-block-start:-14%;inline-size:56vmax;block-size:56vmax;border-radius:50%;background:radial-gradient(circle,color-mix(in oklab,var(--accent) 50%,transparent),transparent 64%);filter:blur(6px)}
+.brandbg .g2{inset-inline-end:-14%;inset-block-end:-16%;inline-size:62vmax;block-size:62vmax;border-radius:50%;background:radial-gradient(circle,color-mix(in oklab,var(--accent-2) 46%,transparent),transparent 64%);filter:blur(8px)}
+.brandbg .tile{inline-size:9vmax;block-size:9vmax;border:2px solid color-mix(in oklab,var(--sa2) 60%,transparent);border-radius:5px;opacity:.5;transform:rotate(45deg)}
+.brandbg .t1{inset-inline-start:11%;inset-block-start:17%}
+.brandbg .t2{inset-inline-end:13%;inset-block-start:25%}
+.brandbg .t3{inset-inline-start:19%;inset-block-end:15%}
+.brandbg .m{inline-size:.7vmax;block-size:.7vmax;border-radius:50%;background:color-mix(in oklab,var(--accent) 72%,white);opacity:.6}
+.brandbg .m1{inset-inline-start:31%;inset-block-start:40%}
+.brandbg .m2{inset-inline-end:33%;inset-block-start:56%}
+.brandbg .m3{inset-inline-start:47%;inset-block-end:30%}
+@media (prefers-reduced-motion:no-preference){.brandbg .g1{animation:bga 17s ease-in-out infinite}.brandbg .g2{animation:bgb 21s ease-in-out infinite}.brandbg .tile{animation:bgs 26s linear infinite}.brandbg .t2{animation-duration:31s}.brandbg .t3{animation-duration:28s}.brandbg .m{animation:bgr 15s ease-in-out infinite}.brandbg .m2{animation-delay:4s}.brandbg .m3{animation-delay:8s}}
+@keyframes bga{0%,100%{transform:translate(0,0)}50%{transform:translate(6%,4%)}}
+@keyframes bgb{0%,100%{transform:translate(0,0)}50%{transform:translate(-5%,-4%)}}
+@keyframes bgs{0%{transform:rotate(45deg)}100%{transform:rotate(405deg)}}
+@keyframes bgr{0%,100%{transform:translateY(0);opacity:.3}50%{transform:translateY(-16px);opacity:.7}}
 
   /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
   
@@ -477,7 +491,7 @@ body{
 </style>
 </head>
 <body>
-<div class="brandbg" aria-hidden="true"><i class="tiles"></i><i class="haze h1"></i><i class="haze h2"></i></div>
+<div class="brandbg" aria-hidden="true"><i class="g1"></i><i class="g2"></i><span class="tile t1"></span><span class="tile t2"></span><span class="tile t3"></span><span class="m m1"></span><span class="m m2"></span><span class="m m3"></span></div>
 <button class="lang-toggle touchable" id="langToggle">English</button>
 <div class="bigmark" aria-hidden="true"><span class="ar">ب</span><span class="en">P</span></div>
 <div class="wrap">
@@ -534,52 +548,18 @@ body{
 </svg>
 
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="brandlogo big" aria-hidden="true"><style>.Loauaud .seat{animation:Loauaud_rise .7s cubic-bezier(.2,1.3,.3,1) .15s both}
-.Loauaud .leg{animation:Loauaud_grow .6s cubic-bezier(.2,1.3,.3,1) .35s both;transform-origin:50% 0%}
-.Loauaud .legR{animation-delay:.46s}
-.Loauaud .stretch,.Loauaud .post{stroke-dasharray:96}
-.Loauaud .stretch{animation:Loauaud_draw .7s ease .6s both}
-.Loauaud .back{animation:Loauaud_drop .75s cubic-bezier(.2,1.3,.3,1) .55s both;transform-origin:50% 62%}
-.Loauaud .backin{animation:Loauaud_pop .55s cubic-bezier(.2,1.3,.3,1) .74s both;transform-origin:50% 50%}
-.Loauaud .post{animation:Loauaud_draw .55s ease .62s both}
-.Loauaud .cup{animation:Loauaud_pop .6s cubic-bezier(.2,1.3,.3,1) .92s both;transform-origin:50% 100%}
-.Loauaud .steam{animation:Loauaud_steam 3.2s ease-in-out 1.25s infinite}
-.Loauaud .s2{animation-delay:1.7s}
-.Loauaud .spark{animation:Loauaud_pop .6s cubic-bezier(.2,1.3,.3,1) 1.3s both,Loauaud_shine 2.6s ease-in-out 2s infinite;transform-origin:50% 50%}
-.Loauaud .tile{animation:Loauaud_pop .55s cubic-bezier(.2,1.3,.3,1) both;transform-origin:50% 50%}
-.Loauaud .t1{animation-delay:1s}
-.Loauaud .t2{animation-delay:1.1s}
-.Loauaud .t3{animation-delay:1.2s}
-.Loauaud .t4{animation-delay:1.3s}
-@keyframes Loauaud_rise{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:translateY(0)}}
-@keyframes Loauaud_grow{from{opacity:0;transform:scaleY(0)}to{opacity:1;transform:scaleY(1)}}
-@keyframes Loauaud_drop{from{opacity:0;transform:translateY(-40px) rotate(-7deg)}to{opacity:1;transform:translateY(0) rotate(0)}}
-@keyframes Loauaud_pop{from{opacity:0;transform:scale(0)}to{opacity:1;transform:scale(1)}}
-@keyframes Loauaud_draw{from{stroke-dashoffset:96}to{stroke-dashoffset:0}}
-@keyframes Loauaud_steam{0%{opacity:0;transform:translateY(5px)}25%{opacity:.6}55%{opacity:.45;transform:translateY(-4px)}100%{opacity:0;transform:translateY(-11px)}}
-@keyframes Loauaud_shine{0%,100%{opacity:.5}50%{opacity:1}}</style><svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
-<path class="Loauaud tile t1" d="M22 102 L31 109 L22 116 L13 109 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="2"/>
-<path class="Loauaud tile t2" d="M46 102 L55 109 L46 116 L37 109 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2"/>
-<path class="Loauaud tile t3" d="M70 102 L79 109 L70 116 L61 109 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="2"/>
-<path class="Loauaud tile t4" d="M94 102 L103 109 L94 116 L85 109 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2"/>
-<path class="Loauaud leg" d="M40 66 L27 105" stroke="var(--lk)" stroke-width="6"/>
-<path class="Loauaud leg legR" d="M76 66 L89 105" stroke="var(--lk)" stroke-width="6"/>
-<path class="Loauaud stretch" d="M38 90 Q58 99 78 90" stroke="var(--lk)" stroke-width="4"/>
-<rect class="Loauaud seat" x="29" y="55" width="58" height="14" rx="7" fill="var(--ls)" stroke="var(--lk)" stroke-width="5"/>
-<path class="Loauaud post" d="M46 47 Q44 52 47 55" stroke="var(--lk)" stroke-width="5"/>
-<path class="Loauaud post" d="M64 47 Q66 52 63 55" stroke="var(--lk)" stroke-width="5"/>
-<ellipse class="Loauaud back" cx="55" cy="30" rx="18" ry="16" fill="var(--la)" stroke="var(--lk)" stroke-width="5"/>
-<ellipse class="Loauaud backin" cx="55" cy="30" rx="8" ry="9" fill="var(--ls2)" stroke="var(--lk)" stroke-width="3"/>
-<g class="Loauaud cup">
-<ellipse cx="65" cy="55" rx="13" ry="3" fill="var(--ls2)" stroke="var(--lk)" stroke-width="3"/>
-<path d="M57 45 L58 52 Q59 55 63 55 L67 55 Q71 55 72 52 L73 45 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="5"/>
-<ellipse cx="65" cy="46" rx="8" ry="2.4" fill="var(--la)" stroke="var(--lk)" stroke-width="2.5"/>
-<path d="M73 47 Q79 47 79 50.5 Q79 54 73 54" stroke="var(--lk)" stroke-width="5" fill="none"/>
-</g>
-<path class="Loauaud steam" d="M61 44 C57 39 65 36 61 31 C58 27 63 25 61 21" stroke="var(--lk)" stroke-width="2.6" fill="none"/>
-<path class="Loauaud steam s2" d="M69 44 C73 39 65 36 69 31 C72 27 67 25 69 21" stroke="var(--lk)" stroke-width="2.6" fill="none"/>
-<path class="Loauaud spark" d="M30 8 L32.5 13.5 L38 16 L32.5 18.5 L30 24 L27.5 18.5 L22 16 L27.5 13.5 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="1.5"/>
-</svg></div>
+    <div class="brandlogo big" aria-hidden="true"><style>.Loauaud .glow{transform-box:fill-box;transform-origin:center;animation:Loauaud_glow 6s ease-in-out infinite}
+.Loauaud .back,.Loauaud .seat,.Loauaud .cup{transform-box:fill-box;transform-origin:center;opacity:0;animation:Loauaud_rise .7s cubic-bezier(.2,1.3,.3,1) both}
+.Loauaud .back{animation-delay:.15s}
+.Loauaud .seat{animation-delay:.4s}
+.Loauaud .cup{animation-delay:.7s}
+.Loauaud .steam{stroke-dasharray:56;stroke-dashoffset:56;animation:Loauaud_draw 1s ease-out both,Loauaud_drift 7s ease-in-out infinite}
+.Loauaud .s1{animation-delay:.95s,2.4s}
+.Loauaud .s2{animation-delay:1.1s,2.6s}
+@keyframes Loauaud_rise{from{opacity:0;transform:translateY(12px) scale(.88)}to{opacity:1;transform:none}}
+@keyframes Loauaud_draw{to{stroke-dashoffset:0}}
+@keyframes Loauaud_drift{0%,100%{opacity:.72;transform:translateY(0)}50%{opacity:1;transform:translateY(-2px)}}
+@keyframes Loauaud_glow{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:.55;transform:scale(1.07)}}</style><svg viewBox="0 0 120 120"><ellipse class="Loauaud glow" cx="60" cy="58" rx="30" ry="26" fill="var(--ls)"/><g class="Loauaud back"><path d="M42 57 Q39 22 60 22 Q81 22 78 57" fill="none" stroke="var(--lk)" stroke-width="2.8" stroke-linecap="round"/><path d="M48 56 Q46 30 60 30 Q74 30 72 56" fill="none" stroke="var(--lk)" stroke-width="2.3" stroke-linecap="round"/><path d="M46 45 Q60 41 74 45" fill="none" stroke="var(--la)" stroke-width="2.4" stroke-linecap="round"/></g><g class="Loauaud seat"><path d="M44 64 L36 99" fill="none" stroke="var(--lk)" stroke-width="2.6" stroke-linecap="round"/><path d="M76 64 L84 99" fill="none" stroke="var(--lk)" stroke-width="2.6" stroke-linecap="round"/><path d="M53 64 L49 96" fill="none" stroke="var(--lk)" stroke-width="2.3" stroke-linecap="round"/><path d="M67 64 L71 96" fill="none" stroke="var(--lk)" stroke-width="2.3" stroke-linecap="round"/><path d="M40 86 Q60 94 80 86" fill="none" stroke="var(--la)" stroke-width="2.2" stroke-linecap="round"/><ellipse cx="60" cy="60" rx="24" ry="7.6" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2.8"/></g><g class="Loauaud cup"><path d="M52 47 L54 57 Q60 60 66 57 L68 47 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="2.4" stroke-linejoin="round"/><path d="M68 49 Q77 49 76 53 Q75 57 68 55" fill="none" stroke="var(--lk)" stroke-width="2.2" stroke-linecap="round"/><ellipse cx="60" cy="47" rx="8.2" ry="2.6" fill="var(--la2)" stroke="var(--lk)" stroke-width="2.2"/></g><path class="Loauaud steam s1" d="M56 44 Q51 38 56 32 Q60 27 56 21" fill="none" stroke="var(--lk)" stroke-width="2.4" stroke-linecap="round"/><path class="Loauaud steam s2" d="M65 44 Q70 38 65 32 Q61 28 65 23" fill="none" stroke="var(--lk)" stroke-width="2.2" stroke-linecap="round"/></svg></div>
     
     <h1><span class="ar">ببلك كافيه</span><span class="en">Public Cafe</span></h1>
     <div class="world"><span class="ar">✦ <b>قهوة الحي اللي تجمع الكل</b> ✦</span><span class="en">✦ <b>the corner that belongs to everyone</b> ✦</span></div>
@@ -602,7 +582,7 @@ body{
         <img src="../assets/photos/public-cafe/1.jpg" style="object-position:center 60%" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">البار الحار</span><span class="en">Espresso Bar</span></div>
+        <div class="room-eyebrow"><span class="rnum">01</span><span class="ar">البار الحار</span><span class="en">Espresso Bar</span></div>
         <h2 class="room-h2"><span class="ar">تذكرتك الحارة جاهزة</span><span class="en">Hot order, called out loud</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">نادينا باسمك، طلبك حامي</span><span class="en">your name, called warm and loud</span></p>
@@ -685,7 +665,7 @@ body{
         <img src="../assets/photos/public-cafe/2.jpg" style="object-position:center 65%" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">بار الترشيح</span><span class="en">Filter &amp; Slow Bar</span></div>
+        <div class="room-eyebrow"><span class="rnum">02</span><span class="ar">بار الترشيح</span><span class="en">Filter &amp; Slow Bar</span></div>
         <h2 class="room-h2"><span class="ar">خذ راحتك، الدور يمشي</span><span class="en">Take a seat, it's brewing</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">الدور يمشي وأنت مرتاح</span><span class="en">brewing slow while you settle in</span></p>
@@ -748,7 +728,7 @@ body{
         <img src="../assets/photos/public-cafe/5.jpg" style="object-position:center" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">البار البارد</span><span class="en">Cold Bar</span></div>
+        <div class="room-eyebrow"><span class="rnum">03</span><span class="ar">البار البارد</span><span class="en">Cold Bar</span></div>
         <h2 class="room-h2"><span class="ar">بارد ومنعش لأهل الحي</span><span class="en">Cold, straight off the counter</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">بارد للحي كله، ولك أول</span><span class="en">cold enough for the whole block</span></p>
@@ -810,7 +790,7 @@ body{
         <img src="../assets/photos/public-cafe/1.jpg" style="object-position:center 60%" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">الركن السعودي</span><span class="en">Saudi Corner</span></div>
+        <div class="room-eyebrow"><span class="rnum">04</span><span class="ar">الركن السعودي</span><span class="en">Saudi Corner</span></div>
         <h2 class="room-h2"><span class="ar">قهوة البيت للكل</span><span class="en">Home coffee, open to all</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">قهوة بيتنا صارت بيتكم</span><span class="en">home, poured out for neighbors</span></p>
@@ -852,7 +832,7 @@ body{
         <img src="../assets/photos/public-cafe/2.jpg" style="object-position:center 65%" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">اللقيمات والحلا</span><span class="en">Bites &amp; Sweets</span></div>
+        <div class="room-eyebrow"><span class="rnum">05</span><span class="ar">اللقيمات والحلا</span><span class="en">Bites &amp; Sweets</span></div>
         <h2 class="room-h2"><span class="ar">الحلا على طاولة الكل</span><span class="en">Sweets meant for sharing</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">الحلا وسط الطاولة للكل</span><span class="en">set in the middle, help yourself</span></p>
@@ -911,29 +891,7 @@ body{
     <span class="en">📱 Live digital menu: scan the table QR — menu-sadah.com/public-cafe</span>
   </div>
   <div class="footer">
-    <div class="brandlogo mini" aria-hidden="true"><svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
-<path class="Loauaud tile t1" d="M22 102 L31 109 L22 116 L13 109 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="2"/>
-<path class="Loauaud tile t2" d="M46 102 L55 109 L46 116 L37 109 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2"/>
-<path class="Loauaud tile t3" d="M70 102 L79 109 L70 116 L61 109 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="2"/>
-<path class="Loauaud tile t4" d="M94 102 L103 109 L94 116 L85 109 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2"/>
-<path class="Loauaud leg" d="M40 66 L27 105" stroke="var(--lk)" stroke-width="6"/>
-<path class="Loauaud leg legR" d="M76 66 L89 105" stroke="var(--lk)" stroke-width="6"/>
-<path class="Loauaud stretch" d="M38 90 Q58 99 78 90" stroke="var(--lk)" stroke-width="4"/>
-<rect class="Loauaud seat" x="29" y="55" width="58" height="14" rx="7" fill="var(--ls)" stroke="var(--lk)" stroke-width="5"/>
-<path class="Loauaud post" d="M46 47 Q44 52 47 55" stroke="var(--lk)" stroke-width="5"/>
-<path class="Loauaud post" d="M64 47 Q66 52 63 55" stroke="var(--lk)" stroke-width="5"/>
-<ellipse class="Loauaud back" cx="55" cy="30" rx="18" ry="16" fill="var(--la)" stroke="var(--lk)" stroke-width="5"/>
-<ellipse class="Loauaud backin" cx="55" cy="30" rx="8" ry="9" fill="var(--ls2)" stroke="var(--lk)" stroke-width="3"/>
-<g class="Loauaud cup">
-<ellipse cx="65" cy="55" rx="13" ry="3" fill="var(--ls2)" stroke="var(--lk)" stroke-width="3"/>
-<path d="M57 45 L58 52 Q59 55 63 55 L67 55 Q71 55 72 52 L73 45 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="5"/>
-<ellipse cx="65" cy="46" rx="8" ry="2.4" fill="var(--la)" stroke="var(--lk)" stroke-width="2.5"/>
-<path d="M73 47 Q79 47 79 50.5 Q79 54 73 54" stroke="var(--lk)" stroke-width="5" fill="none"/>
-</g>
-<path class="Loauaud steam" d="M61 44 C57 39 65 36 61 31 C58 27 63 25 61 21" stroke="var(--lk)" stroke-width="2.6" fill="none"/>
-<path class="Loauaud steam s2" d="M69 44 C73 39 65 36 69 31 C72 27 67 25 69 21" stroke="var(--lk)" stroke-width="2.6" fill="none"/>
-<path class="Loauaud spark" d="M30 8 L32.5 13.5 L38 16 L32.5 18.5 L30 24 L27.5 18.5 L22 16 L27.5 13.5 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="1.5"/>
-</svg></div>
+    <div class="brandlogo mini" aria-hidden="true"><svg viewBox="0 0 120 120"><ellipse class="Loauaud glow" cx="60" cy="58" rx="30" ry="26" fill="var(--ls)"/><g class="Loauaud back"><path d="M42 57 Q39 22 60 22 Q81 22 78 57" fill="none" stroke="var(--lk)" stroke-width="2.8" stroke-linecap="round"/><path d="M48 56 Q46 30 60 30 Q74 30 72 56" fill="none" stroke="var(--lk)" stroke-width="2.3" stroke-linecap="round"/><path d="M46 45 Q60 41 74 45" fill="none" stroke="var(--la)" stroke-width="2.4" stroke-linecap="round"/></g><g class="Loauaud seat"><path d="M44 64 L36 99" fill="none" stroke="var(--lk)" stroke-width="2.6" stroke-linecap="round"/><path d="M76 64 L84 99" fill="none" stroke="var(--lk)" stroke-width="2.6" stroke-linecap="round"/><path d="M53 64 L49 96" fill="none" stroke="var(--lk)" stroke-width="2.3" stroke-linecap="round"/><path d="M67 64 L71 96" fill="none" stroke="var(--lk)" stroke-width="2.3" stroke-linecap="round"/><path d="M40 86 Q60 94 80 86" fill="none" stroke="var(--la)" stroke-width="2.2" stroke-linecap="round"/><ellipse cx="60" cy="60" rx="24" ry="7.6" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2.8"/></g><g class="Loauaud cup"><path d="M52 47 L54 57 Q60 60 66 57 L68 47 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="2.4" stroke-linejoin="round"/><path d="M68 49 Q77 49 76 53 Q75 57 68 55" fill="none" stroke="var(--lk)" stroke-width="2.2" stroke-linecap="round"/><ellipse cx="60" cy="47" rx="8.2" ry="2.6" fill="var(--la2)" stroke="var(--lk)" stroke-width="2.2"/></g><path class="Loauaud steam s1" d="M56 44 Q51 38 56 32 Q60 27 56 21" fill="none" stroke="var(--lk)" stroke-width="2.4" stroke-linecap="round"/><path class="Loauaud steam s2" d="M65 44 Q70 38 65 32 Q61 28 65 23" fill="none" stroke="var(--lk)" stroke-width="2.2" stroke-linecap="round"/></svg></div>
     <div style="margin-bottom:6px;color:var(--text-2)"><span class="ar">تابعوا ببلك كافيه: <b style="color:var(--accent)">@public.sa</b></span><span class="en">Follow Public Cafe: <b style="color:var(--accent)">@public.sa</b></span></div>
     <span class="ar">تجربة من <a href="https://menu-sadah.com">منيو سادة — MENU SADAH</a></span>
     <span class="en">Crafted by <a href="https://menu-sadah.com">MENU SADAH</a></span>
@@ -952,6 +910,15 @@ body{
   document.getElementById('langToggle').addEventListener('click',()=>{setLang(root.getAttribute('data-lang')==='ar'?'en':'ar');});
   const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // scroll-spy: light the category chip for the room currently in view (award e-menu pattern)
+  try{
+    const chips=[].slice.call(document.querySelectorAll('.chips .chip'));
+    const secs=chips.map(c=>document.querySelector(c.getAttribute('href'))).filter(Boolean);
+    if('IntersectionObserver' in window && secs.length){
+      const spy=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){const id='#'+e.target.id;chips.forEach(c=>c.classList.toggle('active',c.getAttribute('href')===id));}}),{rootMargin:'-45% 0px -50% 0px',threshold:0});
+      secs.forEach(s=>spy.observe(s));
+    }
+  }catch(e){}
   // motion DNA haptic: a soft 8ms tick when a chip snaps you to a room (feature-checked, motion-respecting)
   if(matchMedia('(prefers-reduced-motion: no-preference)').matches){
     document.querySelectorAll('.chips .chip').forEach(c=>c.addEventListener('click',()=>{navigator.vibrate?.(8);}));

@@ -227,23 +227,27 @@ body{
   .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
   .hero{overflow-x:clip}
   .brandbg{--accent:#875031;--accent-2:#7c4654;--sa:#8c8740;--sa2:#8faea9;--bg-0:#fcf9f8;--bg-1:#f5eeea;--bg-2:#fefcfb}
-  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(110% 90% at 50% 0%,var(--bg-1),var(--bg-0))}
-.brandbg .steam{position:absolute;bottom:-6%;width:16vw;height:60vh;border-radius:50%;filter:blur(50px);opacity:.18;background:var(--accent)}
-.brandbg .st1{left:8%}.brandbg .st2{right:10%;background:var(--accent-2)}
-.brandbg .doo{position:absolute;border:3px solid var(--accent);opacity:.5}
-.brandbg .d1{left:10%;top:24%;width:34px;height:34px;border-radius:50%}
-.brandbg .d2{right:12%;top:18%;width:30px;height:30px}
-.brandbg .d3{left:16%;bottom:20%;width:40px;height:20px;border-radius:0 0 40px 40px;border-top:none}
-.brandbg .d4{right:14%;bottom:24%;width:26px;height:26px;border-radius:50% 50% 50% 0;border-color:var(--accent-2)}
-.brandbg .zig{right:22%;top:44%;width:40px;height:12px;border:none;border-bottom:3px dashed var(--accent-2);opacity:.5;position:absolute}
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(72% 58% at 50% 44%,rgba(255,251,242,.75),rgba(255,251,242,.12) 46%,transparent 72%),radial-gradient(88% 70% at 6% 2%,color-mix(in srgb,var(--sa) 68%,transparent),transparent 56%),radial-gradient(92% 82% at 100% 100%,color-mix(in srgb,var(--accent) 62%,transparent),transparent 56%),linear-gradient(152deg,var(--sa2),var(--accent-2))}
+.brandbg i{position:absolute;border-radius:50%;filter:blur(55px);opacity:.55}
+.brandbg .b1{width:46vmax;height:46vmax;background:radial-gradient(circle,var(--accent),transparent 68%);inset-block-start:-14vmax;inset-inline-start:-10vmax}
+.brandbg .b2{width:42vmax;height:42vmax;background:radial-gradient(circle,var(--sa2),transparent 68%);inset-block-end:-16vmax;inset-inline-end:-8vmax}
+.brandbg .b3{width:32vmax;height:32vmax;background:radial-gradient(circle,var(--accent-2),transparent 70%);inset-block-start:34%;inset-inline-start:58%;opacity:.4}
+.brandbg span{position:absolute;width:16px;height:16px;border-radius:50%;background:radial-gradient(circle,var(--sa),transparent 70%);opacity:.45;filter:blur(2px)}
+.brandbg .m1{inset-block-end:18%;inset-inline-start:22%}
+.brandbg .m2{inset-block-end:26%;inset-inline-start:52%}
+.brandbg .m3{inset-block-end:12%;inset-inline-start:74%}
 @media (prefers-reduced-motion:no-preference){
-.brandbg .doo{animation:sBob 4s ease-in-out infinite}
-.brandbg .d2{animation-delay:-1s}.brandbg .d3{animation-delay:-2s}.brandbg .d4{animation-delay:-1.5s}
-.brandbg .zig{animation:sBob 5s ease-in-out infinite -.5s}
-.brandbg .steam{animation:sRise 10s ease-in-out infinite alternate}
-.brandbg .st2{animation-delay:-5s}}
-@keyframes sBob{50%{transform:translateY(-14px) rotate(8deg)}}
-@keyframes sRise{to{transform:translateY(-20px) scaleX(1.2);opacity:.26}}
+.brandbg .b1{animation:bgA 26s ease-in-out infinite}
+.brandbg .b2{animation:bgB 30s ease-in-out infinite}
+.brandbg .b3{animation:bgC 22s ease-in-out infinite}
+.brandbg .m1{animation:bgM 14s ease-in-out infinite}
+.brandbg .m2{animation:bgM 18s ease-in-out infinite 2s}
+.brandbg .m3{animation:bgM 16s ease-in-out infinite 4s}
+}
+@keyframes bgA{0%,100%{transform:translate(0,0)}50%{transform:translate(6vmax,4vmax)}}
+@keyframes bgB{0%,100%{transform:translate(0,0)}50%{transform:translate(-5vmax,-4vmax)}}
+@keyframes bgC{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-4vmax,3vmax) scale(1.12)}}
+@keyframes bgM{0%{transform:translate(0,0);opacity:0}20%{opacity:.5}100%{transform:translate(6px,-40px);opacity:0}}
 
   /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
   
@@ -312,7 +316,7 @@ body{
 </script>
 </head>
 <body>
-<div class="brandbg" aria-hidden="true"><span class="steam st1"></span><span class="steam st2"></span><span class="doo d1"></span><span class="doo d2"></span><span class="doo d3"></span><span class="doo d4"></span><span class="zig"></span></div>
+<div class="brandbg" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i><span class="m1"></span><span class="m2"></span><span class="m3"></span></div>
 <div class="sting-wash" aria-hidden="true"><i></i><i></i></div>
 <div class="curtain" id="msCurtain" aria-hidden="true"></div>
 <div class="bigmark" aria-hidden="true"><span class="ar">ش</span><span class="en">S</span></div>
@@ -373,40 +377,15 @@ body{
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:8px;animation-delay:0s">〜</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:5px;animation-delay:0.7s">〜</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:7px;animation-delay:1.4s">〜</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:4px;animation-delay:2.0999999999999996s">〜</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:6px;animation-delay:2.8s">〜</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:7px;animation-delay:3.5s">〜</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:8px;animation-delay:0.1999999999999993s">〜</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:8px;animation-delay:0.8999999999999995s">〜</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
     <div class="brandlogo big" aria-hidden="true"><style>.L18bkebn{overflow:visible}
-.L18bkebn .handle{transform-origin:center;animation:L18bkebn_pop .5s cubic-bezier(.2,1.3,.3,1) .45s both}
-.L18bkebn .saucer{transform-origin:center;animation:L18bkebn_rise .55s cubic-bezier(.2,1.3,.3,1) .15s both}
-.L18bkebn .cup{transform-origin:center bottom;animation:L18bkebn_spring .6s cubic-bezier(.2,1.3,.3,1) .3s both}
-.L18bkebn .coffee{transform-origin:center;animation:L18bkebn_pop .5s cubic-bezier(.2,1.3,.3,1) .6s both}
-.L18bkebn .cheek{transform-origin:center;opacity:0;animation:L18bkebn_fade .5s ease 1.2s forwards}
-.L18bkebn .stache-l{transform-origin:right center;animation:L18bkebn_flyL .6s cubic-bezier(.2,1.3,.3,1) .75s both}
-.L18bkebn .stache-r{transform-origin:left center;animation:L18bkebn_flyR .6s cubic-bezier(.2,1.3,.3,1) .75s both}
-.L18bkebn .eye{transform-origin:center;animation:L18bkebn_pop .45s cubic-bezier(.2,1.3,.3,1) 1s both,L18bkebn_blink 3.2s ease-in-out 1.7s infinite}
-.L18bkebn .steam{stroke-dasharray:60;stroke-dashoffset:60;animation:L18bkebn_draw .9s ease 1.05s forwards,L18bkebn_drift 3.4s ease-in-out 1.95s infinite}
-.L18bkebn .s2{animation-delay:1.2s,2.25s}
-.L18bkebn .s3{animation-delay:1.35s,2.5s}
-@keyframes L18bkebn_rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
-@keyframes L18bkebn_spring{from{opacity:0;transform:translateY(34px) scaleY(.6)}to{opacity:1;transform:translateY(0) scaleY(1)}}
-@keyframes L18bkebn_pop{0%{opacity:0;transform:scale(0)}70%{opacity:1;transform:scale(1.18)}100%{opacity:1;transform:scale(1)}}
-@keyframes L18bkebn_fade{to{opacity:.55}}
-@keyframes L18bkebn_flyL{from{opacity:0;transform:translateX(-42px) rotate(-24deg)}to{opacity:1;transform:translateX(0) rotate(0)}}
-@keyframes L18bkebn_flyR{from{opacity:0;transform:translateX(42px) rotate(24deg)}to{opacity:1;transform:translateX(0) rotate(0)}}
-@keyframes L18bkebn_blink{0%,86%,100%{transform:scaleY(1)}92%{transform:scaleY(.12)}}
+.L18bkebn .L18bkebn_saucer{transform-origin:60px 93px;animation:L18bkebn_pop .8s cubic-bezier(.2,1.3,.3,1) .15s both}
+.L18bkebn .L18bkebn_cup{transform-origin:60px 72px;animation:L18bkebn_rise .85s cubic-bezier(.2,1.3,.3,1) .4s both}
+.L18bkebn .L18bkebn_stache{transform-origin:60px 52px;animation:L18bkebn_pop .8s cubic-bezier(.2,1.3,.3,1) .7s both}
+.L18bkebn .L18bkebn_steam{stroke-dasharray:66;stroke-dashoffset:66;animation:L18bkebn_draw 1.3s ease 1s forwards}
+.L18bkebn .L18bkebn_steamG{transform-origin:60px 34px;animation:L18bkebn_drift 9s ease-in-out 2.4s infinite}
+@keyframes L18bkebn_pop{from{opacity:0;transform:scale(.55)}to{opacity:1;transform:scale(1)}}
+@keyframes L18bkebn_rise{from{opacity:0;transform:translateY(16px) scale(.8)}to{opacity:1;transform:none}}
 @keyframes L18bkebn_draw{to{stroke-dashoffset:0}}
-@keyframes L18bkebn_drift{0%{transform:translateY(0);opacity:.85}50%{transform:translateY(-5px);opacity:.4}100%{transform:translateY(-10px);opacity:0}}</style><svg viewBox="0 0 120 120" fill="none" stroke-linejoin="round" stroke-linecap="round">
-<path class="L18bkebn handle" d="M85 63 C98 61 98 84 85 84" stroke="var(--lk)" stroke-width="5" fill="none"/>
-<ellipse class="L18bkebn saucer" cx="60" cy="97" rx="34" ry="6.5" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4"/>
-<path class="L18bkebn cup" d="M35 56 L85 56 L80 91 Q79 93 77 93 L43 93 Q41 93 40 91 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="4.5"/>
-<ellipse class="L18bkebn coffee" cx="60" cy="56" rx="25" ry="6.5" fill="var(--la)" stroke="var(--lk)" stroke-width="4"/>
-<circle class="L18bkebn cheek" cx="42" cy="70" r="4" fill="var(--la2)"/>
-<circle class="L18bkebn cheek" cx="78" cy="70" r="4" fill="var(--la2)"/>
-<circle class="L18bkebn eye" cx="52" cy="65" r="2.6" fill="var(--lk)"/>
-<circle class="L18bkebn eye" cx="68" cy="65" r="2.6" fill="var(--lk)"/>
-<path class="L18bkebn stache-l" d="M60 78 C52 73 44 73 38 77 C32 80 33 72 38 69 C45 65 55 68 60 78 Z" fill="var(--lk)" stroke="var(--lk)" stroke-width="3"/>
-<path class="L18bkebn stache-r" d="M60 78 C68 73 76 73 82 77 C88 80 87 72 82 69 C75 65 65 68 60 78 Z" fill="var(--lk)" stroke="var(--lk)" stroke-width="3"/>
-<path class="L18bkebn steam s1" d="M54 51 C50 45 58 41 54 35 C50 29 56 25 53 21" stroke="var(--lk)" stroke-width="3" fill="none"/>
-<path class="L18bkebn steam s2" d="M60 50 C64 44 57 40 61 34 C65 29 60 25 62 21" stroke="var(--lk)" stroke-width="3" fill="none"/>
-<path class="L18bkebn steam s3" d="M67 51 C71 45 64 41 68 35" stroke="var(--lk)" stroke-width="3" fill="none"/>
-</svg></div>
+@keyframes L18bkebn_drift{0%,100%{transform:translateX(0) scaleY(1);opacity:.85}50%{transform:translateX(2.5px) scaleY(1.05);opacity:1}}</style><svg viewBox="0 0 120 120" fill="none"><g class="L18bkebn L18bkebn_saucer"><ellipse cx="60" cy="93" rx="33" ry="6" fill="var(--ls)" stroke="var(--lk)" stroke-width="2.6"/></g><g class="L18bkebn L18bkebn_cup"><path d="M43,58 L47,83 Q60,89 73,83 L77,58 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="2.8" stroke-linejoin="round"/><path d="M77,62 C90,60 90,77 78,75" fill="none" stroke="var(--lk)" stroke-width="2.8" stroke-linecap="round"/><ellipse cx="60" cy="58" rx="18" ry="5.2" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2.8"/></g><path class="L18bkebn L18bkebn_stache" d="M60,52 C55,45 47,46 44,50 C41,54 44,58 48,56 C46,53 49,51 52,52 C55,53 57,55 60,55 C63,55 65,53 68,52 C71,51 74,53 72,56 C76,58 79,54 76,50 C73,46 65,45 60,52 Z" fill="var(--lk)"/><g class="L18bkebn L18bkebn_steamG"><path class="L18bkebn L18bkebn_steam" d="M54,53 C49,45 58,41 53,33 C49,26 57,22 54,15" fill="none" stroke="var(--la2)" stroke-width="2.6" stroke-linecap="round"/><path class="L18bkebn L18bkebn_steam L18bkebn_steam2" d="M66,53 C71,45 62,41 67,33 C71,26 63,22 66,15" fill="none" stroke="var(--la2)" stroke-width="2.6" stroke-linecap="round"/></g></svg></div>
     
     <h1><span class="ar">أهلاً ببيت <b>شنب كافيه</b></span><span class="en">Welcome home, <b>Shanab Cafe</b>.</span></h1>
     <div class="world"><span class="ar">✦ بيت العيلة يوم الجمعة والضحكة عالية ✦</span><span class="en">✦ the family house on a Friday, laughter loud ✦</span></div>

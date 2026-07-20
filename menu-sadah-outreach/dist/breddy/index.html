@@ -96,6 +96,8 @@
   .chip{flex:0 0 auto;text-decoration:none;color:var(--text-2);background:#f8f6f2cc;border:1px solid var(--border-1);
     border-radius:999px;padding:9px 16px;font-size:13.5px;transition:all .2s,transform .18s}
   .chip:hover{color:var(--accent);border-color:var(--accent);box-shadow:0 0 14px #a2812033;transform:translateY(-2px)}
+  /* scroll-spy: the chip for the room you're reading lights up (award e-menu pattern) */
+  .chip.active{color:var(--accent);border-color:var(--accent);font-weight:800;box-shadow:inset 0 -3px 0 var(--accent)}
 
   /* ---- signatures with price STAMPS ---- */
   .sig{margin-top:26px;background:linear-gradient(180deg,#a2812014,transparent 90%);border:1px solid #a2812044;
@@ -137,7 +139,14 @@
   .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
     box-shadow:inset 0 0 0 1px #a2812055}
   .cat-title{flex:1;min-width:0}
-  .room-eyebrow{color:var(--text-2);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+  .room-eyebrow{color:var(--text-2);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+  /* editorial department-opener kicker (award e-menu pattern): a metallic numeral leads each room */
+  .room-eyebrow .rnum{font-family:ui-monospace,Menlo,monospace;font-weight:800;color:var(--sa);letter-spacing:.02em;flex:0 0 auto}
+  .room-eyebrow .rnum::after{content:"·";margin-inline-start:8px;color:var(--sa);opacity:.7}
+  .room-eyebrow.rn-only .rnum::after{content:none}
+  [data-lang="ar"] .room-eyebrow{letter-spacing:0}
+  /* sticky category strip must never hide the heading it jumps to */
+  .cat,.sig{scroll-margin-top:66px}
   .room-h2{color:var(--sa);font-size:28px;font-weight:800;line-height:1.14;letter-spacing:-.01em}
   .room-h2 .ar{font-family:'Lalezar',cursive}
   .room-h2 .en{font-family:'Lobster',cursive}
@@ -336,16 +345,30 @@ body{
      the wrapper must clip its own decorative children or dark-mode pages scroll sideways. */
   .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
   .hero{overflow-x:clip}
-  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:linear-gradient(to bottom,color-mix(in srgb,var(--sa) 14%,transparent),transparent 40%),radial-gradient(80% 50% at 50% 110%,color-mix(in srgb,var(--accent) 16%,transparent),transparent 60%)}
-.brandbg .sun{position:absolute;top:-14vh;left:50%;width:44vw;height:44vw;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,color-mix(in srgb,var(--sa) 40%,transparent),transparent);filter:blur(20px);opacity:.5}
-.brandbg .cloud{position:absolute;height:60px;border-radius:60px;background:color-mix(in srgb,var(--sa2) 22%,transparent);filter:blur(14px);opacity:.5}
-.brandbg .c1{top:18%;left:-20%;width:40vw}.brandbg .c2{top:70%;right:-24%;width:46vw}.brandbg .c3{top:44%;left:-30%;width:34vw;opacity:.3}
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(130% 100% at 50% -10%,var(--sa) 0%,transparent 55%),radial-gradient(90% 70% at 8% 106%,var(--accent-2) 0%,transparent 55%),radial-gradient(90% 70% at 94% 96%,var(--accent) 0%,transparent 55%),linear-gradient(165deg,var(--sa2),var(--sa))}
+.brandbg::after{content:"";position:absolute;inset:0;background:radial-gradient(58% 44% at 50% 46%,rgba(255,255,255,.62),rgba(255,255,255,.16) 46%,transparent 72%)}
+.brandbg i{position:absolute;border-radius:50%;filter:blur(55px)}
+.brandbg .g1{inline-size:48vmax;block-size:48vmax;inset-block-start:-14vmax;inset-inline-start:-10vmax;background:radial-gradient(circle,var(--accent),transparent 68%);opacity:.5}
+.brandbg .g2{inline-size:42vmax;block-size:42vmax;inset-block-end:-12vmax;inset-inline-end:-8vmax;background:radial-gradient(circle,var(--accent-2),transparent 68%);opacity:.5}
+.brandbg .g3{inline-size:36vmax;block-size:36vmax;inset-block-start:28%;inset-inline-start:60%;background:radial-gradient(circle,var(--sa),transparent 70%);opacity:.4}
+.brandbg span{position:absolute;inline-size:7px;block-size:7px;border-radius:50%;background:var(--accent-2);opacity:.35;filter:blur(1px);inset-block-end:-8px}
+.brandbg .m1{inset-inline-start:18%}
+.brandbg .m2{inset-inline-start:38%;inline-size:5px;block-size:5px}
+.brandbg .m3{inset-inline-start:57%}
+.brandbg .m4{inset-inline-start:74%;inline-size:5px;block-size:5px}
+.brandbg .m5{inset-inline-start:88%}
 @media (prefers-reduced-motion:no-preference){
-.brandbg .sun{animation:brd-warm 8s ease-in-out infinite}
-.brandbg .cloud{animation:brd-drift 26s linear infinite}
-.brandbg .c2{animation-duration:34s;animation-direction:reverse}.brandbg .c3{animation-duration:40s}
-@keyframes brd-warm{0%,100%{opacity:.4}50%{opacity:.65}}
-@keyframes brd-drift{from{transform:translateX(0)}to{transform:translateX(160vw)}}}
+.brandbg .g1{animation:bb_a 16s ease-in-out infinite}
+.brandbg .g2{animation:bb_b 20s ease-in-out infinite}
+.brandbg .g3{animation:bb_a 22s ease-in-out infinite}
+.brandbg span{animation:bb_rise 15s linear infinite}
+.brandbg .m2{animation-duration:19s;animation-delay:-4s}
+.brandbg .m3{animation-delay:-7s}
+.brandbg .m4{animation-duration:21s;animation-delay:-11s}
+.brandbg .m5{animation-delay:-3s}
+@keyframes bb_a{0%,100%{transform:translate(0,0)}50%{transform:translate(4vmax,3vmax)}}
+@keyframes bb_b{0%,100%{transform:translate(0,0)}50%{transform:translate(-4vmax,-3vmax)}}
+@keyframes bb_rise{0%{transform:translateY(0);opacity:0}12%{opacity:.5}88%{opacity:.4}100%{transform:translateY(-108vh);opacity:0}}}
 
   /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
   
@@ -475,7 +498,7 @@ body{
 </style>
 </head>
 <body>
-<div class="brandbg" aria-hidden="true"><span class="sun"></span><span class="cloud c1"></span><span class="cloud c2"></span><span class="cloud c3"></span></div>
+<div class="brandbg" aria-hidden="true"><i class="g1"></i><i class="g2"></i><i class="g3"></i><span class="m1"></span><span class="m2"></span><span class="m3"></span><span class="m4"></span><span class="m5"></span></div>
 <button class="lang-toggle touchable" id="langToggle">English</button>
 <div class="bigmark" aria-hidden="true"><span class="ar">ب</span><span class="en">B</span></div>
 <div class="wrap">
@@ -532,25 +555,24 @@ body{
 </svg>
 
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="brandlogo big" aria-hidden="true"><style>.Lz1s6f8 .ink{stroke:var(--lk);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;}
-.Lz1s6f8 .counter{stroke-width:4.5;stroke-dasharray:74;stroke-dashoffset:74;animation:Lz1s6f8_draw .55s ease-out .1s forwards;}
-.Lz1s6f8 .loaf{opacity:0;transform-origin:center;animation:Lz1s6f8_drop .7s cubic-bezier(.2,1.3,.3,1) .25s both, Lz1s6f8_breathe 4s ease-in-out 1.4s infinite;}
-.Lz1s6f8 .scores{stroke-dasharray:34;stroke-dashoffset:34;animation:Lz1s6f8_draw .5s ease-out .8s forwards;}
-.Lz1s6f8 .puff{opacity:0;transform-origin:center bottom;}
-.Lz1s6f8 .p1{animation:Lz1s6f8_pop .5s cubic-bezier(.2,1.3,.3,1) .95s both, Lz1s6f8_drift 4s ease-in-out 1.6s infinite;}
-.Lz1s6f8 .p2{animation:Lz1s6f8_pop .5s cubic-bezier(.2,1.3,.3,1) 1.1s both, Lz1s6f8_drift 4.6s ease-in-out 1.9s infinite;}
-.Lz1s6f8 .p3{animation:Lz1s6f8_pop .5s cubic-bezier(.2,1.3,.3,1) 1.25s both, Lz1s6f8_drift 5.2s ease-in-out 2.2s infinite;}
-.Lz1s6f8 .moon{opacity:0;transform-origin:center;animation:Lz1s6f8_pop .55s cubic-bezier(.2,1.3,.3,1) .5s both, Lz1s6f8_twinkle 3.5s ease-in-out 1.8s infinite;}
-.Lz1s6f8 .spark{opacity:0;transform-origin:center;animation:Lz1s6f8_spark 2.6s ease-in-out 1.6s infinite;}
-.Lz1s6f8 .glow{transform-origin:center;opacity:.35;animation:Lz1s6f8_glow 4s ease-in-out 1.2s infinite;}
-@keyframes Lz1s6f8_draw{to{stroke-dashoffset:0;}}
-@keyframes Lz1s6f8_drop{0%{opacity:0;transform:translateY(-46px) rotate(-10deg);}60%{opacity:1;}100%{opacity:1;transform:translateY(0) rotate(0);}}
-@keyframes Lz1s6f8_pop{0%{opacity:0;transform:scale(0);}100%{opacity:1;transform:scale(1);}}
-@keyframes Lz1s6f8_drift{0%{transform:translateY(0);opacity:1;}50%{transform:translateY(-7px);opacity:.7;}100%{transform:translateY(0);opacity:1;}}
-@keyframes Lz1s6f8_breathe{0%,100%{transform:scale(1);}50%{transform:scale(1.03);}}
-@keyframes Lz1s6f8_twinkle{0%,100%{transform:scale(1);}50%{transform:scale(1.12);}}
-@keyframes Lz1s6f8_spark{0%,100%{opacity:0;transform:scale(.4);}50%{opacity:1;transform:scale(1);}}
-@keyframes Lz1s6f8_glow{0%,100%{opacity:.3;transform:scale(1);}50%{opacity:.55;transform:scale(1.06);}}</style><svg viewBox="0 0 120 120" class="Lz1s6f8"><ellipse class="Lz1s6f8 glow" cx="60" cy="70" rx="36" ry="27" fill="var(--ls2)"/><path class="Lz1s6f8 counter ink" d="M26 83 L94 83" fill="none"/><path class="Lz1s6f8 loaf ink" d="M34 80 C28 74 30 57 44 51 C52 47 68 47 76 51 C90 57 92 74 86 80 C70 85 50 85 34 80 Z" fill="var(--la)"/><path class="Lz1s6f8 scores ink" d="M46 60 L52 53 M57 58 L63 51 M68 60 L74 53" fill="none"/><path class="Lz1s6f8 puff p1 ink" d="M40 42 Q38 36 44 36 Q45 31 50 34 Q54 33 54 39 Q55 44 48 44 Q40 45 40 42 Z" fill="var(--lp)"/><path class="Lz1s6f8 puff p2 ink" d="M60 33 Q58 27 64 27 Q65 22 70 25 Q74 24 74 30 Q75 35 68 35 Q60 36 60 33 Z" fill="var(--ls)"/><path class="Lz1s6f8 puff p3 ink" d="M51 21 Q49 15 55 15 Q56 11 60 14 Q64 13 64 19 Q65 23 58 23 Q50 24 51 21 Z" fill="var(--lp)"/><path class="Lz1s6f8 moon ink" d="M97 18 A10 10 0 1 0 97 40 A7.5 7.5 0 1 1 97 18 Z" fill="var(--la2)"/><circle class="Lz1s6f8 spark" cx="86" cy="16" r="2" fill="var(--la2)"/></svg></div>
+    <div class="brandlogo big" aria-hidden="true"><style>.Lz1s6f8 .loaf{transform-origin:60px 90px;animation:Lz1s6f8_rise .9s cubic-bezier(.2,1.3,.3,1) both}
+.Lz1s6f8 .cloud{transform-origin:60px 27px;animation:Lz1s6f8_puff .85s cubic-bezier(.2,1.3,.3,1) .15s both}
+.Lz1s6f8 .moon{transform-origin:92px 27px;animation:Lz1s6f8_puff .85s cubic-bezier(.2,1.3,.3,1) .4s both,Lz1s6f8_glow 7s ease-in-out 1.5s infinite}
+.Lz1s6f8 .star{transform-origin:82px 20px;animation:Lz1s6f8_tw 5s ease-in-out 1.6s infinite}
+.Lz1s6f8 .steam{fill:none;stroke:var(--lk);stroke-dasharray:46;stroke-dashoffset:46}
+.Lz1s6f8 .s1{animation:Lz1s6f8_draw 1.1s ease .7s forwards,Lz1s6f8_drift 8s ease-in-out 2s infinite}
+.Lz1s6f8 .s2{animation:Lz1s6f8_draw 1.1s ease .9s forwards,Lz1s6f8_drift 9s ease-in-out 2.3s infinite}
+.Lz1s6f8 .score{stroke-dasharray:16;stroke-dashoffset:16;animation:Lz1s6f8_draw2 .6s ease both}
+.Lz1s6f8 .c1{animation-delay:.45s}
+.Lz1s6f8 .c2{animation-delay:.6s}
+.Lz1s6f8 .c3{animation-delay:.75s}
+@keyframes Lz1s6f8_rise{from{transform:translateY(16px) scale(.92);opacity:0}to{transform:none;opacity:1}}
+@keyframes Lz1s6f8_puff{from{transform:scale(.5);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes Lz1s6f8_draw{to{stroke-dashoffset:0}}
+@keyframes Lz1s6f8_draw2{to{stroke-dashoffset:0}}
+@keyframes Lz1s6f8_drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}
+@keyframes Lz1s6f8_glow{0%,100%{opacity:.65}50%{opacity:1}}
+@keyframes Lz1s6f8_tw{0%,100%{opacity:.3;transform:scale(.7)}50%{opacity:1;transform:scale(1.15)}}</style><svg viewBox="0 0 120 120" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle class="Lz1s6f8 star" cx="82" cy="20" r="1.6" fill="var(--la2)"/><path class="Lz1s6f8 moon" d="M99 16 A11 11 0 1 0 99 38 A8.5 8.5 0 1 1 99 16 Z" fill="var(--ls2)"/><path class="Lz1s6f8 cloud" d="M46 27 Q44 19 52 19 Q55 13 62 16 Q71 13 73 22 Q80 23 77 28 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="2.4"/><path class="Lz1s6f8 steam s1" d="M55 56 C51 49 59 45 55 39 C52 34 57 31 56 28" stroke-width="2.4"/><path class="Lz1s6f8 steam s2" d="M66 56 C70 49 63 45 67 40 C70 35 65 32 66 29" stroke-width="2.4"/><path d="M28 96 L92 96" stroke="var(--la)" stroke-width="2.6"/><g class="Lz1s6f8 loaf"><path d="M33 82 C33 63 60 61 60 61 C60 61 87 63 87 82 C87 88 82 91 76 91 L44 91 C38 91 33 88 33 82 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="2.8"/><path class="Lz1s6f8 score c1" d="M45 75 C48 72 49 78 50 83" stroke="var(--lk)" stroke-width="2.6"/><path class="Lz1s6f8 score c2" d="M57 71 C60 68 61 74 62 82" stroke="var(--lk)" stroke-width="2.6"/><path class="Lz1s6f8 score c3" d="M69 75 C72 72 73 78 72 83" stroke="var(--lk)" stroke-width="2.6"/></g></svg></div>
     
     <h1><span class="ar">بريدي</span><span class="en">Breddy</span></h1>
     <div class="world"><span class="ar">✦ <b>فرن الحارة قبل الفجر</b> ✦</span><span class="en">✦ <b>the neighborhood oven before dawn</b> ✦</span></div>
@@ -573,7 +595,7 @@ body{
         <img src="../assets/photos/breddy/3.jpg" style="object-position:center" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">من الفرن</span><span class="en">From the Oven</span></div>
+        <div class="room-eyebrow"><span class="rnum">01</span><span class="ar">من الفرن</span><span class="en">From the Oven</span></div>
         <h2 class="room-h2"><span class="ar">طالع حار.. الحق عليه</span><span class="en">hot out, catch it quick</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">الفرن حامي وناطرك من الفجر</span><span class="en">the oven's been up since before dawn</span></p>
@@ -642,7 +664,7 @@ body{
         <img src="../assets/photos/breddy/4.jpg" style="object-position:center" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">التوست والساندويتش</span><span class="en">Toasts &amp; Sandwiches</span></div>
+        <div class="room-eyebrow"><span class="rnum">02</span><span class="ar">التوست والساندويتش</span><span class="en">Toasts &amp; Sandwiches</span></div>
         <h2 class="room-h2"><span class="ar">بين شريحتين.. قصة</span><span class="en">a story between two slices</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">لقمة مرتّبة تمشي معك المشوار</span><span class="en">packed neat, ready for the road</span></p>
@@ -691,7 +713,7 @@ body{
         <img src="../assets/photos/breddy/2.jpg" style="object-position:center 40%" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">القهوة</span><span class="en">Coffee</span></div>
+        <div class="room-eyebrow"><span class="rnum">03</span><span class="ar">القهوة</span><span class="en">Coffee</span></div>
         <h2 class="room-h2"><span class="ar">قهوتك مع ريحة الخبز</span><span class="en">coffee beside the baking smell</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">خذ فنجانك وخلّك جنب الفرن</span><span class="en">sip slow while the bread works</span></p>
@@ -746,7 +768,7 @@ body{
         <img src="../assets/photos/breddy/3.jpg" style="object-position:center" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">المشروبات الطازجة</span><span class="en">Fresh</span></div>
+        <div class="room-eyebrow"><span class="rnum">04</span><span class="ar">المشروبات الطازجة</span><span class="en">Fresh</span></div>
         <h2 class="room-h2"><span class="ar">عصرة صباح على الماشي</span><span class="en">a bright sip to go</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">شي طازج يفتح لك الصباح</span><span class="en">something bright before the sun climbs</span></p>
@@ -785,7 +807,7 @@ body{
     <span class="en">📱 Live digital menu: scan the table QR — menu-sadah.com/breddy</span>
   </div>
   <div class="footer">
-    <div class="brandlogo mini" aria-hidden="true"><svg viewBox="0 0 120 120" class="Lz1s6f8"><ellipse class="Lz1s6f8 glow" cx="60" cy="70" rx="36" ry="27" fill="var(--ls2)"/><path class="Lz1s6f8 counter ink" d="M26 83 L94 83" fill="none"/><path class="Lz1s6f8 loaf ink" d="M34 80 C28 74 30 57 44 51 C52 47 68 47 76 51 C90 57 92 74 86 80 C70 85 50 85 34 80 Z" fill="var(--la)"/><path class="Lz1s6f8 scores ink" d="M46 60 L52 53 M57 58 L63 51 M68 60 L74 53" fill="none"/><path class="Lz1s6f8 puff p1 ink" d="M40 42 Q38 36 44 36 Q45 31 50 34 Q54 33 54 39 Q55 44 48 44 Q40 45 40 42 Z" fill="var(--lp)"/><path class="Lz1s6f8 puff p2 ink" d="M60 33 Q58 27 64 27 Q65 22 70 25 Q74 24 74 30 Q75 35 68 35 Q60 36 60 33 Z" fill="var(--ls)"/><path class="Lz1s6f8 puff p3 ink" d="M51 21 Q49 15 55 15 Q56 11 60 14 Q64 13 64 19 Q65 23 58 23 Q50 24 51 21 Z" fill="var(--lp)"/><path class="Lz1s6f8 moon ink" d="M97 18 A10 10 0 1 0 97 40 A7.5 7.5 0 1 1 97 18 Z" fill="var(--la2)"/><circle class="Lz1s6f8 spark" cx="86" cy="16" r="2" fill="var(--la2)"/></svg></div>
+    <div class="brandlogo mini" aria-hidden="true"><svg viewBox="0 0 120 120" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle class="Lz1s6f8 star" cx="82" cy="20" r="1.6" fill="var(--la2)"/><path class="Lz1s6f8 moon" d="M99 16 A11 11 0 1 0 99 38 A8.5 8.5 0 1 1 99 16 Z" fill="var(--ls2)"/><path class="Lz1s6f8 cloud" d="M46 27 Q44 19 52 19 Q55 13 62 16 Q71 13 73 22 Q80 23 77 28 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="2.4"/><path class="Lz1s6f8 steam s1" d="M55 56 C51 49 59 45 55 39 C52 34 57 31 56 28" stroke-width="2.4"/><path class="Lz1s6f8 steam s2" d="M66 56 C70 49 63 45 67 40 C70 35 65 32 66 29" stroke-width="2.4"/><path d="M28 96 L92 96" stroke="var(--la)" stroke-width="2.6"/><g class="Lz1s6f8 loaf"><path d="M33 82 C33 63 60 61 60 61 C60 61 87 63 87 82 C87 88 82 91 76 91 L44 91 C38 91 33 88 33 82 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="2.8"/><path class="Lz1s6f8 score c1" d="M45 75 C48 72 49 78 50 83" stroke="var(--lk)" stroke-width="2.6"/><path class="Lz1s6f8 score c2" d="M57 71 C60 68 61 74 62 82" stroke="var(--lk)" stroke-width="2.6"/><path class="Lz1s6f8 score c3" d="M69 75 C72 72 73 78 72 83" stroke="var(--lk)" stroke-width="2.6"/></g></svg></div>
     <div style="margin-bottom:6px;color:var(--text-2)"><span class="ar">تابعوا بريدي: <b style="color:var(--accent)">@breddy_sa</b></span><span class="en">Follow Breddy: <b style="color:var(--accent)">@breddy_sa</b></span></div>
     <span class="ar">تجربة من <a href="https://menu-sadah.com">منيو سادة — MENU SADAH</a></span>
     <span class="en">Crafted by <a href="https://menu-sadah.com">MENU SADAH</a></span>
@@ -804,6 +826,15 @@ body{
   document.getElementById('langToggle').addEventListener('click',()=>{setLang(root.getAttribute('data-lang')==='ar'?'en':'ar');});
   const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // scroll-spy: light the category chip for the room currently in view (award e-menu pattern)
+  try{
+    const chips=[].slice.call(document.querySelectorAll('.chips .chip'));
+    const secs=chips.map(c=>document.querySelector(c.getAttribute('href'))).filter(Boolean);
+    if('IntersectionObserver' in window && secs.length){
+      const spy=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){const id='#'+e.target.id;chips.forEach(c=>c.classList.toggle('active',c.getAttribute('href')===id));}}),{rootMargin:'-45% 0px -50% 0px',threshold:0});
+      secs.forEach(s=>spy.observe(s));
+    }
+  }catch(e){}
   // motion DNA haptic: a soft 8ms tick when a chip snaps you to a room (feature-checked, motion-respecting)
   if(matchMedia('(prefers-reduced-motion: no-preference)').matches){
     document.querySelectorAll('.chips .chip').forEach(c=>c.addEventListener('click',()=>{navigator.vibrate?.(8);}));

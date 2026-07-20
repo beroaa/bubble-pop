@@ -96,6 +96,8 @@
   .chip{flex:0 0 auto;text-decoration:none;color:var(--text-2);background:#f8f5f2cc;border:1px solid var(--border-1);
     border-radius:999px;padding:9px 16px;font-size:13.5px;transition:all .2s,transform .18s}
   .chip:hover{color:var(--accent);border-color:var(--accent);box-shadow:0 0 14px #9b5b2733;transform:translateY(-2px)}
+  /* scroll-spy: the chip for the room you're reading lights up (award e-menu pattern) */
+  .chip.active{color:var(--accent);border-color:var(--accent);font-weight:800;box-shadow:inset 0 -3px 0 var(--accent)}
 
   /* ---- signatures with price STAMPS ---- */
   .sig{margin-top:26px;background:linear-gradient(180deg,#9b5b2714,transparent 90%);border:1px solid #9b5b2744;
@@ -137,7 +139,14 @@
   .cat-art.hasimg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
     box-shadow:inset 0 0 0 1px #9b5b2755}
   .cat-title{flex:1;min-width:0}
-  .room-eyebrow{color:var(--text-2);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+  .room-eyebrow{color:var(--text-2);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+  /* editorial department-opener kicker (award e-menu pattern): a metallic numeral leads each room */
+  .room-eyebrow .rnum{font-family:ui-monospace,Menlo,monospace;font-weight:800;color:var(--sa);letter-spacing:.02em;flex:0 0 auto}
+  .room-eyebrow .rnum::after{content:"·";margin-inline-start:8px;color:var(--sa);opacity:.7}
+  .room-eyebrow.rn-only .rnum::after{content:none}
+  [data-lang="ar"] .room-eyebrow{letter-spacing:0}
+  /* sticky category strip must never hide the heading it jumps to */
+  .cat,.sig{scroll-margin-top:66px}
   .room-h2{color:var(--sa);font-size:28px;font-weight:800;line-height:1.14;letter-spacing:-.01em}
   .room-h2 .ar{font-family:'Baloo Bhaijaan 2',cursive}
   .room-h2 .en{font-family:'Fredoka',sans-serif}
@@ -336,17 +345,7 @@ body{
      the wrapper must clip its own decorative children or dark-mode pages scroll sideways. */
   .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
   .hero{overflow-x:clip}
-  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:linear-gradient(180deg,var(--bg-0),var(--bg-1))}
-.ou-haze{position:absolute;left:50%;bottom:-20%;width:90vw;height:60vh;transform:translateX(-50%);background:radial-gradient(ellipse at 50% 100%,var(--accent),transparent 65%);opacity:.14;filter:blur(30px)}
-.ou-steam{position:absolute;bottom:-10%;width:80px;height:60vh;border-radius:40px;background:linear-gradient(180deg,transparent,var(--accent-2));opacity:.08;filter:blur(18px)}
-.w1{left:12%}.w2{left:82%}.w3{left:30%;bottom:-20%}
-@media (prefers-reduced-motion:no-preference){
-.ou-steam{animation:ouR 12s ease-in-out infinite}
-.w2{animation-delay:3s}.w3{animation-delay:6s}
-.ou-haze{animation:ouH 9s ease-in-out infinite}
-@keyframes ouR{0%{transform:translateY(20%) scaleX(1);opacity:.03}50%{opacity:.12}100%{transform:translateY(-30%) scaleX(1.4);opacity:.03}}
-@keyframes ouH{0%,100%{opacity:.1}50%{opacity:.2}}
-}
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:linear-gradient(165deg,var(--sa) 0%,var(--accent) 46%,var(--sa2) 100%)}.brandbg i,.brandbg span{position:absolute;display:block;border-radius:50%}.brandbg .g{filter:blur(46px)}.brandbg .g1{inset-block-start:-14%;inset-inline-start:-10%;inline-size:62%;block-size:58%;opacity:.75;background:radial-gradient(circle at 50% 50%,var(--accent),transparent 66%)}.brandbg .g2{inset-block-end:-16%;inset-inline-end:-12%;inline-size:70%;block-size:64%;opacity:.7;background:radial-gradient(circle at 50% 50%,var(--accent-2),transparent 64%)}.brandbg .g3{inset-block-end:-10%;inset-inline-start:-8%;inline-size:54%;block-size:52%;opacity:.6;background:radial-gradient(circle at 50% 50%,var(--sa2),transparent 64%)}.brandbg .veil{inset:0;border-radius:0;background:radial-gradient(72% 56% at 50% 45%,color-mix(in srgb,white 68%,transparent),color-mix(in srgb,white 14%,transparent) 55%,transparent 74%)}.brandbg .m{inline-size:7px;block-size:7px;opacity:.55;background:radial-gradient(circle,color-mix(in srgb,white 85%,transparent),transparent 68%)}.brandbg .m1{inset-inline-start:16%;inset-block-end:12%}.brandbg .m2{inset-inline-start:34%;inset-block-end:6%}.brandbg .m3{inset-inline-start:60%;inset-block-end:14%}.brandbg .m4{inset-inline-start:78%;inset-block-end:8%}.brandbg .m5{inset-inline-start:48%;inset-block-end:22%}@media (prefers-reduced-motion:no-preference){.brandbg .g1{animation:bg_a 18s ease-in-out infinite}.brandbg .g2{animation:bg_b 22s ease-in-out infinite}.brandbg .g3{animation:bg_a 20s ease-in-out infinite reverse}.brandbg .m{animation:bg_rise 14s linear infinite}.brandbg .m2{animation-duration:18s}.brandbg .m3{animation-duration:12s}.brandbg .m4{animation-duration:20s}.brandbg .m5{animation-duration:16s}.brandbg .veil{animation:bg_glow 12s ease-in-out infinite}@keyframes bg_a{0%,100%{transform:translate(0,0)}50%{transform:translate(4%,3%)}}@keyframes bg_b{0%,100%{transform:translate(0,0)}50%{transform:translate(-4%,-3%)}}@keyframes bg_rise{0%{transform:translateY(0);opacity:0}15%{opacity:.6}100%{transform:translateY(-120px);opacity:0}}@keyframes bg_glow{0%,100%{opacity:.85}50%{opacity:1}}}
 
   /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
   
@@ -476,7 +475,7 @@ body{
 </style>
 </head>
 <body>
-<div class="brandbg" aria-hidden="true"><span class="ou-haze"></span><span class="ou-steam w1"></span><span class="ou-steam w2"></span><span class="ou-steam w3"></span></div>
+<div class="brandbg" aria-hidden="true"><i class="g g1"></i><i class="g g2"></i><i class="g g3"></i><i class="veil"></i><span class="m m1"></span><span class="m m2"></span><span class="m m3"></span><span class="m m4"></span><span class="m m5"></span></div>
 <button class="lang-toggle touchable" id="langToggle">English</button>
 <div class="bigmark" aria-hidden="true"><span class="ar">ا</span><span class="en">O</span></div>
 <div class="wrap">
@@ -533,22 +532,7 @@ body{
 </svg>
 
     <div class="greet"><span class="ar">حيّاكم في عالمنا ✦</span><span class="en">Step into our world ✦</span></div>
-    <div class="brandlogo big" aria-hidden="true"><style>.Li77p28 .glow{transform-origin:center;animation:Li77p28_glow 3.6s ease-in-out infinite}
-.Li77p28 .base{animation:Li77p28_rise .7s cubic-bezier(.2,1.3,.3,1) .05s both}
-.Li77p28 .carafe{animation:Li77p28_rise .78s cubic-bezier(.2,1.3,.3,1) .18s both}
-.Li77p28 .dripper{animation:Li77p28_drop .78s cubic-bezier(.2,1.3,.3,1) .48s both}
-.Li77p28 .bed{transform-origin:center;animation:Li77p28_pop .5s cubic-bezier(.2,1.3,.3,1) 1s both}
-.Li77p28 .ridge{transform-origin:center;animation:Li77p28_pop .5s cubic-bezier(.2,1.3,.3,1) 1.12s both}
-.Li77p28 .steam{stroke-dasharray:64;transform-origin:bottom center;animation:Li77p28_draw .8s ease-out .9s both,Li77p28_drift 4.4s ease-in-out 1.75s infinite}
-.Li77p28 .s2{animation-delay:1.05s,2.2s}
-.Li77p28 .drip{transform-origin:top center;animation:Li77p28_drip 2.5s ease-in 1.7s infinite}
-@keyframes Li77p28_rise{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:translateY(0)}}
-@keyframes Li77p28_drop{from{opacity:0;transform:translateY(-40px)}to{opacity:1;transform:translateY(0)}}
-@keyframes Li77p28_pop{0%{opacity:0;transform:scale(.4)}100%{opacity:1;transform:scale(1)}}
-@keyframes Li77p28_glow{0%,100%{opacity:.14;transform:scale(.9)}50%{opacity:.3;transform:scale(1.07)}}
-@keyframes Li77p28_draw{from{stroke-dashoffset:64}to{stroke-dashoffset:0}}
-@keyframes Li77p28_drift{0%{opacity:.35;transform:translate(-1px,2px)}50%{opacity:.9;transform:translate(1px,-3px)}100%{opacity:.35;transform:translate(-1px,2px)}}
-@keyframes Li77p28_drip{0%{opacity:0;transform:translateY(-2px)}18%{opacity:1}68%{opacity:1;transform:translateY(9px)}80%{opacity:0;transform:translateY(9px)}100%{opacity:0}}</style><svg viewBox="0 0 120 120" fill="none"><circle class="Li77p28 glow" cx="60" cy="58" r="40" fill="var(--la2)" opacity="0.18"/><ellipse class="Li77p28 base" cx="60" cy="108" rx="30" ry="6" fill="var(--ls)" stroke="var(--lk)" stroke-width="4"/><g><path class="Li77p28 steam s1" d="M54,42 C49,34 59,30 55,22 C52,16 59,13 57,8" stroke="var(--ls)" stroke-width="4.5" stroke-linecap="round"/><path class="Li77p28 steam s2" d="M67,42 C72,35 63,31 68,24 C72,18 66,14 68,9" stroke="var(--ls)" stroke-width="4.5" stroke-linecap="round"/></g><g class="Li77p28 carafe"><path class="Li77p28 vessel" d="M42,74 C39,74 38,82 40,90 C42,100 48,106 60,106 C72,106 78,100 80,90 C82,82 81,74 78,74 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4.5" stroke-linejoin="round"/><path class="Li77p28 brew" d="M40.5,88 C44,96 50,102 60,102 C70,102 76,96 79.5,88 C74,92 66,93 60,93 C54,93 46,92 40.5,88 Z" fill="var(--la)"/><path class="Li77p28 handle" d="M79,80 C90,79 92,90 85,95" stroke="var(--lk)" stroke-width="4.5" stroke-linecap="round"/><rect class="Li77p28 collar" x="46" y="68" width="28" height="8" rx="4" fill="var(--lp)" stroke="var(--lk)" stroke-width="4"/></g><g class="Li77p28 dripper"><path class="Li77p28 cone" d="M33,46 L49,66 L71,66 L87,46 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="4.5" stroke-linejoin="round"/><ellipse class="Li77p28 rim" cx="60" cy="46" rx="27" ry="6.5" fill="var(--ls)" stroke="var(--lk)" stroke-width="4.5"/><ellipse class="Li77p28 bed" cx="60" cy="45" rx="20" ry="4.5" fill="var(--lk)"/><path class="Li77p28 ridge" d="M45,50 L52,64" stroke="var(--lk)" stroke-width="3" stroke-linecap="round"/><path class="Li77p28 ridge" d="M60,49 L60,65" stroke="var(--lk)" stroke-width="3" stroke-linecap="round"/><path class="Li77p28 ridge" d="M75,50 L68,64" stroke="var(--lk)" stroke-width="3" stroke-linecap="round"/></g><path class="Li77p28 drip" d="M60,66 C57,69 57,72 60,73 C63,72 63,69 60,66 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="3" stroke-linejoin="round"/></svg></div>
+    <div class="brandlogo big" aria-hidden="true"><style>.Li77p28{overflow:visible}.Li77p28 .carafe{transform-origin:60px 92px;animation:Li77p28_rise .8s cubic-bezier(.2,1.3,.3,1) .15s both}.Li77p28 .cone{transform-origin:60px 62px;animation:Li77p28_rise .8s cubic-bezier(.2,1.3,.3,1) .4s both}.Li77p28 .brew{transform-origin:60px 106px;animation:Li77p28_fill .9s ease .7s both}.Li77p28 .drop{transform-origin:60px 78px;animation:Li77p28_rise .6s cubic-bezier(.2,1.3,.3,1) .55s both}.Li77p28 .steam1{stroke-dasharray:64;stroke-dashoffset:64;animation:Li77p28_draw 1s ease .7s forwards,Li77p28_drift 8s ease-in-out 1.9s infinite}.Li77p28 .steam2{stroke-dasharray:64;stroke-dashoffset:64;animation:Li77p28_draw 1s ease .95s forwards,Li77p28_sway 9s ease-in-out 2.3s infinite}@keyframes Li77p28_rise{from{opacity:0;transform:translateY(12px) scale(.9)}to{opacity:1;transform:translateY(0) scale(1)}}@keyframes Li77p28_fill{from{opacity:0;transform:scaleY(.2)}to{opacity:1;transform:scaleY(1)}}@keyframes Li77p28_draw{to{stroke-dashoffset:0}}@keyframes Li77p28_drift{0%,100%{transform:translateX(0)}50%{transform:translateX(2.5px)}}@keyframes Li77p28_sway{0%,100%{transform:translateX(0)}50%{transform:translateX(-2.5px)}}</style><svg viewBox="0 0 120 120" fill="none"><g class="Li77p28 carafe"><path class="Li77p28 glass" d="M46 72 Q41 88 45 98 Q51 107 60 107 Q69 107 75 98 Q79 88 74 72 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="2.6" stroke-linejoin="round"/><path class="Li77p28 brew" d="M45 88 Q45 106 60 106 Q75 106 75 88 Q68 94 60 94 Q52 94 45 88 Z" fill="var(--la)"/></g><g class="Li77p28 cone"><path class="Li77p28 conebody" d="M43 54 L77 54 L65 71 L55 71 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="2.6" stroke-linejoin="round"/><path class="Li77p28 lip" d="M40 54 Q60 49 80 54" fill="none" stroke="var(--lk)" stroke-width="2.9" stroke-linecap="round"/><path class="Li77p28 rib" d="M53 55 L58 70" stroke="var(--lk)" stroke-width="2.2" stroke-linecap="round"/><path class="Li77p28 rib" d="M60 55 L60 70" stroke="var(--lk)" stroke-width="2.2" stroke-linecap="round"/><path class="Li77p28 rib" d="M67 55 L62 70" stroke="var(--lk)" stroke-width="2.2" stroke-linecap="round"/></g><circle class="Li77p28 drop" cx="60" cy="78" r="2.4" fill="var(--la2)"/><path class="Li77p28 steam1" d="M54 44 Q47 38 53 31 Q59 25 53 18" fill="none" stroke="var(--la)" stroke-width="3" stroke-linecap="round"/><path class="Li77p28 steam2" d="M67 42 Q73 35 67 28 Q61 22 67 16" fill="none" stroke="var(--la2)" stroke-width="3" stroke-linecap="round"/></svg></div>
     
     <h1><span class="ar">اويا</span><span class="en">OUIA Cafe</span></h1>
     <div class="world"><span class="ar">✦ <b>محطة قهوة تمشي على مهلها</b> ✦</span><span class="en">✦ <b>a coffee station that never hurries</b> ✦</span></div>
@@ -571,7 +555,7 @@ body{
         <img src="../assets/photos/ouia-cafe/4.jpg" style="object-position:center 65%" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">البار الحار</span><span class="en">Espresso Bar</span></div>
+        <div class="room-eyebrow"><span class="rnum">01</span><span class="ar">البار الحار</span><span class="en">Espresso Bar</span></div>
         <h2 class="room-h2"><span class="ar">أول محطة، المكينة صاحية</span><span class="en">first stop: the hot bar</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">وقف هنا أول، البخار يناديك</span><span class="en">First stop, the steam is calling</span></p>
@@ -654,7 +638,7 @@ body{
         <img src="../assets/photos/ouia-cafe/3.jpg" style="object-position:center" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">بار الترشيح</span><span class="en">Filter &amp; Slow Bar</span></div>
+        <div class="room-eyebrow"><span class="rnum">02</span><span class="ar">بار الترشيح</span><span class="en">Filter &amp; Slow Bar</span></div>
         <h2 class="room-h2"><span class="ar">قطرة قطرة على مهل</span><span class="en">drop by patient drop</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">قطرة قطرة، والمحطة ما تستعجل</span><span class="en">Drop by drop, no train to catch</span></p>
@@ -717,7 +701,7 @@ body{
         <img src="../assets/photos/ouia-cafe/4.jpg" style="object-position:center 65%" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">البار البارد</span><span class="en">Cold Bar</span></div>
+        <div class="room-eyebrow"><span class="rnum">03</span><span class="ar">البار البارد</span><span class="en">Cold Bar</span></div>
         <h2 class="room-h2"><span class="ar">ثلج وقهوة على كيفك</span><span class="en">ice, coffee, take your time</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">الثلج صابر، وأنت خذ كيفك</span><span class="en">The ice is patient, so are we</span></p>
@@ -779,7 +763,7 @@ body{
         <img src="../assets/photos/ouia-cafe/3.jpg" style="object-position:center" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">الركن السعودي</span><span class="en">Saudi Corner</span></div>
+        <div class="room-eyebrow"><span class="rnum">04</span><span class="ar">الركن السعودي</span><span class="en">Saudi Corner</span></div>
         <h2 class="room-h2"><span class="ar">ركن الدلة والهيل</span><span class="en">the dallah keeps warm</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">الدلة دافية من قبل لا توصل</span><span class="en">The dallah waits warm for you</span></p>
@@ -821,7 +805,7 @@ body{
         <img src="../assets/photos/ouia-cafe/4.jpg" style="object-position:center 65%" alt="" onload="this.parentElement.classList.add('hasimg')">
       </div>
       <div class="cat-title">
-        <div class="room-eyebrow"><span class="ar">اللقيمات والحلا</span><span class="en">Bites &amp; Sweets</span></div>
+        <div class="room-eyebrow"><span class="rnum">05</span><span class="ar">اللقيمات والحلا</span><span class="en">Bites &amp; Sweets</span></div>
         <h2 class="room-h2"><span class="ar">لقمة تروّق القهوة</span><span class="en">a bite beside the cup</span></h2>
         <svg class="inkline" viewBox="0 0 120 9" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 6 Q14 2.6 27 4.8 T52 4.2 T78 5.4 T104 4 T118 5.2" fill="none" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <p class="room-voice"><span class="ar">لقمة صغيرة تونس الفنجان</span><span class="en">A small bite keeps the cup company</span></p>
@@ -880,7 +864,7 @@ body{
     <span class="en">📱 Live digital menu: scan the table QR — menu-sadah.com/ouia-cafe</span>
   </div>
   <div class="footer">
-    <div class="brandlogo mini" aria-hidden="true"><svg viewBox="0 0 120 120" fill="none"><circle class="Li77p28 glow" cx="60" cy="58" r="40" fill="var(--la2)" opacity="0.18"/><ellipse class="Li77p28 base" cx="60" cy="108" rx="30" ry="6" fill="var(--ls)" stroke="var(--lk)" stroke-width="4"/><g><path class="Li77p28 steam s1" d="M54,42 C49,34 59,30 55,22 C52,16 59,13 57,8" stroke="var(--ls)" stroke-width="4.5" stroke-linecap="round"/><path class="Li77p28 steam s2" d="M67,42 C72,35 63,31 68,24 C72,18 66,14 68,9" stroke="var(--ls)" stroke-width="4.5" stroke-linecap="round"/></g><g class="Li77p28 carafe"><path class="Li77p28 vessel" d="M42,74 C39,74 38,82 40,90 C42,100 48,106 60,106 C72,106 78,100 80,90 C82,82 81,74 78,74 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4.5" stroke-linejoin="round"/><path class="Li77p28 brew" d="M40.5,88 C44,96 50,102 60,102 C70,102 76,96 79.5,88 C74,92 66,93 60,93 C54,93 46,92 40.5,88 Z" fill="var(--la)"/><path class="Li77p28 handle" d="M79,80 C90,79 92,90 85,95" stroke="var(--lk)" stroke-width="4.5" stroke-linecap="round"/><rect class="Li77p28 collar" x="46" y="68" width="28" height="8" rx="4" fill="var(--lp)" stroke="var(--lk)" stroke-width="4"/></g><g class="Li77p28 dripper"><path class="Li77p28 cone" d="M33,46 L49,66 L71,66 L87,46 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="4.5" stroke-linejoin="round"/><ellipse class="Li77p28 rim" cx="60" cy="46" rx="27" ry="6.5" fill="var(--ls)" stroke="var(--lk)" stroke-width="4.5"/><ellipse class="Li77p28 bed" cx="60" cy="45" rx="20" ry="4.5" fill="var(--lk)"/><path class="Li77p28 ridge" d="M45,50 L52,64" stroke="var(--lk)" stroke-width="3" stroke-linecap="round"/><path class="Li77p28 ridge" d="M60,49 L60,65" stroke="var(--lk)" stroke-width="3" stroke-linecap="round"/><path class="Li77p28 ridge" d="M75,50 L68,64" stroke="var(--lk)" stroke-width="3" stroke-linecap="round"/></g><path class="Li77p28 drip" d="M60,66 C57,69 57,72 60,73 C63,72 63,69 60,66 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="3" stroke-linejoin="round"/></svg></div>
+    <div class="brandlogo mini" aria-hidden="true"><svg viewBox="0 0 120 120" fill="none"><g class="Li77p28 carafe"><path class="Li77p28 glass" d="M46 72 Q41 88 45 98 Q51 107 60 107 Q69 107 75 98 Q79 88 74 72 Z" fill="var(--lp)" stroke="var(--lk)" stroke-width="2.6" stroke-linejoin="round"/><path class="Li77p28 brew" d="M45 88 Q45 106 60 106 Q75 106 75 88 Q68 94 60 94 Q52 94 45 88 Z" fill="var(--la)"/></g><g class="Li77p28 cone"><path class="Li77p28 conebody" d="M43 54 L77 54 L65 71 L55 71 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="2.6" stroke-linejoin="round"/><path class="Li77p28 lip" d="M40 54 Q60 49 80 54" fill="none" stroke="var(--lk)" stroke-width="2.9" stroke-linecap="round"/><path class="Li77p28 rib" d="M53 55 L58 70" stroke="var(--lk)" stroke-width="2.2" stroke-linecap="round"/><path class="Li77p28 rib" d="M60 55 L60 70" stroke="var(--lk)" stroke-width="2.2" stroke-linecap="round"/><path class="Li77p28 rib" d="M67 55 L62 70" stroke="var(--lk)" stroke-width="2.2" stroke-linecap="round"/></g><circle class="Li77p28 drop" cx="60" cy="78" r="2.4" fill="var(--la2)"/><path class="Li77p28 steam1" d="M54 44 Q47 38 53 31 Q59 25 53 18" fill="none" stroke="var(--la)" stroke-width="3" stroke-linecap="round"/><path class="Li77p28 steam2" d="M67 42 Q73 35 67 28 Q61 22 67 16" fill="none" stroke="var(--la2)" stroke-width="3" stroke-linecap="round"/></svg></div>
     <div style="margin-bottom:6px;color:var(--text-2)"><span class="ar">تابعوا اويا: <b style="color:var(--accent)">@ouiacafe</b></span><span class="en">Follow OUIA Cafe: <b style="color:var(--accent)">@ouiacafe</b></span></div>
     <span class="ar">تجربة من <a href="https://menu-sadah.com">منيو سادة — MENU SADAH</a></span>
     <span class="en">Crafted by <a href="https://menu-sadah.com">MENU SADAH</a></span>
@@ -899,6 +883,15 @@ body{
   document.getElementById('langToggle').addEventListener('click',()=>{setLang(root.getAttribute('data-lang')==='ar'?'en':'ar');});
   const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // scroll-spy: light the category chip for the room currently in view (award e-menu pattern)
+  try{
+    const chips=[].slice.call(document.querySelectorAll('.chips .chip'));
+    const secs=chips.map(c=>document.querySelector(c.getAttribute('href'))).filter(Boolean);
+    if('IntersectionObserver' in window && secs.length){
+      const spy=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){const id='#'+e.target.id;chips.forEach(c=>c.classList.toggle('active',c.getAttribute('href')===id));}}),{rootMargin:'-45% 0px -50% 0px',threshold:0});
+      secs.forEach(s=>spy.observe(s));
+    }
+  }catch(e){}
   // motion DNA haptic: a soft 8ms tick when a chip snaps you to a room (feature-checked, motion-respecting)
   if(matchMedia('(prefers-reduced-motion: no-preference)').matches){
     document.querySelectorAll('.chips .chip').forEach(c=>c.addEventListener('click',()=>{navigator.vibrate?.(8);}));

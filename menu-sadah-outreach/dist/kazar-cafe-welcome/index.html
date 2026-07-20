@@ -227,7 +227,29 @@ body{
   .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
   .hero{overflow-x:clip}
   .brandbg{--accent:#a08522;--accent-2:#87463b;--sa:#759834;--sa2:#8ca6b1;--bg-0:#fcfbf8;--bg-1:#f5f3ea;--bg-2:#fefdfb}
-  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(120% 90% at 50% -10%,var(--bg-1),var(--bg-0))}.kz-spot{position:absolute;top:-20%;left:50%;width:70vw;height:120vh;transform:translateX(-50%) rotate(0deg);background:conic-gradient(from 180deg at 50% 0,transparent 46%,color-mix(in srgb,var(--accent) 22%,transparent) 50%,transparent 54%);opacity:.5;transform-origin:50% 0}.kz-steam{position:absolute;bottom:-10%;width:26vw;height:80vh;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--sa) 16%,transparent),transparent 60%);filter:blur(30px);opacity:.35}.kz-steam.s1{left:6%}.kz-steam.s2{left:70%}.kz-steam.s3{left:40%;opacity:.2}.kz-em{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 8px var(--accent-2);opacity:.6}.kz-em.e1{left:20%;bottom:20%}.kz-em.e2{left:78%;bottom:30%}.kz-em.e3{left:55%;bottom:12%}@media(prefers-reduced-motion:no-preference){.kz-spot{animation:kzsweep 12s ease-in-out infinite alternate}.kz-steam{animation:kzrise 9s ease-in-out infinite alternate}.kz-steam.s2{animation-duration:11s}.kz-steam.s3{animation-duration:7s}.kz-em{animation:kzfloat 6s ease-in infinite}.kz-em.e2{animation-duration:8s}.kz-em.e3{animation-duration:5s}@keyframes kzsweep{from{transform:translateX(-50%) rotate(-9deg)}to{transform:translateX(-50%) rotate(9deg)}}@keyframes kzrise{from{transform:translateY(6%)}to{transform:translateY(-8%)}}@keyframes kzfloat{0%{transform:translateY(0);opacity:0}30%{opacity:.7}100%{transform:translateY(-40vh);opacity:0}}}
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(130% 105% at 50% 6%,var(--accent) 0%,var(--accent-2) 44%,rgba(0,0,0,.94) 100%)}
+.brandbg .beam{position:absolute;inset-block-start:-10%;inset-inline-start:50%;inline-size:64%;block-size:125%;margin-inline-start:-32%;background:conic-gradient(from 180deg at 50% 0,transparent 42%,var(--sa) 50%,transparent 58%);opacity:.14;filter:blur(7px);transform-origin:50% 0}
+.brandbg .glow{position:absolute;inset-block-start:-22%;inset-inline-start:50%;inline-size:72vmax;block-size:72vmax;margin-inline-start:-36vmax;border-radius:50%;background:radial-gradient(circle,var(--sa) 0%,transparent 62%);opacity:.5;mix-blend-mode:screen}
+.brandbg .haze{position:absolute;inset-block-end:-26%;inset-inline-end:-12%;inline-size:62vmax;block-size:62vmax;border-radius:50%;background:radial-gradient(circle,var(--sa2) 0%,transparent 66%);opacity:.4;mix-blend-mode:screen}
+.brandbg .sky{position:absolute;inset-block-start:-14%;inset-inline-start:-14%;inline-size:52vmax;block-size:52vmax;border-radius:50%;background:radial-gradient(circle,var(--accent) 0%,transparent 64%);opacity:.3;mix-blend-mode:screen}
+.brandbg .m{position:absolute;inline-size:4px;block-size:4px;border-radius:50%;background:var(--sa);opacity:.5;filter:blur(.5px)}
+.brandbg .m1{inset-block-start:34%;inset-inline-start:45%}
+.brandbg .m2{inset-block-start:54%;inset-inline-start:56%}
+.brandbg .m3{inset-block-start:66%;inset-inline-start:48%}
+.brandbg .m4{inset-block-start:46%;inset-inline-start:61%}
+@media (prefers-reduced-motion:no-preference){
+.brandbg .beam{animation:bb_sweep 16s ease-in-out infinite}
+.brandbg .glow{animation:bb_breathe 11s ease-in-out infinite}
+.brandbg .haze{animation:bb_breathe 13s ease-in-out infinite reverse}
+.brandbg .sky{animation:bb_breathe 15s ease-in-out infinite}
+.brandbg .m{animation:bb_rise 13s ease-in-out infinite}
+.brandbg .m2{animation-duration:17s;animation-delay:-4s}
+.brandbg .m3{animation-duration:19s;animation-delay:-8s}
+.brandbg .m4{animation-duration:15s;animation-delay:-11s}
+@keyframes bb_sweep{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
+@keyframes bb_breathe{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:.6;transform:scale(1.12)}}
+@keyframes bb_rise{0%{transform:translateY(12px);opacity:0}30%{opacity:.6}100%{transform:translateY(-130px);opacity:0}}
+}
 
   /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
   
@@ -296,7 +318,7 @@ body{
 </script>
 </head>
 <body>
-<div class="brandbg" aria-hidden="true"><span class="kz-spot"></span><span class="kz-steam s1"></span><span class="kz-steam s2"></span><span class="kz-steam s3"></span><i class="kz-em e1"></i><i class="kz-em e2"></i><i class="kz-em e3"></i></div>
+<div class="brandbg" aria-hidden="true"><i class="sky"></i><i class="beam"></i><i class="glow"></i><i class="haze"></i><span class="m m1"></span><span class="m m2"></span><span class="m m3"></span><span class="m m4"></span></div>
 <div class="sting-wash" aria-hidden="true"><i></i><i></i></div>
 <div class="curtain" id="msCurtain" aria-hidden="true"></div>
 <div class="bigmark" aria-hidden="true"><span class="ar">ك</span><span class="en">K</span></div>
@@ -351,27 +373,22 @@ body{
 </svg>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:13px;animation-delay:0s">〜</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:11px;animation-delay:0.7s">〜</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:10px;animation-delay:1.4s">〜</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:9px;animation-delay:2.0999999999999996s">〜</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:9px;animation-delay:2.8s">〜</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:9px;animation-delay:3.5s">〜</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:12px;animation-delay:0.1999999999999993s">〜</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:10px;animation-delay:0.8999999999999995s">〜</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="brandlogo big" aria-hidden="true"><style>.L1vc6mjf .part-beam{transform-origin:60px 10px;animation:L1vc6mjf_beam .7s cubic-bezier(.2,1.3,.3,1) .55s both,L1vc6mjf_glow 3.6s ease-in-out 1.5s infinite}
-.L1vc6mjf .part-curtainL{transform-origin:10px 4px;animation:L1vc6mjf_drop .7s cubic-bezier(.2,1.3,.3,1) .15s both}
-.L1vc6mjf .part-curtainR{transform-origin:110px 4px;animation:L1vc6mjf_drop .7s cubic-bezier(.2,1.3,.3,1) .25s both}
-.L1vc6mjf .part-stage{transform-origin:60px 94px;animation:L1vc6mjf_grow .6s cubic-bezier(.2,1.3,.3,1) .3s both}
-.L1vc6mjf .part-cup{transform-origin:60px 87px;animation:L1vc6mjf_rise .78s cubic-bezier(.2,1.3,.3,1) .5s both}
-.L1vc6mjf .part-steam,.L1vc6mjf .part-steam2{stroke-dasharray:70;stroke-dashoffset:70}
-.L1vc6mjf .part-steam{transform-origin:54px 42px;animation:L1vc6mjf_draw .85s ease .95s forwards,L1vc6mjf_drift 4.6s ease-in-out 1.8s infinite}
-.L1vc6mjf .part-steam2{transform-origin:66px 42px;animation:L1vc6mjf_draw .85s ease 1.1s forwards,L1vc6mjf_drift2 5.1s ease-in-out 2s infinite}
-.L1vc6mjf .part-twinkle{transform-origin:26px 31px;animation:L1vc6mjf_pop .6s cubic-bezier(.2,1.3,.3,1) 1.15s both,L1vc6mjf_spark 2.8s ease-in-out 1.9s infinite}
-.L1vc6mjf .part-detail{opacity:0;animation:L1vc6mjf_fade .5s ease 1.2s forwards}
-@keyframes L1vc6mjf_beam{0%{opacity:0;transform:scaleY(.15)}100%{opacity:.26;transform:scaleY(1)}}
-@keyframes L1vc6mjf_glow{0%,100%{opacity:.16}50%{opacity:.34}}
-@keyframes L1vc6mjf_drop{0%{opacity:0;transform:translateY(-36px)}100%{opacity:1;transform:translateY(0)}}
-@keyframes L1vc6mjf_grow{0%{opacity:0;transform:scaleX(.08)}100%{opacity:1;transform:scaleX(1)}}
-@keyframes L1vc6mjf_rise{0%{opacity:0;transform:translateY(48px) scale(.82)}100%{opacity:1;transform:translateY(0) scale(1)}}
+    <div class="brandlogo big" aria-hidden="true"><style>.L1vc6mjf{transform-box:fill-box}
+.L1vc6mjf.beam{transform-origin:center top;animation:L1vc6mjf_beam 1.1s .7s cubic-bezier(.2,1.3,.3,1) both}
+.L1vc6mjf.arch{stroke-dasharray:150;stroke-dashoffset:150;animation:L1vc6mjf_draw 1.2s .15s ease both}
+.L1vc6mjf.curtain,.L1vc6mjf.curtain2{transform-origin:top;animation:L1vc6mjf_spring 1s .3s cubic-bezier(.2,1.3,.3,1) both}
+.L1vc6mjf.stage{transform-origin:center;animation:L1vc6mjf_grow .85s .15s cubic-bezier(.2,1.3,.3,1) both}
+.L1vc6mjf.cup{transform-origin:center bottom;animation:L1vc6mjf_pop 1s .4s cubic-bezier(.2,1.3,.3,1) both}
+.L1vc6mjf.steam{stroke-dasharray:42;stroke-dashoffset:42;animation:L1vc6mjf_draw 1.2s 1s ease both,L1vc6mjf_drift 9s 2.4s ease-in-out infinite}
+.L1vc6mjf.s2{animation-delay:1.2s,2.9s}
+.L1vc6mjf.star{transform-origin:center;animation:L1vc6mjf_pop 1s .9s cubic-bezier(.2,1.3,.3,1) both,L1vc6mjf_tw 8s 2s ease-in-out infinite}
+@keyframes L1vc6mjf_beam{from{opacity:0;transform:scaleY(.2)}to{opacity:.16;transform:scaleY(1)}}
 @keyframes L1vc6mjf_draw{to{stroke-dashoffset:0}}
-@keyframes L1vc6mjf_drift{0%,100%{transform:translate(0,0);opacity:.9}50%{transform:translate(-3px,-5px);opacity:.5}}
-@keyframes L1vc6mjf_drift2{0%,100%{transform:translate(0,0);opacity:.85}50%{transform:translate(3px,-5px);opacity:.45}}
-@keyframes L1vc6mjf_pop{0%{opacity:0;transform:scale(0) rotate(-40deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
-@keyframes L1vc6mjf_spark{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.3);opacity:.55}}
-@keyframes L1vc6mjf_fade{to{opacity:1}}</style><svg class="L1vc6mjf" viewBox="0 0 120 120" fill="none" stroke-linecap="round" stroke-linejoin="round"><path class="part-beam" d="M54 10 L66 10 L88 84 L32 84 Z" fill="var(--la2)"/><path class="part-curtainL" d="M4 4 Q18 8 20 30 Q10 26 3 32 Q6 16 4 4 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4"/><path class="part-curtainR" d="M116 4 Q102 8 100 30 Q110 26 117 32 Q114 16 116 4 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4"/><ellipse class="part-stage" cx="60" cy="93" rx="36" ry="7" fill="var(--ls)" stroke="var(--lk)" stroke-width="4"/><path class="part-stage" d="M22 96 Q60 100 98 96" stroke="var(--lk)" stroke-width="4"/><g class="part-cup"><ellipse cx="60" cy="86" rx="24" ry="5.5" fill="var(--ls)" stroke="var(--lk)" stroke-width="4"/><path d="M46 60 L74 60 L68 82 Q60 87 52 82 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="5"/><path class="part-detail" d="M74 64 Q86 64 84 74 Q83 80 74 79" stroke="var(--lk)" stroke-width="5"/><ellipse cx="60" cy="60" rx="14" ry="4" fill="var(--lk)"/><path d="M50 66 Q54 70 60 69" stroke="var(--lp)" stroke-width="3" opacity="0.65"/></g><path class="part-steam" d="M54 58 Q46 50 54 42 Q62 34 54 26" stroke="var(--la2)" stroke-width="4"/><path class="part-steam2" d="M66 58 Q74 50 66 42 Q58 34 66 26" stroke="var(--ls)" stroke-width="4"/><path class="part-twinkle" d="M26 20 L29 28 L37 31 L29 34 L26 42 L23 34 L15 31 L23 28 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2.5"/><circle class="part-detail" cx="42" cy="94" r="2.4" fill="var(--la2)"/><circle class="part-detail" cx="60" cy="96" r="2.4" fill="var(--la2)"/><circle class="part-detail" cx="78" cy="94" r="2.4" fill="var(--la2)"/></svg></div>
+@keyframes L1vc6mjf_spring{from{opacity:0;transform:scaleY(.35)}to{opacity:1;transform:scaleY(1)}}
+@keyframes L1vc6mjf_grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes L1vc6mjf_pop{from{opacity:0;transform:translateY(14px) scale(.55)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes L1vc6mjf_drift{0%,100%{transform:translateY(0);opacity:.9}50%{transform:translateY(-3px);opacity:.6}}
+@keyframes L1vc6mjf_tw{0%,100%{opacity:.45}50%{opacity:1}}</style><svg viewBox="0 0 120 120" role="img" aria-label="Kazar Cafe mark"><path class="L1vc6mjf beam" d="M60 10 L43 82 L77 82 Z" fill="var(--la2)" opacity="0.16"/><path class="L1vc6mjf arch" d="M27 32 Q60 13 93 32" fill="none" stroke="var(--lk)" stroke-width="2.8" stroke-linecap="round"/><path class="L1vc6mjf curtain" d="M27 32 Q33 56 29 82" fill="none" stroke="var(--la)" stroke-width="2.6" stroke-linecap="round"/><path class="L1vc6mjf curtain2" d="M93 32 Q87 56 91 82" fill="none" stroke="var(--la)" stroke-width="2.6" stroke-linecap="round"/><line class="L1vc6mjf stage" x1="25" y1="96" x2="95" y2="96" stroke="var(--lk)" stroke-width="3" stroke-linecap="round"/><g class="L1vc6mjf cup"><line x1="47" y1="78" x2="73" y2="78" stroke="var(--lk)" stroke-width="2.8" stroke-linecap="round"/><path d="M50 78 L50 88 Q50 95 57 95 L63 95 Q70 95 70 88 L70 78 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="2.6" stroke-linejoin="round"/><path d="M70 80 Q79 80 79 86 Q79 92 70 90" fill="none" stroke="var(--lk)" stroke-width="2.4" stroke-linecap="round"/></g><path class="L1vc6mjf steam s1" d="M56 72 Q52 66 56 60 Q60 54 56 48" fill="none" stroke="var(--la2)" stroke-width="2.4" stroke-linecap="round"/><path class="L1vc6mjf steam s2" d="M64 72 Q68 66 64 60 Q60 54 64 48" fill="none" stroke="var(--la2)" stroke-width="2.4" stroke-linecap="round"/><path class="L1vc6mjf star" d="M60 22 l1.6 3.5 3.8.5 -2.8 2.7 .7 3.8 -3.3-1.8 -3.3 1.8 .7-3.8 -2.8-2.7 3.8-.5 Z" fill="var(--la2)"/></svg></div>
     
     <h1><span class="ar">أهلاً ببيت <b>كازار كافيه</b></span><span class="en">Welcome home, <b>Kazar Cafe</b>.</span></h1>
     <div class="world"><span class="ar">✦ مسرح ليلي والقهوة بطلته ✦</span><span class="en">✦ a night stage where coffee performs ✦</span></div>

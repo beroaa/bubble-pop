@@ -227,7 +227,32 @@ body{
   .brandbg{position:fixed!important;inset:0!important;width:100vw!important;height:100svh!important;z-index:0!important;pointer-events:none!important;overflow:hidden!important;contain:strict}
   .hero{overflow-x:clip}
   .brandbg{--accent:#a71b55;--accent-2:#89348d;--sa:#9f3e2d;--sa2:#85b789;--bg-0:#fcf8fa;--bg-1:#f5eaef;--bg-2:#fefbfc}
-  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}.spot{position:absolute;top:-20vh;left:50%;width:70vw;height:90vh;margin-inline-start:-35vw;background:radial-gradient(60% 50% at 50% 0,var(--accent),transparent 70%);opacity:.3;filter:blur(30px)}.vig{position:absolute;inset:0;box-shadow:inset 0 0 32vh 12vh var(--bg-0,#000);opacity:.55}.pt{position:absolute;top:-6vh;width:15px;height:15px;background:var(--sa2,var(--accent-2));opacity:.5;border-radius:0 60% 0 60%}.p1{left:18%}.p2{left:42%}.p3{left:66%}.p4{left:86%}@media(prefers-reduced-motion:no-preference){.spot{animation:yrs 10s ease-in-out infinite}.pt{animation:yrp 12s linear infinite}.p2{animation-delay:-3s;animation-duration:15s}.p3{animation-delay:-6s;animation-duration:13s}.p4{animation-delay:-9s;animation-duration:17s}@keyframes yrs{50%{opacity:.48;transform:translateX(6vw)}}@keyframes yrp{to{transform:translateY(112vh) rotate(400deg)}}}
+  .brandbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(140% 100% at 50% 0%,color-mix(in srgb,var(--sa) 55%,black),transparent 60%),radial-gradient(120% 120% at 12% 100%,color-mix(in srgb,var(--accent) 48%,black),transparent 55%),radial-gradient(120% 120% at 88% 92%,color-mix(in srgb,var(--accent-2) 52%,black),transparent 55%),linear-gradient(160deg,color-mix(in srgb,var(--sa2) 72%,black),black)}
+.brandbg .g{position:absolute;border-radius:50%;filter:blur(55px);opacity:.5;mix-blend-mode:screen}
+.brandbg .g1{inset-block-start:-12%;inset-inline-start:8%;width:52vmax;height:52vmax;background:radial-gradient(circle,var(--accent),transparent 65%)}
+.brandbg .g2{inset-block-end:-16%;inset-inline-end:-6%;width:56vmax;height:56vmax;background:radial-gradient(circle,var(--accent-2),transparent 65%)}
+.brandbg .g3{inset-block-start:28%;inset-inline-start:38%;width:42vmax;height:42vmax;background:radial-gradient(circle,var(--sa),transparent 70%)}
+.brandbg .m{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--sa2);box-shadow:0 0 10px 2px var(--sa2);opacity:.6}
+.brandbg .m1{inset-block-start:20%;inset-inline-start:18%}
+.brandbg .m2{inset-block-start:64%;inset-inline-start:30%}
+.brandbg .m3{inset-block-start:40%;inset-inline-start:70%}
+.brandbg .m4{inset-block-start:74%;inset-inline-start:80%}
+.brandbg .m5{inset-block-start:32%;inset-inline-start:52%}
+.brandbg .vg{position:absolute;inset:0;background:radial-gradient(120% 100% at 50% 38%,transparent 42%,black);opacity:.65}
+@media (prefers-reduced-motion:no-preference){
+.brandbg .g1{animation:bg_d1 20s ease-in-out infinite}
+.brandbg .g2{animation:bg_d2 24s ease-in-out infinite}
+.brandbg .g3{animation:bg_d3 28s ease-in-out infinite}
+.brandbg .m{animation:bg_mf 9s ease-in-out infinite}
+.brandbg .m2{animation-duration:11s;animation-delay:1s}
+.brandbg .m3{animation-duration:13s;animation-delay:2s}
+.brandbg .m4{animation-duration:10s;animation-delay:.5s}
+.brandbg .m5{animation-duration:12s;animation-delay:3s}
+@keyframes bg_d1{0%,100%{transform:translate(0,0)}50%{transform:translate(6%,4%)}}
+@keyframes bg_d2{0%,100%{transform:translate(0,0)}50%{transform:translate(-5%,-3%)}}
+@keyframes bg_d3{0%,100%{transform:translate(-3%,0)}50%{transform:translate(4%,-4%)}}
+@keyframes bg_mf{0%,100%{transform:translate(0,0);opacity:.2}50%{transform:translate(0,-28px);opacity:.9}}
+}
 
   /* ---- SAUDI SOUL (inspiration only): Tarma medallion frame + Sadu woven band ---- */
   
@@ -296,7 +321,7 @@ body{
 </script>
 </head>
 <body>
-<div class="brandbg" aria-hidden="true"><span class="spot"></span><span class="vig"></span><span class="pt p1"></span><span class="pt p2"></span><span class="pt p3"></span><span class="pt p4"></span></div>
+<div class="brandbg" aria-hidden="true"><span class="g g1"></span><span class="g g2"></span><span class="g g3"></span><i class="m m1"></i><i class="m m2"></i><i class="m m3"></i><i class="m m4"></i><i class="m m5"></i><b class="vg"></b></div>
 <div class="sting-wash" aria-hidden="true"><i></i><i></i></div>
 <div class="curtain" id="msCurtain" aria-hidden="true"></div>
 <div class="bigmark" aria-hidden="true"><span class="ar">ي</span><span class="en">Y</span></div>
@@ -351,44 +376,23 @@ body{
 </svg>
     <span class="mote" style="inset-inline-start:14%;top:10%;font-size:12px;animation-delay:0s">❧</span><span class="mote" style="inset-inline-start:78%;top:16%;font-size:10px;animation-delay:0.7s">✿</span><span class="mote" style="inset-inline-start:8%;top:46%;font-size:9px;animation-delay:1.4s">❀</span><span class="mote" style="inset-inline-start:86%;top:52%;font-size:9px;animation-delay:2.0999999999999996s">⚘</span><span class="mote" style="inset-inline-start:24%;top:74%;font-size:9px;animation-delay:2.8s">❧</span><span class="mote" style="inset-inline-start:68%;top:80%;font-size:9px;animation-delay:3.5s">✿</span><span class="mote" style="inset-inline-start:46%;top:8%;font-size:9px;animation-delay:0.1999999999999993s">❀</span><span class="mote" style="inset-inline-start:90%;top:30%;font-size:12px;animation-delay:0.8999999999999995s">⚘</span>
     <div class="kick"><span class="ar">🎁 هدية من منيو سادة · ليست إعلاناً</span><span class="en">🎁 A gift from Menu Sadah · not an ad</span></div>
-    <div class="brandlogo big" aria-hidden="true"><style>.Li2f9d0 .part-stem{fill:none;stroke:var(--lk);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:60;stroke-dashoffset:60;animation:Li2f9d0_draw .6s cubic-bezier(.2,1.3,.3,1) .15s forwards}
-.Li2f9d0 .part-leaf{transform-origin:100% 50%;opacity:0;animation:Li2f9d0_leafIn .6s cubic-bezier(.2,1.3,.3,1) .5s forwards}
-.Li2f9d0 .part-vein{fill:none;stroke:var(--lk);stroke-width:3;stroke-linecap:round;stroke-dasharray:32;stroke-dashoffset:32;animation:Li2f9d0_draw .6s cubic-bezier(.2,1.3,.3,1) .85s forwards}
-.Li2f9d0 .bloom{transform-origin:50% 100%;animation:Li2f9d0_sway 4.5s ease-in-out 2s infinite}
-.Li2f9d0 .part-pl{opacity:0;animation:Li2f9d0_flyL .7s cubic-bezier(.2,1.3,.3,1) .3s forwards}
-.Li2f9d0 .part-pr{opacity:0;animation:Li2f9d0_flyR .7s cubic-bezier(.2,1.3,.3,1) .45s forwards}
-.Li2f9d0 .part-pt{opacity:0;animation:Li2f9d0_flyT .7s cubic-bezier(.2,1.3,.3,1) .6s forwards}
-.Li2f9d0 .part-body{opacity:0;transform-origin:50% 100%;animation:Li2f9d0_pop .7s cubic-bezier(.2,1.3,.3,1) .75s forwards}
-.Li2f9d0 .part-spiral{fill:none;stroke:var(--lk);stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:70;stroke-dashoffset:70;animation:Li2f9d0_draw .7s cubic-bezier(.2,1.3,.3,1) 1s forwards}
-.Li2f9d0 .part-fold{fill:none;stroke:var(--lk);stroke-width:3;stroke-linecap:round;stroke-dasharray:36;stroke-dashoffset:36;animation:Li2f9d0_draw .6s cubic-bezier(.2,1.3,.3,1) 1.1s forwards}
-.Li2f9d0 .part-fold2{fill:none;stroke:var(--lk);stroke-width:3;stroke-linecap:round;stroke-dasharray:36;stroke-dashoffset:36;animation:Li2f9d0_draw .6s cubic-bezier(.2,1.3,.3,1) 1.2s forwards}
-.Li2f9d0 .part-star{opacity:0;transform-origin:center;animation:Li2f9d0_pop .6s cubic-bezier(.2,1.3,.3,1) 1.3s forwards,Li2f9d0_twk 3.2s ease-in-out 2s infinite}
-.Li2f9d0 .part-spark{opacity:0;transform-origin:center;animation:Li2f9d0_pop .6s cubic-bezier(.2,1.3,.3,1) 1.45s forwards,Li2f9d0_twk 2.8s ease-in-out 2.4s infinite}
+    <div class="brandlogo big" aria-hidden="true"><style>.Li2f9d0.bloom{transform-box:view-box;transform-origin:60px 102px;animation:Li2f9d0_sway 9s ease-in-out 1.4s infinite}
+.Li2f9d0.p1,.Li2f9d0.p2,.Li2f9d0.p3,.Li2f9d0.cup,.Li2f9d0.lf1,.Li2f9d0.lf2,.Li2f9d0.dew,.Li2f9d0.dew2{transform-box:fill-box;transform-origin:center}
+.Li2f9d0.p1{animation:Li2f9d0_spring .7s cubic-bezier(.2,1.3,.3,1) both .15s}
+.Li2f9d0.p2{animation:Li2f9d0_spring .7s cubic-bezier(.2,1.3,.3,1) both .4s}
+.Li2f9d0.p3{animation:Li2f9d0_spring .7s cubic-bezier(.2,1.3,.3,1) both .7s}
+.Li2f9d0.cup{animation:Li2f9d0_pop .7s cubic-bezier(.2,1.3,.3,1) both .5s}
+.Li2f9d0.spiral{stroke-dasharray:80;stroke-dashoffset:80;animation:Li2f9d0_draw 1s ease .9s forwards}
+.Li2f9d0.stem{stroke-dasharray:40;stroke-dashoffset:40;animation:Li2f9d0_draw .8s ease .2s forwards}
+.Li2f9d0.lf1{animation:Li2f9d0_spring .6s cubic-bezier(.2,1.3,.3,1) both .95s}
+.Li2f9d0.lf2{animation:Li2f9d0_spring .6s cubic-bezier(.2,1.3,.3,1) both 1.1s}
+.Li2f9d0.dew{animation:Li2f9d0_pop .5s ease both 1.2s,Li2f9d0_tw 4.5s ease-in-out 1.7s infinite}
+.Li2f9d0.dew2{animation:Li2f9d0_pop .5s ease both 1.4s,Li2f9d0_tw 5.5s ease-in-out 2s infinite}
+@keyframes Li2f9d0_spring{from{transform:scale(.2);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes Li2f9d0_pop{from{transform:translateY(8px) scale(.6);opacity:0}to{transform:translateY(0) scale(1);opacity:1}}
 @keyframes Li2f9d0_draw{to{stroke-dashoffset:0}}
-@keyframes Li2f9d0_flyL{from{opacity:0;transform:translateX(-42px) rotate(-12deg)}to{opacity:1;transform:none}}
-@keyframes Li2f9d0_flyR{from{opacity:0;transform:translateX(42px) rotate(12deg)}to{opacity:1;transform:none}}
-@keyframes Li2f9d0_flyT{from{opacity:0;transform:translateY(-42px)}to{opacity:1;transform:none}}
-@keyframes Li2f9d0_pop{from{opacity:0;transform:scale(.2)}to{opacity:1;transform:scale(1)}}
-@keyframes Li2f9d0_leafIn{from{opacity:0;transform:scale(.3) rotate(-25deg)}to{opacity:1;transform:none}}
-@keyframes Li2f9d0_sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
-@keyframes Li2f9d0_twk{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}</style><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-linejoin="round" stroke-linecap="round">
-<path class="Li2f9d0 part-stem" d="M60,64 C60,78 57,88 60,102"/>
-<g class="Li2f9d0 part-leaf">
-<path d="M59,86 C50,79 39,81 37,91 C46,95 57,93 59,86 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="4"/>
-<path class="Li2f9d0 part-vein" d="M57,87 C50,88 44,89 40,90"/>
-</g>
-<g class="Li2f9d0 bloom">
-<ellipse class="Li2f9d0 part-pl" cx="42" cy="46" rx="15" ry="13" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4"/>
-<ellipse class="Li2f9d0 part-pr" cx="78" cy="46" rx="15" ry="13" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4"/>
-<ellipse class="Li2f9d0 part-pt" cx="60" cy="31" rx="15" ry="13" fill="var(--ls2)" stroke="var(--lk)" stroke-width="4"/>
-<path class="Li2f9d0 part-body" d="M60,68 C42,68 34,54 40,42 C45,32 54,28 60,28 C66,28 75,32 80,42 C86,54 78,68 60,68 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="5"/>
-<path class="Li2f9d0 part-fold" d="M42,46 C48,52 52,56 57,60"/>
-<path class="Li2f9d0 part-fold2" d="M78,46 C72,52 68,56 63,60"/>
-<path class="Li2f9d0 part-spiral" d="M60,58 C51,58 48,49 54,44 C58,40 65,42 66,48 C67,53 62,57 57,54 C54,52 55,48 58,48"/>
-</g>
-<path class="Li2f9d0 part-star" d="M91,20 C92,27 93,28 100,29 C93,30 92,31 91,38 C90,31 89,30 82,29 C89,28 90,27 91,20 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2"/>
-<path class="Li2f9d0 part-spark" d="M26,32 L27.6,36.4 L32,38 L27.6,39.6 L26,44 L24.4,39.6 L20,38 L24.4,36.4 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="1.6"/>
-</svg></div>
+@keyframes Li2f9d0_tw{0%,100%{opacity:.35;transform:scale(.85)}50%{opacity:1;transform:scale(1.2)}}
+@keyframes Li2f9d0_sway{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}</style><svg viewBox="0 0 120 120" fill="none"><g class="Li2f9d0 bloom"><path class="Li2f9d0 p1" d="M46 44 C34 40 27 48 32 57 C37 63 46 58 48 49 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="2.6" stroke-linejoin="round"/><path class="Li2f9d0 p2" d="M74 44 C86 40 93 48 88 57 C83 63 74 58 72 49 Z" fill="var(--ls2)" stroke="var(--lk)" stroke-width="2.6" stroke-linejoin="round"/><path class="Li2f9d0 p3" d="M60 26 C52 17 44 22 47 32 C50 39 58 37 62 32 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="2.6" stroke-linejoin="round"/><path class="Li2f9d0 cup" d="M44 46 C44 33 54 28 60 28 C66 28 76 33 76 46 C76 60 66 67 60 74 C54 67 44 60 44 46 Z" fill="var(--la)" stroke="var(--lk)" stroke-width="3" stroke-linejoin="round"/><path class="Li2f9d0 spiral" d="M60 62 C53 62 50 55 55 50 C60 45 68 49 67 57 C66 64 57 66 51 61" fill="none" stroke="var(--lk)" stroke-width="2.4" stroke-linecap="round"/><path class="Li2f9d0 stem" d="M60 74 C60 84 60 92 60 102" fill="none" stroke="var(--ls2)" stroke-width="3" stroke-linecap="round"/><path class="Li2f9d0 lf1" d="M60 84 C49 81 43 88 46 95 C55 95 61 90 60 84 Z" fill="var(--la2)" stroke="var(--lk)" stroke-width="2.4" stroke-linejoin="round"/><path class="Li2f9d0 lf2" d="M60 92 C71 89 77 96 74 103 C65 103 59 98 60 92 Z" fill="var(--ls)" stroke="var(--lk)" stroke-width="2.4" stroke-linejoin="round"/></g><circle class="Li2f9d0 dew" cx="80" cy="30" r="3.4" fill="var(--la2)"/><circle class="Li2f9d0 dew2" cx="38" cy="26" r="2.2" fill="var(--la2)"/></svg></div>
     
     <h1><span class="ar">أهلاً ببيت <b>يلو روز</b></span><span class="en">Welcome home, <b>Yellow Rose</b>.</span></h1>
     <div class="world"><span class="ar">✦ حديقة ورد تسهر معنا ✦</span><span class="en">✦ a rose garden that stays up late ✦</span></div>
