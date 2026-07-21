@@ -1,13 +1,1215 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>bubble-pop</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Ibrahim Sharbatly — an elite champion-profile dashboard. House of Sharbatly · Elite Town Real Estate · Menu Sadah · nafas.practice." />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<title>Ibrahim Sharbatly — Champion Profile</title>
+</head>
+<body>
+<title>Ibrahim Sharbatly — Champion Profile</title>
+<style>
+/* ============================================================
+   ELITE PROFILE — "House of Sharbatly" champion dashboard
+   Single-file, dependency-free. Committed dark hextech world.
+   Edit the CONFIG object near the bottom to make it yours.
+   ============================================================ */
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  color-scheme:dark;
+
+  /* — grounds (blue-biased near-black, chosen not defaulted) — */
+  --obsidian:#070A11;
+  --night:#0A0E18;
+  --panel:#0F1626;
+  --panel-2:#131C30;
+  --raised:#1A2540;
+  --line:#26314C;
+  --line-soft:#1C2540;
+
+  /* — molten gold (primary accent, Elite Town heritage) — */
+  --gold:#E8C06A;
+  --gold-bright:#FBE9B0;
+  --gold-deep:#B9852B;
+  --gold-glow:rgba(232,192,106,.45);
+
+  /* — hextech cyan/teal (energy / AI / tech) — */
+  --cyan:#46E0E6;
+  --teal:#5EEAD4;
+  --cyan-glow:rgba(70,224,230,.40);
+
+  /* — legendary violet (rare highlights) — */
+  --violet:#B282F5;
+
+  /* — ink — */
+  --ink:#F6F0E2;
+  --ink-2:#AEB8CE;
+  --muted:#727C93;
+
+  /* — status — */
+  --good:#4ADE80;
+  --warn:#F5B942;
+  --crit:#F26D6D;
+
+  /* — type — */
+  --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,"Cormorant Garamond","Times New Roman",Georgia,serif;
+  --sans:"Helvetica Neue","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","JetBrains Mono","Roboto Mono",Menlo,Consolas,monospace;
+
+  --maxw:1180px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} }
+
+body{
+  font-family:var(--sans);
+  background:var(--obsidian);
+  color:var(--ink);
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  min-height:100vh;
+}
+
+/* Committed single visual world: keep the dark game screen even if a
+   viewer forces light mode (the "neon arcade screen" exception). */
+:root[data-theme="light"]{color-scheme:dark}
+
+/* fixed atmospheric layers */
+#fx-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
+.bg-wash{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(1200px 800px at 78% -8%, rgba(232,192,106,.10), transparent 60%),
+    radial-gradient(1000px 900px at 8% 12%, rgba(70,224,230,.07), transparent 55%),
+    radial-gradient(900px 1200px at 50% 120%, rgba(178,130,245,.06), transparent 60%),
+    linear-gradient(180deg,var(--obsidian),#05070C 60%,var(--obsidian));
+}
+.bg-grid{
+  position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
+  background-image:
+    linear-gradient(rgba(120,150,200,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(120,150,200,.045) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(circle at 50% 40%,#000 30%,transparent 80%);
+  -webkit-mask-image:radial-gradient(circle at 50% 40%,#000 30%,transparent 80%);
+}
+
+main{position:relative;z-index:1}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,4vw,40px)}
+
+/* ---------- top rune nav ---------- */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:14px clamp(18px,4vw,40px);
+  background:linear-gradient(180deg,rgba(7,10,17,.92),rgba(7,10,17,.35) 70%,transparent);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border-bottom:1px solid transparent;
+  transition:border-color .4s var(--ease),background .4s var(--ease);
+}
+.nav.scrolled{border-bottom-color:var(--line-soft);background:rgba(7,10,17,.94)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.crest{
+  width:38px;height:42px;flex:0 0 auto;display:grid;place-items:center;
+  clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);
+  background:linear-gradient(160deg,var(--gold-bright),var(--gold-deep));
+  color:#1a1305;font-family:var(--serif);font-weight:700;font-size:18px;
+  box-shadow:0 0 22px var(--gold-glow);
+}
+.brand-txt{display:flex;flex-direction:column;line-height:1.05}
+.brand-txt b{font-family:var(--serif);font-size:16px;letter-spacing:.5px}
+.brand-txt span{font-family:var(--mono);font-size:9.5px;letter-spacing:3px;color:var(--gold);text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-links a{
+  font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--ink-2);text-decoration:none;padding:8px 11px;border-radius:8px;position:relative;
+  transition:color .25s,background .25s;
+}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);background:rgba(232,192,106,.08)}
+.nav-links a.active::after{
+  content:"";position:absolute;left:11px;right:11px;bottom:3px;height:1.5px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.nav-tools{display:flex;align-items:center;gap:8px}
+.icon-btn{
+  width:38px;height:38px;display:grid;place-items:center;cursor:pointer;
+  background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:10px;
+  color:var(--ink-2);transition:.25s;
+}
+.icon-btn:hover{color:var(--gold);border-color:var(--gold-deep);box-shadow:0 0 16px rgba(232,192,106,.2)}
+.icon-btn svg{width:17px;height:17px}
+@media(max-width:900px){ .nav-links{display:none} }
+
+/* ---------- generic section chrome ---------- */
+section{position:relative;padding:clamp(70px,10vh,120px) 0}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--mono);font-size:11px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:18px;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+.eyebrow .ar{color:var(--ink-2);letter-spacing:0;font-family:var(--serif);font-size:14px}
+h2.title{
+  font-family:var(--serif);font-weight:600;line-height:1.05;
+  font-size:clamp(30px,4.6vw,52px);letter-spacing:-.5px;text-wrap:balance;margin-bottom:14px;
+}
+h2.title em{font-style:italic;color:var(--gold);text-shadow:0 0 28px var(--gold-glow)}
+.lede{color:var(--ink-2);max-width:60ch;font-size:clamp(15px,1.6vw,17px)}
+
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){ .reveal{opacity:1;transform:none;transition:none} }
+
+/* panel look */
+.panel{
+  position:relative;background:
+    linear-gradient(180deg,rgba(26,37,64,.55),rgba(15,22,38,.72));
+  border:1px solid var(--line);border-radius:16px;
+  box-shadow:0 26px 60px -30px rgba(0,0,0,.9),inset 0 1px 0 rgba(255,255,255,.03);
+}
+.panel::before{ /* corner hextech ticks */
+  content:"";position:absolute;inset:8px;border-radius:11px;pointer-events:none;
+  background:
+    linear-gradient(var(--gold-deep),var(--gold-deep)) left top/14px 1px no-repeat,
+    linear-gradient(var(--gold-deep),var(--gold-deep)) left top/1px 14px no-repeat,
+    linear-gradient(var(--gold-deep),var(--gold-deep)) right bottom/14px 1px no-repeat,
+    linear-gradient(var(--gold-deep),var(--gold-deep)) right bottom/1px 14px no-repeat;
+  opacity:.55;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+#hero{padding-top:clamp(120px,16vh,180px);min-height:100vh;display:flex;align-items:center}
+.hero-grid{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,440px);
+  gap:clamp(30px,5vw,72px);align-items:center;width:100%;
+}
+@media(max-width:960px){ .hero-grid{grid-template-columns:1fr;gap:44px} }
+
+.house-tag{
+  display:inline-flex;align-items:center;gap:12px;
+  font-family:var(--mono);font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);
+  padding:7px 14px;border:1px solid var(--gold-deep);border-radius:100px;
+  background:rgba(232,192,106,.06);margin-bottom:26px;
+}
+.house-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold)}
+.house-tag [data-ar]{font-family:var(--serif);font-size:14px;letter-spacing:0}
+.hero-name{
+  font-family:var(--serif);font-weight:600;line-height:.98;letter-spacing:-1.5px;
+  font-size:clamp(46px,8.5vw,104px);margin-bottom:6px;
+  background:linear-gradient(180deg,#FFF7E4 8%,var(--gold) 55%,var(--gold-deep) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 6px 30px rgba(232,192,106,.28));
+}
+.hero-name-ar{font-family:var(--serif);font-size:clamp(22px,3.5vw,34px);color:var(--ink-2);direction:rtl;margin-bottom:22px;letter-spacing:1px}
+.hero-title{font-size:clamp(16px,2vw,20px);color:var(--ink);font-weight:500;max-width:38ch;margin-bottom:10px}
+.hero-title b{color:var(--gold)}
+.hero-sub{font-family:var(--mono);font-size:12px;letter-spacing:1px;color:var(--ink-2);margin-bottom:30px;line-height:2}
+.hero-sub .sep{color:var(--gold-deep);margin:0 8px}
+
+.hero-stats{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:34px}
+.hstat{
+  flex:1 1 120px;min-width:110px;padding:14px 16px;border-radius:12px;
+  background:rgba(255,255,255,.025);border:1px solid var(--line);position:relative;overflow:hidden;
+}
+.hstat::after{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(var(--gold),transparent)}
+.hstat .n{font-family:var(--mono);font-size:clamp(20px,2.4vw,27px);font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:-.5px}
+.hstat .l{font-family:var(--mono);font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:3px}
+
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px}
+.btn{
+  font-family:var(--mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;
+  padding:15px 26px;border-radius:11px;cursor:pointer;text-decoration:none;display:inline-flex;
+  align-items:center;gap:10px;border:1px solid transparent;transition:.28s var(--ease);position:relative;overflow:hidden;
+}
+.btn-primary{
+  color:#1a1305;background:linear-gradient(135deg,var(--gold-bright),var(--gold) 55%,var(--gold-deep));
+  box-shadow:0 12px 34px -12px var(--gold-glow),inset 0 1px 0 rgba(255,255,255,.5);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 44px -12px var(--gold-glow)}
+.btn-ghost{color:var(--ink);background:rgba(255,255,255,.03);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--gold-deep);color:var(--gold);box-shadow:0 0 22px rgba(232,192,106,.18)}
+.btn .sheen{position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg)}
+.btn-primary:hover .sheen{animation:sheen 1s var(--ease)}
+@keyframes sheen{to{left:130%}}
+@media (prefers-reduced-motion:reduce){ .btn-primary:hover{transform:none} .btn-primary:hover .sheen{animation:none} }
+
+/* portrait */
+.portrait-stage{position:relative;display:grid;place-items:center;justify-self:center}
+.hexframe{
+  position:relative;width:clamp(280px,34vw,400px);aspect-ratio:1/1.12;
+  display:grid;place-items:center;
+}
+.hex-rot{
+  position:absolute;inset:-14px;
+  clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);
+  background:conic-gradient(from 0deg,var(--gold-deep),var(--gold-bright),var(--cyan),var(--gold),var(--gold-deep));
+  animation:spin 12s linear infinite;filter:blur(.5px);
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){ .hex-rot{animation:none} }
+.hex-inner{
+  position:absolute;inset:2px;
+  clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);
+  background:radial-gradient(circle at 50% 35%,#1a2338,#0a0e18 70%);
+  display:grid;place-items:center;overflow:hidden;
+}
+.hex-inner img{width:100%;height:100%;object-fit:cover}
+.hex-holo{position:absolute;inset:0;background:linear-gradient(115deg,transparent 40%,rgba(94,234,212,.16) 48%,transparent 56%);mix-blend-mode:screen;animation:holo 5s var(--ease) infinite;pointer-events:none}
+@keyframes holo{0%,100%{transform:translateX(-30%)}50%{transform:translateX(30%)}}
+@media (prefers-reduced-motion:reduce){ .hex-holo{animation:none;opacity:.4} }
+.crest-mono{display:grid;place-items:center;text-align:center;gap:6px;padding:20px}
+.crest-mono .mono-lg{font-family:var(--serif);font-size:clamp(56px,9vw,86px);font-weight:700;
+  background:linear-gradient(180deg,#FFF7E4,var(--gold) 60%,var(--gold-deep));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.crest-mono .mono-ar{font-family:var(--serif);font-size:clamp(20px,3vw,28px);color:var(--gold);direction:rtl}
+.crest-mono .mono-hint{font-family:var(--mono);font-size:9px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-top:10px;max-width:80%;line-height:1.6}
+
+/* level ring badge */
+.lvl-ring{
+  position:absolute;bottom:2%;right:-2%;width:88px;height:88px;border-radius:50%;
+  display:grid;place-items:center;background:radial-gradient(circle,#12192b,#080b12);
+  border:2px solid var(--gold-deep);box-shadow:0 0 30px rgba(232,192,106,.4),inset 0 0 20px rgba(0,0,0,.6);z-index:3;
+}
+.lvl-ring .lv{font-family:var(--mono);font-size:9px;letter-spacing:2px;color:var(--gold);text-transform:uppercase}
+.lvl-ring .num{font-family:var(--serif);font-size:34px;font-weight:700;color:var(--ink);line-height:.9;margin-top:-2px}
+.rank-chip{
+  position:absolute;top:1%;left:-4%;z-index:3;display:flex;align-items:center;gap:8px;
+  padding:8px 14px 8px 10px;border-radius:100px;background:rgba(10,14,24,.9);
+  border:1px solid var(--gold-deep);box-shadow:0 8px 26px rgba(0,0,0,.6);
+}
+.rank-chip .em{width:26px;height:26px;display:grid;place-items:center;filter:drop-shadow(0 0 6px var(--gold-glow))}
+.rank-chip .em svg{width:26px;height:26px}
+.rank-chip .txt{line-height:1.05}
+.rank-chip .txt b{font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;display:block}
+.rank-chip .txt span{font-family:var(--mono);font-size:8.5px;letter-spacing:1px;color:var(--muted)}
+
+.scroll-cue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--muted);font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase}
+.scroll-cue .bar{width:1px;height:38px;background:linear-gradient(var(--gold),transparent);animation:cue 2s var(--ease) infinite}
+@keyframes cue{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+@media (prefers-reduced-motion:reduce){ .scroll-cue .bar{animation:none} }
+
+/* ============================================================
+   RANK
+   ============================================================ */
+.rank-grid{display:grid;grid-template-columns:340px minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:stretch}
+@media(max-width:860px){ .rank-grid{grid-template-columns:1fr} }
+.rank-emblem-card{padding:34px 26px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.emblem-big{width:150px;height:150px;position:relative;display:grid;place-items:center;margin-bottom:10px}
+.emblem-big .halo{position:absolute;inset:-18px;border-radius:50%;background:radial-gradient(circle,var(--gold-glow),transparent 65%);animation:pulse 3.4s var(--ease) infinite}
+@keyframes pulse{0%,100%{opacity:.5;transform:scale(.94)}50%{opacity:1;transform:scale(1.06)}}
+@media (prefers-reduced-motion:reduce){ .emblem-big .halo{animation:none} }
+.emblem-big svg{width:150px;height:150px;position:relative;z-index:1;filter:drop-shadow(0 6px 16px rgba(0,0,0,.6))}
+.rank-tier{font-family:var(--serif);font-size:34px;font-weight:700;letter-spacing:1px;
+  background:linear-gradient(180deg,#FFF7E4,var(--gold) 60%,var(--gold-deep));-webkit-background-clip:text;background-clip:text;color:transparent}
+.rank-div{font-family:var(--mono);font-size:11px;letter-spacing:3px;color:var(--ink-2);text-transform:uppercase}
+.rank-lp{font-family:var(--mono);margin-top:12px;font-size:13px;color:var(--gold)}
+.rank-lp b{font-size:22px;font-variant-numeric:tabular-nums}
+.rank-pct{margin-top:8px;font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--muted);text-transform:uppercase}
+
+.ladder{padding:26px 28px}
+.ladder h3,.side-h{font-family:var(--mono);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--ink-2);margin-bottom:20px}
+.tier-row{display:flex;align-items:center;gap:14px;padding:11px 12px;border-radius:10px;position:relative;transition:.3s}
+.tier-row + .tier-row{margin-top:4px}
+.tier-row .ic{width:30px;height:30px;flex:0 0 auto;display:grid;place-items:center}
+.tier-row .ic svg{width:28px;height:28px}
+.tier-row .nm{font-family:var(--mono);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);flex:1}
+.tier-row .track{flex:2;height:6px;border-radius:6px;background:rgba(255,255,255,.05);overflow:hidden;position:relative}
+.tier-row .track > i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:6px;transition:width 1.2s var(--ease)}
+.tier-row .pc{font-family:var(--mono);font-size:11px;color:var(--muted);width:44px;text-align:right;font-variant-numeric:tabular-nums}
+.tier-row.you{background:linear-gradient(90deg,rgba(232,192,106,.14),transparent);border:1px solid var(--gold-deep);box-shadow:0 0 26px rgba(232,192,106,.14)}
+.tier-row.you .nm{color:var(--gold)}
+.tier-row.you::after{content:"YOU";position:absolute;right:12px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:9px;letter-spacing:2px;color:#1a1305;background:var(--gold);padding:2px 7px;border-radius:5px}
+.tier-row.you .pc{display:none}
+
+/* ============================================================
+   ATTRIBUTES
+   ============================================================ */
+.attr-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(22px,3.5vw,44px);align-items:center}
+@media(max-width:860px){ .attr-grid{grid-template-columns:1fr} }
+.radar-card{padding:24px;display:grid;place-items:center}
+.radar-wrap{position:relative;width:100%;max-width:420px;aspect-ratio:1/1}
+.radar-wrap svg{width:100%;height:100%;overflow:visible}
+.radar-axis-label{font-family:var(--mono);font-size:10.5px;letter-spacing:1px;fill:var(--ink-2);text-transform:uppercase}
+.radar-axis-val{font-family:var(--mono);font-size:11px;fill:var(--gold);font-weight:700}
+
+.traits{display:flex;flex-direction:column;gap:20px}
+.trait-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.trait-top .nm{font-family:var(--sans);font-size:15px;font-weight:600;color:var(--ink)}
+.trait-top .nm small{font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--muted);text-transform:uppercase;margin-left:8px}
+.trait-top .vl{font-family:var(--mono);font-size:14px;color:var(--gold);font-variant-numeric:tabular-nums}
+.meter{height:9px;border-radius:9px;background:rgba(255,255,255,.05);overflow:hidden;position:relative}
+.meter > i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:9px;
+  background:linear-gradient(90deg,var(--gold-deep),var(--gold) 70%,var(--gold-bright));
+  box-shadow:0 0 14px var(--gold-glow);transition:width 1.3s var(--ease)}
+.meter > i::after{content:"";position:absolute;right:0;top:0;bottom:0;width:8px;background:var(--gold-bright);filter:blur(3px)}
+.playstyle{margin-top:6px;padding:16px 18px;border-radius:12px;background:rgba(70,224,230,.05);border:1px solid rgba(70,224,230,.18)}
+.playstyle b{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);display:block;margin-bottom:6px}
+.playstyle p{font-size:14px;color:var(--ink-2)}
+
+/* ============================================================
+   EMPIRE / NET WORTH
+   ============================================================ */
+.empire{position:relative;overflow:hidden;padding:clamp(30px,4vw,52px)}
+.empire-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(26px,4vw,50px);align-items:center}
+@media(max-width:860px){ .empire-grid{grid-template-columns:1fr} }
+.index-num{font-family:var(--serif);font-weight:700;line-height:.9;letter-spacing:-2px;
+  font-size:clamp(58px,11vw,120px);
+  background:linear-gradient(180deg,#FFF7E4,var(--gold) 55%,var(--gold-deep));-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 8px 34px var(--gold-glow));font-variant-numeric:tabular-nums}
+.index-lbl{font-family:var(--mono);font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.index-note{font-family:var(--mono);font-size:10px;letter-spacing:.5px;color:var(--muted);margin-top:14px;max-width:44ch;line-height:1.7}
+.empire-breakdown{display:flex;flex-direction:column;gap:14px}
+.eb-row{display:flex;align-items:center;gap:14px;padding:15px 16px;border-radius:12px;background:rgba(255,255,255,.025);border:1px solid var(--line)}
+.eb-row .ic{width:40px;height:40px;flex:0 0 auto;border-radius:10px;display:grid;place-items:center;background:rgba(232,192,106,.08);color:var(--gold)}
+.eb-row .ic svg{width:20px;height:20px}
+.eb-row .mid{flex:1}
+.eb-row .mid .k{font-size:13px;color:var(--ink);font-weight:600}
+.eb-row .mid .s{font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--muted);text-transform:uppercase}
+.eb-row .v{font-family:var(--mono);font-size:15px;color:var(--gold);font-variant-numeric:tabular-nums;font-weight:600;text-align:right}
+
+/* ============================================================
+   VENTURES ROSTER
+   ============================================================ */
+.roster{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:900px){ .roster{grid-template-columns:1fr} }
+.champ{
+  position:relative;border-radius:16px;overflow:hidden;text-decoration:none;color:inherit;
+  border:1px solid var(--line);background:linear-gradient(180deg,rgba(26,37,64,.5),rgba(12,17,30,.85));
+  transition:transform .4s var(--ease),border-color .4s var(--ease),box-shadow .4s var(--ease);display:flex;flex-direction:column;
+}
+.champ:hover{transform:translateY(-6px);border-color:var(--gold-deep);box-shadow:0 30px 60px -28px rgba(0,0,0,.9),0 0 40px -10px var(--gold-glow)}
+.champ-top{position:relative;height:150px;display:grid;place-items:center;overflow:hidden}
+.champ-top .glowbg{position:absolute;inset:0;opacity:.9}
+.champ-1 .glowbg{background:radial-gradient(circle at 50% 40%,rgba(232,192,106,.28),transparent 65%)}
+.champ-2 .glowbg{background:radial-gradient(circle at 50% 40%,rgba(70,224,230,.24),transparent 65%)}
+.champ-3 .glowbg{background:radial-gradient(circle at 50% 40%,rgba(255,138,101,.24),transparent 65%)}
+.champ-sigil{position:relative;z-index:1;width:74px;height:74px;display:grid;place-items:center;border-radius:16px;color:var(--gold);
+  background:rgba(8,11,18,.6);border:1px solid var(--line);backdrop-filter:blur(4px)}
+.champ-2 .champ-sigil{color:var(--cyan)}
+.champ-3 .champ-sigil{color:#FF8A65}
+.champ-sigil svg{width:38px;height:38px}
+.champ-role{position:absolute;top:12px;left:12px;z-index:2;font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;
+  padding:5px 10px;border-radius:6px;background:rgba(8,11,18,.75);border:1px solid var(--line);color:var(--ink-2)}
+.champ-body{padding:20px 22px 24px;display:flex;flex-direction:column;flex:1}
+.champ-body h3{font-family:var(--serif);font-size:23px;font-weight:600;margin-bottom:3px}
+.champ-body .ar{font-family:var(--serif);font-size:14px;color:var(--gold);direction:rtl;margin-bottom:12px}
+.champ-body p{font-size:13.5px;color:var(--ink-2);flex:1;margin-bottom:16px}
+.champ-stats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.cstat{flex:1 1 auto;padding:9px 11px;border-radius:9px;background:rgba(255,255,255,.03);border:1px solid var(--line);text-align:center;min-width:74px}
+.cstat b{font-family:var(--mono);font-size:15px;color:var(--gold);display:block;font-variant-numeric:tabular-nums}
+.cstat span{font-family:var(--mono);font-size:8.5px;letter-spacing:1px;color:var(--muted);text-transform:uppercase}
+.champ-link{font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:8px;transition:gap .3s}
+.champ:hover .champ-link{gap:14px}
+
+/* ============================================================
+   ABILITIES
+   ============================================================ */
+.abilities{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:820px){ .abilities{grid-template-columns:repeat(2,1fr)} }
+@media(max-width:460px){ .abilities{grid-template-columns:1fr} }
+.ability{position:relative;padding:22px 20px;border-radius:14px;text-align:center;cursor:default;
+  background:linear-gradient(180deg,rgba(26,37,64,.45),rgba(12,17,30,.8));border:1px solid var(--line);transition:.35s var(--ease)}
+.ability:hover,.ability:focus-within{border-color:var(--gold-deep);transform:translateY(-4px);box-shadow:0 20px 44px -22px rgba(0,0,0,.9),0 0 30px -8px var(--gold-glow)}
+.ability .key{position:absolute;top:12px;right:12px;width:24px;height:24px;display:grid;place-items:center;border-radius:6px;
+  font-family:var(--mono);font-size:12px;font-weight:700;color:var(--gold);border:1px solid var(--gold-deep);background:rgba(232,192,106,.08)}
+.ability .ic{width:60px;height:60px;margin:4px auto 16px;border-radius:14px;display:grid;place-items:center;color:var(--gold);
+  background:radial-gradient(circle at 50% 35%,rgba(232,192,106,.16),rgba(8,11,18,.4));border:1px solid var(--gold-deep);
+  box-shadow:inset 0 0 18px rgba(232,192,106,.12)}
+.ability .ic svg{width:30px;height:30px}
+.ability h4{font-family:var(--serif);font-size:18px;font-weight:600;margin-bottom:4px}
+.ability .cd{font-family:var(--mono);font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--cyan);margin-bottom:10px}
+.ability p{font-size:12.5px;color:var(--ink-2);line-height:1.55}
+
+/* ============================================================
+   DYNASTY TREE
+   ============================================================ */
+.dynasty{padding:clamp(28px,4vw,44px)}
+.tree{display:flex;flex-direction:column;align-items:center;gap:0}
+.gen{display:flex;flex-direction:column;align-items:center;width:100%}
+.gen-lbl{font-family:var(--mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.node-row{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+.node{position:relative;padding:16px 20px;border-radius:13px;min-width:180px;text-align:center;
+  background:linear-gradient(180deg,rgba(26,37,64,.5),rgba(12,17,30,.8));border:1px solid var(--line)}
+.node.founder{border-color:var(--gold-deep);box-shadow:0 0 30px -8px var(--gold-glow)}
+.node.you{border-color:var(--gold);background:linear-gradient(180deg,rgba(232,192,106,.14),rgba(12,17,30,.85));box-shadow:0 0 40px -8px var(--gold-glow)}
+.node .av{width:46px;height:46px;margin:0 auto 10px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-weight:700;font-size:18px;color:#1a1305;
+  background:linear-gradient(160deg,var(--gold-bright),var(--gold-deep))}
+.node .nm{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--ink)}
+.node .rl{font-family:var(--mono);font-size:9.5px;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-top:3px}
+.node .yr{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:4px}
+.node.ph .nm{color:var(--muted);font-style:italic}
+.node.ph .av{background:rgba(255,255,255,.06);color:var(--muted);border:1px dashed var(--line)}
+.connector{width:1px;height:30px;background:linear-gradient(var(--gold-deep),transparent);margin:0 auto}
+.dynasty-note{text-align:center;margin-top:26px;font-family:var(--mono);font-size:10px;letter-spacing:.5px;color:var(--muted);line-height:1.7}
+
+/* ============================================================
+   LORE / interests
+   ============================================================ */
+.lore-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:start}
+@media(max-width:860px){ .lore-grid{grid-template-columns:1fr} }
+.lore-text p{color:var(--ink-2);font-size:16px;margin-bottom:16px;max-width:56ch}
+.lore-text p .hl{color:var(--gold);font-weight:600}
+.lore-quote{font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.6vw,27px);color:var(--ink);line-height:1.35;
+  padding-left:20px;border-left:2px solid var(--gold-deep);margin-top:24px}
+.tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.tag{font-family:var(--mono);font-size:11px;letter-spacing:1px;color:var(--ink-2);padding:9px 14px;border-radius:100px;
+  background:rgba(255,255,255,.03);border:1px solid var(--line);display:inline-flex;align-items:center;gap:8px;transition:.28s}
+.tag:hover{border-color:var(--gold-deep);color:var(--gold)}
+.tag .d{width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.tag.cy .d{background:var(--cyan)}
+.tag.vi .d{background:var(--violet)}
+.interests-h{font-family:var(--mono);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--ink-2);margin:26px 0 12px}
+
+/* ============================================================
+   TROPHIES
+   ============================================================ */
+.trophies{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.trophy{padding:22px;border-radius:14px;background:linear-gradient(180deg,rgba(26,37,64,.45),rgba(12,17,30,.8));border:1px solid var(--line);transition:.35s var(--ease);position:relative;overflow:hidden}
+.trophy:hover{border-color:var(--gold-deep);transform:translateY(-4px);box-shadow:0 0 34px -10px var(--gold-glow)}
+.trophy .medal{width:52px;height:52px;border-radius:12px;display:grid;place-items:center;margin-bottom:14px;color:var(--gold);
+  background:radial-gradient(circle at 50% 35%,rgba(232,192,106,.2),rgba(8,11,18,.5));border:1px solid var(--gold-deep)}
+.trophy .medal svg{width:26px;height:26px}
+.trophy.legendary .medal{background:radial-gradient(circle at 50% 35%,rgba(178,130,245,.24),rgba(8,11,18,.5));border-color:var(--violet);color:var(--violet)}
+.trophy h4{font-family:var(--serif);font-size:18px;font-weight:600;margin-bottom:5px}
+.trophy p{font-size:13px;color:var(--ink-2)}
+.trophy .rarity{position:absolute;top:14px;right:16px;font-family:var(--mono);font-size:8.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+.trophy.legendary .rarity{color:var(--violet)}
+
+/* ============================================================
+   TIMELINE
+   ============================================================ */
+.timeline{position:relative;max-width:760px;margin:0 auto;padding-left:34px}
+.timeline::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--gold),var(--cyan),transparent)}
+.tl-item{position:relative;padding-bottom:30px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item .dot{position:absolute;left:-34px;top:2px;width:20px;height:20px;border-radius:50%;background:var(--night);border:2px solid var(--gold);display:grid;place-items:center;box-shadow:0 0 16px var(--gold-glow)}
+.tl-item .dot i{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.tl-item .yr{font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--gold);text-transform:uppercase}
+.tl-item h4{font-family:var(--serif);font-size:19px;font-weight:600;margin:3px 0 5px}
+.tl-item p{font-size:14px;color:var(--ink-2);max-width:52ch}
+
+/* ============================================================
+   CONNECT / footer
+   ============================================================ */
+.connect{text-align:center}
+.connect .eyebrow{justify-content:center}
+.connect .lede{margin-left:auto;margin-right:auto}
+.socials{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:32px}
+.social{display:flex;align-items:center;gap:12px;padding:16px 22px;border-radius:12px;text-decoration:none;
+  background:linear-gradient(180deg,rgba(26,37,64,.5),rgba(12,17,30,.8));border:1px solid var(--line);color:var(--ink);transition:.32s var(--ease);min-width:210px}
+.social:hover{border-color:var(--gold-deep);transform:translateY(-3px);box-shadow:0 0 30px -10px var(--gold-glow)}
+.social .ic{width:38px;height:38px;flex:0 0 auto;border-radius:10px;display:grid;place-items:center;background:rgba(232,192,106,.08);color:var(--gold)}
+.social .ic svg{width:19px;height:19px}
+.social .tx{text-align:left;line-height:1.25}
+.social .tx b{font-size:14px;display:block}
+.social .tx span{font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--muted)}
+footer{border-top:1px solid var(--line-soft);padding:34px 0 44px;text-align:center;margin-top:40px}
+footer .fcrest{font-family:var(--serif);font-size:20px;color:var(--gold);letter-spacing:2px;margin-bottom:8px}
+footer p{font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--muted);line-height:1.9}
+
+/* intro overlay */
+#intro{position:fixed;inset:0;z-index:200;background:var(--obsidian);display:grid;place-items:center;transition:opacity .8s var(--ease),visibility .8s}
+#intro.done{opacity:0;visibility:hidden;pointer-events:none}
+.intro-crest{text-align:center}
+.intro-crest .sweep{width:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:18px auto 0;animation:sweep 1.4s var(--ease) forwards}
+@keyframes sweep{to{width:220px}}
+.intro-crest .ic{font-family:var(--serif);font-size:60px;font-weight:700;color:var(--gold);letter-spacing:4px;filter:drop-shadow(0 0 26px var(--gold-glow));animation:introfade 1s var(--ease)}
+.intro-crest .lbl{font-family:var(--mono);font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--ink-2);margin-top:16px;animation:introfade 1.2s var(--ease)}
+@keyframes introfade{from{opacity:0}to{opacity:1}}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+.count{font-variant-numeric:tabular-nums}
+</style>
+
+<!-- atmospheric layers -->
+<div class="bg-wash" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+<canvas id="fx-canvas" aria-hidden="true"></canvas>
+
+<!-- intro -->
+<div id="intro" aria-hidden="true">
+  <div class="intro-crest">
+    <div class="ic">IS</div>
+    <div class="sweep"></div>
+    <div class="lbl">House of Sharbatly · Loading Profile</div>
+  </div>
+</div>
+
+<!-- nav -->
+<nav class="nav" id="nav">
+  <a class="brand" href="#hero" aria-label="Home">
+    <span class="crest">IS</span>
+    <span class="brand-txt"><b>Ibrahim Sharbatly</b><span>House of Sharbatly</span></span>
+  </a>
+  <div class="nav-links" id="navlinks">
+    <a href="#rank">Rank</a>
+    <a href="#attributes">Stats</a>
+    <a href="#empire">Empire</a>
+    <a href="#ventures">Ventures</a>
+    <a href="#abilities">Abilities</a>
+    <a href="#dynasty">Dynasty</a>
+    <a href="#trophies">Trophies</a>
+    <a href="#connect">Connect</a>
+  </div>
+  <div class="nav-tools">
+    <button class="icon-btn" id="soundBtn" aria-label="Toggle interface sound" title="Toggle UI sound">
+      <svg id="sndOff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M11 5 6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+      <svg id="sndOn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="display:none"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+    </button>
+  </div>
+</nav>
+
+<main>
+  <!-- ============ HERO ============ -->
+  <section id="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="house-tag"><span class="dot"></span>Est. 1949 · Jeddah · <span data-ar>الشربتلي</span></span>
+          <h1 class="hero-name" id="heroName">Ibrahim Sharbatly</h1>
+          <div class="hero-name-ar">إبراهيم الشربتلي</div>
+          <p class="hero-title"><b>Head of Business Development</b> — Elite Town Real Estate. Fourth-generation steward of a 75-year Jeddah enterprise.</p>
+          <p class="hero-sub">MIT-Certified · AI Product<span class="sep">◆</span>Investment · Development · Leasing<span class="sep">◆</span>Jeddah ⇄ London</p>
+          <div class="hero-stats" id="heroStats"></div>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#ventures"><span class="sheen"></span>View Ventures →</a>
+            <a class="btn btn-ghost" href="#connect">Connect</a>
+          </div>
+        </div>
+
+        <div class="portrait-stage">
+          <div class="hexframe">
+            <div class="hex-rot" aria-hidden="true"></div>
+            <div class="hex-inner" id="hexInner">
+              <div class="crest-mono">
+                <div class="mono-lg">IS</div>
+                <div class="mono-ar">الشربتلي</div>
+                <div class="mono-hint">Drop your 4K portrait in<br>CONFIG.portrait</div>
+              </div>
+              <div class="hex-holo" aria-hidden="true"></div>
+            </div>
+            <div class="rank-chip">
+              <span class="em" id="rankChipEm"></span>
+              <span class="txt"><b id="rankChipTier">Challenger</b><span>Elite Ladder</span></span>
+            </div>
+            <div class="lvl-ring">
+              <span class="lv">LVL</span>
+              <span class="num" id="lvlNum">25</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-cue" aria-hidden="true"><span>Scroll</span><span class="bar"></span></div>
+  </section>
+
+  <!-- ============ RANK ============ -->
+  <section id="rank">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow">Season Standing <span class="ar">· المرتبة</span></span>
+        <h2 class="title">The <em>Elite</em> Ladder</h2>
+        <p class="lede">Where a founder sits on the climb — measured in vision, execution, and the compounding of a family name.</p>
+      </div>
+      <div class="rank-grid reveal" style="margin-top:38px">
+        <div class="panel rank-emblem-card">
+          <div class="emblem-big"><div class="halo"></div><span id="emblemBig"></span></div>
+          <div class="rank-tier" id="rankTier">Challenger</div>
+          <div class="rank-div" id="rankDiv">Radiant I</div>
+          <div class="rank-lp"><b class="count" id="rankLP" data-to="0">0</b> LP</div>
+          <div class="rank-pct" id="rankPct">Top 0.1% of climbers</div>
+        </div>
+        <div class="panel ladder">
+          <h3>Tier Ladder — Season MMXXVI</h3>
+          <div id="ladderRows"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ATTRIBUTES ============ -->
+  <section id="attributes">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow">Base Stats <span class="ar">· القدرات</span></span>
+        <h2 class="title">Champion <em>Attributes</em></h2>
+        <p class="lede">Rolled across four generations and sharpened at Hult and MIT — the stat block behind the deals.</p>
+      </div>
+      <div class="attr-grid reveal" style="margin-top:38px">
+        <div class="panel radar-card">
+          <div class="radar-wrap"><svg id="radar" viewBox="0 0 400 400" role="img" aria-label="Attribute radar chart"></svg></div>
+        </div>
+        <div class="traits" id="traits"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EMPIRE ============ -->
+  <section id="empire">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow">Power Rating <span class="ar">· الإمبراطورية</span></span>
+        <h2 class="title">The <em>Empire</em> Index</h2>
+        <p class="lede">A single glowing number for the whole operation — portfolio, ventures, and the multiplier a legacy name adds on top.</p>
+      </div>
+      <div class="panel empire reveal" style="margin-top:38px">
+        <div class="empire-grid">
+          <div>
+            <div class="index-lbl">Empire Index · Composite Power</div>
+            <div class="index-num"><span class="count" id="empireIndex" data-to="0">0</span></div>
+            <div class="index-note">◆ Illustrative game stat — a self-set composite, not a verified financial figure. Set your real numbers (net worth, portfolio, valuations) in the <b>CONFIG</b> object at the top of the code.</div>
+          </div>
+          <div class="empire-breakdown" id="empireBreakdown"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VENTURES ============ -->
+  <section id="ventures">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow">Roster <span class="ar">· المشاريع</span></span>
+        <h2 class="title">Ventures <em>in Play</em></h2>
+        <p class="lede">Three champions on the board — a 75-year real-estate house, a bilingual SaaS, and a breath-work brand.</p>
+      </div>
+      <div class="roster reveal" id="roster" style="margin-top:38px"></div>
+    </div>
+  </section>
+
+  <!-- ============ ABILITIES ============ -->
+  <section id="abilities">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow">Skill Kit <span class="ar">· المهارات</span></span>
+        <h2 class="title">Signature <em>Abilities</em></h2>
+        <p class="lede">The kit that closes the deal — hover each to read the tooltip.</p>
+      </div>
+      <div class="abilities reveal" id="abilitiesGrid" style="margin-top:38px"></div>
+    </div>
+  </section>
+
+  <!-- ============ DYNASTY ============ -->
+  <section id="dynasty">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow">Bloodline <span class="ar">· السلالة</span></span>
+        <h2 class="title">The <em>Dynasty</em> Tree</h2>
+        <p class="lede">Four generations of the House of Sharbatly. Ancestor nodes are yours to name — edit them in <b>CONFIG.dynasty</b>.</p>
+      </div>
+      <div class="panel dynasty reveal" style="margin-top:38px">
+        <div class="tree" id="tree"></div>
+        <div class="dynasty-note">◆ Placeholder generations shown. Replace names, roles and years with your real lineage in the CONFIG object.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LORE ============ -->
+  <section id="lore">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow">Champion Lore <span class="ar">· القصة</span></span>
+        <h2 class="title">The <em>Backstory</em></h2>
+      </div>
+      <div class="lore-grid reveal" style="margin-top:34px">
+        <div class="lore-text">
+          <p>Twenty-five, London-based, and one semester from a business degree — <span class="hl">Ibrahim Sharbatly</span> carries seventy-five years of family enterprise into its next generation. By day he heads business development at <span class="hl">Elite Town Real Estate</span>, moving across the full property lifecycle: investment, development, leasing and management.</p>
+          <p>By night he builds. He designed and shipped the Elite Town website himself, launched <span class="hl">Menu Sadah</span> — bilingual digital menus for Gulf cafés — and grew <span class="hl">nafas.practice</span>, a science-backed breath-work brand, past a thousand followers. In September 2025 he earned an <span class="hl">MIT xPRO certificate</span> in designing and building AI products.</p>
+          <div class="lore-quote">"Building Dreams, Creating Value."</div>
+          <div class="interests-h">Interests &amp; Hobbies</div>
+          <div class="tags" id="interestTags"></div>
+        </div>
+        <div class="panel" style="padding:26px">
+          <div class="side-h">Origin &amp; Base</div>
+          <div id="loreFacts"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TROPHIES ============ -->
+  <section id="trophies">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow">Trophy Case <span class="ar">· الإنجازات</span></span>
+        <h2 class="title">Unlocked <em>Achievements</em></h2>
+        <p class="lede">Earned, not gifted.</p>
+      </div>
+      <div class="trophies reveal" id="trophiesGrid" style="margin-top:38px"></div>
+    </div>
+  </section>
+
+  <!-- ============ TIMELINE ============ -->
+  <section id="timeline">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow">Match History <span class="ar">· الرحلة</span></span>
+        <h2 class="title">The <em>Climb</em></h2>
+      </div>
+      <div class="timeline reveal" id="timelineList" style="margin-top:38px"></div>
+    </div>
+  </section>
+
+  <!-- ============ CONNECT ============ -->
+  <section id="connect">
+    <div class="wrap connect">
+      <div class="reveal">
+        <span class="eyebrow">Recruit the Champion <span class="ar">· تواصل</span></span>
+        <h2 class="title">Let's Build <em>Something</em></h2>
+        <p class="lede">Partnerships, investment, or just to talk shop — the lines are open.</p>
+        <div class="socials" id="socials"></div>
+      </div>
+    </div>
+    <footer>
+      <div class="wrap">
+        <div class="fcrest">◆ الشربتلي ◆</div>
+        <p>IBRAHIM SHARBATLY · HOUSE OF SHARBATLY · EST. 1949 JEDDAH<br>Champion Profile — a gamified personal dashboard. Figures marked illustrative are self-set.</p>
+      </div>
+    </footer>
+  </section>
+</main>
+
+<script>
+/* ============================================================
+   CONFIG — everything editable lives here.
+   Change values, refresh, done. No build step.
+   ============================================================ */
+const CONFIG = {
+  name:"Ibrahim Sharbatly",
+  nameAr:"إبراهيم الشربتلي",
+  house:"House of Sharbatly",
+  level:25,                         // your age / "level"
+  portrait:"",                      // <-- paste a photo URL (or data URI) for a real 4K portrait
+
+  // Hero quick-stats
+  heroStats:[
+    {n:75, suffix:"", label:"Years of Legacy"},
+    {n:3,  suffix:"", label:"Ventures Built"},
+    {n:4,  suffix:"", label:"Generations"},
+    {n:1473, suffix:"", label:"Community"},
+  ],
+
+  // Rank
+  rank:{ tier:"Challenger", division:"Radiant I", lp:1347, percentile:"Top 0.1% of climbers" },
+
+  // Radar attributes (0–100)
+  attributes:[
+    {k:"Business Dev", v:95},
+    {k:"AI & Product", v:88},
+    {k:"Real Estate", v:92},
+    {k:"Deal-Making", v:93},
+    {k:"Brand-Building", v:89},
+    {k:"Discipline", v:94},
+  ],
+
+  // Signature traits (bars)
+  traits:[
+    {nm:"Vision", tag:"Long game", v:96},
+    {nm:"Bilingual Fluency", tag:"AR · EN", v:98},
+    {nm:"Network", tag:"Jeddah ⇄ London", v:90},
+    {nm:"Composure", tag:"nafas-trained", v:91},
+  ],
+  playstyle:"Playmaker / Empire-builder. Opens on relationships, scales through product, and closes with a family name that compounds. Late-game carry.",
+
+  // Empire index (illustrative composite score, not a real financial claim)
+  empireIndex:9470,
+  empire:[
+    {k:"Real-Estate Portfolio", s:"Elite Town", v:"—", icon:"building"},
+    {k:"Venture Equity", s:"SaaS + Brand", v:"—", icon:"rocket"},
+    {k:"Legacy Multiplier", s:"75-year name", v:"×4", icon:"crown"},
+    {k:"Net Worth", s:"self-set · illustrative", v:"edit in CONFIG", icon:"coins"},
+  ],
+
+  // Ventures
+  ventures:[
+    { cls:"champ-1", role:"Lane — Real Estate", name:"Elite Town", ar:"إيليت تاون",
+      sigil:"building",
+      desc:"Design, build and manage Saudi Arabia's next-generation destinations — landmark commercial centres to smart, sustainable cities.",
+      stats:[{b:"75y",s:"Legacy"},{b:"KSA",s:"Market"},{b:"BD",s:"My Role"}],
+      link:"https://elite-town.online", linkLabel:"elite-town.online" },
+    { cls:"champ-2", role:"Lane — MicroSaaS", name:"Menu Sadah", ar:"منيو سادة",
+      sigil:"qr",
+      desc:"Bilingual digital menus for Gulf cafés. One scan, Arabic and English, live edits in seconds — the most-read thing on the table, made beautiful.",
+      stats:[{b:"2",s:"Languages"},{b:"1",s:"Scan"},{b:"24h",s:"Reply"}],
+      link:"https://menu-sadah.com", linkLabel:"menu-sadah.com" },
+    { cls:"champ-3", role:"Lane — Brand", name:"nafas.practice", ar:"نَفَس",
+      sigil:"breath",
+      desc:"Science-backed breath-work for high-pressure minds — calm, focus, sleep, composure. Master your state in a minute.",
+      stats:[{b:"1.4k",s:"Followers"},{b:"30",s:"Posts"},{b:"App",s:"Shipping"}],
+      link:"https://www.instagram.com/nafas.practice/", linkLabel:"@nafas.practice" },
+  ],
+
+  // Abilities (Q/W/E/R)
+  abilities:[
+    { key:"Q", icon:"handshake", name:"Business Development", cd:"Passive", desc:"Secures the right tenants and partners; opens new lines of opportunity across residential, commercial, industrial and land." },
+    { key:"W", icon:"chip", name:"AI Product Craft", cd:"MIT-Certified", desc:"MIT xPRO certified in designing and building AI products and services — ships real software, not slideware." },
+    { key:"E", icon:"building", name:"Full-Lifecycle Real Estate", cd:"Signature", desc:"Investment, development, selling, leasing and property management — the whole property lifecycle in one hand." },
+    { key:"R", icon:"crown", name:"Legacy Multiplier", cd:"Ultimate", desc:"Four generations and a 75-year name behind every handshake — trust that can't be bootstrapped overnight." },
+  ],
+
+  // Dynasty — EDIT with your real lineage. 'ph' = placeholder to fill in.
+  dynasty:[
+    { lbl:"First Generation · The Founder", nodes:[
+      {av:"S", nm:"The Founder", rl:"Established the House", yr:"1949 · Jeddah", cls:"founder ph"} ]},
+    { lbl:"Second Generation", nodes:[
+      {av:"S", nm:"Add name", rl:"Steward", yr:"—", cls:"ph"},
+      {av:"S", nm:"Add name", rl:"Steward", yr:"—", cls:"ph"} ]},
+    { lbl:"Third Generation", nodes:[
+      {av:"S", nm:"Add name", rl:"Steward", yr:"—", cls:"ph"},
+      {av:"S", nm:"Add name", rl:"Steward", yr:"—", cls:"ph"} ]},
+    { lbl:"Fourth Generation · Present", nodes:[
+      {av:"IS", nm:"Ibrahim Sharbatly", rl:"Head of Business Development", yr:"Elite Town · Present", cls:"you"} ]},
+  ],
+
+  interests:[
+    {t:"Breath-work & Wellness"},{t:"Artificial Intelligence",c:"cy"},{t:"Real-Estate Development"},
+    {t:"Entrepreneurship",c:"vi"},{t:"Product Design"},{t:"Bilingual Storytelling",c:"cy"},
+    {t:"Gulf Café Culture"},{t:"London ⇄ Jeddah Life",c:"vi"},
+  ],
+  loreFacts:[
+    {k:"Base", v:"London, UK ⇄ Jeddah, KSA"},
+    {k:"House", v:"Sharbatly · est. 1949"},
+    {k:"Education", v:"Hult Int'l Business School · MIT xPRO"},
+    {k:"Native Tongue", v:"Arabic + English"},
+    {k:"Class", v:"Business Developer / Founder"},
+  ],
+
+  trophies:[
+    {icon:"certificate", rarity:"Epic", name:"MIT xPRO Certified", desc:"Designing and Building AI Products & Services — 6.00 CEUs, Sept 2025.", legendary:false},
+    {icon:"code", rarity:"Rare", name:"Solo-Built the Site", desc:"Designed and shipped elite-town.online end-to-end, alone.", legendary:false},
+    {icon:"rocket", rarity:"Rare", name:"Launched a SaaS", desc:"Took Menu Sadah from idea to live product for Gulf cafés.", legendary:false},
+    {icon:"community", rarity:"Rare", name:"1.4k Community", desc:"Grew nafas.practice past a thousand followers, organically.", legendary:false},
+    {icon:"crown", rarity:"Legendary", name:"Head of BD at 25", desc:"Leads business development for a 75-year enterprise.", legendary:true},
+  ],
+
+  timeline:[
+    {yr:"1949", h:"The House is Founded", p:"The Sharbatly enterprise takes root in Jeddah — the beginning of a 75-year legacy."},
+    {yr:"2000s", h:"Fourth Generation", p:"Ibrahim is born into the family business — the next steward in line."},
+    {yr:"2024", h:"Head of Business Development", p:"Takes the helm of BD at Elite Town Real Estate across the full property lifecycle."},
+    {yr:"2025", h:"MIT-Certified & Building", p:"Earns the MIT xPRO AI certificate, ships elite-town.online, and launches Menu Sadah + nafas.practice."},
+    {yr:"Now", h:"Scaling the Empire", p:"Balancing London study, a Jeddah enterprise, and three growing ventures."},
+  ],
+
+  socials:[
+    {icon:"linkedin", b:"LinkedIn", s:"in/ibrahim-sharbatly", href:"https://www.linkedin.com/in/ibrahim-sharbatly/"},
+    {icon:"building", b:"Elite Town", s:"elite-town.online", href:"https://elite-town.online"},
+    {icon:"qr", b:"Menu Sadah", s:"menu-sadah.com", href:"https://menu-sadah.com"},
+    {icon:"instagram", b:"nafas.practice", s:"@nafas.practice", href:"https://www.instagram.com/nafas.practice/"},
+  ],
+};
+
+/* ------------- SVG icon set ------------- */
+const ICONS = {
+  building:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M6 21V5a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v16M14 21V9h4a1 1 0 0 1 1 1v11"/><path d="M9 7h2M9 11h2M9 15h2"/></svg>',
+  rocket:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>',
+  crown:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 18h18M4 8l3.5 4L12 5l4.5 7L20 8l-1.5 9h-13z"/></svg>',
+  coins:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="9" cy="7" rx="6" ry="3"/><path d="M3 7v5c0 1.66 2.69 3 6 3s6-1.34 6-3V7"/><path d="M15 12.5c2.5-.3 6-1.5 6-3.5M9 15v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-8"/></svg>',
+  handshake:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m11 17 2 2a1 1 0 1 0 3-3M14 14l2.5 2.5a1 1 0 1 0 3-3l-3.9-3.9a2 2 0 0 0-1.7-.5l-2.2.4a2 2 0 0 1-1.7-.5L8 7"/><path d="m21 3-5 1-2 2M3 3l5 1 6 6M3 12l3 3M7 8l3 3"/></svg>',
+  chip:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></svg>',
+  qr:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><path d="M14 14h3v3M20 14v.01M14 20v.01M20 20v.01M17 17v.01M20 17h.01M17 20h.01"/></svg>',
+  breath:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3.5"/><path d="M12 3a9 9 0 0 1 0 18M12 3a9 9 0 0 0 0 18" opacity=".5"/><path d="M12 5.5a6.5 6.5 0 0 1 0 13M12 5.5a6.5 6.5 0 0 0 0 13" opacity=".7"/></svg>',
+  certificate:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="9" r="5"/><path d="M9 13.5 8 22l4-2.5L16 22l-1-8.5"/><path d="M12 6.5 12.8 8l1.7.2-1.2 1.2.3 1.7L12 10.3l-1.6.8.3-1.7L9.5 8.2 11.2 8z" fill="currentColor" stroke="none"/></svg>',
+  code:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg>',
+  community:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="7" r="2.2"/><path d="M15.5 13.5c2.6.4 4.5 2.6 4.5 5.5"/></svg>',
+  linkedin:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.06 3.77-2.06C20.4 8.64 22 10.9 22 14.4V21h-4v-5.9c0-1.4-.03-3.2-1.95-3.2-1.96 0-2.26 1.53-2.26 3.1V21H9z"/></svg>',
+  instagram:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>',
+};
+
+/* tier emblem (hexagonal shield, tinted) */
+function emblem(color, size){
+  const id='g'+color.replace(/[^a-z0-9]/gi,'');
+  return `<svg viewBox="0 0 100 100" width="${size}" height="${size}" aria-hidden="true">
+    <defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset=".5" stop-color="${color}"/><stop offset="1" stop-color="${color}" stop-opacity=".6"/></linearGradient></defs>
+    <path d="M50 4 88 26v40L50 96 12 66V26z" fill="none" stroke="${color}" stroke-width="3" opacity=".5"/>
+    <path d="M50 16 78 32v34L50 84 22 66V32z" fill="url(#${id})" opacity=".92"/>
+    <path d="M50 30l7 12 13 2-9 9 2 13-13-6-13 6 2-13-9-9 13-2z" fill="#0a0e18" opacity=".85"/>
+    <path d="M50 34l5.5 9.5 10.5 1.6-7.3 7 1.7 10.4L50 68l-10.6 5.5 1.7-10.4-7.3-7 10.5-1.6z" fill="${color}"/>
+  </svg>`;
+}
+
+const TIERS = [
+  {nm:"Iron", c:"#6d6d6d", pc:12},
+  {nm:"Bronze", c:"#b07a45", pc:24},
+  {nm:"Silver", c:"#c4ccd6", pc:38},
+  {nm:"Gold", c:"#E8C06A", pc:52},
+  {nm:"Platinum", c:"#33c3b0", pc:66},
+  {nm:"Diamond", c:"#7fbfff", pc:80},
+  {nm:"Master", c:"#b282f5", pc:90},
+  {nm:"Grandmaster", c:"#f26d6d", pc:97},
+  {nm:"Challenger", c:"#f7e08a", pc:100, you:true},
+];
+
+/* ---------- utils ---------- */
+const $ = (s,el=document)=>el.querySelector(s);
+const create=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;};
+const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+/* ---------- render everything ---------- */
+function render(){
+  if(CONFIG.portrait){
+    $('#hexInner').innerHTML = '<img src="'+CONFIG.portrait+'" alt="'+CONFIG.name+'"><div class="hex-holo" aria-hidden="true"></div>';
+  }
+  $('#heroName').textContent = CONFIG.name;
+  $('#lvlNum').textContent = CONFIG.level;
+
+  // hero stats
+  const hs=$('#heroStats');
+  CONFIG.heroStats.forEach(s=>{
+    hs.appendChild(create('div','hstat',
+      `<div class="n"><span class="count" data-to="${s.n}">0</span>${s.suffix||''}</div><div class="l">${s.label}</div>`));
+  });
+
+  // rank chip + emblem
+  const you = TIERS.find(t=>t.you);
+  $('#rankChipEm').innerHTML = emblem(you.c, 26);
+  $('#rankChipTier').textContent = CONFIG.rank.tier;
+  $('#emblemBig').innerHTML = emblem(you.c, 150);
+  $('#rankTier').textContent = CONFIG.rank.tier;
+  $('#rankDiv').textContent = CONFIG.rank.division;
+  $('#rankLP').dataset.to = CONFIG.rank.lp;
+  $('#rankPct').textContent = CONFIG.rank.percentile;
+
+  // ladder
+  const lr=$('#ladderRows');
+  [...TIERS].reverse().forEach(t=>{
+    const row=create('div','tier-row'+(t.you?' you':''));
+    row.innerHTML=`<span class="ic">${emblem(t.c,28)}</span>
+      <span class="nm">${t.nm}</span>
+      <span class="track"><i data-w="${t.pc}" style="background:linear-gradient(90deg,${t.c}88,${t.c})"></i></span>
+      <span class="pc">${t.pc}%</span>`;
+    lr.appendChild(row);
+  });
+
+  // radar
+  buildRadar();
+
+  // traits
+  const tr=$('#traits');
+  CONFIG.traits.forEach(t=>{
+    tr.appendChild(create('div','trait',
+      `<div class="trait-top"><span class="nm">${t.nm}<small>${t.tag}</small></span><span class="vl"><span class="count" data-to="${t.v}">0</span></span></div>
+       <div class="meter"><i data-w="${t.v}"></i></div>`));
+  });
+  tr.appendChild(create('div','playstyle',`<b>Playstyle</b><p>${CONFIG.playstyle}</p>`));
+
+  // empire
+  $('#empireIndex').dataset.to = CONFIG.empireIndex;
+  const eb=$('#empireBreakdown');
+  CONFIG.empire.forEach(r=>{
+    eb.appendChild(create('div','eb-row',
+      `<span class="ic">${ICONS[r.icon]||''}</span><span class="mid"><div class="k">${r.k}</div><div class="s">${r.s}</div></span><span class="v">${r.v}</span>`));
+  });
+
+  // ventures
+  const ro=$('#roster');
+  CONFIG.ventures.forEach(v=>{
+    const a=create('a','champ '+v.cls);
+    a.href=v.link; a.target="_blank"; a.rel="noopener";
+    a.innerHTML=`
+      <div class="champ-top"><div class="glowbg"></div><span class="champ-role">${v.role}</span><div class="champ-sigil">${ICONS[v.sigil]||''}</div></div>
+      <div class="champ-body">
+        <h3>${v.name}</h3><div class="ar">${v.ar}</div>
+        <p>${v.desc}</p>
+        <div class="champ-stats">${v.stats.map(s=>`<div class="cstat"><b>${s.b}</b><span>${s.s}</span></div>`).join('')}</div>
+        <span class="champ-link">${v.linkLabel} →</span>
+      </div>`;
+    ro.appendChild(a);
+  });
+
+  // abilities
+  const ab=$('#abilitiesGrid');
+  CONFIG.abilities.forEach(a=>{
+    ab.appendChild(create('div','ability',
+      `<span class="key">${a.key}</span><div class="ic">${ICONS[a.icon]||''}</div><h4>${a.name}</h4><div class="cd">${a.cd}</div><p>${a.desc}</p>`));
+  });
+
+  // dynasty
+  const tree=$('#tree');
+  CONFIG.dynasty.forEach((g,i)=>{
+    const gen=create('div','gen');
+    gen.innerHTML=`<div class="gen-lbl">${g.lbl}</div>
+      <div class="node-row">${g.nodes.map(n=>`<div class="node ${n.cls||''}"><div class="av">${n.av}</div><div class="nm">${n.nm}</div><div class="rl">${n.rl}</div><div class="yr">${n.yr}</div></div>`).join('')}</div>`;
+    tree.appendChild(gen);
+    if(i<CONFIG.dynasty.length-1) tree.appendChild(create('div','connector'));
+  });
+
+  // interests
+  const it=$('#interestTags');
+  CONFIG.interests.forEach(t=>it.appendChild(create('span','tag '+(t.c||''),`<span class="d"></span>${t.t}`)));
+
+  // lore facts
+  const lf=$('#loreFacts');
+  CONFIG.loreFacts.forEach(f=>{
+    lf.appendChild(create('div','eb-row',
+      `<span class="mid"><div class="s">${f.k}</div><div class="k">${f.v}</div></span>`));
+  });
+
+  // trophies
+  const th=$('#trophiesGrid');
+  CONFIG.trophies.forEach(t=>{
+    th.appendChild(create('div','trophy'+(t.legendary?' legendary':''),
+      `<span class="rarity">${t.rarity}</span><div class="medal">${ICONS[t.icon]||''}</div><h4>${t.name}</h4><p>${t.desc}</p>`));
+  });
+
+  // timeline
+  const tl=$('#timelineList');
+  CONFIG.timeline.forEach(t=>{
+    tl.appendChild(create('div','tl-item',
+      `<span class="dot"><i></i></span><div class="yr">${t.yr}</div><h4>${t.h}</h4><p>${t.p}</p>`));
+  });
+
+  // socials
+  const so=$('#socials');
+  CONFIG.socials.forEach(s=>{
+    const a=create('a','social'); a.href=s.href; a.target="_blank"; a.rel="noopener";
+    a.innerHTML=`<span class="ic">${ICONS[s.icon]||''}</span><span class="tx"><b>${s.b}</b><span>${s.s}</span></span>`;
+    so.appendChild(a);
+  });
+}
+
+/* ---------- radar chart (single series, gold) ---------- */
+function buildRadar(){
+  const svg=$('#radar'), C=200, R=150, A=CONFIG.attributes, n=A.length;
+  const pt=(ang,rad)=>[C+Math.cos(ang)*rad, C+Math.sin(ang)*rad];
+  const ang=i=>(-Math.PI/2)+(i*2*Math.PI/n);
+  let html='';
+  [0.25,0.5,0.75,1].forEach(f=>{
+    let d='';
+    for(let i=0;i<n;i++){const p=pt(ang(i),R*f);d+=(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1);}
+    html+=`<path d="${d}Z" fill="none" stroke="#26314C" stroke-width="1" opacity="${f===1?.8:.4}"/>`;
+  });
+  for(let i=0;i<n;i++){
+    const p=pt(ang(i),R);
+    html+=`<line x1="${C}" y1="${C}" x2="${p[0].toFixed(1)}" y2="${p[1].toFixed(1)}" stroke="#26314C" stroke-width="1" opacity=".5"/>`;
+    const l=pt(ang(i),R+26);
+    const anchor = Math.abs(Math.cos(ang(i)))<0.3?'middle':(Math.cos(ang(i))>0?'start':'end');
+    html+=`<text class="radar-axis-label" x="${l[0].toFixed(1)}" y="${l[1].toFixed(1)}" text-anchor="${anchor}" dominant-baseline="middle">${A[i].k}</text>`;
+    const v=pt(ang(i),R+40);
+    html+=`<text class="radar-axis-val" x="${v[0].toFixed(1)}" y="${v[1].toFixed(1)}" text-anchor="${anchor}" dominant-baseline="middle">${A[i].v}</text>`;
+  }
+  let dd='';const dots=[];
+  for(let i=0;i<n;i++){const p=pt(ang(i),R*A[i].v/100);dd+=(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1);dots.push(p);}
+  html+=`<defs><radialGradient id="radarFill" cx="50%" cy="50%" r="60%"><stop offset="0" stop-color="#FBE9B0" stop-opacity=".55"/><stop offset="1" stop-color="#E8C06A" stop-opacity=".18"/></radialGradient></defs>`;
+  html+=`<path id="radarPoly" d="${dd}Z" fill="url(#radarFill)" stroke="#E8C06A" stroke-width="2.5" stroke-linejoin="round" style="filter:drop-shadow(0 0 10px rgba(232,192,106,.45));transform-origin:${C}px ${C}px;transform:scale(0);transition:transform 1.2s cubic-bezier(.22,1,.36,1)"/>`;
+  dots.forEach(p=>{html+=`<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="4" fill="#FBE9B0" stroke="#B9852B" stroke-width="1.5"/>`;});
+  svg.innerHTML=html;
+  if(reduce){ const poly=$('#radarPoly'); if(poly) poly.style.transform='scale(1)'; }
+}
+
+/* ---------- count-up + bar fill on view ---------- */
+function animateCount(el){
+  const to=+el.dataset.to; if(isNaN(to))return;
+  if(reduce){el.textContent=to.toLocaleString();return;}
+  const dur=1300, t0=performance.now();
+  (function step(t){
+    const p=Math.min(1,(t-t0)/dur), e=1-Math.pow(1-p,3);
+    el.textContent=Math.round(to*e).toLocaleString();
+    if(p<1)requestAnimationFrame(step);
+  })(t0);
+}
+function fillBars(root){
+  root.querySelectorAll('.meter > i, .tier-row .track > i').forEach(i=>{ i.style.width=(i.dataset.w||0)+'%'; });
+  const poly=root.querySelector('#radarPoly'); if(poly) poly.style.transform='scale(1)';
+}
+
+const io=new IntersectionObserver((es)=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('in');
+      e.target.querySelectorAll('.count').forEach(animateCount);
+      fillBars(e.target);
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:.18});
+
+/* ---------- nav scroll state + active link ---------- */
+function navState(){
+  const nav=$('#nav');
+  const links=[...document.querySelectorAll('#navlinks a')];
+  const secs=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  const onScroll=()=>{
+    nav.classList.toggle('scrolled', scrollY>40);
+    let cur=secs[0];
+    for(const s of secs){ if(s.getBoundingClientRect().top<=140) cur=s; }
+    links.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+(cur&&cur.id)));
+  };
+  addEventListener('scroll',onScroll,{passive:true}); onScroll();
+}
+
+/* ---------- ambient ember canvas ---------- */
+function embers(){
+  const cv=$('#fx-canvas'), ctx=cv.getContext('2d'); let w,h,parts,raf;
+  const DPR=Math.min(2,devicePixelRatio||1);
+  function size(){ w=cv.width=innerWidth*DPR; h=cv.height=innerHeight*DPR; cv.style.width=innerWidth+'px'; cv.style.height=innerHeight+'px'; }
+  function seed(any){ return {x:Math.random()*w, y:any?Math.random()*h:h+10, r:(Math.random()*1.8+.5)*DPR, vy:-(Math.random()*.4+.15)*DPR, vx:(Math.random()-.5)*.15*DPR, a:Math.random()*.5+.1, tw:Math.random()*Math.PI*2, gold:Math.random()>.35 }; }
+  function init(){ const N=Math.min(70, Math.floor(innerWidth/22)); parts=Array.from({length:N},()=>seed(true)); }
+  function frame(){
+    ctx.clearRect(0,0,w,h);
+    for(const p of parts){
+      p.y+=p.vy; p.x+=p.vx; p.tw+=.02;
+      if(p.y<-10){ Object.assign(p,seed(false)); }
+      const al=p.a*(0.6+0.4*Math.sin(p.tw));
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,7);
+      ctx.fillStyle=(p.gold?'rgba(232,192,106,':'rgba(94,234,212,')+al+')';
+      ctx.shadowBlur=8*DPR; ctx.shadowColor=p.gold?'rgba(232,192,106,.6)':'rgba(94,234,212,.6)';
+      ctx.fill();
+    }
+    ctx.shadowBlur=0; raf=requestAnimationFrame(frame);
+  }
+  size(); init();
+  if(!reduce) frame();
+  addEventListener('resize',()=>{ cancelAnimationFrame(raf); size(); init(); if(!reduce)frame(); });
+}
+
+/* ---------- UI sound (WebAudio, off by default, no assets) ---------- */
+let audioOn=false, actx=null;
+function initSound(){
+  const btn=$('#soundBtn');
+  btn.addEventListener('click',()=>{
+    audioOn=!audioOn;
+    $('#sndOn').style.display=audioOn?'block':'none';
+    $('#sndOff').style.display=audioOn?'none':'block';
+    if(audioOn){ try{ if(!actx)actx=new (window.AudioContext||window.webkitAudioContext)(); actx.resume(); blip(660,.06,.05); }catch(e){} }
+  });
+  const hoverSel='.btn, .champ, .ability, .social, .nav-links a, .tier-row.you, .trophy';
+  document.addEventListener('pointerover',(e)=>{
+    if(audioOn && e.target.closest && e.target.closest(hoverSel)) blip(880,.03,.02);
+  });
+}
+function blip(freq,gain,dur){
+  if(!audioOn||!actx)return;
+  const o=actx.createOscillator(), g=actx.createGain();
+  o.type='sine'; o.frequency.value=freq;
+  g.gain.value=0; o.connect(g); g.connect(actx.destination);
+  const t=actx.currentTime;
+  g.gain.linearRampToValueAtTime(gain,t+.01);
+  g.gain.exponentialRampToValueAtTime(.0001,t+dur+.08);
+  o.start(t); o.stop(t+dur+.1);
+}
+
+/* ---------- boot ---------- */
+function boot(){
+  render();
+  navState();
+  embers();
+  initSound();
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  document.querySelectorAll('#hero .count').forEach(animateCount);
+  const intro=$('#intro');
+  setTimeout(()=>intro.classList.add('done'), reduce?200:1600);
+}
+if(document.readyState!=='loading') boot(); else document.addEventListener('DOMContentLoaded',boot);
+</script>
+</body>
 </html>

@@ -1,16 +1,53 @@
-# React + Vite
+# Ibrahim Sharbatly — Champion Profile ◆ الشربتلي
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A gamified, **League-of-Legends-style champion-profile dashboard** for the House of
+Sharbatly — dark obsidian, molten gold and hextech cyan, ornate Gulf geometry, glowing
+HUD widgets, and cinematic animation. One person's life's work, presented like the
+splash screen of the game they'd main.
 
-Currently, two official plugins are available:
+**It's one self-contained file.** `index.html` has no dependencies, no build step, no
+external requests. Double-click it, host it anywhere (GitHub Pages, Netlify, any static
+host), or run the dev server below.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## What's inside
 
-## React Compiler
+| Section | What it shows |
+|---|---|
+| **Hero** | Ornate hexagonal portrait, level ring, rank chip, name in EN + Arabic |
+| **Elite Ladder** | Iron → Challenger tier ladder with an animated rank emblem |
+| **Attributes** | Animated radar chart + signature-trait meters + playstyle |
+| **Empire Index** | A glowing composite "power" number with an editable net-worth breakdown |
+| **Ventures** | Elite Town Real Estate · Menu Sadah · nafas.practice as champion cards |
+| **Abilities** | Q / W / E / R skill kit with hover tooltips |
+| **Dynasty Tree** | Four generations of the House of Sharbatly (ancestor nodes are yours to fill in) |
+| **Lore / Trophies / Timeline** | Backstory, achievements, and the climb |
+| **Connect** | LinkedIn, Elite Town, Menu Sadah, Instagram |
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Make it yours (no coding needed)
 
-## Expanding the ESLint configuration
+Open `index.html` and edit the **`CONFIG`** object near the bottom of the file. Everything
+on the page is driven from it — name, level, rank, stats, ventures, family tree, trophies,
+timeline, and links. Change a value, refresh, done.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Add your real 4K photo** → set `CONFIG.portrait` to an image URL or `data:` URI.
+  Until then, an engraved "IS" crest fills the frame.
+- **Set real figures** → the Empire Index and net-worth row are **self-set, illustrative
+  game stats**, not verified financials. Put your own numbers in `CONFIG.empireIndex` and
+  `CONFIG.empire`.
+- **Fill in the lineage** → replace the placeholder ancestor nodes in `CONFIG.dynasty`
+  with real names, roles, and years.
+
+## Run locally (optional)
+
+```bash
+npm install     # only pulls in Vite (the dev server)
+npm run dev      # open the printed localhost URL
+```
+
+Or skip all of that and just open `index.html` in a browser.
+
+## Accessibility & craft
+
+Respects `prefers-reduced-motion` (animations, count-ups and the ember field pause),
+keyboard focus is visible throughout, and the interface sound is **off by default**
+(toggle it with the speaker icon in the top-right).
